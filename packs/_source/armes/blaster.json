@@ -1,0 +1,25 @@
+{
+  "_id": "jrPSAqcCbxCi0zuQ",
+  "name": "Blaster",
+  "type": "arme",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "degats": "1d4+2",
+    "competence": "blaster",
+    "instable": false,
+    "description": ""
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.1.0"
+  }
+}

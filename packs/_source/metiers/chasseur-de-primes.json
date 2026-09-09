@@ -1,0 +1,78 @@
+{
+  "_id": "EXt6ePhfkfcD6goX",
+  "name": "Chasseur de primes",
+  "type": "metier",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "prerequis": {
+      "metier": "",
+      "niveauMinimum": 0,
+      "texteLibre": ""
+    },
+    "competences": [
+      {
+        "cle": "perception",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "furtivite",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "blaster",
+        "bonus": 0,
+        "obligatoire": true
+      }
+    ],
+    "equipement": [
+      {
+        "nom": "Blaster ou vibrolame",
+        "quantite": 1
+      },
+      {
+        "nom": "Armure intermédiaire +3 (plastron +1, casque +1, avant-bras +1)",
+        "quantite": 1
+      },
+      {
+        "nom": "Connaissance dans la pègre",
+        "quantite": 1
+      },
+      {
+        "nom": "Datapad",
+        "quantite": 1
+      },
+      {
+        "nom": "ComLink",
+        "quantite": 1
+      },
+      {
+        "nom": "Traducteur",
+        "quantite": 1
+      },
+      {
+        "nom": "Traceur",
+        "quantite": 1
+      }
+    ],
+    "talent": {
+      "nom": "Capture",
+      "description": "À tout moment, tentative de capture de la cible : test de Cap. Tir contré par un test de force de la cible."
+    },
+    "description": ""
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.1.0"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "_id": "rUgo7AGLteW7gtDr",
+  "name": "Brutale",
+  "type": "talent",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "avantage": "Force un personnage à faire une action 1 fois par scène",
+    "inconvenient": "-2 en sociale",
+    "description": ""
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.1.0"
+  }
+}

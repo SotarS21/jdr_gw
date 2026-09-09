@@ -1,0 +1,55 @@
+<form class="galactic-wars sheet item" autocomplete="off">
+  <header class="sheet-header">
+    <img class="item-image" src="{{item.img}}" data-edit="img" alt="{{item.name}}">
+    <input type="text" name="name" value="{{item.name}}">
+  </header>
+
+  {{#if (eq item.type "race")}}
+  <section class="race-fields">
+    <label>{{localize 'GALACTICWARS.Item.ModCorps'}} <input type="number" name="system.modificateursCaracteristiques.corps" value="{{system.modificateursCaracteristiques.corps}}"></label>
+    <label>{{localize 'GALACTICWARS.Item.ModMental'}} <input type="number" name="system.modificateursCaracteristiques.mental" value="{{system.modificateursCaracteristiques.mental}}"></label>
+    <label>{{localize 'GALACTICWARS.Item.ModDexterite'}} <input type="number" name="system.modificateursCaracteristiques.dexterite" value="{{system.modificateursCaracteristiques.dexterite}}"></label>
+    <label>{{localize 'GALACTICWARS.Item.ArmureNaturelle'}} <input type="number" name="system.armureNaturelle" value="{{system.armureNaturelle}}"></label>
+  </section>
+  {{/if}}
+
+  {{#if (eq item.type "metier")}}
+  <section class="metier-fields">
+    <label>{{localize 'GALACTICWARS.Item.MetierRequis'}} <input type="text" name="system.prerequis.metier" value="{{system.prerequis.metier}}"></label>
+    <label>{{localize 'GALACTICWARS.Item.NiveauMinimum'}} <input type="number" name="system.prerequis.niveauMinimum" value="{{system.prerequis.niveauMinimum}}"></label>
+    <label>{{localize 'GALACTICWARS.Item.TalentNom'}} <input type="text" name="system.talent.nom" value="{{system.talent.nom}}"></label>
+    <label>{{localize 'GALACTICWARS.Item.TalentDescription'}} <textarea name="system.talent.description">{{system.talent.description}}</textarea></label>
+  </section>
+  {{/if}}
+
+  {{#if (eq item.type "arme")}}
+  <section class="arme-fields">
+    <label>{{localize 'GALACTICWARS.Item.Degats'}} <input type="text" name="system.degats" value="{{system.degats}}"></label>
+    <label>{{localize 'GALACTICWARS.Item.CompetenceLiee'}} <input type="text" name="system.competence" value="{{system.competence}}"></label>
+  </section>
+  {{/if}}
+
+  {{#if (eq item.type "armure")}}
+  <section class="armure-fields">
+    <label>{{localize 'GALACTICWARS.Item.Reduction'}} <input type="number" name="system.reduction" value="{{system.reduction}}"></label>
+    <label>{{localize 'GALACTICWARS.Item.Emplacement'}} <input type="text" name="system.emplacement" value="{{system.emplacement}}"></label>
+  </section>
+  {{/if}}
+
+  {{#if (eq item.type "pouvoir")}}
+  <section class="pouvoir-fields">
+    <label>{{localize 'GALACTICWARS.Item.CoutPointsDeForce'}} <input type="number" name="system.coutPointsDeForce" value="{{system.coutPointsDeForce}}"></label>
+  </section>
+  {{/if}}
+
+  {{#if (eq item.type "equipement")}}
+  <section class="equipement-fields">
+    <label>{{localize 'GALACTICWARS.Item.Quantite'}} <input type="number" name="system.quantite" value="{{system.quantite}}"></label>
+  </section>
+  {{/if}}
+
+  <section class="description">
+    <h2>{{localize 'GALACTICWARS.Item.Description'}}</h2>
+    <prose-mirror name="system.description" value="{{system.description}}">{{{descriptionEnrichie}}}</prose-mirror>
+  </section>
+</form>

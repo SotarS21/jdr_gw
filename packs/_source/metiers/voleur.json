@@ -1,0 +1,66 @@
+{
+  "_id": "F35qs4Inm3LzZaDb",
+  "name": "Voleur",
+  "type": "metier",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "prerequis": {
+      "metier": "",
+      "niveauMinimum": 0,
+      "texteLibre": ""
+    },
+    "competences": [
+      {
+        "cle": "pickpocket",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "furtivite",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "escroquerieMensonge",
+        "bonus": 0,
+        "obligatoire": true
+      }
+    ],
+    "equipement": [
+      {
+        "nom": "Datapad",
+        "quantite": 1
+      },
+      {
+        "nom": "Trousse à outils",
+        "quantite": 1
+      },
+      {
+        "nom": "Connaissance dans la pègre locale",
+        "quantite": 1
+      },
+      {
+        "nom": "Vêtement discret",
+        "quantite": 1
+      }
+    ],
+    "talent": {
+      "nom": "Pickpocket",
+      "description": "Laisse traîner ses mains : si la cible est distraite, le vol est gratuit et permet de récupérer un petit objet. Sinon, test de dextérité obligatoire."
+    },
+    "description": ""
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.1.0"
+  }
+}

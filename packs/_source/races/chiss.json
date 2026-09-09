@@ -1,0 +1,32 @@
+{
+  "_id": "x8JoS2I3V1OJiBMX",
+  "name": "Chiss",
+  "type": "race",
+  "img": "icons/svg/oak.svg",
+  "system": {
+    "modificateursCaracteristiques": {
+      "corps": -5,
+      "mental": 10,
+      "dexterite": 0
+    },
+    "modificateursCompetences": {
+      "commanderGuider": 5,
+      "sangFroid": 20
+    },
+    "armureNaturelle": 0,
+    "description": "<p>Arrogant, antipathique.</p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.1.0"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "_id": "vO3oINFcFSe8gnND",
+  "name": "Robot",
+  "type": "race",
+  "img": "icons/svg/oak.svg",
+  "system": {
+    "modificateursCaracteristiques": {
+      "corps": 20,
+      "mental": -20,
+      "dexterite": 0
+    },
+    "modificateursCompetences": {
+      "perception": 80,
+      "escroquerieMensonge": -20,
+      "informatiquePiratage": 20,
+      "social": 10,
+      "sangFroid": 100
+    },
+    "armureNaturelle": 0,
+    "description": "<p>Possède des bases de données : histoire, langues des peuples, connaissances.</p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.1.0"
+  }
+}

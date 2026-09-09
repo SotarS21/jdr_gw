@@ -1,0 +1,81 @@
+{
+  "_id": "tPCyoGnJHPZ7I3pj",
+  "name": "Jedi consulaire",
+  "type": "metier",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "prerequis": {
+      "metier": "Padawan",
+      "niveauMinimum": 4,
+      "texteLibre": ""
+    },
+    "competences": [
+      {
+        "cle": "pousseeDeForce",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "sabreLaser",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "spiritisme",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "persuasionDeForce",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "pilotage",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "controleTelekinetique",
+        "bonus": 0,
+        "obligatoire": true
+      }
+    ],
+    "equipement": [
+      {
+        "nom": "Robe traditionnelle de jedi",
+        "quantite": 1
+      },
+      {
+        "nom": "Sabre laser 2D8",
+        "quantite": 1
+      },
+      {
+        "nom": "Laisser-passer pour la République",
+        "quantite": 1
+      },
+      {
+        "nom": "ComLink",
+        "quantite": 1
+      }
+    ],
+    "talent": {
+      "nom": "",
+      "description": ""
+    },
+    "description": ""
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.1.0"
+  }
+}

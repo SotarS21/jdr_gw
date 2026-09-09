@@ -1,0 +1,71 @@
+{
+  "_id": "9BC8y9FxmawTewdq",
+  "name": "Padawan",
+  "type": "metier",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "prerequis": {
+      "metier": "",
+      "niveauMinimum": 0,
+      "texteLibre": "un maître"
+    },
+    "competences": [
+      {
+        "cle": "sangFroid",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "bagarre",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "sabreLaser",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "controleTelekinetique",
+        "bonus": 0,
+        "obligatoire": true
+      }
+    ],
+    "equipement": [
+      {
+        "nom": "Sabre d'entraînement 1d6",
+        "quantite": 1
+      },
+      {
+        "nom": "Robe traditionnelle",
+        "quantite": 1
+      },
+      {
+        "nom": "Coiffure traditionnelle",
+        "quantite": 1
+      },
+      {
+        "nom": "Comlink",
+        "quantite": 1
+      }
+    ],
+    "talent": {
+      "nom": "Manipulation de la force",
+      "description": "Permet d'utiliser la télékinésie."
+    },
+    "description": ""
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.1.0"
+  }
+}

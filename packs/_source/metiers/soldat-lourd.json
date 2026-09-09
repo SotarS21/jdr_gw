@@ -1,0 +1,67 @@
+{
+  "_id": "DaoLLhbdH0nFLWu9",
+  "name": "Soldat lourd",
+  "type": "metier",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "prerequis": {
+      "metier": "",
+      "niveauMinimum": 0,
+      "texteLibre": "affiliation => empire / république / privé"
+    },
+    "competences": [
+      {
+        "cle": "canonLourd",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "artifice",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "mecanique",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "blaster",
+        "bonus": 0,
+        "obligatoire": true
+      }
+    ],
+    "equipement": [
+      {
+        "nom": "Arme lourde (fusil lourd, gatling laser ou cinétique, lance-flamme, lance-grenade) 5 chargeurs",
+        "quantite": 1
+      },
+      {
+        "nom": "ComLink",
+        "quantite": 1
+      },
+      {
+        "nom": "Armure lourde -2 blessure",
+        "quantite": 1
+      }
+    ],
+    "talent": {
+      "nom": "Tank",
+      "description": "Prend une posture particulière qui permet de ne prendre aucun dégât de 15 en une seule fois. Par contre le soldat ne peut plus bouger. Prend 1 tour à retirer."
+    },
+    "description": ""
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.1.0"
+  }
+}

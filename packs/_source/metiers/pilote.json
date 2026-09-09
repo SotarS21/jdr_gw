@@ -1,0 +1,56 @@
+{
+  "_id": "JXd5kpLmKGNkQdYf",
+  "name": "Pilote",
+  "type": "metier",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "prerequis": {
+      "metier": "",
+      "niveauMinimum": 0,
+      "texteLibre": ""
+    },
+    "competences": [
+      {
+        "cle": "pilotage",
+        "bonus": 0,
+        "obligatoire": true
+      }
+    ],
+    "equipement": [
+      {
+        "nom": "Vaisseau 4-6 places (entrepôt, infirmerie, couchettes)",
+        "quantite": 1
+      },
+      {
+        "nom": "Diplôme de pilote",
+        "quantite": 1
+      },
+      {
+        "nom": "Droïde astromécano",
+        "quantite": 1
+      },
+      {
+        "nom": "Vêtement de pilote",
+        "quantite": 1
+      }
+    ],
+    "talent": {
+      "nom": "Mental ultime",
+      "description": "Permet de se détacher complètement d'une situation de stress ou de survie. 1 fois par jour."
+    },
+    "description": ""
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.1.0"
+  }
+}

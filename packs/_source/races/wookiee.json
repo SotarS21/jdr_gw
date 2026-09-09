@@ -1,0 +1,33 @@
+{
+  "_id": "pc3RpHObaoAJMNpx",
+  "name": "Wookiee",
+  "type": "race",
+  "img": "icons/svg/oak.svg",
+  "system": {
+    "modificateursCaracteristiques": {
+      "corps": 10,
+      "mental": 0,
+      "dexterite": -5
+    },
+    "modificateursCompetences": {
+      "intimidation": 10,
+      "sagesse": -5,
+      "sangFroid": -10
+    },
+    "armureNaturelle": 0,
+    "description": "<p>Rage du Wookiee (mode berserk : à 20% de ses PV, les dégâts subis sont réduits de 90% et les dégâts infligés augmentés de 50% ; le mode disparaît si le Wookiee reprend ses PV ou au bout de plusieurs heures — durant ce temps il attaque tout ce qui lui semble une menace). Récupération du Wookiee (mode méditation : soin personnel qui redonne tous ses PV, coûte 1 point de force).</p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.1.0"
+  }
+}

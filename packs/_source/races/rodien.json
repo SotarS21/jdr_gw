@@ -1,0 +1,32 @@
+{
+  "_id": "WADIdVWSFcBAke0F",
+  "name": "Rodien",
+  "type": "race",
+  "img": "icons/svg/oak.svg",
+  "system": {
+    "modificateursCaracteristiques": {
+      "corps": 0,
+      "mental": 0,
+      "dexterite": 10
+    },
+    "modificateursCompetences": {
+      "sagesse": -10,
+      "social": -5
+    },
+    "armureNaturelle": 0,
+    "description": "<p>Fouille : Perception +10%. Don de pistage : Perception +20%.</p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.1.0"
+  }
+}

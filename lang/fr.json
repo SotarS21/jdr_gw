@@ -1,0 +1,141 @@
+{
+  "TYPES": {
+    "Actor": {
+      "personnage": "Personnage"
+    },
+    "Item": {
+      "race": "Race",
+      "metier": "Métier",
+      "talent": "Talent",
+      "arme": "Arme",
+      "armure": "Armure",
+      "pouvoir": "Pouvoir de force",
+      "equipement": "Équipement"
+    }
+  },
+
+  "GALACTICWARS": {
+    "Caracteristique": {
+      "Corps": "Corps",
+      "Mental": "Mental",
+      "Dexterite": "Dextérité"
+    },
+
+    "Competence": {
+      "CommanderGuider": "Commander/guider",
+      "Blaster": "Blaster",
+      "Artifice": "Artifice",
+      "DrainDeForce": "Drain de force",
+      "ControleTelekinetique": "Contrôle télékinétique",
+      "Bagarre": "Bagarre",
+      "EscroquerieMensonge": "Escroquerie/mensonge",
+      "InformatiquePiratage": "Informatique/piratage",
+      "Blocage": "Blocage",
+      "Intimidation": "Intimidation",
+      "Mecanique": "Mécanique",
+      "CanonLourd": "Canon lourd",
+      "Perception": "Perception",
+      "ParadeEsquive": "Parade/esquive",
+      "Furtivite": "Furtivité",
+      "Persuasion": "Persuasion",
+      "Pickpocket": "Pickpocket",
+      "MeditationDeForce": "Méditation de la force",
+      "PersuasionDeForce": "Persuasion de la force",
+      "Pilotage": "Pilotage",
+      "AppelALaRage": "Appel à la rage",
+      "Sagesse": "Sagesse",
+      "SabreLaser": "Sabre laser",
+      "Survie": "Survie",
+      "Seduction": "Séduction",
+      "Securite": "Sécurité",
+      "PousseeDeForce": "Poussée de la force",
+      "Social": "Social",
+      "Medecine": "Médecine",
+      "ProtectionDeForce": "Protection de la force",
+      "Spiritisme": "Spiritisme",
+      "EclaireDeForce": "Éclair de force",
+      "EscaladeSaut": "Escalade/saut",
+      "SangFroid": "Sang froid",
+      "ControleParLaForce": "Contrôle par la force",
+      "Artisanat": "Artisanat",
+      "Natation": "Natation"
+    },
+
+    "Alignement": {
+      "Lumiere": "Lumière",
+      "Neutre": "Neutre",
+      "Obscurite": "Obscurité"
+    },
+
+    "TypeEquipement": {
+      "Arme": "Arme",
+      "Armure": "Armure",
+      "Objet": "Objet"
+    },
+
+    "Emplacement": {
+      "Casque": "Casque",
+      "Plastron": "Plastron",
+      "AvantBras": "Avant-bras",
+      "Jambiere": "Jambière"
+    },
+
+    "Sheet": {
+      "Personnage": "Fiche de personnage",
+      "Item": "Objet",
+      "Nom": "Nom",
+      "Race": "Race",
+      "Metier": "Métier",
+      "Appliquer": "Appliquer",
+      "Niveau": "Niveau",
+      "Caracteristiques": "Caractéristiques",
+      "Ressources": "Ressources",
+      "PV": "Points de vie",
+      "PointsDeForce": "Points de force",
+      "Stress": "Stress",
+      "Alignement": "Alignement",
+      "Competences": "Compétences",
+      "CompetenceMetierHint": "compétence de métier : -30% si non acquise (-10% pour les autres compétences)",
+      "Armes": "Armes",
+      "Armures": "Armures",
+      "Pouvoirs": "Pouvoirs de force",
+      "Equipement": "Équipement",
+      "Biographie": "Biographie"
+    },
+
+    "Item": {
+      "NouvelObjet": "Nouvel objet",
+      "ModCorps": "Modificateur Corps",
+      "ModMental": "Modificateur Mental",
+      "ModDexterite": "Modificateur Dextérité",
+      "ArmureNaturelle": "Armure naturelle",
+      "MetierRequis": "Métier requis",
+      "NiveauMinimum": "Niveau minimum",
+      "TalentNom": "Nom du talent",
+      "TalentDescription": "Description du talent",
+      "Degats": "Dégâts",
+      "CompetenceLiee": "Compétence liée",
+      "Reduction": "Réduction",
+      "Emplacement": "Emplacement",
+      "CoutPointsDeForce": "Coût (points de force)",
+      "Quantite": "Quantité",
+      "Description": "Description"
+    },
+
+    "Avertissement": {
+      "CompetenceInconnue": "Compétence inconnue : {cle}",
+      "AucuneRaceSelectionnee": "Aucune race sélectionnée.",
+      "AucunMetierSelectionne": "Aucun métier sélectionné.",
+      "PrerequisMetierManquant": "Prérequis manquant : le métier \"{metier}\" est requis.",
+      "NiveauInsuffisant": "Prérequis manquant : niveau {niveau} minimum requis."
+    },
+
+    "Jet": {
+      "Flavor": "{competence} (cible {cible}%)",
+      "Reussite": "Réussite.",
+      "Echec": "Échec.",
+      "ReussiteCritique": "Réussite critique !",
+      "EchecCritique": "Échec critique !"
+    }
+  }
+}

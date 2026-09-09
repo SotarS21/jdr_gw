@@ -1,0 +1,6 @@
+node_modules/
+
+# Compendiums compilés (LevelDB) : générés par `npm run pack:build` depuis packs/_source/.
+# On ne versionne que la source JSON lisible, pas le binaire compilé.
+/packs/*
+!/packs/_source

@@ -1,0 +1,25 @@
+{
+  "_id": "yisemX0BSlfF5ILj",
+  "name": "Arme contondante",
+  "type": "arme",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "degats": "1d6",
+    "competence": "bagarre",
+    "instable": false,
+    "description": ""
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.1.0"
+  }
+}

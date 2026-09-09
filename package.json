@@ -1,0 +1,14 @@
+{
+  "name": "galactic-wars",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Outils de build des compendiums pour le système Foundry VTT Galactic Wars",
+  "type": "module",
+  "scripts": {
+    "pack:build": "node scripts/build-packs.mjs",
+    "pack:unpack": "node scripts/unpack-packs.mjs"
+  },
+  "devDependencies": {
+    "@foundryvtt/foundryvtt-cli": "^1.0.3"
+  }
+}

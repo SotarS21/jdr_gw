@@ -1,0 +1,32 @@
+{
+  "_id": "e3EuDfYJaccAUEnA",
+  "name": "Twi'lek",
+  "type": "race",
+  "img": "icons/svg/oak.svg",
+  "system": {
+    "modificateursCaracteristiques": {
+      "corps": 5,
+      "mental": 0,
+      "dexterite": -5
+    },
+    "modificateursCompetences": {
+      "sagesse": -10,
+      "seduction": 20
+    },
+    "armureNaturelle": 0,
+    "description": "<p>Vision nocturne. Sauvegarde de la vigueur : une fois par jour, rituel pour mettre en réserve des PV et les regagner à un moment critique, coûte 1 point de force.</p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.1.0"
+  }
+}
