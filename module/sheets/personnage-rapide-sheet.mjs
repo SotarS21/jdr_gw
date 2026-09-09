@@ -1,5 +1,5 @@
 import { GW } from "../config.mjs";
-import { rollCaracteristiqueD20, rollSurvie } from "../helpers/rolls.mjs";
+import { rollCaracteristiqueD20, rollCaracteristiquePourcentage, rollSurvie } from "../helpers/rolls.mjs";
 import { applyRace } from "../helpers/race.mjs";
 import { applyMetier } from "../helpers/metier.mjs";
 
@@ -36,6 +36,7 @@ export class PersonnageRapideSheet extends HandlebarsApplicationMixin(ActorSheet
       valeur: system.caracteristiques[cle]
     }));
     context.limites = GW.limitesCaracteristiquesRapides;
+    context.estPnj = this.actor.type === "pnj";
     context.descriptionEnrichie = await foundry.applications.ux.TextEditor.implementation.enrichHTML(
       system.description,
       { relativeTo: this.actor }
@@ -45,7 +46,9 @@ export class PersonnageRapideSheet extends HandlebarsApplicationMixin(ActorSheet
   }
 
   static async #onRollCaracteristique(event, target) {
-    await rollCaracteristiqueD20(this.actor, target.dataset.cle);
+    const cle = target.dataset.cle;
+    if (this.actor.type === "pnj") await rollCaracteristiquePourcentage(this.actor, cle);
+    else await rollCaracteristiqueD20(this.actor, cle);
   }
 
   static async #onRollSurvie() {

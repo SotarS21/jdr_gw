@@ -24,9 +24,11 @@
 
   <section class="caracteristiques-rapides">
     <h2>{{localize 'GALACTICWARS.Sheet.Caracteristiques'}}
-      ({{system.totalCaracteristiques}} / {{limites.totalMax}}{{#if system.depasseLimiteTotale}} ⚠{{/if}})
+      {{#unless estPnj}}({{system.totalCaracteristiques}} / {{limites.totalMax}}{{#if system.depasseLimiteTotale}} ⚠{{/if}}){{/unless}}
     </h2>
+    {{#unless estPnj}}
     <p class="hint">{{localize 'GALACTICWARS.Sheet.LimitePlafondHint'}}{{#if system.depasseLimitePlafond}} ⚠{{/if}}</p>
+    {{/unless}}
     <ul class="caracteristiques-rapides-list">
       {{#each caracteristiques as |car|}}
       <li>

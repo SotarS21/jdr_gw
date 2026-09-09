@@ -29,6 +29,9 @@ Hooks.once("init", () => {
 
   CONFIG.Actor.dataModels.personnage = PersonnageData;
   CONFIG.Actor.dataModels["personnage-rapide"] = PersonnageRapideData;
+  // Le PNJ réutilise le même schéma que la fiche rapide (voir data/actor-personnage-rapide.mjs) —
+  // seule la mécanique de jet diffère (% plutôt que d20, voir sheets/personnage-rapide-sheet.mjs).
+  CONFIG.Actor.dataModels.pnj = PersonnageRapideData;
   CONFIG.Actor.dataModels["personnage-sith"] = PersonnageSithData;
   CONFIG.Item.dataModels.race = RaceData;
   CONFIG.Item.dataModels.metier = MetierData;
@@ -55,6 +58,12 @@ Hooks.once("init", () => {
     types: ["personnage-rapide"],
     makeDefault: true,
     label: "GALACTICWARS.Sheet.PersonnageRapide"
+  });
+
+  DocumentSheetConfig.registerSheet(Actor, "galactic-wars", PersonnageRapideSheet, {
+    types: ["pnj"],
+    makeDefault: true,
+    label: "GALACTICWARS.Sheet.Pnj"
   });
 
   DocumentSheetConfig.registerSheet(Actor, "galactic-wars", PersonnageSithSheet, {

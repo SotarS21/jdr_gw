@@ -3,7 +3,8 @@
     "Actor": {
       "personnage": "Personnage",
       "personnage-rapide": "Personnage (fiche rapide)",
-      "personnage-sith": "Personnage (fiche sith)"
+      "personnage-sith": "Personnage (fiche sith)",
+      "pnj": "PNJ"
     },
     "Item": {
       "race": "Race",
@@ -122,6 +123,7 @@
       "Personnage": "Fiche de personnage",
       "PersonnageRapide": "Fiche de personnage (rapide)",
       "PersonnageSith": "Fiche de personnage (sith)",
+      "Pnj": "Fiche de PNJ",
       "Item": "Objet",
       "Nom": "Nom",
       "Prenom": "Prénom",

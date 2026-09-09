@@ -2,7 +2,7 @@
   "id": "galactic-wars",
   "title": "Galactic Wars",
   "description": "Système de jeu de rôle Star Wars maison : compétences en pourcentage, races, métiers, force, alignement Lumière/Obscurité.",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "socket": true,
   "compatibility": {
     "minimum": "13",
@@ -20,7 +20,8 @@
     "Actor": {
       "personnage": { "htmlFields": ["biographie"] },
       "personnage-rapide": { "htmlFields": ["description"] },
-      "personnage-sith": { "htmlFields": ["description"] }
+      "personnage-sith": { "htmlFields": ["description"] },
+      "pnj": { "htmlFields": ["description"] }
     },
     "Item": {
       "race": { "htmlFields": ["description"] },

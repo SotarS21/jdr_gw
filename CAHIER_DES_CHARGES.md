@@ -66,7 +66,7 @@ Le matériel de règles (fiches Excel, règles de métiers/races en Word, PDF) v
 | OBJ-001 | Scaffold système + fiche classique jouable | ✅ (v0.1.0) | Haute |
 | OBJ-002 | Fiche rapide (short) | ✅ (v0.2.0) | Haute |
 | OBJ-003 | Fiche sith (pregens École de sith) | ✅ (v0.3.0), pregens PJ pas encore transcrits | Moyenne |
-| OBJ-004 | PNJ (façon fiche rapide, résolution en d100) | ⏳ | Moyenne |
+| OBJ-004 | PNJ (façon fiche rapide, résolution en d100) | ✅ (v0.4.0) | Moyenne |
 | OBJ-005 | Vaisseaux | ⏳ | Basse |
 | OBJ-006 | Économie | ⏳ | Basse |
 
@@ -99,6 +99,10 @@ Voir l'arborescence commentée dans `README.md` (module/config, module/data, mod
 - Actor `personnage-sith` (fiche "sith prétirée") : 4 caractéristiques (Physique, Agilité, Perception, Mental) + 7 compétences de force fixes (Télékinésie, Poussée de force, Défense, Illusion, Persuasion, Combat armé, Furtivité), **résolues en 1d20 + valeur contre un DC fixé par le MJ** (troisième mécanique de jet du système, différente à la fois du % de la classique et du "d20 sous la valeur" de la fiche rapide — le système ne détermine pas lui-même la réussite ici, pas de DC stocké sur la fiche). Corpulence (Maigrichon/Normal/Épais/Fort) dérive le PV max (11/13/15/17). École sith (Assassin/Sorcière/Guerrier/Inquisiteur/Héraut/Magicien/Maître d'armes/Bulldozer) avec 2 capacités spéciales nommées chacune + équipement/vaisseau de départ, appliquée depuis un nouveau compendium `ecoles` (8/8, complet — c'est une liste fermée contrairement aux races/métiers). Race réutilisée (nom seul, comme sur la fiche rapide — les modificateurs raciaux restent spécifiques au référentiel classique).
 - Item `ecole` (capacités nommées + équipement de départ).
 - Pregens du dossier `Prétirer sith/PJ/` (6 seigneurs sith prêts à jouer) **pas encore transcrits** en compendium Actor — reste à faire.
+
+### 5.1quater Ajoutées (v0.4.0)
+- Actor `pnj` : **réutilise intégralement le DataModel `PersonnageRapideData`** de la fiche rapide (même schéma exact — 8 caractéristiques, Survie, métier, talent, équipement) plutôt que de dupliquer une classe quasi-identique. Seule différence : résolu en **1d100** (`rollCaracteristiquePourcentage`, nouveau helper) au lieu du 1d20-sous-la-valeur de la fiche rapide — la fiche/sheet détecte `actor.type === "pnj"` pour choisir la bonne mécanique de jet. Réutilise aussi la même sheet (`PersonnageRapideSheet`) et le même template, avec les avertissements de plafond de création de PJ (max 80, pas plus de deux à 16) masqués sur cette variante puisqu'ils n'ont pas de sens pour un stat-block de PNJ créé par le MJ.
+- Aucun contenu de compendium PNJ pré-rempli pour l'instant (pas de stat-blocks de monstres/PNJ types extraits du matériel source dans cette session).
 
 ### 5.2 Roadmap
 Voir §10.
@@ -150,9 +154,9 @@ Déploiement : copier ce dossier vers `D:\AppDataFoundry$\FoundryVTT_Data\Data\s
 1. **Phase A (fait, v0.1.0)** : scaffold + fiche classique.
 2. **Phase B (fait, v0.2.0)** : fiche rapide (`personnage-rapide`) — Cap.Cmbt/Cap.Tir/Dextérité/Mentale/Perception/Stress/Aff.Force, résolution 1d20 sous la valeur.
 3. **Phase C (fait, v0.3.0)** : fiche sith (`personnage-sith`) — Physique/Agilité/Perception/Mental + 7 compétences de force, résolution 1d20 + valeur (DC du MJ), École sith (8/8, capacités spéciales nommées). Reste à faire : transcrire les pregens `Prétirer sith/PJ/` en compendium Actor.
-4. **Phase D** : PNJ (`pnj`), même bloc de stats que la fiche rapide (Cap.Cmbt/Cap.Tir/.../Aff.Force) mais résolu en **1d100** (pas en d20) — nécessite un helper de jet dédié, pas une réutilisation de `rollCaracteristiqueD20`.
+4. **Phase D (fait, v0.4.0)** : PNJ (`pnj`), même bloc de stats/DataModel que la fiche rapide, résolu en 1d100 via `rollCaracteristiquePourcentage`.
 5. Vaisseaux (Actor `vaisseau`), économie.
-6. Complétion des compendiums races/métiers/talents/armes/armures à 100% du matériel source.
+6. Complétion des compendiums races/métiers/talents/armes/armures à 100% du matériel source ; pregens sith (`Prétirer sith/PJ/`) ; contenu PNJ type (monstres/gardes/etc.).
 
 ## 11. Gestion des Versions
 

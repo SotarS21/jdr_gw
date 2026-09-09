@@ -115,6 +115,38 @@ export async function rollCaracteristiqueD20(actor, cle) {
 }
 
 /**
+ * Jet de caractéristique en pourcentage (PNJ) : 1d100 <= total% = réussite. Les PNJ
+ * partagent le même bloc de 8 caractéristiques que la fiche rapide (voir
+ * rollCaracteristiqueD20), mais résolu en % comme la fiche classique — deux mécaniques
+ * différentes sur le même schéma de données, d'où deux fonctions distinctes.
+ * @param {Actor} actor
+ * @param {string} cle une des 8 clés de system.caracteristiques
+ */
+export async function rollCaracteristiquePourcentage(actor, cle) {
+  if (actor.type !== "pnj") {
+    throw new Error("rollCaracteristiquePourcentage attend un Actor de type pnj");
+  }
+  const valeur = actor.system.caracteristiques?.[cle];
+  if (valeur === undefined) {
+    ui.notifications.warn(game.i18n.format("GALACTICWARS.Avertissement.CaracteristiqueInconnue", { cle }));
+    return null;
+  }
+
+  const resultat = await resoudrePourcentage(valeur);
+  const flavor = game.i18n.format("GALACTICWARS.Jet.Flavor", {
+    competence: game.i18n.localize(GW.caracteristiquesRapides[cle] ?? cle),
+    cible: valeur
+  });
+
+  await resultat.roll.toMessage({
+    speaker: ChatMessage.getSpeaker({ actor }),
+    flavor: `${flavor}<br>${game.i18n.localize(flavorResultatCle(resultat))}`
+  });
+
+  return resultat;
+}
+
+/**
  * Jet additif en d20 (fiche sith) : 1d20 + valeur, comparé à un DC fixé par le MJ en
  * cours de partie — le système ne détermine pas la réussite lui-même (pas de DC stocké
  * sur la fiche), contrairement aux autres mécaniques (%, d20 sous la valeur).
