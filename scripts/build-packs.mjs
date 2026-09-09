@@ -22,6 +22,6 @@ for (const pack of packs) {
 
   if (existsSync(outDir)) rmSync(outDir, { recursive: true, force: true });
 
-  await compilePack(srcDir, outDir, { yaml: false, log: false, transformEntries: () => true });
+  await compilePack(srcDir, outDir, { yaml: false, log: true });
   console.log(`pack "${pack}": ${docs.length} document(s) -> ${path.relative(process.cwd(), outDir)}`);
 }
