@@ -11,6 +11,25 @@ GW.caracteristiques = {
 };
 
 /**
+ * Les 8 caractéristiques de la fiche rapide ("partie rapide") — un score (pas un %,
+ * voir module/helpers/rolls.mjs::rollCaracteristiqueD20), somme plafonnée à 80,
+ * pas plus de deux à 16.
+ */
+GW.caracteristiquesRapides = {
+  force: "GALACTICWARS.CaracteristiqueRapide.Force",
+  capCombat: "GALACTICWARS.CaracteristiqueRapide.CapCombat",
+  capTir: "GALACTICWARS.CaracteristiqueRapide.CapTir",
+  dexterite: "GALACTICWARS.CaracteristiqueRapide.Dexterite",
+  mentale: "GALACTICWARS.CaracteristiqueRapide.Mentale",
+  perception: "GALACTICWARS.CaracteristiqueRapide.Perception",
+  stress: "GALACTICWARS.CaracteristiqueRapide.Stress",
+  affForce: "GALACTICWARS.CaracteristiqueRapide.AffForce"
+};
+
+/** Somme maximale des 8 caractéristiques rapides, et valeur individuelle max autorisée deux fois. */
+GW.limitesCaracteristiquesRapides = { totalMax: 80, valeurPlafond: 16, nombreMaxAuPlafond: 2 };
+
+/**
  * Liste déduplifiée des compétences (voir memory project_galactic_wars_mechanics.md).
  * Le classeur source distinguait parfois une variante "(force)" et une variante "(métier)"
  * de la même compétence (ex. Contrôle télékinétique) : on ne garde qu'une entrée par

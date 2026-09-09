@@ -2,6 +2,7 @@ import { GW } from "./config.mjs";
 import { GalacticWarsActor } from "./documents/actor.mjs";
 import { GalacticWarsItem } from "./documents/item.mjs";
 import { PersonnageData } from "./data/actor-personnage.mjs";
+import { PersonnageRapideData } from "./data/actor-personnage-rapide.mjs";
 import { RaceData } from "./data/item-race.mjs";
 import { MetierData } from "./data/item-metier.mjs";
 import { TalentData } from "./data/item-talent.mjs";
@@ -10,6 +11,7 @@ import { ArmureData } from "./data/item-armure.mjs";
 import { PouvoirData } from "./data/item-pouvoir.mjs";
 import { EquipementData } from "./data/item-equipement.mjs";
 import { PersonnageSheet } from "./sheets/personnage-sheet.mjs";
+import { PersonnageRapideSheet } from "./sheets/personnage-rapide-sheet.mjs";
 import { GalacticWarsItemSheet } from "./sheets/item-sheet.mjs";
 import { runMigrations } from "./helpers/migration.mjs";
 
@@ -23,6 +25,7 @@ Hooks.once("init", () => {
   CONFIG.Item.documentClass = GalacticWarsItem;
 
   CONFIG.Actor.dataModels.personnage = PersonnageData;
+  CONFIG.Actor.dataModels["personnage-rapide"] = PersonnageRapideData;
   CONFIG.Item.dataModels.race = RaceData;
   CONFIG.Item.dataModels.metier = MetierData;
   CONFIG.Item.dataModels.talent = TalentData;
@@ -41,6 +44,12 @@ Hooks.once("init", () => {
     types: ["personnage"],
     makeDefault: true,
     label: "GALACTICWARS.Sheet.Personnage"
+  });
+
+  DocumentSheetConfig.registerSheet(Actor, "galactic-wars", PersonnageRapideSheet, {
+    types: ["personnage-rapide"],
+    makeDefault: true,
+    label: "GALACTICWARS.Sheet.PersonnageRapide"
   });
 
   DocumentSheetConfig.registerSheet(Item, "galactic-wars", GalacticWarsItemSheet, {

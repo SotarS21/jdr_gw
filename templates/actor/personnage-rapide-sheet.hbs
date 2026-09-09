@@ -1,0 +1,59 @@
+<form class="galactic-wars sheet personnage-rapide" autocomplete="off">
+  <header class="sheet-header">
+    <img class="portrait" src="{{system.portrait}}" data-action="editImage" alt="{{actor.name}}">
+    <div class="header-fields">
+      <input type="text" name="name" value="{{actor.name}}" placeholder="{{localize 'GALACTICWARS.Sheet.Nom'}}">
+      <label>{{localize 'GALACTICWARS.Sheet.Prenom'}} <input type="text" name="system.infos.prenom" value="{{system.infos.prenom}}"></label>
+      <div class="race-metier-row">
+        <span>{{localize 'GALACTICWARS.Sheet.Race'}} : {{system.race.nom}}</span>
+        <button type="button" data-action="applyRace">{{localize 'GALACTICWARS.Sheet.Appliquer'}}</button>
+        <span>{{localize 'GALACTICWARS.Sheet.Metier'}} : {{system.metier.nom}}</span>
+        <button type="button" data-action="applyMetier">{{localize 'GALACTICWARS.Sheet.Appliquer'}}</button>
+      </div>
+      {{#if system.metier.description}}
+      <p class="metier-description">{{system.metier.description}}</p>
+      {{/if}}
+    </div>
+  </header>
+
+  <section class="talent">
+    <h2>{{localize 'GALACTICWARS.Sheet.Talent'}}</h2>
+    <label>{{localize 'GALACTICWARS.Sheet.Nom'}} <input type="text" name="system.talent.nom" value="{{system.talent.nom}}"></label>
+    <textarea name="system.talent.description" placeholder="{{localize 'GALACTICWARS.Sheet.TalentDescriptionPlaceholder'}}">{{system.talent.description}}</textarea>
+  </section>
+
+  <section class="caracteristiques-rapides">
+    <h2>{{localize 'GALACTICWARS.Sheet.Caracteristiques'}}
+      ({{system.totalCaracteristiques}} / {{limites.totalMax}}{{#if system.depasseLimiteTotale}} ⚠{{/if}})
+    </h2>
+    <p class="hint">{{localize 'GALACTICWARS.Sheet.LimitePlafondHint'}}{{#if system.depasseLimitePlafond}} ⚠{{/if}}</p>
+    <ul class="caracteristiques-rapides-list">
+      {{#each caracteristiques as |car|}}
+      <li>
+        <button type="button" data-action="rollCaracteristique" data-cle="{{car.cle}}">🎲</button>
+        <label>{{localize car.label}}</label>
+        <input type="number" name="system.caracteristiques.{{car.cle}}" value="{{car.valeur}}">
+      </li>
+      {{/each}}
+    </ul>
+  </section>
+
+  <section class="survie">
+    <h2>{{localize 'GALACTICWARS.Sheet.Survie'}}
+      <button type="button" data-action="rollSurvie">🎲</button>
+    </h2>
+    <label>{{localize 'GALACTICWARS.Sheet.Base'}} <input type="number" name="system.survie.base" value="{{system.survie.base}}"></label>
+    <label>{{localize 'GALACTICWARS.Sheet.Racial'}} <input type="number" name="system.survie.racial" value="{{system.survie.racial}}"></label>
+    <span class="total">{{system.survie.total}}%</span>
+  </section>
+
+  <section class="equipement">
+    <h2>{{localize 'GALACTICWARS.Sheet.Equipement'}}</h2>
+    <textarea name="system.equipement">{{system.equipement}}</textarea>
+  </section>
+
+  <section class="description">
+    <h2>{{localize 'GALACTICWARS.Sheet.Biographie'}}</h2>
+    <prose-mirror name="system.description" value="{{system.description}}">{{{descriptionEnrichie}}}</prose-mirror>
+  </section>
+</form>

@@ -87,6 +87,41 @@
   opacity: 0.7;
 }
 
+.galactic-wars .caracteristiques-rapides-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.3rem 1rem;
+}
+
+.galactic-wars .caracteristiques-rapides-list li {
+  display: grid;
+  grid-template-columns: 2rem 1fr 3.5rem;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.galactic-wars .caracteristiques-rapides-list button,
+.galactic-wars .survie button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.galactic-wars .metier-description {
+  font-size: 0.8rem;
+  font-style: italic;
+  opacity: 0.85;
+}
+
+@container galactic-wars-sheet (max-width: 420px) {
+  .galactic-wars .caracteristiques-rapides-list {
+    grid-template-columns: 1fr;
+  }
+}
+
 @container galactic-wars-sheet (max-width: 560px) {
   .galactic-wars .caracteristiques-grid {
     grid-template-columns: 1fr;

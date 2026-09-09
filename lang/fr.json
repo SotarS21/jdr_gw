@@ -1,7 +1,8 @@
 {
   "TYPES": {
     "Actor": {
-      "personnage": "Personnage"
+      "personnage": "Personnage",
+      "personnage-rapide": "Personnage (fiche rapide)"
     },
     "Item": {
       "race": "Race",
@@ -61,6 +62,17 @@
       "Natation": "Natation"
     },
 
+    "CaracteristiqueRapide": {
+      "Force": "Force",
+      "CapCombat": "Cap. Cmbt",
+      "CapTir": "Cap. Tir",
+      "Dexterite": "Dextérité",
+      "Mentale": "Mentale",
+      "Perception": "Perception",
+      "Stress": "Stress",
+      "AffForce": "Aff. Force"
+    },
+
     "Alignement": {
       "Lumiere": "Lumière",
       "Neutre": "Neutre",
@@ -82,17 +94,25 @@
 
     "Sheet": {
       "Personnage": "Fiche de personnage",
+      "PersonnageRapide": "Fiche de personnage (rapide)",
       "Item": "Objet",
       "Nom": "Nom",
+      "Prenom": "Prénom",
       "Race": "Race",
       "Metier": "Métier",
+      "Talent": "Talent",
+      "TalentDescriptionPlaceholder": "Effet du talent",
       "Appliquer": "Appliquer",
       "Niveau": "Niveau",
       "Caracteristiques": "Caractéristiques",
+      "LimitePlafondHint": "Pas plus de deux caractéristiques à 16.",
       "Ressources": "Ressources",
       "PV": "Points de vie",
       "PointsDeForce": "Points de force",
       "Stress": "Stress",
+      "Survie": "Survie",
+      "Base": "Base",
+      "Racial": "Racial",
       "Alignement": "Alignement",
       "Competences": "Compétences",
       "CompetenceMetierHint": "compétence de métier : -30% si non acquise (-10% pour les autres compétences)",
@@ -124,6 +144,7 @@
 
     "Avertissement": {
       "CompetenceInconnue": "Compétence inconnue : {cle}",
+      "CaracteristiqueInconnue": "Caractéristique inconnue : {cle}",
       "AucuneRaceSelectionnee": "Aucune race sélectionnée.",
       "AucunMetierSelectionne": "Aucun métier sélectionné.",
       "PrerequisMetierManquant": "Prérequis manquant : le métier \"{metier}\" est requis.",
@@ -132,6 +153,7 @@
 
     "Jet": {
       "Flavor": "{competence} (cible {cible}%)",
+      "FlavorD20": "{competence} (cible {cible})",
       "Reussite": "Réussite.",
       "Echec": "Échec.",
       "ReussiteCritique": "Réussite critique !",

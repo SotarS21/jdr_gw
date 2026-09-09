@@ -64,9 +64,9 @@ Le matériel de règles (fiches Excel, règles de métiers/races en Word, PDF) v
 | ID | Objectif | Statut | Priorité |
 |----|----------|--------|----------|
 | OBJ-001 | Scaffold système + fiche classique jouable | ✅ (v0.1.0) | Haute |
-| OBJ-002 | Fiche rapide (short) | ⏳ | Haute |
+| OBJ-002 | Fiche rapide (short) | ✅ (v0.2.0) | Haute |
 | OBJ-003 | Fiche sith (pregens École de sith) | ⏳ | Moyenne |
-| OBJ-004 | PNJ (façon fiche rapide) | ⏳ | Moyenne |
+| OBJ-004 | PNJ (façon fiche rapide, résolution en d100) | ⏳ | Moyenne |
 | OBJ-005 | Vaisseaux | ⏳ | Basse |
 | OBJ-006 | Économie | ⏳ | Basse |
 
@@ -90,6 +90,10 @@ Voir l'arborescence commentée dans `README.md` (module/config, module/data, mod
 - Jet de compétence 1d100 (réussite si ≤ total%), avec seuils de réussite/échec critique.
 - Application d'un métier : vérifie les prérequis (métier requis + niveau minimum), remplace proprement l'équipement de départ précédent (flag `startingGear`) et les compétences accordées.
 - Compendiums : 6 races, 6 métiers, 8 talents, 6 armes, 3 armures (échantillon vérifié, pas encore les listes complètes du matériel source — voir §7.1 et §10).
+
+### 5.1bis Ajoutées (v0.2.0)
+- Actor `personnage-rapide` (fiche "partie rapide") : 8 caractéristiques directes (Force, Cap. Cmbt, Cap. Tir, Dextérité, Mentale, Perception, Stress, Aff.Force), résolues en **1d20 sous la valeur** (pas en %, contrairement à la fiche classique) — total plafonné à 80, avertissement si plus de deux caractéristiques à 16. Survie reste résolue en 1d100 comme sur la fiche classique. Un métier (équipement + description de son talent signature auto-remplie) et un Talent générique séparé (texte libre). Réutilise les mêmes compendiums race/métier que la fiche classique — `applyRace`/`applyMetier` ont été généralisés pour ne toucher `system.competences`/`system.caracteristiques.*.racial` que sur un Actor `personnage` (la fiche rapide n'a pas cette structure).
+- **Attention pour la suite (PNJ, phase D)** : le PNJ réutilisera le même bloc de 8 caractéristiques que la fiche rapide, mais résolu en **1d100** (comme la fiche classique), pas en d20 — les deux Actor types partageant les mêmes champs auront donc des mécaniques de jet différentes. Prévoir un `rollCaracteristiquePourcentage` dédié plutôt que de réutiliser `rollCaracteristiqueD20`.
 
 ### 5.2 Roadmap
 Voir §10.

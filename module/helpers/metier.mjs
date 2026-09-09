@@ -23,9 +23,11 @@ export function verifierPrerequisMetier(actor, metierItem) {
 }
 
 /**
- * Applique un métier (Item type "metier") sur un Actor "personnage" : compétences +
- * équipement de départ. Les objets précédemment créés par un métier sont marqués du flag
- * `startingGear` pour pouvoir être proprement remplacés si le joueur change de métier.
+ * Applique un métier (Item type "metier") sur un Actor : équipement de départ, référence
+ * au métier, et — uniquement pour les Actor qui ont un tableau `system.competences` (la
+ * fiche classique ; pas la fiche rapide) — les bonus de compétence accordés. Les objets
+ * précédemment créés par un métier sont marqués du flag `startingGear` pour pouvoir être
+ * proprement remplacés si le joueur change de métier.
  * @param {Actor} actor
  * @param {Item} metierItem
  * @param {object} [options]
@@ -58,18 +60,24 @@ export async function applyMetier(actor, metierItem, { ignorerPrerequis = false 
   }));
   if (nouveauxObjets.length) await actor.createEmbeddedDocuments("Item", nouveauxObjets);
 
-  const bonusParCle = new Map(metierItem.system.competences.map((c) => [c.cle, c.bonus]));
-  const competences = actor.system.competences.map((c) => {
-    const bonus = bonusParCle.get(c.cle);
-    if (bonus === undefined) return { ...c, metier: 0, acquiseParMetier: false };
-    return { ...c, metier: bonus, acquiseParMetier: true };
-  });
-
-  await actor.update({
+  const updates = {
     "system.metier.uuid": metierItem.uuid,
-    "system.metier.nom": metierItem.name,
-    "system.competences": competences
-  });
+    "system.metier.nom": metierItem.name
+  };
+
+  if (Array.isArray(actor.system.competences)) {
+    const bonusParCle = new Map(metierItem.system.competences.map((c) => [c.cle, c.bonus]));
+    updates["system.competences"] = actor.system.competences.map((c) => {
+      const bonus = bonusParCle.get(c.cle);
+      if (bonus === undefined) return { ...c, metier: 0, acquiseParMetier: false };
+      return { ...c, metier: bonus, acquiseParMetier: true };
+    });
+  }
+  if ("description" in (actor.system.metier ?? {}) && metierItem.system.talent?.description) {
+    updates["system.metier.description"] = metierItem.system.talent.description;
+  }
+
+  await actor.update(updates);
 
   return true;
 }
