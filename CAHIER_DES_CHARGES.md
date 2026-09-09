@@ -65,7 +65,7 @@ Le matériel de règles (fiches Excel, règles de métiers/races en Word, PDF) v
 |----|----------|--------|----------|
 | OBJ-001 | Scaffold système + fiche classique jouable | ✅ (v0.1.0) | Haute |
 | OBJ-002 | Fiche rapide (short) | ✅ (v0.2.0) | Haute |
-| OBJ-003 | Fiche sith (pregens École de sith) | ⏳ | Moyenne |
+| OBJ-003 | Fiche sith (pregens École de sith) | ✅ (v0.3.0), pregens PJ pas encore transcrits | Moyenne |
 | OBJ-004 | PNJ (façon fiche rapide, résolution en d100) | ⏳ | Moyenne |
 | OBJ-005 | Vaisseaux | ⏳ | Basse |
 | OBJ-006 | Économie | ⏳ | Basse |
@@ -94,6 +94,11 @@ Voir l'arborescence commentée dans `README.md` (module/config, module/data, mod
 ### 5.1bis Ajoutées (v0.2.0)
 - Actor `personnage-rapide` (fiche "partie rapide") : 8 caractéristiques directes (Force, Cap. Cmbt, Cap. Tir, Dextérité, Mentale, Perception, Stress, Aff.Force), résolues en **1d20 sous la valeur** (pas en %, contrairement à la fiche classique) — total plafonné à 80, avertissement si plus de deux caractéristiques à 16. Survie reste résolue en 1d100 comme sur la fiche classique. Un métier (équipement + description de son talent signature auto-remplie) et un Talent générique séparé (texte libre). Réutilise les mêmes compendiums race/métier que la fiche classique — `applyRace`/`applyMetier` ont été généralisés pour ne toucher `system.competences`/`system.caracteristiques.*.racial` que sur un Actor `personnage` (la fiche rapide n'a pas cette structure).
 - **Attention pour la suite (PNJ, phase D)** : le PNJ réutilisera le même bloc de 8 caractéristiques que la fiche rapide, mais résolu en **1d100** (comme la fiche classique), pas en d20 — les deux Actor types partageant les mêmes champs auront donc des mécaniques de jet différentes. Prévoir un `rollCaracteristiquePourcentage` dédié plutôt que de réutiliser `rollCaracteristiqueD20`.
+
+### 5.1ter Ajoutées (v0.3.0)
+- Actor `personnage-sith` (fiche "sith prétirée") : 4 caractéristiques (Physique, Agilité, Perception, Mental) + 7 compétences de force fixes (Télékinésie, Poussée de force, Défense, Illusion, Persuasion, Combat armé, Furtivité), **résolues en 1d20 + valeur contre un DC fixé par le MJ** (troisième mécanique de jet du système, différente à la fois du % de la classique et du "d20 sous la valeur" de la fiche rapide — le système ne détermine pas lui-même la réussite ici, pas de DC stocké sur la fiche). Corpulence (Maigrichon/Normal/Épais/Fort) dérive le PV max (11/13/15/17). École sith (Assassin/Sorcière/Guerrier/Inquisiteur/Héraut/Magicien/Maître d'armes/Bulldozer) avec 2 capacités spéciales nommées chacune + équipement/vaisseau de départ, appliquée depuis un nouveau compendium `ecoles` (8/8, complet — c'est une liste fermée contrairement aux races/métiers). Race réutilisée (nom seul, comme sur la fiche rapide — les modificateurs raciaux restent spécifiques au référentiel classique).
+- Item `ecole` (capacités nommées + équipement de départ).
+- Pregens du dossier `Prétirer sith/PJ/` (6 seigneurs sith prêts à jouer) **pas encore transcrits** en compendium Actor — reste à faire.
 
 ### 5.2 Roadmap
 Voir §10.
@@ -125,8 +130,11 @@ npm run pack:unpack   # packs/*  ->  packs/_source/*  (pour ré-éditer après u
 | Talents | `talents` | Item | Traits de background | 8 / ~25 | Échantillon, à compléter |
 | Armes | `armes` | Item | Armes | 6 | Échantillon |
 | Armures | `armures` | Item | Armures | 3 | Échantillon |
+| Écoles sith | `ecoles` | Item | Écoles de la voie sith | 8 / 8 | Complet (liste fermée) |
 
 **Note :** le matériel source (`Template corriger.xlsx`) code les modificateurs raciaux/de métier sous forme de formules Excel imbriquées (`IF(A2="Race", valeur, IF(...)))`) parfois incohérentes d'une version à l'autre du classeur (copier-collers, cellules auto-référencées). Les 6 races et 6 métiers ci-dessus ont été vérifiés cellule par cellule (parsing programmatique des formules, pas de recopie à l'œil). Compléter le reste demandera une repasse avec l'auteur du classeur pour lever les ambiguïtés plutôt qu'une transcription automatique risquée.
+
+**Bug d'extraction corrigé en session 2026-09-10 :** les scripts Node ad hoc utilisés pour dézipper/lire les .xlsx sources avaient une regex bugguée qui laissait les cellules Excel auto-fermantes (`<c r="X"/>`, vides) faire "sauter" la capture jusqu'à un `</c>` distant appartenant à une autre cellule, mélangeant les libellés. Vérifié après coup : les données déjà livrées (6 races, fiche short) n'étaient PAS affectées (les cellules de formules/valeurs réellement utilisées n'étaient jamais auto-fermantes), mais toute nouvelle lecture d'un classeur source doit utiliser un extracteur qui traite `<c .../>` en premier (voir la leçon dans `JOURNAL.md`, session du 2026-09-10).
 
 ## 8. Intégration Foundry VTT
 
@@ -140,9 +148,9 @@ Déploiement : copier ce dossier vers `D:\AppDataFoundry$\FoundryVTT_Data\Data\s
 ## 10. Planification et Roadmap
 
 1. **Phase A (fait, v0.1.0)** : scaffold + fiche classique.
-2. **Phase B** : fiche rapide (`personnage-rapide`) — Cap.Cmbt/Cap.Tir/Dextérité/Mentale/Perception/Stress/Aff.Force.
-3. **Phase C** : fiche sith (`personnage-sith`) — Physique/Agilité/Perception/Mental, École sith (capacités spéciales nommées), pregens `Prétirer sith/PJ/` en compendium Actor.
-4. **Phase D** : PNJ (`pnj`), même bloc de stats que la fiche rapide.
+2. **Phase B (fait, v0.2.0)** : fiche rapide (`personnage-rapide`) — Cap.Cmbt/Cap.Tir/Dextérité/Mentale/Perception/Stress/Aff.Force, résolution 1d20 sous la valeur.
+3. **Phase C (fait, v0.3.0)** : fiche sith (`personnage-sith`) — Physique/Agilité/Perception/Mental + 7 compétences de force, résolution 1d20 + valeur (DC du MJ), École sith (8/8, capacités spéciales nommées). Reste à faire : transcrire les pregens `Prétirer sith/PJ/` en compendium Actor.
+4. **Phase D** : PNJ (`pnj`), même bloc de stats que la fiche rapide (Cap.Cmbt/Cap.Tir/.../Aff.Force) mais résolu en **1d100** (pas en d20) — nécessite un helper de jet dédié, pas une réutilisation de `rollCaracteristiqueD20`.
 5. Vaisseaux (Actor `vaisseau`), économie.
 6. Complétion des compendiums races/métiers/talents/armes/armures à 100% du matériel source.
 

@@ -116,6 +116,18 @@
   opacity: 0.85;
 }
 
+.galactic-wars .capacites-speciales p {
+  white-space: pre-line;
+  font-size: 0.85rem;
+}
+
+.galactic-wars .capacite-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin-bottom: 0.4rem;
+}
+
 @container galactic-wars-sheet (max-width: 420px) {
   .galactic-wars .caracteristiques-rapides-list {
     grid-template-columns: 1fr;

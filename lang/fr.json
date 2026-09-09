@@ -2,7 +2,8 @@
   "TYPES": {
     "Actor": {
       "personnage": "Personnage",
-      "personnage-rapide": "Personnage (fiche rapide)"
+      "personnage-rapide": "Personnage (fiche rapide)",
+      "personnage-sith": "Personnage (fiche sith)"
     },
     "Item": {
       "race": "Race",
@@ -11,7 +12,8 @@
       "arme": "Arme",
       "armure": "Armure",
       "pouvoir": "Pouvoir de force",
-      "equipement": "Équipement"
+      "equipement": "Équipement",
+      "ecole": "École sith"
     }
   },
 
@@ -73,6 +75,30 @@
       "AffForce": "Aff. Force"
     },
 
+    "CaracteristiqueSith": {
+      "Physique": "Physique",
+      "Agilite": "Agilité",
+      "Perception": "Perception",
+      "Mental": "Mental"
+    },
+
+    "CompetenceForceSith": {
+      "Telekinesie": "Télékinésie",
+      "PousseeDeForce": "Poussée de force",
+      "Defense": "Défense",
+      "Illusion": "Illusion",
+      "Persuasion": "Persuasion",
+      "CombatArme": "Combat armé",
+      "Furtivite": "Furtivité"
+    },
+
+    "Corpulence": {
+      "Maigrichon": "Maigrichon",
+      "Normal": "Normal",
+      "Epais": "Épais",
+      "Fort": "Fort"
+    },
+
     "Alignement": {
       "Lumiere": "Lumière",
       "Neutre": "Neutre",
@@ -95,17 +121,26 @@
     "Sheet": {
       "Personnage": "Fiche de personnage",
       "PersonnageRapide": "Fiche de personnage (rapide)",
+      "PersonnageSith": "Fiche de personnage (sith)",
       "Item": "Objet",
       "Nom": "Nom",
       "Prenom": "Prénom",
+      "NomSith": "Nom de sith",
       "Race": "Race",
       "Metier": "Métier",
+      "Ecole": "École",
+      "Corpulence": "Corpulence",
+      "Chance": "Chance",
+      "CapacitesSpeciales": "Capacités spéciales",
+      "CompetencesForce": "Compétences de force",
+      "EquipementDepart": "Équipement de départ",
       "Talent": "Talent",
       "TalentDescriptionPlaceholder": "Effet du talent",
       "Appliquer": "Appliquer",
       "Niveau": "Niveau",
       "Caracteristiques": "Caractéristiques",
       "LimitePlafondHint": "Pas plus de deux caractéristiques à 16.",
+      "LimitePlafondSithHint": "Pas plus de deux caractéristiques à 6.",
       "Ressources": "Ressources",
       "PV": "Points de vie",
       "PointsDeForce": "Points de force",
@@ -139,7 +174,9 @@
       "Emplacement": "Emplacement",
       "CoutPointsDeForce": "Coût (points de force)",
       "Quantite": "Quantité",
-      "Description": "Description"
+      "Description": "Description",
+      "EquipementDepart": "Équipement de départ",
+      "Capacites": "Capacités"
     },
 
     "Avertissement": {
@@ -147,6 +184,7 @@
       "CaracteristiqueInconnue": "Caractéristique inconnue : {cle}",
       "AucuneRaceSelectionnee": "Aucune race sélectionnée.",
       "AucunMetierSelectionne": "Aucun métier sélectionné.",
+      "AucuneEcoleSelectionnee": "Aucune école sélectionnée.",
       "PrerequisMetierManquant": "Prérequis manquant : le métier \"{metier}\" est requis.",
       "NiveauInsuffisant": "Prérequis manquant : niveau {niveau} minimum requis."
     },
@@ -154,6 +192,7 @@
     "Jet": {
       "Flavor": "{competence} (cible {cible}%)",
       "FlavorD20": "{competence} (cible {cible})",
+      "FlavorD20Plus": "{competence} (1d20 + {modificateur})",
       "Reussite": "Réussite.",
       "Echec": "Échec.",
       "ReussiteCritique": "Réussite critique !",

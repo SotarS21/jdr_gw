@@ -1,0 +1,81 @@
+<form class="galactic-wars sheet personnage-sith" autocomplete="off">
+  <header class="sheet-header">
+    <img class="portrait" src="{{system.portrait}}" data-action="editImage" alt="{{actor.name}}">
+    <div class="header-fields">
+      <input type="text" name="name" value="{{actor.name}}" placeholder="{{localize 'GALACTICWARS.Sheet.Nom'}}">
+      <label>{{localize 'GALACTICWARS.Sheet.NomSith'}} <input type="text" name="system.infos.nomSith" value="{{system.infos.nomSith}}"></label>
+      <div class="race-metier-row">
+        <span>{{localize 'GALACTICWARS.Sheet.Race'}} : {{system.race.nom}}</span>
+        <button type="button" data-action="applyRace">{{localize 'GALACTICWARS.Sheet.Appliquer'}}</button>
+        <span>{{localize 'GALACTICWARS.Sheet.Ecole'}} : {{system.ecole.nom}}</span>
+        <button type="button" data-action="applyEcole">{{localize 'GALACTICWARS.Sheet.Appliquer'}}</button>
+      </div>
+      <label>{{localize 'GALACTICWARS.Sheet.Corpulence'}}
+        <select name="system.corpulence">
+          {{#each corpulences as |label cle|}}
+          <option value="{{cle}}" {{#if (eq cle ../system.corpulence)}}selected{{/if}}>{{localize label}}</option>
+          {{/each}}
+        </select>
+      </label>
+    </div>
+  </header>
+
+  {{#if system.ecole.capacitesSpeciales}}
+  <section class="capacites-speciales">
+    <h2>{{localize 'GALACTICWARS.Sheet.CapacitesSpeciales'}}</h2>
+    <p>{{system.ecole.capacitesSpeciales}}</p>
+  </section>
+  {{/if}}
+
+  <section class="ressources">
+    <h2>{{localize 'GALACTICWARS.Sheet.Ressources'}}</h2>
+    <label>{{localize 'GALACTICWARS.Sheet.PV'}}
+      <input type="number" name="system.pv.actuels" value="{{system.pv.actuels}}"> / {{system.pv.max}}
+    </label>
+    <label>{{localize 'GALACTICWARS.Sheet.PointsDeForce'}}
+      <input type="number" name="system.force.value" value="{{system.force.value}}"> /
+      <input type="number" name="system.force.max" value="{{system.force.max}}">
+    </label>
+    <label>{{localize 'GALACTICWARS.Sheet.Chance'}} <input type="number" name="system.chance" value="{{system.chance}}"></label>
+    <label>{{localize 'GALACTICWARS.Sheet.Survie'}}
+      <input type="number" name="system.survie.chance" value="{{system.survie.chance}}"> +
+      <input type="number" name="system.survie.base" value="{{system.survie.base}}"> = {{system.survie.total}}
+    </label>
+  </section>
+
+  <section class="caracteristiques">
+    <h2>{{localize 'GALACTICWARS.Sheet.Caracteristiques'}} ({{localize 'GALACTICWARS.Sheet.LimitePlafondSithHint'}}{{#if system.depasseLimitePlafond}} ⚠{{/if}})</h2>
+    <ul class="caracteristiques-rapides-list">
+      {{#each caracteristiques as |car|}}
+      <li>
+        <button type="button" data-action="rollCaracteristique" data-cle="{{car.cle}}">🎲</button>
+        <label>{{localize car.label}}</label>
+        <input type="number" name="system.caracteristiques.{{car.cle}}" value="{{car.valeur}}">
+      </li>
+      {{/each}}
+    </ul>
+  </section>
+
+  <section class="competences-force">
+    <h2>{{localize 'GALACTICWARS.Sheet.CompetencesForce'}}</h2>
+    <ul class="caracteristiques-rapides-list">
+      {{#each competencesForce as |cpt|}}
+      <li>
+        <button type="button" data-action="rollCompetenceForce" data-cle="{{cpt.cle}}">🎲</button>
+        <label>{{localize cpt.label}}</label>
+        <input type="number" name="system.competencesForce.{{cpt.cle}}" value="{{cpt.valeur}}">
+      </li>
+      {{/each}}
+    </ul>
+  </section>
+
+  <section class="equipement">
+    <h2>{{localize 'GALACTICWARS.Sheet.Equipement'}}</h2>
+    <textarea name="system.equipement">{{system.equipement}}</textarea>
+  </section>
+
+  <section class="description">
+    <h2>{{localize 'GALACTICWARS.Sheet.Biographie'}}</h2>
+    <prose-mirror name="system.description" value="{{system.description}}">{{{descriptionEnrichie}}}</prose-mirror>
+  </section>
+</form>

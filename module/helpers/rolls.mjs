@@ -113,3 +113,28 @@ export async function rollCaracteristiqueD20(actor, cle) {
 
   return { roll, reussite, critique, echecCritique };
 }
+
+/**
+ * Jet additif en d20 (fiche sith) : 1d20 + valeur, comparé à un DC fixé par le MJ en
+ * cours de partie — le système ne détermine pas la réussite lui-même (pas de DC stocké
+ * sur la fiche), contrairement aux autres mécaniques (%, d20 sous la valeur).
+ * @param {Actor} actor
+ * @param {string} labelKey clé i18n du libellé affiché dans le message de jet
+ * @param {number} valeur le modificateur ajouté au d20
+ */
+export async function rollD20Plus(actor, labelKey, valeur) {
+  const roll = new Roll("1d20 + @valeur", { valeur });
+  await roll.evaluate();
+
+  const flavor = game.i18n.format("GALACTICWARS.Jet.FlavorD20Plus", {
+    competence: game.i18n.localize(labelKey),
+    modificateur: valeur
+  });
+
+  await roll.toMessage({
+    speaker: ChatMessage.getSpeaker({ actor }),
+    flavor
+  });
+
+  return { roll };
+}

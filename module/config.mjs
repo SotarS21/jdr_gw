@@ -30,6 +30,45 @@ GW.caracteristiquesRapides = {
 GW.limitesCaracteristiquesRapides = { totalMax: 80, valeurPlafond: 16, nombreMaxAuPlafond: 2 };
 
 /**
+ * Les 4 caractéristiques de la fiche sith prétirée — un modificateur additif, jet en
+ * 1d20 + valeur contre un DC fixé par le MJ (voir module/helpers/rolls.mjs::rollD20Plus).
+ */
+GW.caracteristiquesSith = {
+  physique: "GALACTICWARS.CaracteristiqueSith.Physique",
+  agilite: "GALACTICWARS.CaracteristiqueSith.Agilite",
+  perception: "GALACTICWARS.CaracteristiqueSith.Perception",
+  mental: "GALACTICWARS.CaracteristiqueSith.Mental"
+};
+
+/**
+ * Les 7 compétences de force fixes de la fiche sith — même mécanique 1d20 + valeur.
+ * Voir École de sith jouable.docx pour les capacités spéciales par école (compendium ecoles).
+ */
+GW.competencesForceSith = {
+  telekinesie: "GALACTICWARS.CompetenceForceSith.Telekinesie",
+  pousseeDeForce: "GALACTICWARS.CompetenceForceSith.PousseeDeForce",
+  defense: "GALACTICWARS.CompetenceForceSith.Defense",
+  illusion: "GALACTICWARS.CompetenceForceSith.Illusion",
+  persuasion: "GALACTICWARS.CompetenceForceSith.Persuasion",
+  combatArme: "GALACTICWARS.CompetenceForceSith.CombatArme",
+  furtivite: "GALACTICWARS.CompetenceForceSith.Furtivite"
+};
+
+/**
+ * Valeur individuelle max autorisée deux fois parmi les 4 caractéristiques sith. Le
+ * classeur source dit "pas plus de deux compétences à 6, 5" — lu ici comme un plafond de
+ * 6 (le second nombre reste ambigu dans la source, à confirmer).
+ */
+GW.limitesCaracteristiquesSith = { valeurPlafond: 6, nombreMaxAuPlafond: 2 };
+
+GW.corpulences = {
+  maigrichon: "GALACTICWARS.Corpulence.Maigrichon",
+  normal: "GALACTICWARS.Corpulence.Normal",
+  epais: "GALACTICWARS.Corpulence.Epais",
+  fort: "GALACTICWARS.Corpulence.Fort"
+};
+
+/**
  * Liste déduplifiée des compétences (voir memory project_galactic_wars_mechanics.md).
  * Le classeur source distinguait parfois une variante "(force)" et une variante "(métier)"
  * de la même compétence (ex. Contrôle télékinétique) : on ne garde qu'une entrée par

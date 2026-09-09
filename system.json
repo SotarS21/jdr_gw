@@ -2,7 +2,7 @@
   "id": "galactic-wars",
   "title": "Galactic Wars",
   "description": "Système de jeu de rôle Star Wars maison : compétences en pourcentage, races, métiers, force, alignement Lumière/Obscurité.",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "socket": true,
   "compatibility": {
     "minimum": "13",
@@ -19,7 +19,8 @@
   "documentTypes": {
     "Actor": {
       "personnage": { "htmlFields": ["biographie"] },
-      "personnage-rapide": { "htmlFields": ["description"] }
+      "personnage-rapide": { "htmlFields": ["description"] },
+      "personnage-sith": { "htmlFields": ["description"] }
     },
     "Item": {
       "race": { "htmlFields": ["description"] },
@@ -28,7 +29,8 @@
       "arme": { "htmlFields": ["description"] },
       "armure": { "htmlFields": ["description"] },
       "pouvoir": { "htmlFields": ["description"] },
-      "equipement": { "htmlFields": ["description"] }
+      "equipement": { "htmlFields": ["description"] },
+      "ecole": { "htmlFields": ["description"] }
     }
   },
   "grid": { "distance": 1, "units": "m" },
@@ -38,6 +40,7 @@
     { "name": "metiers", "label": "Métiers", "path": "packs/metiers", "type": "Item" },
     { "name": "talents", "label": "Talents", "path": "packs/talents", "type": "Item" },
     { "name": "armes", "label": "Armes", "path": "packs/armes", "type": "Item" },
-    { "name": "armures", "label": "Armures", "path": "packs/armures", "type": "Item" }
+    { "name": "armures", "label": "Armures", "path": "packs/armures", "type": "Item" },
+    { "name": "ecoles", "label": "Écoles sith", "path": "packs/ecoles", "type": "Item" }
   ]
 }

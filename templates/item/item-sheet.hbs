@@ -48,6 +48,19 @@
   </section>
   {{/if}}
 
+  {{#if (eq item.type "ecole")}}
+  <section class="ecole-fields">
+    <label>{{localize 'GALACTICWARS.Item.EquipementDepart'}} <input type="text" name="system.equipementDepart" value="{{system.equipementDepart}}"></label>
+    <h3>{{localize 'GALACTICWARS.Item.Capacites'}}</h3>
+    {{#each system.capacites as |capacite i|}}
+    <div class="capacite-row">
+      <input type="text" name="system.capacites.{{i}}.nom" value="{{capacite.nom}}">
+      <textarea name="system.capacites.{{i}}.description">{{capacite.description}}</textarea>
+    </div>
+    {{/each}}
+  </section>
+  {{/if}}
+
   <section class="description">
     <h2>{{localize 'GALACTICWARS.Item.Description'}}</h2>
     <prose-mirror name="system.description" value="{{system.description}}">{{{descriptionEnrichie}}}</prose-mirror>
