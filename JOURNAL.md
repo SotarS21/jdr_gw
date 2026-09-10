@@ -1,5 +1,56 @@
 # Journal de développement — Galactic Wars
 
+## Session du 2026-09-10 (suite, fin de session) — Proposition de refonte ergonomique des fiches (pas de changement livré)
+
+**Demande** : retravailler l'ergonomie des 4 fiches de personnage (classique, rapide/PNJ, sith,
+vaisseau), à partir d'un exemple de style "datapad" (cartes encadrées, thème sombre, liseré cyan)
+fourni par l'utilisateur.
+
+**Fait (exploration seulement, rien livré dans le système) :**
+- Analyse de l'exemple fourni : le style visuel (cartes encadrées) est une vraie amélioration : on
+  utilisait jusqu'ici de simples `<section>` empilées avec un trait de séparation. Le classement des
+  compétences en 3 colonnes Corps/Mental/Dextérité proposé dans l'exemple correspond en fait
+  exactement à la mise en page du classeur Excel source d'origine (`Template corriger.xlsx`, onglet
+  "fiche base"), aplatie en liste unique lors du scaffold initial (session du 2026-09-09) — donc pas
+  qu'une préférence esthétique, une vraie fidélité retrouvée.
+- Repéré deux éléments de l'exemple qui changent la **mécanique** (pas juste le style) : alignement
+  en deux réserves de points (Lumière/Obscur séparées) au lieu du curseur unique actuel, stress en
+  3 paliers à cocher au lieu de valeur/max. Question posée avant de les adopter sans validation.
+- Maquette statique publiée en canvas de design (4 artboards : `Main`=classique, `Rapide`, `Sith`,
+  `Vaisseau`), données d'exemple réalistes (Seigneur Kris et Le Arcadia = vraies fiches du
+  compendium). Relu par un passage de contrôle après coup (agent dédié) : a trouvé un emoji utilisé
+  comme icône (règle du format à respecter, corrigé en SVG), un `<select>` Corpulence avec une seule
+  option factice (corrigé, les 4 options réelles ajoutées), et des incohérences de taille/couleur
+  entre fichiers sur le composant "carte de ressource" (unifié). Corrections republiées.
+- Lien du canvas (a survivre au delà de cette session, republiable directement) :
+  https://claude.ai/code/artifact/9c1c44e9-177b-4fd5-bf38-f2e23d0852b7
+
+**Information mécanique reçue en fin de session, PAS ENCORE intégrée à la maquette ni au système :**
+l'alignement Lumière/Obscurité de la fiche classique n'est pas qu'un curseur cosmétique — ce sont
+**deux réserves de points réellement dépensables par le joueur** pour booster temporairement une
+compétence lors d'un jet (1, 2 ou 3 points misés sur une compétence, débloquant un bonus de %). Le
+barème exact des bonus (valeur du bonus pour 1/2/3 points) reste à préciser ("on verra ça plus
+tard"). **Implique un changement de mécanique réel** (pas juste un restyle) : la fiche classique
+devra permettre de miser des points de Lumière/Obscur sur une compétence au moment du jet, avec un
+retour visuel du nombre de points engagés et du bonus obtenu — à concevoir avec le barème une fois
+connu.
+
+**Reste à faire pour cette phase (reprise prévue une prochaine session) :**
+1. Obtenir le barème des bonus de compétence par points de Lumière/Obscur dépensés (1/2/3 points).
+2. Mettre à jour la maquette (canvas ci-dessus) pour représenter cette mécanique de mise (remplace le
+   curseur/les deux stat-cards actuels de la fiche classique).
+3. Trancher stress (checkboxes à paliers vs valeur/max actuelle) avec l'utilisateur.
+4. Une fois la maquette validée, implémenter réellement dans les 5 templates/CSS/DataModels — inclut
+   potentiellement un changement de schéma sur `PersonnageData.alignement` (actuellement un entier
+   signé -100..100 ; la mécanique de mise par points nécessite probablement deux compteurs distincts
+   `lumiere`/`obscurite`, à voir selon le barème).
+
+**Fichiers** : aucun fichier du système galactic-wars modifié (travail entièrement dans le canvas de
+design externe, working files sous le répertoire scratchpad de la session, non versionnés dans ce
+dépôt).
+
+---
+
 ## Session du 2026-09-10 (suite) — Fix : fiches non scrollables (v0.8.0 → v0.8.1)
 
 **Bug signalé par l'utilisateur :** impossible de scroller dans les fiches de personnage.

@@ -177,6 +177,11 @@ Déploiement : copier ce dossier vers `D:\AppDataFoundry$\FoundryVTT_Data\Data\s
 7. **Phase G (fait, v0.7.0)** : économie — `credits` (4 fiches de personnage), `prix` (armes/armures/équipements/vaisseaux), compendium `equipements` (11/11 échantillon).
 8. **Phase H (fait, v0.8.0)** : compendiums `races` (43/43, complet) et `metiers` (20/26, complet pour les métiers ayant une source de compétences) complétés.
 9. Reste : talents génériques (source à identifier avec l'auteur) ; 6 métiers sans compétences sourcées ; reste du catalogue économique (armes/armures/équipements, ~40 lignes) ; contenu PNJ type (monstres/gardes/etc.) ; décision sur la compétence d'arme de mêlée manquante.
+10. **En cours (non livré)** : refonte ergonomique des 4 fiches de personnage, maquette en canvas de
+    design (voir `JOURNAL.md`, session du 2026-09-10, entrée "Proposition de refonte ergonomique") —
+    https://claude.ai/code/artifact/9c1c44e9-177b-4fd5-bf38-f2e23d0852b7. Bloquée sur le barème des
+    bonus de compétence par points de Lumière/Obscurité dépensés (mécanique de mise, pas juste un
+    curseur d'alignement — implique un changement de schéma sur `system.alignement`).
 
 ## 11. Gestion des Versions
 
