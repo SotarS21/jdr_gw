@@ -12,6 +12,9 @@
   background: var(--gw-dark);
   container-type: inline-size;
   container-name: galactic-wars-sheet;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .galactic-wars .sheet-header {
@@ -20,6 +23,15 @@
   gap: 0.75rem;
   padding: 0.5rem;
   border-bottom: 1px solid var(--gw-border);
+  flex: 0 0 auto;
+}
+
+/* Seul ce conteneur défile — sans lui, le <form> grandit avec son contenu au lieu
+   d'être borné à la hauteur de la fenêtre Foundry, rendant la fiche non scrollable. */
+.galactic-wars .sheet-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
 }
 
 .galactic-wars .portrait,

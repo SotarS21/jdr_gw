@@ -21,7 +21,7 @@ export class PersonnageRapideSheet extends HandlebarsApplicationMixin(ActorSheet
   };
 
   static PARTS = {
-    body: { template: "systems/galactic-wars/templates/actor/personnage-rapide-sheet.hbs", scrollable: [""] }
+    body: { template: "systems/galactic-wars/templates/actor/personnage-rapide-sheet.hbs", scrollable: [".sheet-body"] }
   };
 
   /** @override */

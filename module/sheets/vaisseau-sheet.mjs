@@ -16,7 +16,7 @@ export class VaisseauSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   };
 
   static PARTS = {
-    body: { template: "systems/galactic-wars/templates/actor/vaisseau-sheet.hbs", scrollable: [""] }
+    body: { template: "systems/galactic-wars/templates/actor/vaisseau-sheet.hbs", scrollable: [".sheet-body"] }
   };
 
   /** @override */

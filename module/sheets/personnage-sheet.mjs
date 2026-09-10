@@ -22,7 +22,7 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   };
 
   static PARTS = {
-    body: { template: "systems/galactic-wars/templates/actor/personnage-sheet.hbs", scrollable: [""] }
+    body: { template: "systems/galactic-wars/templates/actor/personnage-sheet.hbs", scrollable: [".sheet-body"] }
   };
 
   /** @override */

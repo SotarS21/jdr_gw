@@ -9,7 +9,7 @@ export class GalacticWarsItemSheet extends HandlebarsApplicationMixin(ItemSheetV
   };
 
   static PARTS = {
-    body: { template: "systems/galactic-wars/templates/item/item-sheet.hbs", scrollable: [""] }
+    body: { template: "systems/galactic-wars/templates/item/item-sheet.hbs", scrollable: [".sheet-body"] }
   };
 
   /** @override */

@@ -4,6 +4,7 @@
     <input type="text" name="name" value="{{item.name}}">
   </header>
 
+  <div class="sheet-body">
   {{#if (eq item.type "race")}}
   <section class="race-fields">
     <label>{{localize 'GALACTICWARS.Item.ModCorps'}} <input type="number" name="system.modificateursCaracteristiques.corps" value="{{system.modificateursCaracteristiques.corps}}"></label>
@@ -68,4 +69,5 @@
     <h2>{{localize 'GALACTICWARS.Item.Description'}}</h2>
     <prose-mirror name="system.description" value="{{system.description}}">{{{descriptionEnrichie}}}</prose-mirror>
   </section>
+  </div>
 </form>

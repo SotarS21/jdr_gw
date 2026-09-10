@@ -20,6 +20,7 @@
     </div>
   </header>
 
+  <div class="sheet-body">
   {{#if system.ecole.capacitesSpeciales}}
   <section class="capacites-speciales">
     <h2>{{localize 'GALACTICWARS.Sheet.CapacitesSpeciales'}}</h2>
@@ -79,4 +80,5 @@
     <h2>{{localize 'GALACTICWARS.Sheet.Biographie'}}</h2>
     <prose-mirror name="system.description" value="{{system.description}}">{{{descriptionEnrichie}}}</prose-mirror>
   </section>
+  </div>
 </form>

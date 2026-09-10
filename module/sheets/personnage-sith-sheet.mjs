@@ -21,7 +21,7 @@ export class PersonnageSithSheet extends HandlebarsApplicationMixin(ActorSheetV2
   };
 
   static PARTS = {
-    body: { template: "systems/galactic-wars/templates/actor/personnage-sith-sheet.hbs", scrollable: [""] }
+    body: { template: "systems/galactic-wars/templates/actor/personnage-sith-sheet.hbs", scrollable: [".sheet-body"] }
   };
 
   /** @override */

@@ -1,5 +1,32 @@
 # Journal de développement — Galactic Wars
 
+## Session du 2026-09-10 (suite) — Fix : fiches non scrollables (v0.8.0 → v0.8.1)
+
+**Bug signalé par l'utilisateur :** impossible de scroller dans les fiches de personnage.
+
+**Cause :** aucune des 5 fiches (`personnage`, `personnage-rapide`/`pnj`, `personnage-sith`,
+`vaisseau`, Item) n'avait de conteneur borné en hauteur avec `overflow-y: auto` — le `<form>` racine
+grandissait simplement avec son contenu au lieu d'être contraint à la hauteur de la fenêtre Foundry,
+donc rien ne débordait jamais visiblement pour déclencher une barre de défilement. `scrollable: [""]`
+dans `PARTS.body` (suivi de position de scroll de Foundry) pointait sur la racine du `<form>`, qui
+n'était de toute façon pas l'élément voué à défiler. Repéré en comparant avec le système de référence
+`projet_antique_system` (pattern `.sheet { display:flex; flex-direction:column; height:100% }` +
+`.sheet-body { flex:1; min-height:0; overflow-y:auto }` — le `min-height: 0` est ce qui manquait
+concrètement, sans lui un enfant flex ne peut jamais rétrécir en dessous de la taille de son contenu).
+
+**Fait :**
+- `<div class="sheet-body">` ajouté dans les 5 templates (tout ce qui suit le `<header>`).
+- CSS : `.galactic-wars.sheet` passe en flex-column pleine hauteur ; `.galactic-wars .sheet-body`
+  reçoit `flex:1; min-height:0; overflow-y:auto`.
+- `PARTS.body.scrollable` mis à jour de `[""]` vers `[".sheet-body"]` dans les 5 sheets `.mjs`, pour
+  que Foundry restaure la bonne position de scroll après un re-render (et non plus celle, inerte, de
+  la racine du formulaire).
+
+**Fichiers** : `templates/actor/{personnage,personnage-rapide,personnage-sith,vaisseau}-sheet.hbs`,
+`templates/item/item-sheet.hbs`, `module/sheets/*.mjs` (5 fichiers, `scrollable`), `styles/galactic-wars.css`, `system.json` (v0.8.1).
+
+---
+
 ## Session du 2026-09-10 (suite) — Complétion races + métiers (v0.7.0 → v0.8.0)
 
 **Recherche de sources avant de commencer** : contrairement à la mise en garde du §7.1 du cahier des
