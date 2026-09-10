@@ -1,0 +1,33 @@
+{
+  "_key": "!items!fjSJHgPOIjzJSygz",
+  "_id": "fjSJHgPOIjzJSygz",
+  "name": "Bith",
+  "type": "race",
+  "img": "icons/svg/oak.svg",
+  "system": {
+    "modificateursCaracteristiques": {
+      "corps": -5,
+      "mental": 0,
+      "dexterite": 10
+    },
+    "modificateursCompetences": {
+      "seduction": -10,
+      "artisanat": 20
+    },
+    "armureNaturelle": 0,
+    "description": "<p>Espèce pacifique hautement évoluée, souvent ingénieurs, scientifiques ou musiciens.</p><p>Vision précise à courte portée (+20% à 4m, +10% à 10m, divisée par deux par tranche de portée supplémentaire) et capables d'une transe de repos leur permettant de se réveiller instantanément en cas de danger (+25%).</p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.8.0"
+  }
+}

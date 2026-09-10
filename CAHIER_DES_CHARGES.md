@@ -141,9 +141,9 @@ npm run pack:unpack   # packs/*  ->  packs/_source/*  (pour ré-éditer après u
 
 | Nom | ID | Type | Contenu | Entrées | Statut |
 |-----|-----|------|---------|---------|--------|
-| Races | `races` | Item | Races jouables | 6 / ~30 | Échantillon, à compléter |
-| Métiers | `metiers` | Item | Métiers/carrières | 6 / ~20 | Échantillon, à compléter |
-| Talents | `talents` | Item | Traits de background | 8 / ~25 | Échantillon, à compléter |
+| Races | `races` | Item | Races jouables | 43 / 43 | Complet (tout `Race galactique world.pdf`) |
+| Métiers | `metiers` | Item | Métiers/carrières | 20 / 26 | 20/20 avec liste de compétences source ; 6 métiers restants (Artiste acrobate, Archéo-archiviste, Cuisinier, Journaliste, Marchand, Sénateur) n'ont qu'un talent+équipement dans le matériel source, pas de compétences — non transcrits |
+| Talents | `talents` | Item | Traits de background | 8 / ? | Échantillon — **source introuvable dans le matériel du projet**, total réel inconnu, à demander à l'auteur |
 | Armes | `armes` | Item | Armes | 10 | Échantillon |
 | Armures | `armures` | Item | Armures | 3 | Échantillon |
 | Écoles sith | `ecoles` | Item | Écoles de la voie sith | 8 / 8 | Complet (liste fermée) |
@@ -151,7 +151,9 @@ npm run pack:unpack   # packs/*  ->  packs/_source/*  (pour ré-éditer après u
 | Vaisseaux | `vaisseaux` | Actor | Vaisseaux/véhicules nommés | 13 / 13 | Complet (tout le matériel source vaisseaux) |
 | Équipements | `equipements` | Item | Outils/consommables du catalogue économique | 11 / ~15 | Échantillon, à compléter |
 
-**Note :** le matériel source (`Template corriger.xlsx`) code les modificateurs raciaux/de métier sous forme de formules Excel imbriquées (`IF(A2="Race", valeur, IF(...)))`) parfois incohérentes d'une version à l'autre du classeur (copier-collers, cellules auto-référencées). Les 6 races et 6 métiers ci-dessus ont été vérifiés cellule par cellule (parsing programmatique des formules, pas de recopie à l'œil). Compléter le reste demandera une repasse avec l'auteur du classeur pour lever les ambiguïtés plutôt qu'une transcription automatique risquée.
+**Note (historique, session 1) :** la mise en garde initiale sur des "formules Excel imbriquées incohérentes" (`Template corriger.xlsx`) s'est révélée concerner surtout les **métiers**, pas les races. Les races viennent en réalité de `Race galactique world.pdf`, un texte en prose avec un bloc "Bonus :" explicite par race (aucune ambiguïté) — complété à 100% en session du 2026-09-10 sans repasse nécessaire avec l'auteur. Les métiers viennent de deux documents à croiser (`Metier v2.5.docx` pour prérequis/compétences/équipement, `archétype_metier_galactic_wars.docx` pour le talent signature) — complétés à 20/20 pour les métiers présents dans les deux sources ; 6 métiers restants n'ont qu'une des deux moitiés de données dans le matériel source (voir §7.1) et n'ont volontairement pas été inventés.
+
+**Lacune de schéma découverte (session du 2026-09-10) :** `GW.competences` (37 clés, fiche classique) ne contient aucune compétence d'arme de mêlée/blanche, alors que plusieurs races/métiers du matériel source lui donnent un bonus. Les bonus concernés ont été mis en prose dans le champ `description` de la race/du métier concerné plutôt que perdus ou inventés sous une fausse clé — à trancher avec l'auteur (ajouter une clé de compétence dédiée, ou l'ignorer délibérément).
 
 **Bug d'extraction corrigé en session 2026-09-10 :** les scripts Node ad hoc utilisés pour dézipper/lire les .xlsx sources avaient une regex bugguée qui laissait les cellules Excel auto-fermantes (`<c r="X"/>`, vides) faire "sauter" la capture jusqu'à un `</c>` distant appartenant à une autre cellule, mélangeant les libellés. Vérifié après coup : les données déjà livrées (6 races, fiche short) n'étaient PAS affectées (les cellules de formules/valeurs réellement utilisées n'étaient jamais auto-fermantes), mais toute nouvelle lecture d'un classeur source doit utiliser un extracteur qui traite `<c .../>` en premier (voir la leçon dans `JOURNAL.md`, session du 2026-09-10).
 
@@ -173,7 +175,8 @@ Déploiement : copier ce dossier vers `D:\AppDataFoundry$\FoundryVTT_Data\Data\s
 5. **Phase E (fait, v0.5.0)** : pregens sith (`pregens-sith`, 6/6, `Prétirer sith/PJ/`).
 6. **Phase F (fait, v0.6.0 → complétée en v0.7.0)** : vaisseaux (Actor `vaisseau`, compendium `vaisseaux` 13/13 — la *Convergence* puis les 12 véhicules du classeur économique).
 7. **Phase G (fait, v0.7.0)** : économie — `credits` (4 fiches de personnage), `prix` (armes/armures/équipements/vaisseaux), compendium `equipements` (11/11 échantillon).
-8. Complétion des compendiums races/métiers/talents/armes/armures/équipements à 100% du matériel source ; contenu PNJ type (monstres/gardes/etc.).
+8. **Phase H (fait, v0.8.0)** : compendiums `races` (43/43, complet) et `metiers` (20/26, complet pour les métiers ayant une source de compétences) complétés.
+9. Reste : talents génériques (source à identifier avec l'auteur) ; 6 métiers sans compétences sourcées ; reste du catalogue économique (armes/armures/équipements, ~40 lignes) ; contenu PNJ type (monstres/gardes/etc.) ; décision sur la compétence d'arme de mêlée manquante.
 
 ## 11. Gestion des Versions
 

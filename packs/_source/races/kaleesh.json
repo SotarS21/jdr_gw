@@ -1,0 +1,30 @@
+{
+  "_key": "!items!Y3wCqsU36FoYlNYn",
+  "_id": "Y3wCqsU36FoYlNYn",
+  "name": "Kaleesh",
+  "type": "race",
+  "img": "icons/svg/oak.svg",
+  "system": {
+    "modificateursCaracteristiques": { "corps": 0, "mental": -5, "dexterite": 0 },
+    "modificateursCompetences": {
+      "commanderGuider": 10,
+      "intimidation": 5,
+      "perception": 5
+    },
+    "armureNaturelle": 1,
+    "description": "<p>Humanoïdes reptiliens guerriers et profondément spirituels, dont le visage griffu et défendu est presque toujours dissimulé sous un masque traditionnel ; ils pratiquent couramment la polygynie.</p><p>Stratèges nés, capables de repérer les points faibles de leurs ennemis. Blessés à 10% de leurs points de vie, ils peuvent prier le dieu des morts pour regagner 50% de leurs points de vie, une fois par jour, pour le coût d'un point de force.</p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.8.0"
+  }
+}

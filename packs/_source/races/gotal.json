@@ -1,0 +1,34 @@
+{
+  "_key": "!items!VLyiyuYkc0N05OhI",
+  "_id": "VLyiyuYkc0N05OhI",
+  "name": "Gotal",
+  "type": "race",
+  "img": "icons/svg/oak.svg",
+  "system": {
+    "modificateursCaracteristiques": {
+      "corps": 0,
+      "mental": 0,
+      "dexterite": 0
+    },
+    "modificateursCompetences": {
+      "escroquerieMensonge": 10,
+      "social": 10,
+      "intimidation": 5
+    },
+    "armureNaturelle": 0,
+    "description": "<p>Espèce dotée de deux cornes coniques agissant comme des capteurs électromagnétiques sensibles, ce qui leur cause une gêne face aux systèmes électromagnétiques puissants.</p><p>Esquive instinctive sans jet et vision en lumière faible.</p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.8.0"
+  }
+}

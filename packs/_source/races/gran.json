@@ -1,0 +1,30 @@
+{
+  "_key": "!items!laDpw5MikxNYA4pV",
+  "_id": "laDpw5MikxNYA4pV",
+  "name": "Gran",
+  "type": "race",
+  "img": "icons/svg/oak.svg",
+  "system": {
+    "modificateursCaracteristiques": { "corps": 0, "mental": 0, "dexterite": 0 },
+    "modificateursCompetences": {
+      "seduction": 10,
+      "sagesse": -5,
+      "blaster": 10
+    },
+    "armureNaturelle": 0,
+    "description": "<p>Humanoïdes à tête de bouc imberbe, dotés de trois yeux noirs protubérants et d'une excellente vision leur donnant un don naturel pour le tir et le pilotage.</p><p>Vision nocturne. Les femelles, pourvues de trois seins, bénéficient d'un bonus de séduction.</p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.8.0"
+  }
+}

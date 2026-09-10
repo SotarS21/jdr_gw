@@ -1,0 +1,28 @@
+{
+  "_key": "!items!zYqANKp0fYgCOZva",
+  "_id": "zYqANKp0fYgCOZva",
+  "name": "Mirialans",
+  "type": "race",
+  "img": "icons/svg/oak.svg",
+  "system": {
+    "modificateursCaracteristiques": { "corps": -5, "mental": 5, "dexterite": 0 },
+    "modificateursCompetences": {
+      "sangFroid": 20,
+      "sagesse": 5,
+      "survie": 20
+    },
+    "armureNaturelle": 0,
+    "description": "<p>Proches-humains originaires du désertique et aride Mirial, dotés d'un panel sensoriel élaboré qu'ils maîtrisent pour limiter la souffrance de leur corps.</p><p>Peuple très croyant qui refuse l'idée d'une fatalité réduisant chaque individu à un rôle prédéfini ; bénéficient d'une résistance mentale accrue (armure mentale +2).</p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": { "default": 0 },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.8.0"
+  }
+}

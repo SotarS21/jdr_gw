@@ -1,0 +1,85 @@
+{
+  "_key": "!items!RwKZrUKDtNwo0jzj",
+  "_id": "RwKZrUKDtNwo0jzj",
+  "name": "Mécanicien",
+  "type": "metier",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "prerequis": {
+      "metier": "",
+      "niveauMinimum": 0,
+      "texteLibre": ""
+    },
+    "competences": [
+      {
+        "cle": "mecanique",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "informatiquePiratage",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "escroquerieMensonge",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "persuasion",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "escaladeSaut",
+        "bonus": 0,
+        "obligatoire": true
+      }
+    ],
+    "equipement": [
+      {
+        "nom": "Trousse à outils",
+        "quantite": 1
+      },
+      {
+        "nom": "Clés de 809 (aussi grosse qu'un avant-bras)",
+        "quantite": 1
+      },
+      {
+        "nom": "PAD personnel (avant-bras)",
+        "quantite": 1
+      },
+      {
+        "nom": "Traducteur",
+        "quantite": 1
+      },
+      {
+        "nom": "Speeder",
+        "quantite": 1
+      },
+      {
+        "nom": "Vêtement de travail",
+        "quantite": 1
+      }
+    ],
+    "talent": {
+      "nom": "Réparation",
+      "description": "Peut réparer presque tout ce qui n'est pas trop gros (comme un vaisseau interstellaire), tant qu'il a le matériel."
+    },
+    "description": "<p>Spécialiste de la mécanique, y compris sur les grandes infrastructures comme les croiseurs, les stations ou les centrales de terraformation.</p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.8.0"
+  }
+}

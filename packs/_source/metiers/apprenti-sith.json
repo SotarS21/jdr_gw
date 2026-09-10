@@ -1,0 +1,68 @@
+{
+  "_key": "!items!iNOMvdCi7ecB3moP",
+  "_id": "iNOMvdCi7ecB3moP",
+  "name": "Apprenti sith",
+  "type": "metier",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "prerequis": {
+      "metier": "",
+      "niveauMinimum": 0,
+      "texteLibre": ""
+    },
+    "competences": [
+      {
+        "cle": "intimidation",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "appelALaRage",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "commanderGuider",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "sabreLaser",
+        "bonus": 0,
+        "obligatoire": true
+      }
+    ],
+    "equipement": [
+      {
+        "nom": "Arme contondante au choix (hache, bâton, sabre, trident, banane de l’enfer, etc.) 2d8",
+        "quantite": 1
+      },
+      {
+        "nom": "Vaisseau",
+        "quantite": 1
+      },
+      {
+        "nom": "Robot sbire (pilote ou communicateur ou sonde)",
+        "quantite": 1
+      }
+    ],
+    "talent": {
+      "nom": "Appelle à la rage",
+      "description": "Concentration extrême, +4 dans une compétence par jour."
+    },
+    "description": "<p></p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.8.0"
+  }
+}

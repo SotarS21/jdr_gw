@@ -1,0 +1,31 @@
+{
+  "_key": "!items!cvV7ZESsg15G2bb8",
+  "_id": "cvV7ZESsg15G2bb8",
+  "name": "Rattataki",
+  "type": "race",
+  "img": "icons/svg/oak.svg",
+  "system": {
+    "modificateursCaracteristiques": { "corps": 10, "mental": 0, "dexterite": -10 },
+    "modificateursCompetences": {
+      "sangFroid": 10,
+      "survie": 10,
+      "seduction": -10,
+      "social": -10
+    },
+    "armureNaturelle": 0,
+    "description": "<p>Proches-humains à la peau crayeuse et chauve, couverte de tatouages tribaux, au caractère taciturne et belliqueux, forgé par des siècles de guerre et de survie souterraine.</p><p>Voient dans une lumière très faible.</p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.8.0"
+  }
+}

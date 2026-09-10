@@ -1,0 +1,29 @@
+{
+  "_key": "!items!qiP0MDUvhNRHtvlY",
+  "_id": "qiP0MDUvhNRHtvlY",
+  "name": "Gungan",
+  "type": "race",
+  "img": "icons/svg/oak.svg",
+  "system": {
+    "modificateursCaracteristiques": { "corps": 5, "mental": 0, "dexterite": 0 },
+    "modificateursCompetences": {
+      "sagesse": -5,
+      "perception": 10
+    },
+    "armureNaturelle": 0,
+    "description": "<p>Créatures amphibies des marais de Naboo, vivant dans des cités sous-marines en forme de bulles, reconnaissables à leur tête allongée, leur longue langue et leurs grandes oreilles.</p><p>Amphibies, nageurs experts, dotés d'une vision nocturne et d'un instinct de fuite salvateur en cas de danger.</p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.8.0"
+  }
+}

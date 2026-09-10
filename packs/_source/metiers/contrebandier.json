@@ -1,0 +1,90 @@
+{
+  "_key": "!items!7Rdj9ImsDsaalt5u",
+  "_id": "7Rdj9ImsDsaalt5u",
+  "name": "Contrebandier",
+  "type": "metier",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "prerequis": {
+      "metier": "",
+      "niveauMinimum": 0,
+      "texteLibre": ""
+    },
+    "competences": [
+      {
+        "cle": "escroquerieMensonge",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "social",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "sangFroid",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "blaster",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "mecanique",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "pilotage",
+        "bonus": 0,
+        "obligatoire": true
+      }
+    ],
+    "equipement": [
+      {
+        "nom": "Arme blanche au choix ou blaster",
+        "quantite": 1
+      },
+      {
+        "nom": "Armure intermédiaire +2",
+        "quantite": 1
+      },
+      {
+        "nom": "Connaissance dans la pègre",
+        "quantite": 1
+      },
+      {
+        "nom": "Datapad",
+        "quantite": 1
+      },
+      {
+        "nom": "ComLink",
+        "quantite": 1
+      },
+      {
+        "nom": "Vaisseau amélioré",
+        "quantite": 1
+      }
+    ],
+    "talent": {
+      "nom": "Bluff",
+      "description": "Un charisme particulier permet de se faire écouter même dans les situations critiques."
+    },
+    "description": "<p>Transporteur clandestin naviguant en marge de la loi, formé au maniement des armes contondantes ou blanches (aucune compétence dédiée à ces armes n'existe dans ce référentiel).</p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.8.0"
+  }
+}

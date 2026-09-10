@@ -1,0 +1,78 @@
+{
+  "_key": "!items!UO0bTqaQaZfxis01",
+  "_id": "UO0bTqaQaZfxis01",
+  "name": "Guerrier sith",
+  "type": "metier",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "prerequis": {
+      "metier": "Apprenti sith",
+      "niveauMinimum": 4,
+      "texteLibre": ""
+    },
+    "competences": [
+      {
+        "cle": "intimidation",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "sabreLaser",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "persuasion",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "controleParLaForce",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "pilotage",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "spiritisme",
+        "bonus": 0,
+        "obligatoire": true
+      }
+    ],
+    "equipement": [
+      {
+        "nom": "Sabre laser double ou double lame 2d8",
+        "quantite": 1
+      },
+      {
+        "nom": "Robe noire",
+        "quantite": 1
+      },
+      {
+        "nom": "Datapad",
+        "quantite": 1
+      }
+    ],
+    "talent": {
+      "nom": "",
+      "description": ""
+    },
+    "description": "<p></p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.8.0"
+  }
+}

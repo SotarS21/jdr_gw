@@ -1,0 +1,33 @@
+{
+  "_key": "!items!Y9KxAhADKRZIHOtX",
+  "_id": "Y9KxAhADKRZIHOtX",
+  "name": "Dug",
+  "type": "race",
+  "img": "icons/svg/oak.svg",
+  "system": {
+    "modificateursCaracteristiques": {
+      "corps": 0,
+      "mental": -10,
+      "dexterite": 10
+    },
+    "modificateursCompetences": {
+      "seduction": -5,
+      "escaladeSaut": 20
+    },
+    "armureNaturelle": 0,
+    "description": "<p>Espèce arboricole de Malastare à la musculature puissante, dont les jambes et les bras sont utilisés en inversé par rapport aux humains.</p><p>Don : réflexes éclairs, leur donnant une prédominance à l'initiative.</p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.8.0"
+  }
+}

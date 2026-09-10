@@ -1,0 +1,32 @@
+{
+  "_key": "!items!BVy1lDOgDv1VOGGh",
+  "_id": "BVy1lDOgDv1VOGGh",
+  "name": "Devaronian (mâle) Devaron",
+  "type": "race",
+  "img": "icons/svg/oak.svg",
+  "system": {
+    "modificateursCaracteristiques": {
+      "corps": 0,
+      "mental": -10,
+      "dexterite": 10
+    },
+    "modificateursCompetences": {
+      "intimidation": 10
+    },
+    "armureNaturelle": 0,
+    "description": "<p>Espèce à fort dimorphisme sexuel : les mâles sont chauves et cornus, les femelles sont chevelues.</p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.8.0"
+  }
+}

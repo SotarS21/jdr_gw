@@ -1,0 +1,33 @@
+{
+  "_key": "!items!DI17NbVnCfGPYiGq",
+  "_id": "DI17NbVnCfGPYiGq",
+  "name": "Ithorian",
+  "type": "race",
+  "img": "icons/svg/oak.svg",
+  "system": {
+    "modificateursCaracteristiques": { "corps": 0, "mental": 0, "dexterite": -5 },
+    "modificateursCompetences": {
+      "furtivite": -5,
+      "controleTelekinetique": 5,
+      "sagesse": 5,
+      "seduction": 5,
+      "artisanat": 10,
+      "survie": 15
+    },
+    "armureNaturelle": 0,
+    "description": "<p>Jardiniers et philosophes pacifiques sensibles à la Force, reconnaissables à leur nuque incurvée portant deux bouches qui bougent ensemble lorsqu'ils parlent.</p><p>Animés d'une forte volonté de transmettre le savoir de leur espèce et de préserver la paix entre les peuples.</p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.8.0"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "_key": "!items!6nS2kQsV06nolCvk",
+  "_id": "6nS2kQsV06nolCvk",
+  "name": "Nautolans",
+  "type": "race",
+  "img": "icons/svg/oak.svg",
+  "system": {
+    "modificateursCaracteristiques": { "corps": 5, "mental": 0, "dexterite": 5 },
+    "modificateursCompetences": {
+      "sangFroid": -5
+    },
+    "armureNaturelle": 2,
+    "description": "<p>Humanoïdes amphibiens à la peau verte, dotés de tentacules crâniens sensoriels qui leur permettent de détecter mouvements et odeurs, bien plus à l'aise dans l'eau que sur terre.</p><p>Nagent et respirent instinctivement en milieu aquatique comme aérien ; leur empathie tentaculaire leur permet de ressentir les émotions d'autrui, de façon plus fine sous l'eau.</p><p>Communiquent naturellement avec les autres espèces porteuses de lekku.</p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": { "default": 0 },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.8.0"
+  }
+}

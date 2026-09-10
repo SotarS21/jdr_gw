@@ -1,0 +1,30 @@
+{
+  "_key": "!items!gsdljenIUW2cNvQ2",
+  "_id": "gsdljenIUW2cNvQ2",
+  "name": "Toydarien",
+  "type": "race",
+  "img": "icons/svg/oak.svg",
+  "system": {
+    "modificateursCaracteristiques": {
+      "corps": -15,
+      "mental": 0,
+      "dexterite": 20
+    },
+    "modificateursCompetences": {},
+    "armureNaturelle": 0,
+    "description": "<p>Avares et de mauvaise humeur, les Toydariens sont fiers de leur travail et résistants à la manipulation de l'esprit (ne peuvent être joués comme Jedi ou Sith).</p><p>Ils possèdent une compétence innée de vol et le don science de l'initiative.</p><p>Malédiction : ils doivent toujours avoir de la nourriture sur eux, sous peine de subir de lourdes pertes de capacités jusqu'à ce qu'ils mangent de la super-nourriture.</p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.8.0"
+  }
+}

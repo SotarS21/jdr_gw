@@ -1,0 +1,95 @@
+{
+  "_key": "!items!w8hGBYBKPgT9hnw9",
+  "_id": "w8hGBYBKPgT9hnw9",
+  "name": "Robot quadrupède / droïde",
+  "type": "metier",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "prerequis": {
+      "metier": "",
+      "niveauMinimum": 0,
+      "texteLibre": "Affiliation jedi"
+    },
+    "competences": [
+      {
+        "cle": "bagarre",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "blocage",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "canonLourd",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "intimidation",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "informatiquePiratage",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "mecanique",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "paradeEsquive",
+        "bonus": 0,
+        "obligatoire": true
+      }
+    ],
+    "equipement": [
+      {
+        "nom": "Comlink intégré",
+        "quantite": 1
+      },
+      {
+        "nom": "Griffe en duracier + crocs",
+        "quantite": 1
+      },
+      {
+        "nom": "Base de données sur la topographie des planètes connues de l'empire, avec informations sur les habitants et leurs langues",
+        "quantite": 1
+      },
+      {
+        "nom": "Blindage supplémentaire +4 d'armure",
+        "quantite": 1
+      },
+      {
+        "nom": "Bras outils (léger)",
+        "quantite": 1
+      },
+      {
+        "nom": "Capteurs environnementaux (yeux, oreilles)",
+        "quantite": 1
+      }
+    ],
+    "talent": {
+      "nom": "",
+      "description": ""
+    },
+    "description": "<p></p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.8.0"
+  }
+}

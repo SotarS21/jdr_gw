@@ -1,0 +1,32 @@
+{
+  "_key": "!items!CgPNWkxFyaykBHVx",
+  "_id": "CgPNWkxFyaykBHVx",
+  "name": "Miraluka",
+  "type": "race",
+  "img": "icons/svg/oak.svg",
+  "system": {
+    "modificateursCaracteristiques": { "corps": -5, "mental": 10, "dexterite": 0 },
+    "modificateursCompetences": {
+      "perception": 5,
+      "intimidation": -5,
+      "sagesse": 5,
+      "sangFroid": -10,
+      "informatiquePiratage": -20,
+      "mecanique": -20,
+      "spiritisme": 10
+    },
+    "armureNaturelle": 0,
+    "description": "<p>Espèce proche-humaine dépourvue d'yeux, ne conservant que des orbites vestigiales, et percevant leur environnement grâce à la Force ; ils portent souvent un bandeau pour dissimuler leur absence de globes oculaires.</p><p>Réfléchis, prudents et peu intéressés par la gloire ou le gain personnel, ils se considèrent tous comme les membres d'une même grande famille.</p><p>Une forte empathie de la force leur permet de percevoir les émotions intenses d'autrui ; ils bénéficient de +2 points de force.</p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": { "default": 0 },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.8.0"
+  }
+}

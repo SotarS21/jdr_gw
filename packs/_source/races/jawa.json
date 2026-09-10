@@ -1,0 +1,33 @@
+{
+  "_key": "!items!eF9vHp1ixwXUH03W",
+  "_id": "eF9vHp1ixwXUH03W",
+  "name": "Jawa",
+  "type": "race",
+  "img": "icons/svg/oak.svg",
+  "system": {
+    "modificateursCaracteristiques": { "corps": -10, "mental": 0, "dexterite": 10 },
+    "modificateursCompetences": {
+      "seduction": -10,
+      "persuasion": 5,
+      "escroquerieMensonge": 5,
+      "intimidation": -5,
+      "survie": 10,
+      "mecanique": 20
+    },
+    "armureNaturelle": 0,
+    "description": "<p>Petits humanoïdes de Tatooine, le visage toujours dissimulé sous une capuche d'où ne dépassent que deux yeux jaunes brillants, réputés pour leur hygiène quasi nulle et leur forte odeur.</p><p>Peuple primitif doté d'une vision nocturne portant jusqu'à 20 mètres.</p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.8.0"
+  }
+}

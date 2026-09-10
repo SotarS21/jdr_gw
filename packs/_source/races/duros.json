@@ -1,0 +1,33 @@
+{
+  "_key": "!items!Ryu60mOClCyeVTHV",
+  "_id": "Ryu60mOClCyeVTHV",
+  "name": "Duros",
+  "type": "race",
+  "img": "icons/svg/oak.svg",
+  "system": {
+    "modificateursCaracteristiques": {
+      "corps": -10,
+      "mental": 5,
+      "dexterite": 5
+    },
+    "modificateursCompetences": {
+      "survie": -5,
+      "social": 10
+    },
+    "armureNaturelle": 0,
+    "description": "<p>Espèce humanoïde à la peau verte ou bleue et sans nez, célèbre pour avoir été les premiers grands explorateurs de la galaxie.</p><p>Don : sens spatial, un instinct qui leur permet de percevoir intuitivement l'espace et les trajectoires.</p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.8.0"
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "_key": "!items!V8ncUgq5wWE2Zc3b",
+  "_id": "V8ncUgq5wWE2Zc3b",
+  "name": "Soldat médecin",
+  "type": "metier",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "prerequis": {
+      "metier": "",
+      "niveauMinimum": 0,
+      "texteLibre": "affiliation => empire / république / privé"
+    },
+    "competences": [
+      {
+        "cle": "blaster",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "medecine",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "survie",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "artisanat",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "sangFroid",
+        "bonus": 0,
+        "obligatoire": true
+      }
+    ],
+    "equipement": [
+      {
+        "nom": "Matériel médical (1 kit anti-fracture, kolto x10, 1 kit chirurgie basique)",
+        "quantite": 1
+      },
+      {
+        "nom": "Blaster 1d4",
+        "quantite": 1
+      },
+      {
+        "nom": "Armure légère +1",
+        "quantite": 1
+      },
+      {
+        "nom": "Comlink d’urgence",
+        "quantite": 1
+      }
+    ],
+    "talent": {
+      "nom": "Ne meure pas !",
+      "description": "Donne à un allié la possibilité de relancer un test de survie raté."
+    },
+    "description": "<p></p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.8.0"
+  }
+}

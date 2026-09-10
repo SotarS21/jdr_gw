@@ -1,0 +1,29 @@
+{
+  "_key": "!items!6Hl432jRKxXUA0It",
+  "_id": "6Hl432jRKxXUA0It",
+  "name": "Kubaz",
+  "type": "race",
+  "img": "icons/svg/oak.svg",
+  "system": {
+    "modificateursCaracteristiques": { "corps": -10, "mental": 0, "dexterite": 10 },
+    "modificateursCompetences": {
+      "perception": 10,
+      "furtivite": 20,
+      "survie": 10,
+      "pickpocket": 5
+    },
+    "armureNaturelle": 0,
+    "description": "<p>Originaires de Kubindi, planète irradiée par les UV, ils portent en permanence une combinaison intégrale de protection ; sans elle, ils subissent -20% aux actions en lumière normale.</p><p>Discrets et souvent liés à des métiers peu scrupuleux, ils entretiennent un réseau de contacts secrets sur de nombreuses planètes.</p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": { "default": 0 },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.8.0"
+  }
+}

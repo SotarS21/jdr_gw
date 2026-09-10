@@ -1,0 +1,88 @@
+{
+  "_key": "!items!pi8JBmXDArhj5ybA",
+  "_id": "pi8JBmXDArhj5ybA",
+  "name": "Médecin",
+  "type": "metier",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "prerequis": {
+      "metier": "",
+      "niveauMinimum": 0,
+      "texteLibre": ""
+    },
+    "competences": [
+      {
+        "cle": "medecine",
+        "bonus": 20,
+        "obligatoire": true
+      },
+      {
+        "cle": "commanderGuider",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "social",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "perception",
+        "bonus": 0,
+        "obligatoire": true
+      }
+    ],
+    "equipement": [
+      {
+        "nom": "Matériel médical",
+        "quantite": 1
+      },
+      {
+        "nom": "Scalpel laser",
+        "quantite": 1
+      },
+      {
+        "nom": "Infirmerie (soit dans un vaisseau, soit une enseigne)",
+        "quantite": 1
+      },
+      {
+        "nom": "Trousse de chirurgie de terrain",
+        "quantite": 5
+      },
+      {
+        "nom": "Manuel de survie",
+        "quantite": 1
+      },
+      {
+        "nom": "Traducteur universel",
+        "quantite": 1
+      },
+      {
+        "nom": "Blouse de travail",
+        "quantite": 1
+      },
+      {
+        "nom": "Équipement anti-contamination",
+        "quantite": 1
+      }
+    ],
+    "talent": {
+      "nom": "Chirurgien",
+      "description": "+4 en médecine et permet d'opérer sur le terrain."
+    },
+    "description": "<p>Praticien soignant sur le terrain comme en infirmerie ; sa maîtrise de la chirurgie lui confère un bonus contextuel de +20% en Médecine lors d'une opération.</p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.8.0"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "_key": "!items!wxVVS1x0Pc6fdwjy",
+  "_id": "wxVVS1x0Pc6fdwjy",
+  "name": "Chagrian",
+  "type": "race",
+  "img": "icons/svg/oak.svg",
+  "system": {
+    "modificateursCaracteristiques": {
+      "corps": 10,
+      "mental": 0,
+      "dexterite": 10
+    },
+    "modificateursCompetences": {
+      "survie": 5
+    },
+    "armureNaturelle": 0,
+    "description": "<p>Espèce amphibie humanoïde à la peau bleue, dotée de cornes et de tentacules de tête se terminant en cornes secondaires.</p><p>Respiration aquatique, natation experte, résistance aux radiations, vision en lumière faible et communication innée avec les possesseurs de lekku.</p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.8.0"
+  }
+}

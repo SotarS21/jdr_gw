@@ -1,0 +1,33 @@
+{
+  "_key": "!items!qZ0g8UGbFzEXwj9e",
+  "_id": "qZ0g8UGbFzEXwj9e",
+  "name": "Mon Calamari",
+  "type": "race",
+  "img": "icons/svg/oak.svg",
+  "system": {
+    "modificateursCaracteristiques": {
+      "corps": -5,
+      "mental": 5,
+      "dexterite": 0
+    },
+    "modificateursCompetences": {
+      "artisanat": 5,
+      "sagesse": 5
+    },
+    "armureNaturelle": 0,
+    "description": "<p>Amphibiens aussi à l'aise sur terre que dans l'eau : respiration aquatique, nageurs experts et vision nocturne. Leur peau se dessèche rapidement en milieu aride, ce qui peut leur être mortel.</p><p>Transmettent le savoir de leur espèce de génération en génération.</p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.8.0"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "_key": "!items!2R01FHFxjYcgJI8P",
+  "_id": "2R01FHFxjYcgJI8P",
+  "name": "Sullustan",
+  "type": "race",
+  "img": "icons/svg/oak.svg",
+  "system": {
+    "modificateursCaracteristiques": { "corps": -5, "mental": 0, "dexterite": 5 },
+    "modificateursCompetences": {
+      "escaladeSaut": 10,
+      "perception": 20
+    },
+    "armureNaturelle": 0,
+    "description": "<p>Quasi-humains pilotes et navigateurs hors pair, aux grandes oreilles leur offrant une ouïe exceptionnelle.</p><p>Voient dans le noir jusqu'à 20 mètres sans être sensibles aux infrarouges.</p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.8.0"
+  }
+}

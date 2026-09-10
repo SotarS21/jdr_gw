@@ -1,0 +1,29 @@
+{
+  "_key": "!items!ZXjyIRRsb66P4tib",
+  "_id": "ZXjyIRRsb66P4tib",
+  "name": "Togrutas",
+  "type": "race",
+  "img": "icons/svg/oak.svg",
+  "system": {
+    "modificateursCaracteristiques": { "corps": -5, "mental": 0, "dexterite": 0 },
+    "modificateursCompetences": {
+      "perception": 10,
+      "intimidation": 5
+    },
+    "armureNaturelle": 0,
+    "description": "<p>Peuple au profond sens du groupe, arborant des cornes (montrals) et des tentacules (lekku) qui leur permettent de percevoir les mouvements alentour grâce aux ultrasons.</p><p>Communication innée entre porteurs de lekku et grande affinité avec la Force.</p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.8.0"
+  }
+}

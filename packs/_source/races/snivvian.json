@@ -1,0 +1,29 @@
+{
+  "_key": "!items!4I0GkFqXxnqvC918",
+  "_id": "4I0GkFqXxnqvC918",
+  "name": "Snivvian",
+  "type": "race",
+  "img": "icons/svg/oak.svg",
+  "system": {
+    "modificateursCaracteristiques": { "corps": 5, "mental": -10, "dexterite": 0 },
+    "modificateursCompetences": {
+      "perception": 10,
+      "pilotage": 10
+    },
+    "armureNaturelle": 2,
+    "description": "<p>Mammifères au museau proéminent et aux crocs courts, excellents éclaireurs et pisteurs, dotés d'une peau épaisse résistante au froid.</p><p>Tempérament artiste et grand voyageur, nourrissant une haine tenace envers les esclavagistes.</p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.8.0"
+  }
+}

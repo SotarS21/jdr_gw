@@ -1,0 +1,36 @@
+{
+  "_key": "!items!ZrAFMqIQvShGSBWD",
+  "_id": "ZrAFMqIQvShGSBWD",
+  "name": "Zabrak",
+  "type": "race",
+  "img": "icons/svg/oak.svg",
+  "system": {
+    "modificateursCaracteristiques": {
+      "corps": 5,
+      "mental": 0,
+      "dexterite": 0
+    },
+    "modificateursCompetences": {
+      "furtivite": -10,
+      "bagarre": 20,
+      "artisanat": 10,
+      "sagesse": -10,
+      "survie": 10
+    },
+    "armureNaturelle": 0,
+    "description": "<p>Quasi-humains reconnaissables à leurs cornes et à leurs tatouages faciaux rituels, les Zabraks sont carnivores.</p><p>Ils possèdent un second cœur et une grande résistance à la douleur physique.</p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.8.0"
+  }
+}

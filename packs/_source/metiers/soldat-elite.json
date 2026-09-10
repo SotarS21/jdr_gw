@@ -1,0 +1,81 @@
+{
+  "_key": "!items!yVuShJi8aSqyPnRr",
+  "_id": "yVuShJi8aSqyPnRr",
+  "name": "Soldat d’élite",
+  "type": "metier",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "prerequis": {
+      "metier": "",
+      "niveauMinimum": 0,
+      "texteLibre": "affiliation => empire / république / privé"
+    },
+    "competences": [
+      {
+        "cle": "blaster",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "canonLourd",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "survie",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "furtivite",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "escaladeSaut",
+        "bonus": 0,
+        "obligatoire": true
+      }
+    ],
+    "equipement": [
+      {
+        "nom": "Fusil long porté",
+        "quantite": 1
+      },
+      {
+        "nom": "Radio onde courte avec cryptage",
+        "quantite": 1
+      },
+      {
+        "nom": "Jumelle de vision (nocturne + infrarouge + électro-réactive)",
+        "quantite": 1
+      },
+      {
+        "nom": "Balise fumigène",
+        "quantite": 1
+      },
+      {
+        "nom": "Armure légère +1 (casque et plastron)",
+        "quantite": 1
+      }
+    ],
+    "talent": {
+      "nom": "Pistolero",
+      "description": "Permet de lancer des tests d’esquive et/ou de blocage quand il tire."
+    },
+    "description": "<p></p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.8.0"
+  }
+}

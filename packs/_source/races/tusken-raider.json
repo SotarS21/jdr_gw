@@ -1,0 +1,35 @@
+{
+  "_key": "!items!rZyNkinI04EGUReT",
+  "_id": "rZyNkinI04EGUReT",
+  "name": "Les hommes des sable ou Tusken Raider",
+  "type": "race",
+  "img": "icons/svg/oak.svg",
+  "system": {
+    "modificateursCaracteristiques": {
+      "corps": 5,
+      "mental": -10,
+      "dexterite": 5
+    },
+    "modificateursCompetences": {
+      "blaster": 5,
+      "sagesse": -20,
+      "furtivite": 10,
+      "survie": 10
+    },
+    "armureNaturelle": 0,
+    "description": "<p>Nomades primitifs du désert de Tatooine, hostiles aux colons.</p><p>Par pudeur culturelle, ils ne retirent jamais leurs tenues en présence de quiconque n'est pas de leur famille proche.</p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.8.0"
+  }
+}

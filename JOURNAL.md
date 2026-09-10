@@ -1,5 +1,65 @@
 # Journal de développement — Galactic Wars
 
+## Session du 2026-09-10 (suite) — Complétion races + métiers (v0.7.0 → v0.8.0)
+
+**Recherche de sources avant de commencer** : contrairement à la mise en garde du §7.1 du cahier des
+charges ("formules Excel imbriquées incohérentes"), qui s'avère concerner surtout les **métiers**
+pas les races, deux sources propres et non ambiguës ont été trouvées :
+- `Race galactique world.pdf` (55 pages, ~43 races) : texte en prose avec un bloc "Bonus :" par race
+  donnant des % explicites — aucune formule à interpréter. Extraction via un nouvel outil
+  `scripts/dump-pdf.mjs` (librairie `pdf-parse`, même logique que `dump-xlsx.mjs`/`dump-docx.mjs`).
+  Recoupé avec les 6 races déjà livrées (Chiss vérifié mot pour mot) : confirme que c'est bien la
+  source déjà utilisée en session 1.
+- Métiers : deux documents à croiser, ni l'un ni l'autre suffisant seul — `Metier v2.5.docx`
+  (prérequis + liste de compétences + équipement, 20 métiers) et `archétype_metier_galactic_wars.docx`
+  (talent signature + équipement, 20 métiers, recoupement partiel avec le premier). 6 métiers
+  (Artiste acrobate, Archéo-archiviste, Cuisinier, Journaliste, Marchand, Sénateur) n'existent que
+  dans le second document (talent + équipement mais aucune compétence associée) — **volontairement
+  pas transcrits cette session**, faute de liste de compétences fiable ; les inventer aurait été une
+  transcription à risque exactement du type que le cahier des charges demande d'éviter.
+- **Talents génériques** (compendium `talents`, Brutale/Charismatique/etc.) : aucune source retrouvée
+  dans le matériel du projet (ni Excel, ni docx, ni PDF) malgré une recherche large — **compendium
+  non complété cette session**, à clarifier avec l'auteur (d'où vient la liste complète ?).
+- **Lacune de schéma découverte** : le référentiel `GW.competences` (37 clés, fiche classique) ne
+  contient aucune compétence d'arme de mêlée ("Arme contondante et blanche"/"Arme blanche"), alors
+  que plusieurs races/métiers du matériel source leur donnent un bonus. Non corrigé cette session
+  (changement de schéma plus large, pas une simple transcription de contenu) — les bonus concernés
+  sont décrits en prose dans le champ `description` de chaque race/métier concerné plutôt
+  qu'inventés comme une fausse clé de compétence. À trancher avec l'auteur.
+
+**Orchestration** : ~51 documents à rédiger (37 races + 14 métiers), chacun nécessitant de mapper des
+noms de compétences en langage naturel vers les clés exactes de `GW.competences` — fait via un
+**workflow multi-agents** (6 agents races + 3 agents métiers en parallèle, chacun lisant directement
+les dépouillements de `dump-pdf.mjs`/`dump-docx.mjs` déjà sauvegardés), avec une légende de
+correspondance nom-source → clé précise fournie à chaque agent pour éviter toute clé inventée, puis
+2 agents de vérification (JSON valide, clés de compétences toutes dans la liste autorisée, pas de
+régression d'accents — la leçon de la session économie a été appliquée : prompts écrits en français
+correct cette fois). Vérifié indépendamment après coup (script Node : JSON valide + clés de
+compétences dans la liste autorisée sur les 63 documents du dossier) : aucun problème trouvé.
+
+**Fait :**
+- Compendium `races` complété à 43/43 (37 nouvelles : Aqualish, Arcona, Barabel, Bith, Mon Calamari,
+  Cathar, Cerean, Chagrian, Devaronian, Dug, Duros, Falleen, Geonosian, Gotal, Gran, Gungan,
+  Ithorian, Jawa, Kaleesh, Kel Dor, Kiffar, Kubaz, Miraluka, Mirialans, Nautolans, Quarren, Noghri,
+  Rattataki, Snivvian, Sullustan, Sith, Togrutas, Toydarien, Tusken Raider, Trandoshan, Verpine,
+  Zabrak).
+- Compendium `metiers` complété à 20/20 (14 nouveaux : Apprenti sith, Jedi Noire, Guerrier sith,
+  Soldat médecin, Soldat d'élite, Assassin, Pirate, Contrebandier, Mandalorien soldat, Médecin,
+  Mécanicien, Agent secret, Robot/droïde, Robot quadrupède/droïde), talent signature rempli quand
+  disponible dans `archétype_metier_galactic_wars.docx` (sinon laissé vide, comme "Jedi consulaire"
+  déjà livré en session 1 — précédent confirmé, pas une omission).
+- Outil `scripts/dump-pdf.mjs` (librairie `pdf-parse`, devDependency).
+
+**Pas fait dans cette session :** talents génériques (source introuvable) ; 6 métiers sans liste de
+compétences source ; le reste du catalogue économique (armes/armures/équipements, ~40 lignes) ;
+contenu PNJ type.
+
+**Fichiers (en plus des sessions précédentes)** : `packs/_source/races/**` (+37),
+`packs/_source/metiers/**` (+14), `scripts/dump-pdf.mjs`, `package.json`/`package-lock.json`
+(devDependency `pdf-parse`), `system.json` (v0.8.0).
+
+---
+
 ## Session du 2026-09-10 (suite) — Économie (v0.6.0 → v0.7.0)
 
 **Portée décidée avec l'utilisateur (question posée)** : le classeur source (`[GW] Science

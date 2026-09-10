@@ -1,0 +1,31 @@
+{
+  "_key": "!items!LqcXzGN3VBD904xN",
+  "_id": "LqcXzGN3VBD904xN",
+  "name": "Sith",
+  "type": "race",
+  "img": "icons/svg/oak.svg",
+  "system": {
+    "modificateursCaracteristiques": { "corps": -5, "mental": 5, "dexterite": 0 },
+    "modificateursCompetences": {
+      "commanderGuider": 10,
+      "sagesse": 5,
+      "spiritisme": 5,
+      "sangFroid": -5
+    },
+    "armureNaturelle": 0,
+    "description": "<p>Humanoïdes à la peau rouge sang, peuple guerrier orgueilleux et autodestructeur, profondément lié au côté obscur de la Force et à ses pratiques mystiques.</p><p>Visage marqué de petites tentacules tombantes de chaque côté de la bouche.</p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.8.0"
+  }
+}

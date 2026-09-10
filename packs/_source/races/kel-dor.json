@@ -1,0 +1,29 @@
+{
+  "_key": "!items!b7LCaJyQUat0MkP3",
+  "_id": "b7LCaJyQUat0MkP3",
+  "name": "Kel Dor",
+  "type": "race",
+  "img": "icons/svg/oak.svg",
+  "system": {
+    "modificateursCaracteristiques": { "corps": -5, "mental": 0, "dexterite": 10 },
+    "modificateursCompetences": {
+      "survie": -5,
+      "sagesse": 10
+    },
+    "armureNaturelle": 0,
+    "description": "<p>Humanoïdes de Dorin respirant du méthane, contraints de porter un masque recouvrant bouche et yeux dès qu'ils quittent leur planète, l'oxygène pur leur étant mortel.</p><p>Vision nocturne, méditation régénératrice (+5%) et affinité avec la Force (+2 points de force).</p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.8.0"
+  }
+}

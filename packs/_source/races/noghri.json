@@ -1,0 +1,33 @@
+{
+  "_key": "!items!FBDwv6oT0VoaU6V7",
+  "_id": "FBDwv6oT0VoaU6V7",
+  "name": "Noghri",
+  "type": "race",
+  "img": "icons/svg/oak.svg",
+  "system": {
+    "modificateursCaracteristiques": { "corps": 0, "mental": 0, "dexterite": 10 },
+    "modificateursCompetences": {
+      "perception": 10,
+      "bagarre": 10,
+      "furtivite": 20,
+      "sagesse": -5,
+      "social": -30,
+      "seduction": -30
+    },
+    "armureNaturelle": 0,
+    "description": "<p>Petits reptiliens humanoïdes à la peau grise ou bleu acier, assassins redoutables au combat furtif, armés de griffes et de crocs.</p><p>Sens de l'odorat extrêmement développé, peuple primitif très attaché à l'honneur et à la culture du clan.</p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.8.0"
+  }
+}

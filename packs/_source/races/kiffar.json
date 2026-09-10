@@ -1,0 +1,28 @@
+{
+  "_key": "!items!kE25604LBS1sNo7V",
+  "_id": "kE25604LBS1sNo7V",
+  "name": "Kiffar",
+  "type": "race",
+  "img": "icons/svg/oak.svg",
+  "system": {
+    "modificateursCaracteristiques": { "corps": 10, "mental": 5, "dexterite": 0 },
+    "modificateursCompetences": {
+      "blocage": 5,
+      "sangFroid": -10,
+      "sagesse": -5
+    },
+    "armureNaturelle": 0,
+    "description": "<p>Proches-humains originaires de Kiffu, de forte constitution, reconnaissables à leurs tatouages faciaux marquant l'appartenance à un clan.</p><p>Possèdent un don de psychométrie leur permettant, au prix d'un point de force, de percevoir l'historique et les usages d'un objet au toucher.</p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": { "default": 0 },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.8.0"
+  }
+}
