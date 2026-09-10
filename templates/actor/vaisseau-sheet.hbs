@@ -1,0 +1,61 @@
+<form class="galactic-wars sheet vaisseau" autocomplete="off">
+  <header class="sheet-header">
+    <img class="portrait" src="{{system.portrait}}" data-action="editImage" alt="{{actor.name}}">
+    <div class="header-fields">
+      <input type="text" name="name" value="{{actor.name}}" placeholder="{{localize 'GALACTICWARS.Sheet.Nom'}}">
+      <label>{{localize 'GALACTICWARS.Sheet.Classe'}} <input type="text" name="system.classe" value="{{system.classe}}"></label>
+      <label>{{localize 'GALACTICWARS.Sheet.Taille'}} <input type="text" name="system.taille" value="{{system.taille}}"></label>
+    </div>
+  </header>
+
+  <section class="ressources">
+    <h2>{{localize 'GALACTICWARS.Sheet.Ressources'}}</h2>
+    <label>{{localize 'GALACTICWARS.Sheet.Coque'}}
+      <input type="number" name="system.pv.actuels" value="{{system.pv.actuels}}"> /
+      <input type="number" name="system.pv.max" value="{{system.pv.max}}">
+    </label>
+    <label>{{localize 'GALACTICWARS.Sheet.BouclierPoints'}} <input type="number" name="system.bouclier.points" value="{{system.bouclier.points}}"></label>
+    <label>{{localize 'GALACTICWARS.Sheet.BouclierReduction'}} <input type="number" name="system.bouclier.reduction" value="{{system.bouclier.reduction}}"></label>
+    <label><input type="checkbox" name="system.bouclier.actif" {{#if system.bouclier.actif}}checked{{/if}}> {{localize 'GALACTICWARS.Sheet.BouclierActif'}}</label>
+    <label>{{localize 'GALACTICWARS.Sheet.Deplacement'}} <input type="number" name="system.moteur.deplacement" value="{{system.moteur.deplacement}}"></label>
+  </section>
+
+  <section class="armement">
+    <h2>{{localize 'GALACTICWARS.Sheet.Armement'}} <button type="button" data-action="addArmement">+</button></h2>
+    {{#each system.armement as |arme i|}}
+    <div class="vaisseau-row">
+      <input type="text" name="system.armement.{{i}}.nom" value="{{arme.nom}}" placeholder="{{localize 'GALACTICWARS.Sheet.ArmementNom'}}">
+      <input type="text" name="system.armement.{{i}}.degats" value="{{arme.degats}}" placeholder="{{localize 'GALACTICWARS.Item.Degats'}}">
+      <input type="number" name="system.armement.{{i}}.quantite" value="{{arme.quantite}}">
+      <button type="button" data-action="removeArmement" data-index="{{i}}">🗑</button>
+    </div>
+    {{/each}}
+  </section>
+
+  <section class="equipage">
+    <h2>{{localize 'GALACTICWARS.Sheet.Equipage'}} <button type="button" data-action="addEquipage">+</button></h2>
+    {{#each system.equipage as |membre i|}}
+    <div class="vaisseau-row equipage-row">
+      <input type="text" name="system.equipage.{{i}}.role" value="{{membre.role}}" placeholder="{{localize 'GALACTICWARS.Sheet.Role'}}">
+      <input type="text" name="system.equipage.{{i}}.nom" value="{{membre.nom}}" placeholder="{{localize 'GALACTICWARS.Sheet.Nom'}}">
+      <button type="button" data-action="removeEquipage" data-index="{{i}}">🗑</button>
+      <textarea name="system.equipage.{{i}}.description">{{membre.description}}</textarea>
+    </div>
+    {{/each}}
+  </section>
+
+  <section class="soute">
+    <h2>{{localize 'GALACTICWARS.Sheet.Soute'}}</h2>
+    <textarea name="system.soute">{{system.soute}}</textarea>
+  </section>
+
+  <section class="equipements-embarques">
+    <h2>{{localize 'GALACTICWARS.Sheet.EquipementsEmbarques'}}</h2>
+    <textarea name="system.equipementsEmbarques">{{system.equipementsEmbarques}}</textarea>
+  </section>
+
+  <section class="description">
+    <h2>{{localize 'GALACTICWARS.Sheet.Biographie'}}</h2>
+    <prose-mirror name="system.description" value="{{system.description}}">{{{descriptionEnrichie}}}</prose-mirror>
+  </section>
+</form>

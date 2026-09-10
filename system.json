@@ -2,7 +2,7 @@
   "id": "galactic-wars",
   "title": "Galactic Wars",
   "description": "Système de jeu de rôle Star Wars maison : compétences en pourcentage, races, métiers, force, alignement Lumière/Obscurité.",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "socket": true,
   "compatibility": {
     "minimum": "13",
@@ -21,7 +21,8 @@
       "personnage": { "htmlFields": ["biographie"] },
       "personnage-rapide": { "htmlFields": ["description"] },
       "personnage-sith": { "htmlFields": ["description"] },
-      "pnj": { "htmlFields": ["description"] }
+      "pnj": { "htmlFields": ["description"] },
+      "vaisseau": { "htmlFields": ["description"] }
     },
     "Item": {
       "race": { "htmlFields": ["description"] },
@@ -43,6 +44,7 @@
     { "name": "armes", "label": "Armes", "path": "packs/armes", "type": "Item" },
     { "name": "armures", "label": "Armures", "path": "packs/armures", "type": "Item" },
     { "name": "ecoles", "label": "Écoles sith", "path": "packs/ecoles", "type": "Item" },
-    { "name": "pregens-sith", "label": "Pregens sith", "path": "packs/pregens-sith", "type": "Actor" }
+    { "name": "pregens-sith", "label": "Pregens sith", "path": "packs/pregens-sith", "type": "Actor" },
+    { "name": "vaisseaux", "label": "Vaisseaux", "path": "packs/vaisseaux", "type": "Actor" }
   ]
 }

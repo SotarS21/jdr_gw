@@ -4,6 +4,7 @@ import { GalacticWarsItem } from "./documents/item.mjs";
 import { PersonnageData } from "./data/actor-personnage.mjs";
 import { PersonnageRapideData } from "./data/actor-personnage-rapide.mjs";
 import { PersonnageSithData } from "./data/actor-personnage-sith.mjs";
+import { VaisseauData } from "./data/actor-vaisseau.mjs";
 import { RaceData } from "./data/item-race.mjs";
 import { MetierData } from "./data/item-metier.mjs";
 import { TalentData } from "./data/item-talent.mjs";
@@ -15,6 +16,7 @@ import { EcoleData } from "./data/item-ecole.mjs";
 import { PersonnageSheet } from "./sheets/personnage-sheet.mjs";
 import { PersonnageRapideSheet } from "./sheets/personnage-rapide-sheet.mjs";
 import { PersonnageSithSheet } from "./sheets/personnage-sith-sheet.mjs";
+import { VaisseauSheet } from "./sheets/vaisseau-sheet.mjs";
 import { GalacticWarsItemSheet } from "./sheets/item-sheet.mjs";
 import { runMigrations } from "./helpers/migration.mjs";
 
@@ -33,6 +35,7 @@ Hooks.once("init", () => {
   // seule la mécanique de jet diffère (% plutôt que d20, voir sheets/personnage-rapide-sheet.mjs).
   CONFIG.Actor.dataModels.pnj = PersonnageRapideData;
   CONFIG.Actor.dataModels["personnage-sith"] = PersonnageSithData;
+  CONFIG.Actor.dataModels.vaisseau = VaisseauData;
   CONFIG.Item.dataModels.race = RaceData;
   CONFIG.Item.dataModels.metier = MetierData;
   CONFIG.Item.dataModels.talent = TalentData;
@@ -70,6 +73,12 @@ Hooks.once("init", () => {
     types: ["personnage-sith"],
     makeDefault: true,
     label: "GALACTICWARS.Sheet.PersonnageSith"
+  });
+
+  DocumentSheetConfig.registerSheet(Actor, "galactic-wars", VaisseauSheet, {
+    types: ["vaisseau"],
+    makeDefault: true,
+    label: "GALACTICWARS.Sheet.Vaisseau"
   });
 
   DocumentSheetConfig.registerSheet(Item, "galactic-wars", GalacticWarsItemSheet, {

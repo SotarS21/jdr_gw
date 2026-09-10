@@ -128,6 +128,28 @@
   margin-bottom: 0.4rem;
 }
 
+.galactic-wars .vaisseau-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 3.5rem 2rem;
+  align-items: center;
+  gap: 0.3rem;
+  margin-bottom: 0.3rem;
+}
+
+.galactic-wars .vaisseau-row.equipage-row {
+  grid-template-columns: 1fr 1fr 2rem;
+}
+
+.galactic-wars .vaisseau-row.equipage-row textarea {
+  grid-column: 1 / -1;
+}
+
+.galactic-wars .vaisseau-row button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
 @container galactic-wars-sheet (max-width: 420px) {
   .galactic-wars .caracteristiques-rapides-list {
     grid-template-columns: 1fr;
