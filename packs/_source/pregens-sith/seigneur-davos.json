@@ -1,0 +1,53 @@
+{
+  "_key": "!actors!0eWQ6TuSPze22SUP",
+  "_id": "0eWQ6TuSPze22SUP",
+  "name": "Seigneur Davos",
+  "type": "personnage-sith",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "infos": { "nom": "Repto Davius", "nomSith": "Seigneur Davos" },
+    "race": { "uuid": "", "nom": "Cathar" },
+    "ecole": {
+      "uuid": "Compendium.galactic-wars.ecoles.Item.t1Z3D6XFvFEU9VXa",
+      "nom": "Héraut sith",
+      "capacitesSpeciales": "Capacité d'enrager ses alliés : Cri utilisable une fois par combat qui donne un bonus de +5 à tous les alliés pour leur prochaine action.\nCapacité de poussée de la force améliorée : Maîtrise le saut de la force à la perfection et peut repousser beaucoup d'ennemis à la fois (4 + faible constitution).\nÉquipement de départ : Droïde porteur + blaster"
+    },
+    "corpulence": "fort",
+    "pv": { "actuels": 17 },
+    "force": { "value": 0, "max": 0 },
+    "chance": 0,
+    "survie": { "chance": 0, "base": 0 },
+    "caracteristiques": { "physique": 6, "agilite": 4, "perception": 2, "mental": 1 },
+    "competencesForce": {
+      "telekinesie": 0,
+      "pousseeDeForce": 3,
+      "eclairDeForce": 1,
+      "defense": 4,
+      "illusion": 0,
+      "persuasion": 4,
+      "combatArme": 6,
+      "furtivite": 0
+    },
+    "equipement": "Sabre laser moyen (10 dégâts)\nArmure + 4\nBouclier +2",
+    "portrait": "icons/svg/mystery-man.svg",
+    "description": "<p><strong>Maître :</strong> Dark Negeth</p><p><strong>Caractère :</strong> Sanguin - Imposant - Meneur</p><p>Repto est un orphelin de guerre. Alors qu'il était en pleine campagne, son maître le trouva dans un village en train d'être anéanti : le garçon, à peine âgé de 5 ans, s'est dressé droit contre lui. Il y a eu comme une connexion avec la Force, et son maître a pris la décision de le prendre comme apprenti s'il survivait à l'académie. Après 46 blessés parmi ses camarades, son maître le sortit de l'école des sith pour l'emmener dans les batailles auxquelles il était lui-même affecté. Repto a beaucoup appris de lui : comment gagner un combat à grande échelle, l'art de la guerre, mais aussi comment mener ses hommes et exploiter les meilleures ressources pour chaque tâche. Tout cela fait de lui un bon leader et un fin stratège.</p>"
+  },
+  "prototypeToken": {
+    "name": "Seigneur Davos",
+    "texture": { "src": "icons/svg/mystery-man.svg" },
+    "actorLink": true
+  },
+  "items": [],
+  "effects": [],
+  "folder": null,
+  "sort": 100000,
+  "ownership": { "default": 0 },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.5.0"
+  }
+}

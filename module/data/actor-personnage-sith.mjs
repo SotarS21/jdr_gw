@@ -58,10 +58,14 @@ export class PersonnageSithData extends foundry.abstract.TypeDataModel {
         mental: modificateur()
       }),
 
-      // Les 7 compétences de force fixes de la fiche sith (aussi résolues en 1d20 + valeur).
+      // Les 8 compétences de force fixes de la fiche sith (aussi résolues en 1d20 + valeur).
+      // "Éclair de force" est absent du classeur vierge (fiche perso sith prétirer.xlsx)
+      // mais présent avec des valeurs non nulles sur les 6 pregens — ajouté ici plutôt
+      // qu'omis pour ne pas perdre cette donnée de personnage (voir JOURNAL.md).
       competencesForce: new SchemaField({
         telekinesie: modificateur(),
         pousseeDeForce: modificateur(),
+        eclairDeForce: modificateur(),
         defense: modificateur(),
         illusion: modificateur(),
         persuasion: modificateur(),

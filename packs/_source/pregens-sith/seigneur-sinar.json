@@ -1,0 +1,53 @@
+{
+  "_key": "!actors!mj3QHuTqFFzeZBnc",
+  "_id": "mj3QHuTqFFzeZBnc",
+  "name": "Seigneur Sinar",
+  "type": "personnage-sith",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "infos": { "nom": "Tania Leviz", "nomSith": "Seigneur Sinar" },
+    "race": { "uuid": "", "nom": "Kiffar" },
+    "ecole": {
+      "uuid": "Compendium.galactic-wars.ecoles.Item.CJR9nxTwHjrlk44I",
+      "nom": "Inquisiteur sith",
+      "capacitesSpeciales": "Capacité de télékinésie améliorée : Permet d'utiliser la télékinésie de manière plus puissante — là où un sith de base pourrait enserrer la gorge d'un individu, un inquisiteur peut le faire sur quatre.\nCapacité sociale instruite : Connaît l'étiquette au point d'être à l'aise dans n'importe quel milieu : champ de bataille, rues sordides de Nar Shaddaa, tribunaux de Coruscant, dîner avec le conseil noir.\nÉquipement de départ : Vaisseau moyen (6 places)"
+    },
+    "corpulence": "normal",
+    "pv": { "actuels": 11 },
+    "force": { "value": 0, "max": 0 },
+    "chance": 0,
+    "survie": { "chance": 0, "base": 0 },
+    "caracteristiques": { "physique": 4, "agilite": 2, "perception": 1, "mental": 6 },
+    "competencesForce": {
+      "telekinesie": 4,
+      "pousseeDeForce": 3,
+      "eclairDeForce": 0,
+      "defense": 0,
+      "illusion": 3,
+      "persuasion": 6,
+      "combatArme": 3,
+      "furtivite": 0
+    },
+    "equipement": "Sabre laser grand (12 dégâts)\nRobe de sith d'apparat\nCom'Link\nSeringue colto x1\nSabre laser de Typhonius",
+    "portrait": "icons/svg/mystery-man.svg",
+    "description": "<p><strong>Maître :</strong> Dark Typhonius</p><p><strong>Caractère :</strong> Hautaine - Ambitieuse - Audacieuse</p><p>Tania est une descendante de noble qui n'a jamais perdu son air supérieur malgré ses années passées à l'académie. Elle est douée avec son sabre, mais encore plus avec le sens des mots : instruite, ses moqueries sont aussi tranchantes que ses lames. Elle a rapidement gagné en popularité en fédérant un petit groupe d'étudiants aux compétences complémentaires. Capable de leadership grâce à l'enseignement de son maître, elle comprend les gens, leurs faiblesses, et les exploite pour les contraindre à faire ce qu'elle veut. Elle n'hésite cependant pas à utiliser la force que son maître lui a apprise.</p><p><em>Note MJ : 2 PV en moins (lien avec Seigneur Quenor).</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Seigneur Sinar",
+    "texture": { "src": "icons/svg/mystery-man.svg" },
+    "actorLink": true
+  },
+  "items": [],
+  "effects": [],
+  "folder": null,
+  "sort": 100000,
+  "ownership": { "default": 0 },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.5.0"
+  }
+}

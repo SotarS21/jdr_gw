@@ -1,0 +1,53 @@
+{
+  "_key": "!actors!u5d0bjNAzTpFI5yl",
+  "_id": "u5d0bjNAzTpFI5yl",
+  "name": "Seigneur Kris",
+  "type": "personnage-sith",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "infos": { "nom": "Oro Thif", "nomSith": "Seigneur Kris" },
+    "race": { "uuid": "", "nom": "Trandoshan" },
+    "ecole": {
+      "uuid": "Compendium.galactic-wars.ecoles.Item.1VwNrBb9x9j7U4Y0",
+      "nom": "Magicien",
+      "capacitesSpeciales": "Capacité de télékinésie améliorée : Peut utiliser la télékinésie de manière imperceptible aux autres — plus difficile de savoir ce qu'il fait. Nécessite tout de même un jet, relançable une fois par jet si le premier est raté.\nCapacité d'illusion physique : Peut utiliser l'illusion pour falsifier une attaque physique (cacher son sabre laser, feindre une direction d'attaque). Ne permet pas de créer un double."
+    },
+    "corpulence": "normal",
+    "pv": { "actuels": 13 },
+    "force": { "value": 0, "max": 0 },
+    "chance": 0,
+    "survie": { "chance": 0, "base": 0 },
+    "caracteristiques": { "physique": 3, "agilite": 2, "perception": 4, "mental": 4 },
+    "competencesForce": {
+      "telekinesie": 6,
+      "pousseeDeForce": 4,
+      "eclairDeForce": 0,
+      "defense": 2,
+      "illusion": 5,
+      "persuasion": 0,
+      "combatArme": 2,
+      "furtivite": 3
+    },
+    "equipement": "Double sabre laser à lame droite ou bien courbe, seul lui le sait (8 de dégâts)\nArmure + 2\nComlink\nHolocron de dark Karku, ancien sith mage",
+    "portrait": "icons/svg/mystery-man.svg",
+    "description": "<p><strong>Maître :</strong> Dark Jappa</p><p><strong>Sexe :</strong> Mâle</p><p><strong>Caractère :</strong> Patient - Réfléchi - Rancunier</p><p>Les capacités d'Oro furent découvertes assez tôt et il fut envoyé à l'académie pour étudier. Ses capacités physiques et ses prouesses au sabre laser assez lamentables lui causèrent bien des troubles jusqu'à se faire victimiser par les autres élèves. Il se vengea en travaillant sur ses affinités télékinétiques et fit regretter à ses tourmenteurs via des moyens détournés qui ne purent jamais lui être reprochés faute de preuves. Pour pallier sa faiblesse au sabre laser, il développa une illusion rendant sa lame courbe ou bien droite pour déstabiliser ses adversaires. Sa sournoiserie et ses capacités de planification impressionnèrent suffisamment Dark Jappa pour qu'elle l'accepte comme apprenti. Oro est patient et réfléchi mais particulièrement rancunier.</p>"
+  },
+  "prototypeToken": {
+    "name": "Seigneur Kris",
+    "texture": { "src": "icons/svg/mystery-man.svg" },
+    "actorLink": true
+  },
+  "items": [],
+  "effects": [],
+  "folder": null,
+  "sort": 100000,
+  "ownership": { "default": 0 },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.5.0"
+  }
+}

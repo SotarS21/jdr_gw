@@ -1,0 +1,53 @@
+{
+  "_key": "!actors!78m1GoH5eZla0QEi",
+  "_id": "78m1GoH5eZla0QEi",
+  "name": "Seigneure Mer Naga",
+  "type": "personnage-sith",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "infos": { "nom": "Nagani", "nomSith": "Seigneure Mer Naga" },
+    "race": { "uuid": "", "nom": "Chagrian" },
+    "ecole": {
+      "uuid": "Compendium.galactic-wars.ecoles.Item.PYAEP26rHiihS3ON",
+      "nom": "Sorcière sith",
+      "capacitesSpeciales": "Capacité d'empoisonnement de l'esprit (illusion) : Fabrique une illusion sur mesure pour une personne précise et détecte la pire peur d'un ennemi ; l'ennemi devient incapable de réagir et peut même en mourir selon la réussite du sort.\nCapacité d'éclair en chaîne : Génère un éclair sith qui se transfère d'une personne à l'autre dans un rayon moyen (4 m de diamètre de base, x2 si réussite critique). Dégâts égaux à 10 par personne touchée.\nÉquipement de départ : Objets tribaux"
+    },
+    "corpulence": "normal",
+    "pv": { "actuels": 13 },
+    "force": { "value": 0, "max": 0 },
+    "chance": 0,
+    "survie": { "chance": 0, "base": 0 },
+    "caracteristiques": { "physique": 1, "agilite": 3, "perception": 4, "mental": 5 },
+    "competencesForce": {
+      "telekinesie": 1,
+      "pousseeDeForce": 0,
+      "eclairDeForce": 3,
+      "defense": 2,
+      "illusion": 5,
+      "persuasion": 4,
+      "combatArme": 1,
+      "furtivite": 3
+    },
+    "equipement": "Sabre laser simple (10 de dégâts)\nRobe fendue et cuissardes en cuir noir\nCom Link\nArmure + 0\nColliers d'osselets",
+    "portrait": "icons/svg/mystery-man.svg",
+    "description": "<p><strong>Maître :</strong> Dark Bron</p><p><strong>Sexe :</strong> Femelle</p><p><strong>Caractère :</strong> Fougueuse - Lubrique - Mentaliste</p><p>Mer Naga est née de sexe masculin et après sa transition a décidé de garder ses cornes, parce que c'est plus classe comme ça ! Elle ne supporte pas les vantards et aurait tendance à utiliser leur peur contre eux juste pour les remettre à leur place. Cela dit, les corps très (ou trop) musclés ne la laissent pas indifférente.</p>"
+  },
+  "prototypeToken": {
+    "name": "Seigneure Mer Naga",
+    "texture": { "src": "icons/svg/mystery-man.svg" },
+    "actorLink": true
+  },
+  "items": [],
+  "effects": [],
+  "folder": null,
+  "sort": 100000,
+  "ownership": { "default": 0 },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.5.0"
+  }
+}

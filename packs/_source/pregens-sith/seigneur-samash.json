@@ -1,0 +1,53 @@
+{
+  "_key": "!actors!L73NUHCt2Cx5L23w",
+  "_id": "L73NUHCt2Cx5L23w",
+  "name": "Seigneur Samash",
+  "type": "personnage-sith",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "infos": { "nom": "Daminen Shi", "nomSith": "Seigneur Samash" },
+    "race": { "uuid": "", "nom": "Devaronian (mâle) / Devaron (femelle)" },
+    "ecole": {
+      "uuid": "Compendium.galactic-wars.ecoles.Item.aFhsQelT0u3TGdn0",
+      "nom": "Guerrier sith",
+      "capacitesSpeciales": "Capacité de défense améliorée : Permet de se défendre autant de fois que le joueur réussit un jet de défense. En cas d'échec au premier jet, possibilité de relancer une seule fois.\nCapacité d'acharnement : Permet d'attaquer en combat armé avec acharnement : tant que le joueur réussit, il peut continuer d'attaquer jusqu'à 4 fois.\nÉquipement de départ : Droïde médical"
+    },
+    "corpulence": "epais",
+    "pv": { "actuels": 15 },
+    "force": { "value": 0, "max": 0 },
+    "chance": 0,
+    "survie": { "chance": 0, "base": 0 },
+    "caracteristiques": { "physique": 6, "agilite": 4, "perception": 2, "mental": 1 },
+    "competencesForce": {
+      "telekinesie": 3,
+      "pousseeDeForce": 4,
+      "eclairDeForce": 1,
+      "defense": 3,
+      "illusion": 0,
+      "persuasion": 2,
+      "combatArme": 6,
+      "furtivite": 1
+    },
+    "equipement": "Sabre laser simple (10 dégâts)\nArmure anti-blaster + 5",
+    "portrait": "icons/svg/mystery-man.svg",
+    "description": "<p><strong>Maître :</strong> Dark Xavius</p><p><strong>Sexe :</strong> Mâle</p><p><strong>Caractère :</strong> Vaniteux - Alerte - Ambitieux</p><p>Xénophobe depuis toujours, il vit dans l'ombre de son maître, pur sith. Il est maltraité à cause de sa race et cache sa colère sous un masque de haine. Il s'est coupé les cornes pour contenter son maître et fait payer quiconque se croit meilleur que lui. C'est un bon pilote et un grand guerrier : il a appris à la dure, en compétition avec les trois autres apprentis de Dark Xavius. Il s'est déjà battu pour l'Empire, mais pas contre des jedis — contre des peuples faibles et faciles à détruire. Il a été choisi pour la mission spéciale de l'empereur ; il en est vaniteux, mais sait aussi que s'il ne revient pas vainqueur, un autre prendra sa place.</p>"
+  },
+  "prototypeToken": {
+    "name": "Seigneur Samash",
+    "texture": { "src": "icons/svg/mystery-man.svg" },
+    "actorLink": true
+  },
+  "items": [],
+  "effects": [],
+  "folder": null,
+  "sort": 100000,
+  "ownership": { "default": 0 },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.5.0"
+  }
+}

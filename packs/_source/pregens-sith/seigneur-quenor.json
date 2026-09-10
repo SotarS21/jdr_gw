@@ -1,0 +1,53 @@
+{
+  "_key": "!actors!qr0JMcDvRh1MAMxV",
+  "_id": "qr0JMcDvRh1MAMxV",
+  "name": "Seigneur Quenor",
+  "type": "personnage-sith",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "infos": { "nom": "Tresh Cin", "nomSith": "Seigneur Quenor" },
+    "race": { "uuid": "Compendium.galactic-wars.races.Item.yffXA1DmJi9Ijpo4", "nom": "Humain" },
+    "ecole": {
+      "uuid": "Compendium.galactic-wars.ecoles.Item.8psEfaYZxDAvLNWX",
+      "nom": "Assassin sith",
+      "capacitesSpeciales": "Capacité de meurtre instantané : Permet de tuer une personne en réussissant simplement un test de furtivité. Le personnage ne doit pas être déjà en combat ; tant qu'il n'a pas été repéré, le joueur peut enchaîner les attaques (jusqu'à 4). S'il est repéré, il a le droit de faire l'attaque, mais se fera attaquer juste derrière, comme une attaque d'opportunité.\nCapacité d'empoisonnement indétectable : Développe un poison indétectable envoyé sous forme de cartouche. Sur 1d4 : 1 = folie meurtrière, 2 = sommeil profond jusqu'à la mort, 3 = arrêt cardiaque, 4 = la cible se vide de son sang par tous les orifices 5 min après ingestion.\nÉquipement de départ : Vaisseau de classe frelon (1 place)"
+    },
+    "corpulence": "maigrichon",
+    "pv": { "actuels": 7 },
+    "force": { "value": 0, "max": 0 },
+    "chance": 0,
+    "survie": { "chance": 0, "base": 0 },
+    "caracteristiques": { "physique": 4, "agilite": 6, "perception": 2, "mental": 1 },
+    "competencesForce": {
+      "telekinesie": 0,
+      "pousseeDeForce": 2,
+      "eclairDeForce": 2,
+      "defense": 0,
+      "illusion": 4,
+      "persuasion": 0,
+      "combatArme": 4,
+      "furtivite": 6
+    },
+    "equipement": "Double sabres courts (10 dégâts x2)\nArmure +2\nPoison (fiole x1)\nLanceur de dard\nMini-drone (réparation + hack)\nCom-Link\nFiole de Retamide B (à analyser)",
+    "portrait": "icons/svg/mystery-man.svg",
+    "description": "<p><strong>Maître :</strong> Dark Tasha</p><p><strong>Caractère :</strong> Détaché - Calme - Discret</p><p>Tresh était un jeune garçon à qui il manquait manifestement la compassion. Ses parents, des gens aimants, ne comprenaient pas pourquoi Tresh n'arrivait pas à distinguer le bien du mal. Mais lui-même le distinguait bien ; cependant, il ne se laissait pas embêter par ça. En grandissant, il devint un marginal, discriminé à cause de ses idées et de sa différence. Un accident arriva : Tresh fut retrouvé seul au milieu de trois enfants blessés mortellement avec un cutter, lui-même portant une grosse marque de brûlure qui l'a défiguré à jamais. Plus tard, un membre de l'académie sith vint à lui — à l'époque trop vieux pour entrer à l'académie sith, celle qui allait devenir sa maîtresse lui enseigna les bases seule, cultivant chez son apprenti l'art du meurtre, rapide et silencieux. Le savoir alchimique des sith et l'enseignement de son maître lui ont appris à être mortel pour ses ennemis ; il a néanmoins besoin de se développer lui-même s'il veut un jour surpasser son maître.</p><p><em>Note de PV : actuellement blessé (7/11), à ajuster en jeu.</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Seigneur Quenor",
+    "texture": { "src": "icons/svg/mystery-man.svg" },
+    "actorLink": true
+  },
+  "items": [],
+  "effects": [],
+  "folder": null,
+  "sort": 100000,
+  "ownership": { "default": 0 },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.5.0"
+  }
+}

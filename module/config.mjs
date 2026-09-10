@@ -47,6 +47,7 @@ GW.caracteristiquesSith = {
 GW.competencesForceSith = {
   telekinesie: "GALACTICWARS.CompetenceForceSith.Telekinesie",
   pousseeDeForce: "GALACTICWARS.CompetenceForceSith.PousseeDeForce",
+  eclairDeForce: "GALACTICWARS.CompetenceForceSith.EclairDeForce",
   defense: "GALACTICWARS.CompetenceForceSith.Defense",
   illusion: "GALACTICWARS.CompetenceForceSith.Illusion",
   persuasion: "GALACTICWARS.CompetenceForceSith.Persuasion",
