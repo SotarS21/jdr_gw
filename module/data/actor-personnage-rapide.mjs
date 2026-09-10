@@ -52,6 +52,7 @@ export class PersonnageRapideData extends foundry.abstract.TypeDataModel {
       }),
 
       equipement: new StringField({ initial: "" }),
+      credits: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
       portrait: new FilePathField({ categories: ["IMAGE"], initial: "icons/svg/mystery-man.svg" }),
       description: new HTMLField({ initial: "" })
     };

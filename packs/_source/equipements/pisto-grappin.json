@@ -1,0 +1,25 @@
+{
+  "_key": "!items!oNj4gTjkXLJHSXZc",
+  "_id": "oNj4gTjkXLJHSXZc",
+  "name": "Pisto grappin",
+  "type": "equipement",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "quantite": 1,
+    "prix": "2000c",
+    "description": "<p>Utilise des cartouches (5 cartouches fournies à l'achat).</p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.7.0"
+  }
+}

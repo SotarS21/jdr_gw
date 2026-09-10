@@ -1,0 +1,64 @@
+{
+  "_key": "!actors!4D0t75XrLYQmwUX3",
+  "_id": "4D0t75XrLYQmwUX3",
+  "name": "CEC XS-122 Freighter",
+  "type": "vaisseau",
+  "img": "icons/svg/mystery-man.svg",
+  "prototypeToken": {
+    "name": "CEC XS-122 Freighter",
+    "texture": {
+      "src": "icons/svg/mystery-man.svg"
+    },
+    "actorLink": true
+  },
+  "items": [],
+  "effects": [],
+  "system": {
+    "classe": "Freighter léger",
+    "taille": "34.6 m de long",
+    "prix": "800000c",
+    "pv": {
+      "actuels": 25,
+      "max": 25
+    },
+    "bouclier": {
+      "actif": true,
+      "points": 30,
+      "reduction": 0
+    },
+    "moteur": {
+      "deplacement": 0
+    },
+    "armement": [
+      {
+        "nom": "Canon léger",
+        "degats": "2d6",
+        "quantite": 1
+      }
+    ],
+    "equipage": [
+      {
+        "role": "Équipage",
+        "nom": "",
+        "description": "3 à 4 personnes (répartition non précisée dans le matériel source)."
+      }
+    ],
+    "soute": "Petite soute cargo (inventée, non précisée dans le matériel source).",
+    "equipementsEmbarques": "Poste de pilotage ; deux cabines ; sanitaire ; salle des machines.",
+    "portrait": "icons/svg/mystery-man.svg",
+    "description": "<p>Freighter léger, 3 à 4 personnes, 34.6 m de long.</p><p>Note MJ : les points de vie (25), le bouclier (30, réduction 0), l'armement (1 canon léger 2d6), la soute cargo et les salles à bord (poste de pilotage, deux cabines, sanitaire, salle des machines) sont des valeurs/éléments estimés par cohérence avec les vaisseaux comparables du même classeur (Barloz, La poubelle géante, Le Arcadia), pas des données du matériel source. À ajuster librement.</p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.7.0"
+  }
+}

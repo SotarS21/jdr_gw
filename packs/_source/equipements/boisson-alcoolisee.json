@@ -1,0 +1,25 @@
+{
+  "_key": "!items!VaHJ78UJFTnne0Aq",
+  "_id": "VaHJ78UJFTnne0Aq",
+  "name": "Boisson alcoolisée",
+  "type": "equipement",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "quantite": 1,
+    "prix": "6c",
+    "description": "<p></p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.7.0"
+  }
+}

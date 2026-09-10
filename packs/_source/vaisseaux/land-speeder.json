@@ -1,0 +1,58 @@
+{
+  "_key": "!actors!SU2WGsnsySPdlbLA",
+  "_id": "SU2WGsnsySPdlbLA",
+  "name": "Land speeder",
+  "type": "vaisseau",
+  "img": "icons/svg/mystery-man.svg",
+  "prototypeToken": {
+    "name": "Land speeder",
+    "texture": {
+      "src": "icons/svg/mystery-man.svg"
+    },
+    "actorLink": true
+  },
+  "items": [],
+  "effects": [],
+  "system": {
+    "classe": "Speeder terrestre",
+    "taille": "Véhicule terrestre, quatre places",
+    "prix": "85000c",
+    "pv": {
+      "actuels": 10,
+      "max": 10
+    },
+    "bouclier": {
+      "actif": false,
+      "points": 0,
+      "reduction": 0
+    },
+    "moteur": {
+      "deplacement": 0
+    },
+    "armement": [],
+    "equipage": [
+      {
+        "role": "Équipage",
+        "nom": "",
+        "description": "4 places."
+      }
+    ],
+    "soute": "",
+    "equipementsEmbarques": "Aucun compartiment : véhicule terrestre ouvert, quatre places.",
+    "portrait": "icons/svg/mystery-man.svg",
+    "description": "<p>Land speeder : quatres places.</p><p><em>Note MJ : le matériel source ne précise pas les points de vie ni le bouclier de ce véhicule. Valeur de PV (10) estimée par cohérence avec les autres véhicules comparables du même classeur (échelle proportionnelle à la taille/au rôle, un peu supérieure à la moto speeder monoplace) ; absence de bouclier estimée car ce type de véhicule ouvert est trop petit pour embarquer un générateur de bouclier. À ajuster librement.</em></p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.7.0"
+  }
+}

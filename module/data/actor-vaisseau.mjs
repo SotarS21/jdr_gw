@@ -12,6 +12,7 @@ export class VaisseauData extends foundry.abstract.TypeDataModel {
     return {
       classe: new StringField({ initial: "" }), // ex. "Destroyer stellaire"
       taille: new StringField({ initial: "" }), // texte libre, ex. "300 m de long"
+      prix: new StringField({ initial: "" }), // en crédits, texte libre (vide = non achetable/vaisseau de scénario)
 
       pv: new SchemaField({
         actuels: new NumberField({ required: true, integer: true, initial: 0 }),

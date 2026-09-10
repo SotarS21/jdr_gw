@@ -1,0 +1,25 @@
+{
+  "_key": "!items!78aFTdTb68JT2orY",
+  "_id": "78aFTdTb68JT2orY",
+  "name": "Rayon tracteur",
+  "type": "equipement",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "quantite": 1,
+    "prix": "60000c",
+    "description": "<p>Amélioration de vaisseau (catégorie \"Amélioration de vaiseau\" du classeur source) : capture/immobilise un autre vaisseau à distance.</p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.7.0"
+  }
+}

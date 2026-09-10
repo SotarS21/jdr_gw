@@ -2,7 +2,7 @@
   "id": "galactic-wars",
   "title": "Galactic Wars",
   "description": "Système de jeu de rôle Star Wars maison : compétences en pourcentage, races, métiers, force, alignement Lumière/Obscurité.",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "socket": true,
   "compatibility": {
     "minimum": "13",
@@ -45,6 +45,7 @@
     { "name": "armures", "label": "Armures", "path": "packs/armures", "type": "Item" },
     { "name": "ecoles", "label": "Écoles sith", "path": "packs/ecoles", "type": "Item" },
     { "name": "pregens-sith", "label": "Pregens sith", "path": "packs/pregens-sith", "type": "Actor" },
-    { "name": "vaisseaux", "label": "Vaisseaux", "path": "packs/vaisseaux", "type": "Actor" }
+    { "name": "vaisseaux", "label": "Vaisseaux", "path": "packs/vaisseaux", "type": "Actor" },
+    { "name": "equipements", "label": "Équipements", "path": "packs/equipements", "type": "Item" }
   ]
 }

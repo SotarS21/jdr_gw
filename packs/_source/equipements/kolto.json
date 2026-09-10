@@ -1,0 +1,25 @@
+{
+  "_key": "!items!se0p1eGmAv2cfqjc",
+  "_id": "se0p1eGmAv2cfqjc",
+  "name": "Kolto",
+  "type": "equipement",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "quantite": 1,
+    "prix": "50c",
+    "description": "<p>Soigne 1d4 points de vie.</p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.7.0"
+  }
+}

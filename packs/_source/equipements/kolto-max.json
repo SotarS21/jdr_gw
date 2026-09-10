@@ -1,0 +1,25 @@
+{
+  "_key": "!items!3hNLzzWDHi39LVbj",
+  "_id": "3hNLzzWDHi39LVbj",
+  "name": "Kolto max",
+  "type": "equipement",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "quantite": 1,
+    "prix": "80c",
+    "description": "<p>Soigne 1d6 points de vie.</p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.7.0"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "_key": "!actors!YXik8AR9uAhIhTLJ",
+  "_id": "YXik8AR9uAhIhTLJ",
+  "name": "Le Barmaid Betty",
+  "type": "vaisseau",
+  "img": "icons/svg/mystery-man.svg",
+  "prototypeToken": {
+    "name": "Le Barmaid Betty",
+    "texture": {
+      "src": "icons/svg/mystery-man.svg"
+    },
+    "actorLink": true
+  },
+  "items": [],
+  "effects": [],
+  "system": {
+    "classe": "Transport de troupes et de combat",
+    "taille": "100 m de long, 70 m de large",
+    "prix": "17500000c",
+    "pv": {
+      "actuels": 100,
+      "max": 100
+    },
+    "bouclier": {
+      "actif": true,
+      "points": 120,
+      "reduction": 0
+    },
+    "moteur": {
+      "deplacement": 0
+    },
+    "armement": [
+      {
+        "nom": "Canon lourd",
+        "degats": "4d6",
+        "quantite": 4
+      }
+    ],
+    "equipage": [
+      {
+        "role": "Équipage",
+        "nom": "",
+        "description": "18 à 26 personnes (répartition non précisée dans le matériel source)."
+      }
+    ],
+    "soute": "Cales et entrepôts pour le matériel des troupes transportées.",
+    "equipementsEmbarques": "Large infirmerie ; plusieurs dortoirs de soldats ; mess commun ; salle des machines ; poste de pilotage/passerelle ; plusieurs sas de débarquement.",
+    "portrait": "icons/svg/mystery-man.svg",
+    "description": "<p>Transport de troupes et de combat, 18 à 26 personnes, 100 m de long sur 70 m de large. Dispose d'une large infirmerie et de plusieurs dortoirs de soldats.</p><p>Note MJ : les points de vie (100), le bouclier (120, réduction 0), l'armement (4 canons lourds 4d6) ainsi que le mess commun, la salle des machines, le poste de pilotage/passerelle et les sas de débarquement sont des valeurs/salles estimées par cohérence avec les vaisseaux comparables du même classeur (Barloz, La poubelle géante, Le Arcadia), pas des données du matériel source. À ajuster librement.</p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.7.0"
+  }
+}

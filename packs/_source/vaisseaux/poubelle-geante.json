@@ -1,0 +1,74 @@
+{
+  "_key": "!actors!wq5sBNHltjALjKp7",
+  "_id": "wq5sBNHltjALjKp7",
+  "name": "La poubelle géante",
+  "type": "vaisseau",
+  "img": "icons/svg/mystery-man.svg",
+  "prototypeToken": {
+    "name": "La poubelle géante",
+    "texture": {
+      "src": "icons/svg/mystery-man.svg"
+    },
+    "actorLink": true
+  },
+  "items": [],
+  "effects": [],
+  "system": {
+    "classe": "Freighter d'occasion",
+    "taille": "15 m sur 25 m",
+    "prix": "82000c",
+    "pv": {
+      "actuels": 15,
+      "max": 15
+    },
+    "bouclier": {
+      "actif": true,
+      "points": 20,
+      "reduction": 0
+    },
+    "moteur": {
+      "deplacement": 0
+    },
+    "armement": [
+      {
+        "nom": "Tourelle lourde",
+        "degats": "4d6",
+        "quantite": 1
+      },
+      {
+        "nom": "Tourelle légère",
+        "degats": "2d6",
+        "quantite": 2
+      }
+    ],
+    "equipage": [
+      {
+        "role": "Pilote",
+        "nom": "",
+        "description": "2 pilotes."
+      },
+      {
+        "role": "Équipage",
+        "nom": "",
+        "description": "5 places au total (répartition non précisée)."
+      }
+    ],
+    "soute": "Une cale/dortoir/entrepôt/salle des machines (espace polyvalent, donné tel quel par le matériel source).",
+    "equipementsEmbarques": "Sanitaire.",
+    "portrait": "icons/svg/mystery-man.svg",
+    "description": "<p>Freighter d'occasion de 15 m sur 25 m, pour 5 places. Équipage de 2 pilotes ; une cale/dortoir/entrepôt/salle des machines faisant office d'espace polyvalent ; un sanitaire.</p><p>Armement : une tourelle lourde (4d6) et une paire de tourelles légères à l'avant (2d6 chacune).</p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.7.0"
+  }
+}

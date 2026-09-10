@@ -8,6 +8,7 @@
     "degats": "2d6",
     "competence": "blaster",
     "instable": false,
+    "prix": "4500c",
     "description": ""
   },
   "folder": null,

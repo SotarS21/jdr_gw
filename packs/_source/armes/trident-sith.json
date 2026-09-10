@@ -1,0 +1,27 @@
+{
+  "_key": "!items!BmH226Wkuab5Ft0L",
+  "_id": "BmH226Wkuab5Ft0L",
+  "name": "Trident sith",
+  "type": "armé",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "degats": "1d4+4",
+    "competence": "",
+    "instable": false,
+    "prix": "NA",
+    "description": "<p>Arme rituelle sith, non vendue en boutique (marquée \"NA\" dans le classeur source) — distincte du \"Trident électrique\" (1d4+4, 1200c, achetable, non transcrit ici).</p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.7.0"
+  }
+}

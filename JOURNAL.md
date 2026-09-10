@@ -1,5 +1,70 @@
 # Journal de développement — Galactic Wars
 
+## Session du 2026-09-10 (suite) — Économie (v0.6.0 → v0.7.0)
+
+**Portée décidée avec l'utilisateur (question posée)** : le classeur source (`[GW] Science
+économique.xlsx`, un seul onglet "Quickplay") est un catalogue de prix en crédits — armes/armes de
+mêlée-jet, outils, véhicules, consommables — sans aucune notion de crédits/prix existant encore dans
+le système. Choix retenu : pactole de crédits sur les 4 fiches de personnage, champ `prix` sur les
+objets achetables, catalogue échantillon en compendium (même convention que races/métiers : sample
+vérifié, pas exhaustif). Le même classeur listait aussi ~12 véhicules/vaisseaux supplémentaires
+(au-delà de la Convergence déjà transcrite) — ajoutés dans la foulée sur demande explicite, avec
+consigne complémentaire de l'utilisateur : compléter les salles/bouclier/PV manquants par des
+valeurs plausibles plutôt que de les laisser vides, en le signalant clairement comme estimation.
+
+**Orchestration** : matériel volumineux (catalogue à colonnes multiples + 12 fiches de vaisseau à
+rédiger avec calibration cohérente) traité via un **workflow multi-agents** (mot-clé "ultracode") —
+6 agents de rédaction en parallèle (2 catalogue + 4 lots de 3 vaisseaux) puis 2 agents de vérification
+JSON/schéma. **Défaut trouvé et corrigé après coup** : les prompts envoyés aux agents avaient été
+tapés sans accents (erreur de saisie de ma part, pas des agents) ; certains agents ont fidèlement
+reproduit ce français sans accents dans le contenu généré (armes, équipements, et environ la moitié
+des nouveaux vaisseaux), d'autres l'ont corrigé spontanément. Repassé un correctif ciblé (dictionnaire
+de substitutions sur les valeurs JSON uniquement, jamais sur les clés) sur tous les fichiers touchés
+avant intégration — à retenir : toujours écrire les prompts de workflow en français correct quand le
+contenu produit est du français destiné aux joueurs, la reproduction fidèle du style d'entrée est un
+comportement normal des agents, pas un bug à leur charge.
+
+**Fait :**
+- `credits` (NumberField, entier ≥ 0) ajouté aux 4 DataModels de personnage (`personnage`,
+  `personnage-rapide`/`pnj`, `personnage-sith`), affiché dans la section Ressources de chaque fiche.
+- `prix` (StringField libre, ex. "1200c", "NA" = non achetable comme indiqué dans le classeur source)
+  ajouté à `item-arme`, `item-armure`, `item-equipement` et à l'Actor `vaisseau`, édité depuis la
+  sheet d'objet / la fiche de vaisseau. Rétro-rempli sur 2 des 6 armes déjà livrées quand une
+  correspondance fiable existait dans le classeur (Blaster 250c, Blaster lourd 4500c) — laissé vide
+  sur les 4 autres armes et les 3 armures faute de correspondance fiable (pas de devinette).
+- Nouveau compendium Item `equipements` (11/11, échantillon) : Comlink, Pisto grappin, Filet
+  électrique, Kolto, Kolto max, Matériel médical, Droïde médical, Repas commun, Boisson (non)
+  alcoolisée, Rayon tracteur (amélioration de vaisseau).
+- Pack `armes` complété (+4, échantillon) : Grenade, Grenade militaire, Lance-roquette, Trident sith
+  (marqué "NA", non achetable — illustre le cas dans le catalogue).
+- Pack `vaisseaux` complété (+12, désormais 13/13 de tout ce que couvre le classeur véhicules) :
+  Moto speeder, Land speeder, Barloz class médium Freighter, Le Barmaid Betty, CEC XS-122 Freighter,
+  Corellian Dawn, Dynamic 20 modular transport, Gunboat 1061-968, Lantallian GX-class Executive
+  transport, La poubelle géante, Le Arcadia, Le Frelon. Trois d'entre eux (Barloz, poubelle géante,
+  Arcadia) avaient déjà bouclier/PV/salles complets dans le classeur — transcrits fidèlement. Les
+  neuf autres n'avaient que taille/équipage/prix — bouclier, PV de coque et salles complétés par
+  estimation calibrée sur ces trois, avec note MJ explicite sur chaque fiche concernée précisant que
+  la valeur est inventée. Aucun membre d'équipage nommé inventé nulle part (seul le nombre de
+  personnes, quand donné) — contrairement à la Convergence dont l'équipage nommé vient du classeur.
+- Outil `scripts/dump-xlsx.mjs` réutilisé tel quel (aucune nouvelle extraction ad hoc).
+
+**Pas fait dans cette session :** complétion des compendiums races/métiers/talents/armes/armures à
+100% du matériel source ; contenu PNJ type (monstres/gardes/etc.) ; le reste du catalogue économique
+au-delà de l'échantillon (une quarantaine de lignes d'armes/améliorations non transcrites,
+échantillon volontairement limité comme pour races/métiers).
+
+**Fichiers (en plus des sessions précédentes)** : `module/data/actor-personnage.mjs`,
+`module/data/actor-personnage-rapide.mjs`, `module/data/actor-personnage-sith.mjs` (`credits`),
+`module/data/item-arme.mjs`, `module/data/item-armure.mjs`, `module/data/item-equipement.mjs`,
+`module/data/actor-vaisseau.mjs` (`prix`), `templates/actor/personnage-sheet.hbs`,
+`templates/actor/personnage-rapide-sheet.hbs`, `templates/actor/personnage-sith-sheet.hbs`,
+`templates/actor/vaisseau-sheet.hbs`, `templates/item/item-sheet.hbs`, `lang/fr.json`, `system.json`
+(pack `equipements`, v0.7.0), `packs/_source/armes/{grenade,grenade-militaire,lance-roquette,
+trident-sith}.json`, `packs/_source/armes/{blaster,blaster-lourd}.json` (prix rétro-rempli),
+`packs/_source/equipements/**` (nouveau pack), `packs/_source/vaisseaux/**` (+12).
+
+---
+
 ## Session du 2026-09-10 (suite) — Vaisseaux (v0.5.0 → v0.6.0)
 
 **Constat avant de commencer :** contrairement aux races/métiers (formules Excel) ou à l'école sith (liste fermée de 8), le matériel source ne contient **aucune règle générique de vaisseau/combat spatial** — un seul vaisseau nommé et détaillé (le destroyer sith *Convergence*, `Vaiseau destroyer sith.docx` : PV de coque, bouclier, armement, équipage narratif complet, équipements embarqués) et deux mentions sans stats (équipement de départ "vaisseau de classe frelon"/"vaisseau moyen" sur les écoles sith). Décision prise avec l'utilisateur (question posée) : construire un Actor `vaisseau` générique réutilisable plutôt que de transcrire la Convergence en simple note, mais **sans mécanique de jet automatisée** (aucune compétence "pilotage vaisseau" ni règle de combat spatial n'existe dans le matériel source — la fiche est un stat-block/suivi géré narrativement par le MJ, comme le sont déjà les armes de personnage : `system.degats` texte libre, pas de jet automatique).

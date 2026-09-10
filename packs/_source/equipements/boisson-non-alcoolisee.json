@@ -1,0 +1,25 @@
+{
+  "_key": "!items!qFzXfVoR6nr6F0uR",
+  "_id": "qFzXfVoR6nr6F0uR",
+  "name": "Boisson non alcoolisée",
+  "type": "equipement",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "quantite": 1,
+    "prix": "2c",
+    "description": "<p></p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.7.0"
+  }
+}

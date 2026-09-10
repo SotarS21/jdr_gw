@@ -1,0 +1,79 @@
+{
+  "_key": "!actors!bNYNvq4RwXj9dVX7",
+  "_id": "bNYNvq4RwXj9dVX7",
+  "name": "Le Arcadia",
+  "type": "vaisseau",
+  "img": "icons/svg/mystery-man.svg",
+  "prototypeToken": {
+    "name": "Le Arcadia",
+    "texture": {
+      "src": "icons/svg/mystery-man.svg"
+    },
+    "actorLink": true
+  },
+  "items": [],
+  "effects": [],
+  "system": {
+    "classe": "Freighter armé",
+    "taille": "20 m sur 35 m",
+    "prix": "200000c",
+    "pv": {
+      "actuels": 40,
+      "max": 40
+    },
+    "bouclier": {
+      "actif": true,
+      "points": 60,
+      "reduction": 0
+    },
+    "moteur": {
+      "deplacement": 0
+    },
+    "armement": [
+      {
+        "nom": "Canon lourd",
+        "degats": "4d6",
+        "quantite": 2
+      },
+      {
+        "nom": "Tourelle légère (aile, poste dédié)",
+        "degats": "2d6",
+        "quantite": 4
+      }
+    ],
+    "equipage": [
+      {
+        "role": "Pilote",
+        "nom": "",
+        "description": "2 pilotes."
+      },
+      {
+        "role": "Communicateur",
+        "nom": "",
+        "description": "1 communicateur."
+      },
+      {
+        "role": "Équipage",
+        "nom": "",
+        "description": "6 places au total dont le capitaine (répartition non précisée)."
+      }
+    ],
+    "soute": "Un entrepôt de 10 m2.",
+    "equipementsEmbarques": "6 cabines dont celle du capitaine ; 2 sanitaires ; une salle des machines ; une infirmerie ; une salle de repos/cuisine.",
+    "portrait": "icons/svg/mystery-man.svg",
+    "description": "<p>Freighter armé de 20 m sur 35 m, pour 6 places. Équipage de 2 pilotes et 1 communicateur ; 6 cabines dont celle du capitaine, 2 sanitaires, un entrepôt de 10 m2, une salle des machines, une infirmerie et une salle de repos/cuisine.</p><p>Armement : 2 canons lourds places au milieu, en haut et en dessous (4d6 chacun), et 2 paires de tourelles légères sur les ailes à l'avant, pilotables depuis un poste dédié (2d6 chacune).</p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.7.0"
+  }
+}

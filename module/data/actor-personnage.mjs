@@ -60,6 +60,7 @@ export class PersonnageData extends foundry.abstract.TypeDataModel {
       pointsDeForce: ressource(0),
       stress: ressource(0),
       alignement: new NumberField({ required: true, integer: true, min: -100, max: 100, initial: 0 }),
+      credits: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
 
       portrait: new FilePathField({ categories: ["IMAGE"], initial: "icons/svg/mystery-man.svg" }),
       biographie: new HTMLField({ initial: "" })

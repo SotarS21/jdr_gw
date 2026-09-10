@@ -1,0 +1,25 @@
+{
+  "_key": "!items!Y9sq8mewgow6t903",
+  "_id": "Y9sq8mewgow6t903",
+  "name": "Filet électrique",
+  "type": "equipement",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "quantite": 1,
+    "prix": "984c",
+    "description": "<p>Effet : étourdit la cible (1d6 tour), immobilisée dans le filet.</p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.7.0"
+  }
+}

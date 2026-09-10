@@ -1,0 +1,25 @@
+{
+  "_key": "!items!QuS4hCbsxYE93Uof",
+  "_id": "QuS4hCbsxYE93Uof",
+  "name": "Matériel médical",
+  "type": "equipement",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "quantite": 1,
+    "prix": "15c",
+    "description": "<p>Nécessaire de premiers soins.</p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.7.0"
+  }
+}

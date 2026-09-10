@@ -1,0 +1,27 @@
+{
+  "_key": "!items!TbT0iw690ey8ZzHz",
+  "_id": "TbT0iw690ey8ZzHz",
+  "name": "Grenade militaire",
+  "type": "armé",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "degats": "3d6",
+    "competence": "",
+    "instable": false,
+    "prix": "1250c",
+    "description": "<p>Version militaire, plus puissante que la grenade standard.</p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.7.0"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "_key": "!items!BegMMS41hKkeC81e",
+  "_id": "BegMMS41hKkeC81e",
+  "name": "Grenade",
+  "type": "armé",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "degats": "2d6",
+    "competence": "",
+    "instable": false,
+    "prix": "150c",
+    "description": "<p>Grenade standard, catalogue \"[GW] Science économique.xlsx\".</p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.7.0"
+  }
+}

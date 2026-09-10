@@ -68,7 +68,7 @@ Le matériel de règles (fiches Excel, règles de métiers/races en Word, PDF) v
 | OBJ-003 | Fiche sith (pregens École de sith) | ✅ (v0.5.0), 6/6 pregens PJ transcrits | Moyenne |
 | OBJ-004 | PNJ (façon fiche rapide, résolution en d100) | ✅ (v0.4.0) | Moyenne |
 | OBJ-005 | Vaisseaux | ✅ (v0.6.0), 1/1 vaisseau du matériel source transcrit | Basse |
-| OBJ-006 | Économie | ⏳ | Basse |
+| OBJ-006 | Économie | ✅ (v0.7.0), crédits + prix + catalogue échantillon | Basse |
 
 ---
 
@@ -107,6 +107,11 @@ Voir l'arborescence commentée dans `README.md` (module/config, module/data, mod
 - Actor `vaisseau` : classe, taille, coque (PV), bouclier (points/réduction/actif), moteur (déplacement), armement et équipage (listes de taille variable, seul endroit du système avec ajout/retrait dynamique dans la sheet), soute, équipements embarqués. Pas de mécanique de jet/combat spatial automatisée — aucune règle de ce type dans le matériel source, géré narrativement par le MJ comme les armes de personnage.
 - Compendium Actor `vaisseaux` (1/1) : le destroyer sith *Convergence* (`Vaiseau destroyer sith.docx`), seul vaisseau détaillé du matériel source, transcrit intégralement (équipage nommé, armement, bouclier, équipements embarqués).
 
+### 5.1septies Ajoutées (v0.7.0)
+- `credits` sur les 4 fiches de personnage, `prix` sur les Item achetables (arme/armure/équipement) et sur l'Actor `vaisseau`.
+- Nouveau compendium Item `equipements` (11/11, échantillon) et +4 armes (échantillon), transcrits depuis `[GW] Science économique.xlsx`.
+- Compendium `vaisseaux` complété à 13/13 (12 nouveaux vaisseaux/véhicules du même classeur, en plus de la Convergence) — bouclier/PV/salles manquants dans la source complétés par estimation calibrée quand absents, systématiquement signalés comme tels sur la fiche concernée.
+
 ### 5.1quater Ajoutées (v0.4.0)
 - Actor `pnj` : **réutilise intégralement le DataModel `PersonnageRapideData`** de la fiche rapide (même schéma exact — 8 caractéristiques, Survie, métier, talent, équipement) plutôt que de dupliquer une classe quasi-identique. Seule différence : résolu en **1d100** (`rollCaracteristiquePourcentage`, nouveau helper) au lieu du 1d20-sous-la-valeur de la fiche rapide — la fiche/sheet détecte `actor.type === "pnj"` pour choisir la bonne mécanique de jet. Réutilise aussi la même sheet (`PersonnageRapideSheet`) et le même template, avec les avertissements de plafond de création de PJ (max 80, pas plus de deux à 16) masqués sur cette variante puisqu'ils n'ont pas de sens pour un stat-block de PNJ créé par le MJ.
 - Aucun contenu de compendium PNJ pré-rempli pour l'instant (pas de stat-blocks de monstres/PNJ types extraits du matériel source dans cette session).
@@ -139,11 +144,12 @@ npm run pack:unpack   # packs/*  ->  packs/_source/*  (pour ré-éditer après u
 | Races | `races` | Item | Races jouables | 6 / ~30 | Échantillon, à compléter |
 | Métiers | `metiers` | Item | Métiers/carrières | 6 / ~20 | Échantillon, à compléter |
 | Talents | `talents` | Item | Traits de background | 8 / ~25 | Échantillon, à compléter |
-| Armes | `armes` | Item | Armes | 6 | Échantillon |
+| Armes | `armes` | Item | Armes | 10 | Échantillon |
 | Armures | `armures` | Item | Armures | 3 | Échantillon |
 | Écoles sith | `ecoles` | Item | Écoles de la voie sith | 8 / 8 | Complet (liste fermée) |
 | Pregens sith | `pregens-sith` | Actor | Seigneurs sith prétirés (PJ) | 6 / 6 | Complet (liste fermée) |
-| Vaisseaux | `vaisseaux` | Actor | Vaisseaux nommés | 1 / 1 | Complet (matériel source ne contient qu'un vaisseau détaillé) |
+| Vaisseaux | `vaisseaux` | Actor | Vaisseaux/véhicules nommés | 13 / 13 | Complet (tout le matériel source vaisseaux) |
+| Équipements | `equipements` | Item | Outils/consommables du catalogue économique | 11 / ~15 | Échantillon, à compléter |
 
 **Note :** le matériel source (`Template corriger.xlsx`) code les modificateurs raciaux/de métier sous forme de formules Excel imbriquées (`IF(A2="Race", valeur, IF(...)))`) parfois incohérentes d'une version à l'autre du classeur (copier-collers, cellules auto-référencées). Les 6 races et 6 métiers ci-dessus ont été vérifiés cellule par cellule (parsing programmatique des formules, pas de recopie à l'œil). Compléter le reste demandera une repasse avec l'auteur du classeur pour lever les ambiguïtés plutôt qu'une transcription automatique risquée.
 
@@ -165,8 +171,9 @@ Déploiement : copier ce dossier vers `D:\AppDataFoundry$\FoundryVTT_Data\Data\s
 3. **Phase C (fait, v0.3.0)** : fiche sith (`personnage-sith`) — Physique/Agilité/Perception/Mental + 7 compétences de force, résolution 1d20 + valeur (DC du MJ), École sith (8/8, capacités spéciales nommées). Reste à faire : transcrire les pregens `Prétirer sith/PJ/` en compendium Actor.
 4. **Phase D (fait, v0.4.0)** : PNJ (`pnj`), même bloc de stats/DataModel que la fiche rapide, résolu en 1d100 via `rollCaracteristiquePourcentage`.
 5. **Phase E (fait, v0.5.0)** : pregens sith (`pregens-sith`, 6/6, `Prétirer sith/PJ/`).
-6. **Phase F (fait, v0.6.0)** : vaisseaux (Actor `vaisseau`, compendium `vaisseaux` 1/1 — la *Convergence*, seul vaisseau détaillé du matériel source).
-7. Économie ; complétion des compendiums races/métiers/talents/armes/armures à 100% du matériel source ; contenu PNJ type (monstres/gardes/etc.).
+6. **Phase F (fait, v0.6.0 → complétée en v0.7.0)** : vaisseaux (Actor `vaisseau`, compendium `vaisseaux` 13/13 — la *Convergence* puis les 12 véhicules du classeur économique).
+7. **Phase G (fait, v0.7.0)** : économie — `credits` (4 fiches de personnage), `prix` (armes/armures/équipements/vaisseaux), compendium `equipements` (11/11 échantillon).
+8. Complétion des compendiums races/métiers/talents/armes/armures/équipements à 100% du matériel source ; contenu PNJ type (monstres/gardes/etc.).
 
 ## 11. Gestion des Versions
 

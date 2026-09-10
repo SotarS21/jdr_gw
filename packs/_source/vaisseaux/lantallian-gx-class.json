@@ -1,0 +1,47 @@
+{
+  "_key": "!actors!Up9pxINTjOFW2z3S",
+  "_id": "Up9pxINTjOFW2z3S",
+  "name": "Lantallian GX-class Executive transport",
+  "type": "vaisseau",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "classe": "Transport exécutif (luxe)",
+    "taille": "37.2 m de long, 12 m de large",
+    "prix": "800000c",
+    "pv": { "actuels": 30, "max": 30 },
+    "bouclier": { "actif": true, "points": 40, "reduction": 0 },
+    "moteur": { "deplacement": 0 },
+    "armement": [
+      { "nom": "Tourelle légère", "degats": "2d6", "quantite": 1 }
+    ],
+    "equipage": [
+      {
+        "role": "Équipage",
+        "nom": "",
+        "description": "4 membres d'équipage et 3 passagers (répartition non précisée)."
+      }
+    ],
+    "soute": "(inventé, non précisé dans le matériel source) Petite soute pour bagages VIP.",
+    "equipementsEmbarques": "(inventé, non précisé dans le matériel source) Poste de pilotage, salon exécutif, trois cabines VIP, cabine d'équipage, sanitaires, cuisine/bar, salle de réunion.",
+    "portrait": "icons/svg/mystery-man.svg",
+    "description": "<p>Transport exécutif de luxe destiné au déplacement de personnalités (3 passagers) avec un équipage de 4 membres, faiblement armé pour la dissuasion.</p><p>Le classeur source mentionne également l'existence d'un \"transporteur de base\", variante moins chère (80 000c, 6 places) non détaillée dans le matériel source et non transcrite ici en Actor séparé.</p><p><em>Note MJ : PV de coque (30), bouclier (40 points) et armement (1 tourelle légère 2d6, défense symbolique) estimés par cohérence avec les vaisseaux comparables du même classeur (Barloz : 50 bouclier / 40 PV pour 6 personnes ; La poubelle géante : 20 bouclier / 15 PV pour 5 personnes ; Le Arcadia : 60 bouclier / 40 PV pour 6 personnes) — pas des valeurs du matériel source, à ajuster librement. La soute et les équipements embarqués sont également inventés, cohérents avec le standing \"exécutif\" du vaisseau.</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Lantallian GX-class Executive transport",
+    "texture": { "src": "icons/svg/mystery-man.svg" },
+    "actorLink": true
+  },
+  "items": [],
+  "effects": [],
+  "folder": null,
+  "sort": 100000,
+  "ownership": { "default": 0 },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.7.0"
+  }
+}
