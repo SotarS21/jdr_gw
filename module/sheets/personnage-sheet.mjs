@@ -17,7 +17,12 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       applyMetier: PersonnageSheet.#onApplyMetier,
       editImage: PersonnageSheet.#onEditImage,
       createItem: PersonnageSheet.#onCreateItem,
-      deleteItem: PersonnageSheet.#onDeleteItem
+      deleteItem: PersonnageSheet.#onDeleteItem,
+      changerOnglet: PersonnageSheet.#onChangerOnglet,
+      ajusterLumiere: PersonnageSheet.#onAjusterLumiere,
+      ajusterObscurite: PersonnageSheet.#onAjusterObscurite,
+      addNote: PersonnageSheet.#onAddNote,
+      removeNote: PersonnageSheet.#onRemoveNote
     }
   };
 
@@ -25,12 +30,17 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     body: { template: "systems/galactic-wars/templates/actor/personnage-sheet.hbs", scrollable: [".sheet-body"] }
   };
 
+  /** Onglet actif — état d'affichage pur, pas de persistance sur l'Actor (survit aux re-rendus
+   *  puisque l'instance de sheet, elle, persiste entre deux rendus). */
+  #ongletActif = "personnage";
+
   /** @override */
   async _prepareContext(options) {
     const context = await super._prepareContext(options);
     const system = this.actor.system;
 
     context.system = system;
+    context.ongletActif = this.#ongletActif;
     context.caracteristiques = Object.entries(GW.caracteristiques).map(([cle, label]) => ({
       cle,
       label,
@@ -43,16 +53,59 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     context.armures = this.actor.items.filter((i) => i.type === "armure");
     context.pouvoirs = this.actor.items.filter((i) => i.type === "pouvoir");
     context.equipements = this.actor.items.filter((i) => i.type === "equipement");
-    context.biographieEnrichie = await foundry.applications.ux.TextEditor.implementation.enrichHTML(
-      system.biographie,
-      { relativeTo: this.actor }
+    context.notesEnrichies = await Promise.all(
+      system.notes.map((note) =>
+        foundry.applications.ux.TextEditor.implementation.enrichHTML(note.contenu, { relativeTo: this.actor })
+      )
     );
 
     return context;
   }
 
+  static async #onChangerOnglet(event, target) {
+    this.#ongletActif = target.dataset.onglet;
+    this.render();
+  }
+
   static async #onRollCompetence(event, target) {
-    await rollCompetence(this.actor, target.dataset.cle);
+    const choix = this.element.querySelector('input[name="bonusAlignement"]:checked')?.value;
+    const pool =
+      (choix === "lumiere" && this.actor.system.lumiere > 0) ||
+      (choix === "obscurite" && this.actor.system.obscurite > 0)
+        ? choix
+        : null;
+
+    await rollCompetence(this.actor, target.dataset.cle, { pool });
+
+    if (pool) {
+      await this.actor.update({ [`system.${pool}`]: this.actor.system[pool] - 1 });
+    }
+  }
+
+  static async #onAjusterLumiere(event, target) {
+    await this.#ajusterReserve("lumiere", Number(target.dataset.delta));
+  }
+
+  static async #onAjusterObscurite(event, target) {
+    await this.#ajusterReserve("obscurite", Number(target.dataset.delta));
+  }
+
+  async #ajusterReserve(cle, delta) {
+    const valeur = Math.min(10, Math.max(0, this.actor.system[cle] + delta));
+    await this.actor.update({ [`system.${cle}`]: valeur });
+  }
+
+  static async #onAddNote() {
+    await this.actor.update({
+      "system.notes": [...this.actor.system.notes, { titre: "", contenu: "" }]
+    });
+  }
+
+  static async #onRemoveNote(event, target) {
+    const index = Number(target.dataset.index);
+    await this.actor.update({
+      "system.notes": this.actor.system.notes.filter((_, i) => i !== index)
+    });
   }
 
   static async #onApplyRace(event, target) {

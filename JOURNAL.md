@@ -1,5 +1,88 @@
 # Journal de développement — Galactic Wars
 
+## Session du 2026-09-13 — Refonte ergonomique de la fiche classique (v0.8.1 → v0.9.0)
+
+Reprise du point laissé en suspens la session précédente (voir entrée du 2026-09-10 ci-dessous) : le
+barème des bonus Lumière/Obscurité manquait pour débloquer le chantier.
+
+**Barème reçu de l'utilisateur** : 1 point dépensé (Lumière **ou** Obscurité, jamais les deux, 1 point
+maximum par action) = +15% sur le jet de compétence concerné. Le point dépensé permet aussi au MJ de
+"valider une difficulté" exprimée en paliers plutôt qu'en % — laissé manuel côté table pour cette
+itération, pas automatisé. Réserves de 10 points chacune (Lumière/Obscurité), rechargées/ajustées
+100% manuellement par le joueur (pas de mécanique de régénération automatique). Stress confirmé à
+garder en valeur/max simple (pas de refonte en paliers à cocher, l'autre option ouverte la session
+précédente).
+
+**Maquette canvas mise à jour d'abord** (avant tout changement dans le système réel, comme prévu) :
+le curseur alignement de l'artboard `Main` remplacé par deux jauges à pips (Lumière cyan/Obscurité
+corail, 0-10) + légende du bonus — republié en version 3 sur le même lien
+(https://claude.ai/code/artifact/9c1c44e9-177b-4fd5-bf38-f2e23d0852b7). Validé par l'utilisateur avant
+d'attaquer le code réel.
+
+**Puis, en cours de discussion, la demande s'est élargie** (uniquement pour la fiche classique
+`personnage` — les 3 autres fiches ne sont pas concernées par cette session) :
+- Découpage en 3 onglets : `Personnage` (Caractéristiques/Ressources/Compétences/Pouvoirs),
+  `Équipements` (Armes/Armures/Équipement — déplacés hors de l'ancienne section unique "inventaire"),
+  `Informations` (notes façon journal, en remplacement de la biographie).
+- Niveau de compétence (0-3) mis en valeur visuellement (encadré, coloré, gras) dans la liste des
+  ~37 compétences — signalé par l'utilisateur comme un champ très manipulé en jeu, donc à ne pas
+  laisser se perdre dans la liste.
+- Pouvoirs de force masqués par défaut : n'apparaissent (liste + bouton d'ajout) que si la nouvelle
+  case à cocher `sensibleForce` est cochée à côté du titre de la section.
+- Biographie (`HTMLField` unique) remplacée par `system.notes`, un tableau `{titre, contenu}` avec
+  ajout/retrait dynamique — repris du pattern déjà utilisé pour l'armement du vaisseau (v0.6.0), seul
+  autre endroit du système avec une liste de taille variable dans une sheet.
+
+**Fait :**
+- `module/data/actor-personnage.mjs` : `alignement` (NumberField -100..100) → `lumiere`/`obscurite`
+  (NumberField 0..10 chacun) ; ajout `sensibleForce` (BooleanField) ; `biographie` (HTMLField) →
+  `notes` (ArrayField de `{titre: StringField, contenu: HTMLField}`).
+- `module/config.mjs` : `GW.alignements` simplifié (retrait de l'entrée `neutre`, devenue inutile) ;
+  nouvelle constante `GW.bonusAlignement = 15`.
+- `module/helpers/rolls.mjs` : `rollCompetence(actor, cle, { pool })` accepte maintenant une réserve
+  optionnelle, ajoute le bonus (plafonné à 100%) et le mentionne dans le message de jet.
+- `module/sheets/personnage-sheet.mjs` : nouvel état d'instance privé `#ongletActif` (pas persisté
+  sur l'Actor — survit aux re-rendus car c'est l'instance de la sheet, pas le DOM, qui persiste) pour
+  les 3 onglets ; actions `changerOnglet`, `ajusterLumiere`/`ajusterObscurite` (+/- bornés 0-10),
+  `addNote`/`removeNote`. Le choix "quelle réserve dépenser" pour un jet se fait via un groupe de
+  radios éphémère dans le DOM (jamais persisté), lu au moment du clic sur 🎲, consommé (réserve
+  décrémentée) puis remis à "aucun" automatiquement par le re-rendu qui suit la mise à jour de l'Actor.
+- `templates/actor/personnage-sheet.hbs` : réécrit en 3 blocs conditionnés par `ongletActif` (via le
+  helper `eq` déjà enregistré) plutôt qu'un template par onglet — plus simple que d'ajouter un vrai
+  système de `PARTS`/`TABS` d'ApplicationV2 pour 3 blocs qui ne se recouvrent jamais.
+- `styles/galactic-wars.css` : nav d'onglets, style des 2 jauges Lumière/Obscurité, input de niveau
+  de compétence mis en valeur, case à cocher "Sensible à la Force", bloc de note.
+- `lang/fr.json` : nouvelles clés (`Alignement.Titre/Aucun/Hint/FlavorBonus`,
+  `Sheet.OngletPersonnage/OngletEquipements/OngletInformations/SensibleForce/NoteTitrePlaceholder/
+  AucuneNoteHint`), retrait de `Alignement.Neutre` (devenue inutile).
+- `system.json` : v0.8.1 → v0.9.0 ; `documentTypes.Actor.personnage.htmlFields` vidé (référençait
+  `biographie`, un champ qui n'existe plus).
+
+**Pas fait / à noter pour la suite :**
+- Les 3 autres fiches (rapide/PNJ, sith, vaisseau) gardent l'ancien alignement à 3 sections empilées
+  sans onglets — la maquette canvas d'origine couvrait leurs 3 artboards aussi, réutilisable si
+  l'auteur veut leur appliquer la même refonte plus tard.
+- La "validation de difficulté par un point dépensé" côté MJ reste entièrement manuelle (pas de
+  mécanique automatisée dans le système pour ça — choix explicite de l'utilisateur pour cette
+  itération, voir ci-dessus).
+
+**Déployé et testé en conditions réelles** (monde `Galacit wars V final`, Foundry v14 Build 367,
+navigateur automatisé piloté via Playwright, connecté avec le compte `claude` — voir mémoire de
+session pour les identifiants) : les 3 onglets, les jauges Lumière/Obscurité (+/-, bonus +15%
+consommé puis réserve décrémentée, choix remis à "Aucun" après le jet — confirmé dans le message de
+chat : *"Blaster (cible 35%) / Réussite. / Bonus de 15% (Lumière) dépensé"*), la case "Sensible à la
+Force" (masque/affiche bien la liste de Pouvoirs), le niveau de compétence mis en valeur, et l'onglet
+Informations (notes) fonctionnent tous comme prévu. Aucune erreur JS en console pendant le test.
+Personnage de test **"Kael Dorn (test)"** créé dans ce monde (armes/armure/équipement/pouvoir
+d'exemple) et conservé à la demande de l'utilisateur pour servir de base aux prochaines sessions.
+
+**Fichiers** : `module/data/actor-personnage.mjs`, `module/config.mjs`, `module/helpers/rolls.mjs`,
+`module/sheets/personnage-sheet.mjs`, `templates/actor/personnage-sheet.hbs`,
+`styles/galactic-wars.css`, `lang/fr.json`, `system.json` (v0.9.0), `CAHIER_DES_CHARGES.md` (§5.1,
+§5.1octies, §10).
+
+---
+
 ## Session du 2026-09-10 (suite, fin de session) — Proposition de refonte ergonomique des fiches (pas de changement livré)
 
 **Demande** : retravailler l'ergonomie des 4 fiches de personnage (classique, rapide/PNJ, sith,

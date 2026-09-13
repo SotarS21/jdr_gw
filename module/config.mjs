@@ -128,9 +128,11 @@ GW.baremeNiveauCompetence = { 0: 0, 1: 5, 2: 10, 3: 20 };
 
 GW.alignements = {
   lumiere: "GALACTICWARS.Alignement.Lumiere",
-  neutre: "GALACTICWARS.Alignement.Neutre",
   obscurite: "GALACTICWARS.Alignement.Obscurite"
 };
+
+/** Bonus fixe accordé quand un point de Lumière ou d'Obscurité est dépensé sur un jet (voir rollCompetence). */
+GW.bonusAlignement = 15;
 
 GW.typesEquipement = {
   arme: "GALACTICWARS.TypeEquipement.Arme",

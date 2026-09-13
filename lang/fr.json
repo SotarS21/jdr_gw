@@ -102,9 +102,12 @@
     },
 
     "Alignement": {
+      "Titre": "Lumière / Obscurité",
       "Lumiere": "Lumière",
-      "Neutre": "Neutre",
-      "Obscurite": "Obscurité"
+      "Obscurite": "Obscurité",
+      "Aucun": "Aucun bonus",
+      "Hint": "1 point dépensé = +15% sur le jet (1 maximum par action, Lumière ou Obscurité, jamais les deux).",
+      "FlavorBonus": "Bonus de {bonus}% ({reserve}) dépensé"
     },
 
     "TypeEquipement": {
@@ -171,10 +174,16 @@
       "Armes": "Armes",
       "Armures": "Armures",
       "Pouvoirs": "Pouvoirs de force",
+      "SensibleForce": "Sensible à la Force",
       "Equipement": "Équipement",
       "Biographie": "Biographie",
       "Credits": "Crédits",
-      "Prix": "Prix"
+      "Prix": "Prix",
+      "OngletPersonnage": "Personnage",
+      "OngletEquipements": "Équipements",
+      "OngletInformations": "Informations",
+      "NoteTitrePlaceholder": "Titre de la note",
+      "AucuneNoteHint": "Aucune note pour l'instant — cliquez sur + pour en ajouter une."
     },
 
     "Item": {

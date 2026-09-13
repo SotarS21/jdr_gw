@@ -16,7 +16,14 @@
     </div>
   </header>
 
+  <nav class="onglets">
+    <button type="button" class="onglet-btn {{#if (eq ongletActif 'personnage')}}active{{/if}}" data-action="changerOnglet" data-onglet="personnage">{{localize 'GALACTICWARS.Sheet.OngletPersonnage'}}</button>
+    <button type="button" class="onglet-btn {{#if (eq ongletActif 'equipements')}}active{{/if}}" data-action="changerOnglet" data-onglet="equipements">{{localize 'GALACTICWARS.Sheet.OngletEquipements'}}</button>
+    <button type="button" class="onglet-btn {{#if (eq ongletActif 'informations')}}active{{/if}}" data-action="changerOnglet" data-onglet="informations">{{localize 'GALACTICWARS.Sheet.OngletInformations'}}</button>
+  </nav>
+
   <div class="sheet-body">
+  {{#if (eq ongletActif 'personnage')}}
   <section class="caracteristiques">
     <h2>{{localize 'GALACTICWARS.Sheet.Caracteristiques'}}</h2>
     <div class="caracteristiques-grid">
@@ -45,10 +52,33 @@
       <input type="number" name="system.stress.value" value="{{system.stress.value}}"> /
       <input type="number" name="system.stress.max" value="{{system.stress.max}}">
     </label>
-    <label>{{localize 'GALACTICWARS.Sheet.Alignement'}} ({{localize 'GALACTICWARS.Alignement.Obscurite'}} / {{localize 'GALACTICWARS.Alignement.Lumiere'}})
-      <input type="range" name="system.alignement" min="-100" max="100" value="{{system.alignement}}">
-    </label>
     <label>{{localize 'GALACTICWARS.Sheet.Credits'}} <input type="number" name="system.credits" value="{{system.credits}}" min="0"></label>
+
+    <div class="alignement">
+      <h3>{{localize 'GALACTICWARS.Alignement.Titre'}}</h3>
+      <div class="pool pool-lumiere">
+        <label>{{localize 'GALACTICWARS.Alignement.Lumiere'}}</label>
+        <button type="button" data-action="ajusterLumiere" data-delta="-1">-</button>
+        <span class="valeur">{{system.lumiere}}</span><span class="max">/ 10</span>
+        <button type="button" data-action="ajusterLumiere" data-delta="1">+</button>
+      </div>
+      <div class="pool pool-obscurite">
+        <label>{{localize 'GALACTICWARS.Alignement.Obscurite'}}</label>
+        <button type="button" data-action="ajusterObscurite" data-delta="-1">-</button>
+        <span class="valeur">{{system.obscurite}}</span><span class="max">/ 10</span>
+        <button type="button" data-action="ajusterObscurite" data-delta="1">+</button>
+      </div>
+      <div class="bonus-choix">
+        <label><input type="radio" name="bonusAlignement" value="aucun" checked> {{localize 'GALACTICWARS.Alignement.Aucun'}}</label>
+        <label{{#unless system.lumiere}} class="disabled"{{/unless}}>
+          <input type="radio" name="bonusAlignement" value="lumiere" {{#unless system.lumiere}}disabled{{/unless}}> {{localize 'GALACTICWARS.Alignement.Lumiere'}} (+15%)
+        </label>
+        <label{{#unless system.obscurite}} class="disabled"{{/unless}}>
+          <input type="radio" name="bonusAlignement" value="obscurite" {{#unless system.obscurite}}disabled{{/unless}}> {{localize 'GALACTICWARS.Alignement.Obscurite'}} (+15%)
+        </label>
+      </div>
+      <p class="hint">{{localize 'GALACTICWARS.Alignement.Hint'}}</p>
+    </div>
   </section>
 
   <section class="competences">
@@ -58,7 +88,7 @@
       <li class="competence-row {{#if cpt.estCompetenceForce}}force{{/if}}">
         <button type="button" data-action="rollCompetence" data-cle="{{cpt.cle}}">🎲</button>
         <span class="label">{{localize cpt.label}}{{#if cpt.estCompetenceMetier}} *{{/if}}</span>
-        <input type="number" name="system.competences.{{@index}}.niveau" value="{{cpt.niveau}}" min="0" max="3">
+        <input type="number" class="niveau" name="system.competences.{{@index}}.niveau" value="{{cpt.niveau}}" min="0" max="3">
         <span class="total">{{cpt.total}}%</span>
       </li>
       {{/each}}
@@ -66,6 +96,27 @@
     <p class="hint">* {{localize 'GALACTICWARS.Sheet.CompetenceMetierHint'}}</p>
   </section>
 
+  <section class="pouvoirs">
+    <h2>
+      <label class="case-sensible-force">
+        <input type="checkbox" name="system.sensibleForce" {{#if system.sensibleForce}}checked{{/if}}>
+        {{localize 'GALACTICWARS.Sheet.SensibleForce'}}
+      </label>
+      {{#if system.sensibleForce}}<button type="button" data-action="createItem" data-type="pouvoir">+</button>{{/if}}
+    </h2>
+    {{#if system.sensibleForce}}
+    <ul>
+      {{#each pouvoirs as |pouvoir|}}
+      <li data-item-id="{{pouvoir.id}}">{{pouvoir.name}} ({{pouvoir.system.coutPointsDeForce}} PF)
+        <button type="button" data-action="deleteItem">🗑</button>
+      </li>
+      {{/each}}
+    </ul>
+    {{/if}}
+  </section>
+  {{/if}}
+
+  {{#if (eq ongletActif 'equipements')}}
   <section class="inventaire">
     <h2>{{localize 'GALACTICWARS.Sheet.Armes'}}
       <button type="button" data-action="createItem" data-type="arme">+</button>
@@ -89,17 +140,6 @@
       {{/each}}
     </ul>
 
-    <h2>{{localize 'GALACTICWARS.Sheet.Pouvoirs'}}
-      <button type="button" data-action="createItem" data-type="pouvoir">+</button>
-    </h2>
-    <ul>
-      {{#each pouvoirs as |pouvoir|}}
-      <li data-item-id="{{pouvoir.id}}">{{pouvoir.name}} ({{pouvoir.system.coutPointsDeForce}} PF)
-        <button type="button" data-action="deleteItem">🗑</button>
-      </li>
-      {{/each}}
-    </ul>
-
     <h2>{{localize 'GALACTICWARS.Sheet.Equipement'}}
       <button type="button" data-action="createItem" data-type="equipement">+</button>
     </h2>
@@ -111,10 +151,26 @@
       {{/each}}
     </ul>
   </section>
+  {{/if}}
 
-  <section class="biographie">
-    <h2>{{localize 'GALACTICWARS.Sheet.Biographie'}}</h2>
-    <prose-mirror name="system.biographie" value="{{system.biographie}}">{{{biographieEnrichie}}}</prose-mirror>
+  {{#if (eq ongletActif 'informations')}}
+  <section class="notes">
+    <h2>{{localize 'GALACTICWARS.Sheet.OngletInformations'}}
+      <button type="button" data-action="addNote">+</button>
+    </h2>
+    {{#each system.notes as |note i|}}
+    <div class="note-entry">
+      <div class="note-header">
+        <input type="text" class="note-titre" name="system.notes.{{i}}.titre" value="{{note.titre}}" placeholder="{{localize 'GALACTICWARS.Sheet.NoteTitrePlaceholder'}}">
+        <button type="button" data-action="removeNote" data-index="{{i}}">🗑</button>
+      </div>
+      <prose-mirror name="system.notes.{{i}}.contenu" value="{{note.contenu}}">{{{lookup ../notesEnrichies i}}}</prose-mirror>
+    </div>
+    {{/each}}
+    {{#unless system.notes.length}}
+    <p class="hint">{{localize 'GALACTICWARS.Sheet.AucuneNoteHint'}}</p>
+    {{/unless}}
   </section>
+  {{/if}}
   </div>
 </form>

@@ -162,6 +162,127 @@
   cursor: pointer;
 }
 
+.galactic-wars .onglets {
+  display: flex;
+  gap: 0.25rem;
+  padding: 0.4rem 0.5rem 0;
+  flex: 0 0 auto;
+  border-bottom: 1px solid var(--gw-border);
+}
+
+.galactic-wars .onglet-btn {
+  background: none;
+  border: 1px solid var(--gw-border);
+  border-bottom: none;
+  border-radius: 4px 4px 0 0;
+  color: var(--gw-text);
+  opacity: 0.6;
+  padding: 0.3rem 0.75rem;
+  cursor: pointer;
+}
+
+.galactic-wars .onglet-btn.active {
+  opacity: 1;
+  background: var(--gw-panel);
+  color: var(--gw-accent);
+}
+
+.galactic-wars .competence-row input.niveau {
+  font-weight: 700;
+  font-size: 1rem;
+  text-align: center;
+  color: var(--gw-accent);
+  background: var(--gw-panel);
+  border: 1px solid var(--gw-accent);
+  border-radius: 4px;
+  padding: 0.1rem 0;
+}
+
+.galactic-wars .alignement {
+  margin-top: 0.5rem;
+  padding: 0.4rem;
+  background: var(--gw-panel);
+  border: 1px solid var(--gw-border);
+  border-radius: 4px;
+}
+
+.galactic-wars .alignement h3 {
+  margin: 0 0 0.3rem 0;
+  font-size: 0.85rem;
+  color: var(--gw-accent);
+}
+
+.galactic-wars .pool {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.2rem;
+}
+
+.galactic-wars .pool label {
+  flex: 0 0 6rem;
+}
+
+.galactic-wars .pool button {
+  background: none;
+  border: 1px solid var(--gw-border);
+  border-radius: 3px;
+  color: var(--gw-text);
+  cursor: pointer;
+  width: 1.4rem;
+}
+
+.galactic-wars .pool-lumiere .valeur {
+  color: var(--gw-force);
+  font-weight: 700;
+}
+
+.galactic-wars .pool-obscurite .valeur {
+  color: var(--gw-accent);
+  font-weight: 700;
+}
+
+.galactic-wars .bonus-choix {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.3rem;
+  font-size: 0.8rem;
+}
+
+.galactic-wars .bonus-choix label.disabled {
+  opacity: 0.4;
+}
+
+.galactic-wars .case-sensible-force {
+  font-size: 0.85rem;
+  font-weight: normal;
+  margin-right: 0.5rem;
+}
+
+.galactic-wars .note-entry {
+  margin-bottom: 0.6rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.galactic-wars .note-header {
+  display: flex;
+  gap: 0.4rem;
+  margin-bottom: 0.2rem;
+}
+
+.galactic-wars .note-titre {
+  flex: 1 1 auto;
+  font-weight: 700;
+}
+
+.galactic-wars .note-header button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
 @container galactic-wars-sheet (max-width: 420px) {
   .galactic-wars .caracteristiques-rapides-list {
     grid-template-columns: 1fr;

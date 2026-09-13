@@ -85,7 +85,7 @@ Voir l'arborescence commentée dans `README.md` (module/config, module/data, mod
 ## 5. Fonctionnalités
 
 ### 5.1 Implémentées (v0.1.0)
-- Actor `personnage` : caractéristiques (Corps/Mental/Dextérité), ~37 compétences en %, PV, points de force, stress, alignement (curseur Obscurité↔Lumière), race/métier appliqués depuis compendium avec bouton "Appliquer".
+- Actor `personnage` : caractéristiques (Corps/Mental/Dextérité), ~37 compétences en %, PV, points de force, stress, race/métier appliqués depuis compendium avec bouton "Appliquer". Voir aussi §5.1octies (v0.9.0) pour la refonte ergonomique (onglets, réserves Lumière/Obscurité, notes) qui a depuis remplacé l'alignement d'origine.
 - Item `race` (modificateurs caractéristiques/compétences, armure naturelle, capacité spéciale), `metier` (prérequis, compétences accordées, équipement de départ, talent signature), `talent` (traits génériques), `arme`, `armure`, `pouvoir` (pouvoir de force), `equipement`.
 - Jet de compétence 1d100 (réussite si ≤ total%), avec seuils de réussite/échec critique.
 - Application d'un métier : vérifie les prérequis (métier requis + niveau minimum), remplace proprement l'équipement de départ précédent (flag `startingGear`) et les compétences accordées.
@@ -115,6 +115,14 @@ Voir l'arborescence commentée dans `README.md` (module/config, module/data, mod
 ### 5.1quater Ajoutées (v0.4.0)
 - Actor `pnj` : **réutilise intégralement le DataModel `PersonnageRapideData`** de la fiche rapide (même schéma exact — 8 caractéristiques, Survie, métier, talent, équipement) plutôt que de dupliquer une classe quasi-identique. Seule différence : résolu en **1d100** (`rollCaracteristiquePourcentage`, nouveau helper) au lieu du 1d20-sous-la-valeur de la fiche rapide — la fiche/sheet détecte `actor.type === "pnj"` pour choisir la bonne mécanique de jet. Réutilise aussi la même sheet (`PersonnageRapideSheet`) et le même template, avec les avertissements de plafond de création de PJ (max 80, pas plus de deux à 16) masqués sur cette variante puisqu'ils n'ont pas de sens pour un stat-block de PNJ créé par le MJ.
 - Aucun contenu de compendium PNJ pré-rempli pour l'instant (pas de stat-blocks de monstres/PNJ types extraits du matériel source dans cette session).
+
+### 5.1octies Ajoutées (v0.9.0)
+- Fiche classique (`personnage`) uniquement — refonte ergonomique issue de la maquette canvas de la session précédente (voir `JOURNAL.md`). Les 3 autres fiches (rapide/PNJ, sith, vaisseau) n'ont pas été touchées.
+- Onglets (`Personnage` / `Équipements` / `Informations`) : Caractéristiques/Ressources/Compétences/Pouvoirs dans le premier, Armes/Armures/Équipement dans le second, notes façon journal dans le troisième. Onglet actif géré côté sheet (propriété privée d'instance, pas persisté sur l'Actor).
+- `system.alignement` (curseur -100..100) remplacé par deux réserves indépendantes `system.lumiere`/`system.obscurite` (0 à 10 chacune, ajustées manuellement via +/-, pas de recharge automatique). Sur un jet de compétence, le joueur peut dépenser exactement 1 point (Lumière **ou** Obscurité, jamais les deux) pour +15% sur ce jet (`GW.bonusAlignement`) — choix fait via un groupe de radios éphémère (non persisté), consommé et remis à zéro après chaque jet avec dépense. La validation d'une difficulté exprimée en paliers par le point dépensé reste manuelle (MJ), pas automatisée dans cette itération.
+- `system.sensibleForce` (booléen) : la section Pouvoirs de force n'affiche sa liste (et le bouton d'ajout) que si cette case est cochée — évite d'afficher une section vide à tous les personnages non sensibles à la Force.
+- `system.biographie` (HTMLField unique) remplacé par `system.notes` (tableau de `{titre, contenu}`, ajout/retrait dynamique — même pattern que l'armement du vaisseau, voir §5.1sexies).
+- Niveau de compétence (0-3) mis en valeur visuellement (input encadré/coloré) dans chaque ligne de la liste des ~37 compétences, à la demande de l'utilisateur (champ très utilisé en jeu).
 
 ### 5.2 Roadmap
 Voir §10.
@@ -177,11 +185,11 @@ Déploiement : copier ce dossier vers `D:\AppDataFoundry$\FoundryVTT_Data\Data\s
 7. **Phase G (fait, v0.7.0)** : économie — `credits` (4 fiches de personnage), `prix` (armes/armures/équipements/vaisseaux), compendium `equipements` (11/11 échantillon).
 8. **Phase H (fait, v0.8.0)** : compendiums `races` (43/43, complet) et `metiers` (20/26, complet pour les métiers ayant une source de compétences) complétés.
 9. Reste : talents génériques (source à identifier avec l'auteur) ; 6 métiers sans compétences sourcées ; reste du catalogue économique (armes/armures/équipements, ~40 lignes) ; contenu PNJ type (monstres/gardes/etc.) ; décision sur la compétence d'arme de mêlée manquante.
-10. **En cours (non livré)** : refonte ergonomique des 4 fiches de personnage, maquette en canvas de
-    design (voir `JOURNAL.md`, session du 2026-09-10, entrée "Proposition de refonte ergonomique") —
-    https://claude.ai/code/artifact/9c1c44e9-177b-4fd5-bf38-f2e23d0852b7. Bloquée sur le barème des
-    bonus de compétence par points de Lumière/Obscurité dépensés (mécanique de mise, pas juste un
-    curseur d'alignement — implique un changement de schéma sur `system.alignement`).
+10. **Phase I (fait, v0.9.0)** : refonte ergonomique de la fiche classique uniquement (onglets, réserves
+    Lumière/Obscurité, notes, visibilité conditionnelle des Pouvoirs) — voir §5.1octies. Les 3 autres
+    fiches (rapide/PNJ, sith, vaisseau) n'ont pas encore reçu la même refonte ; la maquette canvas
+    d'origine (https://claude.ai/code/artifact/9c1c44e9-177b-4fd5-bf38-f2e23d0852b7) couvrait aussi
+    ces 3 fiches et reste utilisable comme référence si l'auteur veut les traiter plus tard.
 
 ## 11. Gestion des Versions
 

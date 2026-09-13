@@ -59,11 +59,21 @@ export class PersonnageData extends foundry.abstract.TypeDataModel {
       pv: ressource(10),
       pointsDeForce: ressource(0),
       stress: ressource(0),
-      alignement: new NumberField({ required: true, integer: true, min: -100, max: 100, initial: 0 }),
+      // Remplace l'ancien curseur unique -100..100 : deux réserves de points dépensables
+      // séparées (jamais les deux à la fois sur un même jet — voir rollCompetence).
+      lumiere: new NumberField({ required: true, integer: true, min: 0, max: 10, initial: 0 }),
+      obscurite: new NumberField({ required: true, integer: true, min: 0, max: 10, initial: 0 }),
       credits: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
 
+      sensibleForce: new BooleanField({ initial: false }),
+
       portrait: new FilePathField({ categories: ["IMAGE"], initial: "icons/svg/mystery-man.svg" }),
-      biographie: new HTMLField({ initial: "" })
+      notes: new ArrayField(
+        new SchemaField({
+          titre: new StringField({ initial: "" }),
+          contenu: new HTMLField({ initial: "" })
+        })
+      )
     };
   }
 
