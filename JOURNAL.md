@@ -76,6 +76,19 @@ Informations (notes) fonctionnent tous comme prévu. Aucune erreur JS en console
 Personnage de test **"Kael Dorn (test)"** créé dans ce monde (armes/armure/équipement/pouvoir
 d'exemple) et conservé à la demande de l'utilisateur pour servir de base aux prochaines sessions.
 
+**Session du 2026-09-14** (suite) : reskin visuel "datapad" appliqué au vrai CSS/template (cartes
+sombres cyan/corail, scopées sous `.galactic-wars.personnage` pour ne pas affecter les 3 autres
+fiches — vérifié intact sur `personnage-rapide` et `vaisseau`). En revérifiant le rendu dans Foundry,
+**bug trouvé et corrigé** : `PersonnageSheet._prepareContext` ne mettait jamais `context.actor`, donc
+`{{actor.name}}` dans le template (champ Nom en tête de fiche) restait toujours vide malgré
+`value="{{actor.name}}"` — invisible à l'œil nu car le champ affichait juste son `placeholder`, il
+fallait lire `input.value` en JS pour s'en apercevoir. Corrigé par l'ajout d'une ligne
+(`context.actor = this.actor;`) dans `module/sheets/personnage-sheet.mjs`. **Ce même bug affecte
+très probablement aussi les 3 autres fiches** (`personnage-rapide-sheet.mjs`,
+`personnage-sith-sheet.mjs`, `vaisseau-sheet.mjs` ont le même pattern `_prepareContext` sans jamais
+poser `context.actor`) — pas corrigé sur ces 3 fiches (hors scope de cette session, fiche classique
+uniquement), à traiter une prochaine fois.
+
 **Fichiers** : `module/data/actor-personnage.mjs`, `module/config.mjs`, `module/helpers/rolls.mjs`,
 `module/sheets/personnage-sheet.mjs`, `templates/actor/personnage-sheet.hbs`,
 `styles/galactic-wars.css`, `lang/fr.json`, `system.json` (v0.9.0), `CAHIER_DES_CHARGES.md` (§5.1,

@@ -39,6 +39,7 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const context = await super._prepareContext(options);
     const system = this.actor.system;
 
+    context.actor = this.actor;
     context.system = system;
     context.ongletActif = this.#ongletActif;
     context.caracteristiques = Object.entries(GW.caracteristiques).map(([cle, label]) => ({

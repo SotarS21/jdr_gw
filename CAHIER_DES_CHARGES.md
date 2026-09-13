@@ -190,6 +190,11 @@ Déploiement : copier ce dossier vers `D:\AppDataFoundry$\FoundryVTT_Data\Data\s
     fiches (rapide/PNJ, sith, vaisseau) n'ont pas encore reçu la même refonte ; la maquette canvas
     d'origine (https://claude.ai/code/artifact/9c1c44e9-177b-4fd5-bf38-f2e23d0852b7) couvrait aussi
     ces 3 fiches et reste utilisable comme référence si l'auteur veut les traiter plus tard.
+11. **Bug connu (non corrigé sur 3 fiches)** : `_prepareContext` de `personnage-rapide-sheet.mjs`,
+    `personnage-sith-sheet.mjs` et `vaisseau-sheet.mjs` ne pose jamais `context.actor` (corrigé
+    uniquement sur `personnage-sheet.mjs` en v0.9.0, voir `JOURNAL.md` session 2026-09-14) — leur
+    champ Nom en tête de fiche affiche donc toujours le placeholder au lieu du nom réel de l'Actor.
+    Fix attendu : ajouter `context.actor = this.actor;` dans le `_prepareContext` de ces 3 fichiers.
 
 ## 11. Gestion des Versions
 
