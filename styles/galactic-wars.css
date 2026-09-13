@@ -1,3 +1,7 @@
+/* Polices de la fiche classique uniquement (style "datapad", voir plus bas
+   .galactic-wars.personnage) — @import doit rester en tête de fichier. */
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
 .galactic-wars {
   --gw-dark: #14151c;
   --gw-panel: #1e2029;
@@ -281,6 +285,539 @@
   background: none;
   border: none;
   cursor: pointer;
+}
+
+/* ==========================================================================
+   Fiche classique (personnage) — style "datapad", repris de la maquette canvas
+   (https://claude.ai/code/artifact/9c1c44e9-177b-4fd5-bf38-f2e23d0852b7, artboard
+   Main). Tout est scopé sous .galactic-wars.personnage pour ne pas affecter les
+   3 autres fiches (rapide/PNJ, sith, vaisseau), qui gardent l'ancien thème
+   ambre/or et partagent le même fichier CSS. Les compétences ne sont PAS
+   regroupées en 3 colonnes Corps/Mental/Dextérité comme sur la maquette : ça
+   demanderait d'assigner chacune des ~37 clés de GW.competences à une
+   caractéristique, une décision de contenu (pas de style) qui n'a pas été
+   prise — voir CAHIER_DES_CHARGES.md. Les icônes emoji (🎲/🗑) sont conservées
+   telles quelles, seul l'habillage (bouton carré, bordure, couleur) change.
+   ========================================================================== */
+
+.galactic-wars.personnage {
+  --gw-dark: #0d0f14;
+  --gw-panel: #151822;
+  --gw-card: #1b1f2c;
+  --gw-border: #2a3040;
+  --gw-accent: #22d3ee;
+  --gw-accent-hover: #67e8f9;
+  --gw-accent-soft: #8fe9fb;
+  --gw-force: #9aa6ff;
+  --gw-force-soft: #c3caff;
+  --gw-gold: #e8b34d;
+  --gw-coral: #f2545b;
+  --gw-text: #e7e9f0;
+  --gw-muted: #8891a8;
+  --gw-dim: #5a6278;
+  font-family: "Space Grotesk", system-ui, sans-serif;
+}
+
+.galactic-wars.personnage .sheet-header,
+.galactic-wars.personnage .onglets {
+  border-bottom-color: var(--gw-border);
+}
+
+.galactic-wars.personnage .sheet-body {
+  padding: 0.6rem 0.6rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+/* Panels — remplace le simple border-bottom générique par de vraies cartes
+   encadrées/arrondies, empilées avec un espacement (gap sur .sheet-body). */
+.galactic-wars.personnage section {
+  background: var(--gw-panel);
+  border: 1px solid var(--gw-border);
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  margin: 0;
+}
+
+.galactic-wars.personnage .eyebrow {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--gw-muted);
+  font-weight: 600;
+}
+
+.galactic-wars.personnage h2.eyebrow {
+  margin: 0 0 0.6rem 0;
+  color: var(--gw-accent);
+  font-size: 0.72rem;
+}
+
+.galactic-wars.personnage .section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.galactic-wars.personnage .section-header h2.eyebrow {
+  margin: 0;
+}
+
+.galactic-wars.personnage .mono,
+.galactic-wars.personnage input,
+.galactic-wars.personnage .total,
+.galactic-wars.personnage .valeur,
+.galactic-wars.personnage .valeur-secondaire {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+}
+
+.galactic-wars.personnage input {
+  background: var(--gw-card);
+  border: 1px solid var(--gw-border);
+  border-radius: 5px;
+  color: var(--gw-text);
+  padding: 0.15rem 0.3rem;
+}
+
+.galactic-wars.personnage input:focus {
+  outline: none;
+  border-color: var(--gw-accent);
+}
+
+.galactic-wars.personnage input[type="checkbox"],
+.galactic-wars.personnage input[type="radio"] {
+  accent-color: var(--gw-accent);
+}
+
+/* ---- En-tête ---- */
+.galactic-wars.personnage .portrait-frame {
+  width: 76px;
+  height: 76px;
+  border-radius: 7px;
+  background: var(--gw-card);
+  border: 1px solid var(--gw-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.galactic-wars.personnage .portrait {
+  width: 100%;
+  height: 100%;
+  border: none;
+  object-fit: cover;
+}
+
+.galactic-wars.personnage .header-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.galactic-wars.personnage .nom-input {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #f4f5f9;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+}
+
+.galactic-wars.personnage .nom-input:focus {
+  border: none;
+  outline: none;
+}
+
+.galactic-wars.personnage .race-metier-row {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  font-size: 0.8rem;
+}
+
+.galactic-wars.personnage .champ {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+}
+
+.galactic-wars.personnage .valeur-texte {
+  font-size: 0.8rem;
+}
+
+.galactic-wars.personnage .niveau-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.galactic-wars.personnage .niveau-input {
+  width: 3rem;
+  font-weight: 700;
+  color: var(--gw-accent);
+}
+
+.galactic-wars.personnage .btn {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  border-radius: 5px;
+  border: 1px solid var(--gw-border);
+  background: var(--gw-card);
+  color: var(--gw-accent-soft);
+  padding: 0.2rem 0.5rem;
+  cursor: pointer;
+}
+
+.galactic-wars.personnage .btn:hover {
+  border-color: var(--gw-accent);
+}
+
+/* ---- Ressources (grille de stat-cards) ---- */
+.galactic-wars.personnage .stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.6rem;
+}
+
+.galactic-wars.personnage .stat-card {
+  background: var(--gw-card);
+  border: 1px solid var(--gw-border);
+  border-radius: 6px;
+  padding: 0.5rem 0.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.galactic-wars.personnage .stat-force {
+  border-color: #3a3f6b;
+}
+
+.galactic-wars.personnage .stat-force .eyebrow {
+  color: var(--gw-force-soft);
+}
+
+.galactic-wars.personnage .stat-value {
+  display: flex;
+  align-items: baseline;
+  gap: 0.25rem;
+}
+
+.galactic-wars.personnage .stat-value input {
+  width: 2.6rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.galactic-wars.personnage .stat-value .sep {
+  color: var(--gw-dim);
+  font-size: 0.75rem;
+}
+
+.galactic-wars.personnage .stat-value input.max {
+  font-size: 0.75rem;
+  color: var(--gw-dim);
+  width: 2rem;
+}
+
+.galactic-wars.personnage .stat-credits {
+  color: var(--gw-gold);
+}
+
+.galactic-wars.personnage .stat-credits input {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--gw-gold);
+  background: transparent;
+  border: none;
+  padding: 0;
+  width: 100%;
+}
+
+.galactic-wars.personnage .stat-alignement {
+  grid-column: span 2;
+}
+
+.galactic-wars.personnage .pool {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.2rem;
+}
+
+.galactic-wars.personnage .pip-btn {
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  background: var(--gw-panel);
+  border: 1px solid var(--gw-border);
+  color: var(--gw-text);
+  cursor: pointer;
+  flex-shrink: 0;
+  padding: 0;
+  line-height: 1;
+}
+
+.galactic-wars.personnage .pip-btn:hover {
+  border-color: var(--gw-accent);
+}
+
+.galactic-wars.personnage .pips {
+  display: inline-flex;
+  gap: 2px;
+}
+
+.galactic-wars.personnage .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: inline-block;
+}
+
+.galactic-wars.personnage .dot-lumiere {
+  background: var(--gw-accent);
+}
+
+.galactic-wars.personnage .dot-obscurite {
+  background: var(--gw-coral);
+}
+
+.galactic-wars.personnage .dot-vide {
+  background: var(--gw-border);
+}
+
+.galactic-wars.personnage .dot-metier {
+  background: var(--gw-gold);
+  margin-right: 0.3rem;
+}
+
+.galactic-wars.personnage .dot-force {
+  background: var(--gw-force);
+  margin-right: 0.3rem;
+}
+
+.galactic-wars.personnage .pool-lumiere .valeur {
+  color: var(--gw-accent);
+  font-weight: 700;
+  font-size: 0.8rem;
+  min-width: 0.8rem;
+}
+
+.galactic-wars.personnage .pool-obscurite .valeur {
+  color: var(--gw-coral);
+  font-weight: 700;
+  font-size: 0.8rem;
+  min-width: 0.8rem;
+}
+
+.galactic-wars.personnage .bonus-choix {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.4rem;
+  font-size: 0.68rem;
+  color: var(--gw-muted);
+}
+
+.galactic-wars.personnage .bonus-choix label.disabled {
+  opacity: 0.4;
+}
+
+.galactic-wars.personnage .stat-alignement .hint {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.62rem;
+  color: var(--gw-dim);
+  margin: 0.3rem 0 0;
+  line-height: 1.3;
+}
+
+/* ---- Caractéristiques & compétences ---- */
+.galactic-wars.personnage .legende {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.galactic-wars.personnage .legende-item {
+  display: flex;
+  align-items: center;
+  font-size: 0.65rem;
+  color: var(--gw-muted);
+}
+
+.galactic-wars.personnage .caracteristiques-grid {
+  margin-bottom: 0.6rem;
+}
+
+.galactic-wars.personnage .caracteristique {
+  background: var(--gw-card);
+}
+
+.galactic-wars.personnage .competences-list {
+  border-top: 1px solid var(--gw-border);
+  padding-top: 0.3rem;
+}
+
+.galactic-wars.personnage .skill-row {
+  grid-template-columns: 24px 1fr 2.4rem 3rem;
+  border-bottom: none;
+  border-radius: 5px;
+  padding: 0.2rem 0.3rem;
+}
+
+.galactic-wars.personnage .skill-row:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.galactic-wars.personnage .roll-btn,
+.galactic-wars.personnage .del-btn {
+  width: 22px;
+  height: 22px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  cursor: pointer;
+  padding: 0;
+  font-size: 0.75rem;
+}
+
+.galactic-wars.personnage .roll-btn {
+  background: var(--gw-card);
+  border: 1px solid var(--gw-border);
+  color: var(--gw-accent);
+}
+
+.galactic-wars.personnage .roll-btn:hover {
+  border-color: var(--gw-accent);
+}
+
+.galactic-wars.personnage .del-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--gw-dim);
+}
+
+.galactic-wars.personnage .del-btn:hover {
+  color: var(--gw-coral);
+}
+
+.galactic-wars.personnage .competence-row.force .label {
+  color: var(--gw-force-soft);
+}
+
+.galactic-wars.personnage .competence-row input.niveau {
+  width: 2.2rem;
+  text-align: center;
+}
+
+/* ---- Pouvoirs / Équipements / Informations : cartes d'objets ---- */
+.galactic-wars.personnage .case-sensible-force {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--gw-accent);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.galactic-wars.personnage .inventaire-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.galactic-wars.personnage .panel {
+  background: var(--gw-panel);
+  border: 1px solid var(--gw-border);
+  border-radius: 8px;
+  padding: 0.7rem 0.85rem;
+}
+
+.galactic-wars.personnage .objet-liste {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.galactic-wars.personnage .objet-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.25rem 0.3rem;
+  border-radius: 5px;
+}
+
+.galactic-wars.personnage .objet-row:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.galactic-wars.personnage .objet-nom {
+  font-size: 0.8rem;
+}
+
+.galactic-wars.personnage .objet-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.galactic-wars.personnage .valeur-secondaire {
+  font-size: 0.72rem;
+  color: var(--gw-muted);
+}
+
+/* ---- Informations (notes) ---- */
+.galactic-wars.personnage .note-entry {
+  border-bottom: 1px solid var(--gw-border);
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.galactic-wars.personnage .note-entry:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.galactic-wars.personnage .note-titre {
+  background: transparent;
+  border: none;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 0;
+}
+
+@container galactic-wars-sheet (max-width: 480px) {
+  .galactic-wars.personnage .stat-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .galactic-wars.personnage .stat-alignement {
+    grid-column: span 2;
+  }
+  .galactic-wars.personnage .inventaire-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @container galactic-wars-sheet (max-width: 420px) {

@@ -58,6 +58,10 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
         foundry.applications.ux.TextEditor.implementation.enrichHTML(note.contenu, { relativeTo: this.actor })
       )
     );
+    // Pips d'affichage pour les jauges Lumière/Obscurité (voir styles/galactic-wars.css) —
+    // purement visuel, la valeur réelle reste system.lumiere/system.obscurite.
+    context.pipsLumiere = Array.from({ length: 10 }, (_, i) => i < system.lumiere);
+    context.pipsObscurite = Array.from({ length: 10 }, (_, i) => i < system.obscurite);
 
     return context;
   }
