@@ -29,6 +29,7 @@ export class PersonnageSithSheet extends HandlebarsApplicationMixin(ActorSheetV2
     const context = await super._prepareContext(options);
     const system = this.actor.system;
 
+    context.actor = this.actor;
     context.system = system;
     context.corpulences = GW.corpulences;
     context.caracteristiques = Object.entries(GW.caracteristiquesSith).map(([cle, label]) => ({

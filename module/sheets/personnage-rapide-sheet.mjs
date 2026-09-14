@@ -29,6 +29,7 @@ export class PersonnageRapideSheet extends HandlebarsApplicationMixin(ActorSheet
     const context = await super._prepareContext(options);
     const system = this.actor.system;
 
+    context.actor = this.actor;
     context.system = system;
     context.caracteristiques = Object.entries(GW.caracteristiquesRapides).map(([cle, label]) => ({
       cle,
