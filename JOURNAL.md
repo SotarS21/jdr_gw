@@ -1,5 +1,177 @@
 # Journal de développement — Galactic Wars
 
+## Session du 2026-09-15 — Cause racine du bug de sauvegarde + picker race/métier/école (v0.9.0 → v0.10.0)
+
+Reprise directe du bug de sauvegarde laissé ouvert la session précédente (voir entrée du 2026-09-14 (2)
+ci-dessous). En route, l'utilisateur a signalé en direct (monde `Galacit wars V final` toujours ouvert
+de la session précédente) : compétences disparues sur plusieurs fiches, et boutons "Appliquer"
+race/métier ne faisant rien d'utile.
+
+**Diagnostic en direct (Playwright, compte GM `claude`/`1234` sur `http://localhost:30000`, package
+`playwright` récupéré depuis le cache `_npx` faute d'être une dépendance du projet — voir note
+technique en fin d'entrée)** : monkey-patch de `ApplicationV2.prototype._onSubmitForm` et
+`DocumentSheetV2.prototype._prepareSubmitData`/`_processSubmitData` pour tracer ce qui arrive
+réellement à la sauvegarde d'un champ. Résultat : `FormDataExtended(this.element)` retournait **0
+champs** sur les 90 attendus.
+
+**Cause racine trouvée : `<form>` imbriqué.** Les 5 templates (`personnage`, `personnage-rapide`,
+`personnage-sith`, `vaisseau`, item générique) commencent chacun par leur propre `<form class="...">`
+— mais `DocumentSheetV2` rend déjà `this.element` lui-même comme un `<form>` (avec les classes de
+`DEFAULT_OPTIONS.classes`, donc le `<form>` du template était de toute façon redondant). Résultat :
+tous les inputs se retrouvaient dans l'arbre DOM comme descendants du `<form>` *interne* (celui du
+template), dont le propriétaire de formulaire ("form owner", au sens de la spec HTML) est le plus
+proche ancêtre `<form>` — pas le `<form>` racine que Foundry interroge. `FormDataExtended(racine)` ne
+voyait donc aucun des champs, qui appartenaient tous au formulaire interne. `_prepareSubmitData`
+appelle ensuite `document.validate({changes: {}, clean: {addTypes: true}})`, qui ajoute `type` à
+l'objet vide — d'où le payload `{"type": "personnage"}` observé la session précédente. Corrigé en
+remplaçant le `<form>` de tête de chaque template par un simple `<div>` (`PARTS` exige un seul élément
+racine, donc suppression pure sans wrapper aurait cassé le rendu — testé, message d'erreur explicite
+de Foundry : *"Template part 'body' must render a single HTML element"*).
+
+**Deuxième bug trouvé en testant le premier fix, corrigé aussi : `ArrayField` et champs non exposés.**
+Une fois la sauvegarde réellement fonctionnelle, le payload envoyé à `actor.update()` pour
+`system.competences` réinitialisait `cle` à `""` sur les 37 entrées (`racial`/`metier`/
+`acquiseParMetier` aussi). Cause : `system.competences` est un `ArrayField`, dont `Document#update()`
+remplace chaque élément du tableau en entier plutôt que de fusionner ses champs un par un (comportement
+déjà repéré une fois avec les updates directs par index, voir mémoire `feedback-foundry-arrayfield-
+testing` — mais cette fois via le formulaire normal, pas un `actor.update()` manuel). Le template
+n'avait des `<input>` que pour `niveau`/`ajustement` ; `cle`/`racial`/`metier`/`acquiseParMetier`
+n'étaient jamais soumis, donc réinitialisés à leur défaut de schéma à chaque sauvegarde — cassant
+`GW.competences[cle]` partout (labels, regroupement par caractéristique, calcul du malaus). Corrigé en
+ajoutant des `<input type="hidden">` (avec `data-dtype="Number"`/`"Boolean"` pour un cast correct par
+`FormDataExtended`) pour ces 4 champs sur chaque ligne de compétence.
+
+**Dégât collatéral de mon propre test (avant le fix ci-dessus) réparé** : un premier essai de
+sauvegarde (avant l'ajout des `<input hidden>`) a réellement déclenché le bug sur l'Actor de test
+"Kael Dorn (test)", faisant passer son tableau `system.competences` de 37 à 74 entrées (37 anciennes
+vidées + 37 nouvelles réinjectées par la migration idempotente au rechargement suivant). Réparé par un
+script dédié : regroupement par `cle` en gardant l'entrée la plus "complète" de chaque doublon,
+reconstruction d'un tableau propre de 37 entrées dans l'ordre de `GW.competences`, puis un seul
+`actor.update({"system.competences": tableauComplet})` (jamais d'update par index isolé — voir mémoire
+citée plus haut). Vérifié : `nbCompetences` repassé à 37 partout, aucun autre Actor touché.
+
+**Fausse alerte clarifiée avec l'utilisateur** : le fait de me connecter (compte GM `claude`, en
+lecture seule au départ) a déclenché `runMigrations()` (hook `ready`, une fois par session client GM),
+qui a ajouté les 37 clés de compétence manquantes à 3 Actors (`Test_robin`, `test_fab`, `test_raton`).
+Log affiché : *"Migration : 37 compétence(s) ajoutée(s) à ..."* — ça ressemblait à une perte de
+données, mais c'était en réalité leur toute première connexion GM depuis leur création (pas de perte
+réelle, confirmé par l'utilisateur : "pantins de test, pas grave"). Reste un vrai gap UX signalé au
+§10 item 15 de `CAHIER_DES_CHARGES.md` : un `personnage` neuf n'a aucune compétence tant qu'un GM n'a
+pas rechargé le monde une fois.
+
+**Picker de compendium race/métier/école** (demande de l'utilisateur, découverte en testant : les
+boutons "Appliquer" ne faisaient jamais rien d'utile en pratique, faute d'un moyen de renseigner
+`system.race.uuid`/`system.metier.uuid`/`system.ecole.uuid` — seul un glisser-déposer depuis la
+sidebar l'aurait permis, jamais implémenté ; confirmé par le personnage de test qui avait un nom de
+race renseigné mais un `uuid` vide). Nouveau helper `module/helpers/compendium-picker.mjs` :
+`choisirItemCompendium(packName, {title})` ouvre une `DialogV2` listant (triées alphabétiquement) les
+entrées du compendium demandé, et retourne le document choisi. Boutons renommés "Appliquer" →
+"Choisir" sur les 3 fiches concernées (`personnage`, `personnage-rapide`, `personnage-sith`) : un clic
+ouvre la liste et applique directement le choix (`applyRace`/`applyMetier`/`applyEcole`, logique
+existante et inchangée). Le "conditionnement des compétences selon le métier" demandé par l'utilisateur
+était déjà entièrement implémenté côté `applyMetier` (`acquiseParMetier: true` + bonus sur les
+compétences accordées par le métier, malus `-30%` sinon contre `-10%` pour une compétence non-métier)
+— il manquait seulement un moyen de déclencher le tout. Testé en direct : sélection "Zabrak" (race) et
+"Contrebandier" (métier) sur Kael Dorn (test) → `uuid` correctement renseigné, 6 compétences
+correctement marquées `acquiseParMetier` (`blaster`, `escroquerieMensonge`, `mecanique`, `pilotage`,
+`social`, `sangFroid`).
+
+**Note technique (setup réutilisable)** : `playwright` n'est pas une dépendance du projet ; `npx
+playwright --version` fonctionne mais installe dans le cache npx (`%LOCALAPPDATA%\npm-cache\_npx\
+<hash>\node_modules\playwright`), pas requérable via `NODE_PATH` en ESM — contournement : `import()`
+avec une URL `file:///` explicite pointant directement dans ce cache. Dossier de déploiement réel du
+système (pas un symlink, une copie séparée avec son propre `.git`) : `D:\AppDataFoundry$\
+FoundryVTT_Data\Data\systems\galactic-wars` — à resynchroniser manuellement (copie de fichiers) après
+toute édition du dépôt source si on veut tester en direct avant de committer.
+
+**Fichiers modifiés** : `templates/actor/{personnage,personnage-rapide,personnage-sith,vaisseau}-
+sheet.hbs` + `templates/item/item-sheet.hbs` (suppression du `<form>` de tête, `<div>` à la place),
+`templates/actor/personnage-sheet.hbs` (4 `<input hidden>` par ligne de compétence),
+`module/helpers/compendium-picker.mjs` (nouveau), `module/sheets/{personnage,personnage-rapide,
+personnage-sith}-sheet.mjs` (boutons race/métier/école → picker), `lang/fr.json` (`Sheet.Choisir`/
+`Sheet.Annuler` ajoutés, `Sheet.Appliquer` et les 3 clés `Avertissement.Aucune*Selectionnee` retirés
+— plus utilisés —, `Avertissement.CompendiumVide` ajouté), `system.json` (v0.10.0),
+`CAHIER_DES_CHARGES.md` (§5.1nonies, §10 items 12-15).
+
+---
+
+## Session du 2026-09-14 (2) — 3 colonnes de compétences + bug de sauvegarde des fiches (v0.9.0 → v0.10.0, voir session suivante)
+
+**⚠️ Session interrompue à la demande de l'utilisateur (changement de monde Foundry en cours) — tout
+le code ci-dessous est écrit et déployé sur le serveur de test local, mais PAS commité (l'utilisateur
+veut tester puis committer lui-même plus tard). Prochaine session : reprendre les tests en direct
+là où c'est noté ci-dessous, notamment le `_prepareSubmitData` bizarre.**
+
+**1. Fix `context.actor` manquant sur les 3 fiches restantes** (commité et pushé, `c17866a`) :
+rapide/PNJ, sith, vaisseau avaient le même bug que la fiche classique (corrigé la session
+précédente, `bdb3521`) — `_prepareContext` ne renseignait jamais `context.actor`, donc
+`{{actor.name}}` restait vide. Vérifié en direct sur les 3 fiches (Playwright).
+
+**2. Restauration des 3 colonnes de compétences Corps/Mental/Dextérité** (codé + déployé, PAS
+commité) : demande de l'utilisateur, déjà identifiée comme dette du 2026-09-13 (voir plus bas dans
+ce journal, "Les compétences ne sont PAS regroupées en 3 colonnes"). Retrouvé le mapping exact dans
+la source `asset_fiche_perso/fiche_classique/Template corriger.xlsx` (onglet "fiche base", hors du
+dossier système déployé) : colonnes A/D/G = Corps(12)/Mental(12)/Dextérité(13) = 37 cases. La colonne
+Corps de la source contient "Arme contondante et blanche" (absente de `GW.competences`, cf. point
+ouvert existant sur la compétence de mêlée manquante) à la place de `natation` (qui, dans la source,
+n'apparaît que comme bonus racial isolé hors grille) — `natation` rattachée à Corps pour conserver le
+compte de 12, un choix plausible mais pas garanti par la source, à confirmer si besoin.
+`GW.competences` a maintenant un champ `caracteristique` par entrée (`module/config.mjs`). Le
+regroupement se fait dans `PersonnageSheet#_prepareContext` (chaque caractéristique porte sa propre
+sous-liste triée, avec l'index réel dans `system.competences` préservé pour les bindings de
+formulaire) ; template et CSS (`.colonne-caracteristique`, grilles à 5 colonnes pour la ligne de
+compétence) mis à jour en conséquence.
+
+**3. Bug remonté par l'utilisateur : "le taux ne s'adapte pas quand on met un niveau"** — deux
+causes distinctes trouvées, une corrigée avec certitude, l'autre repérée mais **pas résolue** :
+
+- **Cause 1 (corrigée) : la formule elle-même ignorait la caractéristique.** `total` ne calculait
+  que `base(niveau) + racial + metier + malus`, sans le bonus de la caractéristique liée. Formule
+  validée avec l'utilisateur : `total = base(niveau) + caracteristique.total + racial + metier +
+  ajustement + malus` (nouveau champ `ajustement`, réglable manuellement par le joueur pour les
+  level-up, cf. demande explicite "il peut être modifié à la main"). Implémenté dans
+  `actor-personnage.mjs::prepareDerivedData` + nouveau champ schema `ajustement` + input dédié dans
+  le template (colonne compacte à côté du total, tooltip `AjustementManuelHint`).
+
+- **Cause 2 (repérée, PAS corrigée) : découverte plus grave en testant la cause 1 en direct.**
+  `ActorSheetV2`/`ItemSheetV2` ont `submitOnChange: false` par défaut sur cette version de Foundry,
+  et **aucune des 5 fiches du système** (`personnage`, `personnage-rapide`, `personnage-sith`,
+  `vaisseau`, l'item sheet générique) ne le mettait à `true`. Conséquence potentielle : tout champ
+  simple lié uniquement par `name="system.xxx"` (nom, niveau, notes, caractéristiques, compétences,
+  PV/Force/Stress, crédits...) ne se sauvegarderait JAMAIS tant qu'aucune action (bouton
+  Lumière/Obscurité, applyRace/Metier, création d'objet...) ne force un `actor.update()` à côté.
+  `form: { submitOnChange: true }` ajouté aux 5 fiches (codé + déployé). **Mais en testant après ce
+  correctif, le comportement observé est toujours cassé** : le "change" event se déclenche bien et
+  `actor.update()` est bien appelé, mais avec un payload quasi vide (`{"type":"personnage"}` observé
+  au lieu de `{"system.niveau": "5", ...}`) — alors qu'un `new FormDataExtended(form)` construit
+  manuellement au même instant retourne bien les ~90 champs attendus, `system.niveau` inclus. Le
+  diagnostic s'est arrêté au monkey-patch de
+  `foundry.applications.api.DocumentSheetV2.prototype._prepareSubmitData`/`_processSubmitData` pour
+  voir ce qui leur est réellement passé (script non terminé, monde changé entre-temps) — **prochaine
+  session : relancer ce monkey-patch pour voir si le formData qui leur arrive est déjà tronqué, ou
+  si le tronquage a lieu dans leur propre logique (`_getSubmitData`/diff avec le document actuel)**.
+  Tant que cette cause 2 n'est pas résolue, aucun champ simple des 5 fiches ne se sauvegarde
+  réellement en jeu — bug potentiellement bien plus large que le seul "taux de compétence" remonté
+  par l'utilisateur.
+
+**Acteur de test corrompu puis réparé** : en testant la cause 2 avec des `actor.update()` directs
+sur un seul index de `system.competences` (`system.competences.5.niveau`), le tableau de
+compétences de "Kael Dorn (test)" s'est retrouvé tronqué à 6 entrées avec `cle` vides — signe que
+les updates ArrayField partiels par index (hors formulaire complet) sont dangereux sur ce moteur.
+Réparé en reconstruisant le tableau des 37 clés (`race`/`métier` n'avaient de toute façon jamais été
+liés par UUID sur ce personnage de test, donc rien à réappliquer). Retenir : ne plus jamais tester
+via `actor.update({"system.competences.N.champ": x})` — seulement via la vraie fiche (formulaire) ou
+en remplaçant le tableau complet.
+
+**Fichiers modifiés (non commités)** : `module/config.mjs` (`caracteristique` par compétence),
+`module/data/actor-personnage.mjs` (champ `ajustement`, formule `total`), `module/sheets/
+personnage-sheet.mjs` (`form: {submitOnChange:true}`, regroupement par caractéristique dans
+`_prepareContext`), `module/sheets/{personnage-rapide,personnage-sith,vaisseau,item}-sheet.mjs`
+(`form: {submitOnChange:true}`), `templates/actor/personnage-sheet.hbs` (3 colonnes), `styles/
+galactic-wars.css` (grilles à 5 colonnes), `lang/fr.json` (`AjustementManuelHint`).
+
+---
+
 ## Session du 2026-09-13 — Refonte ergonomique de la fiche classique (v0.8.1 → v0.9.0)
 
 Reprise du point laissé en suspens la session précédente (voir entrée du 2026-09-10 ci-dessous) : le

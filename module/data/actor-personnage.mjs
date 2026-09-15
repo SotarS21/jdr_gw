@@ -52,6 +52,9 @@ export class PersonnageData extends foundry.abstract.TypeDataModel {
           niveau: new NumberField({ required: true, integer: true, min: 0, max: 3, initial: 0 }),
           racial: new NumberField({ required: true, integer: true, initial: 0 }),
           metier: new NumberField({ required: true, integer: true, initial: 0 }),
+          // Bonus manuel additionnel, réglable directement par le joueur (ex. lors d'un
+          // level up) sans écraser le calcul automatique niveau + caractéristique.
+          ajustement: new NumberField({ required: true, integer: true, initial: 0 }),
           acquiseParMetier: new BooleanField({ initial: false })
         })
       ),
@@ -88,12 +91,17 @@ export class PersonnageData extends foundry.abstract.TypeDataModel {
     for (const competence of this.competences) {
       const def = GW.competences[competence.cle];
       const base = ({ 0: 0, 1: 5, 2: 10, 3: 20 })[competence.niveau] ?? 0;
+      const bonusCaracteristique = this.caracteristiques[def?.caracteristique]?.total ?? 0;
       let malus = 0;
       if (def && !competence.acquiseParMetier) {
         malus = def.metier ? -30 : -10;
       }
-      competence.total = Math.max(0, base + competence.racial + competence.metier + malus);
+      competence.total = Math.max(
+        0,
+        base + bonusCaracteristique + competence.racial + competence.metier + competence.ajustement + malus
+      );
       competence.label = def?.label ?? competence.cle;
+      competence.caracteristique = def?.caracteristique;
       competence.estCompetenceMetier = def?.metier ?? false;
       competence.estCompetenceForce = def?.force ?? false;
     }

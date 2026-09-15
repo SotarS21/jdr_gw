@@ -1,4 +1,7 @@
-<form class="galactic-wars sheet personnage-sith" autocomplete="off">
+{{!-- <div>, pas <form> : DocumentSheetV2 rend déjà this.element comme un <form>
+      (classes déjà appliquées) — un <form> imbriqué casserait FormDataExtended.
+      Un seul élément racine reste requis (PARTS). --}}
+<div class="galactic-wars-body">
   <header class="sheet-header">
     <img class="portrait" src="{{system.portrait}}" data-action="editImage" alt="{{actor.name}}">
     <div class="header-fields">
@@ -6,9 +9,9 @@
       <label>{{localize 'GALACTICWARS.Sheet.NomSith'}} <input type="text" name="system.infos.nomSith" value="{{system.infos.nomSith}}"></label>
       <div class="race-metier-row">
         <span>{{localize 'GALACTICWARS.Sheet.Race'}} : {{system.race.nom}}</span>
-        <button type="button" data-action="applyRace">{{localize 'GALACTICWARS.Sheet.Appliquer'}}</button>
+        <button type="button" data-action="applyRace">{{localize 'GALACTICWARS.Sheet.Choisir'}}</button>
         <span>{{localize 'GALACTICWARS.Sheet.Ecole'}} : {{system.ecole.nom}}</span>
-        <button type="button" data-action="applyEcole">{{localize 'GALACTICWARS.Sheet.Appliquer'}}</button>
+        <button type="button" data-action="applyEcole">{{localize 'GALACTICWARS.Sheet.Choisir'}}</button>
       </div>
       <label>{{localize 'GALACTICWARS.Sheet.Corpulence'}}
         <select name="system.corpulence">
@@ -81,4 +84,4 @@
     <prose-mirror name="system.description" value="{{system.description}}">{{{descriptionEnrichie}}}</prose-mirror>
   </section>
   </div>
-</form>
+</div>

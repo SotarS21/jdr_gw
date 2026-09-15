@@ -6,6 +6,10 @@ export class VaisseauSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     classes: ["galactic-wars", "sheet", "actor", "vaisseau"],
     position: { width: 640, height: 760 },
     window: { resizable: true },
+    // Voir personnage-sheet.mjs : sans ça, ActorSheetV2 (submitOnChange:false par défaut)
+    // ne sauvegarde aucun champ texte/nombre simple tant qu'aucune action explicite ne
+    // force un update().
+    form: { submitOnChange: true },
     actions: {
       addArmement: VaisseauSheet.#onAddArmement,
       removeArmement: VaisseauSheet.#onRemoveArmement,

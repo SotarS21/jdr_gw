@@ -5,7 +5,11 @@ export class GalacticWarsItemSheet extends HandlebarsApplicationMixin(ItemSheetV
   static DEFAULT_OPTIONS = {
     classes: ["galactic-wars", "sheet", "item"],
     position: { width: 480, height: 560 },
-    window: { resizable: true }
+    window: { resizable: true },
+    // Voir personnage-sheet.mjs : sans ça, ItemSheetV2 (submitOnChange:false par défaut)
+    // ne sauvegarde aucun champ texte/nombre simple tant qu'aucune action explicite ne
+    // force un update().
+    form: { submitOnChange: true }
   };
 
   static PARTS = {

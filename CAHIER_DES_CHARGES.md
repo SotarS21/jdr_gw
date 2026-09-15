@@ -124,6 +124,11 @@ Voir l'arborescence commentée dans `README.md` (module/config, module/data, mod
 - `system.biographie` (HTMLField unique) remplacé par `system.notes` (tableau de `{titre, contenu}`, ajout/retrait dynamique — même pattern que l'armement du vaisseau, voir §5.1sexies).
 - Niveau de compétence (0-3) mis en valeur visuellement (input encadré/coloré) dans chaque ligne de la liste des ~37 compétences, à la demande de l'utilisateur (champ très utilisé en jeu).
 
+### 5.1nonies Ajoutées (v0.10.0)
+- **Bug critique corrigé (voir §10 item 13)** : les 5 templates de fiche (`personnage`, `personnage-rapide`, `personnage-sith`, `vaisseau`, item générique) commençaient chacun par leur propre balise `<form>`, imbriquée dans le `<form>` que `DocumentSheetV2` fournit déjà comme élément racine — tous les champs se retrouvaient donc portés par ce `<form>` interne plutôt que par le vrai, et `FormDataExtended(this.element)` ne voyait aucun champ (payload d'update réduit à `{type: "personnage"}`). Remplacé par un simple `<div>` (un seul élément racine reste requis par `PARTS`). Confirmé en direct : la sauvegarde automatique (`submitOnChange`) fonctionne désormais sur les 5 fiches.
+- **Deuxième bug découvert en corrigeant le premier, corrigé aussi** : `system.competences` est un `ArrayField` — `Document#update()` remplace chaque élément entier plutôt que de fusionner ses champs un par un. Comme `cle`/`racial`/`metier`/`acquiseParMetier` n'avaient pas d'`<input>` dans le formulaire (seuls `niveau`/`ajustement` en avaient), *tout* changement sur la fiche classique réinitialisait ces 4 champs à leur valeur par défaut du schéma sur les 37 compétences (`cle: ""` notamment, ce qui casse `GW.competences[cle]` partout : labels, regroupement par caractéristique, malus). Corrigé en ajoutant des `<input type="hidden">` (avec `data-dtype` correct) pour ces 4 champs sur chaque ligne de compétence.
+- Boutons "Appliquer" (race/métier/école) remplacés par "Choisir" : ils n'avaient en réalité aucun moyen de renseigner `system.race.uuid`/`system.metier.uuid`/`system.ecole.uuid` (seul un glisser-déposer depuis la sidebar l'aurait permis, jamais implémenté — confirmé par le fait que même le personnage de test avait un nom de race/métier renseigné mais un `uuid` vide). Nouveau helper `module/helpers/compendium-picker.mjs::choisirItemCompendium(packName)` : ouvre une liste (triée alphabétiquement) des entrées du compendium demandé via `DialogV2`, et applique directement le choix (`applyRace`/`applyMetier`/`applyEcole`, logique de gating des compétences par métier déjà existante et inchangée — un métier marque `acquiseParMetier: true` + bonus sur les compétences qu'il accorde, les autres restent au malus `-30%`/`-10%`).
+
 ### 5.2 Roadmap
 Voir §10.
 
@@ -190,11 +195,31 @@ Déploiement : copier ce dossier vers `D:\AppDataFoundry$\FoundryVTT_Data\Data\s
     fiches (rapide/PNJ, sith, vaisseau) n'ont pas encore reçu la même refonte ; la maquette canvas
     d'origine (https://claude.ai/code/artifact/9c1c44e9-177b-4fd5-bf38-f2e23d0852b7) couvrait aussi
     ces 3 fiches et reste utilisable comme référence si l'auteur veut les traiter plus tard.
-11. **Bug connu (non corrigé sur 3 fiches)** : `_prepareContext` de `personnage-rapide-sheet.mjs`,
-    `personnage-sith-sheet.mjs` et `vaisseau-sheet.mjs` ne pose jamais `context.actor` (corrigé
-    uniquement sur `personnage-sheet.mjs` en v0.9.0, voir `JOURNAL.md` session 2026-09-14) — leur
-    champ Nom en tête de fiche affiche donc toujours le placeholder au lieu du nom réel de l'Actor.
-    Fix attendu : ajouter `context.actor = this.actor;` dans le `_prepareContext` de ces 3 fichiers.
+11. **Bug corrigé (2026-09-14, commité `c17866a`)** : `_prepareContext` de `personnage-rapide-sheet.mjs`,
+    `personnage-sith-sheet.mjs` et `vaisseau-sheet.mjs` ne posait jamais `context.actor` (même bug que
+    `personnage-sheet.mjs`, corrigé en v0.9.0) — champ Nom vide corrigé sur les 4 fiches désormais.
+12. **Fait (2026-09-14, v0.10.0)** : 3 colonnes de compétences Corps/Mental/Dextérité restaurées sur
+    la fiche classique (mapping retrouvé dans `Template corriger.xlsx`), et bonus de caractéristique
+    ajouté à la formule du taux de compétence (+ champ `ajustement` manuel pour les level-up).
+13. **✅ Résolu (2026-09-15, v0.10.0)** : le bug de sauvegarde ouvert le 2026-09-14 (payload
+    `{"type":"personnage"}` au lieu des champs modifiés) venait d'un `<form>` imbriqué dans chacun
+    des 5 templates (voir §5.1nonies) — pas du `submitOnChange` lui-même, qui était la bonne piste
+    mais pas la cause racine. En creusant le correctif, un deuxième bug lié (`ArrayField` réinitialisant
+    `cle`/`racial`/`metier`/`acquiseParMetier` de `system.competences` à chaque sauvegarde) a aussi été
+    trouvé et corrigé — voir §5.1nonies pour le détail des deux. Confirmé en direct (Playwright, monde
+    `Galacit wars V final`) : sauvegarde automatique fonctionnelle sur les 5 fiches, `cle` préservé.
+14. **Fait (v0.10.0)** : picker de compendium pour race/métier/école (§5.1nonies) — les boutons
+    "Appliquer" ne servaient en réalité à rien tant qu'aucun glisser-déposer (jamais implémenté)
+    n'avait renseigné l'UUID cible ; remplacés par "Choisir", qui ouvre une liste du compendium
+    correspondant et applique le choix immédiatement.
+15. **Point d'attention pour la suite** : en diagnostiquant le bug ArrayField ci-dessus, un test live a
+    déclenché la migration idempotente (`runMigrations`, voir `module/helpers/migration.mjs`) sur 3
+    Actors (`Test_robin`, `test_fab`, `test_raton`) qui n'avaient encore jamais reçu leurs 37 clés de
+    compétence — c'était leur toute première connexion GM depuis leur création, pas une perte de
+    données (confirmé avec l'auteur). Cela reste un gap UX réel : un `personnage` fraîchement créé n'a
+    aucune compétence tant qu'un client GM ne recharge pas le monde. À envisager : seeder
+    `system.competences` à la création de l'Actor (`_preCreate`) plutôt que de compter sur la migration
+    au chargement du monde.
 
 ## 11. Gestion des Versions
 

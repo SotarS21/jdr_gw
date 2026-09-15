@@ -1,4 +1,7 @@
-<form class="galactic-wars sheet item" autocomplete="off">
+{{!-- <div>, pas <form> : DocumentSheetV2 rend déjà this.element comme un <form>
+      (classes déjà appliquées) — un <form> imbriqué casserait FormDataExtended.
+      Un seul élément racine reste requis (PARTS). --}}
+<div class="galactic-wars-body">
   <header class="sheet-header">
     <img class="item-image" src="{{item.img}}" data-edit="img" alt="{{item.name}}">
     <input type="text" name="name" value="{{item.name}}">
@@ -70,4 +73,4 @@
     <prose-mirror name="system.description" value="{{system.description}}">{{{descriptionEnrichie}}}</prose-mirror>
   </section>
   </div>
-</form>
+</div>

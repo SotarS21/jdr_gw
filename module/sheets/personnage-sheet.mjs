@@ -2,6 +2,7 @@ import { GW } from "../config.mjs";
 import { rollCompetence } from "../helpers/rolls.mjs";
 import { applyRace } from "../helpers/race.mjs";
 import { applyMetier } from "../helpers/metier.mjs";
+import { choisirItemCompendium } from "../helpers/compendium-picker.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
@@ -11,6 +12,11 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     classes: ["galactic-wars", "sheet", "actor", "personnage"],
     position: { width: 720, height: 780 },
     window: { resizable: true },
+    // Par défaut ActorSheetV2 a submitOnChange:false — sans ça, aucun champ texte/nombre
+    // simple (nom, niveau, notes, caractéristiques, compétences...) ne se sauvegarde tant
+    // que rien d'autre ne force un update() (voir JOURNAL.md, bug remonté par l'utilisateur :
+    // le taux d'une compétence ne "s'adaptait" pas quand on changeait son niveau).
+    form: { submitOnChange: true },
     actions: {
       rollCompetence: PersonnageSheet.#onRollCompetence,
       applyRace: PersonnageSheet.#onApplyRace,
@@ -42,14 +48,18 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     context.actor = this.actor;
     context.system = system;
     context.ongletActif = this.#ongletActif;
+    // `index` conserve la position réelle dans system.competences (pas celle, différente,
+    // dans la sous-liste triée/filtrée par caractéristique ci-dessous) pour que les inputs
+    // du template continuent de cibler la bonne entrée du tableau.
+    const competencesIndexees = system.competences.map((c, index) => ({ ...c, index }));
     context.caracteristiques = Object.entries(GW.caracteristiques).map(([cle, label]) => ({
       cle,
       label,
-      ...system.caracteristiques[cle]
+      ...system.caracteristiques[cle],
+      competences: competencesIndexees
+        .filter((c) => c.caracteristique === cle)
+        .sort((a, b) => game.i18n.localize(a.label).localeCompare(game.i18n.localize(b.label)))
     }));
-    context.competences = [...system.competences].sort((a, b) =>
-      game.i18n.localize(a.label).localeCompare(game.i18n.localize(b.label))
-    );
     context.armes = this.actor.items.filter((i) => i.type === "arme");
     context.armures = this.actor.items.filter((i) => i.type === "armure");
     context.pouvoirs = this.actor.items.filter((i) => i.type === "pouvoir");
@@ -114,16 +124,12 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   }
 
   static async #onApplyRace(event, target) {
-    const uuid = this.actor.system.race.uuid;
-    if (!uuid) return ui.notifications.warn(game.i18n.localize("GALACTICWARS.Avertissement.AucuneRaceSelectionnee"));
-    const race = await fromUuid(uuid);
+    const race = await choisirItemCompendium("races", { title: game.i18n.localize("GALACTICWARS.Sheet.Race") });
     if (race) await applyRace(this.actor, race);
   }
 
   static async #onApplyMetier(event, target) {
-    const uuid = this.actor.system.metier.uuid;
-    if (!uuid) return ui.notifications.warn(game.i18n.localize("GALACTICWARS.Avertissement.AucunMetierSelectionne"));
-    const metier = await fromUuid(uuid);
+    const metier = await choisirItemCompendium("metiers", { title: game.i18n.localize("GALACTICWARS.Sheet.Metier") });
     if (metier) await applyMetier(this.actor, metier);
   }
 

@@ -1,4 +1,9 @@
-<form class="galactic-wars sheet personnage" autocomplete="off">
+{{!-- <div>, pas <form> : DocumentSheetV2 rend déjà this.element comme un <form>
+      (classes déjà appliquées) — un <form> imbriqué ici ferait porter tous les
+      inputs par ce <form> interne plutôt que par le vrai, et FormDataExtended
+      (this.element) ne verrait plus aucun champ (voir JOURNAL.md, bug de
+      sauvegarde des fiches). Un seul élément racine reste requis (PARTS). --}}
+<div class="galactic-wars-body">
   <header class="sheet-header">
     <div class="portrait-frame">
       <img class="portrait" src="{{system.portrait}}" data-action="editImage" alt="{{actor.name}}">
@@ -7,9 +12,9 @@
       <input type="text" class="nom-input mono" name="name" value="{{actor.name}}" placeholder="{{localize 'GALACTICWARS.Sheet.Nom'}}">
       <div class="race-metier-row">
         <span class="champ"><span class="eyebrow">{{localize 'GALACTICWARS.Sheet.Race'}}</span> <span class="valeur-texte">{{system.race.nom}}</span></span>
-        <button type="button" class="btn" data-action="applyRace">{{localize 'GALACTICWARS.Sheet.Appliquer'}}</button>
+        <button type="button" class="btn" data-action="applyRace">{{localize 'GALACTICWARS.Sheet.Choisir'}}</button>
         <span class="champ"><span class="eyebrow">{{localize 'GALACTICWARS.Sheet.Metier'}}</span> <span class="valeur-texte">{{system.metier.nom}}</span></span>
-        <button type="button" class="btn" data-action="applyMetier">{{localize 'GALACTICWARS.Sheet.Appliquer'}}</button>
+        <button type="button" class="btn" data-action="applyMetier">{{localize 'GALACTICWARS.Sheet.Choisir'}}</button>
       </div>
       <div class="niveau-row">
         <span class="eyebrow">{{localize 'GALACTICWARS.Sheet.Niveau'}}</span>
@@ -100,25 +105,37 @@
     </div>
     <div class="caracteristiques-grid">
       {{#each caracteristiques as |car|}}
-      <div class="caracteristique">
-        <label>{{localize car.label}}</label>
-        <input type="number" name="system.caracteristiques.{{car.cle}}.base" value="{{car.base}}">
-        <span class="racial">{{car.racial}}</span>
-        <span class="total">= {{car.total}}</span>
+      <div class="colonne-caracteristique">
+        <div class="caracteristique">
+          <label>{{localize car.label}}</label>
+          <input type="number" name="system.caracteristiques.{{car.cle}}.base" value="{{car.base}}">
+          <span class="racial">{{car.racial}}</span>
+          <span class="total">= {{car.total}}</span>
+        </div>
+        <ul class="competences-list">
+          {{#each car.competences as |cpt|}}
+          <li class="competence-row skill-row {{#if cpt.estCompetenceForce}}force{{/if}}">
+            <button type="button" class="roll-btn" data-action="rollCompetence" data-cle="{{cpt.cle}}">🎲</button>
+            <span class="label">{{#if cpt.estCompetenceMetier}}<span class="dot dot-metier"></span>{{/if}}{{localize cpt.label}}</span>
+            {{!-- cle/racial/metier/acquiseParMetier n'ont pas d'input visible, mais DOIVENT
+                  quand même être soumis en <input hidden> : system.competences est un
+                  ArrayField, dont Document#update() remplace chaque élément entier plutôt
+                  que de fusionner ses champs un par un — tout champ absent du formulaire
+                  serait donc réinitialisé à sa valeur par défaut du schéma à chaque
+                  sauvegarde (cle: "" notamment, ce qui casse GW.competences[cle] partout). --}}
+            <input type="hidden" name="system.competences.{{cpt.index}}.cle" value="{{cpt.cle}}">
+            <input type="hidden" name="system.competences.{{cpt.index}}.racial" value="{{cpt.racial}}" data-dtype="Number">
+            <input type="hidden" name="system.competences.{{cpt.index}}.metier" value="{{cpt.metier}}" data-dtype="Number">
+            <input type="hidden" name="system.competences.{{cpt.index}}.acquiseParMetier" value="{{cpt.acquiseParMetier}}" data-dtype="Boolean">
+            <input type="number" class="niveau mono" name="system.competences.{{cpt.index}}.niveau" value="{{cpt.niveau}}" min="0" max="3" data-tooltip="{{localize 'GALACTICWARS.Sheet.Niveau'}}">
+            <input type="number" class="ajustement mono" name="system.competences.{{cpt.index}}.ajustement" value="{{cpt.ajustement}}" data-tooltip="{{localize 'GALACTICWARS.Sheet.AjustementManuelHint'}}">
+            <span class="total mono">{{cpt.total}}%</span>
+          </li>
+          {{/each}}
+        </ul>
       </div>
       {{/each}}
     </div>
-
-    <ul class="competences-list">
-      {{#each competences as |cpt|}}
-      <li class="competence-row skill-row {{#if cpt.estCompetenceForce}}force{{/if}}">
-        <button type="button" class="roll-btn" data-action="rollCompetence" data-cle="{{cpt.cle}}">🎲</button>
-        <span class="label">{{#if cpt.estCompetenceMetier}}<span class="dot dot-metier"></span>{{/if}}{{localize cpt.label}}</span>
-        <input type="number" class="niveau mono" name="system.competences.{{@index}}.niveau" value="{{cpt.niveau}}" min="0" max="3">
-        <span class="total mono">{{cpt.total}}%</span>
-      </li>
-      {{/each}}
-    </ul>
   </section>
 
   <section class="pouvoirs">
@@ -226,4 +243,4 @@
   </section>
   {{/if}}
   </div>
-</form>
+</div>

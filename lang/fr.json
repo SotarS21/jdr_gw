@@ -156,7 +156,8 @@
       "EquipementDepart": "Équipement de départ",
       "Talent": "Talent",
       "TalentDescriptionPlaceholder": "Effet du talent",
-      "Appliquer": "Appliquer",
+      "Choisir": "Choisir",
+      "Annuler": "Annuler",
       "Niveau": "Niveau",
       "Caracteristiques": "Caractéristiques",
       "LimitePlafondHint": "Pas plus de deux caractéristiques à 16.",
@@ -183,7 +184,8 @@
       "OngletEquipements": "Équipements",
       "OngletInformations": "Informations",
       "NoteTitrePlaceholder": "Titre de la note",
-      "AucuneNoteHint": "Aucune note pour l'instant — cliquez sur + pour en ajouter une."
+      "AucuneNoteHint": "Aucune note pour l'instant — cliquez sur + pour en ajouter une.",
+      "AjustementManuelHint": "Ajustement manuel (level up, etc.) — s'ajoute au total calculé automatiquement."
     },
 
     "Item": {
@@ -210,9 +212,7 @@
     "Avertissement": {
       "CompetenceInconnue": "Compétence inconnue : {cle}",
       "CaracteristiqueInconnue": "Caractéristique inconnue : {cle}",
-      "AucuneRaceSelectionnee": "Aucune race sélectionnée.",
-      "AucunMetierSelectionne": "Aucun métier sélectionné.",
-      "AucuneEcoleSelectionnee": "Aucune école sélectionnée.",
+      "CompendiumVide": "Le compendium \"{compendium}\" est vide.",
       "PrerequisMetierManquant": "Prérequis manquant : le métier \"{metier}\" est requis.",
       "NiveauInsuffisant": "Prérequis manquant : niveau {niveau} minimum requis."
     },

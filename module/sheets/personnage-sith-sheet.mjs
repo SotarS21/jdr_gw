@@ -2,6 +2,7 @@ import { GW } from "../config.mjs";
 import { rollD20Plus } from "../helpers/rolls.mjs";
 import { applyRace } from "../helpers/race.mjs";
 import { applyEcole } from "../helpers/ecole.mjs";
+import { choisirItemCompendium } from "../helpers/compendium-picker.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
@@ -11,6 +12,10 @@ export class PersonnageSithSheet extends HandlebarsApplicationMixin(ActorSheetV2
     classes: ["galactic-wars", "sheet", "actor", "personnage-sith"],
     position: { width: 600, height: 700 },
     window: { resizable: true },
+    // Voir personnage-sheet.mjs : sans ça, ActorSheetV2 (submitOnChange:false par défaut)
+    // ne sauvegarde aucun champ texte/nombre simple tant qu'aucune action explicite ne
+    // force un update().
+    form: { submitOnChange: true },
     actions: {
       rollCaracteristique: PersonnageSithSheet.#onRollCaracteristique,
       rollCompetenceForce: PersonnageSithSheet.#onRollCompetenceForce,
@@ -61,16 +66,12 @@ export class PersonnageSithSheet extends HandlebarsApplicationMixin(ActorSheetV2
   }
 
   static async #onApplyRace() {
-    const uuid = this.actor.system.race.uuid;
-    if (!uuid) return ui.notifications.warn(game.i18n.localize("GALACTICWARS.Avertissement.AucuneRaceSelectionnee"));
-    const race = await fromUuid(uuid);
+    const race = await choisirItemCompendium("races", { title: game.i18n.localize("GALACTICWARS.Sheet.Race") });
     if (race) await applyRace(this.actor, race);
   }
 
   static async #onApplyEcole() {
-    const uuid = this.actor.system.ecole.uuid;
-    if (!uuid) return ui.notifications.warn(game.i18n.localize("GALACTICWARS.Avertissement.AucuneEcoleSelectionnee"));
-    const ecole = await fromUuid(uuid);
+    const ecole = await choisirItemCompendium("ecoles", { title: game.i18n.localize("GALACTICWARS.Sheet.Ecole") });
     if (ecole) await applyEcole(this.actor, ecole);
   }
 
