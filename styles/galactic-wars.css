@@ -21,6 +21,17 @@
   height: 100%;
 }
 
+/* Wrapper imposé par DocumentSheetV2 (le <form> racine, ci-dessus, ne peut plus être
+   redéclaré dans les templates — voir JOURNAL.md, bug de sauvegarde des fiches). Doit
+   rester flex column bornée, sinon .sheet-body ci-dessous n'a plus de hauteur contrainte
+   contre laquelle défiler (flex/min-height/overflow-y ne font rien sans parent flex). */
+.galactic-wars .galactic-wars-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
 .galactic-wars .sheet-header {
   display: flex;
   align-items: center;
