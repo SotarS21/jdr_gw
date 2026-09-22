@@ -48,5 +48,8 @@
     { "name": "vaisseaux", "label": "Vaisseaux", "path": "packs/vaisseaux", "type": "Actor" },
     { "name": "equipements", "label": "Équipements", "path": "packs/equipements", "type": "Item" },
     { "name": "codex-especes", "label": "Codex des espèces", "path": "packs/codex-especes", "type": "JournalEntry" }
-  ]
+  ],
+  "url": "https://github.com/SotarS21/jdr_gw",
+  "manifest": "",
+  "download": ""
 }
