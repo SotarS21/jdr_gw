@@ -1,5 +1,84 @@
 # Journal de développement — Galactic Wars
 
+## Session du 2026-09-22/23 — Fix scrollbar, Codex des espèces, publication GitHub (v0.10.0)
+
+**1. Bug remonté par l'utilisateur : pas de scrollbar sur la fiche personnage classique.**
+Régression introduite par le fix de sauvegarde de la session du 2026-09-15 (`f9795e1`) : en
+remplaçant le `<form>` de tête de chaque template par un `<div class="galactic-wars-body">`
+(pour ne plus imbriquer de `<form>` dans celui de `DocumentSheetV2`), la chaîne flex qui
+borne `.sheet-body` et déclenche son `overflow-y: auto` s'est retrouvée cassée : ce nouveau
+`<div>` n'avait aucune règle CSS (`display: block` par défaut), donc `flex:1 1 auto` sur
+`.sheet-body` ne faisait plus rien, sa hauteur devenait `auto` et le contenu débordait
+silencieusement. Touchait les **5 fiches** (même wrapper partout), pas seulement la classique.
+Corrigé en ajoutant `.galactic-wars .galactic-wars-body { display:flex; flex-direction:column;
+flex:1 1 auto; min-height:0; }` (`styles/galactic-wars.css`, commit `5747755`). Vérifié en
+direct (Playwright, monde `Galacit wars V final`, personnage "Kael Dorn (test)") :
+`bodyScrollHeight` (1308px) > `bodyHeight` (559px), scroll effectif jusqu'à 749px.
+
+**2. Dossier de déploiement Foundry resynchronisé.** `D:\AppDataFoundry$\FoundryVTT_Data\Data\
+systems\galactic-wars` est un second clone git du même dépôt (`github.com/SotarS21/jdr_gw`),
+resté bloqué sur `c17866a` avec des modifications locales non commitées (un reliquat de la
+session du 2026-09-15, déjà repris dans `f9795e1`). Modifications mises de côté (`git stash
+push -u`) puis fast-forward jusqu'à `origin/main` ; le stash, devenu obsolète, a été supprimé
+ensuite à la demande de l'utilisateur.
+
+**3. Portraits d'ethnies versionnés.** `asset_visuel/Ethnie/` (62 images, 7,3 Mo) ajouté au
+dépôt (commit `0b539ee`) — jusque-là présent en local uniquement, jamais commité. Le reste de
+`asset_visuel/` (vaisseaux/personnages/lieux/items, ~244 Mo, essentiellement des assets de
+vaisseaux jusqu'à 19 Mo pièce) reste volontairement hors dépôt pour l'instant : décision prise
+avec l'utilisateur (git gonflerait de façon quasi irréversible) — à ajouter séparément si besoin
+un jour. Rien dans le code ne référence ces sous-dossiers, donc aucune fonctionnalité n'en dépend.
+
+**4. Journal "Codex des espèces" créé (nouveau pack JournalEntry).** Demande de l'utilisateur :
+un JournalEntry avec une page par ethnie. Généré par script (`packs/_source/codex-especes/
+codex-des-especes.json`, commit `58c0203`) à partir des 62 portraits et des 43 items du
+compendium Races : chaque page = portrait + description. Mapping fichier → race fait par
+normalisation du nom (accents/casse/underscores) + quelques correctifs manuels (typos
+"charigan"/"turken_raider" pour Chagrian/Tusken Raider, variantes singulier/pluriel
+mirialan(s), "rodian" vs le nom francisé "Rodien"). 44 pages sur 62 sont rattachées à une race
+existante (avec ses modificateurs caractéristiques/compétences et armure naturelle affichés) ;
+les 18 autres (espèces jamais codées comme race jouable : anomide, bimm, hutt, kaminoan,
+killik, voss, etc., + un des deux portraits de droïde, la variante "R3") n'ont qu'un portrait
+et une note d'absence de fiche mécanique. Point technique retenu pour la prochaine fois qu'un
+pack embarque une hiérarchie de documents (JournalEntry→pages, Actor→items...) : chaque
+document embarqué a besoin de son propre `_key` (`!journal.pages!<journalId>.<pageId>`), sinon
+`foundryvtt-cli` refuse de compiler ("Key cannot be null or undefined") — absent des autres
+packs source du dépôt jusqu'ici, aucun n'avait ce genre de hiérarchie.
+
+Test en direct : rechargement du pack nécessitant un redémarrage du serveur Foundry (le
+manifeste système n'est relu qu'au démarrage) — le process desktop (`Foundry Virtual Tabletop
+.exe`) a été fermé avec l'accord explicite de l'utilisateur, à charge pour lui de le relancer.
+
+**5. Mise en place de la publication GitHub (installation par URL de manifeste).** Question de
+l'utilisateur : les utilisateurs peuvent-ils installer le système depuis GitHub ? Réponse :
+pas encore (aucun `url`/`manifest`/`download` dans `system.json`, aucun workflow CI). Repris du
+mécanisme déjà en place sur le système `antique` (`github.com/SotarS21/jdr_antik`,
+`.github/workflows/release.yml`) : tag `v*.*.*` → CI reconstruit les packs (`npm run
+pack:build` — nécessaire ici puisque `packs/<nom>/` LevelDB est gitignoré, contrairement à
+antique qui commite ses `.db`), écrit `manifest`/`download` dans une copie CI de `system.json`
+(jamais committé en local, pour que `game.system.manifest` reste falsy en dev — cf. le même
+garde-fou dans `antique/module/helpers/version-check.mjs`), zippe `system.json` + `module/` +
+`lang/` + `styles/` + `templates/` + `asset_visuel/Ethnie/` + les 10 dossiers de packs, publie
+une GitHub Release avec `system.zip`/`system.json` en pièces jointes (commit `239e8de`).
+Premier tag `v0.10.0` créé et poussé : release publiée avec succès (`github.com/SotarS21/
+jdr_gw/releases/tag/v0.10.0`), workflow vert en 21s. URL de manifeste utilisable dès
+maintenant : `https://github.com/SotarS21/jdr_gw/releases/latest/download/system.json`.
+
+**Fichiers modifiés** : `styles/galactic-wars.css` (fix scrollbar), `asset_visuel/Ethnie/*`
+(nouveau, 62 fichiers), `packs/_source/codex-especes/codex-des-especes.json` (nouveau),
+`system.json` (pack codex-especes, url/manifest/download), `.github/workflows/release.yml`
+(nouveau).
+
+**Pistes pour une prochaine session** : committer le reste de `asset_visuel/` si besoin
+(vaisseaux/personnages/lieux/items, ~244 Mo, à discuter — probablement à alléger/compresser
+d'abord) ; remplacer les placeholders `icons/svg/oak.svg` des items Race par les vrais
+portraits maintenant versionnés ; envisager un mécanisme de notification de mise à jour côté
+GM façon `antique/module/helpers/version-check.mjs` (dialogue de notes de version + option
+d'écraser les compendiums système) maintenant que `manifest`/`download` existent réellement en
+release.
+
+---
+
 ## Session du 2026-09-15 — Cause racine du bug de sauvegarde + picker race/métier/école (v0.9.0 → v0.10.0)
 
 Reprise directe du bug de sauvegarde laissé ouvert la session précédente (voir entrée du 2026-09-14 (2)
