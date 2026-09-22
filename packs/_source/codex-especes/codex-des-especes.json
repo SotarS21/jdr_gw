@@ -1,0 +1,2066 @@
+{
+  "_key": "!journal!gWEU7fXI2miHj4SJ",
+  "_id": "gWEU7fXI2miHj4SJ",
+  "name": "Codex des espèces",
+  "folder": null,
+  "pages": [
+    {
+      "_id": "TQongBNopdo84d2Y",
+      "name": "Anomide",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<figure class=\"codex-espece-portrait\"><img src=\"systems/galactic-wars/asset_visuel/Ethnie/ethenie_anomide_front.jpg\" alt=\"Anomide\"></figure><p><em>Espèce non encore intégrée comme race jouable (pas de fiche mécanique dans le compendium Races).</em></p>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.10.0"
+      },
+      "_key": "!journal.pages!gWEU7fXI2miHj4SJ.TQongBNopdo84d2Y"
+    },
+    {
+      "_id": "uME4fg0tcvrIRcKw",
+      "name": "Aqualish",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<figure class=\"codex-espece-portrait\"><img src=\"systems/galactic-wars/asset_visuel/Ethnie/ethnie_aqualish_front.jpg\" alt=\"Aqualish\"></figure><p>Humanoïdes belliqueux au visage strié de poils, aux yeux vitreux et armés d'une paire de défenses recourbées.</p><p>Nageurs experts, dotés d'un sens tactile aigu surnommé « sens de l'araignée ».</p><ul><li><strong>Caractéristiques :</strong> Corps +5</li><li><strong>Compétences :</strong> Sagesse +5%, Perception +5%, Social -10%</li></ul>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 200000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.10.0"
+      },
+      "_key": "!journal.pages!gWEU7fXI2miHj4SJ.uME4fg0tcvrIRcKw"
+    },
+    {
+      "_id": "nUgHZvKNrCSYdBGf",
+      "name": "Arcona",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<figure class=\"codex-espece-portrait\"><img src=\"systems/galactic-wars/asset_visuel/Ethnie/ethnie_arcona_front.jpg\" alt=\"Arcona\"></figure><p>Reptiles sans écailles à la vue médiocre, compensée par un organe sensoriel situé entre les yeux.</p><p>Peu technologiques, sujets à une forte addiction au sel ; les femelles sont réputées téméraires et en recherche de sensations fortes.</p><ul><li><strong>Caractéristiques :</strong> Corps -5</li><li><strong>Compétences :</strong> Sang froid +5%, Survie +20%, Sagesse +5%</li><li><strong>Armure naturelle :</strong> +2</li></ul>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 300000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.10.0"
+      },
+      "_key": "!journal.pages!gWEU7fXI2miHj4SJ.nUgHZvKNrCSYdBGf"
+    },
+    {
+      "_id": "4ueE0G8frnqeKA11",
+      "name": "Barabel",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<figure class=\"codex-espece-portrait\"><img src=\"systems/galactic-wars/asset_visuel/Ethnie/ethnie_barabel_front.jpg\" alt=\"Barabel\"></figure><p>Reptiliens agressifs et territoriaux, peu enclins à respecter l'autorité, dotés de dents de 5 cm tranchantes.</p><p>Doués aux armes blanches (+10%), infligent une morsure de 1d6+2 dégâts, résistent aux radiations (+10%) et voient dans le noir.</p><ul><li><strong>Caractéristiques :</strong> Mental -10</li><li><strong>Compétences :</strong> Intimidation +20%</li><li><strong>Armure naturelle :</strong> +2</li></ul>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 400000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.10.0"
+      },
+      "_key": "!journal.pages!gWEU7fXI2miHj4SJ.4ueE0G8frnqeKA11"
+    },
+    {
+      "_id": "esRMZB1rYJxLpepN",
+      "name": "Besalisk",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<figure class=\"codex-espece-portrait\"><img src=\"systems/galactic-wars/asset_visuel/Ethnie/ethnie_Besalisk_front.jpg\" alt=\"Besalisk\"></figure><p><em>Espèce non encore intégrée comme race jouable (pas de fiche mécanique dans le compendium Races).</em></p>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 500000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.10.0"
+      },
+      "_key": "!journal.pages!gWEU7fXI2miHj4SJ.esRMZB1rYJxLpepN"
+    },
+    {
+      "_id": "HBjLQqFGdodO5DJ4",
+      "name": "Bimm",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<figure class=\"codex-espece-portrait\"><img src=\"systems/galactic-wars/asset_visuel/Ethnie/ethenie_bimm_front.jpg\" alt=\"Bimm\"></figure><p><em>Espèce non encore intégrée comme race jouable (pas de fiche mécanique dans le compendium Races).</em></p>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 600000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.10.0"
+      },
+      "_key": "!journal.pages!gWEU7fXI2miHj4SJ.HBjLQqFGdodO5DJ4"
+    },
+    {
+      "_id": "ZUBKSqiCqFyFXWn3",
+      "name": "Bith",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<figure class=\"codex-espece-portrait\"><img src=\"systems/galactic-wars/asset_visuel/Ethnie/ethnie_bith_front.jpg\" alt=\"Bith\"></figure><p>Espèce pacifique hautement évoluée, souvent ingénieurs, scientifiques ou musiciens.</p><p>Vision précise à courte portée (+20% à 4m, +10% à 10m, divisée par deux par tranche de portée supplémentaire) et capables d'une transe de repos leur permettant de se réveiller instantanément en cas de danger (+25%).</p><ul><li><strong>Caractéristiques :</strong> Corps -5, Dextérité +10</li><li><strong>Compétences :</strong> Séduction -10%, Artisanat +20%</li></ul>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 700000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.10.0"
+      },
+      "_key": "!journal.pages!gWEU7fXI2miHj4SJ.ZUBKSqiCqFyFXWn3"
+    },
+    {
+      "_id": "iPLJ7MVOAG5LlJqO",
+      "name": "Cathar",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<figure class=\"codex-espece-portrait\"><img src=\"systems/galactic-wars/asset_visuel/Ethnie/ethnie_cathar_front.jpg\" alt=\"Cathar\"></figure><p>Félins humanoïdes bipèdes, loyaux et passionnés mais au tempérament vif ; grands guerriers et prédateurs efficaces.</p><p>Rapides à la course et très attachés à la valeur de la famille.</p><ul><li><strong>Caractéristiques :</strong> Corps +10, Mental -5</li><li><strong>Compétences :</strong> Furtivité +5%, Parade/esquive +10%, Sagesse +5%</li></ul>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 800000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.10.0"
+      },
+      "_key": "!journal.pages!gWEU7fXI2miHj4SJ.iPLJ7MVOAG5LlJqO"
+    },
+    {
+      "_id": "jjavV7TUNAKyiAuF",
+      "name": "Cerean",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<figure class=\"codex-espece-portrait\"><img src=\"systems/galactic-wars/asset_visuel/Ethnie/ethenie_cerean_front.jpg\" alt=\"Cerean\"></figure><p>Humanoïdes sensibles à la Force, reconnaissables à leur grand crâne conique élargi abritant un cerveau binaire.</p><p>Sensibles à la Force (+2 points de force).</p><ul><li><strong>Caractéristiques :</strong> Corps -10, Mental +5, Dextérité -5</li><li><strong>Compétences :</strong> Perception +5%, Sagesse +5%, Séduction +20%</li></ul>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 900000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.10.0"
+      },
+      "_key": "!journal.pages!gWEU7fXI2miHj4SJ.jjavV7TUNAKyiAuF"
+    },
+    {
+      "_id": "dUE7j9fx8QJNVrKg",
+      "name": "Chadra-Fan",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<figure class=\"codex-espece-portrait\"><img src=\"systems/galactic-wars/asset_visuel/Ethnie/ethenie_chadra-fan_front.jpg\" alt=\"Chadra-Fan\"></figure><p><em>Espèce non encore intégrée comme race jouable (pas de fiche mécanique dans le compendium Races).</em></p>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 1000000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.10.0"
+      },
+      "_key": "!journal.pages!gWEU7fXI2miHj4SJ.dUE7j9fx8QJNVrKg"
+    },
+    {
+      "_id": "kfCxVfQB63xUbcnk",
+      "name": "Chagrian",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<figure class=\"codex-espece-portrait\"><img src=\"systems/galactic-wars/asset_visuel/Ethnie/ethnie_charigan_front.jpg\" alt=\"Chagrian\"></figure><p>Espèce amphibie humanoïde à la peau bleue, dotée de cornes et de tentacules de tête se terminant en cornes secondaires.</p><p>Respiration aquatique, natation experte, résistance aux radiations, vision en lumière faible et communication innée avec les possesseurs de lekku.</p><ul><li><strong>Caractéristiques :</strong> Corps +10, Dextérité +10</li><li><strong>Compétences :</strong> Survie +5%</li></ul>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 1100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.10.0"
+      },
+      "_key": "!journal.pages!gWEU7fXI2miHj4SJ.kfCxVfQB63xUbcnk"
+    },
+    {
+      "_id": "OiK6umk7NJOGg9CM",
+      "name": "Chiss",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<figure class=\"codex-espece-portrait\"><img src=\"systems/galactic-wars/asset_visuel/Ethnie/ethine_chiss_front.jpg\" alt=\"Chiss\"></figure><p>Arrogant, antipathique.</p><ul><li><strong>Caractéristiques :</strong> Corps -5, Mental +10</li><li><strong>Compétences :</strong> Commander/guider +5%, Sang froid +20%</li></ul>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 1200000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.10.0"
+      },
+      "_key": "!journal.pages!gWEU7fXI2miHj4SJ.OiK6umk7NJOGg9CM"
+    },
+    {
+      "_id": "3xg9l4kTRdXEftqC",
+      "name": "Devaronian",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<figure class=\"codex-espece-portrait\"><img src=\"systems/galactic-wars/asset_visuel/Ethnie/ethnie_devaronian_front.jpg\" alt=\"Devaronian\"></figure><p>Espèce à fort dimorphisme sexuel : les mâles sont chauves et cornus, les femelles sont chevelues.</p><ul><li><strong>Caractéristiques :</strong> Mental -10, Dextérité +10</li><li><strong>Compétences :</strong> Intimidation +10%</li></ul>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 1300000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.10.0"
+      },
+      "_key": "!journal.pages!gWEU7fXI2miHj4SJ.3xg9l4kTRdXEftqC"
+    },
+    {
+      "_id": "s2dUTeKiRY4k0YCK",
+      "name": "Dug",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<figure class=\"codex-espece-portrait\"><img src=\"systems/galactic-wars/asset_visuel/Ethnie/ethenie_dug_front.jpg\" alt=\"Dug\"></figure><p>Espèce arboricole de Malastare à la musculature puissante, dont les jambes et les bras sont utilisés en inversé par rapport aux humains.</p><p>Don : réflexes éclairs, leur donnant une prédominance à l'initiative.</p><ul><li><strong>Caractéristiques :</strong> Mental -10, Dextérité +10</li><li><strong>Compétences :</strong> Séduction -5%, Escalade/saut +20%</li></ul>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 1400000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.10.0"
+      },
+      "_key": "!journal.pages!gWEU7fXI2miHj4SJ.s2dUTeKiRY4k0YCK"
+    },
+    {
+      "_id": "9R537wGQDwEMACr0",
+      "name": "Duros",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<figure class=\"codex-espece-portrait\"><img src=\"systems/galactic-wars/asset_visuel/Ethnie/ethnie_duros_front.jpg\" alt=\"Duros\"></figure><p>Espèce humanoïde à la peau verte ou bleue et sans nez, célèbre pour avoir été les premiers grands explorateurs de la galaxie.</p><p>Don : sens spatial, un instinct qui leur permet de percevoir intuitivement l'espace et les trajectoires.</p><ul><li><strong>Caractéristiques :</strong> Corps -10, Mental +5, Dextérité +5</li><li><strong>Compétences :</strong> Survie -5%, Social +10%</li></ul>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 1500000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.10.0"
+      },
+      "_key": "!journal.pages!gWEU7fXI2miHj4SJ.9R537wGQDwEMACr0"
+    },
+    {
+      "_id": "lz3hDFRyRG3XhYlG",
+      "name": "Esh-kha",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<figure class=\"codex-espece-portrait\"><img src=\"systems/galactic-wars/asset_visuel/Ethnie/ethenie_esh-kha_front.jpg\" alt=\"Esh-kha\"></figure><p><em>Espèce non encore intégrée comme race jouable (pas de fiche mécanique dans le compendium Races).</em></p>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 1600000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.10.0"
+      },
+      "_key": "!journal.pages!gWEU7fXI2miHj4SJ.lz3hDFRyRG3XhYlG"
+    },
+    {
+      "_id": "bCKL4I16vEJJvDEB",
+      "name": "Evocci",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<figure class=\"codex-espece-portrait\"><img src=\"systems/galactic-wars/asset_visuel/Ethnie/ethenie_evocci_front.jpg\" alt=\"Evocci\"></figure><p><em>Espèce non encore intégrée comme race jouable (pas de fiche mécanique dans le compendium Races).</em></p>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 1700000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.10.0"
+      },
+      "_key": "!journal.pages!gWEU7fXI2miHj4SJ.bCKL4I16vEJJvDEB"
+    },
+    {
+      "_id": "SYBvtuQDck4xQAuA",
+      "name": "Ewok",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<figure class=\"codex-espece-portrait\"><img src=\"systems/galactic-wars/asset_visuel/Ethnie/ethenie_ewok_front.jpg\" alt=\"Ewok\"></figure><p><em>Espèce non encore intégrée comme race jouable (pas de fiche mécanique dans le compendium Races).</em></p>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 1800000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.10.0"
+      },
+      "_key": "!journal.pages!gWEU7fXI2miHj4SJ.SYBvtuQDck4xQAuA"
+    },
+    {
+      "_id": "j4z5WyW8qFyPnFlC",
+      "name": "Falleen",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<figure class=\"codex-espece-portrait\"><img src=\"systems/galactic-wars/asset_visuel/Ethnie/ethenie_falleen_front.jpg\" alt=\"Falleen\"></figure><p>Espèce reptilienne humanoïde au sang froid, secrète et peu expansive, dont la peau varie du vert olive au rouge orangé selon l'humeur.</p><p>Sécrète des phéromones qui appliquent -10% aux compétences adverses dans un rayon de 5 m pendant 2 tours (1 fois par jour, hors compétences de la force), et bénéficie d'une affinité avec la force (+2 points de force).</p><ul><li><strong>Caractéristiques :</strong> Corps -10, Mental +5</li><li><strong>Compétences :</strong> Séduction +20%, Social +10%, Escroquerie/mensonge +5%, Furtivité -5%, Sang froid -5%</li></ul>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 1900000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.10.0"
+      },
+      "_key": "!journal.pages!gWEU7fXI2miHj4SJ.j4z5WyW8qFyPnFlC"
+    },
+    {
+      "_id": "9pFA4Gg6XVmusHER",
+      "name": "Gamorrean",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<figure class=\"codex-espece-portrait\"><img src=\"systems/galactic-wars/asset_visuel/Ethnie/ethenie_gamorrean_front.jpg\" alt=\"Gamorrean\"></figure><p><em>Espèce non encore intégrée comme race jouable (pas de fiche mécanique dans le compendium Races).</em></p>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 2000000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.10.0"
+      },
+      "_key": "!journal.pages!gWEU7fXI2miHj4SJ.9pFA4Gg6XVmusHER"
+    },
+    {
+      "_id": "riXn8yYXFrFTAjck",
+      "name": "Geonosian",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<figure class=\"codex-espece-portrait\"><img src=\"systems/galactic-wars/asset_visuel/Ethnie/ethnie_geonosian_front.jpg\" alt=\"Geonosian\"></figure><p>Espèce insectoïde ailée organisée en castes autour d'une reine, originaire de Geonosis.</p><p>Maîtrise des armes contondantes et des armes de type exo (électro staff, sonic staff), résistance aux radiations, vision en lumière faible et capacité de vol sur courte distance (environ 15 m).</p><ul><li><strong>Caractéristiques :</strong> Corps +5</li><li><strong>Compétences :</strong> Séduction -5%, Artisanat +5%</li><li><strong>Armure naturelle :</strong> +2</li></ul>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 2100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.10.0"
+      },
+      "_key": "!journal.pages!gWEU7fXI2miHj4SJ.riXn8yYXFrFTAjck"
+    },
+    {
+      "_id": "pfHqEJztgsJpvkGK",
+      "name": "Gotal",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<figure class=\"codex-espece-portrait\"><img src=\"systems/galactic-wars/asset_visuel/Ethnie/ethenie_gotal_front.jpg\" alt=\"Gotal\"></figure><p>Espèce dotée de deux cornes coniques agissant comme des capteurs électromagnétiques sensibles, ce qui leur cause une gêne face aux systèmes électromagnétiques puissants.</p><p>Esquive instinctive sans jet et vision en lumière faible.</p><ul><li><strong>Compétences :</strong> Escroquerie/mensonge +10%, Social +10%, Intimidation +5%</li></ul>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 2200000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.10.0"
+      },
+      "_key": "!journal.pages!gWEU7fXI2miHj4SJ.pfHqEJztgsJpvkGK"
+    },
+    {
+      "_id": "jKjECqGnHUPVm29w",
+      "name": "Gran",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<figure class=\"codex-espece-portrait\"><img src=\"systems/galactic-wars/asset_visuel/Ethnie/ethenie_gran_front.jpg\" alt=\"Gran\"></figure><p>Humanoïdes à tête de bouc imberbe, dotés de trois yeux noirs protubérants et d'une excellente vision leur donnant un don naturel pour le tir et le pilotage.</p><p>Vision nocturne. Les femelles, pourvues de trois seins, bénéficient d'un bonus de séduction.</p><ul><li><strong>Compétences :</strong> Séduction +10%, Sagesse -5%, Blaster +10%</li></ul>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 2300000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.10.0"
+      },
+      "_key": "!journal.pages!gWEU7fXI2miHj4SJ.jKjECqGnHUPVm29w"
+    },
+    {
+      "_id": "igzyaYwABu1nyoH2",
+      "name": "Gungan",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<figure class=\"codex-espece-portrait\"><img src=\"systems/galactic-wars/asset_visuel/Ethnie/ethenie_gungan_front.jpg\" alt=\"Gungan\"></figure><p>Créatures amphibies des marais de Naboo, vivant dans des cités sous-marines en forme de bulles, reconnaissables à leur tête allongée, leur longue langue et leurs grandes oreilles.</p><p>Amphibies, nageurs experts, dotés d'une vision nocturne et d'un instinct de fuite salvateur en cas de danger.</p><ul><li><strong>Caractéristiques :</strong> Corps +5</li><li><strong>Compétences :</strong> Sagesse -5%, Perception +10%</li></ul>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 2400000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.10.0"
+      },
+      "_key": "!journal.pages!gWEU7fXI2miHj4SJ.igzyaYwABu1nyoH2"
+    },
+    {
+      "_id": "m6bEOrBebeiTx9cN",
+      "name": "Humain",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<figure class=\"codex-espece-portrait\"><img src=\"systems/galactic-wars/asset_visuel/Ethnie/ethenie_humain_front.jpg\" alt=\"Humain\"></figure><p>Don bonus +10% à ajouter lors de la création de personnage dans une compétence (ce n'est pas un niveau de compétence, juste 10%). Empathie.</p><ul><li><strong>Caractéristiques :</strong> Mental -5, Dextérité +5</li><li><strong>Compétences :</strong> Commander/guider +10%, Escroquerie/mensonge +10%, Sagesse -5%, Sang froid -5%</li></ul>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 2500000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.10.0"
+      },
+      "_key": "!journal.pages!gWEU7fXI2miHj4SJ.m6bEOrBebeiTx9cN"
+    },
+    {
+      "_id": "y3wKBftZlo1eQE7I",
+      "name": "Hutt",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<figure class=\"codex-espece-portrait\"><img src=\"systems/galactic-wars/asset_visuel/Ethnie/ethenie_hutt_front.jpg\" alt=\"Hutt\"></figure><p><em>Espèce non encore intégrée comme race jouable (pas de fiche mécanique dans le compendium Races).</em></p>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 2600000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.10.0"
+      },
+      "_key": "!journal.pages!gWEU7fXI2miHj4SJ.y3wKBftZlo1eQE7I"
+    },
+    {
+      "_id": "KWDc7rvSfgrdIcOz",
+      "name": "Ithorian",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<figure class=\"codex-espece-portrait\"><img src=\"systems/galactic-wars/asset_visuel/Ethnie/ethenie_ithorian_front.jpg\" alt=\"Ithorian\"></figure><p>Jardiniers et philosophes pacifiques sensibles à la Force, reconnaissables à leur nuque incurvée portant deux bouches qui bougent ensemble lorsqu'ils parlent.</p><p>Animés d'une forte volonté de transmettre le savoir de leur espèce et de préserver la paix entre les peuples.</p><ul><li><strong>Caractéristiques :</strong> Dextérité -5</li><li><strong>Compétences :</strong> Furtivité -5%, Contrôle télékinétique +5%, Sagesse +5%, Séduction +5%, Artisanat +10%, Survie +15%</li></ul>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 2700000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.10.0"
+      },
+      "_key": "!journal.pages!gWEU7fXI2miHj4SJ.KWDc7rvSfgrdIcOz"
+    },
+    {
+      "_id": "ZZlLc10FKeO7ZYia",
+      "name": "Jawa",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<figure class=\"codex-espece-portrait\"><img src=\"systems/galactic-wars/asset_visuel/Ethnie/ethenie_jawa_front.jpg\" alt=\"Jawa\"></figure><p>Petits humanoïdes de Tatooine, le visage toujours dissimulé sous une capuche d'où ne dépassent que deux yeux jaunes brillants, réputés pour leur hygiène quasi nulle et leur forte odeur.</p><p>Peuple primitif doté d'une vision nocturne portant jusqu'à 20 mètres.</p><ul><li><strong>Caractéristiques :</strong> Corps -10, Dextérité +10</li><li><strong>Compétences :</strong> Séduction -10%, Persuasion +5%, Escroquerie/mensonge +5%, Intimidation -5%, Survie +10%, Mécanique +20%</li></ul>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 2800000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.10.0"
+      },
+      "_key": "!journal.pages!gWEU7fXI2miHj4SJ.ZZlLc10FKeO7ZYia"
+    },
+    {
+      "_id": "B5XRrlPy3AE3NcSx",
+      "name": "Kaleesh",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<figure class=\"codex-espece-portrait\"><img src=\"systems/galactic-wars/asset_visuel/Ethnie/ethenie_kaleesh_front.jpg\" alt=\"Kaleesh\"></figure><p>Humanoïdes reptiliens guerriers et profondément spirituels, dont le visage griffu et défendu est presque toujours dissimulé sous un masque traditionnel ; ils pratiquent couramment la polygynie.</p><p>Stratèges nés, capables de repérer les points faibles de leurs ennemis. Blessés à 10% de leurs points de vie, ils peuvent prier le dieu des morts pour regagner 50% de leurs points de vie, une fois par jour, pour le coût d'un point de force.</p><ul><li><strong>Caractéristiques :</strong> Mental -5</li><li><strong>Compétences :</strong> Commander/guider +10%, Intimidation +5%, Perception +5%</li><li><strong>Armure naturelle :</strong> +1</li></ul>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 2900000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.10.0"
+      },
+      "_key": "!journal.pages!gWEU7fXI2miHj4SJ.B5XRrlPy3AE3NcSx"
+    },
+    {
+      "_id": "x88dzlD2HtWEHFxN",
+      "name": "Kaminoan",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<figure class=\"codex-espece-portrait\"><img src=\"systems/galactic-wars/asset_visuel/Ethnie/ethenie_kaminoan_front.jpg\" alt=\"Kaminoan\"></figure><p><em>Espèce non encore intégrée comme race jouable (pas de fiche mécanique dans le compendium Races).</em></p>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 3000000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.10.0"
+      },
+      "_key": "!journal.pages!gWEU7fXI2miHj4SJ.x88dzlD2HtWEHFxN"
+    },
+    {
+      "_id": "qXw4jj4PAcoEVWOy",
+      "name": "Kel Dor",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<figure class=\"codex-espece-portrait\"><img src=\"systems/galactic-wars/asset_visuel/Ethnie/ethenie_kel_dor_front.jpg\" alt=\"Kel Dor\"></figure><p>Humanoïdes de Dorin respirant du méthane, contraints de porter un masque recouvrant bouche et yeux dès qu'ils quittent leur planète, l'oxygène pur leur étant mortel.</p><p>Vision nocturne, méditation régénératrice (+5%) et affinité avec la Force (+2 points de force).</p><ul><li><strong>Caractéristiques :</strong> Corps -5, Dextérité +10</li><li><strong>Compétences :</strong> Survie -5%, Sagesse +10%</li></ul>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 3100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.10.0"
+      },
+      "_key": "!journal.pages!gWEU7fXI2miHj4SJ.qXw4jj4PAcoEVWOy"
+    },
+    {
+      "_id": "EkIWmSNSTW3DYCdF",
+      "name": "Kiffar",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<figure class=\"codex-espece-portrait\"><img src=\"systems/galactic-wars/asset_visuel/Ethnie/ethenie_kiffar_front.jpg\" alt=\"Kiffar\"></figure><p>Proches-humains originaires de Kiffu, de forte constitution, reconnaissables à leurs tatouages faciaux marquant l'appartenance à un clan.</p><p>Possèdent un don de psychométrie leur permettant, au prix d'un point de force, de percevoir l'historique et les usages d'un objet au toucher.</p><ul><li><strong>Caractéristiques :</strong> Corps +10, Mental +5</li><li><strong>Compétences :</strong> Blocage +5%, Sang froid -10%, Sagesse -5%</li></ul>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 3200000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.10.0"
+      },
+      "_key": "!journal.pages!gWEU7fXI2miHj4SJ.EkIWmSNSTW3DYCdF"
+    },
+    {
+      "_id": "hJbZ0U6oboqHygKx",
+      "name": "Killik",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<figure class=\"codex-espece-portrait\"><img src=\"systems/galactic-wars/asset_visuel/Ethnie/ethenie_killik_front.jpg\" alt=\"Killik\"></figure><p><em>Espèce non encore intégrée comme race jouable (pas de fiche mécanique dans le compendium Races).</em></p>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 3300000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.10.0"
+      },
+      "_key": "!journal.pages!gWEU7fXI2miHj4SJ.hJbZ0U6oboqHygKx"
+    },
+    {
+      "_id": "2PP2EViaU9109yzm",
+      "name": "Klatooinian",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<figure class=\"codex-espece-portrait\"><img src=\"systems/galactic-wars/asset_visuel/Ethnie/ethenie_klatooinian_front.jpg\" alt=\"Klatooinian\"></figure><p><em>Espèce non encore intégrée comme race jouable (pas de fiche mécanique dans le compendium Races).</em></p>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 3400000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.10.0"
+      },
+      "_key": "!journal.pages!gWEU7fXI2miHj4SJ.2PP2EViaU9109yzm"
+    },
+    {
+      "_id": "DlkEfGlHS6g2QNFZ",
+      "name": "Kubaz",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<figure class=\"codex-espece-portrait\"><img src=\"systems/galactic-wars/asset_visuel/Ethnie/ethenie_kubaz_front.jpg\" alt=\"Kubaz\"></figure><p>Originaires de Kubindi, planète irradiée par les UV, ils portent en permanence une combinaison intégrale de protection ; sans elle, ils subissent -20% aux actions en lumière normale.</p><p>Discrets et souvent liés à des métiers peu scrupuleux, ils entretiennent un réseau de contacts secrets sur de nombreuses planètes.</p><ul><li><strong>Caractéristiques :</strong> Corps -10, Dextérité +10</li><li><strong>Compétences :</strong> Perception +10%, Furtivité +20%, Survie +10%, Pickpocket +5%</li></ul>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 3500000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.10.0"
+      },
+      "_key": "!journal.pages!gWEU7fXI2miHj4SJ.DlkEfGlHS6g2QNFZ"
+    },
+    {
+      "_id": "UOcL2sdc8vNUR6wa",
+      "name": "Miraluka",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<figure class=\"codex-espece-portrait\"><img src=\"systems/galactic-wars/asset_visuel/Ethnie/ethine_miraluka_front.jpg\" alt=\"Miraluka\"></figure><p>Espèce proche-humaine dépourvue d'yeux, ne conservant que des orbites vestigiales, et percevant leur environnement grâce à la Force ; ils portent souvent un bandeau pour dissimuler leur absence de globes oculaires.</p><p>Réfléchis, prudents et peu intéressés par la gloire ou le gain personnel, ils se considèrent tous comme les membres d'une même grande famille.</p><p>Une forte empathie de la force leur permet de percevoir les émotions intenses d'autrui ; ils bénéficient de +2 points de force.</p><ul><li><strong>Caractéristiques :</strong> Corps -5, Mental +10</li><li><strong>Compétences :</strong> Perception +5%, Intimidation -5%, Sagesse +5%, Sang froid -10%, Informatique/piratage -20%, Mécanique -20%, Spiritisme +10%</li></ul>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 3600000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.10.0"
+      },
+      "_key": "!journal.pages!gWEU7fXI2miHj4SJ.UOcL2sdc8vNUR6wa"
+    },
+    {
+      "_id": "m8psmeRVONozzDa0",
+      "name": "Mirialans",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<figure class=\"codex-espece-portrait\"><img src=\"systems/galactic-wars/asset_visuel/Ethnie/ethenie_mirialans_front.jpg\" alt=\"Mirialans\"></figure><p>Proches-humains originaires du désertique et aride Mirial, dotés d'un panel sensoriel élaboré qu'ils maîtrisent pour limiter la souffrance de leur corps.</p><p>Peuple très croyant qui refuse l'idée d'une fatalité réduisant chaque individu à un rôle prédéfini ; bénéficient d'une résistance mentale accrue (armure mentale +2).</p><ul><li><strong>Caractéristiques :</strong> Corps -5, Mental +5</li><li><strong>Compétences :</strong> Sang froid +20%, Sagesse +5%, Survie +20%</li></ul>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 3700000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.10.0"
+      },
+      "_key": "!journal.pages!gWEU7fXI2miHj4SJ.m8psmeRVONozzDa0"
+    },
+    {
+      "_id": "nWeuTzuTy0OmOJzU",
+      "name": "Mirialans (variante)",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<figure class=\"codex-espece-portrait\"><img src=\"systems/galactic-wars/asset_visuel/Ethnie/ethnie_mirialan_front.jpg\" alt=\"Mirialans (variante)\"></figure><p>Proches-humains originaires du désertique et aride Mirial, dotés d'un panel sensoriel élaboré qu'ils maîtrisent pour limiter la souffrance de leur corps.</p><p>Peuple très croyant qui refuse l'idée d'une fatalité réduisant chaque individu à un rôle prédéfini ; bénéficient d'une résistance mentale accrue (armure mentale +2).</p><ul><li><strong>Caractéristiques :</strong> Corps -5, Mental +5</li><li><strong>Compétences :</strong> Sang froid +20%, Sagesse +5%, Survie +20%</li></ul>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 3800000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.10.0"
+      },
+      "_key": "!journal.pages!gWEU7fXI2miHj4SJ.nWeuTzuTy0OmOJzU"
+    },
+    {
+      "_id": "2htoHpq5OaJjjzCG",
+      "name": "Mon Calamari",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<figure class=\"codex-espece-portrait\"><img src=\"systems/galactic-wars/asset_visuel/Ethnie/ethnie_mon_calamari_front.png\" alt=\"Mon Calamari\"></figure><p>Amphibiens aussi à l'aise sur terre que dans l'eau : respiration aquatique, nageurs experts et vision nocturne. Leur peau se dessèche rapidement en milieu aride, ce qui peut leur être mortel.</p><p>Transmettent le savoir de leur espèce de génération en génération.</p><ul><li><strong>Caractéristiques :</strong> Corps -5, Mental +5</li><li><strong>Compétences :</strong> Artisanat +5%, Sagesse +5%</li></ul>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 3900000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.10.0"
+      },
+      "_key": "!journal.pages!gWEU7fXI2miHj4SJ.2htoHpq5OaJjjzCG"
+    },
+    {
+      "_id": "2lmb2bACTm7gmalF",
+      "name": "Nautolans",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<figure class=\"codex-espece-portrait\"><img src=\"systems/galactic-wars/asset_visuel/Ethnie/ethenie_nautolans_front.jpg\" alt=\"Nautolans\"></figure><p>Humanoïdes amphibiens à la peau verte, dotés de tentacules crâniens sensoriels qui leur permettent de détecter mouvements et odeurs, bien plus à l'aise dans l'eau que sur terre.</p><p>Nagent et respirent instinctivement en milieu aquatique comme aérien ; leur empathie tentaculaire leur permet de ressentir les émotions d'autrui, de façon plus fine sous l'eau.</p><p>Communiquent naturellement avec les autres espèces porteuses de lekku.</p><ul><li><strong>Caractéristiques :</strong> Corps +5, Dextérité +5</li><li><strong>Compétences :</strong> Sang froid -5%</li><li><strong>Armure naturelle :</strong> +2</li></ul>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 4000000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.10.0"
+      },
+      "_key": "!journal.pages!gWEU7fXI2miHj4SJ.2lmb2bACTm7gmalF"
+    },
+    {
+      "_id": "CYXqHJUUa7YS7Kwq",
+      "name": "Neimoidian",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<figure class=\"codex-espece-portrait\"><img src=\"systems/galactic-wars/asset_visuel/Ethnie/ethenie_neimoidian_front.jpg\" alt=\"Neimoidian\"></figure><p><em>Espèce non encore intégrée comme race jouable (pas de fiche mécanique dans le compendium Races).</em></p>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 4100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.10.0"
+      },
+      "_key": "!journal.pages!gWEU7fXI2miHj4SJ.CYXqHJUUa7YS7Kwq"
+    },
+    {
+      "_id": "JMQ8o4VZ10xLmflq",
+      "name": "Noghri",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<figure class=\"codex-espece-portrait\"><img src=\"systems/galactic-wars/asset_visuel/Ethnie/ethenie_noghri_front.jpg\" alt=\"Noghri\"></figure><p>Petits reptiliens humanoïdes à la peau grise ou bleu acier, assassins redoutables au combat furtif, armés de griffes et de crocs.</p><p>Sens de l'odorat extrêmement développé, peuple primitif très attaché à l'honneur et à la culture du clan.</p><ul><li><strong>Caractéristiques :</strong> Dextérité +10</li><li><strong>Compétences :</strong> Perception +10%, Bagarre +10%, Furtivité +20%, Sagesse -5%, Social -30%, Séduction -30%</li></ul>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 4200000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.10.0"
+      },
+      "_key": "!journal.pages!gWEU7fXI2miHj4SJ.JMQ8o4VZ10xLmflq"
+    },
+    {
+      "_id": "SRjzY6fDsizieOob",
+      "name": "Nosaurians",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<figure class=\"codex-espece-portrait\"><img src=\"systems/galactic-wars/asset_visuel/Ethnie/ethenie_nosaurians_front.jpg\" alt=\"Nosaurians\"></figure><p><em>Espèce non encore intégrée comme race jouable (pas de fiche mécanique dans le compendium Races).</em></p>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 4300000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.10.0"
+      },
+      "_key": "!journal.pages!gWEU7fXI2miHj4SJ.SRjzY6fDsizieOob"
+    },
+    {
+      "_id": "dxFwPfQSI9jF4JEC",
+      "name": "Quarren",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<figure class=\"codex-espece-portrait\"><img src=\"systems/galactic-wars/asset_visuel/Ethnie/ethenie_quarren_front.jpg\" alt=\"Quarren\"></figure><p>Habitants de Mon Calamari à la peau caoutchouteuse orangée et aux quatre tentacules faciales, surnommés (péjorativement) « Têtes de Calamars ».</p><p>Conservateurs et excellents comptables et gestionnaires, ils nagent instinctivement, voient dans l'obscurité et vivent aussi bien en milieu aquatique que terrestre, mais dépérissent en milieu aride.</p><ul><li><strong>Caractéristiques :</strong> Corps +5, Mental -10</li><li><strong>Compétences :</strong> Séduction -5%, Artisanat +5%</li></ul>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 4400000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.10.0"
+      },
+      "_key": "!journal.pages!gWEU7fXI2miHj4SJ.dxFwPfQSI9jF4JEC"
+    },
+    {
+      "_id": "oS1dGhR58G3vI9xI",
+      "name": "Rakata",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<figure class=\"codex-espece-portrait\"><img src=\"systems/galactic-wars/asset_visuel/Ethnie/ethenie_rakata_front.jpg\" alt=\"Rakata\"></figure><p><em>Espèce non encore intégrée comme race jouable (pas de fiche mécanique dans le compendium Races).</em></p>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 4500000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.10.0"
+      },
+      "_key": "!journal.pages!gWEU7fXI2miHj4SJ.oS1dGhR58G3vI9xI"
+    },
+    {
+      "_id": "hMMgHZ6wHlD09oet",
+      "name": "Rattataki",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<figure class=\"codex-espece-portrait\"><img src=\"systems/galactic-wars/asset_visuel/Ethnie/ethenie_rattataki_front.jpg\" alt=\"Rattataki\"></figure><p>Proches-humains à la peau crayeuse et chauve, couverte de tatouages tribaux, au caractère taciturne et belliqueux, forgé par des siècles de guerre et de survie souterraine.</p><p>Voient dans une lumière très faible.</p><ul><li><strong>Caractéristiques :</strong> Corps +10, Dextérité -10</li><li><strong>Compétences :</strong> Sang froid +10%, Survie +10%, Séduction -10%, Social -10%</li></ul>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 4600000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.10.0"
+      },
+      "_key": "!journal.pages!gWEU7fXI2miHj4SJ.hMMgHZ6wHlD09oet"
+    },
+    {
+      "_id": "dr2a3t9dXlx1Alvk",
+      "name": "Robot (droïde de combat)",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<figure class=\"codex-espece-portrait\"><img src=\"systems/galactic-wars/asset_visuel/Ethnie/ethenie_robot_droïde_combat_front.jpg\" alt=\"Robot (droïde de combat)\"></figure><p>Possède des bases de données : histoire, langues des peuples, connaissances.</p><ul><li><strong>Caractéristiques :</strong> Corps +20, Mental -20</li><li><strong>Compétences :</strong> Perception +80%, Escroquerie/mensonge -20%, Informatique/piratage +20%, Social +10%, Sang froid +100%</li></ul>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 4700000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.10.0"
+      },
+      "_key": "!journal.pages!gWEU7fXI2miHj4SJ.dr2a3t9dXlx1Alvk"
+    },
+    {
+      "_id": "wg03O3SnSGyWZTlK",
+      "name": "Robot (droïde R3)",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<figure class=\"codex-espece-portrait\"><img src=\"systems/galactic-wars/asset_visuel/Ethnie/ethenie_robot_droïde_r3_front.jpg\" alt=\"Robot (droïde R3)\"></figure><p><em>Espèce non encore intégrée comme race jouable (pas de fiche mécanique dans le compendium Races).</em></p>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 4800000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.10.0"
+      },
+      "_key": "!journal.pages!gWEU7fXI2miHj4SJ.wg03O3SnSGyWZTlK"
+    },
+    {
+      "_id": "uElIdVEdkZshWdCM",
+      "name": "Rodien",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<figure class=\"codex-espece-portrait\"><img src=\"systems/galactic-wars/asset_visuel/Ethnie/ethenie_rodian_front.jpg\" alt=\"Rodien\"></figure><p>Fouille : Perception +10%. Don de pistage : Perception +20%.</p><ul><li><strong>Caractéristiques :</strong> Dextérité +10</li><li><strong>Compétences :</strong> Sagesse -10%, Social -5%</li></ul>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 4900000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.10.0"
+      },
+      "_key": "!journal.pages!gWEU7fXI2miHj4SJ.uElIdVEdkZshWdCM"
+    },
+    {
+      "_id": "CwtmSXX5jsjpKh5E",
+      "name": "Sith",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<figure class=\"codex-espece-portrait\"><img src=\"systems/galactic-wars/asset_visuel/Ethnie/ethenie_sith_front.jpg\" alt=\"Sith\"></figure><p>Humanoïdes à la peau rouge sang, peuple guerrier orgueilleux et autodestructeur, profondément lié au côté obscur de la Force et à ses pratiques mystiques.</p><p>Visage marqué de petites tentacules tombantes de chaque côté de la bouche.</p><ul><li><strong>Caractéristiques :</strong> Corps -5, Mental +5</li><li><strong>Compétences :</strong> Commander/guider +10%, Sagesse +5%, Spiritisme +5%, Sang froid -5%</li></ul>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 5000000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.10.0"
+      },
+      "_key": "!journal.pages!gWEU7fXI2miHj4SJ.CwtmSXX5jsjpKh5E"
+    },
+    {
+      "_id": "c281yo3DeXdTOV4l",
+      "name": "Snivvian",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<figure class=\"codex-espece-portrait\"><img src=\"systems/galactic-wars/asset_visuel/Ethnie/ethenie_snivvian_front.jpg\" alt=\"Snivvian\"></figure><p>Mammifères au museau proéminent et aux crocs courts, excellents éclaireurs et pisteurs, dotés d'une peau épaisse résistante au froid.</p><p>Tempérament artiste et grand voyageur, nourrissant une haine tenace envers les esclavagistes.</p><ul><li><strong>Caractéristiques :</strong> Corps +5, Mental -10</li><li><strong>Compétences :</strong> Perception +10%, Pilotage +10%</li><li><strong>Armure naturelle :</strong> +2</li></ul>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 5100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.10.0"
+      },
+      "_key": "!journal.pages!gWEU7fXI2miHj4SJ.c281yo3DeXdTOV4l"
+    },
+    {
+      "_id": "uWhNnBLwBC2wTqyI",
+      "name": "Sullustan",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<figure class=\"codex-espece-portrait\"><img src=\"systems/galactic-wars/asset_visuel/Ethnie/ethenie_sullustan_front.jpg\" alt=\"Sullustan\"></figure><p>Quasi-humains pilotes et navigateurs hors pair, aux grandes oreilles leur offrant une ouïe exceptionnelle.</p><p>Voient dans le noir jusqu'à 20 mètres sans être sensibles aux infrarouges.</p><ul><li><strong>Caractéristiques :</strong> Corps -5, Dextérité +5</li><li><strong>Compétences :</strong> Escalade/saut +10%, Perception +20%</li></ul>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 5200000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.10.0"
+      },
+      "_key": "!journal.pages!gWEU7fXI2miHj4SJ.uWhNnBLwBC2wTqyI"
+    },
+    {
+      "_id": "4l7pZIQMpKDpF5FG",
+      "name": "Togrutas",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<figure class=\"codex-espece-portrait\"><img src=\"systems/galactic-wars/asset_visuel/Ethnie/ethenie_togrutas_front.jpg\" alt=\"Togrutas\"></figure><p>Peuple au profond sens du groupe, arborant des cornes (montrals) et des tentacules (lekku) qui leur permettent de percevoir les mouvements alentour grâce aux ultrasons.</p><p>Communication innée entre porteurs de lekku et grande affinité avec la Force.</p><ul><li><strong>Caractéristiques :</strong> Corps -5</li><li><strong>Compétences :</strong> Perception +10%, Intimidation +5%</li></ul>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 5300000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.10.0"
+      },
+      "_key": "!journal.pages!gWEU7fXI2miHj4SJ.4l7pZIQMpKDpF5FG"
+    },
+    {
+      "_id": "K79tXSejIlxSKrXB",
+      "name": "Toydarien",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<figure class=\"codex-espece-portrait\"><img src=\"systems/galactic-wars/asset_visuel/Ethnie/ethenie_toydarien_front.jpg\" alt=\"Toydarien\"></figure><p>Avares et de mauvaise humeur, les Toydariens sont fiers de leur travail et résistants à la manipulation de l'esprit (ne peuvent être joués comme Jedi ou Sith).</p><p>Ils possèdent une compétence innée de vol et le don science de l'initiative.</p><p>Malédiction : ils doivent toujours avoir de la nourriture sur eux, sous peine de subir de lourdes pertes de capacités jusqu'à ce qu'ils mangent de la super-nourriture.</p><ul><li><strong>Caractéristiques :</strong> Corps -15, Dextérité +20</li></ul>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 5400000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.10.0"
+      },
+      "_key": "!journal.pages!gWEU7fXI2miHj4SJ.K79tXSejIlxSKrXB"
+    },
+    {
+      "_id": "mtmhylMTmvh6DCkR",
+      "name": "Trandoshan",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<figure class=\"codex-espece-portrait\"><img src=\"systems/galactic-wars/asset_visuel/Ethnie/éthnie_trandoshan_front.jpg\" alt=\"Trandoshan\"></figure><p>Chasseurs redoutables et très violents, régis par un strict code d'honneur.</p><p>Ils possèdent une vision nocturne (20m), sont doués au combat à l'arme contondante et ont une perception de la Force accrue ainsi qu'une affinité avec la Force (+2 points).</p><ul><li><strong>Caractéristiques :</strong> Corps +10, Mental -10</li><li><strong>Compétences :</strong> Blaster +5%</li><li><strong>Armure naturelle :</strong> +1</li></ul>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 5500000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.10.0"
+      },
+      "_key": "!journal.pages!gWEU7fXI2miHj4SJ.mtmhylMTmvh6DCkR"
+    },
+    {
+      "_id": "4LMHtsQ7BHSO85mb",
+      "name": "Tusken Raider",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<figure class=\"codex-espece-portrait\"><img src=\"systems/galactic-wars/asset_visuel/Ethnie/ethenie_turken_raider_front.jpg\" alt=\"Tusken Raider\"></figure><p>Nomades primitifs du désert de Tatooine, hostiles aux colons.</p><p>Par pudeur culturelle, ils ne retirent jamais leurs tenues en présence de quiconque n'est pas de leur famille proche.</p><ul><li><strong>Caractéristiques :</strong> Corps +5, Mental -10, Dextérité +5</li><li><strong>Compétences :</strong> Blaster +5%, Sagesse -20%, Furtivité +10%, Survie +10%</li></ul>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 5600000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.10.0"
+      },
+      "_key": "!journal.pages!gWEU7fXI2miHj4SJ.4LMHtsQ7BHSO85mb"
+    },
+    {
+      "_id": "uC3366qfjwJDVbPo",
+      "name": "Twi'lek",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<figure class=\"codex-espece-portrait\"><img src=\"systems/galactic-wars/asset_visuel/Ethnie/ethenie_twilek_front.jpg\" alt=\"Twi'lek\"></figure><p>Vision nocturne. Sauvegarde de la vigueur : une fois par jour, rituel pour mettre en réserve des PV et les regagner à un moment critique, coûte 1 point de force.</p><ul><li><strong>Caractéristiques :</strong> Corps +5, Dextérité -5</li><li><strong>Compétences :</strong> Sagesse -10%, Séduction +20%</li></ul>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 5700000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.10.0"
+      },
+      "_key": "!journal.pages!gWEU7fXI2miHj4SJ.uC3366qfjwJDVbPo"
+    },
+    {
+      "_id": "47hlvc0uFPm4xBnj",
+      "name": "Ugnaught",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<figure class=\"codex-espece-portrait\"><img src=\"systems/galactic-wars/asset_visuel/Ethnie/ethenie_ugnaught_front.jpg\" alt=\"Ugnaught\"></figure><p><em>Espèce non encore intégrée comme race jouable (pas de fiche mécanique dans le compendium Races).</em></p>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 5800000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.10.0"
+      },
+      "_key": "!journal.pages!gWEU7fXI2miHj4SJ.47hlvc0uFPm4xBnj"
+    },
+    {
+      "_id": "0OEAZlRECoNZDhdp",
+      "name": "Verpine",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<figure class=\"codex-espece-portrait\"><img src=\"systems/galactic-wars/asset_visuel/Ethnie/ethenie_verpine_front.jpg\" alt=\"Verpine\"></figure><p>Insectoïdes techniciens dotés d'un don pour la mécanique et habiles à la fouille (+10%).</p><p>Ils communiquent entre eux via un « comlink naturel » et régénèrent naturellement 1 point de vie par tour d'inactivité.</p><ul><li><strong>Caractéristiques :</strong> Corps +5</li><li><strong>Compétences :</strong> Perception +10%, Mécanique +10%, Artisanat +5%</li><li><strong>Armure naturelle :</strong> +2</li></ul>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 5900000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.10.0"
+      },
+      "_key": "!journal.pages!gWEU7fXI2miHj4SJ.0OEAZlRECoNZDhdp"
+    },
+    {
+      "_id": "dbjz1ZugTjYqgWbS",
+      "name": "Voss",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<figure class=\"codex-espece-portrait\"><img src=\"systems/galactic-wars/asset_visuel/Ethnie/ethenie_voss_front.jpg\" alt=\"Voss\"></figure><p><em>Espèce non encore intégrée comme race jouable (pas de fiche mécanique dans le compendium Races).</em></p>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 6000000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.10.0"
+      },
+      "_key": "!journal.pages!gWEU7fXI2miHj4SJ.dbjz1ZugTjYqgWbS"
+    },
+    {
+      "_id": "qmZSI1ajqmyeM5JW",
+      "name": "Wookiee",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<figure class=\"codex-espece-portrait\"><img src=\"systems/galactic-wars/asset_visuel/Ethnie/ethenie_wookiee_front.jpg\" alt=\"Wookiee\"></figure><p>Rage du Wookiee (mode berserk : à 20% de ses PV, les dégâts subis sont réduits de 90% et les dégâts infligés augmentés de 50% ; le mode disparaît si le Wookiee reprend ses PV ou au bout de plusieurs heures — durant ce temps il attaque tout ce qui lui semble une menace). Récupération du Wookiee (mode méditation : soin personnel qui redonne tous ses PV, coûte 1 point de force).</p><ul><li><strong>Caractéristiques :</strong> Corps +10, Dextérité -5</li><li><strong>Compétences :</strong> Intimidation +10%, Sagesse -5%, Sang froid -10%</li></ul>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 6100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.10.0"
+      },
+      "_key": "!journal.pages!gWEU7fXI2miHj4SJ.qmZSI1ajqmyeM5JW"
+    },
+    {
+      "_id": "W6EfE6r39I5HDuzw",
+      "name": "Zabrak",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<figure class=\"codex-espece-portrait\"><img src=\"systems/galactic-wars/asset_visuel/Ethnie/ethenie_zabrak_front.jpg\" alt=\"Zabrak\"></figure><p>Quasi-humains reconnaissables à leurs cornes et à leurs tatouages faciaux rituels, les Zabraks sont carnivores.</p><p>Ils possèdent un second cœur et une grande résistance à la douleur physique.</p><ul><li><strong>Caractéristiques :</strong> Corps +5</li><li><strong>Compétences :</strong> Furtivité -10%, Bagarre +20%, Artisanat +10%, Sagesse -10%, Survie +10%</li></ul>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 6200000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.10.0"
+      },
+      "_key": "!journal.pages!gWEU7fXI2miHj4SJ.W6EfE6r39I5HDuzw"
+    }
+  ],
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.10.0"
+  }
+}

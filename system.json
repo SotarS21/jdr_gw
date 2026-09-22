@@ -46,6 +46,7 @@
     { "name": "ecoles", "label": "Écoles sith", "path": "packs/ecoles", "type": "Item" },
     { "name": "pregens-sith", "label": "Pregens sith", "path": "packs/pregens-sith", "type": "Actor" },
     { "name": "vaisseaux", "label": "Vaisseaux", "path": "packs/vaisseaux", "type": "Actor" },
-    { "name": "equipements", "label": "Équipements", "path": "packs/equipements", "type": "Item" }
+    { "name": "equipements", "label": "Équipements", "path": "packs/equipements", "type": "Item" },
+    { "name": "codex-especes", "label": "Codex des espèces", "path": "packs/codex-especes", "type": "JournalEntry" }
   ]
 }
