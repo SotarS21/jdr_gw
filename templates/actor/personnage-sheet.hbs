@@ -125,23 +125,35 @@
           <span class="racial">{{car.racial}}</span>
           <span class="total">= {{car.total}}</span>
         </div>
-        <ul class="competences-list">
+        <ul class="competences-list {{#unless @root.modeEdition}}lecture{{/unless}}">
           {{#each car.competences as |cpt|}}
-          <li class="competence-row skill-row {{#if cpt.estCompetenceForce}}force{{/if}}">
-            <button type="button" class="roll-btn" data-action="rollCompetence" data-cle="{{cpt.cle}}">🎲</button>
-            <span class="label">{{#if cpt.estCompetenceMetier}}<span class="dot dot-metier"></span>{{/if}}{{localize cpt.label}}</span>
-            {{!-- cle/racial/metier/acquiseParMetier n'ont pas d'input visible, mais DOIVENT
-                  quand même être soumis en <input hidden> : system.competences est un
-                  ArrayField, dont Document#update() remplace chaque élément entier plutôt
-                  que de fusionner ses champs un par un — tout champ absent du formulaire
-                  serait donc réinitialisé à sa valeur par défaut du schéma à chaque
-                  sauvegarde (cle: "" notamment, ce qui casse GW.competences[cle] partout). --}}
+          <li class="competence-row skill-row {{#if cpt.estCompetenceForce}}force{{/if}} {{#if cpt.estReservee}}reservee{{/if}} {{#if cpt.bloquee}}bloquee{{/if}} {{#if cpt.acquiseParMetier}}acquise{{/if}}"
+              data-index="{{cpt.index}}"
+              {{#if cpt.bloquee}}data-tooltip="{{#if @root.isGM}}{{localize 'GALACTICWARS.Sheet.CompetenceBloqueeMJ'}}{{else}}{{localize 'GALACTICWARS.Sheet.CompetenceBloquee'}}{{/if}}"{{/if}}>
+            <button type="button" class="roll-btn" data-action="rollCompetence" data-cle="{{cpt.cle}}" {{#if cpt.bloquee}}disabled{{/if}}>🎲</button>
+            <span class="label">{{#if cpt.estCompetenceMetier}}<span class="dot dot-metier"></span>{{/if}}{{localize cpt.label}}{{#if cpt.bloquee}} <i class="fa-solid fa-lock cadenas"></i>{{/if}}</span>
+            {{!-- system.competences est un ArrayField : Document#update() remplace chaque élément
+                  entier plutôt que de fusionner ses champs un par un. TOUT champ d'une compétence
+                  doit donc être soumis à chaque sauvegarde, même quand il n'est pas modifiable
+                  (hors mode édition, compétence bloquée) — sinon il serait réinitialisé à sa
+                  valeur par défaut du schéma (cle: "" notamment, ce qui casse GW.competences[cle]
+                  partout ; niveau/ajustement remis à 0). --}}
             <input type="hidden" name="system.competences.{{cpt.index}}.cle" value="{{cpt.cle}}">
             <input type="hidden" name="system.competences.{{cpt.index}}.racial" value="{{cpt.racial}}" data-dtype="Number">
             <input type="hidden" name="system.competences.{{cpt.index}}.metier" value="{{cpt.metier}}" data-dtype="Number">
             <input type="hidden" name="system.competences.{{cpt.index}}.acquiseParMetier" value="{{cpt.acquiseParMetier}}" data-dtype="Boolean">
+            <input type="hidden" name="system.competences.{{cpt.index}}.debloquee" value="{{cpt.debloquee}}" data-dtype="Boolean">
+            {{#if (and @root.modeEdition (not cpt.bloquee))}}
             <input type="number" class="niveau mono" name="system.competences.{{cpt.index}}.niveau" value="{{cpt.niveau}}" min="0" max="3" data-tooltip="{{localize 'GALACTICWARS.Sheet.Niveau'}}">
+            {{else}}
+            <input type="hidden" name="system.competences.{{cpt.index}}.niveau" value="{{cpt.niveau}}" data-dtype="Number">
+            <span class="niveau niveau-lecture mono" data-tooltip="{{localize 'GALACTICWARS.Sheet.Niveau'}}">{{#if cpt.bloquee}}0{{else}}{{cpt.niveau}}{{/if}}</span>
+            {{/if}}
+            {{#if @root.modeEdition}}
             <input type="number" class="ajustement mono" name="system.competences.{{cpt.index}}.ajustement" value="{{cpt.ajustement}}" data-tooltip="{{localize 'GALACTICWARS.Sheet.AjustementManuelHint'}}">
+            {{else}}
+            <input type="hidden" name="system.competences.{{cpt.index}}.ajustement" value="{{cpt.ajustement}}" data-dtype="Number">
+            {{/if}}
             <span class="total mono">{{cpt.total}}%</span>
           </li>
           {{/each}}

@@ -67,6 +67,7 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     context.system = system;
     context.ongletActif = this.#ongletActif;
     context.modeEdition = this.modeEdition;
+    context.isGM = game.user.isGM;
     // `index` conserve la position réelle dans system.competences (pas celle, différente,
     // dans la sous-liste triée/filtrée par caractéristique ci-dessous) pour que les inputs
     // du template continuent de cibler la bonne entrée du tableau.
@@ -99,6 +100,38 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   static async #onChangerOnglet(event, target) {
     this.#ongletActif = target.dataset.onglet;
     this.render();
+  }
+
+  /**
+   * Menu clic droit (MJ uniquement) sur une compétence réservée que le métier actuel n'accorde
+   * pas : débloquer / rebloquer pour ce personnage (champ `debloquee`).
+   * @override
+   */
+  _onFirstRender(context, options) {
+    super._onFirstRender(context, options);
+    const competence = (li) => this.actor.system.competences[Number(li.dataset.index)];
+    new foundry.applications.ux.ContextMenu.implementation(this.element, ".competence-row.reservee", [
+      {
+        label: "GALACTICWARS.Sheet.Debloquer",
+        icon: '<i class="fa-solid fa-lock-open"></i>',
+        visible: (li) => game.user.isGM && !!competence(li)?.bloquee,
+        onClick: (event, li) => this.#definirDeblocage(Number(li.dataset.index), true)
+      },
+      {
+        label: "GALACTICWARS.Sheet.Rebloquer",
+        icon: '<i class="fa-solid fa-lock"></i>',
+        visible: (li) => game.user.isGM && !!competence(li)?.debloquee && !competence(li)?.acquiseParMetier,
+        onClick: (event, li) => this.#definirDeblocage(Number(li.dataset.index), false)
+      }
+    ], { jQuery: false, fixed: true });
+  }
+
+  /** Mise à jour du tableau complet (jamais d'update sur un seul index d'ArrayField). */
+  async #definirDeblocage(index, debloquee) {
+    const competences = this.actor.system.toObject().competences;
+    if (!competences[index]) return;
+    competences[index].debloquee = debloquee;
+    await this.actor.update({ "system.competences": competences });
   }
 
   static async #onBasculerEdition() {

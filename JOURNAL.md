@@ -1,6 +1,6 @@
 # Journal de développement — Galactic Wars
 
-## Session du 2026-09-23 (suite) — Mode édition + largeur de la fiche classique (v0.10.2 → v0.11.0)
+## Session du 2026-09-23 (suite) — Mode édition, largeur, compétences réservées (v0.10.2 → v0.11.0)
 
 **1. Mode édition (demande utilisateur).** Bouton « Édition » avec cadenas à côté du nom sur la
 fiche classique. Verrouillé : caractéristiques de base en lecture seule (`<span>` au lieu de
@@ -19,7 +19,31 @@ compétences — les libellés longs ("Informatique/piratage"...) fixent une lar
 colonne. Aucun débordement à partir de ~920 px ; largeur par défaut passée à 940 px. Vérifié sur les
 5 personnages classiques du monde : `scrollWidth` = `clientWidth` (904 px).
 
+**3. Niveaux de compétence et ajustements manuels rattachés au mode édition (demande
+utilisateur).** Hors édition : niveau affiché en lecture seule, ajustement manuel masqué (colonne
+retirée de la grille). Piège évité : `system.competences` est un `ArrayField`, donc retirer ces
+`<input>` du formulaire les aurait remis à 0 à la première sauvegarde (même mécanisme que le bug du
+2026-09-15) — ils restent soumis en `<input type="hidden">`. Vérifié : sauvegarde hors édition →
+tableau de compétences identique octet pour octet.
+
+**4. Compétences réservées à un métier (demande utilisateur, règle proposée puis validée).**
+Analyse de la mise en forme conditionnelle des fiches Excel classiques (lue directement dans le XML
+des `.xlsx`, SheetJS ne l'expose pas) : le jaune marque les compétences accordées par le métier
+choisi, le gris (police gris clair) ne vise que 6 compétences, chacune réservée à un métier — même
+jeu de règles dans 15 fiches dont `Template corriger.xlsx`, variantes partielles/cassées (`#REF!`)
+dans quelques autres. Écarts relevés avec le compendium et tranchés par l'auteur : Drain/Éclair de
+force → Guerrier sith **et Jedi Noire** (aucun métier ne les accordait) ; Sécurité → Voleur + Agent
+secret (cumul) ; Médecine → Médecin + Soldat médecin (cumul). Règle retenue : bloquée = grisée,
+niveau compté 0, jet refusé (bouton désactivé + garde dans `rollCompetence`), info-bulle joueur
+« Seul le MJ peut débloquer la compétence. » ; le MJ débloque/rebloque par clic droit (`ContextMenu`
+v14, `label`/`visible`/`onClick`), stocké dans le nouveau champ `debloquee` et mis à jour par
+remplacement du tableau complet. Vérifié sur Kael Dorn (Contrebandier) : 6 compétences bloquées, 6
+surlignées, menu « Débloquer » puis « Rebloquer », état restauré après test. Le compendium Métiers
+modifié ne sera visible qu'après redémarrage de Foundry.
+
 **Fichiers modifiés** : `templates/actor/personnage-sheet.hbs`, `module/sheets/personnage-sheet.mjs`,
+`module/config.mjs`, `module/data/actor-personnage.mjs`, `module/helpers/migration.mjs`,
+`module/helpers/rolls.mjs`, `packs/_source/metiers/{guerrier-sith,jedi-noire,voleur}.json`,
 `lang/fr.json`, `styles/galactic-wars.css`, `system.json`, `CAHIER_DES_CHARGES.md`.
 
 ---

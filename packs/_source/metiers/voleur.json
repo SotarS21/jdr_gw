@@ -25,6 +25,11 @@
         "cle": "escroquerieMensonge",
         "bonus": 0,
         "obligatoire": true
+      },
+      {
+        "cle": "securite",
+        "bonus": 0,
+        "obligatoire": false
       }
     ],
     "equipement": [

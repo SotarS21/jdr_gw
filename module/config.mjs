@@ -86,13 +86,20 @@ GW.corpulences = {
  * `natation` a été rattachée à Corps ici pour conserver le compte de 12 de cette colonne —
  * un choix plausible (compétence physique) mais pas une certitude de la source, à confirmer
  * auprès de l'auteur si besoin.
- * @type {Record<string, {label: string, metier: boolean, force: boolean, caracteristique: string}>}
+ *
+ * `reservee: true` : compétence réservée aux métiers qui l'accordent (grisée dans les fiches
+ * Excel classiques par mise en forme conditionnelle, cf. `Template corriger.xlsx`). Sur la
+ * fiche, elle est bloquée (niveau compté 0, jet impossible) tant que le métier actuel ne
+ * l'accorde pas — la liste des métiers autorisés vient du compendium des métiers — sauf si
+ * le MJ l'a débloquée pour ce personnage (clic droit, `debloquee`). Règle validée par
+ * l'auteur le 2026-09-23.
+ * @type {Record<string, {label: string, metier: boolean, force: boolean, caracteristique: string, reservee?: boolean}>}
  */
 GW.competences = {
   commanderGuider: { label: "GALACTICWARS.Competence.CommanderGuider", metier: false, force: false, caracteristique: "mental" },
   blaster: { label: "GALACTICWARS.Competence.Blaster", metier: false, force: false, caracteristique: "dexterite" },
   artifice: { label: "GALACTICWARS.Competence.Artifice", metier: true, force: false, caracteristique: "corps" },
-  drainDeForce: { label: "GALACTICWARS.Competence.DrainDeForce", metier: true, force: true, caracteristique: "mental" },
+  drainDeForce: { label: "GALACTICWARS.Competence.DrainDeForce", metier: true, force: true, caracteristique: "mental", reservee: true },
   controleTelekinetique: { label: "GALACTICWARS.Competence.ControleTelekinetique", metier: true, force: true, caracteristique: "dexterite" },
   bagarre: { label: "GALACTICWARS.Competence.Bagarre", metier: false, force: false, caracteristique: "corps" },
   escroquerieMensonge: { label: "GALACTICWARS.Competence.EscroquerieMensonge", metier: false, force: false, caracteristique: "mental" },
@@ -105,7 +112,7 @@ GW.competences = {
   paradeEsquive: { label: "GALACTICWARS.Competence.ParadeEsquive", metier: false, force: false, caracteristique: "dexterite" },
   furtivite: { label: "GALACTICWARS.Competence.Furtivite", metier: false, force: false, caracteristique: "corps" },
   persuasion: { label: "GALACTICWARS.Competence.Persuasion", metier: false, force: false, caracteristique: "mental" },
-  pickpocket: { label: "GALACTICWARS.Competence.Pickpocket", metier: true, force: false, caracteristique: "dexterite" },
+  pickpocket: { label: "GALACTICWARS.Competence.Pickpocket", metier: true, force: false, caracteristique: "dexterite", reservee: true },
   meditationDeForce: { label: "GALACTICWARS.Competence.MeditationDeForce", metier: true, force: true, caracteristique: "corps" },
   persuasionDeForce: { label: "GALACTICWARS.Competence.PersuasionDeForce", metier: true, force: true, caracteristique: "mental" },
   pilotage: { label: "GALACTICWARS.Competence.Pilotage", metier: true, force: false, caracteristique: "dexterite" },
@@ -114,16 +121,16 @@ GW.competences = {
   sabreLaser: { label: "GALACTICWARS.Competence.SabreLaser", metier: true, force: false, caracteristique: "dexterite" },
   survie: { label: "GALACTICWARS.Competence.Survie", metier: false, force: false, caracteristique: "corps" },
   seduction: { label: "GALACTICWARS.Competence.Seduction", metier: false, force: false, caracteristique: "mental" },
-  securite: { label: "GALACTICWARS.Competence.Securite", metier: true, force: false, caracteristique: "dexterite" },
+  securite: { label: "GALACTICWARS.Competence.Securite", metier: true, force: false, caracteristique: "dexterite", reservee: true },
   pousseeDeForce: { label: "GALACTICWARS.Competence.PousseeDeForce", metier: true, force: true, caracteristique: "corps" },
   social: { label: "GALACTICWARS.Competence.Social", metier: false, force: false, caracteristique: "mental" },
-  medecine: { label: "GALACTICWARS.Competence.Medecine", metier: true, force: false, caracteristique: "dexterite" },
+  medecine: { label: "GALACTICWARS.Competence.Medecine", metier: true, force: false, caracteristique: "dexterite", reservee: true },
   protectionDeForce: { label: "GALACTICWARS.Competence.ProtectionDeForce", metier: true, force: true, caracteristique: "corps" },
   spiritisme: { label: "GALACTICWARS.Competence.Spiritisme", metier: true, force: false, caracteristique: "mental" },
-  eclaireDeForce: { label: "GALACTICWARS.Competence.EclaireDeForce", metier: true, force: true, caracteristique: "dexterite" },
+  eclaireDeForce: { label: "GALACTICWARS.Competence.EclaireDeForce", metier: true, force: true, caracteristique: "dexterite", reservee: true },
   escaladeSaut: { label: "GALACTICWARS.Competence.EscaladeSaut", metier: false, force: false, caracteristique: "corps" },
   sangFroid: { label: "GALACTICWARS.Competence.SangFroid", metier: false, force: false, caracteristique: "mental" },
-  controleParLaForce: { label: "GALACTICWARS.Competence.ControleParLaForce", metier: true, force: true, caracteristique: "dexterite" },
+  controleParLaForce: { label: "GALACTICWARS.Competence.ControleParLaForce", metier: true, force: true, caracteristique: "dexterite", reservee: true },
   artisanat: { label: "GALACTICWARS.Competence.Artisanat", metier: false, force: false, caracteristique: "dexterite" },
   natation: { label: "GALACTICWARS.Competence.Natation", metier: false, force: false, caracteristique: "corps" }
 };

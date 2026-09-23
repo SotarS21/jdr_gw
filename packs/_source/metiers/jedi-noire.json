@@ -60,6 +60,16 @@
         "cle": "spiritisme",
         "bonus": 0,
         "obligatoire": true
+      },
+      {
+        "cle": "drainDeForce",
+        "bonus": 0,
+        "obligatoire": false
+      },
+      {
+        "cle": "eclaireDeForce",
+        "bonus": 0,
+        "obligatoire": false
       }
     ],
     "equipement": [

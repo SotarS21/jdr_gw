@@ -36,6 +36,10 @@ export async function rollCompetence(actor, cle, { pool } = {}) {
     ui.notifications.warn(game.i18n.format("GALACTICWARS.Avertissement.CompetenceInconnue", { cle }));
     return null;
   }
+  if (competence.bloquee) {
+    ui.notifications.warn(game.i18n.localize("GALACTICWARS.Sheet.CompetenceBloquee"));
+    return null;
+  }
 
   const bonus = pool ? GW.bonusAlignement : 0;
   const cible = Math.min(100, competence.total + bonus);

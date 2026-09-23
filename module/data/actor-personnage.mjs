@@ -56,7 +56,10 @@ export class PersonnageData extends foundry.abstract.TypeDataModel {
           // Bonus manuel additionnel, réglable directement par le joueur (ex. lors d'un
           // level up) sans écraser le calcul automatique niveau + caractéristique.
           ajustement: new NumberField({ required: true, integer: true, initial: 0 }),
-          acquiseParMetier: new BooleanField({ initial: false })
+          acquiseParMetier: new BooleanField({ initial: false }),
+          // Déblocage MJ d'une compétence réservée (GW.competences[cle].reservee) que le métier
+          // actuel n'accorde pas. Conservé si le métier change.
+          debloquee: new BooleanField({ initial: false })
         })
       ),
 
@@ -103,7 +106,12 @@ export class PersonnageData extends foundry.abstract.TypeDataModel {
 
     for (const competence of this.competences) {
       const def = GW.competences[competence.cle];
-      const base = ({ 0: 0, 1: 5, 2: 10, 3: 20 })[competence.niveau] ?? 0;
+      // Compétence réservée à d'autres métiers : niveau compté 0 et jet impossible, sans
+      // toucher au niveau enregistré (retrouvé tel quel si le MJ la débloque).
+      competence.estReservee = !!def?.reservee;
+      competence.bloquee = competence.estReservee && !competence.acquiseParMetier && !competence.debloquee;
+      const niveauEffectif = competence.bloquee ? 0 : competence.niveau;
+      const base = GW.baremeNiveauCompetence[niveauEffectif] ?? 0;
       const bonusCaracteristique = this.caracteristiques[def?.caracteristique]?.total ?? 0;
       let malus = 0;
       if (def && !competence.acquiseParMetier) {

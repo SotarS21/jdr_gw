@@ -728,6 +728,39 @@
   padding: 0.2rem 0.3rem;
 }
 
+/* Hors mode édition : pas de colonne d'ajustement manuel. */
+.galactic-wars.personnage .competences-list.lecture .skill-row {
+  grid-template-columns: 24px 1fr 1.8rem 2.4rem;
+}
+
+.galactic-wars.personnage .niveau-lecture {
+  text-align: center;
+  font-weight: 700;
+}
+
+/* Compétence accordée par le métier actuel (équivalent du surlignage jaune des fiches Excel). */
+.galactic-wars.personnage .skill-row.acquise {
+  background: rgba(226, 177, 60, 0.1);
+  box-shadow: inset 2px 0 0 var(--gw-accent);
+}
+
+/* Compétence réservée à un autre métier (grisée dans les fiches Excel). */
+.galactic-wars.personnage .skill-row.bloquee .label,
+.galactic-wars.personnage .skill-row.bloquee .niveau,
+.galactic-wars.personnage .skill-row.bloquee .total {
+  color: #6b6f80;
+}
+
+.galactic-wars.personnage .skill-row.bloquee .roll-btn {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.galactic-wars.personnage .skill-row .cadenas {
+  font-size: 0.65rem;
+  margin-left: 0.2rem;
+}
+
 .galactic-wars.personnage .skill-row:hover {
   background: rgba(255, 255, 255, 0.03);
 }

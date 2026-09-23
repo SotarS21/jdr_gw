@@ -12,7 +12,7 @@ export function completerCompetences(competences = []) {
   if (!manquantes.length) return null;
   return [
     ...competences,
-    ...manquantes.map((cle) => ({ cle, niveau: 0, racial: 0, metier: 0, ajustement: 0, acquiseParMetier: false }))
+    ...manquantes.map((cle) => ({ cle, niveau: 0, racial: 0, metier: 0, ajustement: 0, acquiseParMetier: false, debloquee: false }))
   ];
 }
 
