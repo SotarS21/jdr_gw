@@ -538,6 +538,10 @@
   padding-bottom: 0;
 }
 
+.galactic-wars.personnage .competences-entete .entete-nom {
+  text-align: left;
+}
+
 .galactic-wars.personnage .competences-entete:hover {
   background: none;
 }

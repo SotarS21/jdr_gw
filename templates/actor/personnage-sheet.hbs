@@ -138,7 +138,7 @@
         </div>
         <ul class="competences-list {{#unless @root.modeEdition}}lecture{{/unless}}">
           <li class="skill-row competences-entete" aria-hidden="true">
-            <span></span>
+            <span class="entete-nom">{{localize 'GALACTICWARS.Sheet.Nom'}}</span>
             <span>{{localize 'GALACTICWARS.Sheet.NiveauCourt'}}</span>
             {{#if @root.modeEdition}}<span>{{localize 'GALACTICWARS.Sheet.AjustementCourt'}}</span>{{/if}}
             <span>{{localize 'GALACTICWARS.Sheet.Total'}}</span>
