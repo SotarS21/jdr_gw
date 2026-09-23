@@ -50,6 +50,11 @@
         "cle": "eclaireDeForce",
         "bonus": 0,
         "obligatoire": false
+      },
+      {
+        "cle": "appelALaRage",
+        "bonus": 0,
+        "obligatoire": false
       }
     ],
     "equipement": [

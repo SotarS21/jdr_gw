@@ -116,7 +116,7 @@ GW.competences = {
   meditationDeForce: { label: "GALACTICWARS.Competence.MeditationDeForce", metier: true, force: true, caracteristique: "corps" },
   persuasionDeForce: { label: "GALACTICWARS.Competence.PersuasionDeForce", metier: true, force: true, caracteristique: "mental" },
   pilotage: { label: "GALACTICWARS.Competence.Pilotage", metier: true, force: false, caracteristique: "dexterite" },
-  appelALaRage: { label: "GALACTICWARS.Competence.AppelALaRage", metier: true, force: false, caracteristique: "corps" },
+  appelALaRage: { label: "GALACTICWARS.Competence.AppelALaRage", metier: true, force: false, caracteristique: "corps", reservee: true },
   sagesse: { label: "GALACTICWARS.Competence.Sagesse", metier: false, force: false, caracteristique: "mental" },
   sabreLaser: { label: "GALACTICWARS.Competence.SabreLaser", metier: true, force: false, caracteristique: "dexterite" },
   survie: { label: "GALACTICWARS.Competence.Survie", metier: false, force: false, caracteristique: "corps" },

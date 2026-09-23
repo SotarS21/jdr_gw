@@ -41,6 +41,8 @@ remplacement du tableau complet. Vérifié sur Kael Dorn (Contrebandier) : 6 com
 surlignées, menu « Débloquer » puis « Rebloquer », état restauré après test. Le compendium Métiers
 modifié ne sera visible qu'après redémarrage de Foundry.
 
+**6. Appel à la rage réservée** (demande utilisateur) à Apprenti sith, Guerrier sith et Jedi Noire : `reservee: true` + ajoutée aux métiers Guerrier sith et Jedi Noire du compendium (Apprenti sith l'accordait déjà ; aucun autre métier ne l'accordait).
+
 **5. Info-bulle « Total »** au-dessus du pourcentage de chaque compétence (demande utilisateur), même principe que les info-bulles « Niveau » / ajustement. Vérifié : 37/37, affichée au survol.
 
 **Fichiers modifiés** : `templates/actor/personnage-sheet.hbs`, `module/sheets/personnage-sheet.mjs`,
