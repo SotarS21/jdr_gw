@@ -233,6 +233,15 @@
       "Pnj": "PNJ",
       "Missions": "Missions",
       "Ethnie": "Ethnie et compétences spéciales",
+      "DescriptionPersonnage": "Description du personnage",
+      "Identite": {
+        "age": "Âge",
+        "taille": "Taille",
+        "sexe": "Sexe",
+        "couleurCheveux": "Cheveux",
+        "couleurPeau": "Peau",
+        "couleurYeux": "Yeux"
+      },
       "ModificateursCaracteristiques": "Bonus / malus de caractéristiques",
       "ModificateursCompetences": "Bonus / malus de compétences",
       "ArmureNaturelle": "Armure naturelle",

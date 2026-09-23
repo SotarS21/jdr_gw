@@ -29,6 +29,9 @@ export class PersonnageData extends foundry.abstract.TypeDataModel {
         couleurYeux: new StringField({ initial: "" })
       }),
 
+      // Description libre du personnage (onglet Informations, avec les champs de `infos`).
+      description: new HTMLField({ initial: "" }),
+
       niveau: new NumberField({ required: true, integer: true, min: 0, initial: 1 }),
 
       race: new SchemaField({

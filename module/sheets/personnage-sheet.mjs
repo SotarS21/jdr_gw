@@ -109,7 +109,15 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     context.pouvoirs = this.actor.items.filter((i) => i.type === "pouvoir");
     context.equipements = this.actor.items.filter((i) => i.type === "equipement");
     if (this.#ongletActif === "notes") Object.assign(context, await this.#preparerNotes(system));
-    if (this.#ongletActif === "informations") context.ethnie = await this.#preparerEthnie(system);
+    if (this.#ongletActif === "informations") {
+      context.ethnie = await this.#preparerEthnie(system);
+      context.descriptionEnrichie = await foundry.applications.ux.TextEditor.implementation.enrichHTML(
+        system.description ?? "", { relativeTo: this.actor }
+      );
+      context.champsIdentite = ["age", "taille", "sexe", "couleurCheveux", "couleurPeau", "couleurYeux"].map((cle) => ({
+        cle, valeur: system.infos[cle], label: `GALACTICWARS.Notes.Identite.${cle}`
+      }));
+    }
     // Pips d'affichage pour les jauges Lumière/Obscurité (voir styles/galactic-wars.css) —
     // purement visuel, la valeur réelle reste system.lumiere/system.obscurite.
     context.pipsLumiere = Array.from({ length: 10 }, (_, i) => i < system.lumiere);

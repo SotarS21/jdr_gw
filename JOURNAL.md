@@ -10,6 +10,10 @@
 
 Retour de l'auteur : modificateurs de l'ethnie séparés en deux groupes titrés (« Bonus / malus de caractéristiques », « Bonus / malus de compétences », + armure naturelle à part), bonus en vert et malus en rouge. Vérifié sur Kael (Zabrak) : Corps +5 d'un côté, 5 modificateurs de compétences de l'autre.
 
+Section **Description du personnage** en tête de l'onglet Informations (demande de l'auteur) : les 6 champs de `system.infos` (âge, taille, sexe, cheveux, peau, yeux — présents dans le schéma mais jamais affichés sur la fiche classique) + un texte libre `system.description` (nouveau HTMLField). Champs simples de SchemaField, donc sûrs avec la sauvegarde automatique. Vérifié : âge, yeux et description enregistrés.
+
+**Bug remonté : description des PNJ impossible à remplir.** Mesuré : `<prose-mirror>` faisait 160 px mais sa barre d'outils et sa zone de saisie 0 px — mon `display: block` cassait le flex colonne dans lequel Foundry dimensionne ses enfants. Même défaut sur la nouvelle Description. Corrigé (`display: flex; flex-direction: column` + hauteur minimale) : zone de saisie de 230 px dans les 3 fenêtres (PNJ, Mission, Info, bouton Enregistrer visible), 270 px pour le Résumé, 210 px pour la Description.
+
 **Fichiers** : `module/helpers/notes.mjs` (nouveau), `module/data/actor-personnage.mjs`, `module/config.mjs`, `module/sheets/personnage-sheet.mjs`, `templates/actor/personnage-sheet.hbs`, `lang/fr.json`, `styles/galactic-wars.css`, `system.json`, `CAHIER_DES_CHARGES.md`.
 
 ---

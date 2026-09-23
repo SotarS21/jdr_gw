@@ -271,6 +271,23 @@
   {{/if}}
 
   {{#if (eq ongletActif 'informations')}}
+  {{!-- Description du personnage : champs simples (SchemaField, sûrs avec la sauvegarde
+        automatique) + texte libre. --}}
+  <section class="description-pj panel">
+    <div class="section-header">
+      <h2 class="eyebrow">{{localize 'GALACTICWARS.Notes.DescriptionPersonnage'}}</h2>
+    </div>
+    <div class="identite-grille">
+      {{#each champsIdentite as |champ|}}
+      <label class="identite-champ">
+        <span class="eyebrow">{{localize champ.label}}</span>
+        <input type="text" name="system.infos.{{champ.cle}}" value="{{champ.valeur}}">
+      </label>
+      {{/each}}
+    </div>
+    <prose-mirror name="system.description" value="{{system.description}}" toggled>{{{descriptionEnrichie}}}</prose-mirror>
+  </section>
+
   {{!-- Ethnie : compétences spéciales et modificateurs, en lecture seule depuis l'Item race lié. --}}
   <section class="ethnie panel">
     <div class="section-header">
