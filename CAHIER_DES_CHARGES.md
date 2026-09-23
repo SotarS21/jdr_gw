@@ -151,6 +151,8 @@ Voir l'arborescence commentée dans `README.md` (module/config, module/data, mod
 
 - **Compétences recommandées alignées sur `Metier.docx` (V2.6)** : 15 métiers sur 20 concordaient déjà ; corrigés (validé par l'auteur) : Jedi consulaire (+ Sagesse), Padawan (+ Sagesse, − Bagarre), Pilote (+ Blaster, Mécanique, Informatique/piratage, Bagarre, Perception), Chasseur de primes (+ Escroquerie/mensonge, Social, Sang froid, Mécanique, Pilotage ; − Perception, Furtivité), Voleur (+ Informatique/piratage, Sang froid, Sécurité recommandée ; − Escroquerie/mensonge). « Arme contondante (et blanche) », citée par 8 métiers, reste sans compétence dans le système (point ouvert).
 
+- **Point violet = compétence liée à la Force**, désormais affiché sur chaque ligne (seule la légende le montrait, les lignes n'avaient qu'un libellé coloré). Liste fixée par l'auteur (`force: true`, 11 compétences) : Appel à la rage, Méditation de la force, Poussée de la force, Drain de force, Persuasion de la force, Contrôle par la force, Contrôle télékinétique, Éclair de force, Protection de la force, Sabre laser, Spiritisme (Sabre laser, Spiritisme et Appel à la rage n'étaient pas marquées jusqu'ici).
+
 ### 5.2 Roadmap
 Voir §10.
 

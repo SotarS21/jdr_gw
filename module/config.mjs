@@ -73,7 +73,8 @@ GW.corpulences = {
  * Liste déduplifiée des compétences (voir memory project_galactic_wars_mechanics.md).
  * Le classeur source distinguait parfois une variante "(force)" et une variante "(métier)"
  * de la même compétence (ex. Contrôle télékinétique) : on ne garde qu'une entrée par
- * compétence, avec `force: true` pour les pouvoirs de force et `metier: true` pour les
+ * compétence, avec `force: true` pour les compétences liées à la Force (point violet sur la
+ * fiche — liste fixée par l'auteur le 2026-09-23, Sabre laser, Spiritisme et Appel à la rage inclus) et `metier: true` pour les
  * compétences qui exigent un métier compatible (malus -30% sinon, -10% pour les autres).
  *
  * `caracteristique` (corps/mental/dexterite) restaure le regroupement en 3 colonnes de
@@ -116,9 +117,9 @@ GW.competences = {
   meditationDeForce: { label: "GALACTICWARS.Competence.MeditationDeForce", metier: true, force: true, caracteristique: "corps", reservee: true },
   persuasionDeForce: { label: "GALACTICWARS.Competence.PersuasionDeForce", metier: true, force: true, caracteristique: "mental" },
   pilotage: { label: "GALACTICWARS.Competence.Pilotage", metier: true, force: false, caracteristique: "dexterite" },
-  appelALaRage: { label: "GALACTICWARS.Competence.AppelALaRage", metier: true, force: false, caracteristique: "corps", reservee: true },
+  appelALaRage: { label: "GALACTICWARS.Competence.AppelALaRage", metier: true, force: true, caracteristique: "corps", reservee: true },
   sagesse: { label: "GALACTICWARS.Competence.Sagesse", metier: false, force: false, caracteristique: "mental" },
-  sabreLaser: { label: "GALACTICWARS.Competence.SabreLaser", metier: true, force: false, caracteristique: "dexterite" },
+  sabreLaser: { label: "GALACTICWARS.Competence.SabreLaser", metier: true, force: true, caracteristique: "dexterite" },
   survie: { label: "GALACTICWARS.Competence.Survie", metier: false, force: false, caracteristique: "corps" },
   seduction: { label: "GALACTICWARS.Competence.Seduction", metier: false, force: false, caracteristique: "mental" },
   securite: { label: "GALACTICWARS.Competence.Securite", metier: true, force: false, caracteristique: "dexterite", reservee: true },
@@ -126,7 +127,7 @@ GW.competences = {
   social: { label: "GALACTICWARS.Competence.Social", metier: false, force: false, caracteristique: "mental" },
   medecine: { label: "GALACTICWARS.Competence.Medecine", metier: true, force: false, caracteristique: "dexterite", reservee: true },
   protectionDeForce: { label: "GALACTICWARS.Competence.ProtectionDeForce", metier: true, force: true, caracteristique: "corps" },
-  spiritisme: { label: "GALACTICWARS.Competence.Spiritisme", metier: true, force: false, caracteristique: "mental" },
+  spiritisme: { label: "GALACTICWARS.Competence.Spiritisme", metier: true, force: true, caracteristique: "mental" },
   eclaireDeForce: { label: "GALACTICWARS.Competence.EclaireDeForce", metier: true, force: true, caracteristique: "dexterite", reservee: true },
   escaladeSaut: { label: "GALACTICWARS.Competence.EscaladeSaut", metier: false, force: false, caracteristique: "corps" },
   sangFroid: { label: "GALACTICWARS.Competence.SangFroid", metier: false, force: false, caracteristique: "mental" },

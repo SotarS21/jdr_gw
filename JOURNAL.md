@@ -66,6 +66,8 @@ retour Contrebandier → 6, 37 compétences intactes.
 
 **13. Compétences recommandées revues avec `Metier.docx`** (demande utilisateur, citée comme « v2.7 » — le document s'annonce en V2.6 ; seul `asset_fiche_perso/fiche_classique/Metier.docx` existe à côté de `Metier v2.5.docx`). Transcription manuelle des listes « compétence recommander » vers les clés `GW.competences`, puis comparaison avec les entrées `obligatoire: true` du compendium : 15/20 identiques, 5 écarts présentés puis appliqués tels quels à la demande de l'auteur (Jedi consulaire, Padawan, Pilote, Chasseur de primes, Voleur — détail dans le CDC §5.1duodecies). Les accès aux compétences réservées (`obligatoire: false`) sont conservés. Non transcrits : « Arme contondante (et blanche) » (aucune clé, 8 métiers), et les précisions libres (« Sabre laser (niveau 2) », « Chirurgie + 20 % », « Mécanique sur grosse ingénierie »). Les personnages déjà dotés d'un de ces 5 métiers doivent le re-choisir pour en profiter (aucun dans le monde de test).
 
+**14. Point violet des compétences de Force** (demande utilisateur) : le point `dot-force` n'existait que dans la légende ; ajouté sur chaque ligne `estCompetenceForce`. `force: true` étendu à Appel à la rage, Sabre laser et Spiritisme pour correspondre à la liste de l'auteur (11 compétences). Vérifié après redémarrage (avec le compendium Métiers du point 13) : 11 points violets sur Kael Dorn, les 5 métiers corrigés conformes au document.
+
 **5. Info-bulle « Total »** au-dessus du pourcentage de chaque compétence (demande utilisateur), même principe que les info-bulles « Niveau » / ajustement. Vérifié : 37/37, affichée au survol.
 
 **Fichiers modifiés** : `templates/actor/personnage-sheet.hbs`, `module/sheets/personnage-sheet.mjs`,
