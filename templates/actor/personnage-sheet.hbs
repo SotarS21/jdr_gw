@@ -126,15 +126,17 @@
       <div class="colonne-caracteristique">
         <div class="caracteristique">
           <label>{{localize car.label}}</label>
-          {{!-- Hors mode édition, pas d'input : la base n'est pas soumise, donc pas modifiée
-                (SchemaField, un champ absent du formulaire est simplement ignoré). --}}
-          {{#if @root.modeEdition}}
-          <input type="number" name="system.caracteristiques.{{car.cle}}.base" value="{{car.base}}">
-          {{else}}
-          <span class="base-lecture mono">{{car.base}}</span>
-          {{/if}}
-          <span class="racial" data-tooltip="{{localize 'GALACTICWARS.Sheet.BonusRacial'}}">{{#if car.racial}}+{{car.racial}}{{else}}+0{{/if}}</span>
           <span class="total mono" data-tooltip="{{localize 'GALACTICWARS.Sheet.Total'}}">{{car.total}}</span>
+          <div class="detail-caracteristique">
+            {{!-- Hors mode édition, pas d'input : la base n'est pas soumise, donc pas modifiée
+                  (SchemaField, un champ absent du formulaire est simplement ignoré). --}}
+            {{#if @root.modeEdition}}
+            <input type="number" name="system.caracteristiques.{{car.cle}}.base" value="{{car.base}}" data-tooltip="{{localize 'GALACTICWARS.Sheet.ValeurInput'}}">
+            {{else}}
+            <span class="base-lecture mono" data-tooltip="{{localize 'GALACTICWARS.Sheet.ValeurInput'}}">{{car.base}}</span>
+            {{/if}}
+            <span class="racial mono" data-tooltip="{{localize 'GALACTICWARS.Sheet.BonusRacial'}}">{{#if car.racial}}{{#if (gt car.racial 0)}}+{{/if}}{{car.racial}}{{else}}+0{{/if}}</span>
+          </div>
         </div>
         <ul class="competences-list {{#unless @root.modeEdition}}lecture{{/unless}}">
           <li class="skill-row competences-entete" aria-hidden="true">

@@ -6,6 +6,8 @@
 
 Retour de l'auteur : les titres doivent former un vrai en-tête de tableau, chacun au-dessus de sa colonne. Cause : la ligne de titres n'avait que la classe `skill-row` (colonnes définies) sans le `display: grid` porté par `.competence-row` — ses titres s'empilaient au centre. Ajout de `display: grid` + même `gap`, et d'un titre « Nom ». Vérifié par mesure : bords gauche/droit de chaque titre identiques à ceux des cellules, dans les 3 colonnes, en lecture et en édition.
 
+Caractéristiques réorganisées (retour de l'auteur) : total affiché en premier et en très grand (2,6rem), valeur saisie + modificateur racial en dessous ; info-bulles Total / Input / Bonus racial. Vérifié : ordre correct dans les 3 blocs, en lecture et en édition, sauvegarde de la base OK, aucun débordement.
+
 Au passage, `verify-local.mjs` refuse désormais de se connecter si le monde actif n'est pas un monde Galactic Wars (le serveur avait basculé sur « testantique » en cours de session ; l'auteur a relancé le bon monde lui-même).
 
 **Points de force** (demande utilisateur : « une ressource utilisable, pas une valeur sur une autre ») : la carte de l'en-tête n'affiche plus que `system.pointsDeForce.value` (min 0), sans séparateur ni maximum. Schéma inchangé (`ressource(0)`, `.max` ignoré) pour ne pas avoir à migrer les Actors existants. Vérifié : un seul input, sauvegarde OK, en-tête sans débordement.

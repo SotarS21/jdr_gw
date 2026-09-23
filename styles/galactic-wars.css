@@ -521,10 +521,23 @@
 }
 
 .galactic-wars.personnage .caracteristique .total {
-  font-size: 1.7rem;
+  font-size: 2.6rem;
   font-weight: 700;
-  line-height: 1.1;
+  line-height: 1;
   color: var(--gw-accent);
+}
+
+/* Sous le total : valeur saisie + modificateur racial. */
+.galactic-wars.personnage .detail-caracteristique {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.galactic-wars.personnage .detail-caracteristique input {
+  width: 3.2rem;
+  text-align: center;
 }
 
 /* Titres de colonnes du tableau de compétences (mêmes libellés que les info-bulles). */
