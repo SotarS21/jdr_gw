@@ -414,8 +414,8 @@
 
 /* ---- En-tête ---- */
 .galactic-wars.personnage .portrait-frame {
-  width: 76px;
-  height: 76px;
+  width: 128px;
+  height: 128px;
   border-radius: 7px;
   background: var(--gw-card);
   border: 1px solid var(--gw-border);
@@ -1292,9 +1292,11 @@
 }
 
 .galactic-wars.personnage .ethnie-portrait {
-  width: 140px;
-  height: 140px;
-  object-fit: cover;
+  /* Portraits presque carrés (~520x590) : largeur fixe, hauteur selon les proportions. */
+  width: 260px;
+  height: auto;
+  max-height: 320px;
+  object-fit: contain;
   border-radius: 8px;
   border: 1px solid var(--gw-border);
   flex-shrink: 0;

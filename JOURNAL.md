@@ -16,6 +16,8 @@ Section **Description du personnage** en tête de l'onglet Informations (demande
 
 **Plusieurs résumés datés** (demande de l'auteur) : `system.resumes` (titre, description, date en ms) remplace le résumé unique, géré comme les autres listes (type `resume` dans `helpers/notes.mjs`, date posée par `normaliser` à la création et à chaque modification), affiché du plus récent au plus ancien avec la date locale. `runMigrations` reprend un ancien `system.resume` non vide en premier résumé « Résumé » puis le vide. Vérifié : migration d'un ancien texte, création de 2 résumés, tri, modification → date mise à jour et résumé remonté en tête.
 
+Images agrandies (demande de l'auteur) : portrait d'ethnie 140 → 260 px de large, proportions conservées (plus de recadrage carré, 260×294 pour Zabrak) ; portrait du personnage dans l'en-tête 76 → 128 px (en-tête 145 px en lecture, 180 px en édition, aucun débordement).
+
 **Fichiers** : `module/helpers/notes.mjs` (nouveau), `module/data/actor-personnage.mjs`, `module/config.mjs`, `module/sheets/personnage-sheet.mjs`, `templates/actor/personnage-sheet.hbs`, `lang/fr.json`, `styles/galactic-wars.css`, `system.json`, `CAHIER_DES_CHARGES.md`.
 
 ---
