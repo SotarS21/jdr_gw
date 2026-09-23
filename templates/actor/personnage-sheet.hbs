@@ -282,11 +282,28 @@
       <div class="ethnie-details">
         <h3 class="ethnie-nom">{{ethnie.nom}}</h3>
         <div class="ethnie-description">{{{ethnie.description}}}</div>
-        <div class="ethnie-modificateurs">
-          {{#each ethnie.caracteristiques as |m|}}<span class="etiquette">{{m.label}} {{m.valeur}}</span>{{/each}}
-          {{#each ethnie.competences as |m|}}<span class="etiquette">{{m.label}} {{m.valeur}}</span>{{/each}}
-          {{#if ethnie.armureNaturelle}}<span class="etiquette">{{localize 'GALACTICWARS.Notes.ArmureNaturelle'}} +{{ethnie.armureNaturelle}}</span>{{/if}}
+        {{#if ethnie.caracteristiques.length}}
+        <div class="ethnie-groupe">
+          <h4 class="eyebrow">{{localize 'GALACTICWARS.Notes.ModificateursCaracteristiques'}}</h4>
+          <div class="ethnie-modificateurs">
+            {{#each ethnie.caracteristiques as |m|}}<span class="etiquette {{m.sens}}">{{m.label}} {{m.valeur}}</span>{{/each}}
+          </div>
         </div>
+        {{/if}}
+        {{#if ethnie.competences.length}}
+        <div class="ethnie-groupe">
+          <h4 class="eyebrow">{{localize 'GALACTICWARS.Notes.ModificateursCompetences'}}</h4>
+          <div class="ethnie-modificateurs">
+            {{#each ethnie.competences as |m|}}<span class="etiquette {{m.sens}}">{{m.label}} {{m.valeur}}</span>{{/each}}
+          </div>
+        </div>
+        {{/if}}
+        {{#if ethnie.armureNaturelle}}
+        <div class="ethnie-groupe">
+          <h4 class="eyebrow">{{localize 'GALACTICWARS.Notes.ArmureNaturelle'}}</h4>
+          <div class="ethnie-modificateurs"><span class="etiquette bonus">+{{ethnie.armureNaturelle}}</span></div>
+        </div>
+        {{/if}}
       </div>
     </div>
     {{else}}

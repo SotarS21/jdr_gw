@@ -1305,6 +1305,18 @@
   font-size: 0.85rem;
 }
 
+.galactic-wars.personnage .ethnie-groupe {
+  margin-top: 0.6rem;
+}
+
+.galactic-wars.personnage .ethnie-groupe h4 {
+  margin: 0 0 0.2rem;
+  border: none;
+}
+
+.galactic-wars.personnage .etiquette.bonus { color: #5ccf8a; border-color: rgba(92, 207, 138, 0.5); background: rgba(92, 207, 138, 0.08); }
+.galactic-wars.personnage .etiquette.malus { color: #ef6b6b; border-color: rgba(239, 107, 107, 0.5); background: rgba(239, 107, 107, 0.08); }
+
 /* Fenêtre modale d'édition d'une entrée. */
 .galactic-wars-note-dialog prose-mirror {
   display: block;

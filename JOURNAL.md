@@ -8,6 +8,8 @@
 
 **Vérifié** (personnages temporaires, supprimés ensuite) : création d'une Info (mots-clés « Hoth, base,  Hoth , secret » → [Hoth, base, secret]), réouverture pré-remplie et modification, PNJ « hostile » en rouge, mission principale / en cours puis suppression avec confirmation, compteurs des sous-onglets, sauvegarde du formulaire sans effet sur les listes (37 compétences intactes), frappe réelle dans l'éditeur riche de la modale enregistrée, Résumé modifié et enregistré sur place ; onglet Informations de Kael Dorn : Zabrak, portrait, description, 6 modificateurs ; message d'aide sans ethnie.
 
+Retour de l'auteur : modificateurs de l'ethnie séparés en deux groupes titrés (« Bonus / malus de caractéristiques », « Bonus / malus de compétences », + armure naturelle à part), bonus en vert et malus en rouge. Vérifié sur Kael (Zabrak) : Corps +5 d'un côté, 5 modificateurs de compétences de l'autre.
+
 **Fichiers** : `module/helpers/notes.mjs` (nouveau), `module/data/actor-personnage.mjs`, `module/config.mjs`, `module/sheets/personnage-sheet.mjs`, `templates/actor/personnage-sheet.hbs`, `lang/fr.json`, `styles/galactic-wars.css`, `system.json`, `CAHIER_DES_CHARGES.md`.
 
 ---

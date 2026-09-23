@@ -152,10 +152,10 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       description: await foundry.applications.ux.TextEditor.implementation.enrichHTML(race.system.description ?? "", { relativeTo: race }),
       caracteristiques: Object.entries(race.system.modificateursCaracteristiques)
         .filter(([, v]) => v)
-        .map(([cle, v]) => ({ label: game.i18n.localize(GW.caracteristiques[cle]), valeur: signe(v) })),
+        .map(([cle, v]) => ({ label: game.i18n.localize(GW.caracteristiques[cle]), valeur: signe(v), sens: v > 0 ? "bonus" : "malus" })),
       competences: Object.entries(race.system.modificateursCompetences ?? {})
         .filter(([, v]) => v)
-        .map(([cle, v]) => ({ label: game.i18n.localize(GW.competences[cle]?.label ?? cle), valeur: `${signe(v)} %` })),
+        .map(([cle, v]) => ({ label: game.i18n.localize(GW.competences[cle]?.label ?? cle), valeur: `${signe(v)} %`, sens: v > 0 ? "bonus" : "malus" })),
       armureNaturelle: race.system.armureNaturelle
     };
   }

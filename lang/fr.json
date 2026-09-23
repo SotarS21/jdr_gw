@@ -233,6 +233,8 @@
       "Pnj": "PNJ",
       "Missions": "Missions",
       "Ethnie": "Ethnie et compétences spéciales",
+      "ModificateursCaracteristiques": "Bonus / malus de caractéristiques",
+      "ModificateursCompetences": "Bonus / malus de compétences",
       "ArmureNaturelle": "Armure naturelle",
       "AucuneEthnie": "Aucune ethnie choisie (mode Édition → Choisir).",
       "EthnieNonLiee": "Ethnie renseignée mais non liée au compendium : re-choisissez-la en mode Édition pour afficher ses détails.",
