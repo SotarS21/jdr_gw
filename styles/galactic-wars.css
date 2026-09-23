@@ -527,6 +527,26 @@
   color: var(--gw-accent);
 }
 
+/* Couleur propre à chaque caractéristique : Corps rouge, Mental bleu, Dextérité vert.
+   Appliquée au bloc de caractéristique et aux pourcentages de ses compétences. */
+.galactic-wars.personnage .car-corps { --car-couleur: #ef6b6b; --car-fond: rgba(239, 107, 107, 0.1); }
+.galactic-wars.personnage .car-mental { --car-couleur: #5aa9ff; --car-fond: rgba(90, 169, 255, 0.1); }
+.galactic-wars.personnage .car-dexterite { --car-couleur: #5ccf8a; --car-fond: rgba(92, 207, 138, 0.1); }
+
+.galactic-wars.personnage .colonne-caracteristique .caracteristique {
+  border-color: var(--car-couleur);
+  background: var(--car-fond);
+}
+
+.galactic-wars.personnage .colonne-caracteristique .caracteristique label,
+.galactic-wars.personnage .colonne-caracteristique .caracteristique .total {
+  color: var(--car-couleur);
+}
+
+.galactic-wars.personnage .colonne-caracteristique .competence-row .total {
+  color: var(--car-couleur);
+}
+
 /* Sous le total : valeur saisie + modificateur racial. */
 .galactic-wars.personnage .detail-caracteristique {
   display: flex;

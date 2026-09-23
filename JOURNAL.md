@@ -8,6 +8,8 @@ Retour de l'auteur : les titres doivent former un vrai en-tête de tableau, chac
 
 Caractéristiques réorganisées (retour de l'auteur) : total affiché en premier et en très grand (2,6rem), valeur saisie + modificateur racial en dessous ; info-bulles Total / Input / Bonus racial. Vérifié : ordre correct dans les 3 blocs, en lecture et en édition, sauvegarde de la base OK, aucun débordement.
 
+Couleur par caractéristique (demande de l'auteur) : Corps rouge, Mental bleu, Dextérité vert — classe `car-<cle>` sur chaque colonne, variable CSS `--car-couleur` appliquée au libellé, au grand total, à la bordure/fond du bloc et aux pourcentages des compétences de la colonne ; les compétences grisées restent grises (règle de grisé plus spécifique). Vérifié par couleurs calculées dans les 3 colonnes.
+
 Au passage, `verify-local.mjs` refuse désormais de se connecter si le monde actif n'est pas un monde Galactic Wars (le serveur avait basculé sur « testantique » en cours de session ; l'auteur a relancé le bon monde lui-même).
 
 **Points de force** (demande utilisateur : « une ressource utilisable, pas une valeur sur une autre ») : la carte de l'en-tête n'affiche plus que `system.pointsDeForce.value` (min 0), sans séparateur ni maximum. Schéma inchangé (`ressource(0)`, `.max` ignoré) pour ne pas avoir à migrer les Actors existants. Vérifié : un seul input, sauvegarde OK, en-tête sans débordement.
