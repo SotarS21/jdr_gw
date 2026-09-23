@@ -132,9 +132,13 @@ Voir l'arborescence commentée dans `README.md` (module/config, module/data, mod
 ### 5.1decies Ajoutées (v0.10.1)
 - Les 43 items du compendium Races utilisent désormais leur portrait (`asset_visuel/Ethnie/`) comme `img` au lieu du placeholder `icons/svg/oak.svg`. Correspondance race → portrait reprise de celle du journal "Codex des espèces" (y compris les alias Devaronian, Tusken Raider et Robot → droïde de combat).
 
-### 5.1undecies Ajoutées (v0.10.2)
+### 5.1undecies Ajoutées (v0.10.2 → publiées en v0.11.0)
 - Un `personnage` fraîchement créé a immédiatement ses 37 compétences (`_preCreate` du DataModel) au lieu d'attendre le rechargement du monde par un MJ. Les compétences déjà fournies à la création (import de compendium, duplication) sont conservées, seules les clés manquantes sont ajoutées.
 - Taux de compétence (fiche classique) : la valeur finale de la caractéristique liée est un **plancher**. Total = caractéristique + max(0, barème du niveau + racial + métier + ajustement + malus de non-acquisition). Avant, le malus -10 %/-30 % pouvait faire descendre le total sous la caractéristique (ex. Corps 20 → Canon lourd 0 %), ce qui donnait l'impression que Corps n'était pas pris en compte.
+
+### 5.1duodecies Ajoutées (v0.11.0)
+- **Mode édition** (fiche classique) : bouton « Édition » (cadenas) à côté du nom. Verrouillé, les caractéristiques de base s'affichent en lecture seule et les boutons « Choisir » race/métier sont masqués ; déverrouillé, tout redevient modifiable. État d'affichage de la fiche (comme l'onglet actif), rien n'est écrit sur l'Actor. Ouvert d'office sur un personnage vierge (ni race, ni métier, caractéristiques à 0), verrouillé sinon.
+- Largeur par défaut de la fiche classique portée de 720 à 940 px : les 3 colonnes de compétences ne tiennent sans défilement horizontal qu'à partir de ~920 px (libellés longs non sécables).
 
 ### 5.2 Roadmap
 Voir §10.

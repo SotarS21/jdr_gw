@@ -1,6 +1,30 @@
 # Journal de développement — Galactic Wars
 
-## Session du 2026-09-23 (suite) — Compétences à la création + plancher de caractéristique (v0.10.1 → v0.10.2)
+## Session du 2026-09-23 (suite) — Mode édition + largeur de la fiche classique (v0.10.2 → v0.11.0)
+
+**1. Mode édition (demande utilisateur).** Bouton « Édition » avec cadenas à côté du nom sur la
+fiche classique. Verrouillé : caractéristiques de base en lecture seule (`<span>` au lieu de
+l'`<input>` — un champ de `SchemaField` absent du formulaire est simplement ignoré à la
+sauvegarde, sans risque type `ArrayField`), boutons « Choisir » race/métier masqués (et les
+actions refusées côté code). Déverrouillé : comme avant. État tenu par l'instance de fiche
+(`#modeEdition`, même principe que `#ongletActif`), pas persisté ; ouvert d'office sur un
+personnage vierge. Portée volontairement limitée à ce qui a été demandé (caractéristiques, race,
+métier) : niveau, compétences et ressources restent toujours modifiables. Vérifié en direct sur
+Kael Dorn : verrouillé → 0 input de base, 0 bouton « Choisir » ; déverrouillé → 3 inputs, 2
+boutons, modification de Mental sauvegardée (37 compétences intactes), valeur restaurée ensuite.
+
+**2. Largeur de la fiche (demande utilisateur : plus de barre de défilement horizontale à
+l'ouverture).** Mesuré : à 720 px, `.sheet-body` débordait (745/684 px) à cause des lignes de
+compétences — les libellés longs ("Informatique/piratage"...) fixent une largeur minimale à chaque
+colonne. Aucun débordement à partir de ~920 px ; largeur par défaut passée à 940 px. Vérifié sur les
+5 personnages classiques du monde : `scrollWidth` = `clientWidth` (904 px).
+
+**Fichiers modifiés** : `templates/actor/personnage-sheet.hbs`, `module/sheets/personnage-sheet.mjs`,
+`lang/fr.json`, `styles/galactic-wars.css`, `system.json`, `CAHIER_DES_CHARGES.md`.
+
+---
+
+## Session du 2026-09-23 (suite) — Compétences à la création + plancher de caractéristique (v0.10.1 → v0.10.2, jamais publiée seule)
 
 **1. Compétences remplies à la création (CDC §10 item 15).** `PersonnageData._preCreate` complète
 `system.competences` avec les 37 clés de `GW.competences` (helper `completerCompetences` extrait de

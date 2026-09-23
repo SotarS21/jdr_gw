@@ -454,6 +454,36 @@
   outline: none;
 }
 
+.galactic-wars.personnage .nom-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.galactic-wars.personnage .nom-row .nom-input {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.galactic-wars.personnage .btn-edition {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--gw-muted, #8a90a6);
+}
+
+.galactic-wars.personnage .btn-edition.active {
+  border-color: var(--gw-accent);
+  color: var(--gw-accent);
+}
+
+.galactic-wars.personnage .base-lecture {
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.8;
+}
+
 .galactic-wars.personnage .race-metier-row {
   display: flex;
   align-items: center;

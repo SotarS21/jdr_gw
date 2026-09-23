@@ -9,12 +9,19 @@
       <img class="portrait" src="{{system.portrait}}" data-action="editImage" alt="{{actor.name}}">
     </div>
     <div class="header-fields">
-      <input type="text" class="nom-input mono" name="name" value="{{actor.name}}" placeholder="{{localize 'GALACTICWARS.Sheet.Nom'}}">
+      <div class="nom-row">
+        <input type="text" class="nom-input mono" name="name" value="{{actor.name}}" placeholder="{{localize 'GALACTICWARS.Sheet.Nom'}}">
+        <button type="button" class="btn btn-edition {{#if modeEdition}}active{{/if}}" data-action="basculerEdition"
+                data-tooltip="{{localize 'GALACTICWARS.Sheet.ModeEditionHint'}}" aria-pressed="{{#if modeEdition}}true{{else}}false{{/if}}">
+          <i class="fa-solid {{#if modeEdition}}fa-lock-open{{else}}fa-lock{{/if}}"></i>
+          {{localize 'GALACTICWARS.Sheet.ModeEdition'}}
+        </button>
+      </div>
       <div class="race-metier-row">
         <span class="champ"><span class="eyebrow">{{localize 'GALACTICWARS.Sheet.Race'}}</span> <span class="valeur-texte">{{system.race.nom}}</span></span>
-        <button type="button" class="btn" data-action="applyRace">{{localize 'GALACTICWARS.Sheet.Choisir'}}</button>
+        {{#if modeEdition}}<button type="button" class="btn" data-action="applyRace">{{localize 'GALACTICWARS.Sheet.Choisir'}}</button>{{/if}}
         <span class="champ"><span class="eyebrow">{{localize 'GALACTICWARS.Sheet.Metier'}}</span> <span class="valeur-texte">{{system.metier.nom}}</span></span>
-        <button type="button" class="btn" data-action="applyMetier">{{localize 'GALACTICWARS.Sheet.Choisir'}}</button>
+        {{#if modeEdition}}<button type="button" class="btn" data-action="applyMetier">{{localize 'GALACTICWARS.Sheet.Choisir'}}</button>{{/if}}
       </div>
       <div class="niveau-row">
         <span class="eyebrow">{{localize 'GALACTICWARS.Sheet.Niveau'}}</span>
@@ -108,7 +115,13 @@
       <div class="colonne-caracteristique">
         <div class="caracteristique">
           <label>{{localize car.label}}</label>
+          {{!-- Hors mode édition, pas d'input : la base n'est pas soumise, donc pas modifiée
+                (SchemaField, un champ absent du formulaire est simplement ignoré). --}}
+          {{#if @root.modeEdition}}
           <input type="number" name="system.caracteristiques.{{car.cle}}.base" value="{{car.base}}">
+          {{else}}
+          <span class="base-lecture mono">{{car.base}}</span>
+          {{/if}}
           <span class="racial">{{car.racial}}</span>
           <span class="total">= {{car.total}}</span>
         </div>

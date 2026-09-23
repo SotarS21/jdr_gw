@@ -157,6 +157,8 @@
       "Talent": "Talent",
       "TalentDescriptionPlaceholder": "Effet du talent",
       "Choisir": "Choisir",
+      "ModeEdition": "Édition",
+      "ModeEditionHint": "Active ou désactive la modification des caractéristiques, de la race et du métier",
       "Annuler": "Annuler",
       "Niveau": "Niveau",
       "Caracteristiques": "Caractéristiques",

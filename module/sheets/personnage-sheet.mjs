@@ -10,7 +10,9 @@ const { ActorSheetV2 } = foundry.applications.sheets;
 export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   static DEFAULT_OPTIONS = {
     classes: ["galactic-wars", "sheet", "actor", "personnage"],
-    position: { width: 720, height: 780 },
+    // 940 px : les 3 colonnes de compétences (libellés longs non sécables, ex.
+    // "Informatique/piratage") ne tiennent sans défilement horizontal qu'à partir de ~920 px.
+    position: { width: 940, height: 780 },
     window: { resizable: true },
     // Par défaut ActorSheetV2 a submitOnChange:false — sans ça, aucun champ texte/nombre
     // simple (nom, niveau, notes, caractéristiques, compétences...) ne se sauvegarde tant
@@ -25,6 +27,7 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       createItem: PersonnageSheet.#onCreateItem,
       deleteItem: PersonnageSheet.#onDeleteItem,
       changerOnglet: PersonnageSheet.#onChangerOnglet,
+      basculerEdition: PersonnageSheet.#onBasculerEdition,
       ajusterLumiere: PersonnageSheet.#onAjusterLumiere,
       ajusterObscurite: PersonnageSheet.#onAjusterObscurite,
       addNote: PersonnageSheet.#onAddNote,
@@ -40,6 +43,21 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
    *  puisque l'instance de sheet, elle, persiste entre deux rendus). */
   #ongletActif = "personnage";
 
+  /** Mode édition des caractéristiques, de la race et du métier — même principe que l'onglet
+   *  actif (état d'affichage de l'instance, rien n'est écrit sur l'Actor). null = pas encore
+   *  choisi : ouvert d'office sur un personnage vierge, verrouillé sinon. */
+  #modeEdition = null;
+
+  get modeEdition() {
+    if (this.#modeEdition === null) {
+      const system = this.actor.system;
+      const vierge = !system.race?.nom && !system.metier?.nom
+        && Object.values(system.caracteristiques).every((c) => !c.base);
+      this.#modeEdition = vierge;
+    }
+    return this.#modeEdition;
+  }
+
   /** @override */
   async _prepareContext(options) {
     const context = await super._prepareContext(options);
@@ -48,6 +66,7 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     context.actor = this.actor;
     context.system = system;
     context.ongletActif = this.#ongletActif;
+    context.modeEdition = this.modeEdition;
     // `index` conserve la position réelle dans system.competences (pas celle, différente,
     // dans la sous-liste triée/filtrée par caractéristique ci-dessous) pour que les inputs
     // du template continuent de cibler la bonne entrée du tableau.
@@ -79,6 +98,11 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 
   static async #onChangerOnglet(event, target) {
     this.#ongletActif = target.dataset.onglet;
+    this.render();
+  }
+
+  static async #onBasculerEdition() {
+    this.#modeEdition = !this.modeEdition;
     this.render();
   }
 
@@ -124,11 +148,13 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   }
 
   static async #onApplyRace(event, target) {
+    if (!this.modeEdition) return;
     const race = await choisirItemCompendium("races", { title: game.i18n.localize("GALACTICWARS.Sheet.Race") });
     if (race) await applyRace(this.actor, race);
   }
 
   static async #onApplyMetier(event, target) {
+    if (!this.modeEdition) return;
     const metier = await choisirItemCompendium("metiers", { title: game.i18n.localize("GALACTICWARS.Sheet.Metier") });
     if (metier) await applyMetier(this.actor, metier);
   }
