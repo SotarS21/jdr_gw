@@ -80,6 +80,11 @@
         "cle": "meditationDeForce",
         "bonus": 0,
         "obligatoire": false
+      },
+      {
+        "cle": "pousseeDeForce",
+        "bonus": 0,
+        "obligatoire": false
       }
     ],
     "equipement": [

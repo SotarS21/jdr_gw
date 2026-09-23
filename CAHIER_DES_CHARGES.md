@@ -153,6 +153,8 @@ Voir l'arborescence commentée dans `README.md` (module/config, module/data, mod
 
 - **Point violet = compétence liée à la Force**, désormais affiché sur chaque ligne (seule la légende le montrait, les lignes n'avaient qu'un libellé coloré). Liste fixée par l'auteur (`force: true`, 11 compétences) : Appel à la rage, Méditation de la force, Poussée de la force, Drain de force, Persuasion de la force, Contrôle par la force, Contrôle télékinétique, Éclair de force, Protection de la force, Sabre laser, Spiritisme (Sabre laser, Spiritisme et Appel à la rage n'étaient pas marquées jusqu'ici).
 
+- **Compétences Jedi réservées** (demande de l'auteur) : Poussée de la force, Persuasion de la force, Contrôle télékinétique et Sabre laser rejoignent Méditation de la force parmi les compétences réservées — accessibles uniquement à Padawan, Jedi consulaire et Jedi Noire (accès ajoutés sans point jaune : Poussée pour Padawan et Jedi Noire, Persuasion pour Padawan), Sabre laser restant aussi accessible à Apprenti sith et Guerrier sith (recommandée par `Metier.docx`). Total : 12 compétences réservées.
+
 ### 5.2 Roadmap
 Voir §10.
 
