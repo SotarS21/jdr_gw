@@ -69,8 +69,7 @@ Dorn : toutes les compétences Corps ≥ 20 % (Bagarre 30 %), Mental ≥ 10 %, D
 relancé 2 s après avoir été tué, a refusé de démarrer ("directory which is already locked by another
 process") parce que le verrou `Config/options.json.lock` n'était pas encore considéré comme
 abandonné. L'utilisateur a relancé Foundry à la main. `deploy-local.ps1` attend désormais que ce
-verrou ne soit plus rafraîchi depuis 15 s avant de relancer (pas encore re-testé en conditions
-réelles).
+verrou ne soit plus rafraîchi depuis 15 s avant de relancer — validé ensuite en conditions réelles (redémarrage v0.11.0 réussi du premier coup).
 
 **Fichiers modifiés** : `module/data/actor-personnage.mjs`, `module/helpers/migration.mjs`,
 `scripts/deploy-local.ps1`, `system.json`, `CAHIER_DES_CHARGES.md`.
