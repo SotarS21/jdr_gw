@@ -529,6 +529,11 @@
 
 /* Titres de colonnes du tableau de compétences (mêmes libellés que les info-bulles). */
 .galactic-wars.personnage .competences-entete {
+  /* Même grille que les lignes de compétence (.competence-row) pour que chaque titre
+     tombe au-dessus de sa colonne. */
+  display: grid;
+  align-items: center;
+  gap: 0.3rem;
   font-size: 0.6rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
