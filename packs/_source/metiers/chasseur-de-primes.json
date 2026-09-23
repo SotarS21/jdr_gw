@@ -12,17 +12,32 @@
     },
     "competences": [
       {
-        "cle": "perception",
+        "cle": "escroquerieMensonge",
         "bonus": 0,
         "obligatoire": true
       },
       {
-        "cle": "furtivite",
+        "cle": "social",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "sangFroid",
         "bonus": 0,
         "obligatoire": true
       },
       {
         "cle": "blaster",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "mecanique",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "pilotage",
         "bonus": 0,
         "obligatoire": true
       }

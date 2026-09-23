@@ -149,6 +149,8 @@ Voir l'arborescence commentée dans `README.md` (module/config, module/data, mod
 - **Ressources dans l'en-tête** (fiche classique) : PV, Points de force, Stress et Crédits sont remontés de la section Ressources vers l'en-tête, visibles quel que soit l'onglet. La section Ressources ne garde que Lumière/Obscurité.
 - **Plus aucun prérequis de métier** : `applyMetier` ne vérifie plus le métier requis ni le niveau minimum (ex. Jedi consulaire ← Padawan niveau 4) ; tout métier est accessible directement. Les prérequis restent renseignés sur les Items métier à titre informatif.
 
+- **Compétences recommandées alignées sur `Metier.docx` (V2.6)** : 15 métiers sur 20 concordaient déjà ; corrigés (validé par l'auteur) : Jedi consulaire (+ Sagesse), Padawan (+ Sagesse, − Bagarre), Pilote (+ Blaster, Mécanique, Informatique/piratage, Bagarre, Perception), Chasseur de primes (+ Escroquerie/mensonge, Social, Sang froid, Mécanique, Pilotage ; − Perception, Furtivité), Voleur (+ Informatique/piratage, Sang froid, Sécurité recommandée ; − Escroquerie/mensonge). « Arme contondante (et blanche) », citée par 8 métiers, reste sans compétence dans le système (point ouvert).
+
 ### 5.2 Roadmap
 Voir §10.
 

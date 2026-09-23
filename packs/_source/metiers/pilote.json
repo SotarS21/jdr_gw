@@ -15,6 +15,31 @@
         "cle": "pilotage",
         "bonus": 0,
         "obligatoire": true
+      },
+      {
+        "cle": "blaster",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "mecanique",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "informatiquePiratage",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "bagarre",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "perception",
+        "bonus": 0,
+        "obligatoire": true
       }
     ],
     "equipement": [

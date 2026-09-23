@@ -64,6 +64,8 @@ retour Contrebandier → 6, 37 compétences intactes.
 
 **12. Bouton Édition placé au-dessus du nom** (bug remonté) : `.nom-row` en colonne, bouton avant le champ nom. Vérifié : bouton au-dessus, nom sur toute la largeur, aucun débordement.
 
+**13. Compétences recommandées revues avec `Metier.docx`** (demande utilisateur, citée comme « v2.7 » — le document s'annonce en V2.6 ; seul `asset_fiche_perso/fiche_classique/Metier.docx` existe à côté de `Metier v2.5.docx`). Transcription manuelle des listes « compétence recommander » vers les clés `GW.competences`, puis comparaison avec les entrées `obligatoire: true` du compendium : 15/20 identiques, 5 écarts présentés puis appliqués tels quels à la demande de l'auteur (Jedi consulaire, Padawan, Pilote, Chasseur de primes, Voleur — détail dans le CDC §5.1duodecies). Les accès aux compétences réservées (`obligatoire: false`) sont conservés. Non transcrits : « Arme contondante (et blanche) » (aucune clé, 8 métiers), et les précisions libres (« Sabre laser (niveau 2) », « Chirurgie + 20 % », « Mécanique sur grosse ingénierie »). Les personnages déjà dotés d'un de ces 5 métiers doivent le re-choisir pour en profiter (aucun dans le monde de test).
+
 **5. Info-bulle « Total »** au-dessus du pourcentage de chaque compétence (demande utilisateur), même principe que les info-bulles « Niveau » / ajustement. Vérifié : 37/37, affichée au survol.
 
 **Fichiers modifiés** : `templates/actor/personnage-sheet.hbs`, `module/sheets/personnage-sheet.mjs`,

@@ -17,19 +17,24 @@
         "obligatoire": true
       },
       {
-        "cle": "furtivite",
+        "cle": "informatiquePiratage",
         "bonus": 0,
         "obligatoire": true
       },
       {
-        "cle": "escroquerieMensonge",
+        "cle": "sangFroid",
         "bonus": 0,
         "obligatoire": true
       },
       {
         "cle": "securite",
         "bonus": 0,
-        "obligatoire": false
+        "obligatoire": true
+      },
+      {
+        "cle": "furtivite",
+        "bonus": 0,
+        "obligatoire": true
       }
     ],
     "equipement": [

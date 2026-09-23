@@ -42,6 +42,11 @@
         "obligatoire": true
       },
       {
+        "cle": "sagesse",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
         "cle": "meditationDeForce",
         "bonus": 0,
         "obligatoire": false
