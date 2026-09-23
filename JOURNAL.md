@@ -1,5 +1,49 @@
 # Journal de développement — Galactic Wars
 
+## Session du 2026-09-23/24 — Récapitulatif : 4 versions publiées (v0.10.0 → v0.12.0)
+
+Vue d'ensemble de la session ; le détail technique de chaque changement est dans les entrées
+« 2026-09-23 » ci-dessous.
+
+**Méthode de travail adoptée (demande de l'auteur).** Après un changement commité mais jamais
+déployé (« je ne vois pas le correctif dans Foundry »), règle fixée : **valider en local avant tout
+push**. Outils : `scripts/deploy-local.ps1` (build des packs, arrêt / copie miroir / relance de
+Foundry sur le monde de test, `-NoRestart` pour le code seul, refus si des joueurs sont connectés
+sans `-Force`) et `scripts/verify-local.mjs` (connexion MJ headless, version chargée, erreurs JS,
+contrôle ciblé ; refuse un monde qui n'est pas Galactic Wars). La commande `/deploy-galactic-wars`
+décrit ce flux ; push et tag seulement après accord de l'auteur. Chaque redémarrage de Foundry a été
+demandé avant d'être fait (il déconnecte l'utilisateur).
+
+**Versions publiées** (`github.com/SotarS21/jdr_gw/releases`, workflow de release vert à chaque fois) :
+
+| Version | Contenu principal |
+|---|---|
+| v0.10.1 | Portraits d'ethnie sur les 43 items Race |
+| v0.11.0 | Compétences remplies à la création ; caractéristique = plancher du taux ; mode Édition (caractéristiques, race, métier, niveaux, ajustements) ; validation non bloquante des 120 points ; fiche à 940 px ; 12 compétences réservées par métier avec déblocage MJ au clic droit ; point jaune = compétence recommandée par le métier, point violet = compétence liée à la Force ; PV / Force / Crédits dans l'en-tête ; prérequis de métier supprimés ; 5 métiers alignés sur `Metier.docx` (V2.6) |
+| v0.11.1 | Points de force en ressource simple ; retouches de la todo (lot 1 : compétences grisées masquées hors édition, jet au clic sur le nom, titres de colonnes, bouton Repos, case Force en édition) ; caractéristiques avec total en grand et couleur par colonne (Corps rouge, Mental bleu, Dextérité vert) ; stress retiré de la fiche classique ; barre de PV colorée |
+| v0.12.0 | Onglet Informations (description du personnage, ethnie : portrait, compétences spéciales, modificateurs séparés) ; onglet Notes (Résumés datés, Infos à mots-clés, PNJ avec image et statut, Missions avec importance et statut) en fenêtres d'édition, aperçus limités à 3 / 5 lignes ; portraits agrandis ; éditeurs de texte riche réparés |
+
+**Bugs remontés par l'auteur et corrigés en cours de route** : correctif invisible dans Foundry
+(jamais déployé) ; compétences Corps « sans » la valeur de Corps (malus sous la caractéristique) ;
+point orange figé au changement de métier ; grisé absent sur les compétences de Force (spécificité
+CSS) ; relance automatique de Foundry ratée (verrou `options.json.lock`) ; en-tête du tableau de
+compétences désaligné ; description des PNJ impossible à remplir (éditeur écrasé à 0 px) ; aperçu
+des cartes réduit à une ligne (paragraphes fusionnés).
+
+**Todo de l'auteur** (`Desktop/todo_foundry_galactic_wars.txt`) : lots 1 et 2 faits. Reste : tag
+« Caché » sur l'équipement ; refonte du template des objets inspirée d'Antique (porté / rangé au clic
+droit, compétence liée, attaque et dégâts depuis le chat) ; onglet Combat (ligne inachevée dans la
+todo) ; Comlink (canaux numérotés, archivage, messagerie MJ / PJ avec « vu ») ; **nouveau** :
+recalibrer les images pour qu'elles s'affichent toujours en entier dans leurs emplacements (portrait
+du PJ et vignettes des PNJ sont aujourd'hui recadrés en carré).
+
+**Points d'attention** : un personnage déjà doté d'un métier doit le re-choisir pour récupérer les
+accès et compétences ajoutés au compendium Métiers (les points jaunes, eux, sont recalculés par la
+migration) ; le monde de test Foundry est partagé avec d'autres projets (il est passé sur
+« testantique » en cours de session).
+
+---
+
 ## Session du 2026-09-23 (suite) — Onglets Informations et Notes, lot 2 de la todo (v0.11.1 → v0.12.0)
 
 **Choix de l'auteur** : édition par fenêtre modale ; mots-clés sur les Infos seulement, sans filtre ; 4 sous-onglets ; les « compétences spéciales » sont celles de l'ethnie → deux onglets séparés, **Informations** (ethnie) et **Notes** (Résumé / Infos / PNJ / Missions). La todo a aussi reçu trois nouveaux blocs (refonte du template des objets inspirée d'Antique avec porté/rangé et jets depuis le chat, onglet Combat inachevé, spécification complète du Comlink et de sa messagerie), gardés pour la suite.
