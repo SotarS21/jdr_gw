@@ -55,6 +55,16 @@
         "cle": "appelALaRage",
         "bonus": 0,
         "obligatoire": false
+      },
+      {
+        "cle": "pousseeDeForce",
+        "bonus": 0,
+        "obligatoire": false
+      },
+      {
+        "cle": "persuasionDeForce",
+        "bonus": 0,
+        "obligatoire": false
       }
     ],
     "equipement": [

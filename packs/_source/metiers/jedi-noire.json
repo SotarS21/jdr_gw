@@ -85,6 +85,11 @@
         "cle": "pousseeDeForce",
         "bonus": 0,
         "obligatoire": false
+      },
+      {
+        "cle": "controleParLaForce",
+        "bonus": 0,
+        "obligatoire": false
       }
     ],
     "equipement": [

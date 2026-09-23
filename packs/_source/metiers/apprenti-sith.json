@@ -30,6 +30,31 @@
         "cle": "sabreLaser",
         "bonus": 0,
         "obligatoire": true
+      },
+      {
+        "cle": "pousseeDeForce",
+        "bonus": 0,
+        "obligatoire": false
+      },
+      {
+        "cle": "drainDeForce",
+        "bonus": 0,
+        "obligatoire": false
+      },
+      {
+        "cle": "persuasionDeForce",
+        "bonus": 0,
+        "obligatoire": false
+      },
+      {
+        "cle": "controleParLaForce",
+        "bonus": 0,
+        "obligatoire": false
+      },
+      {
+        "cle": "eclaireDeForce",
+        "bonus": 0,
+        "obligatoire": false
       }
     ],
     "equipement": [
