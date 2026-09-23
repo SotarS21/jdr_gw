@@ -113,7 +113,7 @@ GW.competences = {
   furtivite: { label: "GALACTICWARS.Competence.Furtivite", metier: false, force: false, caracteristique: "corps" },
   persuasion: { label: "GALACTICWARS.Competence.Persuasion", metier: false, force: false, caracteristique: "mental" },
   pickpocket: { label: "GALACTICWARS.Competence.Pickpocket", metier: true, force: false, caracteristique: "dexterite", reservee: true },
-  meditationDeForce: { label: "GALACTICWARS.Competence.MeditationDeForce", metier: true, force: true, caracteristique: "corps" },
+  meditationDeForce: { label: "GALACTICWARS.Competence.MeditationDeForce", metier: true, force: true, caracteristique: "corps", reservee: true },
   persuasionDeForce: { label: "GALACTICWARS.Competence.PersuasionDeForce", metier: true, force: true, caracteristique: "mental" },
   pilotage: { label: "GALACTICWARS.Competence.Pilotage", metier: true, force: false, caracteristique: "dexterite" },
   appelALaRage: { label: "GALACTICWARS.Competence.AppelALaRage", metier: true, force: false, caracteristique: "corps", reservee: true },

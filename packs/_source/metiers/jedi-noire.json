@@ -75,6 +75,11 @@
         "cle": "appelALaRage",
         "bonus": 0,
         "obligatoire": false
+      },
+      {
+        "cle": "meditationDeForce",
+        "bonus": 0,
+        "obligatoire": false
       }
     ],
     "equipement": [

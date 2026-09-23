@@ -40,6 +40,11 @@
         "cle": "controleTelekinetique",
         "bonus": 0,
         "obligatoire": true
+      },
+      {
+        "cle": "meditationDeForce",
+        "bonus": 0,
+        "obligatoire": false
       }
     ],
     "equipement": [
