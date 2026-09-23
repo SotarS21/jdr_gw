@@ -801,11 +801,17 @@
   box-shadow: inset 2px 0 0 var(--gw-accent);
 }
 
-/* Compétence réservée à un autre métier (grisée dans les fiches Excel). */
-.galactic-wars.personnage .skill-row.bloquee .label,
-.galactic-wars.personnage .skill-row.bloquee .niveau,
-.galactic-wars.personnage .skill-row.bloquee .total {
+/* Compétence réservée à un autre métier (grisée dans les fiches Excel). Sélecteur renforcé
+   (.competence-row.skill-row) : doit l'emporter sur la couleur des libellés de Force
+   (.competence-row.force .label, même spécificité mais plus loin dans le fichier). */
+.galactic-wars.personnage .competence-row.skill-row.bloquee .label,
+.galactic-wars.personnage .competence-row.skill-row.bloquee .niveau,
+.galactic-wars.personnage .competence-row.skill-row.bloquee .total {
   color: #6b6f80;
+}
+
+.galactic-wars.personnage .competence-row.skill-row.bloquee .dot {
+  opacity: 0.35;
 }
 
 .galactic-wars.personnage .skill-row.bloquee .roll-btn {
