@@ -44,6 +44,10 @@ try {
 
   const status = await (await fetch(`${URL_BASE}/api/status`)).json();
   if (!status.active) throw new Error(`Aucun monde actif (${JSON.stringify(status)})`);
+  // Le serveur est partagé avec d'autres systèmes (ex. antique) : ne pas se connecter à leur monde.
+  if (status.system !== "galactic-wars") {
+    throw new Error(`Le monde actif est "${status.world}" (système ${status.system}), pas Galactic Wars`);
+  }
 
   await page.goto(`${URL_BASE}/join`);
   await page.fill("input[name=username]", USER);

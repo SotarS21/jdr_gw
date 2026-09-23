@@ -2,6 +2,10 @@
 
 ## Session du 2026-09-23 (suite) — Points de force en ressource simple (v0.11.0 → v0.11.1)
 
+**Todo de l'auteur (`Desktop/todo_foundry_galactic_wars.txt`) — lot 1, retouches de la fiche classique.** Liste regroupée en 4 lots (1 : retouches de fiche ; 2 : onglet Informations restructuré — PNJ, Missions, Résumé, Info importante, mots-clés ; 3 : tag « Caché » sur l'équipement ; 4 : Comlink, canaux + messagerie, à spécifier). Choix de l'auteur : lot 1 d'abord ; « compétences non utilisées » = compétences grisées ; clic **gauche** sur le nom pour lancer (le clic droit reste le menu MJ de déblocage) ; points jaune/violet non déplacés, légende seulement renommée. Livré : masquage CSS des compétences grisées hors édition (pas `{{#if}}` : leurs inputs cachés doivent rester soumis, ArrayField) ; case Sensible à la Force en édition seulement ; couleurs PV/Force/Crédits ; ligne de titres Niv./Ajust./Total ; total de caractéristique en 1,7rem ; dé supprimé ; légende « compétence liée à la Force » ; bouton Repos. Vérifié sur Kael Dorn : 25 lignes visibles / 12 grisées masquées en lecture, visibles en édition ; clic sur Bagarre → message « Bagarre (cible 30%) » (supprimé après test) ; Repos → 30/30 ; sauvegarde hors édition sans perte sur les compétences ; aucun débordement.
+
+Au passage, `verify-local.mjs` refuse désormais de se connecter si le monde actif n'est pas un monde Galactic Wars (le serveur avait basculé sur « testantique » en cours de session ; l'auteur a relancé le bon monde lui-même).
+
 **Points de force** (demande utilisateur : « une ressource utilisable, pas une valeur sur une autre ») : la carte de l'en-tête n'affiche plus que `system.pointsDeForce.value` (min 0), sans séparateur ni maximum. Schéma inchangé (`ressource(0)`, `.max` ignoré) pour ne pas avoir à migrer les Actors existants. Vérifié : un seul input, sauvegarde OK, en-tête sans débordement.
 
 ---

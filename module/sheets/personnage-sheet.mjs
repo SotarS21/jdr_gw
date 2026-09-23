@@ -28,6 +28,7 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       deleteItem: PersonnageSheet.#onDeleteItem,
       changerOnglet: PersonnageSheet.#onChangerOnglet,
       basculerEdition: PersonnageSheet.#onBasculerEdition,
+      repos: PersonnageSheet.#onRepos,
       ajusterLumiere: PersonnageSheet.#onAjusterLumiere,
       ajusterObscurite: PersonnageSheet.#onAjusterObscurite,
       addNote: PersonnageSheet.#onAddNote,
@@ -141,6 +142,10 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     if (!competences[index]) return;
     competences[index].debloquee = debloquee;
     await this.actor.update({ "system.competences": competences });
+  }
+
+  static async #onRepos() {
+    await this.actor.update({ "system.pv.value": this.actor.system.pv.max });
   }
 
   static async #onBasculerEdition() {

@@ -30,8 +30,10 @@
     </div>
     {{!-- PV / Force / Stress / Crédits dans l'en-tête : accessibles quel que soit l'onglet. --}}
     <div class="header-ressources stat-grid">
-      <div class="stat-card">
-        <span class="eyebrow">{{localize 'GALACTICWARS.Sheet.PV'}}</span>
+      <div class="stat-card stat-pv">
+        <span class="eyebrow">{{localize 'GALACTICWARS.Sheet.PV'}}
+          <button type="button" class="btn-repos" data-action="repos" data-tooltip="{{localize 'GALACTICWARS.Sheet.ReposHint'}}"><i class="fa-solid fa-bed"></i></button>
+        </span>
         <div class="stat-value">
           <input type="number" class="mono" name="system.pv.value" value="{{system.pv.value}}">
           <span class="sep">/</span>
@@ -108,7 +110,7 @@
       <h2 class="eyebrow">{{localize 'GALACTICWARS.Sheet.Caracteristiques'}} &amp; {{localize 'GALACTICWARS.Sheet.Competences'}}</h2>
       <div class="legende">
         <span class="legende-item"><span class="dot dot-metier"></span>{{localize 'GALACTICWARS.Sheet.CompetenceMetierHint'}}</span>
-        <span class="legende-item"><span class="dot dot-force"></span>{{localize 'GALACTICWARS.Sheet.CompetencesForce'}}</span>
+        <span class="legende-item"><span class="dot dot-force"></span>{{localize 'GALACTICWARS.Sheet.CompetenceLieeForce'}}</span>
       </div>
     </div>
     {{#if modeEdition}}
@@ -131,16 +133,21 @@
           {{else}}
           <span class="base-lecture mono">{{car.base}}</span>
           {{/if}}
-          <span class="racial">{{car.racial}}</span>
-          <span class="total">= {{car.total}}</span>
+          <span class="racial" data-tooltip="{{localize 'GALACTICWARS.Sheet.BonusRacial'}}">{{#if car.racial}}+{{car.racial}}{{else}}+0{{/if}}</span>
+          <span class="total mono" data-tooltip="{{localize 'GALACTICWARS.Sheet.Total'}}">{{car.total}}</span>
         </div>
         <ul class="competences-list {{#unless @root.modeEdition}}lecture{{/unless}}">
+          <li class="skill-row competences-entete" aria-hidden="true">
+            <span></span>
+            <span>{{localize 'GALACTICWARS.Sheet.NiveauCourt'}}</span>
+            {{#if @root.modeEdition}}<span>{{localize 'GALACTICWARS.Sheet.AjustementCourt'}}</span>{{/if}}
+            <span>{{localize 'GALACTICWARS.Sheet.Total'}}</span>
+          </li>
           {{#each car.competences as |cpt|}}
           <li class="competence-row skill-row {{#if cpt.estCompetenceForce}}force{{/if}} {{#if cpt.estReservee}}reservee{{/if}} {{#if cpt.bloquee}}bloquee{{/if}} {{#if cpt.acquiseParMetier}}acquise{{/if}}"
               data-index="{{cpt.index}}"
               {{#if cpt.bloquee}}data-tooltip="{{#if @root.isGM}}{{localize 'GALACTICWARS.Sheet.CompetenceBloqueeMJ'}}{{else}}{{localize 'GALACTICWARS.Sheet.CompetenceBloquee'}}{{/if}}"{{/if}}>
-            <button type="button" class="roll-btn" data-action="rollCompetence" data-cle="{{cpt.cle}}" {{#if cpt.bloquee}}disabled{{/if}}>🎲</button>
-            <span class="label">{{#if cpt.recommandee}}<span class="dot dot-metier"></span>{{/if}}{{#if cpt.estCompetenceForce}}<span class="dot dot-force"></span>{{/if}}{{localize cpt.label}}{{#if cpt.bloquee}} <i class="fa-solid fa-lock cadenas"></i>{{/if}}</span>
+            <span class="label" data-cle="{{cpt.cle}}" {{#unless cpt.bloquee}}data-action="rollCompetence" role="button"{{/unless}}>{{#if cpt.recommandee}}<span class="dot dot-metier"></span>{{/if}}{{#if cpt.estCompetenceForce}}<span class="dot dot-force"></span>{{/if}}{{localize cpt.label}}{{#if cpt.bloquee}} <i class="fa-solid fa-lock cadenas"></i>{{/if}}</span>
             {{!-- system.competences est un ArrayField : Document#update() remplace chaque élément
                   entier plutôt que de fusionner ses champs un par un. TOUT champ d'une compétence
                   doit donc être soumis à chaque sauvegarde, même quand il n'est pas modifiable
@@ -173,13 +180,18 @@
     </div>
   </section>
 
+  {{#if (or modeEdition system.sensibleForce)}}
   <section class="pouvoirs">
     <div class="section-header">
       <h2 class="eyebrow">
+        {{#if modeEdition}}
         <label class="case-sensible-force">
           <input type="checkbox" name="system.sensibleForce" {{#if system.sensibleForce}}checked{{/if}}>
           {{localize 'GALACTICWARS.Sheet.SensibleForce'}}
         </label>
+        {{else}}
+        {{localize 'GALACTICWARS.Sheet.SensibleForce'}}
+        {{/if}}
       </h2>
       {{#if system.sensibleForce}}<button type="button" class="roll-btn" data-action="createItem" data-type="pouvoir">+</button>{{/if}}
     </div>
@@ -197,6 +209,7 @@
     </div>
     {{/if}}
   </section>
+  {{/if}}
   {{/if}}
 
   {{#if (eq ongletActif 'equipements')}}

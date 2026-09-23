@@ -158,6 +158,8 @@ Voir l'arborescence commentée dans `README.md` (module/config, module/data, mod
 ### 5.1terdecies Ajoutées (v0.11.1)
 - **Points de force = ressource dépensable** : une seule valeur sur la fiche classique (plus de « / max »), comme les crédits. `pointsDeForce.max` reste dans le schéma (inutilisé) pour éviter une migration de données.
 
+- **Retouches de la fiche classique (todo auteur, lot 1)** : compétences grisées masquées hors mode édition (masquage CSS, champs toujours soumis) ; case « Sensible à la Force » seulement en édition, section Pouvoirs masquée hors édition si non sensible ; PV, Points de force et Crédits colorés (corail / violet / or) ; titres de colonnes Niv. / Ajust. (édition) / Total ; total des caractéristiques en grand (base et bonus racial en petit) ; bouton dé supprimé, clic gauche sur le nom de la compétence = jet ; légende renommée « compétence liée à la Force » ; bouton Repos (lit) sur la carte PV qui remet les PV au maximum.
+
 ### 5.2 Roadmap
 Voir §10.
 
