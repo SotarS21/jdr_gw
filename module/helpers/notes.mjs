@@ -15,6 +15,16 @@ export const LISTES_NOTES = { resume: "resumes", info: "notes", pnj: "pnjs", mis
 
 const echapper = (texte) => foundry.utils.escapeHTML(String(texte ?? ""));
 
+/** Fenêtres d'édition ouvertes, par Actor + type + index : une seule fenêtre par entrée. */
+const fenetresOuvertes = new Map();
+
+/** Ramène une fenêtre déjà ouverte au premier plan et y place le focus. */
+function focaliser(dialogue) {
+  if (dialogue.minimized) dialogue.maximize();
+  dialogue.bringToFront();
+  dialogue.element?.querySelector("input, select, [contenteditable=true]")?.focus();
+}
+
 function champTexte(nom, libelle, valeur, { autofocus = false, placeholder = "" } = {}) {
   return `<div class="form-group">
     <label>${libelle}</label>
@@ -88,8 +98,16 @@ export async function editerEntreeNote(actor, type, index) {
   const existante = Number.isInteger(index) ? liste[index] : null;
   if (Number.isInteger(index) && !existante) return;
 
+  // Clics répétés sur la même carte (ou le même « + ») : pas de seconde fenêtre.
+  const cleFenetre = `${actor.uuid}|${type}|${existante ? index : "nouvelle"}`;
+  const dejaOuverte = fenetresOuvertes.get(cleFenetre);
+  // `true` = fenêtre en cours d'ouverture (double-clic rapide) : rien à faire.
+  if (dejaOuverte) return dejaOuverte === true ? undefined : focaliser(dejaOuverte);
+  fenetresOuvertes.set(cleFenetre, true);
+
   const cleTitre = existante ? "ModifierEntree" : "NouvelleEntree";
   const donnees = await foundry.applications.api.DialogV2.input({
+    render: (event, dialogue) => fenetresOuvertes.set(cleFenetre, dialogue),
     window: {
       title: game.i18n.format(`GALACTICWARS.Notes.${cleTitre}`, { type: game.i18n.localize(`GALACTICWARS.Notes.Type.${type}`) })
     },
@@ -97,7 +115,7 @@ export async function editerEntreeNote(actor, type, index) {
     position: { width: 560 },
     content: formulaire(type, existante ?? {}),
     ok: { label: game.i18n.localize("GALACTICWARS.Notes.Enregistrer"), icon: "fa-solid fa-floppy-disk" }
-  });
+  }).finally(() => fenetresOuvertes.delete(cleFenetre));
   if (!donnees) return;
 
   const entree = normaliser(type, donnees);
