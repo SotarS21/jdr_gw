@@ -436,7 +436,7 @@
 /* Ressources remontées dans l'en-tête (PV, Force, Stress, Crédits) : cartes compactes. */
 .galactic-wars.personnage .header-ressources.stat-grid {
   flex: 0 0 auto;
-  grid-template-columns: repeat(4, minmax(5rem, max-content));
+  grid-template-columns: repeat(3, minmax(5rem, max-content));
   gap: 0.4rem;
   align-self: stretch;
   align-content: center;

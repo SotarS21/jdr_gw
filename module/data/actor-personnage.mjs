@@ -69,6 +69,8 @@ export class PersonnageData extends foundry.abstract.TypeDataModel {
       // Ressource dépensable (une seule valeur, pas de maximum) : seul .value est affiché et
       // utilisé ; .max est conservé dans le schéma pour ne pas migrer les données existantes.
       pointsDeForce: ressource(0),
+      // Plus affiché sur la fiche (retiré à la demande de l'auteur, futur système d'états actifs) ;
+      // conservé dans le schéma pour ne pas perdre les valeurs existantes.
       stress: ressource(0),
       // Remplace l'ancien curseur unique -100..100 : deux réserves de points dépensables
       // séparées (jamais les deux à la fois sur un même jet — voir rollCompetence).
