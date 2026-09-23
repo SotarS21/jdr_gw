@@ -627,6 +627,25 @@
   background: rgba(232, 179, 77, 0.08);
 }
 
+/* Barre de progression des PV. */
+.galactic-wars.personnage .barre-pv {
+  height: 5px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.galactic-wars.personnage .barre-pv .remplissage {
+  display: block;
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.25s ease, background-color 0.25s ease;
+}
+
+.galactic-wars.personnage .barre-pv.ok .remplissage { background: #5ccf8a; }
+.galactic-wars.personnage .barre-pv.blesse .remplissage { background: #f0a53c; }
+.galactic-wars.personnage .barre-pv.critique .remplissage { background: #ef4b4b; }
+
 .galactic-wars.personnage .stat-pv .eyebrow {
   display: flex;
   align-items: center;

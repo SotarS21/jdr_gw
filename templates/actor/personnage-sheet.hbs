@@ -40,6 +40,10 @@
           <span class="sep">/</span>
           <input type="number" class="mono max" name="system.pv.max" value="{{system.pv.max}}">
         </div>
+        <div class="barre-pv {{barrePV.etat}}" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{barrePV.pourcentage}}"
+             data-tooltip="{{barrePV.pourcentage}} %">
+          <span class="remplissage" style="width: {{barrePV.pourcentage}}%"></span>
+        </div>
       </div>
       <div class="stat-card stat-force">
         <span class="eyebrow">{{localize 'GALACTICWARS.Sheet.PointsDeForce'}}</span>

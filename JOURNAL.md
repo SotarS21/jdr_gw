@@ -14,6 +14,8 @@ Stress retiré de la fiche classique (demande de l'auteur, futur système d'éta
 
 Valeur des points de force centrée dans sa carte (demande de l'auteur). Vérifié : centre de l'input = centre de la carte.
 
+Barre de progression des PV (demande de l'auteur) sous la valeur, dans la carte PV : pourcentage calculé dans `_prepareContext` (borné 0–100, 0 si PV max = 0), seuils vert > 50 % / orange 25–50 % / rouge < 25 %. Vérifié sur Kael (30 PV max) : 30 → vert 100 %, 12 → orange 40 %, 3 → rouge 10 %, 0 → rouge 0 % ; PV restaurés.
+
 Au passage, `verify-local.mjs` refuse désormais de se connecter si le monde actif n'est pas un monde Galactic Wars (le serveur avait basculé sur « testantique » en cours de session ; l'auteur a relancé le bon monde lui-même).
 
 **Points de force** (demande utilisateur : « une ressource utilisable, pas une valeur sur une autre ») : la carte de l'en-tête n'affiche plus que `system.pointsDeForce.value` (min 0), sans séparateur ni maximum. Schéma inchangé (`ressource(0)`, `.max` ignoré) pour ne pas avoir à migrer les Actors existants. Vérifié : un seul input, sauvegarde OK, en-tête sans débordement.

@@ -69,6 +69,13 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     context.ongletActif = this.#ongletActif;
     context.modeEdition = this.modeEdition;
     context.isGM = game.user.isGM;
+    // Barre de PV : vert > 50 %, orange de 25 à 50 %, rouge < 25 % (le PJ voit quand il est « dans le rouge »).
+    const pvMax = system.pv.max || 0;
+    const pourcentagePV = pvMax > 0 ? Math.round(Math.min(100, Math.max(0, (system.pv.value / pvMax) * 100))) : 0;
+    context.barrePV = {
+      pourcentage: pourcentagePV,
+      etat: pourcentagePV > 50 ? "ok" : pourcentagePV >= 25 ? "blesse" : "critique"
+    };
     // Somme des seules bases saisies (hors bonus raciaux), comparée à GW.pointsCaracteristiques :
     // indicateur coloré comme dans l'Excel (jaune en dessous, vert à l'égalité, rouge au-dessus).
     const pointsCaracteristiques = Object.values(system.caracteristiques).reduce((s, c) => s + (c.base ?? 0), 0);
