@@ -41,6 +41,8 @@ remplacement du tableau complet. Vérifié sur Kael Dorn (Contrebandier) : 6 com
 surlignées, menu « Débloquer » puis « Rebloquer », état restauré après test. Le compendium Métiers
 modifié ne sera visible qu'après redémarrage de Foundry.
 
+**5. Info-bulle « Total »** au-dessus du pourcentage de chaque compétence (demande utilisateur), même principe que les info-bulles « Niveau » / ajustement. Vérifié : 37/37, affichée au survol.
+
 **Fichiers modifiés** : `templates/actor/personnage-sheet.hbs`, `module/sheets/personnage-sheet.mjs`,
 `module/config.mjs`, `module/data/actor-personnage.mjs`, `module/helpers/migration.mjs`,
 `module/helpers/rolls.mjs`, `packs/_source/metiers/{guerrier-sith,jedi-noire,voleur}.json`,

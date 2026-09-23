@@ -154,7 +154,7 @@
             {{else}}
             <input type="hidden" name="system.competences.{{cpt.index}}.ajustement" value="{{cpt.ajustement}}" data-dtype="Number">
             {{/if}}
-            <span class="total mono">{{cpt.total}}%</span>
+            <span class="total mono" data-tooltip="{{localize 'GALACTICWARS.Sheet.Total'}}" data-tooltip-direction="UP">{{cpt.total}}%</span>
           </li>
           {{/each}}
         </ul>
