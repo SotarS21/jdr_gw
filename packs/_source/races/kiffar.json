@@ -3,7 +3,7 @@
   "_id": "kE25604LBS1sNo7V",
   "name": "Kiffar",
   "type": "race",
-  "img": "icons/svg/oak.svg",
+  "img": "systems/galactic-wars/asset_visuel/Ethnie/ethenie_kiffar_front.jpg",
   "system": {
     "modificateursCaracteristiques": { "corps": 10, "mental": 5, "dexterite": 0 },
     "modificateursCompetences": {

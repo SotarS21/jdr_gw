@@ -3,7 +3,7 @@
   "_id": "gsdljenIUW2cNvQ2",
   "name": "Toydarien",
   "type": "race",
-  "img": "icons/svg/oak.svg",
+  "img": "systems/galactic-wars/asset_visuel/Ethnie/ethenie_toydarien_front.jpg",
   "system": {
     "modificateursCaracteristiques": {
       "corps": -15,

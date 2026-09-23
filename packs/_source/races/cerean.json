@@ -3,7 +3,7 @@
   "_id": "WdgeM5rqvvvrApi9",
   "name": "Cerean",
   "type": "race",
-  "img": "icons/svg/oak.svg",
+  "img": "systems/galactic-wars/asset_visuel/Ethnie/ethenie_cerean_front.jpg",
   "system": {
     "modificateursCaracteristiques": {
       "corps": -10,

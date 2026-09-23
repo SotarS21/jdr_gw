@@ -3,7 +3,7 @@
   "_id": "BVy1lDOgDv1VOGGh",
   "name": "Devaronian (mâle) Devaron",
   "type": "race",
-  "img": "icons/svg/oak.svg",
+  "img": "systems/galactic-wars/asset_visuel/Ethnie/ethnie_devaronian_front.jpg",
   "system": {
     "modificateursCaracteristiques": {
       "corps": 0,

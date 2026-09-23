@@ -3,7 +3,7 @@
   "_id": "LqcXzGN3VBD904xN",
   "name": "Sith",
   "type": "race",
-  "img": "icons/svg/oak.svg",
+  "img": "systems/galactic-wars/asset_visuel/Ethnie/ethenie_sith_front.jpg",
   "system": {
     "modificateursCaracteristiques": { "corps": -5, "mental": 5, "dexterite": 0 },
     "modificateursCompetences": {

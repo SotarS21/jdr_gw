@@ -3,7 +3,7 @@
   "_id": "rZyNkinI04EGUReT",
   "name": "Les hommes des sable ou Tusken Raider",
   "type": "race",
-  "img": "icons/svg/oak.svg",
+  "img": "systems/galactic-wars/asset_visuel/Ethnie/ethenie_turken_raider_front.jpg",
   "system": {
     "modificateursCaracteristiques": {
       "corps": 5,

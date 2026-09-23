@@ -3,7 +3,7 @@
   "_id": "fjSJHgPOIjzJSygz",
   "name": "Bith",
   "type": "race",
-  "img": "icons/svg/oak.svg",
+  "img": "systems/galactic-wars/asset_visuel/Ethnie/ethnie_bith_front.jpg",
   "system": {
     "modificateursCaracteristiques": {
       "corps": -5,

@@ -3,7 +3,7 @@
   "_id": "pc3RpHObaoAJMNpx",
   "name": "Wookiee",
   "type": "race",
-  "img": "icons/svg/oak.svg",
+  "img": "systems/galactic-wars/asset_visuel/Ethnie/ethenie_wookiee_front.jpg",
   "system": {
     "modificateursCaracteristiques": {
       "corps": 10,

@@ -1,5 +1,24 @@
 # Journal de développement — Galactic Wars
 
+## Session du 2026-09-23 — Portraits des races (v0.10.0 → v0.10.1)
+
+**Portraits appliqués aux 43 items du compendium Races.** Piste notée à la fin de la session
+précédente : les items Race utilisaient tous le placeholder `icons/svg/oak.svg` alors que les
+portraits d'ethnies sont versionnés (et embarqués dans la release) depuis `0b539ee`. Le champ
+`img` de chaque `packs/_source/races/*.json` pointe maintenant vers
+`systems/galactic-wars/asset_visuel/Ethnie/<fichier>`, en réutilisant la correspondance déjà
+établie pour le "Codex des espèces" (source de vérité : le `src` de l'image de chaque page du
+codex) plutôt qu'en refaisant une normalisation de noms. 3 races ont un nom d'item différent du
+titre de page : "Devaronian (mâle) Devaron" → Devaronian, "Les hommes des sable ou Tusken
+Raider" → Tusken Raider, "Robot" → droïde de combat (même choix que dans le codex). Existence
+de chaque fichier vérifiée sur disque avant écriture ; 43/43, aucun manquant. Packs recompilés
+(`npm run pack:build`).
+
+**Fichiers modifiés** : `packs/_source/races/*.json` (43 fichiers, champ `img` uniquement),
+`system.json` (version), `CAHIER_DES_CHARGES.md` (§5.1decies).
+
+---
+
 ## Session du 2026-09-22/23 — Fix scrollbar, Codex des espèces, publication GitHub (v0.10.0)
 
 **1. Bug remonté par l'utilisateur : pas de scrollbar sur la fiche personnage classique.**

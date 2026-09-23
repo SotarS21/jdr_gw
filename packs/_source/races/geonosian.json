@@ -3,7 +3,7 @@
   "_id": "0satXKRobRFkU2MS",
   "name": "Geonosian",
   "type": "race",
-  "img": "icons/svg/oak.svg",
+  "img": "systems/galactic-wars/asset_visuel/Ethnie/ethnie_geonosian_front.jpg",
   "system": {
     "modificateursCaracteristiques": {
       "corps": 5,

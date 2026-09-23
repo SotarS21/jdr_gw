@@ -3,7 +3,7 @@
   "_id": "b7LCaJyQUat0MkP3",
   "name": "Kel Dor",
   "type": "race",
-  "img": "icons/svg/oak.svg",
+  "img": "systems/galactic-wars/asset_visuel/Ethnie/ethenie_kel_dor_front.jpg",
   "system": {
     "modificateursCaracteristiques": { "corps": -5, "mental": 0, "dexterite": 10 },
     "modificateursCompetences": {

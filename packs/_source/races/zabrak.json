@@ -3,7 +3,7 @@
   "_id": "ZrAFMqIQvShGSBWD",
   "name": "Zabrak",
   "type": "race",
-  "img": "icons/svg/oak.svg",
+  "img": "systems/galactic-wars/asset_visuel/Ethnie/ethenie_zabrak_front.jpg",
   "system": {
     "modificateursCaracteristiques": {
       "corps": 5,

@@ -3,7 +3,7 @@
   "_id": "cvV7ZESsg15G2bb8",
   "name": "Rattataki",
   "type": "race",
-  "img": "icons/svg/oak.svg",
+  "img": "systems/galactic-wars/asset_visuel/Ethnie/ethenie_rattataki_front.jpg",
   "system": {
     "modificateursCaracteristiques": { "corps": 10, "mental": 0, "dexterite": -10 },
     "modificateursCompetences": {
