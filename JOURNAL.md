@@ -17,6 +17,24 @@ de chaque fichier vérifiée sur disque avant écriture ; 43/43, aucun manquant.
 **Fichiers modifiés** : `packs/_source/races/*.json` (43 fichiers, champ `img` uniquement),
 `system.json` (version), `CAHIER_DES_CHARGES.md` (§5.1decies).
 
+**Refonte du déploiement local (remontée utilisateur : "je ne vois pas le correctif dans
+Foundry").** Cause : rien n'avait été déployé — le dossier système de Foundry était resté sur
+`5747755` (v0.10.0) — et l'ancienne commande `/deploy-galactic-wars` (`Copy-Item` à chaud +
+"faites Ctrl+F5") ne pouvait de toute façon pas marcher pour un compendium : les packs LevelDB sont
+verrouillés tant que le monde tourne, seul un redémarrage de Foundry les fait relire. Nouvelle
+procédure, **validation locale obligatoire avant tout push/tag** :
+- `scripts/deploy-local.ps1` : build des packs → arrêt de Foundry (refuse, code 2, si des
+  utilisateurs sont connectés, sauf `-Force`) → copie miroir `robocopy /MIR` du seul contenu de
+  la release → relance de l'appli desktop avec `--world=galacit-wars-v-final` → contrôle que
+  `/api/status` annonce la version de `system.json`. `-NoRestart` pour du JS/CSS seul.
+- `scripts/verify-local.mjs` : connexion MJ headless (Playwright du cache npx), contrôle de
+  `game.system.version`, erreurs JS de la page, et évaluation d'un contrôle ciblé passé en argument.
+- La commande `/deploy-galactic-wars` (`VTT_Foundry/.claude/commands/`) décrit ces étapes et
+  interdit push/tag avant vérification + accord de l'utilisateur.
+
+Vérifié : Foundry relancé en v0.10.1, les 43 races du compendium ont un portrait qui se charge
+(requête HEAD OK), aucune icône `oak.svg` restante, aucune erreur JS.
+
 ---
 
 ## Session du 2026-09-22/23 — Fix scrollbar, Codex des espèces, publication GitHub (v0.10.0)
