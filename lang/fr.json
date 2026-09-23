@@ -223,9 +223,7 @@
     "Avertissement": {
       "CompetenceInconnue": "Compétence inconnue : {cle}",
       "CaracteristiqueInconnue": "Caractéristique inconnue : {cle}",
-      "CompendiumVide": "Le compendium \"{compendium}\" est vide.",
-      "PrerequisMetierManquant": "Prérequis manquant : le métier \"{metier}\" est requis.",
-      "NiveauInsuffisant": "Prérequis manquant : niveau {niveau} minimum requis."
+      "CompendiumVide": "Le compendium \"{compendium}\" est vide."
     },
 
     "Jet": {

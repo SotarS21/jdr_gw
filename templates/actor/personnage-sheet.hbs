@@ -28,19 +28,8 @@
         <input type="number" class="mono niveau-input" name="system.niveau" value="{{system.niveau}}">
       </div>
     </div>
-  </header>
-
-  <nav class="onglets">
-    <button type="button" class="onglet-btn {{#if (eq ongletActif 'personnage')}}active{{/if}}" data-action="changerOnglet" data-onglet="personnage">{{localize 'GALACTICWARS.Sheet.OngletPersonnage'}}</button>
-    <button type="button" class="onglet-btn {{#if (eq ongletActif 'equipements')}}active{{/if}}" data-action="changerOnglet" data-onglet="equipements">{{localize 'GALACTICWARS.Sheet.OngletEquipements'}}</button>
-    <button type="button" class="onglet-btn {{#if (eq ongletActif 'informations')}}active{{/if}}" data-action="changerOnglet" data-onglet="informations">{{localize 'GALACTICWARS.Sheet.OngletInformations'}}</button>
-  </nav>
-
-  <div class="sheet-body">
-  {{#if (eq ongletActif 'personnage')}}
-  <section class="ressources">
-    <h2 class="eyebrow">{{localize 'GALACTICWARS.Sheet.Ressources'}}</h2>
-    <div class="stat-grid">
+    {{!-- PV / Force / Stress / Crédits dans l'en-tête : accessibles quel que soit l'onglet. --}}
+    <div class="header-ressources stat-grid">
       <div class="stat-card">
         <span class="eyebrow">{{localize 'GALACTICWARS.Sheet.PV'}}</span>
         <div class="stat-value">
@@ -69,7 +58,20 @@
         <span class="eyebrow">{{localize 'GALACTICWARS.Sheet.Credits'}}</span>
         <input type="number" class="mono" name="system.credits" value="{{system.credits}}" min="0">
       </div>
+    </div>
+  </header>
 
+  <nav class="onglets">
+    <button type="button" class="onglet-btn {{#if (eq ongletActif 'personnage')}}active{{/if}}" data-action="changerOnglet" data-onglet="personnage">{{localize 'GALACTICWARS.Sheet.OngletPersonnage'}}</button>
+    <button type="button" class="onglet-btn {{#if (eq ongletActif 'equipements')}}active{{/if}}" data-action="changerOnglet" data-onglet="equipements">{{localize 'GALACTICWARS.Sheet.OngletEquipements'}}</button>
+    <button type="button" class="onglet-btn {{#if (eq ongletActif 'informations')}}active{{/if}}" data-action="changerOnglet" data-onglet="informations">{{localize 'GALACTICWARS.Sheet.OngletInformations'}}</button>
+  </nav>
+
+  <div class="sheet-body">
+  {{#if (eq ongletActif 'personnage')}}
+  <section class="ressources">
+    <h2 class="eyebrow">{{localize 'GALACTICWARS.Sheet.Ressources'}}</h2>
+    <div class="stat-grid">
       <div class="stat-card stat-alignement">
         <span class="eyebrow">{{localize 'GALACTICWARS.Alignement.Titre'}}</span>
         <div class="pool pool-lumiere">

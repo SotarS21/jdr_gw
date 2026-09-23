@@ -1,48 +1,20 @@
 import { GW } from "../config.mjs";
 
 /**
- * Vérifie les prérequis d'un métier (nom du métier requis + niveau minimum).
- * @returns {{ok: boolean, raison?: string}}
- */
-export function verifierPrerequisMetier(actor, metierItem) {
-  const { metier: metierRequis, niveauMinimum } = metierItem.system.prerequis;
-
-  if (metierRequis && actor.system.metier.nom !== metierRequis) {
-    return {
-      ok: false,
-      raison: game.i18n.format("GALACTICWARS.Avertissement.PrerequisMetierManquant", { metier: metierRequis })
-    };
-  }
-  if (niveauMinimum && actor.system.niveau < niveauMinimum) {
-    return {
-      ok: false,
-      raison: game.i18n.format("GALACTICWARS.Avertissement.NiveauInsuffisant", { niveau: niveauMinimum })
-    };
-  }
-  return { ok: true };
-}
-
-/**
  * Applique un métier (Item type "metier") sur un Actor : équipement de départ, référence
  * au métier, et — uniquement pour les Actor qui ont un tableau `system.competences` (la
  * fiche classique ; pas la fiche rapide) — les bonus de compétence accordés. Les objets
  * précédemment créés par un métier sont marqués du flag `startingGear` pour pouvoir être
  * proprement remplacés si le joueur change de métier.
+ *
+ * Aucun prérequis n'est vérifié (ex. "Padawan niveau 4" pour Jedi consulaire) : tout métier
+ * est accessible directement, à la demande de l'auteur (2026-09-23). Les prérequis restent
+ * renseignés sur l'Item métier à titre informatif.
  * @param {Actor} actor
  * @param {Item} metierItem
- * @param {object} [options]
- * @param {boolean} [options.ignorerPrerequis=false]
  */
-export async function applyMetier(actor, metierItem, { ignorerPrerequis = false } = {}) {
+export async function applyMetier(actor, metierItem) {
   if (metierItem.type !== "metier") throw new Error("applyMetier attend un Item de type metier");
-
-  if (!ignorerPrerequis) {
-    const verification = verifierPrerequisMetier(actor, metierItem);
-    if (!verification.ok) {
-      ui.notifications.warn(verification.raison);
-      return false;
-    }
-  }
 
   const ancienEquipement = actor.items.filter((i) => i.getFlag("galactic-wars", "startingGear"));
   if (ancienEquipement.length) {

@@ -146,6 +146,9 @@ Voir l'arborescence commentée dans `README.md` (module/config, module/data, mod
 
 - **Validation des 120 points de caractéristique** (mode édition, non bloquante comme la case B4 de l'Excel) : somme des seules bases saisies (hors bonus raciaux) affichée `X / 120`, jaune en dessous, vert à l'égalité, rouge au-dessus (`GW.pointsCaracteristiques`). La saisie n'est jamais refusée.
 
+- **Ressources dans l'en-tête** (fiche classique) : PV, Points de force, Stress et Crédits sont remontés de la section Ressources vers l'en-tête, visibles quel que soit l'onglet. La section Ressources ne garde que Lumière/Obscurité.
+- **Plus aucun prérequis de métier** : `applyMetier` ne vérifie plus le métier requis ni le niveau minimum (ex. Jedi consulaire ← Padawan niveau 4) ; tout métier est accessible directement. Les prérequis restent renseignés sur les Items métier à titre informatif.
+
 ### 5.2 Roadmap
 Voir §10.
 

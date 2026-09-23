@@ -58,6 +58,10 @@ retour Contrebandier → 6, 37 compétences intactes.
 
 **9. Validation non bloquante des 120 points de caractéristique** (demande utilisateur), reprise de la case B4 de `Template corriger.xlsx` (`=SUM(B6,E6,H6)`, mise en forme conditionnelle jaune < 120, vert = 120, rouge > 120). Indicateur `X / 120` en mode édition uniquement, calculé sur les seules bases saisies. Vérifié : 39 (Kael) → jaune, 50+40+30 → vert, 135 → rouge et la valeur est bien sauvegardée ; caractéristiques de Kael restaurées.
 
+**10. PV, Points de force, Stress et Crédits dans l'en-tête** (demande utilisateur) : cartes déplacées (pas dupliquées — deux inputs de même `name` produiraient un tableau à la soumission) dans `.header-ressources`, à droite du nom. Deux ajustements CSS nécessaires, repérés à la mesure : la règle générale `.stat-grid` (plus loin dans le fichier) écrasait les colonnes de l'en-tête, et l'input Crédits en `width: 100%` gonflait sa colonne à 231 px. Résultat : ressources 469 px / nom 319 px, aucun libellé tronqué, aucun débordement. Vérifié : PV modifiés depuis l'onglet Équipements et sauvegardés, 37 compétences intactes.
+
+**11. Suppression des prérequis de métier** (bug remonté : ex. Jedi consulaire exigeait Padawan niveau 4). `verifierPrerequisMetier` et l'option `ignorerPrerequis` supprimés de `helpers/metier.mjs`, ainsi que les 2 messages d'avertissement associés dans `lang/fr.json`. Les champs `prerequis` des Items métier sont conservés (informatifs). Vérifié : Kael Dorn (niveau 3, Contrebandier) → Jedi consulaire accepté, puis retour Contrebandier.
+
 **5. Info-bulle « Total »** au-dessus du pourcentage de chaque compétence (demande utilisateur), même principe que les info-bulles « Niveau » / ajustement. Vérifié : 37/37, affichée au survol.
 
 **Fichiers modifiés** : `templates/actor/personnage-sheet.hbs`, `module/sheets/personnage-sheet.mjs`,
