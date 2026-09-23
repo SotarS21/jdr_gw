@@ -40,10 +40,9 @@
       </div>
       <div class="stat-card stat-force">
         <span class="eyebrow">{{localize 'GALACTICWARS.Sheet.PointsDeForce'}}</span>
+        {{!-- Ressource dépensable, pas une jauge valeur/max : seule .value est utilisée. --}}
         <div class="stat-value">
-          <input type="number" class="mono" name="system.pointsDeForce.value" value="{{system.pointsDeForce.value}}">
-          <span class="sep">/</span>
-          <input type="number" class="mono max" name="system.pointsDeForce.max" value="{{system.pointsDeForce.max}}">
+          <input type="number" class="mono" name="system.pointsDeForce.value" value="{{system.pointsDeForce.value}}" min="0">
         </div>
       </div>
       <div class="stat-card">

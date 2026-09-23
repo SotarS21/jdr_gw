@@ -155,6 +155,9 @@ Voir l'arborescence commentée dans `README.md` (module/config, module/data, mod
 
 - **Compétences Jedi réservées** (demande de l'auteur) : Poussée de la force, Persuasion de la force, Contrôle télékinétique et Sabre laser rejoignent Méditation de la force parmi les compétences réservées — accessibles uniquement à Padawan, Jedi consulaire et Jedi Noire (accès ajoutés sans point jaune : Poussée pour Padawan et Jedi Noire, Persuasion pour Padawan), Sabre laser restant aussi accessible à Apprenti sith et Guerrier sith (recommandée par `Metier.docx`). Côté sith (demande suivante de l'auteur) : Poussée, Drain, Persuasion, Contrôle par la force, Éclair de force et Sabre laser accessibles à Apprenti sith, Guerrier sith et Jedi Noire (accès ajoutés sans point jaune) — les accès Jedi ci-dessus sont conservés. Total : 12 compétences réservées.
 
+### 5.1terdecies Ajoutées (v0.11.1)
+- **Points de force = ressource dépensable** : une seule valeur sur la fiche classique (plus de « / max »), comme les crédits. `pointsDeForce.max` reste dans le schéma (inutilisé) pour éviter une migration de données.
+
 ### 5.2 Roadmap
 Voir §10.
 

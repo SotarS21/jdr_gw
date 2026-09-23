@@ -1,5 +1,11 @@
 # Journal de développement — Galactic Wars
 
+## Session du 2026-09-23 (suite) — Points de force en ressource simple (v0.11.0 → v0.11.1)
+
+**Points de force** (demande utilisateur : « une ressource utilisable, pas une valeur sur une autre ») : la carte de l'en-tête n'affiche plus que `system.pointsDeForce.value` (min 0), sans séparateur ni maximum. Schéma inchangé (`ressource(0)`, `.max` ignoré) pour ne pas avoir à migrer les Actors existants. Vérifié : un seul input, sauvegarde OK, en-tête sans débordement.
+
+---
+
 ## Session du 2026-09-23 (suite) — Mode édition, largeur, compétences réservées (v0.10.2 → v0.11.0)
 
 **1. Mode édition (demande utilisateur).** Bouton « Édition » avec cadenas à côté du nom sur la
