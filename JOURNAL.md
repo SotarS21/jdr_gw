@@ -18,6 +18,8 @@ Section **Description du personnage** en tête de l'onglet Informations (demande
 
 Images agrandies (demande de l'auteur) : portrait d'ethnie 140 → 260 px de large, proportions conservées (plus de recadrage carré, 260×294 pour Zabrak) ; portrait du personnage dans l'en-tête 76 → 128 px (en-tête 145 px en lecture, 180 px en édition, aucun débordement).
 
+Aperçu limité des cartes (demande de l'auteur) : texte coupé à 3 lignes (Infos, PNJ, Missions) ou 5 lignes (Résumés) avec « … » (`line-clamp`, paragraphes passés en ligne pour que le « … » tombe sur la dernière ligne visible) ; texte complet en mode Édition de la fiche (classe `texte-complet`) et dans la fenêtre d'édition. Vérifié par mesure : cartes longues coupées à 3/5 lignes, carte courte intacte, texte complet en mode Édition et dans la modale.
+
 **Fichiers** : `module/helpers/notes.mjs` (nouveau), `module/data/actor-personnage.mjs`, `module/config.mjs`, `module/sheets/personnage-sheet.mjs`, `templates/actor/personnage-sheet.hbs`, `lang/fr.json`, `styles/galactic-wars.css`, `system.json`, `CAHIER_DES_CHARGES.md`.
 
 ---

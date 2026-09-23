@@ -338,7 +338,7 @@
   </nav>
 
   {{#if (eq sousOngletNotes 'resume')}}
-  <section class="notes panel">
+  <section class="notes panel {{#if modeEdition}}texte-complet{{/if}}">
     <div class="section-header">
       <h2 class="eyebrow">{{localize 'GALACTICWARS.Notes.Resumes'}}</h2>
       <button type="button" class="roll-btn" data-action="ajouterEntreeNote" data-type="resume" data-tooltip="{{localize 'GALACTICWARS.Notes.Ajouter'}}">+</button>
@@ -359,7 +359,7 @@
   {{/if}}
 
   {{#if (eq sousOngletNotes 'infos')}}
-  <section class="notes panel">
+  <section class="notes panel {{#if modeEdition}}texte-complet{{/if}}">
     <div class="section-header">
       <h2 class="eyebrow">{{localize 'GALACTICWARS.Notes.Infos'}}</h2>
       <button type="button" class="roll-btn" data-action="ajouterEntreeNote" data-type="info" data-tooltip="{{localize 'GALACTICWARS.Notes.Ajouter'}}">+</button>
@@ -380,7 +380,7 @@
   {{/if}}
 
   {{#if (eq sousOngletNotes 'pnj')}}
-  <section class="notes panel">
+  <section class="notes panel {{#if modeEdition}}texte-complet{{/if}}">
     <div class="section-header">
       <h2 class="eyebrow">{{localize 'GALACTICWARS.Notes.Pnj'}}</h2>
       <button type="button" class="roll-btn" data-action="ajouterEntreeNote" data-type="pnj" data-tooltip="{{localize 'GALACTICWARS.Notes.Ajouter'}}">+</button>
@@ -402,7 +402,7 @@
   {{/if}}
 
   {{#if (eq sousOngletNotes 'missions')}}
-  <section class="notes panel">
+  <section class="notes panel {{#if modeEdition}}texte-complet{{/if}}">
     <div class="section-header">
       <h2 class="eyebrow">{{localize 'GALACTICWARS.Notes.Missions'}}</h2>
       <button type="button" class="roll-btn" data-action="ajouterEntreeNote" data-type="mission" data-tooltip="{{localize 'GALACTICWARS.Notes.Ajouter'}}">+</button>

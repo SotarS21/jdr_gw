@@ -1226,6 +1226,48 @@
   margin: 0.2rem 0;
 }
 
+/* Aperçu limité dans les cartes (texte complet dans la fenêtre d'édition) :
+   3 lignes pour Infos / PNJ / Missions, 5 pour les Résumés, puis « … ». */
+.galactic-wars.personnage .carte-note .carte-texte {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden;
+}
+
+.galactic-wars.personnage .carte-note[data-type="resume"] .carte-texte {
+  -webkit-line-clamp: 5;
+  line-clamp: 5;
+}
+
+/* Paragraphes en ligne dans l'aperçu : le « … » tombe bien sur la dernière ligne visible. */
+.galactic-wars.personnage .carte-note .carte-texte p {
+  display: inline;
+  margin: 0;
+}
+
+.galactic-wars.personnage .carte-note .carte-texte p + p::before {
+  content: " ";
+}
+
+/* En mode Édition, les cartes affichent tout leur texte. */
+.galactic-wars.personnage .texte-complet .carte-note .carte-texte {
+  display: block;
+  -webkit-line-clamp: unset;
+  line-clamp: none;
+  overflow: visible;
+}
+
+.galactic-wars.personnage .texte-complet .carte-note .carte-texte p {
+  display: block;
+  margin: 0.2rem 0;
+}
+
+.galactic-wars.personnage .texte-complet .carte-note .carte-texte p + p::before {
+  content: none;
+}
+
 .galactic-wars.personnage .mots-cles,
 .galactic-wars.personnage .ethnie-modificateurs {
   display: flex;
