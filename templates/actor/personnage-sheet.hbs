@@ -10,12 +10,12 @@
     </div>
     <div class="header-fields">
       <div class="nom-row">
-        <input type="text" class="nom-input mono" name="name" value="{{actor.name}}" placeholder="{{localize 'GALACTICWARS.Sheet.Nom'}}">
         <button type="button" class="btn btn-edition {{#if modeEdition}}active{{/if}}" data-action="basculerEdition"
                 data-tooltip="{{localize 'GALACTICWARS.Sheet.ModeEditionHint'}}" aria-pressed="{{#if modeEdition}}true{{else}}false{{/if}}">
           <i class="fa-solid {{#if modeEdition}}fa-lock-open{{else}}fa-lock{{/if}}"></i>
           {{localize 'GALACTICWARS.Sheet.ModeEdition'}}
         </button>
+        <input type="text" class="nom-input mono" name="name" value="{{actor.name}}" placeholder="{{localize 'GALACTICWARS.Sheet.Nom'}}">
       </div>
       <div class="race-metier-row">
         <span class="champ"><span class="eyebrow">{{localize 'GALACTICWARS.Sheet.Race'}}</span> <span class="valeur-texte">{{system.race.nom}}</span></span>

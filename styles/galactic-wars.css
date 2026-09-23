@@ -483,14 +483,16 @@
   outline: none;
 }
 
+/* Bouton Édition au-dessus du nom. */
 .galactic-wars.personnage .nom-row {
   display: flex;
-  align-items: center;
-  gap: 0.6rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.3rem;
 }
 
 .galactic-wars.personnage .nom-row .nom-input {
-  flex: 1 1 auto;
+  width: 100%;
   min-width: 0;
 }
 

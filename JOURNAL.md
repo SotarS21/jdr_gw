@@ -62,6 +62,8 @@ retour Contrebandier → 6, 37 compétences intactes.
 
 **11. Suppression des prérequis de métier** (bug remonté : ex. Jedi consulaire exigeait Padawan niveau 4). `verifierPrerequisMetier` et l'option `ignorerPrerequis` supprimés de `helpers/metier.mjs`, ainsi que les 2 messages d'avertissement associés dans `lang/fr.json`. Les champs `prerequis` des Items métier sont conservés (informatifs). Vérifié : Kael Dorn (niveau 3, Contrebandier) → Jedi consulaire accepté, puis retour Contrebandier.
 
+**12. Bouton Édition placé au-dessus du nom** (bug remonté) : `.nom-row` en colonne, bouton avant le champ nom. Vérifié : bouton au-dessus, nom sur toute la largeur, aucun débordement.
+
 **5. Info-bulle « Total »** au-dessus du pourcentage de chaque compétence (demande utilisateur), même principe que les info-bulles « Niveau » / ajustement. Vérifié : 37/37, affichée au survol.
 
 **Fichiers modifiés** : `templates/actor/personnage-sheet.hbs`, `module/sheets/personnage-sheet.mjs`,
