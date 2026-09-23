@@ -66,11 +66,11 @@ export async function applyMetier(actor, metierItem, { ignorerPrerequis = false 
   };
 
   if (Array.isArray(actor.system.competences)) {
-    const bonusParCle = new Map(metierItem.system.competences.map((c) => [c.cle, c.bonus]));
-    updates["system.competences"] = actor.system.competences.map((c) => {
-      const bonus = bonusParCle.get(c.cle);
-      if (bonus === undefined) return { ...c, metier: 0, acquiseParMetier: false };
-      return { ...c, metier: bonus, acquiseParMetier: true };
+    const accordees = new Map(metierItem.system.competences.map((c) => [c.cle, c]));
+    updates["system.competences"] = actor.system.toObject().competences.map((c) => {
+      const accordee = accordees.get(c.cle);
+      if (!accordee) return { ...c, metier: 0, acquiseParMetier: false, recommandee: false };
+      return { ...c, metier: accordee.bonus, acquiseParMetier: true, recommandee: accordee.obligatoire };
     });
   }
   if ("description" in (actor.system.metier ?? {}) && metierItem.system.talent?.description) {

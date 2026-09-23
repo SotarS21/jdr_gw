@@ -131,7 +131,7 @@
               data-index="{{cpt.index}}"
               {{#if cpt.bloquee}}data-tooltip="{{#if @root.isGM}}{{localize 'GALACTICWARS.Sheet.CompetenceBloqueeMJ'}}{{else}}{{localize 'GALACTICWARS.Sheet.CompetenceBloquee'}}{{/if}}"{{/if}}>
             <button type="button" class="roll-btn" data-action="rollCompetence" data-cle="{{cpt.cle}}" {{#if cpt.bloquee}}disabled{{/if}}>🎲</button>
-            <span class="label">{{#if cpt.estCompetenceMetier}}<span class="dot dot-metier"></span>{{/if}}{{localize cpt.label}}{{#if cpt.bloquee}} <i class="fa-solid fa-lock cadenas"></i>{{/if}}</span>
+            <span class="label">{{#if cpt.recommandee}}<span class="dot dot-metier"></span>{{/if}}{{localize cpt.label}}{{#if cpt.bloquee}} <i class="fa-solid fa-lock cadenas"></i>{{/if}}</span>
             {{!-- system.competences est un ArrayField : Document#update() remplace chaque élément
                   entier plutôt que de fusionner ses champs un par un. TOUT champ d'une compétence
                   doit donc être soumis à chaque sauvegarde, même quand il n'est pas modifiable
@@ -142,6 +142,7 @@
             <input type="hidden" name="system.competences.{{cpt.index}}.racial" value="{{cpt.racial}}" data-dtype="Number">
             <input type="hidden" name="system.competences.{{cpt.index}}.metier" value="{{cpt.metier}}" data-dtype="Number">
             <input type="hidden" name="system.competences.{{cpt.index}}.acquiseParMetier" value="{{cpt.acquiseParMetier}}" data-dtype="Boolean">
+            <input type="hidden" name="system.competences.{{cpt.index}}.recommandee" value="{{cpt.recommandee}}" data-dtype="Boolean">
             <input type="hidden" name="system.competences.{{cpt.index}}.debloquee" value="{{cpt.debloquee}}" data-dtype="Boolean">
             {{#if (and @root.modeEdition (not cpt.bloquee))}}
             <input type="number" class="niveau mono" name="system.competences.{{cpt.index}}.niveau" value="{{cpt.niveau}}" min="0" max="3" data-tooltip="{{localize 'GALACTICWARS.Sheet.Niveau'}}">

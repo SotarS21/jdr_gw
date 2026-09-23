@@ -57,6 +57,8 @@ export class PersonnageData extends foundry.abstract.TypeDataModel {
           // level up) sans écraser le calcul automatique niveau + caractéristique.
           ajustement: new NumberField({ required: true, integer: true, initial: 0 }),
           acquiseParMetier: new BooleanField({ initial: false }),
+          // Recommandée par le métier actuel selon les documents sources (métier.competences[].obligatoire).
+          recommandee: new BooleanField({ initial: false }),
           // Déblocage MJ d'une compétence réservée (GW.competences[cle].reservee) que le métier
           // actuel n'accorde pas. Conservé si le métier change.
           debloquee: new BooleanField({ initial: false })

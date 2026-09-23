@@ -178,7 +178,7 @@
       "Racial": "Racial",
       "Alignement": "Alignement",
       "Competences": "Compétences",
-      "CompetenceMetierHint": "compétence de métier : -30% si non acquise (-10% pour les autres compétences)",
+      "CompetenceMetierHint": "compétence recommandée par le métier",
       "Armes": "Armes",
       "Armures": "Armures",
       "Pouvoirs": "Pouvoirs de force",

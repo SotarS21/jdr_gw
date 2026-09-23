@@ -45,6 +45,17 @@ modifié ne sera visible qu'après redémarrage de Foundry.
 
 **7. Méditation de la force réservée** (demande utilisateur) à Jedi consulaire, Jedi Noire et Padawan : `reservee: true` + ajoutée à ces trois métiers du compendium (aucun ne l'accordait jusque-là).
 
+**8. Point orange des compétences (bug remonté : "pas mis à jour quand on change de métier").**
+Le point affichait `GW.competences[cle].metier` — un type de compétence fixe (malus -30 %), indépendant
+du métier choisi. L'auteur précise qu'il doit représenter les compétences recommandées par les
+documents sources pour le métier choisi = les entrées `obligatoire: true` du métier (toutes celles
+d'origine ; les accès ajoutés aujourd'hui pour les compétences réservées sont en `obligatoire:
+false`). Nouveau champ `recommandee` (+ `<input hidden>`, ArrayField), posé par `applyMetier`
+(qui part désormais de `toObject()` plutôt que des données préparées), recalculé par `runMigrations`
+pour les personnages déjà dotés d'un métier. Légende : « compétence recommandée par le métier ».
+Vérifié sur Kael Dorn : Contrebandier → 6 points, Voleur → 3 (Sécurité accessible sans point),
+retour Contrebandier → 6, 37 compétences intactes.
+
 **5. Info-bulle « Total »** au-dessus du pourcentage de chaque compétence (demande utilisateur), même principe que les info-bulles « Niveau » / ajustement. Vérifié : 37/37, affichée au survol.
 
 **Fichiers modifiés** : `templates/actor/personnage-sheet.hbs`, `module/sheets/personnage-sheet.mjs`,

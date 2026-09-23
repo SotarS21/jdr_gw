@@ -8,7 +8,9 @@ export class MetierData extends foundry.abstract.TypeDataModel {
         niveauMinimum: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
         texteLibre: new StringField({ initial: "" }) // ex. "affiliation => empire / république / privé"
       }),
-      // Compétences accordées par le métier : { cle, bonus, obligatoire }
+      // Compétences accordées par le métier : { cle, bonus, obligatoire }.
+      // obligatoire = compétence recommandée par les documents sources (point orange sur la
+      // fiche) ; false = simple accès à une compétence réservée (GW.competences[cle].reservee).
       competences: new ArrayField(
         new SchemaField({
           cle: new StringField({ required: true }),
