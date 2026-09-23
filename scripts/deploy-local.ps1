@@ -58,6 +58,15 @@ if (-not $NoRestart -and (Get-Process -Name "Foundry Virtual Tabletop" -ErrorAct
     Start-Sleep -Milliseconds 500
   }
   Start-Sleep -Seconds 2  # libération des verrous LevelDB
+  # Foundry verrouille son dossier de données avec Config/options.json.lock (un dossier dont la
+  # date est rafraîchie en continu). Tué de force, il le laisse derrière lui : une relance
+  # immédiate échoue alors avec "directory which is already locked by another process".
+  # Le verrou n'est considéré comme abandonné que lorsqu'il n'a plus été rafraîchi depuis ~10 s.
+  $lock = "D:\AppDataFoundry`$\FoundryVTT_Data\Config\options.json.lock"
+  $deadline = (Get-Date).AddSeconds(60)
+  while ((Test-Path $lock) -and ((Get-Date) - (Get-Item $lock).LastWriteTime).TotalSeconds -lt 15 -and (Get-Date) -lt $deadline) {
+    Start-Sleep -Seconds 1
+  }
 }
 
 # 3. Copie en miroir

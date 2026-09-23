@@ -1,4 +1,5 @@
 import { GW } from "../config.mjs";
+import { completerCompetences } from "../helpers/migration.mjs";
 
 const { SchemaField, NumberField, StringField, HTMLField, ArrayField, BooleanField, FilePathField } = foundry.data.fields;
 
@@ -80,6 +81,18 @@ export class PersonnageData extends foundry.abstract.TypeDataModel {
     };
   }
 
+  /**
+   * Un personnage naît avec ses 37 compétences : sans ça, le tableau (ArrayField sans initial)
+   * restait vide jusqu'au prochain rechargement du monde par un MJ (runMigrations).
+   * Les entrées déjà présentes (import de compendium, duplication) sont conservées.
+   * @override
+   */
+  async _preCreate(data, options, user) {
+    if ((await super._preCreate(data, options, user)) === false) return false;
+    const competences = completerCompetences(this.toObject().competences);
+    if (competences) this.parent.updateSource({ "system.competences": competences });
+  }
+
   /** @override */
   prepareDerivedData() {
     for (const car of Object.values(this.caracteristiques)) {
@@ -96,10 +109,10 @@ export class PersonnageData extends foundry.abstract.TypeDataModel {
       if (def && !competence.acquiseParMetier) {
         malus = def.metier ? -30 : -10;
       }
-      competence.total = Math.max(
-        0,
-        base + bonusCaracteristique + competence.racial + competence.metier + competence.ajustement + malus
-      );
+      // La caractéristique liée est un plancher : niveau, bonus racial/métier, ajustement et
+      // malus de non-acquisition se cumulent au-dessus, sans jamais la faire descendre.
+      const modulation = base + competence.racial + competence.metier + competence.ajustement + malus;
+      competence.total = Math.max(0, bonusCaracteristique + Math.max(0, modulation));
       competence.label = def?.label ?? competence.cle;
       competence.caracteristique = def?.caracteristique;
       competence.estCompetenceMetier = def?.metier ?? false;

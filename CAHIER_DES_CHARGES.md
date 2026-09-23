@@ -132,6 +132,10 @@ Voir l'arborescence commentée dans `README.md` (module/config, module/data, mod
 ### 5.1decies Ajoutées (v0.10.1)
 - Les 43 items du compendium Races utilisent désormais leur portrait (`asset_visuel/Ethnie/`) comme `img` au lieu du placeholder `icons/svg/oak.svg`. Correspondance race → portrait reprise de celle du journal "Codex des espèces" (y compris les alias Devaronian, Tusken Raider et Robot → droïde de combat).
 
+### 5.1undecies Ajoutées (v0.10.2)
+- Un `personnage` fraîchement créé a immédiatement ses 37 compétences (`_preCreate` du DataModel) au lieu d'attendre le rechargement du monde par un MJ. Les compétences déjà fournies à la création (import de compendium, duplication) sont conservées, seules les clés manquantes sont ajoutées.
+- Taux de compétence (fiche classique) : la valeur finale de la caractéristique liée est un **plancher**. Total = caractéristique + max(0, barème du niveau + racial + métier + ajustement + malus de non-acquisition). Avant, le malus -10 %/-30 % pouvait faire descendre le total sous la caractéristique (ex. Corps 20 → Canon lourd 0 %), ce qui donnait l'impression que Corps n'était pas pris en compte.
+
 ### 5.2 Roadmap
 Voir §10.
 
@@ -215,7 +219,9 @@ Déploiement : copier ce dossier vers `D:\AppDataFoundry$\FoundryVTT_Data\Data\s
     "Appliquer" ne servaient en réalité à rien tant qu'aucun glisser-déposer (jamais implémenté)
     n'avait renseigné l'UUID cible ; remplacés par "Choisir", qui ouvre une liste du compendium
     correspondant et applique le choix immédiatement.
-15. **Point d'attention pour la suite** : en diagnostiquant le bug ArrayField ci-dessus, un test live a
+15. **✅ Résolu (2026-09-23, v0.10.2)** : `PersonnageData._preCreate` remplit désormais les 37
+    compétences à la création (helper `completerCompetences` partagé avec la migration, qui reste en
+    place pour les compétences ajoutées plus tard à `GW.competences`). Historique du point : en diagnostiquant le bug ArrayField ci-dessus, un test live a
     déclenché la migration idempotente (`runMigrations`, voir `module/helpers/migration.mjs`) sur 3
     Actors (`Test_robin`, `test_fab`, `test_raton`) qui n'avaient encore jamais reçu leurs 37 clés de
     compétence — c'était leur toute première connexion GM depuis leur création, pas une perte de

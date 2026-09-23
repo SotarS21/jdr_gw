@@ -1,5 +1,34 @@
 # Journal de développement — Galactic Wars
 
+## Session du 2026-09-23 (suite) — Compétences à la création + plancher de caractéristique (v0.10.1 → v0.10.2)
+
+**1. Compétences remplies à la création (CDC §10 item 15).** `PersonnageData._preCreate` complète
+`system.competences` avec les 37 clés de `GW.competences` (helper `completerCompetences` extrait de
+`helpers/migration.mjs`, que la migration réutilise). Les entrées fournies à la création (import de
+compendium, duplication) sont conservées. Vérifié en direct : Actor vierge → 37 compétences, aucune
+`cle` vide ; Actor créé avec `[{cle:"blaster", niveau:2}]` → 37 compétences, blaster toujours niveau 2.
+
+**2. Bug remonté par l'utilisateur : les compétences liées à Corps ne reprenaient pas la valeur finale
+de Corps.** Diagnostic : Corps était bien additionné, mais le malus de non-acquisition (-10 %, ou
+-30 % pour une compétence de métier) s'appliquait au total et le faisait passer sous la
+caractéristique (Kael Dorn, Corps 20 : Blocage 10 %, Canon lourd 0 %). Règle précisée par
+l'utilisateur : la valeur finale de la caractéristique est un minimum affiché sur chaque compétence
+liée, le niveau et les bonus s'y ajoutent. Nouveau calcul : `caractéristique + max(0, barème + racial
++ métier + ajustement + malus)`. Même chose pour Mental et Dextérité. Vérifié sur la fiche de Kael
+Dorn : toutes les compétences Corps ≥ 20 % (Bagarre 30 %), Mental ≥ 10 %, Dextérité ≥ 14 %.
+
+**3. Script de déploiement : relance ratée.** Première utilisation avec redémarrage : Foundry,
+relancé 2 s après avoir été tué, a refusé de démarrer ("directory which is already locked by another
+process") parce que le verrou `Config/options.json.lock` n'était pas encore considéré comme
+abandonné. L'utilisateur a relancé Foundry à la main. `deploy-local.ps1` attend désormais que ce
+verrou ne soit plus rafraîchi depuis 15 s avant de relancer (pas encore re-testé en conditions
+réelles).
+
+**Fichiers modifiés** : `module/data/actor-personnage.mjs`, `module/helpers/migration.mjs`,
+`scripts/deploy-local.ps1`, `system.json`, `CAHIER_DES_CHARGES.md`.
+
+---
+
 ## Session du 2026-09-23 — Portraits des races (v0.10.0 → v0.10.1)
 
 **Portraits appliqués aux 43 items du compendium Races.** Piste notée à la fin de la session
