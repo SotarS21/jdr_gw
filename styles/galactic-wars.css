@@ -614,6 +614,14 @@
 }
 .galactic-wars.personnage .header-ressources .stat-force input { color: var(--gw-force); }
 
+/* Points de force : valeur unique (pas de max), centrée dans la carte. */
+.galactic-wars.personnage .header-ressources .stat-force .stat-value {
+  justify-content: center;
+}
+.galactic-wars.personnage .header-ressources .stat-force input {
+  text-align: center;
+}
+
 .galactic-wars.personnage .header-ressources .stat-credits {
   border-color: rgba(232, 179, 77, 0.55);
   background: rgba(232, 179, 77, 0.08);
