@@ -144,6 +144,8 @@ Voir l'arborescence commentée dans `README.md` (module/config, module/data, mod
 
 - **Point orange = compétence recommandée par le métier actuel** (selon les documents sources, champ `obligatoire` des compétences d'un métier), et non plus un type de compétence fixe (`metier: true` de `GW.competences`, qui ne suivait pas le changement de métier). Nouveau champ `recommandee` sur chaque compétence, renseigné par `applyMetier` et recalculé par la migration pour les personnages existants. Les accès ajoutés pour les compétences réservées (`obligatoire: false`) ne portent pas de point.
 
+- **Validation des 120 points de caractéristique** (mode édition, non bloquante comme la case B4 de l'Excel) : somme des seules bases saisies (hors bonus raciaux) affichée `X / 120`, jaune en dessous, vert à l'égalité, rouge au-dessus (`GW.pointsCaracteristiques`). La saisie n'est jamais refusée.
+
 ### 5.2 Roadmap
 Voir §10.
 

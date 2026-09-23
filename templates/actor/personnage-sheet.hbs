@@ -110,6 +110,14 @@
         <span class="legende-item"><span class="dot dot-force"></span>{{localize 'GALACTICWARS.Sheet.CompetencesForce'}}</span>
       </div>
     </div>
+    {{#if modeEdition}}
+    <div class="points-caracteristiques {{pointsCaracteristiques.etat}}" data-tooltip="{{localize 'GALACTICWARS.Sheet.PointsCaracteristiquesHint'}}">
+      <span class="eyebrow">{{localize 'GALACTICWARS.Sheet.PointsCaracteristiques'}}</span>
+      <span class="mono valeur">{{pointsCaracteristiques.valeur}} / {{pointsCaracteristiques.attendu}}</span>
+      {{#if (eq pointsCaracteristiques.etat 'manque')}}<span class="etat">{{localize 'GALACTICWARS.Sheet.PointsCaracteristiquesManque'}}</span>{{/if}}
+      {{#if (eq pointsCaracteristiques.etat 'exces')}}<span class="etat">{{localize 'GALACTICWARS.Sheet.PointsCaracteristiquesExces'}}</span>{{/if}}
+    </div>
+    {{/if}}
     <div class="caracteristiques-grid">
       {{#each caracteristiques as |car|}}
       <div class="colonne-caracteristique">

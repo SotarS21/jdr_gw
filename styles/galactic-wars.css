@@ -695,6 +695,32 @@
 }
 
 /* ---- Caractéristiques & compétences ---- */
+/* Validation non bloquante des 120 points de caractéristique (couleurs de l'Excel). */
+.galactic-wars.personnage .points-caracteristiques {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  margin-bottom: 0.5rem;
+  padding: 0.3rem 0.6rem;
+  border: 1px solid var(--gw-border);
+  border-left-width: 3px;
+  border-radius: 5px;
+  font-size: 0.8rem;
+}
+
+.galactic-wars.personnage .points-caracteristiques .valeur {
+  font-weight: 700;
+}
+
+.galactic-wars.personnage .points-caracteristiques.ok { border-left-color: #57bb8a; }
+.galactic-wars.personnage .points-caracteristiques.ok .valeur { color: #57bb8a; }
+.galactic-wars.personnage .points-caracteristiques.manque { border-left-color: #f6c343; }
+.galactic-wars.personnage .points-caracteristiques.manque .valeur,
+.galactic-wars.personnage .points-caracteristiques.manque .etat { color: #f6c343; }
+.galactic-wars.personnage .points-caracteristiques.exces { border-left-color: #e67c73; }
+.galactic-wars.personnage .points-caracteristiques.exces .valeur,
+.galactic-wars.personnage .points-caracteristiques.exces .etat { color: #e67c73; }
+
 .galactic-wars.personnage .legende {
   display: flex;
   gap: 0.8rem;

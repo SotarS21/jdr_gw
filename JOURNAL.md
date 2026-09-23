@@ -56,6 +56,8 @@ pour les personnages déjà dotés d'un métier. Légende : « compétence recom
 Vérifié sur Kael Dorn : Contrebandier → 6 points, Voleur → 3 (Sécurité accessible sans point),
 retour Contrebandier → 6, 37 compétences intactes.
 
+**9. Validation non bloquante des 120 points de caractéristique** (demande utilisateur), reprise de la case B4 de `Template corriger.xlsx` (`=SUM(B6,E6,H6)`, mise en forme conditionnelle jaune < 120, vert = 120, rouge > 120). Indicateur `X / 120` en mode édition uniquement, calculé sur les seules bases saisies. Vérifié : 39 (Kael) → jaune, 50+40+30 → vert, 135 → rouge et la valeur est bien sauvegardée ; caractéristiques de Kael restaurées.
+
 **5. Info-bulle « Total »** au-dessus du pourcentage de chaque compétence (demande utilisateur), même principe que les info-bulles « Niveau » / ajustement. Vérifié : 37/37, affichée au survol.
 
 **Fichiers modifiés** : `templates/actor/personnage-sheet.hbs`, `module/sheets/personnage-sheet.mjs`,

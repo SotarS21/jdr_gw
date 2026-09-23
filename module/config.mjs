@@ -144,6 +144,10 @@ GW.malusCompetenceNonAcquise = {
 /** Barème niveau (0-3) -> % de base, avant modificateurs raciaux/métier. */
 GW.baremeNiveauCompetence = { 0: 0, 1: 5, 2: 10, 3: 20 };
 
+/** Total attendu des caractéristiques de base saisies (fiche classique, cf. case B4 de
+ *  `Template corriger.xlsx`) — validation indicative, jamais bloquante. */
+GW.pointsCaracteristiques = 120;
+
 GW.alignements = {
   lumiere: "GALACTICWARS.Alignement.Lumiere",
   obscurite: "GALACTICWARS.Alignement.Obscurite"

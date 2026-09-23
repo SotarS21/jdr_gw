@@ -68,6 +68,15 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     context.ongletActif = this.#ongletActif;
     context.modeEdition = this.modeEdition;
     context.isGM = game.user.isGM;
+    // Somme des seules bases saisies (hors bonus raciaux), comparée à GW.pointsCaracteristiques :
+    // indicateur coloré comme dans l'Excel (jaune en dessous, vert à l'égalité, rouge au-dessus).
+    const pointsCaracteristiques = Object.values(system.caracteristiques).reduce((s, c) => s + (c.base ?? 0), 0);
+    context.pointsCaracteristiques = {
+      valeur: pointsCaracteristiques,
+      attendu: GW.pointsCaracteristiques,
+      etat: pointsCaracteristiques === GW.pointsCaracteristiques ? "ok"
+        : pointsCaracteristiques < GW.pointsCaracteristiques ? "manque" : "exces"
+    };
     // `index` conserve la position réelle dans system.competences (pas celle, différente,
     // dans la sous-liste triée/filtrée par caractéristique ci-dessous) pour que les inputs
     // du template continuent de cibler la bonne entrée du tableau.
