@@ -200,6 +200,7 @@
       "OngletPersonnage": "Personnage",
       "OngletEquipements": "Équipements",
       "OngletInformations": "Informations",
+      "OngletNotes": "Notes",
       "NoteTitrePlaceholder": "Titre de la note",
       "AucuneNoteHint": "Aucune note pour l'instant — cliquez sur + pour en ajouter une.",
       "AjustementManuelHint": "Ajustement manuel (level up, etc.) — s'ajoute au total calculé automatiquement."
@@ -224,6 +225,45 @@
       "Description": "Description",
       "EquipementDepart": "Équipement de départ",
       "Capacites": "Capacités"
+    },
+
+    "Notes": {
+      "Resume": "Résumé",
+      "Infos": "Infos",
+      "Pnj": "PNJ",
+      "Missions": "Missions",
+      "Ethnie": "Ethnie et compétences spéciales",
+      "ArmureNaturelle": "Armure naturelle",
+      "AucuneEthnie": "Aucune ethnie choisie (mode Édition → Choisir).",
+      "EthnieNonLiee": "Ethnie renseignée mais non liée au compendium : re-choisissez-la en mode Édition pour afficher ses détails.",
+      "AucuneInfo": "Aucune info pour l'instant.",
+      "AucunPnj": "Aucun PNJ pour l'instant.",
+      "AucuneMission": "Aucune mission pour l'instant.",
+      "Ajouter": "Ajouter",
+      "Supprimer": "Supprimer",
+      "SupprimerConfirmation": "Supprimer définitivement cette entrée ?",
+      "Enregistrer": "Enregistrer",
+      "NouvelleEntree": "Nouvelle entrée : {type}",
+      "ModifierEntree": "Modifier : {type}",
+      "Titre": "Titre",
+      "Nom": "Nom",
+      "SousTitre": "Sous-titre",
+      "Description": "Description",
+      "Contenu": "Contenu",
+      "MotsCles": "Mots-clés",
+      "MotsClesPlaceholder": "séparés par des virgules",
+      "Statut": "Statut",
+      "ImportanceLabel": "Importance",
+      "Type": { "info": "Info", "pnj": "PNJ", "mission": "Mission" },
+      "StatutPnj": { "Allie": "Allié", "Neutre": "Neutre", "Suspect": "Suspect", "Hostile": "Hostile" },
+      "Importance": { "Principale": "Principale", "Secondaire": "Secondaire" },
+      "StatutMission": {
+        "AFaire": "À faire",
+        "EnCours": "En cours",
+        "ManqueInfo": "En manque d'info",
+        "Terminee": "Terminée",
+        "Ratee": "Ratée"
+      }
     },
 
     "Avertissement": {

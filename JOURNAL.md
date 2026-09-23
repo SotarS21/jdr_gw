@@ -1,5 +1,17 @@
 # Journal de développement — Galactic Wars
 
+## Session du 2026-09-23 (suite) — Onglets Informations et Notes, lot 2 de la todo (v0.11.1 → v0.12.0)
+
+**Choix de l'auteur** : édition par fenêtre modale ; mots-clés sur les Infos seulement, sans filtre ; 4 sous-onglets ; les « compétences spéciales » sont celles de l'ethnie → deux onglets séparés, **Informations** (ethnie) et **Notes** (Résumé / Infos / PNJ / Missions). La todo a aussi reçu trois nouveaux blocs (refonte du template des objets inspirée d'Antique avec porté/rangé et jets depuis le chat, onglet Combat inachevé, spécification complète du Comlink et de sa messagerie), gardés pour la suite.
+
+**Données** : `resume` (HTMLField), `notes` gagne `motsCles` (tableau de chaînes ; nom conservé pour ne pas perdre les notes existantes), `pnjs` et `missions` (ArrayField, statuts/importances en `choices` issus de `GW.statutsPnj` / `GW.importancesMission` / `GW.statutsMission`). **Édition** : `helpers/notes.mjs` — `DialogV2.input` avec `<prose-mirror>` pour les textes riches, mots-clés saisis séparés par des virgules (nettoyés, dédoublonnés), écriture par remplacement du tableau complet ; aucun input de ces listes dans le formulaire de la fiche, donc la sauvegarde automatique ne peut pas les altérer. **Informations** : lecture de l'Item race par `system.race.uuid` (`fromUuid`), modificateurs non nuls affichés en étiquettes.
+
+**Vérifié** (personnages temporaires, supprimés ensuite) : création d'une Info (mots-clés « Hoth, base,  Hoth , secret » → [Hoth, base, secret]), réouverture pré-remplie et modification, PNJ « hostile » en rouge, mission principale / en cours puis suppression avec confirmation, compteurs des sous-onglets, sauvegarde du formulaire sans effet sur les listes (37 compétences intactes), frappe réelle dans l'éditeur riche de la modale enregistrée, Résumé modifié et enregistré sur place ; onglet Informations de Kael Dorn : Zabrak, portrait, description, 6 modificateurs ; message d'aide sans ethnie.
+
+**Fichiers** : `module/helpers/notes.mjs` (nouveau), `module/data/actor-personnage.mjs`, `module/config.mjs`, `module/sheets/personnage-sheet.mjs`, `templates/actor/personnage-sheet.hbs`, `lang/fr.json`, `styles/galactic-wars.css`, `system.json`, `CAHIER_DES_CHARGES.md`.
+
+---
+
 ## Session du 2026-09-23 (suite) — Points de force en ressource simple (v0.11.0 → v0.11.1)
 
 **Todo de l'auteur (`Desktop/todo_foundry_galactic_wars.txt`) — lot 1, retouches de la fiche classique.** Liste regroupée en 4 lots (1 : retouches de fiche ; 2 : onglet Informations restructuré — PNJ, Missions, Résumé, Info importante, mots-clés ; 3 : tag « Caché » sur l'équipement ; 4 : Comlink, canaux + messagerie, à spécifier). Choix de l'auteur : lot 1 d'abord ; « compétences non utilisées » = compétences grisées ; clic **gauche** sur le nom pour lancer (le clic droit reste le menu MJ de déblocage) ; points jaune/violet non déplacés, légende seulement renommée. Livré : masquage CSS des compétences grisées hors édition (pas `{{#if}}` : leurs inputs cachés doivent rester soumis, ArrayField) ; case Sensible à la Force en édition seulement ; couleurs PV/Force/Crédits ; ligne de titres Niv./Ajust./Total ; total de caractéristique en 1,7rem ; dé supprimé ; légende « compétence liée à la Force » ; bouton Repos. Vérifié sur Kael Dorn : 25 lignes visibles / 12 grisées masquées en lecture, visibles en édition ; clic sur Bagarre → message « Bagarre (cible 30%) » (supprimé après test) ; Repos → 30/30 ; sauvegarde hors édition sans perte sur les compétences ; aucun débordement.

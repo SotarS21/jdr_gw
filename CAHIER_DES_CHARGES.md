@@ -162,6 +162,10 @@ Voir l'arborescence commentée dans `README.md` (module/config, module/data, mod
 
 - **Retouches de la fiche classique (todo auteur, lot 1)** : compétences grisées masquées hors mode édition (masquage CSS, champs toujours soumis) ; case « Sensible à la Force » seulement en édition, section Pouvoirs masquée hors édition si non sensible ; PV, Points de force et Crédits colorés (corail / violet / or) ; titres de colonnes Niv. / Ajust. (édition) / Total ; total des caractéristiques en grand (base et bonus racial en petit) ; bouton dé supprimé, clic gauche sur le nom de la compétence = jet ; légende renommée « compétence liée à la Force » ; bouton Repos (lit) sur la carte PV qui remet les PV au maximum.
 
+### 5.1quaterdecies Ajoutées (v0.12.0)
+- **Onglet Informations = ethnie** (fiche classique) : portrait, description (compétences spéciales), modificateurs de caractéristiques et de compétences et armure naturelle de l'Item race lié, en lecture seule. Message d'aide si aucune ethnie ou ethnie non liée au compendium.
+- **Nouvel onglet Notes**, 4 sous-onglets : **Résumé** (texte riche unique, `system.resume`), **Infos** (titre, contenu riche, mots-clés — reprend `system.notes`, notes existantes conservées), **PNJ** (nom, sous-titre, description, statut allié / neutre / suspect / hostile en couleur, `system.pnjs`), **Missions** (titre, description, importance principale / secondaire, statut à faire / en cours / en manque d'info / terminée / ratée, `system.missions`). Listes affichées en cartes ; création et modification dans une fenêtre modale (`helpers/notes.mjs`), suppression avec confirmation. Les listes ne passent jamais par le formulaire de la fiche (remplacement du tableau complet uniquement).
+
 ### 5.2 Roadmap
 Voir §10.
 

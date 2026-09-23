@@ -81,10 +81,31 @@ export class PersonnageData extends foundry.abstract.TypeDataModel {
       sensibleForce: new BooleanField({ initial: false }),
 
       portrait: new FilePathField({ categories: ["IMAGE"], initial: "icons/svg/mystery-man.svg" }),
+      // Onglet Notes. Ces listes ne sont modifiées que par la fenêtre d'édition
+      // (helpers/notes.mjs, remplacement du tableau complet) — jamais via le formulaire.
+      resume: new HTMLField({ initial: "" }),
+      // Sous-onglet « Infos » (nom historique conservé : notes existantes préservées).
       notes: new ArrayField(
         new SchemaField({
           titre: new StringField({ initial: "" }),
-          contenu: new HTMLField({ initial: "" })
+          contenu: new HTMLField({ initial: "" }),
+          motsCles: new ArrayField(new StringField({ blank: false }))
+        })
+      ),
+      pnjs: new ArrayField(
+        new SchemaField({
+          nom: new StringField({ initial: "" }),
+          sousTitre: new StringField({ initial: "" }),
+          description: new HTMLField({ initial: "" }),
+          statut: new StringField({ initial: "neutre", choices: () => GW.statutsPnj })
+        })
+      ),
+      missions: new ArrayField(
+        new SchemaField({
+          titre: new StringField({ initial: "" }),
+          description: new HTMLField({ initial: "" }),
+          importance: new StringField({ initial: "secondaire", choices: () => GW.importancesMission }),
+          statut: new StringField({ initial: "aFaire", choices: () => GW.statutsMission })
         })
       )
     };

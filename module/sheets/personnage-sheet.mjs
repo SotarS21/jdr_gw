@@ -3,6 +3,7 @@ import { rollCompetence } from "../helpers/rolls.mjs";
 import { applyRace } from "../helpers/race.mjs";
 import { applyMetier } from "../helpers/metier.mjs";
 import { choisirItemCompendium } from "../helpers/compendium-picker.mjs";
+import { editerEntreeNote, supprimerEntreeNote } from "../helpers/notes.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
@@ -31,8 +32,10 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       repos: PersonnageSheet.#onRepos,
       ajusterLumiere: PersonnageSheet.#onAjusterLumiere,
       ajusterObscurite: PersonnageSheet.#onAjusterObscurite,
-      addNote: PersonnageSheet.#onAddNote,
-      removeNote: PersonnageSheet.#onRemoveNote
+      changerSousOnglet: PersonnageSheet.#onChangerSousOnglet,
+      ajouterEntreeNote: PersonnageSheet.#onAjouterEntreeNote,
+      editerEntreeNote: PersonnageSheet.#onEditerEntreeNote,
+      supprimerEntreeNote: PersonnageSheet.#onSupprimerEntreeNote
     }
   };
 
@@ -43,6 +46,9 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   /** Onglet actif — état d'affichage pur, pas de persistance sur l'Actor (survit aux re-rendus
    *  puisque l'instance de sheet, elle, persiste entre deux rendus). */
   #ongletActif = "personnage";
+
+  /** Sous-onglet actif de l'onglet Notes (résumé / infos / pnj / missions) — même principe. */
+  #sousOngletNotes = "resume";
 
   /** Mode édition des caractéristiques, de la race et du métier — même principe que l'onglet
    *  actif (état d'affichage de l'instance, rien n'est écrit sur l'Actor). null = pas encore
@@ -67,6 +73,7 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     context.actor = this.actor;
     context.system = system;
     context.ongletActif = this.#ongletActif;
+    context.sousOngletNotes = this.#sousOngletNotes;
     context.modeEdition = this.modeEdition;
     context.isGM = game.user.isGM;
     // Barre de PV : vert > 50 %, orange de 25 à 50 %, rouge < 25 % (le PJ voit quand il est « dans le rouge »).
@@ -101,17 +108,76 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     context.armures = this.actor.items.filter((i) => i.type === "armure");
     context.pouvoirs = this.actor.items.filter((i) => i.type === "pouvoir");
     context.equipements = this.actor.items.filter((i) => i.type === "equipement");
-    context.notesEnrichies = await Promise.all(
-      system.notes.map((note) =>
-        foundry.applications.ux.TextEditor.implementation.enrichHTML(note.contenu, { relativeTo: this.actor })
-      )
-    );
+    if (this.#ongletActif === "notes") Object.assign(context, await this.#preparerNotes(system));
+    if (this.#ongletActif === "informations") context.ethnie = await this.#preparerEthnie(system);
     // Pips d'affichage pour les jauges Lumière/Obscurité (voir styles/galactic-wars.css) —
     // purement visuel, la valeur réelle reste system.lumiere/system.obscurite.
     context.pipsLumiere = Array.from({ length: 10 }, (_, i) => i < system.lumiere);
     context.pipsObscurite = Array.from({ length: 10 }, (_, i) => i < system.obscurite);
 
     return context;
+  }
+
+  /** Données d'affichage de l'onglet Notes (listes enrichies, libellés de statut). */
+  async #preparerNotes(system) {
+    const enrichir = (html) =>
+      foundry.applications.ux.TextEditor.implementation.enrichHTML(html ?? "", { relativeTo: this.actor });
+    const libelle = (table, cle) => game.i18n.localize(table[cle] ?? cle);
+    return {
+      resumeEnrichi: await enrichir(system.resume),
+      infos: await Promise.all(system.notes.map(async (note, index) => ({
+        ...note, index, contenuEnrichi: await enrichir(note.contenu)
+      }))),
+      pnjs: await Promise.all(system.pnjs.map(async (pnj, index) => ({
+        ...pnj, index, statutLabel: libelle(GW.statutsPnj, pnj.statut), descriptionEnrichie: await enrichir(pnj.description)
+      }))),
+      missions: await Promise.all(system.missions.map(async (mission, index) => ({
+        ...mission, index,
+        statutLabel: libelle(GW.statutsMission, mission.statut),
+        importanceLabel: libelle(GW.importancesMission, mission.importance),
+        descriptionEnrichie: await enrichir(mission.description)
+      })))
+    };
+  }
+
+  /** Onglet Informations : ethnie liée (portrait, description, modificateurs, armure naturelle). */
+  async #preparerEthnie(system) {
+    const race = system.race?.uuid ? await fromUuid(system.race.uuid).catch(() => null) : null;
+    if (race?.type !== "race") return { nom: system.race?.nom || "", trouvee: false };
+    const signe = (v) => (v > 0 ? `+${v}` : `${v}`);
+    return {
+      trouvee: true,
+      nom: race.name,
+      img: race.img,
+      description: await foundry.applications.ux.TextEditor.implementation.enrichHTML(race.system.description ?? "", { relativeTo: race }),
+      caracteristiques: Object.entries(race.system.modificateursCaracteristiques)
+        .filter(([, v]) => v)
+        .map(([cle, v]) => ({ label: game.i18n.localize(GW.caracteristiques[cle]), valeur: signe(v) })),
+      competences: Object.entries(race.system.modificateursCompetences ?? {})
+        .filter(([, v]) => v)
+        .map(([cle, v]) => ({ label: game.i18n.localize(GW.competences[cle]?.label ?? cle), valeur: `${signe(v)} %` })),
+      armureNaturelle: race.system.armureNaturelle
+    };
+  }
+
+  static async #onChangerSousOnglet(event, target) {
+    this.#sousOngletNotes = target.dataset.sousOnglet;
+    this.render();
+  }
+
+  static async #onAjouterEntreeNote(event, target) {
+    await editerEntreeNote(this.actor, target.dataset.type);
+  }
+
+  static async #onEditerEntreeNote(event, target) {
+    const carte = target.closest("[data-index]");
+    await editerEntreeNote(this.actor, carte.dataset.type, Number(carte.dataset.index));
+  }
+
+  static async #onSupprimerEntreeNote(event, target) {
+    event.stopPropagation();
+    const carte = target.closest("[data-index]");
+    await supprimerEntreeNote(this.actor, carte.dataset.type, Number(carte.dataset.index));
   }
 
   static async #onChangerOnglet(event, target) {
@@ -186,19 +252,6 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   async #ajusterReserve(cle, delta) {
     const valeur = Math.min(10, Math.max(0, this.actor.system[cle] + delta));
     await this.actor.update({ [`system.${cle}`]: valeur });
-  }
-
-  static async #onAddNote() {
-    await this.actor.update({
-      "system.notes": [...this.actor.system.notes, { titre: "", contenu: "" }]
-    });
-  }
-
-  static async #onRemoveNote(event, target) {
-    const index = Number(target.dataset.index);
-    await this.actor.update({
-      "system.notes": this.actor.system.notes.filter((_, i) => i !== index)
-    });
   }
 
   static async #onApplyRace(event, target) {

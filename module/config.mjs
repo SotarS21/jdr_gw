@@ -149,6 +149,25 @@ GW.baremeNiveauCompetence = { 0: 0, 1: 5, 2: 10, 3: 20 };
  *  `Template corriger.xlsx`) — validation indicative, jamais bloquante. */
 GW.pointsCaracteristiques = 120;
 
+/** Onglet Notes de la fiche classique : statuts et importances (clé -> libellé i18n). */
+GW.statutsPnj = {
+  allie: "GALACTICWARS.Notes.StatutPnj.Allie",
+  neutre: "GALACTICWARS.Notes.StatutPnj.Neutre",
+  suspect: "GALACTICWARS.Notes.StatutPnj.Suspect",
+  hostile: "GALACTICWARS.Notes.StatutPnj.Hostile"
+};
+GW.importancesMission = {
+  principale: "GALACTICWARS.Notes.Importance.Principale",
+  secondaire: "GALACTICWARS.Notes.Importance.Secondaire"
+};
+GW.statutsMission = {
+  aFaire: "GALACTICWARS.Notes.StatutMission.AFaire",
+  enCours: "GALACTICWARS.Notes.StatutMission.EnCours",
+  manqueInfo: "GALACTICWARS.Notes.StatutMission.ManqueInfo",
+  terminee: "GALACTICWARS.Notes.StatutMission.Terminee",
+  ratee: "GALACTICWARS.Notes.StatutMission.Ratee"
+};
+
 GW.alignements = {
   lumiere: "GALACTICWARS.Alignement.Lumiere",
   obscurite: "GALACTICWARS.Alignement.Obscurite"

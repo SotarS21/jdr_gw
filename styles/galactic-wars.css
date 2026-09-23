@@ -1145,3 +1145,173 @@
     grid-template-columns: 2rem 1fr 2rem 2rem 2.5rem;
   }
 }
+
+/* ======================================================================
+   Onglets Informations (ethnie) et Notes (Résumé / Infos / PNJ / Missions)
+   ====================================================================== */
+.galactic-wars.personnage .sous-onglets {
+  display: flex;
+  gap: 0.3rem;
+  margin-bottom: 0.6rem;
+  border-bottom: 1px solid var(--gw-border);
+}
+
+.galactic-wars.personnage .sous-onglet-btn {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  color: var(--gw-muted);
+  font-size: 0.8rem;
+  padding: 0.3rem 0.7rem;
+  cursor: pointer;
+  width: auto;
+}
+
+.galactic-wars.personnage .sous-onglet-btn.active {
+  color: var(--gw-accent);
+  border-bottom-color: var(--gw-accent);
+}
+
+.galactic-wars.personnage .sous-onglet-btn .compteur {
+  font-size: 0.65rem;
+  color: var(--gw-dim);
+  margin-left: 0.2rem;
+}
+
+.galactic-wars.personnage .carte-note {
+  border: 1px solid var(--gw-border);
+  border-left: 3px solid var(--gw-border);
+  border-radius: 6px;
+  padding: 0.5rem 0.7rem;
+  margin-bottom: 0.5rem;
+  background: rgba(255, 255, 255, 0.02);
+  cursor: pointer;
+}
+
+.galactic-wars.personnage .carte-note:hover {
+  border-color: var(--gw-accent);
+}
+
+.galactic-wars.personnage .carte-entete {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.galactic-wars.personnage .carte-titre {
+  flex: 1 1 auto;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.galactic-wars.personnage .carte-sous-titre {
+  font-size: 0.75rem;
+  color: var(--gw-muted);
+  font-style: italic;
+}
+
+.galactic-wars.personnage .carte-texte {
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
+}
+
+.galactic-wars.personnage .carte-texte p {
+  margin: 0.2rem 0;
+}
+
+.galactic-wars.personnage .mots-cles,
+.galactic-wars.personnage .ethnie-modificateurs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.3rem;
+}
+
+.galactic-wars.personnage .etiquette {
+  font-size: 0.65rem;
+  padding: 0.05rem 0.45rem;
+  border-radius: 999px;
+  border: 1px solid var(--gw-border);
+  color: var(--gw-accent-soft);
+  background: rgba(143, 233, 251, 0.06);
+}
+
+.galactic-wars.personnage .pastille {
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 0.05rem 0.5rem;
+  border-radius: 999px;
+  border: 1px solid currentColor;
+  white-space: nowrap;
+}
+
+/* Statut des PNJ : allié / neutre / suspect / hostile. */
+.galactic-wars.personnage .statut-allie { --statut: #5ccf8a; }
+.galactic-wars.personnage .statut-neutre { --statut: #9aa1b5; }
+.galactic-wars.personnage .statut-suspect { --statut: #f0a53c; }
+.galactic-wars.personnage .statut-hostile { --statut: #ef4b4b; }
+
+/* Statut des missions. */
+.galactic-wars.personnage .mission-aFaire { --statut: #9aa1b5; }
+.galactic-wars.personnage .mission-enCours { --statut: #5aa9ff; }
+.galactic-wars.personnage .mission-manqueInfo { --statut: #f0a53c; }
+.galactic-wars.personnage .mission-terminee { --statut: #5ccf8a; }
+.galactic-wars.personnage .mission-ratee { --statut: #ef4b4b; }
+
+.galactic-wars.personnage .carte-note[class*="statut-"],
+.galactic-wars.personnage .carte-note[class*="mission-"] {
+  border-left-color: var(--statut);
+}
+
+.galactic-wars.personnage .pastille[class*="statut-"],
+.galactic-wars.personnage .pastille[class*="mission-"] {
+  color: var(--statut);
+}
+
+.galactic-wars.personnage .pastille.importance-principale { color: var(--gw-gold); }
+.galactic-wars.personnage .pastille.importance-secondaire { color: var(--gw-muted); }
+
+.galactic-wars.personnage .carte-note.mission-terminee .carte-titre,
+.galactic-wars.personnage .carte-note.mission-ratee .carte-titre {
+  text-decoration: line-through;
+  opacity: 0.75;
+}
+
+/* Ethnie. */
+.galactic-wars.personnage .ethnie-contenu {
+  display: flex;
+  gap: 0.9rem;
+  align-items: flex-start;
+}
+
+.galactic-wars.personnage .ethnie-portrait {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid var(--gw-border);
+  flex-shrink: 0;
+}
+
+.galactic-wars.personnage .ethnie-nom {
+  margin: 0 0 0.3rem;
+  font-size: 1.1rem;
+  color: var(--gw-accent);
+  border: none;
+}
+
+.galactic-wars.personnage .ethnie-description {
+  font-size: 0.85rem;
+}
+
+/* Fenêtre modale d'édition d'une entrée. */
+.galactic-wars-note-dialog prose-mirror {
+  display: block;
+  min-height: 160px;
+}
+
+.galactic-wars-note-dialog .form-group.stacked {
+  flex-direction: column;
+  align-items: stretch;
+}
