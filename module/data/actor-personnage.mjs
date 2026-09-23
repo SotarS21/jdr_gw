@@ -108,6 +108,7 @@ export class PersonnageData extends foundry.abstract.TypeDataModel {
         new SchemaField({
           nom: new StringField({ initial: "" }),
           sousTitre: new StringField({ initial: "" }),
+          img: new FilePathField({ categories: ["IMAGE"], blank: true, initial: "" }),
           description: new HTMLField({ initial: "" }),
           statut: new StringField({ initial: "neutre", choices: () => GW.statutsPnj })
         })

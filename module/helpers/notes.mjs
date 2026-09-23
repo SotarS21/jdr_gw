@@ -39,6 +39,13 @@ function champSelect(nom, libelle, choix, valeur) {
   return `<div class="form-group"><label>${libelle}</label><select name="${nom}">${options}</select></div>`;
 }
 
+function champImage(nom, libelle, valeur) {
+  return `<div class="form-group">
+    <label>${libelle}</label>
+    <file-picker name="${nom}" type="image" value="${echapper(valeur)}"></file-picker>
+  </div>`;
+}
+
 function champRiche(nom, libelle, valeur) {
   return `<div class="form-group stacked">
     <label>${libelle}</label>
@@ -60,6 +67,7 @@ function formulaire(type, entree) {
     case "pnj":
       return champTexte("nom", t("Nom"), entree.nom, { autofocus: true })
         + champTexte("sousTitre", t("SousTitre"), entree.sousTitre)
+        + champImage("img", t("Image"), entree.img)
         + champSelect("statut", t("Statut"), GW.statutsPnj, entree.statut ?? "neutre")
         + champRiche("description", t("Description"), entree.description);
     case "mission":
@@ -81,7 +89,10 @@ function normaliser(type, donnees) {
     return { titre: donnees.titre ?? "", contenu: donnees.contenu ?? "", motsCles };
   }
   if (type === "pnj") {
-    return { nom: donnees.nom ?? "", sousTitre: donnees.sousTitre ?? "", description: donnees.description ?? "", statut: donnees.statut };
+    return {
+      nom: donnees.nom ?? "", sousTitre: donnees.sousTitre ?? "", img: donnees.img ?? "",
+      description: donnees.description ?? "", statut: donnees.statut
+    };
   }
   return { titre: donnees.titre ?? "", description: donnees.description ?? "", importance: donnees.importance, statut: donnees.statut };
 }

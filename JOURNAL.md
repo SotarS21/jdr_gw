@@ -24,6 +24,8 @@ Une seule fenêtre d'édition par entrée (demande de l'auteur) : `helpers/notes
 
 Correction (retour de l'auteur : « on ne voit qu'une ligne ») : les paragraphes avaient été passés en `display: inline` pour placer le « … », ce qui fusionnait plusieurs lignes courtes en une seule. Paragraphes rétablis en blocs (sans marge) : le décompte porte sur les lignes réellement affichées. Vérifié : 2 lignes → 2, 6 lignes courtes → lignes 1 à 3 puis coupé, long paragraphe → 3 lignes, résumé de 8 lignes → 5 ; tout visible en mode Édition.
 
+Image de PNJ (demande de l'auteur) : champ `img` (FilePathField image) sur `system.pnjs`, saisi dans la fenêtre via l'élément natif `<file-picker type="image">` (champ + bouton de parcours Foundry) ; vignette 72×72 à gauche de la carte, bordée de la couleur du statut. Vérifié : champ présent, chemin enregistré, vignette chargée sur la carte avec image, carte sans image inchangée, chemin pré-rempli à la réouverture.
+
 **Fichiers** : `module/helpers/notes.mjs` (nouveau), `module/data/actor-personnage.mjs`, `module/config.mjs`, `module/sheets/personnage-sheet.mjs`, `templates/actor/personnage-sheet.hbs`, `lang/fr.json`, `styles/galactic-wars.css`, `system.json`, `CAHIER_DES_CHARGES.md`.
 
 ---

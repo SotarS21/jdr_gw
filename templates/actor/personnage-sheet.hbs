@@ -386,14 +386,17 @@
       <button type="button" class="roll-btn" data-action="ajouterEntreeNote" data-type="pnj" data-tooltip="{{localize 'GALACTICWARS.Notes.Ajouter'}}">+</button>
     </div>
     {{#each pnjs as |pnj|}}
-    <article class="carte-note statut-{{pnj.statut}}" data-type="pnj" data-index="{{pnj.index}}" data-action="editerEntreeNote">
-      <header class="carte-entete">
-        <span class="carte-titre">{{pnj.nom}}</span>
-        <span class="pastille statut-{{pnj.statut}}">{{pnj.statutLabel}}</span>
-        <button type="button" class="del-btn" data-action="supprimerEntreeNote" data-tooltip="{{localize 'GALACTICWARS.Notes.Supprimer'}}">🗑</button>
-      </header>
-      {{#if pnj.sousTitre}}<div class="carte-sous-titre">{{pnj.sousTitre}}</div>{{/if}}
-      <div class="carte-texte">{{{pnj.descriptionEnrichie}}}</div>
+    <article class="carte-note statut-{{pnj.statut}} {{#if pnj.img}}avec-image{{/if}}" data-type="pnj" data-index="{{pnj.index}}" data-action="editerEntreeNote">
+      {{#if pnj.img}}<img class="carte-image" src="{{pnj.img}}" alt="{{pnj.nom}}">{{/if}}
+      <div class="carte-corps">
+        <header class="carte-entete">
+          <span class="carte-titre">{{pnj.nom}}</span>
+          <span class="pastille statut-{{pnj.statut}}">{{pnj.statutLabel}}</span>
+          <button type="button" class="del-btn" data-action="supprimerEntreeNote" data-tooltip="{{localize 'GALACTICWARS.Notes.Supprimer'}}">🗑</button>
+        </header>
+        {{#if pnj.sousTitre}}<div class="carte-sous-titre">{{pnj.sousTitre}}</div>{{/if}}
+        <div class="carte-texte">{{{pnj.descriptionEnrichie}}}</div>
+      </div>
     </article>
     {{else}}
     <p class="hint">{{localize 'GALACTICWARS.Notes.AucunPnj'}}</p>
