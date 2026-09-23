@@ -14,7 +14,7 @@ Stress retiré de la fiche classique (demande de l'auteur, futur système d'éta
 
 Valeur des points de force centrée dans sa carte (demande de l'auteur). Vérifié : centre de l'input = centre de la carte.
 
-Barre de progression des PV (demande de l'auteur) sous la valeur, dans la carte PV : pourcentage calculé dans `_prepareContext` (borné 0–100, 0 si PV max = 0), seuils vert > 50 % / orange 25–50 % / rouge < 25 %. Vérifié sur Kael (30 PV max) : 30 → vert 100 %, 12 → orange 40 %, 3 → rouge 10 %, 0 → rouge 0 % ; PV restaurés.
+Barre de progression des PV (demande de l'auteur) sous la valeur, dans la carte PV : pourcentage calculé dans `_prepareContext` (borné 0–100, 0 si PV max = 0), seuils vert > 50 % / orange 25–50 % / rouge < 25 %. Vérifié sur Kael (30 PV max) : 30 → vert 100 %, 12 → orange 40 %, 3 → rouge 10 %, 0 → rouge 0 % ; PV restaurés. Puis, à la demande de l'auteur, remplissage ancré à droite : la barre se vide de gauche vers la droite (vérifié par mesure à 12/30).
 
 Au passage, `verify-local.mjs` refuse désormais de se connecter si le monde actif n'est pas un monde Galactic Wars (le serveur avait basculé sur « testantique » en cours de session ; l'auteur a relancé le bon monde lui-même).
 
