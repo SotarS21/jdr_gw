@@ -1241,14 +1241,10 @@
   line-clamp: 5;
 }
 
-/* Paragraphes en ligne dans l'aperçu : le « … » tombe bien sur la dernière ligne visible. */
+/* Paragraphes conservés (un retour à la ligne = une ligne), sans marge : le décompte
+   des 3 / 5 lignes porte sur les lignes réellement affichées. */
 .galactic-wars.personnage .carte-note .carte-texte p {
-  display: inline;
   margin: 0;
-}
-
-.galactic-wars.personnage .carte-note .carte-texte p + p::before {
-  content: " ";
 }
 
 /* En mode Édition, les cartes affichent tout leur texte. */
@@ -1260,12 +1256,7 @@
 }
 
 .galactic-wars.personnage .texte-complet .carte-note .carte-texte p {
-  display: block;
   margin: 0.2rem 0;
-}
-
-.galactic-wars.personnage .texte-complet .carte-note .carte-texte p + p::before {
-  content: none;
 }
 
 .galactic-wars.personnage .mots-cles,

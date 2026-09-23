@@ -18,9 +18,11 @@ Section **Description du personnage** en tête de l'onglet Informations (demande
 
 Images agrandies (demande de l'auteur) : portrait d'ethnie 140 → 260 px de large, proportions conservées (plus de recadrage carré, 260×294 pour Zabrak) ; portrait du personnage dans l'en-tête 76 → 128 px (en-tête 145 px en lecture, 180 px en édition, aucun débordement).
 
-Aperçu limité des cartes (demande de l'auteur) : texte coupé à 3 lignes (Infos, PNJ, Missions) ou 5 lignes (Résumés) avec « … » (`line-clamp`, paragraphes passés en ligne pour que le « … » tombe sur la dernière ligne visible) ; texte complet en mode Édition de la fiche (classe `texte-complet`) et dans la fenêtre d'édition. Vérifié par mesure : cartes longues coupées à 3/5 lignes, carte courte intacte, texte complet en mode Édition et dans la modale.
+Aperçu limité des cartes (demande de l'auteur) : texte coupé à 3 lignes (Infos, PNJ, Missions) ou 5 lignes (Résumés) avec « … » (`line-clamp`) ; texte complet en mode Édition de la fiche (classe `texte-complet`) et dans la fenêtre d'édition. Vérifié par mesure : cartes longues coupées à 3/5 lignes, carte courte intacte, texte complet en mode Édition et dans la modale.
 
 Une seule fenêtre d'édition par entrée (demande de l'auteur) : `helpers/notes.mjs` garde les fenêtres ouvertes par Actor + type + index (`nouvelle` pour le « + ») ; un nouveau clic ramène la fenêtre existante au premier plan (`bringToFront`, `maximize` si réduite) et place le focus dans son premier champ. Commun aux 4 types. Vérifié : double-clic rapide → 1 fenêtre, clic supplémentaire → toujours 1, autre carte → 2, re-clic sur la première → premier plan + focus sur « Nom », réouverture possible après fermeture, double-clic sur « + » → 1.
+
+Correction (retour de l'auteur : « on ne voit qu'une ligne ») : les paragraphes avaient été passés en `display: inline` pour placer le « … », ce qui fusionnait plusieurs lignes courtes en une seule. Paragraphes rétablis en blocs (sans marge) : le décompte porte sur les lignes réellement affichées. Vérifié : 2 lignes → 2, 6 lignes courtes → lignes 1 à 3 puis coupé, long paragraphe → 3 lignes, résumé de 8 lignes → 5 ; tout visible en mode Édition.
 
 **Fichiers** : `module/helpers/notes.mjs` (nouveau), `module/data/actor-personnage.mjs`, `module/config.mjs`, `module/sheets/personnage-sheet.mjs`, `templates/actor/personnage-sheet.hbs`, `lang/fr.json`, `styles/galactic-wars.css`, `system.json`, `CAHIER_DES_CHARGES.md`.
 
