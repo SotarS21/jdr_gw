@@ -331,7 +331,7 @@
 
   {{#if (eq ongletActif 'notes')}}
   <nav class="sous-onglets">
-    <button type="button" class="sous-onglet-btn {{#if (eq sousOngletNotes 'resume')}}active{{/if}}" data-action="changerSousOnglet" data-sous-onglet="resume">{{localize 'GALACTICWARS.Notes.Resume'}}</button>
+    <button type="button" class="sous-onglet-btn {{#if (eq sousOngletNotes 'resume')}}active{{/if}}" data-action="changerSousOnglet" data-sous-onglet="resume">{{localize 'GALACTICWARS.Notes.Resumes'}} <span class="compteur">{{resumes.length}}</span></button>
     <button type="button" class="sous-onglet-btn {{#if (eq sousOngletNotes 'infos')}}active{{/if}}" data-action="changerSousOnglet" data-sous-onglet="infos">{{localize 'GALACTICWARS.Notes.Infos'}} <span class="compteur">{{infos.length}}</span></button>
     <button type="button" class="sous-onglet-btn {{#if (eq sousOngletNotes 'pnj')}}active{{/if}}" data-action="changerSousOnglet" data-sous-onglet="pnj">{{localize 'GALACTICWARS.Notes.Pnj'}} <span class="compteur">{{pnjs.length}}</span></button>
     <button type="button" class="sous-onglet-btn {{#if (eq sousOngletNotes 'missions')}}active{{/if}}" data-action="changerSousOnglet" data-sous-onglet="missions">{{localize 'GALACTICWARS.Notes.Missions'}} <span class="compteur">{{missions.length}}</span></button>
@@ -339,7 +339,22 @@
 
   {{#if (eq sousOngletNotes 'resume')}}
   <section class="notes panel">
-    <prose-mirror name="system.resume" value="{{system.resume}}" toggled>{{{resumeEnrichi}}}</prose-mirror>
+    <div class="section-header">
+      <h2 class="eyebrow">{{localize 'GALACTICWARS.Notes.Resumes'}}</h2>
+      <button type="button" class="roll-btn" data-action="ajouterEntreeNote" data-type="resume" data-tooltip="{{localize 'GALACTICWARS.Notes.Ajouter'}}">+</button>
+    </div>
+    {{#each resumes as |resume|}}
+    <article class="carte-note" data-type="resume" data-index="{{resume.index}}" data-action="editerEntreeNote">
+      <header class="carte-entete">
+        <span class="carte-titre">{{resume.titre}}</span>
+        {{#if resume.dateLabel}}<span class="carte-date" data-tooltip="{{localize 'GALACTICWARS.Notes.DateHint'}}">{{resume.dateLabel}}</span>{{/if}}
+        <button type="button" class="del-btn" data-action="supprimerEntreeNote" data-tooltip="{{localize 'GALACTICWARS.Notes.Supprimer'}}">🗑</button>
+      </header>
+      <div class="carte-texte">{{{resume.descriptionEnrichie}}}</div>
+    </article>
+    {{else}}
+    <p class="hint">{{localize 'GALACTICWARS.Notes.AucunResume'}}</p>
+    {{/each}}
   </section>
   {{/if}}
 

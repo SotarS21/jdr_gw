@@ -14,6 +14,8 @@ Section **Description du personnage** en tête de l'onglet Informations (demande
 
 **Bug remonté : description des PNJ impossible à remplir.** Mesuré : `<prose-mirror>` faisait 160 px mais sa barre d'outils et sa zone de saisie 0 px — mon `display: block` cassait le flex colonne dans lequel Foundry dimensionne ses enfants. Même défaut sur la nouvelle Description. Corrigé (`display: flex; flex-direction: column` + hauteur minimale) : zone de saisie de 230 px dans les 3 fenêtres (PNJ, Mission, Info, bouton Enregistrer visible), 270 px pour le Résumé, 210 px pour la Description.
 
+**Plusieurs résumés datés** (demande de l'auteur) : `system.resumes` (titre, description, date en ms) remplace le résumé unique, géré comme les autres listes (type `resume` dans `helpers/notes.mjs`, date posée par `normaliser` à la création et à chaque modification), affiché du plus récent au plus ancien avec la date locale. `runMigrations` reprend un ancien `system.resume` non vide en premier résumé « Résumé » puis le vide. Vérifié : migration d'un ancien texte, création de 2 résumés, tri, modification → date mise à jour et résumé remonté en tête.
+
 **Fichiers** : `module/helpers/notes.mjs` (nouveau), `module/data/actor-personnage.mjs`, `module/config.mjs`, `module/sheets/personnage-sheet.mjs`, `templates/actor/personnage-sheet.hbs`, `lang/fr.json`, `styles/galactic-wars.css`, `system.json`, `CAHIER_DES_CHARGES.md`.
 
 ---

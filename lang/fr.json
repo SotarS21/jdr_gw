@@ -229,6 +229,9 @@
 
     "Notes": {
       "Resume": "Résumé",
+      "Resumes": "Résumés",
+      "AucunResume": "Aucun résumé pour l'instant.",
+      "DateHint": "Date de création ou de dernière modification",
       "Infos": "Infos",
       "Pnj": "PNJ",
       "Missions": "Missions",
@@ -265,7 +268,7 @@
       "MotsClesPlaceholder": "séparés par des virgules",
       "Statut": "Statut",
       "ImportanceLabel": "Importance",
-      "Type": { "info": "Info", "pnj": "PNJ", "mission": "Mission" },
+      "Type": { "resume": "Résumé", "info": "Info", "pnj": "PNJ", "mission": "Mission" },
       "StatutPnj": { "Allie": "Allié", "Neutre": "Neutre", "Suspect": "Suspect", "Hostile": "Hostile" },
       "Importance": { "Principale": "Principale", "Secondaire": "Secondaire" },
       "StatutMission": {

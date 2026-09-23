@@ -86,7 +86,16 @@ export class PersonnageData extends foundry.abstract.TypeDataModel {
       portrait: new FilePathField({ categories: ["IMAGE"], initial: "icons/svg/mystery-man.svg" }),
       // Onglet Notes. Ces listes ne sont modifiées que par la fenêtre d'édition
       // (helpers/notes.mjs, remplacement du tableau complet) — jamais via le formulaire.
+      // Ancien résumé unique : remplacé par `resumes`, repris par la migration puis vidé.
       resume: new HTMLField({ initial: "" }),
+      // Résumés : titre, description, date (ms) posée à la création et à chaque modification.
+      resumes: new ArrayField(
+        new SchemaField({
+          titre: new StringField({ initial: "" }),
+          description: new HTMLField({ initial: "" }),
+          date: new NumberField({ required: true, integer: true, min: 0, initial: 0 })
+        })
+      ),
       // Sous-onglet « Infos » (nom historique conservé : notes existantes préservées).
       notes: new ArrayField(
         new SchemaField({

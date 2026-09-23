@@ -132,7 +132,14 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       foundry.applications.ux.TextEditor.implementation.enrichHTML(html ?? "", { relativeTo: this.actor });
     const libelle = (table, cle) => game.i18n.localize(table[cle] ?? cle);
     return {
-      resumeEnrichi: await enrichir(system.resume),
+      // Plus récent en premier ; `index` garde la position réelle dans le tableau.
+      resumes: (await Promise.all(system.resumes.map(async (resume, index) => ({
+        ...resume, index,
+        dateLabel: resume.date
+          ? new Date(resume.date).toLocaleString(game.i18n.lang, { dateStyle: "short", timeStyle: "short" })
+          : "",
+        descriptionEnrichie: await enrichir(resume.description)
+      })))).sort((a, b) => b.date - a.date),
       infos: await Promise.all(system.notes.map(async (note, index) => ({
         ...note, index, contenuEnrichi: await enrichir(note.contenu)
       }))),

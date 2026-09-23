@@ -1205,6 +1205,12 @@
   font-size: 0.9rem;
 }
 
+.galactic-wars.personnage .carte-date {
+  font-size: 0.7rem;
+  color: var(--gw-muted);
+  white-space: nowrap;
+}
+
 .galactic-wars.personnage .carte-sous-titre {
   font-size: 0.75rem;
   color: var(--gw-muted);
@@ -1360,13 +1366,6 @@
   flex-direction: column;
   flex: 0 0 auto;
   min-height: 280px;
-}
-
-/* Résumé (onglet Notes) : même besoin de place en édition. */
-.galactic-wars.personnage section.notes prose-mirror.active {
-  display: flex;
-  flex-direction: column;
-  min-height: 320px;
 }
 
 .galactic-wars-note-dialog .form-group.stacked {

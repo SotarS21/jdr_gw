@@ -11,7 +11,7 @@ import { GW } from "../config.mjs";
  */
 
 /** Type d'entrée -> champ du système. */
-export const LISTES_NOTES = { info: "notes", pnj: "pnjs", mission: "missions" };
+export const LISTES_NOTES = { resume: "resumes", info: "notes", pnj: "pnjs", mission: "missions" };
 
 const echapper = (texte) => foundry.utils.escapeHTML(String(texte ?? ""));
 
@@ -40,6 +40,9 @@ function champRiche(nom, libelle, valeur) {
 function formulaire(type, entree) {
   const t = (cle) => game.i18n.localize(`GALACTICWARS.Notes.${cle}`);
   switch (type) {
+    case "resume":
+      return champTexte("titre", t("Titre"), entree.titre, { autofocus: true })
+        + champRiche("description", t("Description"), entree.description);
     case "info":
       return champTexte("titre", t("Titre"), entree.titre, { autofocus: true })
         + champTexte("motsCles", t("MotsCles"), (entree.motsCles ?? []).join(", "), { placeholder: t("MotsClesPlaceholder") })
@@ -61,6 +64,8 @@ function formulaire(type, entree) {
 
 /** Normalise les données renvoyées par le formulaire. */
 function normaliser(type, donnees) {
+  // Date automatique : création et chaque modification d'un résumé.
+  if (type === "resume") return { titre: donnees.titre ?? "", description: donnees.description ?? "", date: Date.now() };
   if (type === "info") {
     const motsCles = [...new Set(String(donnees.motsCles ?? "").split(",").map((m) => m.trim()).filter(Boolean))];
     return { titre: donnees.titre ?? "", contenu: donnees.contenu ?? "", motsCles };
@@ -74,7 +79,7 @@ function normaliser(type, donnees) {
 /**
  * Ouvre la fenêtre d'édition d'une entrée. `index` absent = nouvelle entrée.
  * @param {Actor} actor
- * @param {"info"|"pnj"|"mission"} type
+ * @param {"resume"|"info"|"pnj"|"mission"} type
  * @param {number} [index]
  */
 export async function editerEntreeNote(actor, type, index) {
@@ -105,7 +110,7 @@ export async function editerEntreeNote(actor, type, index) {
 /**
  * Supprime une entrée après confirmation.
  * @param {Actor} actor
- * @param {"info"|"pnj"|"mission"} type
+ * @param {"resume"|"info"|"pnj"|"mission"} type
  * @param {number} index
  */
 export async function supprimerEntreeNote(actor, type, index) {

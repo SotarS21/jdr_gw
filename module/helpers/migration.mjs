@@ -36,6 +36,16 @@ export async function runMigrations() {
     if (recalculees) competences = recalculees;
 
     if (completees || recalculees) await actor.update({ "system.competences": competences });
+
+    // Ancien résumé unique -> premier élément de la liste des résumés.
+    const { resume, resumes } = actor.system.toObject();
+    if (resume?.trim() && !resumes?.length) {
+      await actor.update({
+        "system.resumes": [{ titre: game.i18n.localize("GALACTICWARS.Notes.Resume"), description: resume, date: Date.now() }],
+        "system.resume": ""
+      });
+      console.log(`Galactic Wars | Migration : résumé repris dans la liste des résumés pour "${actor.name}"`);
+    }
   }
 }
 
