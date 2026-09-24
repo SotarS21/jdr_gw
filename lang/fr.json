@@ -234,6 +234,16 @@
       "Capacites": "Capacités"
     },
 
+    "Traits": {
+      "Titre": "Traits",
+      "Nom": "Trait",
+      "Avantage": "Avantage",
+      "Inconvenient": "Inconvénient",
+      "Ajouter": "Ajouter un trait",
+      "Retirer": "Retirer ce trait",
+      "Aucun": "Aucun trait. Ajoutez-en depuis le compendium Talents (+) ou par glisser-déposer.",
+      "DejaPresent": "{nom} est déjà dans les traits du personnage."
+    },
     "Notes": {
       "Resume": "Résumé",
       "Resumes": "Résumés",

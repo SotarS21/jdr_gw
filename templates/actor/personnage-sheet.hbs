@@ -300,6 +300,42 @@
     <prose-mirror name="system.description" value="{{system.description}}" toggled>{{{descriptionEnrichie}}}</prose-mirror>
   </section>
 
+  {{!-- Traits (Items « talent » portés) : masqué tant qu'il n'y en a aucun, sauf en mode édition. --}}
+  {{#if afficherTraits}}
+  <section class="traits panel">
+    <div class="section-header">
+      <h2 class="eyebrow">{{localize 'GALACTICWARS.Traits.Titre'}}</h2>
+      {{#if modeEdition}}
+      <button type="button" class="roll-btn" data-action="ajouterTrait" data-tooltip="{{localize 'GALACTICWARS.Traits.Ajouter'}}">+</button>
+      {{/if}}
+    </div>
+    {{#if traits.length}}
+    <table class="traits-table">
+      <thead>
+        <tr>
+          <th>{{localize 'GALACTICWARS.Traits.Nom'}}</th>
+          <th>{{localize 'GALACTICWARS.Traits.Avantage'}}</th>
+          <th>{{localize 'GALACTICWARS.Traits.Inconvenient'}}</th>
+          {{#if modeEdition}}<th></th>{{/if}}
+        </tr>
+      </thead>
+      <tbody>
+        {{#each traits as |trait|}}
+        <tr data-item-id="{{trait.id}}">
+          <td class="trait-nom"><a data-action="ouvrirObjet"><img src="{{trait.img}}" alt="">{{trait.name}}</a></td>
+          <td class="trait-avantage">{{trait.system.avantage}}</td>
+          <td class="trait-inconvenient">{{trait.system.inconvenient}}</td>
+          {{#if @root.modeEdition}}<td class="trait-actions"><button type="button" class="del-btn" data-action="deleteItem" data-tooltip="{{localize 'GALACTICWARS.Traits.Retirer'}}">🗑</button></td>{{/if}}
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+    {{else}}
+    <p class="hint">{{localize 'GALACTICWARS.Traits.Aucun'}}</p>
+    {{/if}}
+  </section>
+  {{/if}}
+
   {{!-- Ethnie : compétences spéciales et modificateurs, en lecture seule depuis l'Item race lié. --}}
   <section class="ethnie panel">
     <div class="section-header">

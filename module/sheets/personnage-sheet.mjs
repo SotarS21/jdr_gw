@@ -35,7 +35,9 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       changerSousOnglet: PersonnageSheet.#onChangerSousOnglet,
       ajouterEntreeNote: PersonnageSheet.#onAjouterEntreeNote,
       editerEntreeNote: PersonnageSheet.#onEditerEntreeNote,
-      supprimerEntreeNote: PersonnageSheet.#onSupprimerEntreeNote
+      supprimerEntreeNote: PersonnageSheet.#onSupprimerEntreeNote,
+      ajouterTrait: PersonnageSheet.#onAjouterTrait,
+      ouvrirObjet: PersonnageSheet.#onOuvrirObjet
     }
   };
 
@@ -108,6 +110,8 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     context.armures = this.actor.items.filter((i) => i.type === "armure");
     context.pouvoirs = this.actor.items.filter((i) => i.type === "pouvoir");
     context.equipements = this.actor.items.filter((i) => i.type === "equipement");
+    context.traits = this.actor.items.filter((i) => i.type === "talent").sort((a, b) => a.name.localeCompare(b.name));
+    context.afficherTraits = context.traits.length > 0 || context.modeEdition;
     if (this.#ongletActif === "notes") Object.assign(context, await this.#preparerNotes(system));
     if (this.#ongletActif === "informations") {
       context.ethnie = await this.#preparerEthnie(system);
@@ -354,6 +358,25 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     await this.actor.createEmbeddedDocuments("Item", [
       { name: game.i18n.localize("GALACTICWARS.Item.NouvelObjet"), type }
     ]);
+  }
+
+  /** Ajout d'un trait depuis le compendium Talents (un glisser-déposer d'Item talent marche aussi). */
+  static async #onAjouterTrait() {
+    if (!this.modeEdition) return;
+    const talent = await choisirItemCompendium("talents", { title: game.i18n.localize("GALACTICWARS.Traits.Ajouter") });
+    if (!talent) return;
+    if (this.actor.items.some((i) => i.type === "talent" && i.name === talent.name)) {
+      return ui.notifications.warn(game.i18n.format("GALACTICWARS.Traits.DejaPresent", { nom: talent.name }));
+    }
+    const data = talent.toObject();
+    delete data._id;
+    foundry.utils.setProperty(data, "_stats.compendiumSource", talent.uuid);
+    await this.actor.createEmbeddedDocuments("Item", [data]);
+  }
+
+  static async #onOuvrirObjet(event, target) {
+    const id = target.closest("[data-item-id]")?.dataset.itemId;
+    this.actor.items.get(id)?.sheet.render({ force: true });
   }
 
   static async #onDeleteItem(event, target) {

@@ -426,11 +426,12 @@
   overflow: hidden;
 }
 
+/* Image entière, jamais recadrée ni déformée : contain dans le cadre carré (bandes du fond du cadre). */
 .galactic-wars.personnage .portrait {
   width: 100%;
   height: 100%;
   border: none;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 /* Ressources remontées dans l'en-tête (PV, Force, Stress, Crédits) : cartes compactes. */
@@ -1239,7 +1240,8 @@
 .galactic-wars.personnage .carte-image {
   width: 72px;
   height: 72px;
-  object-fit: cover;
+  object-fit: contain;
+  background: var(--gw-panel);
   border-radius: 6px;
   border: 1px solid var(--statut, var(--gw-border));
 }
@@ -1368,9 +1370,11 @@
 }
 
 .galactic-wars.personnage .ethnie-portrait {
-  /* Portraits presque carrés (~520x590) : largeur fixe, hauteur selon les proportions. */
-  width: 260px;
+  /* Image entière quelles que soient ses proportions : bornée à 260 x 320, taille intrinsèque
+     conservée (le cadre épouse l'image, pas de bandes ni de recadrage). */
+  width: auto;
   height: auto;
+  max-width: 260px;
   max-height: 320px;
   object-fit: contain;
   border-radius: 8px;
@@ -1628,4 +1632,56 @@
 }
 .galactic-wars.pack-update-picker .boutons .principal {
   font-weight: 700;
+}
+
+/* ---- Traits (onglet Informations) ---- */
+.galactic-wars.personnage .traits-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  margin: 0;
+  background: transparent;
+  border: none;
+}
+.galactic-wars.personnage .traits-table th {
+  text-align: left;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--gw-muted);
+  padding: 0.25rem 0.4rem;
+  border-bottom: 1px solid var(--gw-border);
+  background: transparent;
+}
+.galactic-wars.personnage .traits-table td {
+  padding: 0.35rem 0.4rem;
+  vertical-align: top;
+  border-bottom: 1px solid color-mix(in srgb, var(--gw-border) 60%, transparent);
+}
+.galactic-wars.personnage .traits-table tbody tr,
+.galactic-wars.personnage .traits-table tbody tr:nth-child(even) { background: transparent; }
+.galactic-wars.personnage .traits-table tbody tr:hover { background: rgba(255, 255, 255, 0.03); }
+.galactic-wars.personnage .trait-nom a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
+  color: var(--gw-text);
+  cursor: pointer;
+}
+.galactic-wars.personnage .trait-nom a:hover { color: var(--gw-accent); }
+.galactic-wars.personnage .trait-nom img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  border: none;
+  flex-shrink: 0;
+}
+.galactic-wars.personnage .trait-avantage { color: #86efac; }
+.galactic-wars.personnage .trait-inconvenient { color: #fca5a5; }
+.galactic-wars.personnage .trait-actions { width: 1%; white-space: nowrap; text-align: right; }
+.galactic-wars.personnage .traits-table thead,
+.galactic-wars.personnage .traits-table thead tr {
+  background: transparent;
+  text-shadow: none;
 }

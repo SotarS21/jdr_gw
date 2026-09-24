@@ -1,5 +1,18 @@
 # Journal de développement — Galactic Wars
 
+## Session du 2026-09-24 (suite 2) — Traits et images entières (v0.12.2→v0.12.3)
+
+- **Tableau Traits (todo)** : un « trait » = Item `talent` porté (avantage / inconvénient, compendium Talents).
+  Section dans l'onglet Informations, entre la description et l'ethnie ; **absente** du rendu tant que le
+  personnage n'a aucun trait, sauf en mode édition (`afficherTraits`). En édition : bouton + (choix dans le
+  compendium Talents, doublon par nom refusé, `compendiumSource` renseigné pour les futurs correctifs de
+  contenu) et suppression par ligne ; le nom ouvre la fiche de l'objet. Glisser-déposer d'un talent : géré par
+  ActorSheetV2. Fonds de lignes / en-tête hérités des tableaux Foundry neutralisés.
+- **Images entières (todo)** : portrait du PJ et vignettes des PNJ passés de `object-fit: cover` (recadrage) à
+  `contain` sur le fond du cadre ; portrait d'ethnie borné à 260 × 320 en taille intrinsèque (le cadre épouse
+  l'image). Vérifié : rapport largeur/hauteur affiché = rapport de l'image source.
+- Aucune donnée existante modifiée : pas d'entrée `PACK_UPDATES` nécessaire.
+
 ## Session du 2026-09-24 (suite) — Lumière/Obscurité visuelle et mises à jour de contenu (v0.12.1→v0.12.2)
 
 - **Lumière / Obscurité (todo)** : jauge d'équilibre (piste bleu → violet → rouge, repère central, curseur
