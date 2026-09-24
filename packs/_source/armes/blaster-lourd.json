@@ -3,7 +3,7 @@
   "_id": "l0SZAGljMJwSmF3U",
   "name": "Blaster lourd",
   "type": "arme",
-  "img": "icons/svg/sword.svg",
+  "img": "systems/galactic-wars/asset_visuel/objets/armes-blaster-lourd.jpg",
   "system": {
     "degats": "2d6",
     "competence": "blaster",

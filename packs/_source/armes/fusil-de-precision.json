@@ -3,7 +3,7 @@
   "_id": "pqcIdcz1p8KiQUww",
   "name": "Fusil de précision",
   "type": "arme",
-  "img": "icons/svg/sword.svg",
+  "img": "systems/galactic-wars/asset_visuel/objets/armes-fusil-de-precision.jpg",
   "system": {
     "degats": "2d10",
     "competence": "blaster",

@@ -3,7 +3,7 @@
   "_id": "jrPSAqcCbxCi0zuQ",
   "name": "Blaster",
   "type": "arme",
-  "img": "icons/svg/sword.svg",
+  "img": "systems/galactic-wars/asset_visuel/objets/armes-blaster.jpg",
   "system": {
     "degats": "1d4+2",
     "competence": "blaster",

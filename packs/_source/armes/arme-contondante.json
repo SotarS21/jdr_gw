@@ -3,7 +3,7 @@
   "_id": "yisemX0BSlfF5ILj",
   "name": "Arme contondante",
   "type": "arme",
-  "img": "icons/svg/sword.svg",
+  "img": "systems/galactic-wars/asset_visuel/objets/armes-arme-contondante.jpg",
   "system": {
     "degats": "1d6",
     "competence": "armeBlanche",

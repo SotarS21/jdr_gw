@@ -51,7 +51,7 @@ jobs:
         run: |
           zip -r system.zip \
             system.json module lang styles templates \
-            asset_visuel/Ethnie \
+            asset_visuel/Ethnie asset_visuel/objets \
             packs/races packs/metiers packs/talents packs/armes packs/armures \
             packs/ecoles packs/pregens-sith packs/vaisseaux packs/equipements \
             packs/codex-especes

@@ -3,7 +3,7 @@
   "_id": "QAQdm7Dpa8JJCnR0",
   "name": "Sabre laser",
   "type": "arme",
-  "img": "icons/svg/sword.svg",
+  "img": "systems/galactic-wars/asset_visuel/objets/armes-sabre-laser.jpg",
   "system": {
     "degats": "2d8",
     "competence": "sabreLaser",

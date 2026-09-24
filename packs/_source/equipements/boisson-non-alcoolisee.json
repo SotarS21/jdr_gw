@@ -3,7 +3,7 @@
   "_id": "qFzXfVoR6nr6F0uR",
   "name": "Boisson non alcoolisée",
   "type": "equipement",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/galactic-wars/asset_visuel/objets/equipements-boisson-non-alcoolisee.jpg",
   "system": {
     "quantite": 1,
     "prix": "2c",

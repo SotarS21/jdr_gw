@@ -3,7 +3,7 @@
   "_id": "JwNUnlOOcpE4u1ag",
   "name": "Armure lourde",
   "type": "armure",
-  "img": "icons/svg/shield.svg",
+  "img": "systems/galactic-wars/asset_visuel/objets/armures-armure-lourde.jpg",
   "system": {
     "reduction": 6,
     "emplacement": "plastron",

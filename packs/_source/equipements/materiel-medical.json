@@ -3,7 +3,7 @@
   "_id": "QuS4hCbsxYE93Uof",
   "name": "Matériel médical",
   "type": "equipement",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/galactic-wars/asset_visuel/objets/equipements-materiel-medical.jpg",
   "system": {
     "quantite": 1,
     "prix": "15c",

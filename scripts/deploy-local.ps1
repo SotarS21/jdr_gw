@@ -5,7 +5,7 @@
   2. Arrête Foundry si besoin : les packs LevelDB sont verrouillés (fichier LOCK) tant que
      le monde tourne. Les écraser à chaud ne sert à rien, voire corrompt le pack.
   3. Copie en miroir (robocopy /MIR) uniquement ce que la release embarque : system.json,
-     module/, lang/, styles/, templates/, asset_visuel/Ethnie/, packs/ (sans _source).
+     module/, lang/, styles/, templates/, asset_visuel/Ethnie/, asset_visuel/objets/, packs/ (sans _source).
   4. Relance Foundry directement sur le monde de test et attend que le serveur annonce
      la bonne version du système.
 
@@ -78,9 +78,10 @@ function Mirror($rel, $extra = @()) {
 }
 Copy-Item "$Src\system.json" "$Dest\system.json" -Force
 if ($NoRestart) {
-  foreach ($d in "module", "lang", "styles", "templates") { Mirror $d }
+  # Images comprises : servies sans redémarrage (seuls les packs LevelDB exigent un arrêt de Foundry).
+  foreach ($d in "module", "lang", "styles", "templates", "asset_visuel\Ethnie", "asset_visuel\objets") { Mirror $d }
 } else {
-  foreach ($d in "module", "lang", "styles", "templates", "asset_visuel\Ethnie") { Mirror $d }
+  foreach ($d in "module", "lang", "styles", "templates", "asset_visuel\Ethnie", "asset_visuel\objets") { Mirror $d }
   Mirror "packs" @("/XD", "_source")
 }
 $global:LASTEXITCODE = 0

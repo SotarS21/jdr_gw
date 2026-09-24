@@ -3,7 +3,7 @@
   "_id": "UlPZFLMnHqHRNYtc",
   "name": "Droïde médical",
   "type": "equipement",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/galactic-wars/asset_visuel/objets/equipements-droide-medical.jpg",
   "system": {
     "quantite": 1,
     "prix": "30000c",

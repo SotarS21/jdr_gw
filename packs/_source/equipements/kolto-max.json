@@ -3,7 +3,7 @@
   "_id": "3hNLzzWDHi39LVbj",
   "name": "Kolto max",
   "type": "equipement",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/galactic-wars/asset_visuel/objets/equipements-kolto-max.jpg",
   "system": {
     "quantite": 1,
     "prix": "80c",

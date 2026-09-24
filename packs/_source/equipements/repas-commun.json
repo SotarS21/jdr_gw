@@ -3,7 +3,7 @@
   "_id": "FwHHNRtRnakQIp4R",
   "name": "Repas commun",
   "type": "equipement",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/galactic-wars/asset_visuel/objets/equipements-repas-commun.jpg",
   "system": {
     "quantite": 1,
     "prix": "7c",

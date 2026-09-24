@@ -3,7 +3,7 @@
   "_id": "BmH226Wkuab5Ft0L",
   "name": "Trident sith",
   "type": "arme",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/galactic-wars/asset_visuel/objets/armes-trident-sith.jpg",
   "system": {
     "degats": "1d4+4",
     "competence": "",

@@ -1,4 +1,4 @@
-import { appareilSelonNom } from "./appareils.mjs";
+import { appareilSelonNom, IMAGES_APPAREILS, IMAGES_GENERIQUES } from "./appareils.mjs";
 import { fichesIncompletes, completerToutesLesFiches } from "./migration.mjs";
 import { GalacticWarsActor } from "../documents/actor.mjs";
 import { competencesSelonMetier } from "./metier.mjs";
@@ -84,6 +84,22 @@ export const PACK_UPDATES = [
     }
   },
   {
+    id: "0.13.2-icones-objets",
+    cible: "acteurs",
+    version: "0.13.2",
+    label: "Visuels des objets (armes, armures, équipements, datapads, comlinks)",
+    description:
+      "Les objets des compendiums Armes, Armures et Équipements ont reçu leur visuel (asset_visuel/objets). Remplace " +
+      "l'icône générique des objets déjà copiés dans le monde ou portés par les personnages, ainsi que celle des datapads " +
+      "et comlinks de départ. Une image que vous avez choisie vous-même n'est jamais remplacée.",
+    concernes: async () => (await objetsAIllustrer()).length,
+    apply: async () => {
+      const liste = await objetsAIllustrer();
+      for (const { objet, img } of liste) await objet.update({ img });
+      return liste.length;
+    }
+  },
+  {
     id: "0.13.2-image-unique-acteurs",
     cible: "acteurs",
     version: "0.13.2",
@@ -134,6 +150,21 @@ export const PACK_UPDATES = [
     }
   }
 ];
+
+/** Objets à icône générique qui ont désormais un visuel : copie de compendium, ou appareil reconnu par son nom. */
+async function objetsAIllustrer() {
+  const objets = [...game.items, ...tousLesActeurs().flatMap((a) => [...a.items])]
+    .filter((i) => ["arme", "armure", "equipement"].includes(i.type) && IMAGES_GENERIQUES.has(i.img ?? ""));
+  const liste = [];
+  for (const objet of objets) {
+    let img = null;
+    const source = objet._stats?.compendiumSource;
+    if (source?.startsWith(`Compendium.${game.system.id}.`)) img = (await fromUuid(source).catch(() => null))?.img;
+    img ??= IMAGES_APPAREILS[objet.system.appareil || appareilSelonNom(objet.name)] ?? null;
+    if (img && !IMAGES_GENERIQUES.has(img) && img !== objet.img) liste.push({ objet, img });
+  }
+  return liste;
+}
 
 /** Acteurs du monde (avec portrait) dont portrait, image et image de token ne sont pas identiques. */
 function acteursImagesDivergentes() {

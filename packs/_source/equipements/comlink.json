@@ -3,7 +3,7 @@
   "_id": "mZagBvyPxZ0COUij",
   "name": "Comlink",
   "type": "equipement",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/galactic-wars/asset_visuel/objets/equipements-comlink.jpg",
   "system": {
     "quantite": 1,
     "prix": "150c",

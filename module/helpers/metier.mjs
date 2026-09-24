@@ -1,4 +1,4 @@
-import { appareilSelonNom } from "./appareils.mjs";
+import { appareilSelonNom, IMAGES_APPAREILS } from "./appareils.mjs";
 import { GW } from "../config.mjs";
 
 /**
@@ -25,12 +25,16 @@ export async function applyMetier(actor, metierItem) {
     );
   }
 
-  const nouveauxObjets = metierItem.system.equipement.map((e) => ({
-    name: e.nom,
-    type: "equipement",
-    system: { quantite: e.quantite, appareil: appareilSelonNom(e.nom) },
-    flags: { "galactic-wars": { startingGear: true } }
-  }));
+  const nouveauxObjets = metierItem.system.equipement.map((e) => {
+    const appareil = appareilSelonNom(e.nom);
+    return {
+      name: e.nom,
+      type: "equipement",
+      ...(IMAGES_APPAREILS[appareil] ? { img: IMAGES_APPAREILS[appareil] } : {}),
+      system: { quantite: e.quantite, appareil },
+      flags: { "galactic-wars": { startingGear: true } }
+    };
+  });
   if (nouveauxObjets.length) await actor.createEmbeddedDocuments("Item", nouveauxObjets);
 
   const updates = {

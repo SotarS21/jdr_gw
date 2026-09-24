@@ -3,7 +3,7 @@
   "_id": "VaHJ78UJFTnne0Aq",
   "name": "Boisson alcoolisée",
   "type": "equipement",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/galactic-wars/asset_visuel/objets/equipements-boisson-alcoolisee.jpg",
   "system": {
     "quantite": 1,
     "prix": "6c",

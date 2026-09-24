@@ -3,7 +3,7 @@
   "_id": "cnDpAqpqlN8IwgKo",
   "name": "Armure intermédiaire",
   "type": "armure",
-  "img": "icons/svg/shield.svg",
+  "img": "systems/galactic-wars/asset_visuel/objets/armures-armure-intermediaire.jpg",
   "system": {
     "reduction": 3,
     "emplacement": "plastron",

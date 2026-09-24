@@ -1,6 +1,6 @@
 # Journal de développement — Galactic Wars
 
-## Session du 2026-09-24 (suite 6) — Datapad et Holonet (v0.13.1→v0.13.2)
+## Session du 2026-09-24 (suite 6) — Datapad / Holonet, critiques, images, visuels d'objets (v0.13.1→v0.13.2)
 
 - **Appareils** : champ `appareil` sur les équipements (`GW.appareils` : datapad, comlink — ce dernier réservé au futur
   Comlink de la todo) ; `helpers/appareils.mjs::appareilSelonNom` reconnaît « Datapad », « ComLink »… — utilisé par
@@ -31,6 +31,15 @@
   affichant l'ancienne image) dans `_onUpdate` côté auteur. Vaut pour les 4 fiches. Correctif MJ
   `0.13.2-image-unique-acteurs` pour l'existant (monde de test : Alek, portrait personnalisé mais acteur et token
   par défaut). Vérifié : portrait → img + token + token posé ; img → portrait + token ; création ; restauration.
+- **Holonet : barre de défilement (bug)** : la section, élément flexible en overflow:hidden, rétrécissait et coupait
+  le contenu. Barre d'adresse fixe, page défilante (`.holonet-page` en overflow-y:auto) — vérifié avec 12 infos.
+- **Visuels des objets (demande de l'auteur)** : 23 des 24 objets des compendiums Armes / Armures / Équipements
+  illustrés avec les images de `asset_visuel/item/` (fournies par l'auteur, jusqu'ici inutilisées), copiées sous des noms
+  ASCII dans `asset_visuel/objets/` (dossier versionné, ~3,4 Mo, ajouté au déploiement et à la release ; `item/` intact).
+  Rayon tracteur : icône Foundry `icons/magic/control/debuff-energy-hold-levitate-teal-blue.webp`. Datapad / comlink :
+  `IMAGES_APPAREILS` (équipement de départ des métiers). Correctif MJ `0.13.2-icones-objets` : remplace seulement les
+  icônes génériques (`IMAGES_GENERIQUES`) des copies — 4 objets dans le monde de test. `deploy-local.ps1 -NoRestart` copie
+  désormais aussi les images (servies sans redémarrage) ; les packs, eux, attendent le prochain redémarrage de Foundry.
 - Vérifié : ouverture depuis l'inventaire, recherche, filtre #rebellion, adresses, précédent / suivant, synchro depuis
   la fiche, modification et création depuis l'Holonet visibles dans Notes → Infos, aucune erreur JS.
 

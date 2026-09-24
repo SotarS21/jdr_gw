@@ -3,7 +3,7 @@
   "_id": "BB6Zg4EqmQzT815p",
   "name": "Lance-roquette",
   "type": "arme",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/galactic-wars/asset_visuel/objets/armes-lance-roquette.jpg",
   "system": {
     "degats": "3d6 + explosion",
     "competence": "",
