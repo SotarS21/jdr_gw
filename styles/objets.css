@@ -731,3 +731,21 @@
   overflow-wrap: anywhere;
 }
 .galactic-wars.item.objet .holonet-contenu img { max-width: 100%; height: auto; }
+
+/* Holonet : occupe la hauteur disponible, barre du navigateur fixe, page défilante (barre de
+   défilement comme un vrai navigateur). Sans ça la section, élément flexible avec overflow:hidden,
+   rétrécissait à la hauteur de la fiche et coupait le contenu. */
+.galactic-wars.item.objet section.holonet {
+  flex: 1 1 auto;
+  min-height: 300px;
+}
+.galactic-wars.item.objet .holonet-barre {
+  flex: 0 0 auto;
+}
+.galactic-wars.item.objet .holonet-page {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--gw-muted) transparent;
+}
