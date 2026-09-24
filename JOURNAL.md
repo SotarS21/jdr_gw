@@ -1,5 +1,37 @@
 # Journal de développement — Galactic Wars
 
+## Session du 2026-09-24 — Récapitulatif : v0.12.1 → v0.13.2 (7 versions)
+
+Vue d'ensemble ; le détail de chaque changement est dans les entrées « 2026-09-24 (suite …) » ci-dessous.
+
+| Version | Contenu principal |
+|---|---|
+| v0.12.1 | Box Crédits (chiffres groupés, retour à la ligne, police réduite) ; notes de version au MJ après mise à jour ; README : installation par manifeste (dépôt public) |
+| v0.12.2 | Lumière / Obscurité en jauge bleu ↔ rouge ; fenêtre MJ des mises à jour de contenu (modèle antique, adapté : les correctifs visent les copies du monde) |
+| v0.12.3 | Tableau Traits (onglet Informations) ; images affichées entières (portrait, ethnie, PNJ) |
+| v0.12.4 | Compétences favorites ; tag « Caché » ; fiche d'objet réparée (`context.item` manquant : elle n'avait jamais fonctionné) |
+| v0.13.0 | Refonte des objets (orchestration multi-agents : fiches, inventaire, cartes de tchat, revue croisée) ; boucliers ; tout rangé par défaut ; bouton crayon en édition ; compétence « Arme contondante/blanche » (8 métiers) ; libellé « Blaster/Lancer » ; 4 armes au type invalide corrigées |
+| v0.13.1 | Gain d'XP (+5 %) et plafond des compétences à 90 % |
+| v0.13.2 | Datapad + onglet Holonet (Infos du PJ, synchronisé, défilement) ; critiques 1-5 / 96-100 ; compétences manquantes complétées partout (tokens, compendiums du monde, macro) ; portrait = image acteur = image token ; visuels des objets (`asset_visuel/objets/`) |
+
+**Choix de l'auteur pris en compte** : boucliers = emplacement d'armure ; objets rangés par défaut (existants compris) ;
+« Arme contondante/blanche » à −10 % hors métier, bonus 0 dans les métiers ; critiques fixes 1-5 / 96-100.
+
+**Pièges retenus** : une nouvelle feuille de style déclarée dans system.json ne se charge qu'après **redémarrage** de
+Foundry (comme les packs) ; `foundry.applications.instances` est une Map ; `#chat-log` n'existe plus en v14 ; un test
+Playwright qui modifie des données doit restaurer dans un `finally` (un plantage a laissé des Infos de test sur Kael
+Dorn — l'original a été retrouvé dans le journal LevelDB `data/actors/*.log` du monde).
+
+**À faire à la reprise** :
+- Foundry local à **redémarrer** pour voir les visuels des compendiums (les packs de la v0.13.2 ne sont pas encore chargés ;
+  le code et les images, eux, sont déployés).
+- Au prochain chargement MJ du monde de test : correctifs à valider dans la fenêtre (acquisition « Arme contondante/blanche »
+  de Kael Dorn, arme contondante copiée, 2 datapads, image d'Alek, 4 visuels d'objets).
+- Compétence liée à choisir pour Lance-roquette, Grenade, Grenade militaire, Trident sith (vides).
+- Point à valider : ajustement verrouillé au plafond de 90 % (impossible de le baisser sans le MJ) — garder ou autoriser la baisse ?
+- Todo restante : **onglet Combat** (contenu à préciser par l'auteur), **Comlink** (canaux + messagerie ; le champ « Appareil »
+  comlink est déjà prêt).
+
 ## Session du 2026-09-24 (suite 6) — Datapad / Holonet, critiques, images, visuels d'objets (v0.13.1→v0.13.2)
 
 - **Appareils** : champ `appareil` sur les équipements (`GW.appareils` : datapad, comlink — ce dernier réservé au futur
