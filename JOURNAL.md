@@ -33,6 +33,13 @@ les existants — donc aucun correctif de contenu nécessaire) ; réalisation en
   bouton d'édition des textes toujours visible.
 - **Demande de l'auteur** : en mode édition de la fiche, bouton crayon (doré) sur chaque ligne d'inventaire →
   fiche de l'objet (action `ouvrirObjet`), sans envoyer de carte au tchat. Absent hors édition. Vérifié.
+- **Compétence manquante (bug remonté par l'auteur)** : « Arme contondante et blanche » (`armeBlanche`, Corps,
+  compétence générale −10 % hors métier — choix de l'auteur). Présente dans la grille source (`Template corriger.xlsx`)
+  mais jamais créée ; point ouvert de la feuille de route soldé. Accordée (bonus 0, recommandée) par les 8 métiers qui la
+  recommandent dans `Metier.docx` V2.6 : Padawan, Apprenti sith, Chasseur de primes, Assassin, Pirate, Contrebandier,
+  Mandalorien soldat, Mécanicien (mention « aucune compétence dédiée » retirée des descriptions) ; « Arme contondante » du compendium passée de Bagarre à la nouvelle compétence. Ajout aux personnages
+  existants par la migration (38 compétences) ; deux correctifs MJ : acquisition sur les personnages de ces métiers,
+  copies de l'arme contondante restées sur Bagarre. Vérifié après redémarrage.
 
 ## Session du 2026-09-24 (suite 3) — Favoris, tag Caché, fiche d'objet réparée (v0.12.3→v0.12.4)
 

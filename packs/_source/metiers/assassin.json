@@ -30,6 +30,11 @@
         "cle": "blaster",
         "bonus": 0,
         "obligatoire": true
+      },
+      {
+        "cle": "armeBlanche",
+        "bonus": 0,
+        "obligatoire": true
       }
     ],
     "equipement": [
@@ -66,7 +71,7 @@
       "nom": "Tueur",
       "description": "Bonus de dégât (+1 dé) pour tuer un ennemi à 50% de ses points de vie."
     },
-    "description": "<p>Tueur à gages discret, formé au maniement des armes contondantes et blanches (aucune compétence dédiée à ces armes n'existe dans ce référentiel).</p>"
+    "description": "<p>Tueur à gages discret, formé au maniement des armes contondantes et blanches.</p>"
   },
   "folder": null,
   "sort": 100000,

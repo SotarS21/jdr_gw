@@ -81,8 +81,8 @@ GW.corpulences = {
  * `Template corriger.xlsx` (onglet "fiche base"), aplati en liste unique lors du scaffold
  * initial (voir JOURNAL.md session 2026-09-13). Les 3 colonnes de la source contenaient
  * 12 (Corps) / 12 (Mental) / 13 (Dextérité) = 37 cases, mais la colonne Corps y incluait
- * "Arme contondante et blanche" (absente de GW.competences, voir le point ouvert plus bas
- * sur la compétence d'arme de mêlée manquante) à la place de `natation`, qui elle n'apparaît
+ * "Arme contondante et blanche" (ajoutée depuis sous la clé `armeBlanche`, 2026-09-24 — 38
+ * compétences au total) à la place de `natation`, qui elle n'apparaît
  * dans la source que comme bonus racial isolé (case A45), pas dans la grille de compétences.
  * `natation` a été rattachée à Corps ici pour conserver le compte de 12 de cette colonne —
  * un choix plausible (compétence physique) mais pas une certitude de la source, à confirmer
@@ -103,6 +103,9 @@ GW.competences = {
   drainDeForce: { label: "GALACTICWARS.Competence.DrainDeForce", metier: true, force: true, caracteristique: "mental", reservee: true },
   controleTelekinetique: { label: "GALACTICWARS.Competence.ControleTelekinetique", metier: true, force: true, caracteristique: "dexterite", reservee: true },
   bagarre: { label: "GALACTICWARS.Competence.Bagarre", metier: false, force: false, caracteristique: "corps" },
+  // Ajoutée le 2026-09-24 à la demande de l'auteur (manquait : bonus de mêlée seulement en prose).
+  // Compétence générale (−10 % hors métier), accordée par les 8 métiers qui la recommandent dans Metier.docx (V2.6).
+  armeBlanche: { label: "GALACTICWARS.Competence.ArmeBlanche", metier: false, force: false, caracteristique: "corps" },
   escroquerieMensonge: { label: "GALACTICWARS.Competence.EscroquerieMensonge", metier: false, force: false, caracteristique: "mental" },
   informatiquePiratage: { label: "GALACTICWARS.Competence.InformatiquePiratage", metier: false, force: false, caracteristique: "dexterite" },
   blocage: { label: "GALACTICWARS.Competence.Blocage", metier: false, force: false, caracteristique: "corps" },

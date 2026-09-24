@@ -40,6 +40,11 @@
         "cle": "pilotage",
         "bonus": 0,
         "obligatoire": true
+      },
+      {
+        "cle": "armeBlanche",
+        "bonus": 0,
+        "obligatoire": true
       }
     ],
     "equipement": [
@@ -72,7 +77,7 @@
       "nom": "Flippant",
       "description": "Compétence active qui oblige une cible à lancer un test de stress avec -2 ; en cas d'échec, la personne ciblée est déstabilisée."
     },
-    "description": "<p>Écumeur des étoiles vivant de pillage et de pègre, formé au maniement des armes contondantes et blanches (aucune compétence dédiée à ces armes n'existe dans ce référentiel).</p>"
+    "description": "<p>Écumeur des étoiles vivant de pillage et de pègre, formé au maniement des armes contondantes et blanches.</p>"
   },
   "folder": null,
   "sort": 100000,

@@ -67,6 +67,7 @@ export const RELEASE_NOTES = {
       <li>En mode édition de la fiche, un bouton crayon sur chaque objet de l'inventaire ouvre sa fiche.</li>
       <li>Cartes d'objet dans le tchat avec Attaquer / Dégâts (propriétaire et MJ) ; un objet caché est montré en murmure.</li>
       <li>Tout objet est désormais rangé par défaut : portez vos armes et armures pour les utiliser.</li>
+      <li>Nouvelle compétence « Arme contondante et blanche » (Corps, −10 % hors métier), accordée par les 8 métiers qui la recommandent (Padawan, Apprenti sith, Chasseur de primes, Assassin, Pirate, Contrebandier, Mandalorien soldat, Mécanicien) ; l'« Arme contondante » du compendium l'utilise.</li>
       <li>Compendium Armes : Lance-roquette, Grenade, Grenade militaire et Trident sith sont de nouveau utilisables (type invalide corrigé).</li>
     </ul>`
   }

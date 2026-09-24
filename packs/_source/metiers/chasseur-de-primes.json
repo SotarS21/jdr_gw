@@ -40,6 +40,11 @@
         "cle": "pilotage",
         "bonus": 0,
         "obligatoire": true
+      },
+      {
+        "cle": "armeBlanche",
+        "bonus": 0,
+        "obligatoire": true
       }
     ],
     "equipement": [

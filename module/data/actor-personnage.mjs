@@ -127,7 +127,7 @@ export class PersonnageData extends foundry.abstract.TypeDataModel {
   }
 
   /**
-   * Un personnage naît avec ses 37 compétences : sans ça, le tableau (ArrayField sans initial)
+   * Un personnage naît avec toutes ses compétences (GW.competences) : sans ça, le tableau (ArrayField sans initial)
    * restait vide jusqu'au prochain rechargement du monde par un MJ (runMigrations).
    * Les entrées déjà présentes (import de compendium, duplication) sont conservées.
    * @override

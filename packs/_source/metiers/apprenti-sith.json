@@ -55,6 +55,11 @@
         "cle": "eclaireDeForce",
         "bonus": 0,
         "obligatoire": false
+      },
+      {
+        "cle": "armeBlanche",
+        "bonus": 0,
+        "obligatoire": true
       }
     ],
     "equipement": [

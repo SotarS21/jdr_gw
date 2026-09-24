@@ -40,6 +40,11 @@
         "cle": "pilotage",
         "bonus": 0,
         "obligatoire": true
+      },
+      {
+        "cle": "armeBlanche",
+        "bonus": 0,
+        "obligatoire": true
       }
     ],
     "equipement": [
@@ -72,7 +77,7 @@
       "nom": "Bluff",
       "description": "Un charisme particulier permet de se faire écouter même dans les situations critiques."
     },
-    "description": "<p>Transporteur clandestin naviguant en marge de la loi, formé au maniement des armes contondantes ou blanches (aucune compétence dédiée à ces armes n'existe dans ce référentiel).</p>"
+    "description": "<p>Transporteur clandestin naviguant en marge de la loi, formé au maniement des armes contondantes ou blanches.</p>"
   },
   "folder": null,
   "sort": 100000,

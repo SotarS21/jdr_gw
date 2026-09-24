@@ -47,8 +47,51 @@ export const PACK_UPDATES = [
       for (const { actor, competences } of liste) await actor.update({ "system.competences": competences });
       return liste.length;
     }
+  },
+  {
+    id: "0.13.0-arme-blanche-metiers",
+    cible: "acteurs",
+    version: "0.13.0",
+    label: "Nouvelle compétence « Arme contondante et blanche » accordée par les métiers",
+    description:
+      "La compétence manquante « Arme contondante et blanche » (Corps) est ajoutée à tous les personnages. " +
+      "Les 8 métiers qui la recommandent (Padawan, Apprenti sith, Chasseur de primes, Assassin, Pirate, Contrebandier, " +
+      "Mandalorien soldat, Mécanicien) l'accordent désormais : recalcule l'acquisition " +
+      "et le point orange des personnages de ces métiers. Niveaux, ajustements et équipement ne sont pas touchés.",
+    concernes: () => personnagesMetierDivergent().then((l) => l.length),
+    apply: async () => {
+      const liste = await personnagesMetierDivergent();
+      for (const { actor, competences } of liste) await actor.update({ "system.competences": competences });
+      return liste.length;
+    }
+  },
+  {
+    id: "0.13.0-arme-contondante-competence",
+    cible: "armes",
+    version: "0.13.0",
+    label: "« Arme contondante » liée à la nouvelle compétence",
+    description:
+      "Les copies de l'« Arme contondante » encore liées à Bagarre (faute de mieux jusqu'ici) passent sur " +
+      "« Arme contondante et blanche ». Une arme dont vous avez choisi une autre compétence n'est pas touchée.",
+    concernes: async () => (await armesContondantesSurBagarre()).length,
+    apply: async () => {
+      const liste = await armesContondantesSurBagarre();
+      for (const copie of liste) await copie.update({ "system.competence": "armeBlanche" });
+      return liste.length;
+    }
   }
 ];
+
+/** Copies de l'« Arme contondante » du compendium restées sur l'ancienne compétence (bagarre). */
+async function armesContondantesSurBagarre() {
+  const liste = [];
+  for (const copie of copiesDepuis("armes")) {
+    if (copie.system.competence !== "bagarre") continue;
+    const source = await fromUuid(copie._stats.compendiumSource).catch(() => null);
+    if (source?.system.competence === "armeBlanche") liste.push(copie);
+  }
+  return liste;
+}
 
 /* ------------------------------------------------------------------------------------------ */
 /* Outils génériques pour écrire de futurs correctifs en quelques lignes.                      */

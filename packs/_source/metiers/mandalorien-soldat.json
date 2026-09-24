@@ -45,6 +45,11 @@
         "cle": "intimidation",
         "bonus": 0,
         "obligatoire": true
+      },
+      {
+        "cle": "armeBlanche",
+        "bonus": 0,
+        "obligatoire": true
       }
     ],
     "equipement": [
@@ -85,7 +90,7 @@
       "nom": "",
       "description": ""
     },
-    "description": "<p>Guerrier affilié à Mandalore, détesté aussi bien par l'Empire que par la République ; formé au tir de précision et au maniement des armes contondantes (aucune compétence dédiée à ces armes n'existe dans ce référentiel).</p>"
+    "description": "<p>Guerrier affilié à Mandalore, détesté aussi bien par l'Empire que par la République ; formé au tir de précision et au maniement des armes contondantes.</p>"
   },
   "folder": null,
   "sort": 100000,

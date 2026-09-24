@@ -6,7 +6,7 @@
   "img": "icons/svg/sword.svg",
   "system": {
     "degats": "1d6",
-    "competence": "bagarre",
+    "competence": "armeBlanche",
     "instable": false,
     "description": ""
   },
