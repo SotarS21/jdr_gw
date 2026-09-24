@@ -1,0 +1,45 @@
+{{!-- Carte d'objet dans le tchat (GalacticWarsItem#afficherDansTchat). Les boutons
+      [data-gw-carte-action] sont branchés par helpers/chat-objet.mjs (hook
+      renderChatMessageHTML), qui les retire pour qui n'est ni MJ ni propriétaire de l'objet. --}}
+<div class="galactic-wars-carte-objet type-{{type}}">
+  <header class="carte-entete">
+    <h3 class="carte-nom">{{nom}}</h3>
+    <span class="carte-type">{{typeLabel}}</span>
+  </header>
+
+  <figure class="carte-image">
+    <img src="{{img}}" alt="{{nom}}">
+  </figure>
+
+  {{#if badges.length}}
+  <div class="carte-badges">
+    {{#each badges as |badge|}}
+    <span class="carte-badge badge-{{badge.cle}}"><i class="{{badge.icone}}"></i> {{localize badge.label}}</span>
+    {{/each}}
+  </div>
+  {{/if}}
+
+  {{#if details.length}}
+  <dl class="carte-details">
+    {{#each details as |detail|}}
+    <dt>{{localize detail.label}}</dt>
+    <dd{{#if detail.mono}} class="mono"{{/if}}>{{detail.valeur}}</dd>
+    {{/each}}
+  </dl>
+  {{/if}}
+
+  {{#if description}}
+  <div class="carte-description">{{{description}}}</div>
+  {{/if}}
+
+  {{#if estArme}}
+  <div class="carte-actions">
+    <button type="button" data-gw-carte-action="attaquer"><i class="fa-solid fa-crosshairs"></i> {{localize 'GALACTICWARS.Objet.Attaquer'}}</button>
+    <button type="button" data-gw-carte-action="degats"><i class="fa-solid fa-burst"></i> {{localize 'GALACTICWARS.Objet.LancerDegats'}}</button>
+  </div>
+  {{/if}}
+
+  {{#if cache}}
+  <p class="carte-note-cache"><i class="fa-solid fa-eye-slash"></i> {{localize 'GALACTICWARS.Objet.CarteCachee'}}</p>
+  {{/if}}
+</div>

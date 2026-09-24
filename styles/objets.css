@@ -1,1 +1,523 @@
-/* Fiches d'objet (arme, armure/bouclier, équipement) — module/sheets/item-sheet.mjs. */
+/* Fiches d'objet (arme, armure/bouclier, équipement) — module/sheets/item-sheet.mjs.
+   Style « datapad » de la fiche de personnage. Tout est scopé sous .galactic-wars.item.objet
+   (classe `objet` ajoutée par la fiche aux seuls types arme/armure/equipement) : les fiches
+   race/métier/talent/pouvoir/école gardent strictement l'ancien thème. Les jetons de couleur
+   sont redéfinis ici car ceux de la fiche de personnage ne vivent que sous .personnage.
+   Largeur visée : 480 px (taille par défaut), sans défilement horizontal. */
+
+.galactic-wars.item.objet {
+  --gw-dark: #0d0f14;
+  --gw-panel: #151822;
+  --gw-card: #1b1f2c;
+  --gw-border: #2a3040;
+  --gw-accent: #22d3ee;
+  --gw-accent-hover: #67e8f9;
+  --gw-accent-soft: #8fe9fb;
+  --gw-force: #9aa6ff;
+  --gw-gold: #e8b34d;
+  --gw-coral: #f2545b;
+  --gw-text: #e7e9f0;
+  --gw-muted: #8891a8;
+  --gw-dim: #5a6278;
+  font-family: "Space Grotesk", system-ui, sans-serif;
+}
+
+.galactic-wars.item.objet .galactic-wars-body {
+  min-width: 0;
+}
+
+/* ---- Typo commune ---- */
+.galactic-wars.item.objet .eyebrow {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--gw-muted);
+  font-weight: 600;
+}
+
+.galactic-wars.item.objet h2.eyebrow {
+  margin: 0 0 0.55rem 0;
+  color: var(--gw-accent);
+  font-size: 0.72rem;
+  border: none;
+}
+
+.galactic-wars.item.objet .mono,
+.galactic-wars.item.objet input,
+.galactic-wars.item.objet select {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+}
+
+.galactic-wars.item.objet input[type="text"],
+.galactic-wars.item.objet input[type="number"],
+.galactic-wars.item.objet select {
+  width: 100%;
+  min-width: 0;
+  height: 1.9rem;
+  background: var(--gw-card);
+  border: 1px solid var(--gw-border);
+  border-radius: 5px;
+  color: var(--gw-text);
+  padding: 0.15rem 0.4rem;
+  font-size: 0.85rem;
+  box-sizing: border-box;
+}
+
+.galactic-wars.item.objet select option {
+  background: var(--gw-panel);
+  color: var(--gw-text);
+}
+
+.galactic-wars.item.objet input:focus,
+.galactic-wars.item.objet select:focus {
+  outline: none;
+  border-color: var(--gw-accent);
+  box-shadow: 0 0 0 1px rgba(34, 211, 238, 0.25);
+}
+
+.galactic-wars.item.objet input[type="checkbox"] {
+  accent-color: var(--gw-accent);
+  margin: 0;
+}
+
+/* ---- En-tête ---- */
+.galactic-wars.item.objet .sheet-header.objet-entete {
+  align-items: stretch;
+  gap: 0.75rem;
+  padding: 0.6rem;
+  background: var(--gw-panel);
+  border-bottom: 1px solid var(--gw-border);
+}
+
+.galactic-wars.item.objet .objet-image-cadre {
+  width: 96px;
+  height: 96px;
+  flex: 0 0 auto;
+  border-radius: 7px;
+  background: var(--gw-card);
+  border: 1px solid var(--gw-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Image entière, jamais recadrée ni déformée : contain dans le cadre carré. */
+.galactic-wars.item.objet .objet-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border: none;
+}
+
+.galactic-wars.item.objet .objet-image[data-action] {
+  cursor: pointer;
+}
+
+.galactic-wars.item.objet .objet-image-cadre:hover {
+  border-color: var(--gw-accent);
+}
+
+.galactic-wars.item.objet .objet-entete-champs {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.galactic-wars.item.objet input.objet-nom {
+  height: 2.1rem;
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  background: transparent;
+  border-color: transparent;
+}
+
+.galactic-wars.item.objet input.objet-nom:hover {
+  border-color: var(--gw-border);
+}
+
+.galactic-wars.item.objet input.objet-nom:focus {
+  background: var(--gw-card);
+  border-color: var(--gw-accent);
+}
+
+.galactic-wars.item.objet .objet-badges,
+.galactic-wars.item.objet .objet-entete-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.galactic-wars.item.objet .objet-badge {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.12rem 0.45rem;
+  border-radius: 999px;
+  border: 1px solid rgba(34, 211, 238, 0.45);
+  background: rgba(34, 211, 238, 0.08);
+  color: var(--gw-accent-soft);
+  white-space: nowrap;
+}
+
+.galactic-wars.item.objet .objet-badge.type-arme {
+  color: #ff9ea2;
+  border-color: rgba(242, 84, 91, 0.5);
+  background: rgba(242, 84, 91, 0.08);
+}
+
+.galactic-wars.item.objet .objet-badge.type-armure {
+  color: var(--gw-force);
+  border-color: rgba(154, 166, 255, 0.5);
+  background: rgba(154, 166, 255, 0.08);
+}
+
+.galactic-wars.item.objet .objet-badge.bouclier {
+  color: var(--gw-gold);
+  border-color: rgba(232, 179, 77, 0.5);
+  background: rgba(232, 179, 77, 0.08);
+}
+
+.galactic-wars.item.objet .objet-badge.cache {
+  color: var(--gw-muted);
+  border-color: var(--gw-border);
+  background: var(--gw-card);
+}
+
+/* ---- Boutons ---- */
+.galactic-wars.item.objet .objet-btn,
+.galactic-wars.item.objet .objet-porte {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  width: auto;
+  height: 1.7rem;
+  margin: 0;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  border-radius: 5px;
+  border: 1px solid var(--gw-border);
+  background: var(--gw-card);
+  color: var(--gw-accent-soft);
+  padding: 0 0.55rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.galactic-wars.item.objet .objet-btn:hover,
+.galactic-wars.item.objet .objet-porte:hover:not(:disabled) {
+  border-color: var(--gw-accent);
+  color: var(--gw-accent-hover);
+  box-shadow: none;
+}
+
+.galactic-wars.item.objet .objet-btn.primaire {
+  background: rgba(34, 211, 238, 0.12);
+  border-color: rgba(34, 211, 238, 0.55);
+  color: var(--gw-accent);
+}
+
+.galactic-wars.item.objet .objet-btn.danger {
+  background: rgba(242, 84, 91, 0.1);
+  border-color: rgba(242, 84, 91, 0.5);
+  color: #ff9ea2;
+}
+
+.galactic-wars.item.objet .objet-btn.danger:hover {
+  border-color: var(--gw-coral);
+  color: #ffc2c4;
+}
+
+/* Interrupteur Porté / Rangé : curseur à droite et accent quand l'objet est porté. */
+.galactic-wars.item.objet .objet-porte .interrupteur {
+  position: relative;
+  width: 1.7rem;
+  height: 0.9rem;
+  border-radius: 999px;
+  background: var(--gw-dark);
+  border: 1px solid var(--gw-border);
+  flex: 0 0 auto;
+}
+
+.galactic-wars.item.objet .objet-porte .curseur {
+  position: absolute;
+  top: 50%;
+  left: 0.1rem;
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background: var(--gw-dim);
+  transform: translateY(-50%);
+  transition: left 0.15s ease, background 0.15s ease;
+}
+
+.galactic-wars.item.objet .objet-porte.range {
+  color: var(--gw-muted);
+}
+
+.galactic-wars.item.objet .objet-porte.porte {
+  border-color: rgba(34, 211, 238, 0.55);
+  color: var(--gw-accent);
+}
+
+.galactic-wars.item.objet .objet-porte.porte .interrupteur {
+  border-color: rgba(34, 211, 238, 0.55);
+  background: rgba(34, 211, 238, 0.15);
+}
+
+.galactic-wars.item.objet .objet-porte.porte .curseur {
+  left: calc(100% - 0.7rem);
+  background: var(--gw-accent);
+}
+
+.galactic-wars.item.objet .objet-porte:disabled {
+  cursor: default;
+  opacity: 0.7;
+}
+
+/* ---- Onglets ---- */
+.galactic-wars.item.objet .onglets.objet-onglets {
+  padding: 0.4rem 0.6rem 0;
+  background: var(--gw-panel);
+  border-bottom-color: var(--gw-border);
+  flex-wrap: wrap;
+}
+
+.galactic-wars.item.objet .onglet-btn {
+  width: auto;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gw-muted);
+  opacity: 1;
+  border-color: transparent;
+  background: none;
+  padding: 0.35rem 0.7rem;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.galactic-wars.item.objet .onglet-btn:hover {
+  color: var(--gw-text);
+  box-shadow: none;
+}
+
+.galactic-wars.item.objet .onglet-btn.active {
+  color: var(--gw-accent);
+  background: var(--gw-dark);
+  border-color: var(--gw-border);
+  box-shadow: inset 0 2px 0 var(--gw-accent);
+}
+
+.galactic-wars.item.objet .onglet-btn.onglet-mj.active {
+  color: var(--gw-gold);
+  box-shadow: inset 0 2px 0 var(--gw-gold);
+}
+
+/* ---- Corps et panneaux ---- */
+.galactic-wars.item.objet .sheet-body {
+  padding: 0.6rem 0.6rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  overflow-x: hidden;
+}
+
+/* Neutralise la règle générique .galactic-wars section (flex en ligne, couleur accent) de galactic-wars.css. */
+.galactic-wars.item.objet section.objet-panneau {
+  display: block;
+  color: var(--gw-text);
+  background: var(--gw-panel);
+  border: 1px solid var(--gw-border);
+  border-radius: 8px;
+  padding: 0.65rem 0.7rem;
+  min-width: 0;
+}
+
+/* Grille 2 colonnes (1 seule sous ~360 px de contenu). minmax(0, 1fr) : un <select> au
+   libellé long ne peut pas élargir sa colonne et provoquer un défilement horizontal. */
+.galactic-wars.item.objet .objet-champs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem 0.6rem;
+}
+
+@container galactic-wars-sheet (max-width: 360px) {
+  .galactic-wars.item.objet .objet-champs {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.galactic-wars.item.objet .objet-champ {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 0;
+  margin: 0;
+}
+
+.galactic-wars.item.objet input.valeur-degats {
+  color: #ff9ea2;
+  font-weight: 700;
+}
+
+.galactic-wars.item.objet input.valeur-reduction {
+  color: var(--gw-force);
+  font-weight: 700;
+}
+
+/* Case « Instable » alignée sur la hauteur d'un champ (sous un libellé vide). */
+.galactic-wars.item.objet .objet-case {
+  flex-direction: row;
+  align-items: center;
+  align-self: end;
+  gap: 0.45rem;
+  height: 1.9rem;
+  padding: 0 0.5rem;
+  border: 1px solid var(--gw-border);
+  border-radius: 5px;
+  background: var(--gw-card);
+  cursor: pointer;
+  font-size: 0.82rem;
+}
+
+.galactic-wars.item.objet .objet-case.actif {
+  border-color: rgba(232, 179, 77, 0.55);
+  color: var(--gw-gold);
+}
+
+/* ---- Porteur (arme) ---- */
+.galactic-wars.item.objet .objet-porteur {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 0.8rem;
+}
+
+.galactic-wars.item.objet .objet-taux {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.galactic-wars.item.objet .objet-taux-valeur {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.2rem 0.5rem;
+}
+
+.galactic-wars.item.objet .objet-taux-label {
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.galactic-wars.item.objet .objet-taux-total {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--gw-accent);
+}
+
+.galactic-wars.item.objet .objet-taux.bloquee .objet-taux-total {
+  font-size: 0.78rem;
+  color: var(--gw-coral);
+}
+
+.galactic-wars.item.objet .objet-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.galactic-wars.item.objet .objet-hint {
+  margin: 0;
+  font-size: 0.75rem;
+  color: var(--gw-muted);
+  font-style: italic;
+}
+
+/* ---- Tags ---- */
+.galactic-wars.item.objet .objet-tags-liste {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.galactic-wars.item.objet .tag-case {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.55rem;
+  border: 1px solid var(--gw-border);
+  border-radius: 999px;
+  background: var(--gw-card);
+  color: var(--gw-muted);
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.galactic-wars.item.objet .tag-case.actif {
+  color: var(--gw-accent-soft);
+  border-color: rgba(34, 211, 238, 0.55);
+  background: rgba(34, 211, 238, 0.08);
+}
+
+/* ---- Description / Notes du MJ ---- */
+.galactic-wars.item.objet .objet-texte {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.galactic-wars.item.objet .objet-texte prose-mirror {
+  display: flex;
+  flex-direction: column;
+  min-height: 120px;
+  overflow-wrap: anywhere;
+}
+
+.galactic-wars.item.objet .objet-texte prose-mirror.active {
+  height: 340px;
+}
+
+.galactic-wars.item.objet .objet-texte img {
+  max-width: 100%;
+  height: auto;
+}
+
+.galactic-wars.item.objet .objet-texte-lecture {
+  overflow-wrap: anywhere;
+}
+
+.galactic-wars.item.objet .objet-notes-mj {
+  border-color: rgba(232, 179, 77, 0.4);
+}
+
+.galactic-wars.item.objet .objet-notes-mj h2.eyebrow {
+  color: var(--gw-gold);
+}
+
+/* Bouton d'édition des textes toujours visible (par défaut Foundry ne le montre qu'au survol :
+   introuvable sur une description encore vide). */
+.galactic-wars.item.objet .objet-texte prose-mirror.inactive button.toggle {
+  display: flex;
+  opacity: 0.6;
+}
+.galactic-wars.item.objet .objet-texte prose-mirror.inactive:hover button.toggle {
+  opacity: 1;
+}

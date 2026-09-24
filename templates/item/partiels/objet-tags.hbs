@@ -1,0 +1,14 @@
+{{!-- Tags d'objet (GW.tagsObjet) : une case par tag, name="system.tags.<clé>". --}}
+{{#if tags}}
+<section class="objet-panneau objet-tags">
+  <h2 class="eyebrow">{{localize 'GALACTICWARS.Tags.Titre'}}</h2>
+  <div class="objet-tags-liste">
+    {{#each tags as |tag|}}
+    <label class="tag-case {{#if tag.actif}}actif{{/if}}" {{#if tag.hint}}data-tooltip="{{localize tag.hint}}"{{/if}}>
+      <input type="checkbox" name="system.tags.{{tag.cle}}" {{#if tag.actif}}checked{{/if}}>
+      <i class="{{tag.icone}}"></i> {{localize tag.label}}
+    </label>
+    {{/each}}
+  </div>
+</section>
+{{/if}}

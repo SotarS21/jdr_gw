@@ -1,5 +1,37 @@
 # Journal de développement — Galactic Wars
 
+## Session du 2026-09-24 (suite 4) — Refonte des objets (v0.12.4→v0.13.0)
+
+Choix de l'auteur : boucliers = armures d'emplacement « bouclier » ; tout objet **rangé** par défaut (y compris
+les existants — donc aucun correctif de contenu nécessaire) ; réalisation en orchestration multi-agents.
+
+- **Socle (orchestrateur)** : `data/objet-base.mjs` (quantité, prix, porté, tags, description, notes MJ) partagé par
+  arme / armure / équipement ; arme + portée ; `GW.emplacementsArmure` (plastron, casque, bras, jambes, bouclier) ;
+  deux feuilles dédiées `styles/objets.css` et `styles/inventaire.css` (déclarées dans system.json).
+- **Fiches d'objet (agent 1)** : templates `item/arme|armure|equipement-sheet.hbs` + partiels, choisis par
+  `_configureRenderParts` (race / métier / talent / pouvoir / école gardent `item-sheet.hbs`) ; en-tête image entière
+  (FilePicker), badge de type, interrupteur porté, « Montrer dans le tchat » ; onglets Détails / Description / Notes du
+  MJ (MJ seul) ; compétence en liste (valeur hors liste conservée), taux du porteur, Attaquer / Dégâts.
+- **Inventaire + tchat (agent 2)** : `GalacticWarsItem` : `afficherDansTchat`, `attaquer({pool})` (décrémente
+  lui-même la réserve), `lancerDegats` (partie valide de la formule, reste en note, mention Instable),
+  `basculerPorte` ; carte `templates/chat/objet-carte.hbs`, boutons gérés par `helpers/chat-objet.mjs`
+  (renderChatMessageHTML, retirés si ni MJ ni propriétaire) ; objet caché → murmure MJ + auteur. Inventaire :
+  lignes image / badges / valeur, rangé grisé, réduction totale des armures portées, attaque rapide ; clic = tchat,
+  clic droit = porter / ranger, tags, tchat, fiche, suppression confirmée. `rollCompetence` : option `titre`.
+- **Revue (2 agents)** : bloquant trouvé — `GW.emplacementsArmure` redéfini plus bas dans config.mjs par une
+  ancienne liste inutilisée (écrasait « bouclier ») : supprimée avec `GW.typesEquipement` (inutilisé). Corrigés
+  aussi : sections de la fiche d'objet héritant du flex de `.galactic-wars section`, libellé d'emplacement hors
+  liste, « +15 % » en dur (→ `GW.bonusAlignement`).
+- **Bug de données ancien** : 4 armes du compendium (Lance-roquette, Grenade, Grenade militaire, Trident sith)
+  avaient `type: "armé"` → documents invalides, jamais ajoutables. Corrigé ; compétence liée toujours vide (à
+  fixer par l'auteur).
+- **Piège de déploiement** : une nouvelle feuille de style déclarée dans system.json n'est chargée qu'après un
+  **redémarrage** de Foundry (manifeste lu au démarrage) — comme les packs.
+- Vérifié dans Foundry (Playwright + captures) : porter / ranger (ligne et menu), carte + Attaquer / Dégâts
+  (3d6 + explosion → 3d6), carte cachée en murmure, fiches à 480 px sans défilement horizontal, taux en direct,
+  emplacement Bouclier, fiche de race inchangée, aucune erreur JS. Ajustements : fond sombre de l'image de carte,
+  bouton d'édition des textes toujours visible.
+
 ## Session du 2026-09-24 (suite 3) — Favoris, tag Caché, fiche d'objet réparée (v0.12.3→v0.12.4)
 
 - **Compétences favorites (todo)** : champ `favori` dans chaque entrée de `system.competences` (+ input caché

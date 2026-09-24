@@ -1,0 +1,18 @@
+{{!-- Onglets Description et Notes du MJ (éditeurs riches, comme la fiche de personnage).
+      Les notes ne sont préparées et rendues que pour le MJ (voir item-sheet.mjs). --}}
+{{#if (eq ongletActif 'description')}}
+<section class="objet-panneau objet-texte">
+  <h2 class="eyebrow">{{localize 'GALACTICWARS.Objet.Description'}}</h2>
+  {{#if editable}}
+  <prose-mirror name="system.description" value="{{system.description}}" toggled>{{{descriptionEnrichie}}}</prose-mirror>
+  {{else}}
+  <div class="objet-texte-lecture">{{{descriptionEnrichie}}}</div>
+  {{/if}}
+</section>
+{{/if}}
+{{#if (eq ongletActif 'notes')}}{{#if isGM}}
+<section class="objet-panneau objet-texte objet-notes-mj">
+  <h2 class="eyebrow"><i class="fa-solid fa-user-secret"></i> {{localize 'GALACTICWARS.Objet.NotesMJ'}}</h2>
+  <prose-mirror name="system.notesMJ" value="{{system.notesMJ}}" toggled>{{{notesMJEnrichies}}}</prose-mirror>
+</section>
+{{/if}}{{/if}}

@@ -1,1 +1,386 @@
 /* Inventaire de la fiche classique (onglet Équipements) et cartes d'objet dans le tchat. */
+
+/* ==========================================================================
+   Inventaire — palette « datapad » de .galactic-wars.personnage (galactic-wars.css)
+   ========================================================================== */
+
+/* Armes sur toute la largeur (plus d'informations par ligne), armures et équipement côte à côte. */
+.galactic-wars.personnage .inventaire-grid .panel-armes {
+  grid-column: 1 / -1;
+}
+
+.galactic-wars.personnage .inventaire-bonus {
+  margin: -0.2rem 0 0.5rem;
+}
+
+.galactic-wars.personnage .reduction-totale {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.05rem 0.5rem;
+  border-radius: 999px;
+  border: 1px solid var(--gw-border);
+  background: var(--gw-card);
+  color: var(--gw-accent);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.galactic-wars.personnage .inventaire-ligne {
+  justify-content: flex-start;
+  gap: 0.5rem;
+  padding: 0.3rem 0.4rem;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: opacity 0.15s, background 0.15s, border-color 0.15s;
+}
+
+.galactic-wars.personnage .inventaire-ligne:hover,
+.galactic-wars.personnage .inventaire-ligne:focus-visible {
+  background: var(--gw-card);
+  border-color: var(--gw-border);
+  outline: none;
+}
+
+/* Objet rangé : atténué (pas utilisable tant qu'il n'est pas porté). */
+.galactic-wars.personnage .inventaire-ligne.range {
+  opacity: 0.5;
+}
+
+.galactic-wars.personnage .inventaire-ligne.range:hover,
+.galactic-wars.personnage .inventaire-ligne.range:focus-visible {
+  opacity: 0.85;
+}
+
+.galactic-wars.personnage .inventaire-ligne .objet-img {
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+  object-fit: contain;
+  border: 1px solid var(--gw-border);
+  border-radius: 5px;
+  background: var(--gw-dark);
+}
+
+.galactic-wars.personnage .inventaire-ligne .objet-corps {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.galactic-wars.personnage .inventaire-ligne .objet-nom {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.galactic-wars.personnage .inventaire-ligne .objet-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.galactic-wars.personnage .inventaire-ligne .objet-badges .badge-tag {
+  margin-left: 0;
+}
+
+.galactic-wars.personnage .badge-tag.badge-porte {
+  color: var(--gw-accent);
+  border: 1px solid var(--gw-accent);
+}
+
+.galactic-wars.personnage .badge-tag.badge-bouclier {
+  color: var(--gw-gold);
+  border: 1px solid var(--gw-gold);
+}
+
+.galactic-wars.personnage .badge-tag.badge-instable {
+  color: var(--gw-coral);
+  border: 1px solid var(--gw-coral);
+}
+
+.galactic-wars.personnage .inventaire-ligne .objet-meta {
+  flex: 0 0 auto;
+}
+
+.galactic-wars.personnage .inventaire-ligne .valeur-cle {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--gw-text);
+  white-space: nowrap;
+}
+
+/* Indicateur porté / rangé, cliquable. */
+.galactic-wars.personnage .porte-btn {
+  width: 22px;
+  height: 22px;
+  flex: 0 0 22px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  border: 1px dashed var(--gw-dim);
+  background: transparent;
+  color: var(--gw-dim);
+  font-size: 0.7rem;
+  cursor: pointer;
+}
+
+.galactic-wars.personnage .porte-btn:hover {
+  border-color: var(--gw-accent);
+  color: var(--gw-accent);
+}
+
+.galactic-wars.personnage .porte-btn.actif {
+  border-style: solid;
+  border-color: var(--gw-accent);
+  background: color-mix(in srgb, var(--gw-accent) 15%, transparent);
+  color: var(--gw-accent);
+}
+
+.galactic-wars.personnage .attaque-btn {
+  color: var(--gw-coral);
+}
+
+.galactic-wars.personnage .attaque-btn:hover {
+  border-color: var(--gw-coral);
+}
+
+.galactic-wars.personnage .inventaire-vide {
+  margin: 0.2rem 0.3rem;
+  font-size: 0.72rem;
+  font-style: italic;
+  color: var(--gw-dim);
+}
+
+/* ==========================================================================
+   Carte d'objet dans le tchat (templates/chat/objet-carte.hbs)
+   Jetons posés sur les conteneurs de thème de Foundry : une propriété personnalisée hérite
+   du conteneur le plus proche, donc la carte suit le thème de l'interface même quand il
+   diffère de celui de la page (body.theme-light + #interface.theme-dark, par exemple).
+   ========================================================================== */
+
+.theme-light {
+  --gw-carte-fond: #f6f7fa;
+  --gw-carte-entete: #1b1f2c;
+  --gw-carte-entete-texte: #e7e9f0;
+  --gw-carte-texte: #1d2130;
+  --gw-carte-muted: #5a6278;
+  --gw-carte-bordure: #c9cedb;
+  --gw-carte-accent: #0e7490;
+  --gw-carte-or: #9a6a12;
+  --gw-carte-corail: #c0343b;
+  --gw-carte-image: #1b1f2c; /* sombre même en thème clair : les icônes de Foundry sont blanches */
+}
+
+.theme-dark {
+  --gw-carte-fond: #151822;
+  --gw-carte-entete: #0d0f14;
+  --gw-carte-entete-texte: #e7e9f0;
+  --gw-carte-texte: #e7e9f0;
+  --gw-carte-muted: #8891a8;
+  --gw-carte-bordure: #2a3040;
+  --gw-carte-accent: #22d3ee;
+  --gw-carte-or: #e8b34d;
+  --gw-carte-corail: #f2545b;
+  --gw-carte-image: #0d0f14;
+}
+
+.galactic-wars-carte-objet {
+  /* Valeurs de repli (thème clair) si aucun conteneur de thème n'est trouvé. */
+  color: var(--gw-carte-texte, #1d2130);
+  background: var(--gw-carte-fond, #f6f7fa);
+  border: 1px solid var(--gw-carte-bordure, #c9cedb);
+  border-radius: 8px;
+  overflow: hidden;
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-size: 0.85rem;
+}
+
+.galactic-wars-carte-objet .carte-entete {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.4rem 0.6rem;
+  background: var(--gw-carte-entete, #1b1f2c);
+  color: var(--gw-carte-entete-texte, #e7e9f0);
+  border-bottom: 2px solid var(--gw-carte-accent, #0e7490);
+}
+
+.galactic-wars-carte-objet .carte-nom {
+  margin: 0;
+  border: none;
+  font-size: 1rem;
+  font-weight: 700;
+  color: inherit;
+}
+
+.galactic-wars-carte-objet .carte-type {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  opacity: 0.75;
+  white-space: nowrap;
+}
+
+/* Image entière (contain), jamais recadrée. */
+.galactic-wars-carte-objet .carte-image {
+  margin: 0;
+  padding: 0.4rem;
+  display: flex;
+  justify-content: center;
+  background: var(--gw-carte-image, #1b1f2c);
+}
+
+.galactic-wars-carte-objet .carte-image img {
+  display: block;
+  max-width: 100%;
+  max-height: 200px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border: none;
+}
+
+.galactic-wars-carte-objet .carte-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  padding: 0.45rem 0.6rem 0;
+}
+
+.galactic-wars-carte-objet .carte-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0 0.45rem;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--gw-carte-muted, #5a6278);
+  border: 1px dashed var(--gw-carte-muted, #5a6278);
+}
+
+.galactic-wars-carte-objet .badge-porte {
+  color: var(--gw-carte-accent, #0e7490);
+  border: 1px solid var(--gw-carte-accent, #0e7490);
+}
+
+.galactic-wars-carte-objet .badge-bouclier {
+  color: var(--gw-carte-or, #9a6a12);
+  border: 1px solid var(--gw-carte-or, #9a6a12);
+}
+
+.galactic-wars-carte-objet .badge-instable {
+  color: var(--gw-carte-corail, #c0343b);
+  border: 1px solid var(--gw-carte-corail, #c0343b);
+}
+
+.galactic-wars-carte-objet .carte-details {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.15rem 0.6rem;
+  margin: 0;
+  padding: 0.45rem 0.6rem 0;
+}
+
+.galactic-wars-carte-objet .carte-details dt {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.64rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gw-carte-muted, #5a6278);
+  align-self: center;
+}
+
+.galactic-wars-carte-objet .carte-details dd {
+  margin: 0;
+  font-weight: 600;
+}
+
+.galactic-wars-carte-objet .carte-details dd.mono {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+}
+
+.galactic-wars-carte-objet .carte-description {
+  margin: 0.45rem 0.6rem 0;
+  padding-top: 0.4rem;
+  border-top: 1px solid var(--gw-carte-bordure, #c9cedb);
+  line-height: 1.4;
+}
+
+.galactic-wars-carte-objet .carte-description > :first-child { margin-top: 0; }
+.galactic-wars-carte-objet .carte-description > :last-child { margin-bottom: 0; }
+
+.galactic-wars-carte-objet .carte-actions {
+  display: flex;
+  gap: 0.4rem;
+  padding: 0.5rem 0.6rem 0;
+}
+
+.galactic-wars-carte-objet .carte-actions button {
+  flex: 1 1 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0.25rem 0.4rem;
+  line-height: 1.4;
+  border-radius: 6px;
+  border: 1px solid var(--gw-carte-accent, #0e7490);
+  background: transparent;
+  color: var(--gw-carte-accent, #0e7490);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.galactic-wars-carte-objet .carte-actions button[data-gw-carte-action="degats"] {
+  border-color: var(--gw-carte-corail, #c0343b);
+  color: var(--gw-carte-corail, #c0343b);
+}
+
+.galactic-wars-carte-objet .carte-actions button:hover {
+  background: color-mix(in srgb, currentColor 14%, transparent);
+}
+
+.galactic-wars-carte-objet .carte-actions button:disabled {
+  opacity: 0.5;
+  cursor: progress;
+}
+
+.galactic-wars-carte-objet .carte-note-cache {
+  margin: 0.45rem 0.6rem 0;
+  font-size: 0.7rem;
+  font-style: italic;
+  color: var(--gw-carte-muted, #5a6278);
+}
+
+/* Marge basse commune (le dernier bloc, quel qu'il soit). */
+.galactic-wars-carte-objet > :last-child {
+  margin-bottom: 0.55rem;
+}
+
+.galactic-wars-carte-objet > .carte-image:last-child {
+  margin-bottom: 0;
+}
+
+/* Flavor des jets d'objet (attaque, dégâts) — voir rolls.mjs et GalacticWarsItem. */
+.chat-message .gw-jet-titre {
+  font-weight: 700;
+}
+
+.chat-message .gw-note-degats {
+  font-style: italic;
+}
+
+.chat-message .gw-instable {
+  font-weight: 600;
+  color: var(--gw-carte-corail, #c0343b);
+}

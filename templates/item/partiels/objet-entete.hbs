@@ -1,0 +1,30 @@
+{{!-- En-tête commun des fiches d'objet (arme, armure/bouclier, équipement) : image entière
+      cliquable (FilePicker, data-edit ne marche pas en ApplicationV2), nom, badge de type ;
+      si l'objet appartient à un acteur : Porté/Rangé et envoi dans le tchat. --}}
+<header class="sheet-header objet-entete">
+  <div class="objet-image-cadre">
+    <img class="objet-image" src="{{item.img}}" alt="{{item.name}}"
+         {{#if editable}}data-action="editImage" data-tooltip="{{localize 'GALACTICWARS.Objet.ChangerImage'}}"{{/if}}>
+  </div>
+  <div class="objet-entete-champs">
+    <input type="text" class="objet-nom" name="name" value="{{item.name}}" placeholder="{{localize 'GALACTICWARS.Sheet.Nom'}}">
+    <div class="objet-badges">
+      <span class="objet-badge type-{{item.type}} {{#if estBouclier}}bouclier{{/if}}">{{localize typeLabel}}</span>
+      {{#if system.tags.cache}}<span class="objet-badge cache" data-tooltip="{{localize 'GALACTICWARS.Tags.cacheHint'}}"><i class="fa-solid fa-eye-slash"></i> {{localize 'GALACTICWARS.Tags.cache'}}</span>{{/if}}
+    </div>
+    {{#if proprietaire}}
+    <div class="objet-entete-actions">
+      <button type="button" class="objet-porte {{#if system.porte}}porte{{else}}range{{/if}}" data-action="basculerPorte"
+              aria-pressed="{{#if system.porte}}true{{else}}false{{/if}}"
+              data-tooltip="{{#if system.porte}}{{localize 'GALACTICWARS.Objet.Ranger'}}{{else}}{{localize 'GALACTICWARS.Objet.Porter'}}{{/if}}"
+              {{#unless editable}}disabled{{/unless}}>
+        <span class="interrupteur" aria-hidden="true"><span class="curseur"></span></span>
+        {{#if system.porte}}{{localize 'GALACTICWARS.Objet.Porte'}}{{else}}{{localize 'GALACTICWARS.Objet.Range'}}{{/if}}
+      </button>
+      <button type="button" class="objet-btn" data-action="afficherDansTchat">
+        <i class="fa-solid fa-comment"></i> {{localize 'GALACTICWARS.Objet.EnvoyerTchat'}}
+      </button>
+    </div>
+    {{/if}}
+  </div>
+</header>

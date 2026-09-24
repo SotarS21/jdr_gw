@@ -1,0 +1,87 @@
+{{!-- Fiche d'arme (style « datapad »). <div>, pas <form> : DocumentSheetV2 rend déjà
+      this.element comme un <form> — un <form> imbriqué casserait FormDataExtended.
+      Un seul élément racine reste requis (PARTS). --}}
+<div class="galactic-wars-body">
+  {{> gw-objet-entete}}
+  {{> gw-objet-onglets}}
+
+  <div class="sheet-body">
+  {{#if (eq ongletActif 'details')}}
+  <section class="objet-panneau objet-details">
+    <h2 class="eyebrow">{{localize 'GALACTICWARS.Objet.Details'}}</h2>
+    <div class="objet-champs">
+      {{!-- Formule de dés, éventuellement suivie de texte (ex. "3d6 + explosion"). --}}
+      <label class="objet-champ">
+        <span class="eyebrow">{{localize 'GALACTICWARS.Objet.Degats'}}</span>
+        <input type="text" class="mono valeur-degats" name="system.degats" value="{{system.degats}}" placeholder="1d6">
+      </label>
+      <label class="objet-champ">
+        <span class="eyebrow">{{localize 'GALACTICWARS.Objet.Competence'}}</span>
+        <select name="system.competence">
+          <option value="" {{#unless system.competence}}selected{{/unless}}>{{localize 'GALACTICWARS.Objet.AucuneCompetence'}}</option>
+          {{#each arme.competences as |c|}}
+          <option value="{{c.cle}}" {{#if c.selected}}selected{{/if}}>{{c.label}}</option>
+          {{/each}}
+        </select>
+      </label>
+      <label class="objet-champ">
+        <span class="eyebrow">{{localize 'GALACTICWARS.Objet.Portee'}}</span>
+        <input type="text" name="system.portee" value="{{system.portee}}">
+      </label>
+      <label class="objet-champ objet-case {{#if system.instable}}actif{{/if}}">
+        <input type="checkbox" name="system.instable" {{#if system.instable}}checked{{/if}}>
+        <span><i class="fa-solid fa-radiation"></i> {{localize 'GALACTICWARS.Objet.Instable'}}</span>
+      </label>
+      <label class="objet-champ">
+        <span class="eyebrow">{{localize 'GALACTICWARS.Objet.Quantite'}}</span>
+        <input type="number" class="mono" name="system.quantite" value="{{system.quantite}}" min="0" step="1">
+      </label>
+      <label class="objet-champ">
+        <span class="eyebrow">{{localize 'GALACTICWARS.Objet.Prix'}}</span>
+        <input type="text" class="mono" name="system.prix" value="{{system.prix}}">
+      </label>
+    </div>
+  </section>
+
+  {{!-- Porteur de type personnage : taux actuel de la compétence liée ; Attaquer / Dégâts
+        seulement si l'arme est portée (les méthodes du document refusent de toute façon sinon). --}}
+  {{#if arme.porteurPersonnage}}
+  <section class="objet-panneau objet-porteur">
+    <div class="objet-taux {{#if arme.taux.bloquee}}bloquee{{/if}}">
+      <span class="eyebrow">{{localize 'GALACTICWARS.Objet.TauxCompetence'}}</span>
+      <span class="objet-taux-valeur">
+        {{#if arme.taux}}
+        <span class="objet-taux-label">{{arme.taux.label}}</span>
+        {{#if arme.taux.bloquee}}
+        <span class="objet-taux-total mono"><i class="fa-solid fa-lock"></i> {{localize 'GALACTICWARS.Objet.CompetenceBloquee'}}</span>
+        {{else if arme.taux.trouvee}}
+        <span class="objet-taux-total mono">{{arme.taux.total}} %</span>
+        {{else}}
+        <span class="objet-taux-total mono">—</span>
+        {{/if}}
+        {{else}}
+        <span class="objet-taux-label">{{localize 'GALACTICWARS.Objet.AucuneCompetence'}}</span>
+        {{/if}}
+      </span>
+    </div>
+    {{#if arme.actionsPossibles}}
+    <div class="objet-actions">
+      {{!-- Sans compétence liée (attaquer() refuserait) ou compétence bloquée, seul le jet de
+            dégâts reste proposé. --}}
+      {{#if arme.taux}}{{#unless arme.taux.bloquee}}
+      <button type="button" class="objet-btn primaire" data-action="attaquer"><i class="fa-solid fa-crosshairs"></i> {{localize 'GALACTICWARS.Objet.Attaquer'}}</button>
+      {{/unless}}{{/if}}
+      <button type="button" class="objet-btn danger" data-action="lancerDegats"><i class="fa-solid fa-burst"></i> {{localize 'GALACTICWARS.Objet.LancerDegats'}}</button>
+    </div>
+    {{else}}
+    <p class="objet-hint">{{localize 'GALACTICWARS.Objet.PorterPourAttaquer'}}</p>
+    {{/if}}
+  </section>
+  {{/if}}
+
+  {{> gw-objet-tags}}
+  {{/if}}
+
+  {{> gw-objet-textes}}
+  </div>
+</div>

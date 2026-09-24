@@ -57,5 +57,16 @@ export const RELEASE_NOTES = {
       <li>Compétences favorites : étoile sur chaque compétence, panneau Favoris (jet au clic) en haut de l'onglet Personnage.</li>
       <li>Tag « Caché » sur les armes, armures et équipements : case dans la fiche de l'objet ou clic droit dans l'inventaire.</li>
     </ul>`
+  },
+  "0.13.0": {
+    title: "v0.13.0 — refonte des objets",
+    html: `<ul>
+      <li>Nouvelles fiches d'arme, d'armure / bouclier et d'équipement : image entière, porté / rangé, onglets Détails / Description / Notes du MJ, compétence liée avec le taux du porteur, boutons Attaquer et Dégâts.</li>
+      <li>Boucliers : armures d'emplacement « Bouclier », cumulables avec les autres armures.</li>
+      <li>Inventaire : lignes avec image et badges, objets rangés grisés, réduction totale des armures portées, attaque rapide ; clic = carte dans le tchat, clic droit = porter / ranger, tags, fiche, suppression.</li>
+      <li>Cartes d'objet dans le tchat avec Attaquer / Dégâts (propriétaire et MJ) ; un objet caché est montré en murmure.</li>
+      <li>Tout objet est désormais rangé par défaut : portez vos armes et armures pour les utiliser.</li>
+      <li>Compendium Armes : Lance-roquette, Grenade, Grenade militaire et Trident sith sont de nouveau utilisables (type invalide corrigé).</li>
+    </ul>`
   }
 };

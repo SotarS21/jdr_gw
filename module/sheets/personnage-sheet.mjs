@@ -38,7 +38,10 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       supprimerEntreeNote: PersonnageSheet.#onSupprimerEntreeNote,
       ajouterTrait: PersonnageSheet.#onAjouterTrait,
       basculerFavori: PersonnageSheet.#onBasculerFavori,
-      ouvrirObjet: PersonnageSheet.#onOuvrirObjet
+      ouvrirObjet: PersonnageSheet.#onOuvrirObjet,
+      afficherObjet: PersonnageSheet.#onAfficherObjet,
+      basculerPorteObjet: PersonnageSheet.#onBasculerPorteObjet,
+      attaquerObjet: PersonnageSheet.#onAttaquerObjet
     }
   };
 
@@ -79,6 +82,7 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     context.sousOngletNotes = this.#sousOngletNotes;
     context.modeEdition = this.modeEdition;
     context.isGM = game.user.isGM;
+    context.bonusAlignement = GW.bonusAlignement;
     // Barre de PV : vert > 50 %, orange de 25 à 50 %, rouge < 25 % (le PJ voit quand il est « dans le rouge »).
     const pvMax = system.pv.max || 0;
     const pourcentagePV = pvMax > 0 ? Math.round(Math.min(100, Math.max(0, (system.pv.value / pvMax) * 100))) : 0;
@@ -110,10 +114,8 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     context.favoris = competencesIndexees
       .filter((c) => c.favori)
       .sort((a, b) => game.i18n.localize(a.label).localeCompare(game.i18n.localize(b.label)));
-    context.armes = this.actor.items.filter((i) => i.type === "arme");
-    context.armures = this.actor.items.filter((i) => i.type === "armure");
+    Object.assign(context, this.#preparerInventaire());
     context.pouvoirs = this.actor.items.filter((i) => i.type === "pouvoir");
-    context.equipements = this.actor.items.filter((i) => i.type === "equipement");
     context.traits = this.actor.items.filter((i) => i.type === "talent").sort((a, b) => a.name.localeCompare(b.name));
     context.afficherTraits = context.traits.length > 0 || context.modeEdition;
     if (this.#ongletActif === "notes") Object.assign(context, await this.#preparerNotes(system));
@@ -142,6 +144,18 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   async _onRender(context, options) {
     await super._onRender(context, options);
     this.#activerCredits();
+    this.#activerInventaire();
+  }
+
+  /** Lignes d'inventaire (role="button") : Entrée / Espace = même effet que le clic. */
+  #activerInventaire() {
+    for (const ligne of this.element.querySelectorAll(".inventaire-ligne[data-item-id]")) {
+      ligne.addEventListener("keydown", (e) => {
+        if (e.target !== ligne || (e.key !== "Enter" && e.key !== " ")) return;
+        e.preventDefault();
+        this.actor.items.get(ligne.dataset.itemId)?.afficherDansTchat();
+      });
+    }
   }
 
   /** Box Crédits : clic sur le texte formaté → saisie ; sortie sans changement → retour au texte
@@ -189,6 +203,47 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       intensite: total ? (Math.max(lumiere, obscurite) / 10).toFixed(2) : 0,
       cote: total === 0 ? "vide" : ecart > 0 ? "obscurite" : ecart < 0 ? "lumiere" : "neutre",
       tendance: `GALACTICWARS.Alignement.Tendance.${tendance}`
+    };
+  }
+
+  /**
+   * Onglet Équipements : lignes d'inventaire (armes, armures/boucliers, équipement) triées
+   * par nom, avec badges et valeur clé, et réduction totale des seules armures PORTÉES.
+   */
+  #preparerInventaire() {
+    const parNom = (a, b) => a.name.localeCompare(b.name, game.i18n.lang);
+    const ligne = (item, valeur) => {
+      const system = item.system;
+      const badges = [];
+      for (const [cle, tag] of Object.entries(GW.tagsObjet)) {
+        if (system.tags?.[cle]) badges.push({ cle, label: tag.label, icone: tag.icone, hint: `GALACTICWARS.Tags.${cle}Hint` });
+      }
+      if (item.type === "armure" && system.emplacement === "bouclier") {
+        badges.push({ cle: "bouclier", label: "GALACTICWARS.Objet.Emplacement.bouclier", icone: "fa-solid fa-shield-halved" });
+      }
+      if (item.type === "arme" && system.instable) {
+        badges.push({ cle: "instable", label: "GALACTICWARS.Objet.Instable", icone: "fa-solid fa-bolt" });
+      }
+      return {
+        id: item.id,
+        name: item.name,
+        img: item.img,
+        porte: !!system.porte,
+        cache: !!system.tags?.cache,
+        badges,
+        valeur,
+        // Attaque rapide : arme portée ET dotée d'une compétence (sinon attaquer() refuserait).
+        attaqueRapide: item.type === "arme" && !!system.porte && !!system.competence
+      };
+    };
+    const objets = (type) => this.actor.items.filter((i) => i.type === type).sort(parNom);
+
+    const armures = objets("armure");
+    return {
+      armes: objets("arme").map((i) => ligne(i, i.system.degats)),
+      armures: armures.map((i) => ligne(i, `+${i.system.reduction ?? 0}`)),
+      equipements: objets("equipement").map((i) => ligne(i, `×${i.system.quantite ?? 0}`)),
+      reductionTotale: armures.filter((i) => i.system.porte).reduce((s, i) => s + (i.system.reduction ?? 0), 0)
     };
   }
 
@@ -289,23 +344,93 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       }
     ], { jQuery: false, fixed: true });
 
-    // Clic droit sur un objet de l'inventaire : basculer ses tags (Caché…).
+    // Clic droit sur une ligne d'inventaire (onglet Équipements) : porter/ranger, tags
+    // (Caché…), tchat, fiche, suppression. Limité à .inventaire-ligne : les pouvoirs, aussi en
+    // .objet-row, n'ont ni porté ni tags.
     const objet = (li) => this.actor.items.get(li.dataset.itemId);
-    new foundry.applications.ux.ContextMenu.implementation(this.element, ".objet-row[data-item-id]",
-      Object.entries(GW.tagsObjet).flatMap(([cle, tag]) => [
+    const editable = () => this.isEditable;
+    new foundry.applications.ux.ContextMenu.implementation(this.element, ".inventaire-ligne[data-item-id]", [
+      {
+        label: "GALACTICWARS.Objet.Porter",
+        icon: '<i class="fa-solid fa-hand-fist"></i>',
+        visible: (li) => editable() && objet(li)?.estObjetInventaire && !objet(li).system.porte,
+        onClick: (event, li) => objet(li)?.basculerPorte()
+      },
+      {
+        label: "GALACTICWARS.Objet.Ranger",
+        icon: '<i class="fa-solid fa-box-archive"></i>',
+        visible: (li) => editable() && objet(li)?.estObjetInventaire && !!objet(li).system.porte,
+        onClick: (event, li) => objet(li)?.basculerPorte()
+      },
+      ...Object.entries(GW.tagsObjet).flatMap(([cle, tag]) => [
         {
           label: game.i18n.format("GALACTICWARS.Tags.Activer", { tag: game.i18n.localize(tag.label) }),
           icon: `<i class="${tag.icone}"></i>`,
-          visible: (li) => objet(li)?.system.tags && !objet(li).system.tags[cle],
+          visible: (li) => editable() && objet(li)?.system.tags && !objet(li).system.tags[cle],
           onClick: (event, li) => objet(li)?.update({ [`system.tags.${cle}`]: true })
         },
         {
           label: game.i18n.format("GALACTICWARS.Tags.Desactiver", { tag: game.i18n.localize(tag.label) }),
           icon: `<i class="${tag.icone}"></i>`,
-          visible: (li) => !!objet(li)?.system.tags?.[cle],
+          visible: (li) => editable() && !!objet(li)?.system.tags?.[cle],
           onClick: (event, li) => objet(li)?.update({ [`system.tags.${cle}`]: false })
         }
-      ]), { jQuery: false, fixed: true });
+      ]),
+      {
+        label: "GALACTICWARS.Objet.EnvoyerTchat",
+        icon: '<i class="fa-solid fa-comment"></i>',
+        onClick: (event, li) => objet(li)?.afficherDansTchat()
+      },
+      {
+        label: "GALACTICWARS.Objet.Ouvrir",
+        icon: '<i class="fa-solid fa-up-right-from-square"></i>',
+        onClick: (event, li) => objet(li)?.sheet.render({ force: true })
+      },
+      {
+        label: "GALACTICWARS.Objet.Supprimer",
+        icon: '<i class="fa-solid fa-trash"></i>',
+        visible: () => editable(),
+        onClick: (event, li) => this.#supprimerObjet(objet(li))
+      }
+    ], { jQuery: false, fixed: true });
+  }
+
+  /** Suppression d'un objet d'inventaire après confirmation (plus de corbeille sur la ligne). */
+  async #supprimerObjet(item) {
+    if (!item) return;
+    const confirme = await foundry.applications.api.DialogV2.confirm({
+      window: { title: game.i18n.localize("GALACTICWARS.Objet.Supprimer") },
+      content: `<p>${game.i18n.format("GALACTICWARS.Objet.SupprimerConfirmation", { nom: foundry.utils.escapeHTML(item.name) })}</p>`
+    });
+    if (confirme) await item.delete();
+  }
+
+  /** Objet de la ligne d'inventaire contenant `target`. */
+  #objetDeLigne(target) {
+    return this.actor.items.get(target.closest("[data-item-id]")?.dataset.itemId);
+  }
+
+  /** Réserve Lumière/Obscurité choisie (boutons radio « bonusAlignement ») si elle n'est pas vide. */
+  #reserveChoisie() {
+    const choix = this.element.querySelector('input[name="bonusAlignement"]:checked')?.value;
+    return (choix === "lumiere" || choix === "obscurite") && this.actor.system[choix] > 0 ? choix : null;
+  }
+
+  /** Clic sur une ligne d'inventaire : carte de l'objet dans le tchat. */
+  static async #onAfficherObjet(event, target) {
+    await this.#objetDeLigne(target)?.afficherDansTchat();
+  }
+
+  static async #onBasculerPorteObjet(event, target) {
+    event.stopPropagation();
+    if (!this.isEditable) return;
+    await this.#objetDeLigne(target)?.basculerPorte();
+  }
+
+  /** Attaque rapide : même réserve que #onRollCompetence, décrémentée par item.attaquer(). */
+  static async #onAttaquerObjet(event, target) {
+    event.stopPropagation();
+    await this.#objetDeLigne(target)?.attaquer({ pool: this.#reserveChoisie() });
   }
 
   /** Mise à jour du tableau complet (jamais d'update sur un seul index d'ArrayField). */

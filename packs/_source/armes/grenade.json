@@ -2,7 +2,7 @@
   "_key": "!items!BegMMS41hKkeC81e",
   "_id": "BegMMS41hKkeC81e",
   "name": "Grenade",
-  "type": "armé",
+  "type": "arme",
   "img": "icons/svg/mystery-man.svg",
   "system": {
     "degats": "2d6",

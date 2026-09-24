@@ -104,10 +104,10 @@
         <div class="bonus-choix">
           <label><input type="radio" name="bonusAlignement" value="aucun" checked> {{localize 'GALACTICWARS.Alignement.Aucun'}}</label>
           <label{{#unless system.lumiere}} class="disabled"{{/unless}}>
-            <input type="radio" name="bonusAlignement" value="lumiere" {{#unless system.lumiere}}disabled{{/unless}}> {{localize 'GALACTICWARS.Alignement.Lumiere'}} (+15%)
+            <input type="radio" name="bonusAlignement" value="lumiere" {{#unless system.lumiere}}disabled{{/unless}}> {{localize 'GALACTICWARS.Alignement.Lumiere'}} (+{{bonusAlignement}}%)
           </label>
           <label{{#unless system.obscurite}} class="disabled"{{/unless}}>
-            <input type="radio" name="bonusAlignement" value="obscurite" {{#unless system.obscurite}}disabled{{/unless}}> {{localize 'GALACTICWARS.Alignement.Obscurite'}} (+15%)
+            <input type="radio" name="bonusAlignement" value="obscurite" {{#unless system.obscurite}}disabled{{/unless}}> {{localize 'GALACTICWARS.Alignement.Obscurite'}} (+{{bonusAlignement}}%)
           </label>
         </div>
         <p class="hint">{{localize 'GALACTICWARS.Alignement.Hint'}}</p>
@@ -244,58 +244,82 @@
   {{/if}}
 
   {{#if (eq ongletActif 'equipements')}}
+  {{!-- Ligne d'inventaire (préparée par PersonnageSheet#preparerInventaire). Clic = carte dans
+        le tchat, clic droit = menu (porter/ranger, tags, tchat, fiche, suppression). Objet
+        rangé atténué ; l'indicateur de gauche bascule porté/rangé. --}}
+  {{#*inline "gwLigneObjet"}}
+  <div class="objet-row inventaire-ligne {{#unless ligne.porte}}range{{/unless}} {{#if ligne.cache}}tag-cache{{/if}}"
+       data-item-id="{{ligne.id}}" data-action="afficherObjet" role="button" tabindex="0">
+    <button type="button" class="porte-btn {{#if ligne.porte}}actif{{/if}}" data-action="basculerPorteObjet"
+            aria-pressed="{{#if ligne.porte}}true{{else}}false{{/if}}"
+            data-tooltip="{{#if ligne.porte}}{{localize 'GALACTICWARS.Objet.Porte'}} — {{localize 'GALACTICWARS.Objet.Ranger'}}{{else}}{{localize 'GALACTICWARS.Objet.Range'}} — {{localize 'GALACTICWARS.Objet.Porter'}}{{/if}}">
+      <i class="fa-solid {{#if ligne.porte}}fa-hand-fist{{else}}fa-box-archive{{/if}}"></i>
+    </button>
+    <img class="objet-img" src="{{ligne.img}}" alt="">
+    <div class="objet-corps">
+      <span class="objet-nom">{{ligne.name}}</span>
+      {{#if (or ligne.porte ligne.badges.length)}}
+      <span class="objet-badges">
+        {{#if ligne.porte}}<span class="badge-tag badge-porte"><i class="fa-solid fa-hand-fist"></i> {{localize 'GALACTICWARS.Objet.Porte'}}</span>{{/if}}
+        {{#each ligne.badges as |badge|}}
+        <span class="badge-tag badge-{{badge.cle}}" {{#if badge.hint}}data-tooltip="{{localize badge.hint}}"{{/if}}><i class="{{badge.icone}}"></i> {{localize badge.label}}</span>
+        {{/each}}
+      </span>
+      {{/if}}
+    </div>
+    <div class="objet-meta">
+      <span class="mono valeur-cle">{{ligne.valeur}}</span>
+      {{#if ligne.attaqueRapide}}
+      <button type="button" class="roll-btn attaque-btn" data-action="attaquerObjet" data-tooltip="{{localize 'GALACTICWARS.Objet.Attaquer'}}">
+        <i class="fa-solid fa-crosshairs"></i>
+      </button>
+      {{/if}}
+    </div>
+  </div>
+  {{/inline}}
+
   <section class="inventaire-grid">
-    <div class="panel">
+    <div class="panel panel-armes">
       <div class="section-header">
         <h2 class="eyebrow">{{localize 'GALACTICWARS.Sheet.Armes'}}</h2>
         <button type="button" class="roll-btn" data-action="createItem" data-type="arme">+</button>
       </div>
+      {{!-- Même groupe radio que l'onglet Personnage (un seul onglet est rendu à la fois) :
+            la réserve choisie s'applique à l'attaque rapide, voir #onAttaquerObjet. --}}
+      <div class="bonus-choix inventaire-bonus">
+        <label><input type="radio" name="bonusAlignement" value="aucun" checked> {{localize 'GALACTICWARS.Alignement.Aucun'}}</label>
+        <label{{#unless system.lumiere}} class="disabled"{{/unless}}>
+          <input type="radio" name="bonusAlignement" value="lumiere" {{#unless system.lumiere}}disabled{{/unless}}> {{localize 'GALACTICWARS.Alignement.Lumiere'}} (+{{bonusAlignement}}%)
+        </label>
+        <label{{#unless system.obscurite}} class="disabled"{{/unless}}>
+          <input type="radio" name="bonusAlignement" value="obscurite" {{#unless system.obscurite}}disabled{{/unless}}> {{localize 'GALACTICWARS.Alignement.Obscurite'}} (+{{bonusAlignement}}%)
+        </label>
+      </div>
       <div class="objet-liste">
-        {{#each armes as |arme|}}
-        <div class="objet-row {{#if arme.system.tags.cache}}tag-cache{{/if}}" data-item-id="{{arme.id}}">
-          <span class="objet-nom">{{arme.name}}{{#if arme.system.tags.cache}} <span class="badge-tag" data-tooltip="{{localize 'GALACTICWARS.Tags.cacheHint'}}"><i class="fa-solid fa-eye-slash"></i> {{localize 'GALACTICWARS.Tags.cache'}}</span>{{/if}}</span>
-          <div class="objet-meta">
-            <span class="mono valeur-secondaire">{{arme.system.degats}}</span>
-            <button type="button" class="del-btn" data-action="deleteItem">🗑</button>
-          </div>
-        </div>
-        {{/each}}
+        {{#each armes as |arme|}}{{> gwLigneObjet ligne=arme}}{{else}}<p class="inventaire-vide">{{localize 'GALACTICWARS.Objet.ListeVide'}}</p>{{/each}}
       </div>
     </div>
 
-    <div class="panel">
+    <div class="panel panel-armures">
       <div class="section-header">
-        <h2 class="eyebrow">{{localize 'GALACTICWARS.Sheet.Armures'}}</h2>
+        <h2 class="eyebrow">{{localize 'GALACTICWARS.Objet.ArmuresBoucliers'}}</h2>
+        <span class="reduction-totale mono" data-tooltip="{{localize 'GALACTICWARS.Objet.ReductionTotale'}}">
+          <i class="fa-solid fa-shield-halved"></i> {{reductionTotale}}
+        </span>
         <button type="button" class="roll-btn" data-action="createItem" data-type="armure">+</button>
       </div>
       <div class="objet-liste">
-        {{#each armures as |armure|}}
-        <div class="objet-row {{#if armure.system.tags.cache}}tag-cache{{/if}}" data-item-id="{{armure.id}}">
-          <span class="objet-nom">{{armure.name}}{{#if armure.system.tags.cache}} <span class="badge-tag" data-tooltip="{{localize 'GALACTICWARS.Tags.cacheHint'}}"><i class="fa-solid fa-eye-slash"></i> {{localize 'GALACTICWARS.Tags.cache'}}</span>{{/if}}</span>
-          <div class="objet-meta">
-            <span class="mono valeur-secondaire">+{{armure.system.reduction}}</span>
-            <button type="button" class="del-btn" data-action="deleteItem">🗑</button>
-          </div>
-        </div>
-        {{/each}}
+        {{#each armures as |armure|}}{{> gwLigneObjet ligne=armure}}{{else}}<p class="inventaire-vide">{{localize 'GALACTICWARS.Objet.ListeVide'}}</p>{{/each}}
       </div>
     </div>
 
-    <div class="panel">
+    <div class="panel panel-equipement">
       <div class="section-header">
         <h2 class="eyebrow">{{localize 'GALACTICWARS.Sheet.Equipement'}}</h2>
         <button type="button" class="roll-btn" data-action="createItem" data-type="equipement">+</button>
       </div>
       <div class="objet-liste">
-        {{#each equipements as |objet|}}
-        <div class="objet-row {{#if objet.system.tags.cache}}tag-cache{{/if}}" data-item-id="{{objet.id}}">
-          <span class="objet-nom">{{objet.name}}{{#if objet.system.tags.cache}} <span class="badge-tag" data-tooltip="{{localize 'GALACTICWARS.Tags.cacheHint'}}"><i class="fa-solid fa-eye-slash"></i> {{localize 'GALACTICWARS.Tags.cache'}}</span>{{/if}}</span>
-          <div class="objet-meta">
-            <span class="mono valeur-secondaire">×{{objet.system.quantite}}</span>
-            <button type="button" class="del-btn" data-action="deleteItem">🗑</button>
-          </div>
-        </div>
-        {{/each}}
+        {{#each equipements as |objet|}}{{> gwLigneObjet ligne=objet}}{{else}}<p class="inventaire-vide">{{localize 'GALACTICWARS.Objet.ListeVide'}}</p>{{/each}}
       </div>
     </div>
   </section>

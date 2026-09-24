@@ -21,6 +21,9 @@ import { GalacticWarsItemSheet } from "./sheets/item-sheet.mjs";
 import { runMigrations } from "./helpers/migration.mjs";
 import { registerVersionCheckSettings, checkSystemVersionUpdate } from "./helpers/version-check.mjs";
 import { registerPackUpdateSettings, checkPendingPackUpdates } from "./helpers/pack-updates.mjs";
+import { enregistrerHooksChatObjet } from "./helpers/chat-objet.mjs";
+
+enregistrerHooksChatObjet();
 
 Hooks.once("init", () => {
   console.log("Galactic Wars | Initialisation du système");

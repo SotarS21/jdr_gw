@@ -1,0 +1,28 @@
+{{!-- Fiche d'équipement. <div>, pas <form> : DocumentSheetV2 rend déjà this.element comme
+      un <form>. Un seul élément racine reste requis (PARTS). --}}
+<div class="galactic-wars-body">
+  {{> gw-objet-entete}}
+  {{> gw-objet-onglets}}
+
+  <div class="sheet-body">
+  {{#if (eq ongletActif 'details')}}
+  <section class="objet-panneau objet-details">
+    <h2 class="eyebrow">{{localize 'GALACTICWARS.Objet.Details'}}</h2>
+    <div class="objet-champs">
+      <label class="objet-champ">
+        <span class="eyebrow">{{localize 'GALACTICWARS.Objet.Quantite'}}</span>
+        <input type="number" class="mono" name="system.quantite" value="{{system.quantite}}" min="0" step="1">
+      </label>
+      <label class="objet-champ">
+        <span class="eyebrow">{{localize 'GALACTICWARS.Objet.Prix'}}</span>
+        <input type="text" class="mono" name="system.prix" value="{{system.prix}}">
+      </label>
+    </div>
+  </section>
+
+  {{> gw-objet-tags}}
+  {{/if}}
+
+  {{> gw-objet-textes}}
+  </div>
+</div>

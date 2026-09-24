@@ -2,7 +2,7 @@
   "_key": "!items!TbT0iw690ey8ZzHz",
   "_id": "TbT0iw690ey8ZzHz",
   "name": "Grenade militaire",
-  "type": "armé",
+  "type": "arme",
   "img": "icons/svg/mystery-man.svg",
   "system": {
     "degats": "3d6",

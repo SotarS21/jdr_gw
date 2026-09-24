@@ -2,7 +2,7 @@
   "_key": "!items!BB6Zg4EqmQzT815p",
   "_id": "BB6Zg4EqmQzT815p",
   "name": "Lance-roquette",
-  "type": "armé",
+  "type": "arme",
   "img": "icons/svg/mystery-man.svg",
   "system": {
     "degats": "3d6 + explosion",

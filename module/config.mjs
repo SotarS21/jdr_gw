@@ -194,15 +194,3 @@ GW.alignements = {
 /** Bonus fixe accordé quand un point de Lumière ou d'Obscurité est dépensé sur un jet (voir rollCompetence). */
 GW.bonusAlignement = 15;
 
-GW.typesEquipement = {
-  arme: "GALACTICWARS.TypeEquipement.Arme",
-  armure: "GALACTICWARS.TypeEquipement.Armure",
-  objet: "GALACTICWARS.TypeEquipement.Objet"
-};
-
-GW.emplacementsArmure = {
-  casque: "GALACTICWARS.Emplacement.Casque",
-  plastron: "GALACTICWARS.Emplacement.Plastron",
-  avantBras: "GALACTICWARS.Emplacement.AvantBras",
-  jambiere: "GALACTICWARS.Emplacement.Jambiere"
-};

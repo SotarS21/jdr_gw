@@ -264,7 +264,19 @@
       "Ouvrir": "Ouvrir la fiche",
       "Supprimer": "Supprimer",
       "ReductionTotale": "Réduction totale (armures portées)",
-      "TauxCompetence": "Taux actuel du porteur"
+      "TauxCompetence": "Taux actuel du porteur",
+      "ChangerImage": "Changer l'image",
+      "CompetenceBloquee": "Compétence bloquée",
+      "PorterPourAttaquer": "Portez l'arme pour attaquer ou lancer ses dégâts.",
+      "SansActeur": "« {nom} » n'est porté par aucun personnage.",
+      "NonPorte": "« {nom} » est rangé : portez-le pour attaquer.",
+      "SansCompetence": "« {nom} » n'a aucune compétence liée : attaque impossible.",
+      "FormuleInvalide": "« {nom} » : formule de dégâts invalide ({formule}).",
+      "Introuvable": "Objet introuvable (supprimé ou inaccessible).",
+      "SupprimerConfirmation": "Supprimer définitivement « {nom} » ?",
+      "ListeVide": "Aucun objet.",
+      "ArmuresBoucliers": "Armures et boucliers",
+      "CarteCachee": "Objet caché : carte visible du MJ et de vous seulement."
     },
     "Tags": {
       "Titre": "Tags",
