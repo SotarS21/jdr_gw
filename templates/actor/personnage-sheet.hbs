@@ -115,6 +115,24 @@
     </div>
   </section>
 
+  {{!-- Menu simplifié : compétences en favori, jet au clic. Masqué s'il n'y en a aucune. --}}
+  {{#if favoris.length}}
+  <section class="favoris panel">
+    <div class="section-header">
+      <h2 class="eyebrow"><i class="fa-solid fa-star"></i> {{localize 'GALACTICWARS.Favoris.Titre'}}</h2>
+    </div>
+    <div class="favoris-liste">
+      {{#each favoris as |cpt|}}
+      <button type="button" class="favori-carte car-{{cpt.caracteristique}} {{#if cpt.estCompetenceForce}}force{{/if}}"
+              {{#if cpt.bloquee}}disabled data-tooltip="{{localize 'GALACTICWARS.Sheet.CompetenceBloquee'}}"{{else}}data-action="rollCompetence" data-cle="{{cpt.cle}}"{{/if}}>
+        <span class="favori-nom">{{localize cpt.label}}</span>
+        <span class="favori-total mono">{{cpt.total}}%</span>
+      </button>
+      {{/each}}
+    </div>
+  </section>
+  {{/if}}
+
   <section class="caracteristiques">
     <div class="section-header">
       <h2 class="eyebrow">{{localize 'GALACTICWARS.Sheet.Caracteristiques'}} &amp; {{localize 'GALACTICWARS.Sheet.Competences'}}</h2>
@@ -159,7 +177,7 @@
           <li class="competence-row skill-row {{#if cpt.estCompetenceForce}}force{{/if}} {{#if cpt.estReservee}}reservee{{/if}} {{#if cpt.bloquee}}bloquee{{/if}} {{#if cpt.acquiseParMetier}}acquise{{/if}}"
               data-index="{{cpt.index}}"
               {{#if cpt.bloquee}}data-tooltip="{{#if @root.isGM}}{{localize 'GALACTICWARS.Sheet.CompetenceBloqueeMJ'}}{{else}}{{localize 'GALACTICWARS.Sheet.CompetenceBloquee'}}{{/if}}"{{/if}}>
-            <span class="label" data-cle="{{cpt.cle}}" {{#unless cpt.bloquee}}data-action="rollCompetence" role="button"{{/unless}}>{{#if cpt.recommandee}}<span class="dot dot-metier"></span>{{/if}}{{#if cpt.estCompetenceForce}}<span class="dot dot-force"></span>{{/if}}{{localize cpt.label}}{{#if cpt.bloquee}} <i class="fa-solid fa-lock cadenas"></i>{{/if}}</span>
+            <span class="label" data-cle="{{cpt.cle}}" {{#unless cpt.bloquee}}data-action="rollCompetence" role="button"{{/unless}}><button type="button" class="favori-btn {{#if cpt.favori}}actif{{/if}}" data-action="basculerFavori" data-index="{{cpt.index}}" data-tooltip="{{#if cpt.favori}}{{localize 'GALACTICWARS.Favoris.Retirer'}}{{else}}{{localize 'GALACTICWARS.Favoris.Ajouter'}}{{/if}}"><i class="{{#if cpt.favori}}fa-solid{{else}}fa-regular{{/if}} fa-star"></i></button>{{#if cpt.recommandee}}<span class="dot dot-metier"></span>{{/if}}{{#if cpt.estCompetenceForce}}<span class="dot dot-force"></span>{{/if}}{{localize cpt.label}}{{#if cpt.bloquee}} <i class="fa-solid fa-lock cadenas"></i>{{/if}}</span>
             {{!-- system.competences est un ArrayField : Document#update() remplace chaque élément
                   entier plutôt que de fusionner ses champs un par un. TOUT champ d'une compétence
                   doit donc être soumis à chaque sauvegarde, même quand il n'est pas modifiable
@@ -172,6 +190,7 @@
             <input type="hidden" name="system.competences.{{cpt.index}}.acquiseParMetier" value="{{cpt.acquiseParMetier}}" data-dtype="Boolean">
             <input type="hidden" name="system.competences.{{cpt.index}}.recommandee" value="{{cpt.recommandee}}" data-dtype="Boolean">
             <input type="hidden" name="system.competences.{{cpt.index}}.debloquee" value="{{cpt.debloquee}}" data-dtype="Boolean">
+            <input type="hidden" name="system.competences.{{cpt.index}}.favori" value="{{cpt.favori}}" data-dtype="Boolean">
             {{#if (and @root.modeEdition (not cpt.bloquee))}}
             <input type="number" class="niveau mono" name="system.competences.{{cpt.index}}.niveau" value="{{cpt.niveau}}" min="0" max="3" data-tooltip="{{localize 'GALACTICWARS.Sheet.Niveau'}}">
             {{else}}
@@ -233,8 +252,8 @@
       </div>
       <div class="objet-liste">
         {{#each armes as |arme|}}
-        <div class="objet-row" data-item-id="{{arme.id}}">
-          <span class="objet-nom">{{arme.name}}</span>
+        <div class="objet-row {{#if arme.system.tags.cache}}tag-cache{{/if}}" data-item-id="{{arme.id}}">
+          <span class="objet-nom">{{arme.name}}{{#if arme.system.tags.cache}} <span class="badge-tag" data-tooltip="{{localize 'GALACTICWARS.Tags.cacheHint'}}"><i class="fa-solid fa-eye-slash"></i> {{localize 'GALACTICWARS.Tags.cache'}}</span>{{/if}}</span>
           <div class="objet-meta">
             <span class="mono valeur-secondaire">{{arme.system.degats}}</span>
             <button type="button" class="del-btn" data-action="deleteItem">🗑</button>
@@ -251,8 +270,8 @@
       </div>
       <div class="objet-liste">
         {{#each armures as |armure|}}
-        <div class="objet-row" data-item-id="{{armure.id}}">
-          <span class="objet-nom">{{armure.name}}</span>
+        <div class="objet-row {{#if armure.system.tags.cache}}tag-cache{{/if}}" data-item-id="{{armure.id}}">
+          <span class="objet-nom">{{armure.name}}{{#if armure.system.tags.cache}} <span class="badge-tag" data-tooltip="{{localize 'GALACTICWARS.Tags.cacheHint'}}"><i class="fa-solid fa-eye-slash"></i> {{localize 'GALACTICWARS.Tags.cache'}}</span>{{/if}}</span>
           <div class="objet-meta">
             <span class="mono valeur-secondaire">+{{armure.system.reduction}}</span>
             <button type="button" class="del-btn" data-action="deleteItem">🗑</button>
@@ -269,8 +288,8 @@
       </div>
       <div class="objet-liste">
         {{#each equipements as |objet|}}
-        <div class="objet-row" data-item-id="{{objet.id}}">
-          <span class="objet-nom">{{objet.name}}</span>
+        <div class="objet-row {{#if objet.system.tags.cache}}tag-cache{{/if}}" data-item-id="{{objet.id}}">
+          <span class="objet-nom">{{objet.name}}{{#if objet.system.tags.cache}} <span class="badge-tag" data-tooltip="{{localize 'GALACTICWARS.Tags.cacheHint'}}"><i class="fa-solid fa-eye-slash"></i> {{localize 'GALACTICWARS.Tags.cache'}}</span>{{/if}}</span>
           <div class="objet-meta">
             <span class="mono valeur-secondaire">×{{objet.system.quantite}}</span>
             <button type="button" class="del-btn" data-action="deleteItem">🗑</button>

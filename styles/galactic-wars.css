@@ -1685,3 +1685,86 @@
   background: transparent;
   text-shadow: none;
 }
+
+/* ---- Compétences favorites ---- */
+.galactic-wars.personnage .favori-btn {
+  all: unset;
+  display: inline-flex;
+  width: 0.9rem;
+  margin-right: 0.25rem;
+  font-size: 0.68rem;
+  color: var(--gw-dim);
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.15s, color 0.15s;
+}
+.galactic-wars.personnage .competence-row:hover .favori-btn,
+.galactic-wars.personnage .favori-btn:focus-visible { opacity: 1; }
+.galactic-wars.personnage .favori-btn:hover { color: var(--gw-gold); }
+.galactic-wars.personnage .favori-btn.actif { opacity: 1; color: var(--gw-gold); }
+
+.galactic-wars.personnage .favoris .eyebrow i { color: var(--gw-gold); }
+.galactic-wars.personnage .favoris-liste {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.galactic-wars.personnage .favori-carte {
+  --favori-couleur: var(--car-couleur, var(--gw-accent));
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  width: auto;
+  flex: 0 0 auto;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  border: 1px solid color-mix(in srgb, var(--favori-couleur) 55%, transparent);
+  background: color-mix(in srgb, var(--favori-couleur) 10%, var(--gw-card));
+  color: var(--gw-text);
+  font-size: 0.8rem;
+  cursor: pointer;
+  line-height: 1.2;
+}
+.galactic-wars.personnage .favori-carte:hover:not([disabled]) {
+  background: color-mix(in srgb, var(--favori-couleur) 22%, var(--gw-card));
+}
+.galactic-wars.personnage .favori-carte[disabled] { opacity: 0.45; cursor: not-allowed; }
+.galactic-wars.personnage .favori-carte.force .favori-nom { color: var(--gw-force-soft); }
+.galactic-wars.personnage .favori-total {
+  font-weight: 700;
+  color: var(--favori-couleur);
+}
+
+/* ---- Tags d'objet (Caché…) ---- */
+.galactic-wars.personnage .badge-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  margin-left: 0.35rem;
+  padding: 0 0.35rem;
+  border-radius: 999px;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--gw-muted);
+  border: 1px dashed var(--gw-dim);
+  vertical-align: middle;
+}
+.galactic-wars.personnage .objet-row.tag-cache .objet-nom {
+  font-style: italic;
+}
+.galactic-wars .tags-objet {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+}
+.galactic-wars .tags-objet h2 {
+  flex: 1 0 100%;
+  margin: 0;
+}
+.galactic-wars .tags-objet .tag-case {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}

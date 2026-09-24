@@ -234,6 +234,18 @@
       "Capacites": "Capacités"
     },
 
+    "Tags": {
+      "Titre": "Tags",
+      "cache": "Caché",
+      "cacheHint": "Objet dissimulé sur le personnage",
+      "Activer": "Marquer « {tag} »",
+      "Desactiver": "Retirer « {tag} »"
+    },
+    "Favoris": {
+      "Titre": "Favoris",
+      "Ajouter": "Ajouter aux favoris",
+      "Retirer": "Retirer des favoris"
+    },
     "Traits": {
       "Titre": "Traits",
       "Nom": "Trait",

@@ -1,5 +1,21 @@
 # Journal de développement — Galactic Wars
 
+## Session du 2026-09-24 (suite 3) — Favoris, tag Caché, fiche d'objet réparée (v0.12.3→v0.12.4)
+
+- **Compétences favorites (todo)** : champ `favori` dans chaque entrée de `system.competences` (+ input caché
+  dans chaque ligne — ArrayField, voir la règle du JOURNAL — et valeur par défaut dans `completerCompetences`).
+  Étoile au survol de la ligne (pleine et dorée si favori), bascule par réécriture du tableau complet. Panneau
+  « Favoris » en haut de l'onglet Personnage (masqué sans favori) : une carte par compétence, couleur de sa
+  caractéristique, total, jet au clic (compétence bloquée : carte désactivée). Vérifié : favori conservé après une
+  sauvegarde du formulaire, reste des compétences inchangé, jet lancé depuis le panneau.
+- **Tag « Caché » (todo)** : `system.tags` (SchemaField, `data/tags-objet.mjs`) sur arme / armure / équipement,
+  catalogue `GW.tagsObjet` extensible. Case dans la fiche d'objet, clic droit sur une ligne d'inventaire
+  (Marquer / Retirer « Caché »), badge pointillé et nom en italique dans l'inventaire.
+- **Bug trouvé en testant : la fiche d'objet n'a jamais fonctionné** — `ItemSheetV2` ne met pas `item` dans le
+  contexte, le template affichait un nom vide et aucune section propre au type, et toute sauvegarde était
+  rejetée (nom vide invalide). `context.item = this.item` ajouté. La refonte complète des fiches d'objet (todo,
+  modèle antique) reste à faire.
+
 ## Session du 2026-09-24 (suite 2) — Traits et images entières (v0.12.2→v0.12.3)
 
 - **Tableau Traits (todo)** : un « trait » = Item `talent` porté (avantage / inconvénient, compendium Talents).

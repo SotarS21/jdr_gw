@@ -37,6 +37,7 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       editerEntreeNote: PersonnageSheet.#onEditerEntreeNote,
       supprimerEntreeNote: PersonnageSheet.#onSupprimerEntreeNote,
       ajouterTrait: PersonnageSheet.#onAjouterTrait,
+      basculerFavori: PersonnageSheet.#onBasculerFavori,
       ouvrirObjet: PersonnageSheet.#onOuvrirObjet
     }
   };
@@ -106,6 +107,9 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
         .filter((c) => c.caracteristique === cle)
         .sort((a, b) => game.i18n.localize(a.label).localeCompare(game.i18n.localize(b.label)))
     }));
+    context.favoris = competencesIndexees
+      .filter((c) => c.favori)
+      .sort((a, b) => game.i18n.localize(a.label).localeCompare(game.i18n.localize(b.label)));
     context.armes = this.actor.items.filter((i) => i.type === "arme");
     context.armures = this.actor.items.filter((i) => i.type === "armure");
     context.pouvoirs = this.actor.items.filter((i) => i.type === "pouvoir");
@@ -284,6 +288,24 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
         onClick: (event, li) => this.#definirDeblocage(Number(li.dataset.index), false)
       }
     ], { jQuery: false, fixed: true });
+
+    // Clic droit sur un objet de l'inventaire : basculer ses tags (Caché…).
+    const objet = (li) => this.actor.items.get(li.dataset.itemId);
+    new foundry.applications.ux.ContextMenu.implementation(this.element, ".objet-row[data-item-id]",
+      Object.entries(GW.tagsObjet).flatMap(([cle, tag]) => [
+        {
+          label: game.i18n.format("GALACTICWARS.Tags.Activer", { tag: game.i18n.localize(tag.label) }),
+          icon: `<i class="${tag.icone}"></i>`,
+          visible: (li) => objet(li)?.system.tags && !objet(li).system.tags[cle],
+          onClick: (event, li) => objet(li)?.update({ [`system.tags.${cle}`]: true })
+        },
+        {
+          label: game.i18n.format("GALACTICWARS.Tags.Desactiver", { tag: game.i18n.localize(tag.label) }),
+          icon: `<i class="${tag.icone}"></i>`,
+          visible: (li) => !!objet(li)?.system.tags?.[cle],
+          onClick: (event, li) => objet(li)?.update({ [`system.tags.${cle}`]: false })
+        }
+      ]), { jQuery: false, fixed: true });
   }
 
   /** Mise à jour du tableau complet (jamais d'update sur un seul index d'ArrayField). */
@@ -291,6 +313,16 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const competences = this.actor.system.toObject().competences;
     if (!competences[index]) return;
     competences[index].debloquee = debloquee;
+    await this.actor.update({ "system.competences": competences });
+  }
+
+  /** Étoile d'une compétence : tableau complet réécrit (jamais un seul index d'ArrayField). */
+  static async #onBasculerFavori(event, target) {
+    event.stopPropagation();
+    const index = Number(target.dataset.index);
+    const competences = this.actor.system.toObject().competences;
+    if (!competences[index]) return;
+    competences[index].favori = !competences[index].favori;
     await this.actor.update({ "system.competences": competences });
   }
 

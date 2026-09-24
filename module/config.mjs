@@ -150,6 +150,15 @@ GW.baremeNiveauCompetence = { 0: 0, 1: 5, 2: 10, 3: 20 };
 GW.pointsCaracteristiques = 120;
 
 /** Onglet Notes de la fiche classique : statuts et importances (clé -> libellé i18n). */
+/**
+ * Tags d'objet (armes, armures, équipements) : une case par tag dans la fiche d'objet, un badge
+ * dans l'inventaire, bascule au clic droit. Ajouter un tag = une clé ici + un BooleanField dans
+ * module/data/tags-objet.mjs (même clé) + un libellé GALACTICWARS.Tags.<clé>.
+ */
+GW.tagsObjet = {
+  cache: { label: "GALACTICWARS.Tags.cache", icone: "fa-solid fa-eye-slash" }
+};
+
 GW.statutsPnj = {
   allie: "GALACTICWARS.Notes.StatutPnj.Allie",
   neutre: "GALACTICWARS.Notes.StatutPnj.Neutre",

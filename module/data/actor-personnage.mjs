@@ -64,7 +64,9 @@ export class PersonnageData extends foundry.abstract.TypeDataModel {
           recommandee: new BooleanField({ initial: false }),
           // Déblocage MJ d'une compétence réservée (GW.competences[cle].reservee) que le métier
           // actuel n'accorde pas. Conservé si le métier change.
-          debloquee: new BooleanField({ initial: false })
+          debloquee: new BooleanField({ initial: false }),
+          // Compétence mise en favori par le joueur (panneau Favoris de l'onglet Personnage).
+          favori: new BooleanField({ initial: false })
         })
       ),
 

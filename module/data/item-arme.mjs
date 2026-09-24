@@ -1,3 +1,4 @@
+import { tagsObjet } from "./tags-objet.mjs";
 const { StringField, HTMLField, BooleanField } = foundry.data.fields;
 
 export class ArmeData extends foundry.abstract.TypeDataModel {
@@ -7,6 +8,7 @@ export class ArmeData extends foundry.abstract.TypeDataModel {
       competence: new StringField({ initial: "blaster" }), // clé GW.competences utilisée pour l'attaque
       instable: new BooleanField({ initial: false }),
       prix: new StringField({ initial: "" }), // en crédits, texte libre (ex. "1200c", "NA" = non achetable)
+      tags: tagsObjet(),
       description: new HTMLField({ initial: "" })
     };
   }

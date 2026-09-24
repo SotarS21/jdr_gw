@@ -68,6 +68,15 @@
   </section>
   {{/if}}
 
+  {{#if tags}}
+  <section class="tags-objet">
+    <h2>{{localize 'GALACTICWARS.Tags.Titre'}}</h2>
+    {{#each tags as |tag|}}
+    <label class="tag-case"><input type="checkbox" name="system.tags.{{tag.cle}}" {{#if tag.actif}}checked{{/if}}> <i class="{{tag.icone}}"></i> {{localize tag.label}}</label>
+    {{/each}}
+  </section>
+  {{/if}}
+
   <section class="description">
     <h2>{{localize 'GALACTICWARS.Item.Description'}}</h2>
     <prose-mirror name="system.description" value="{{system.description}}">{{{descriptionEnrichie}}}</prose-mirror>
