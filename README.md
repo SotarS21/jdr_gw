@@ -2,6 +2,17 @@
 
 Système de jeu de rôle Star Wars maison pour Foundry VTT v14. Voir `CAHIER_DES_CHARGES.md` pour le détail, `JOURNAL.md` pour l'historique de développement.
 
+## Installation dans Foundry VTT
+
+Dans Foundry : **Systèmes de jeu → Installer un système**, puis coller l'URL du manifeste en bas de la fenêtre :
+
+```
+https://github.com/SotarS21/jdr_gw/releases/latest/download/system.json
+```
+
+Le dépôt est public : aucun compte GitHub n'est nécessaire. Foundry propose ensuite les mises à jour
+depuis le même manifeste. Au premier chargement d'un monde après une mise à jour, le MJ voit les notes de version.
+
 ## Structure
 
 ```
@@ -29,10 +40,18 @@ npm run pack:build   # packs/_source -> packs (LevelDB, ce que Foundry charge)
 npm run pack:unpack  # packs -> packs/_source (après une modif faite depuis Foundry)
 ```
 
-## Déploiement local
+## Déploiement local (développement)
 
 ```powershell
-Copy-Item -Path "C:\projet\VTT_Foundry\projet_galacitc_wars_system\galactic-wars\*" -Destination "D:\AppDataFoundry$\FoundryVTT_Data\Data\systems\galactic-wars\" -Recurse -Force
+powershell -ExecutionPolicy Bypass -File scriptsdeploy-local.ps1   # -NoRestart si aucun compendium modifié
+node scripts/verify-local.mjs "<contrôle JS optionnel>"
 ```
 
-Puis `Ctrl+Shift+F5` dans le client Foundry pour vider le cache.
+Le dossier déployé est une copie miroir : ne pas y utiliser git. Toujours valider en local avant de pousser.
+
+## Publication
+
+Pousser un tag `vX.Y.Z` (identique à `version` dans `system.json`) déclenche `.github/workflows/release.yml` :
+build des packs, remplissage de `manifest` / `download` dans le `system.json` publié, puis release GitHub
+avec `system.json` et `system.zip`. Dans le dépôt, `manifest` et `download` restent vides volontairement.
+Penser à ajouter la version dans `module/helpers/release-notes.mjs`.

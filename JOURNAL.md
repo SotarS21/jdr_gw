@@ -1,5 +1,21 @@
 # Journal de développement — Galactic Wars
 
+## Session du 2026-09-24 — Box Crédits et notes de version MJ (v0.12.0→v0.12.1)
+
+- **Box Crédits (todo)** : l'`<input type="number">` ne pouvait ni grouper les chiffres ni aller à la ligne.
+  Affichage remplacé par un texte formaté (espace fine U+2009, sécable, tous les 3 chiffres — purement visuel),
+  l'input n'apparaît qu'au clic (Entrée / sortie du champ pour revenir). Retour à la ligne entre groupes,
+  puis réduction automatique de la police dans `_onRender` si deux lignes ne suffisent pas. Vérifié dans
+  Foundry : 0, 1 500, 1 234 567, 123 456 789 012 (2 lignes), 9 007 199 254 740 991 (police 14,3 px, sans débordement) ;
+  la saisie sauvegarde et les 37 compétences restent intactes.
+- **Installation par manifeste** : le dépôt `SotarS21/jdr_gw` est public, le manifeste
+  `releases/latest/download/system.json` et le zip se téléchargent sans authentification (contrôlé) — la
+  chaîne de release existait déjà depuis v0.10.0. Ajout, sur le modèle d'antique, de `helpers/version-check.mjs`
+  + `helpers/release-notes.mjs` : au premier chargement après une mise à jour, le MJ voit les notes des versions
+  installées depuis la dernière vue (réglage monde caché `derniereVersionVue`). Inactif en déploiement local
+  (`manifest` vide dans le dépôt). Pas d'écrasement de compendiums à proposer (contrairement à antique) : les
+  packs compilés sont dans le zip, remplacés à chaque mise à jour. README : section Installation + publication.
+
 ## Session du 2026-09-23/24 — Récapitulatif : 4 versions publiées (v0.10.0 → v0.12.0)
 
 Vue d'ensemble de la session ; le détail technique de chaque changement est dans les entrées
