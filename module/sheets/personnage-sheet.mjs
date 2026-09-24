@@ -122,6 +122,7 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     // purement visuel, la valeur réelle reste system.lumiere/system.obscurite.
     context.pipsLumiere = Array.from({ length: 10 }, (_, i) => i < system.lumiere);
     context.pipsObscurite = Array.from({ length: 10 }, (_, i) => i < system.obscurite);
+    context.equilibre = this.#preparerEquilibre(system.lumiere ?? 0, system.obscurite ?? 0);
     // Espace fine (U+2009, sécable) tous les 3 chiffres : autorise le retour à la ligne entre
     // deux groupes, contrairement à toLocaleString("fr") qui insère une espace insécable.
     context.creditsFormates = String(system.credits ?? 0).replace(/\B(?=(\d{3})+(?!\d))/g, " ");
@@ -164,6 +165,23 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       taille -= 0.5;
       el.style.fontSize = `${taille}px`;
     }
+  }
+
+  /** Jauge Lumière/Obscurité : position du curseur (0 % = tout Lumière, 100 % = tout Obscurité),
+   *  part de rouge dans la teinte de la carte, intensité (réserve la plus haute / 10) et tendance. */
+  #preparerEquilibre(lumiere, obscurite) {
+    const total = lumiere + obscurite;
+    const ecart = obscurite - lumiere;
+    const tendance = ecart === 0 ? "neutre"
+      : Math.abs(ecart) >= 4 ? (ecart > 0 ? "obscurite-dominante" : "lumiere-dominante")
+      : (ecart > 0 ? "penche-obscurite" : "penche-lumiere");
+    return {
+      curseur: 50 + ecart * 5,
+      rouge: total ? Math.round((obscurite / total) * 100) : 50,
+      intensite: total ? (Math.max(lumiere, obscurite) / 10).toFixed(2) : 0,
+      cote: total === 0 ? "vide" : ecart > 0 ? "obscurite" : ecart < 0 ? "lumiere" : "neutre",
+      tendance: `GALACTICWARS.Alignement.Tendance.${tendance}`
+    };
   }
 
   /** Données d'affichage de l'onglet Notes (listes enrichies, libellés de statut). */

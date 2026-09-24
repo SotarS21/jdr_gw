@@ -1455,3 +1455,177 @@
 .galactic-wars.personnage .stat-credits [hidden] {
   display: none !important;
 }
+
+/* ---- Lumière / Obscurité : rendu « évolutif » bleu ↔ rouge ----
+   --rouge (0-100 %) = part d'Obscurité dans le total, --intensite (0-1) = réserve la plus haute / 10,
+   tous deux posés en style inline par le template (voir #preparerEquilibre). */
+.galactic-wars.personnage .stat-alignement {
+  --gw-lumiere: #3b82f6;
+  --gw-lumiere-vif: #93c5fd;
+  --gw-obscurite: #ef4444;
+  --gw-obscurite-vif: #fca5a5;
+  --gw-teinte: color-mix(in srgb, var(--gw-obscurite) var(--rouge, 50%), var(--gw-lumiere));
+  border-color: color-mix(in srgb, var(--gw-teinte) calc(25% + var(--intensite, 0) * 60%), var(--gw-border));
+  background:
+    radial-gradient(120% 140% at calc(100% - var(--rouge, 50%)) 0%,
+      color-mix(in srgb, var(--gw-teinte) calc(var(--intensite, 0) * 32%), transparent), transparent 70%),
+    var(--gw-card);
+  box-shadow: 0 0 calc(var(--intensite, 0) * 18px) color-mix(in srgb, var(--gw-teinte) calc(var(--intensite, 0) * 55%), transparent);
+  transition: border-color 0.4s, box-shadow 0.4s, background 0.4s;
+}
+.galactic-wars.personnage .stat-alignement.cote-vide {
+  border-color: var(--gw-border);
+  background: var(--gw-card);
+  box-shadow: none;
+}
+
+.galactic-wars.personnage .alignement-entete {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+.galactic-wars.personnage .alignement-entete .tendance {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--gw-muted);
+}
+.galactic-wars.personnage .cote-lumiere .tendance { color: var(--gw-lumiere-vif); }
+.galactic-wars.personnage .cote-obscurite .tendance { color: var(--gw-obscurite-vif); }
+
+/* Jauge d'équilibre : piste dégradée bleu → violet → rouge, curseur lumineux. */
+.galactic-wars.personnage .jauge-equilibre {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.35rem 0 0.15rem;
+}
+.galactic-wars.personnage .jauge-valeur {
+  font-size: 1.15rem;
+  font-weight: 700;
+  min-width: 1.4rem;
+  text-align: center;
+}
+.galactic-wars.personnage .valeur-lumiere { color: var(--gw-lumiere-vif); text-shadow: 0 0 6px var(--gw-lumiere); }
+.galactic-wars.personnage .valeur-obscurite { color: var(--gw-obscurite-vif); text-shadow: 0 0 6px var(--gw-obscurite); }
+.galactic-wars.personnage .jauge-piste {
+  position: relative;
+  flex: 1 1 auto;
+  height: 8px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--gw-lumiere), #8b5cf6 50%, var(--gw-obscurite));
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+.galactic-wars.personnage .jauge-piste::after {
+  /* repère du centre (équilibre) */
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -3px;
+  bottom: -3px;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.35);
+}
+.galactic-wars.personnage .jauge-curseur {
+  position: absolute;
+  top: 50%;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: #f4f5f9;
+  border: 2px solid var(--gw-teinte);
+  box-shadow: 0 0 8px 2px var(--gw-teinte);
+  transition: left 0.4s ease;
+  z-index: 1;
+}
+.galactic-wars.personnage .cote-vide .jauge-curseur {
+  border-color: var(--gw-dim);
+  box-shadow: none;
+}
+
+/* Points de réserve plus gros et lumineux. */
+.galactic-wars.personnage .pips .dot {
+  width: 10px;
+  height: 10px;
+}
+.galactic-wars.personnage .pips {
+  gap: 4px;
+}
+.galactic-wars.personnage .pips .dot-lumiere {
+  background: radial-gradient(circle at 35% 35%, var(--gw-lumiere-vif), var(--gw-lumiere));
+  box-shadow: 0 0 5px var(--gw-lumiere);
+}
+.galactic-wars.personnage .pips .dot-obscurite {
+  background: radial-gradient(circle at 35% 35%, var(--gw-obscurite-vif), var(--gw-obscurite));
+  box-shadow: 0 0 5px var(--gw-obscurite);
+}
+.galactic-wars.personnage .pool-lumiere .valeur { color: var(--gw-lumiere-vif); }
+.galactic-wars.personnage .pool-obscurite .valeur { color: var(--gw-obscurite-vif); }
+
+/* ---- Fenêtre MJ : mises à jour de contenu (module/apps/pack-update-picker.mjs) ---- */
+.galactic-wars.pack-update-picker .pack-update-picker-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.galactic-wars.pack-update-picker .intro {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.35;
+}
+.galactic-wars.pack-update-picker .groupe {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0.5rem 0.6rem;
+  border-radius: 6px;
+}
+.galactic-wars.pack-update-picker .groupe legend {
+  font-weight: 700;
+  padding: 0 0.3rem;
+}
+.galactic-wars.pack-update-picker .entree {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+.galactic-wars.pack-update-picker .entree input {
+  margin-top: 0.15rem;
+  flex-shrink: 0;
+}
+.galactic-wars.pack-update-picker .texte {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+.galactic-wars.pack-update-picker .titre {
+  font-weight: 600;
+}
+.galactic-wars.pack-update-picker .meta {
+  font-weight: 400;
+  font-size: 0.75rem;
+  opacity: 0.7;
+  margin-left: 0.3rem;
+}
+.galactic-wars.pack-update-picker .description {
+  font-size: 0.8rem;
+  opacity: 0.85;
+  line-height: 1.3;
+}
+.galactic-wars.pack-update-picker .boutons {
+  display: flex;
+  gap: 0.4rem;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+.galactic-wars.pack-update-picker .boutons button {
+  flex: 0 0 auto;
+  width: auto;
+}
+.galactic-wars.pack-update-picker .boutons .principal {
+  font-weight: 700;
+}

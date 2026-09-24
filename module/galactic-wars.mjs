@@ -20,6 +20,7 @@ import { VaisseauSheet } from "./sheets/vaisseau-sheet.mjs";
 import { GalacticWarsItemSheet } from "./sheets/item-sheet.mjs";
 import { runMigrations } from "./helpers/migration.mjs";
 import { registerVersionCheckSettings, checkSystemVersionUpdate } from "./helpers/version-check.mjs";
+import { registerPackUpdateSettings, checkPendingPackUpdates } from "./helpers/pack-updates.mjs";
 
 Hooks.once("init", () => {
   console.log("Galactic Wars | Initialisation du système");
@@ -27,6 +28,7 @@ Hooks.once("init", () => {
   game.galacticWars = { config: GW };
   CONFIG.GW = GW;
   registerVersionCheckSettings();
+  registerPackUpdateSettings();
 
   CONFIG.Actor.documentClass = GalacticWarsActor;
   CONFIG.Item.documentClass = GalacticWarsItem;
@@ -97,4 +99,5 @@ Hooks.once("ready", async () => {
   if (!game.user.isGM) return;
   await runMigrations();
   await checkSystemVersionUpdate();
+  await checkPendingPackUpdates();
 });

@@ -75,14 +75,23 @@
   <section class="ressources">
     <h2 class="eyebrow">{{localize 'GALACTICWARS.Sheet.Ressources'}}</h2>
     <div class="stat-grid">
-      <div class="stat-card stat-alignement">
-        <span class="eyebrow">{{localize 'GALACTICWARS.Alignement.Titre'}}</span>
+      {{!-- Teinte de la carte : --rouge = part d'Obscurité (0-100), --intensite = réserve la plus haute / 10. --}}
+      <div class="stat-card stat-alignement cote-{{equilibre.cote}}" style="--rouge: {{equilibre.rouge}}%; --intensite: {{equilibre.intensite}};">
+        <div class="alignement-entete">
+          <span class="eyebrow">{{localize 'GALACTICWARS.Alignement.Titre'}}</span>
+          <span class="tendance">{{localize equilibre.tendance}}</span>
+        </div>
+        <div class="jauge-equilibre" role="meter" aria-valuemin="0" aria-valuemax="100"
+             aria-valuenow="{{equilibre.curseur}}" data-tooltip="{{system.lumiere}} / {{system.obscurite}}">
+          <span class="jauge-valeur valeur-lumiere mono">{{system.lumiere}}</span>
+          <span class="jauge-piste"><span class="jauge-curseur" style="left: {{equilibre.curseur}}%"></span></span>
+          <span class="jauge-valeur valeur-obscurite mono">{{system.obscurite}}</span>
+        </div>
         <div class="pool pool-lumiere">
           <button type="button" class="pip-btn" data-action="ajusterLumiere" data-delta="-1">-</button>
           <span class="pips">
             {{#each pipsLumiere as |rempli|}}<span class="dot {{#if rempli}}dot-lumiere{{else}}dot-vide{{/if}}"></span>{{/each}}
           </span>
-          <span class="mono valeur">{{system.lumiere}}</span>
           <button type="button" class="pip-btn" data-action="ajusterLumiere" data-delta="1">+</button>
         </div>
         <div class="pool pool-obscurite">
@@ -90,7 +99,6 @@
           <span class="pips">
             {{#each pipsObscurite as |rempli|}}<span class="dot {{#if rempli}}dot-obscurite{{else}}dot-vide{{/if}}"></span>{{/each}}
           </span>
-          <span class="mono valeur">{{system.obscurite}}</span>
           <button type="button" class="pip-btn" data-action="ajusterObscurite" data-delta="1">+</button>
         </div>
         <div class="bonus-choix">

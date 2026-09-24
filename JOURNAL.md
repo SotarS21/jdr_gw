@@ -1,5 +1,26 @@
 # Journal de développement — Galactic Wars
 
+## Session du 2026-09-24 (suite) — Lumière/Obscurité visuelle et mises à jour de contenu (v0.12.1→v0.12.2)
+
+- **Lumière / Obscurité (todo)** : jauge d'équilibre (piste bleu → violet → rouge, repère central, curseur
+  lumineux positionné à 50 % + 5 % par point d'écart), valeurs en grand de chaque côté, libellé de tendance
+  (Équilibre / Penche vers… / … dominante, seuil à 4 points d'écart), carte teintée par `color-mix` selon la part
+  d'Obscurité et plus lumineuse quand la réserve dominante monte (`--rouge`, `--intensite` en style inline,
+  calculés par `#preparerEquilibre`). Points de réserve passés de 6 à 10 px avec halo. Vérifié par captures à
+  0/0, 3/3, 8/1, 2/5, 1/10.
+- **Mises à jour de contenu (demande de l'auteur, modèle antique)** : `helpers/pack-updates.mjs` (registre
+  `PACK_UPDATES`, réglage monde `correctifsAppliques`) + fenêtre MJ `apps/pack-update-picker.mjs` ouverte au
+  `ready` après les notes de version. Différence avec antique : les compendiums système sont remplacés par
+  Foundry à chaque mise à jour, les correctifs visent donc les **copies** dans le monde (objets importés,
+  objets portés, personnages, tokens non liés) par champs ciblés. Chaque entrée compte ses documents concernés ;
+  0 = marquée appliquée sans rien demander (monde neuf ou déjà à jour). Boutons Appliquer / Ignorer (avec
+  confirmation) / Plus tard. Outils réutilisables : `tousLesActeurs()`, `copiesDivergentes(pack, champs)`,
+  `synchroniserCopies(pack, champs)` ; `competencesSelonMetier()` extrait de `applyMetier`. Deux premiers
+  correctifs : portraits d'ethnie sur les races copiées, bonus de compétences des métiers réalignés. Testé sur
+  des documents temporaires désynchronisés (1 race à image obsolète, 1 personnage Contrebandier sans
+  acquisitions) : fenêtre affichée, les deux corrigés, 37 compétences conservées, documents supprimés ensuite.
+  Dans le monde de test, rien n'était concerné.
+
 ## Session du 2026-09-24 — Box Crédits et notes de version MJ (v0.12.0→v0.12.1)
 
 - **Box Crédits (todo)** : l'`<input type="number">` ne pouvait ni grouper les chiffres ni aller à la ligne.

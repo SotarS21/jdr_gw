@@ -106,6 +106,13 @@
       "Lumiere": "Lumière",
       "Obscurite": "Obscurité",
       "Aucun": "Aucun bonus",
+      "Tendance": {
+        "neutre": "Équilibre",
+        "penche-lumiere": "Penche vers la Lumière",
+        "lumiere-dominante": "Lumière dominante",
+        "penche-obscurite": "Penche vers l'Obscurité",
+        "obscurite-dominante": "Obscurité dominante"
+      },
       "Hint": "1 point dépensé = +15% sur le jet (1 maximum par action, Lumière ou Obscurité, jamais les deux).",
       "FlavorBonus": "Bonus de {bonus}% ({reserve}) dépensé"
     },

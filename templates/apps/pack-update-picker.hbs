@@ -1,0 +1,28 @@
+<div class="pack-update-picker-body">
+  <p class="intro">
+    Les compendiums du système sont déjà à jour. Les correctifs ci-dessous mettent à jour ce qui en a été
+    <strong>copié dans ce monde</strong> (objets importés, objets portés, personnages et tokens). Seuls les
+    champs indiqués sont modifiés ; décochez ce que vous avez volontairement personnalisé.
+  </p>
+  {{#each groupes as |groupe|}}
+  <fieldset class="groupe">
+    <legend>{{groupe.label}}</legend>
+    {{#each groupe.entrees as |entree|}}
+    <label class="entree">
+      <input type="checkbox" data-id="{{entree.id}}" checked>
+      <span class="texte">
+        <span class="titre">{{entree.label}} <span class="meta">v{{entree.version}} · {{entree.nombre}} document(s)</span></span>
+        <span class="description">{{entree.description}}</span>
+      </span>
+    </label>
+    {{/each}}
+  </fieldset>
+  {{else}}
+  <p class="intro">Aucun correctif en attente.</p>
+  {{/each}}
+  <footer class="boutons">
+    <button type="button" data-action="plusTard"><i class="fa-solid fa-clock"></i> Plus tard</button>
+    <button type="button" data-action="ignorer"{{#unless enAttente}} disabled{{/unless}}><i class="fa-solid fa-ban"></i> Ignorer la sélection</button>
+    <button type="button" class="principal" data-action="appliquer"{{#unless enAttente}} disabled{{/unless}}><i class="fa-solid fa-check"></i> Appliquer la sélection</button>
+  </footer>
+</div>

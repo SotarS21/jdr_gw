@@ -54,4 +54,6 @@ Le dossier déployé est une copie miroir : ne pas y utiliser git. Toujours vali
 Pousser un tag `vX.Y.Z` (identique à `version` dans `system.json`) déclenche `.github/workflows/release.yml` :
 build des packs, remplissage de `manifest` / `download` dans le `system.json` publié, puis release GitHub
 avec `system.json` et `system.zip`. Dans le dépôt, `manifest` et `download` restent vides volontairement.
-Penser à ajouter la version dans `module/helpers/release-notes.mjs`.
+Penser à ajouter la version dans `module/helpers/release-notes.mjs`, et, si une fonctionnalité change des
+données déjà copiées dans les mondes (objets importés, personnages, tokens), une entrée dans
+`module/helpers/pack-updates.mjs` : le MJ la verra dans la fenêtre « mises à jour de contenu ».

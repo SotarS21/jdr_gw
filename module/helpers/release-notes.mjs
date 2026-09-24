@@ -36,5 +36,12 @@ export const RELEASE_NOTES = {
       <li>Box Crédits : chiffres groupés par 3, retour à la ligne et police réduite pour les grands montants.</li>
       <li>Fenêtre de notes de version au MJ après chaque mise à jour du système.</li>
     </ul>`
+  },
+  "0.12.2": {
+    title: "v0.12.2",
+    html: `<ul>
+      <li>Lumière / Obscurité : jauge d'équilibre bleu ↔ rouge, carte teintée selon le côté dominant, points lumineux.</li>
+      <li>Mises à jour de contenu : après une mise à jour, le MJ choisit les correctifs à appliquer aux objets, personnages et tokens du monde.</li>
+    </ul>`
   }
 };

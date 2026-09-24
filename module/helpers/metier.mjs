@@ -38,12 +38,7 @@ export async function applyMetier(actor, metierItem) {
   };
 
   if (Array.isArray(actor.system.competences)) {
-    const accordees = new Map(metierItem.system.competences.map((c) => [c.cle, c]));
-    updates["system.competences"] = actor.system.toObject().competences.map((c) => {
-      const accordee = accordees.get(c.cle);
-      if (!accordee) return { ...c, metier: 0, acquiseParMetier: false, recommandee: false };
-      return { ...c, metier: accordee.bonus, acquiseParMetier: true, recommandee: accordee.obligatoire };
-    });
+    updates["system.competences"] = competencesSelonMetier(actor.system.toObject().competences, metierItem);
   }
   if ("description" in (actor.system.metier ?? {}) && metierItem.system.talent?.description) {
     updates["system.metier.description"] = metierItem.system.talent.description;
@@ -52,6 +47,22 @@ export async function applyMetier(actor, metierItem) {
   await actor.update(updates);
 
   return true;
+}
+
+/**
+ * Bonus de métier, acquisition et point orange recalculés d'après le métier, sur une copie du
+ * tableau complet de compétences (à écrire en un seul update — jamais un index d'ArrayField).
+ * @param {object[]} competences  source (toObject) du tableau system.competences
+ * @param {Item} metierItem
+ * @returns {object[]}
+ */
+export function competencesSelonMetier(competences, metierItem) {
+  const accordees = new Map(metierItem.system.competences.map((c) => [c.cle, c]));
+  return competences.map((c) => {
+    const accordee = accordees.get(c.cle);
+    if (!accordee) return { ...c, metier: 0, acquiseParMetier: false, recommandee: false };
+    return { ...c, metier: accordee.bonus, acquiseParMetier: true, recommandee: accordee.obligatoire };
+  });
 }
 
 void GW; // réservé pour une future validation croisée avec la liste des compétences
