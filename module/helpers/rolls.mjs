@@ -1,13 +1,17 @@
 import { GW } from "../config.mjs";
 
-/** Résultat commun d'un jet 1d100 sous une cible en %, avec seuils de critique. */
+/**
+ * Résultat commun d'un jet 1d100 sous une cible en % (règle de l'auteur, 2026-09-24) :
+ * ≤ GW.seuilReussiteCritique (5) = réussite critique, quelle que soit la cible ; ≤ cible = réussite ;
+ * > cible = échec ; ≥ GW.seuilEchecCritique (96) = échec critique, quelle que soit la cible.
+ */
 async function resoudrePourcentage(cible) {
   const roll = new Roll("1d100");
   await roll.evaluate();
 
-  const reussite = roll.total <= cible;
-  const critique = roll.total <= Math.max(1, Math.floor(cible / 10));
-  const echecCritique = roll.total >= 96;
+  const critique = roll.total <= GW.seuilReussiteCritique;
+  const echecCritique = roll.total >= GW.seuilEchecCritique;
+  const reussite = critique || (!echecCritique && roll.total <= cible);
 
   return { roll, reussite, critique, echecCritique };
 }

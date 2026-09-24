@@ -83,6 +83,7 @@ export const RELEASE_NOTES = {
     html: `<ul>
       <li>Nouveau champ « Appareil » sur les équipements (Datapad, Comlink).</li>
       <li>Un datapad a un onglet <strong>Holonet</strong> : navigateur sur les Infos du personnage (onglet Notes → Infos) — recherche, mots-clés, pages, précédent / suivant — avec création, modification et suppression, synchronisées avec la fiche.</li>
+      <li>Jets en pourcentage : réussite critique de 1 à 5 et échec critique de 96 à 100, quel que soit le taux (auparavant réussite critique à 10 % du taux).</li>
       <li>Bouton Holonet sur la ligne du datapad dans l'inventaire ; les « Datapad » de départ des métiers sont reconnus (correctif proposé au MJ pour les existants).</li>
     </ul>`
   }

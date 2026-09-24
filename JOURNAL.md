@@ -15,6 +15,10 @@
 - **Incident de test** : un premier test a planté avant sa restauration et laissé des Infos de test sur Kael Dorn ;
   l'Info d'origine (« Premier contact ») a été retrouvée dans le journal LevelDB du monde (`actors/000092.log`) et
   restaurée à l'identique. Les tests Playwright restaurent désormais dans un `finally`.
+- **Règle de jet (demande de l'auteur)** : 1d100 ≤ 5 = réussite critique, ≤ taux = réussite, > taux = échec,
+  ≥ 96 = échec critique, quel que soit le taux (`GW.seuilReussiteCritique` / `GW.seuilEchecCritique`, dans
+  `resoudrePourcentage`, donc aussi pour les jets de PNJ en %). Auparavant : réussite critique ≤ 10 % du taux.
+  Vérifié avec dé forcé (taux 14) : 1, 5 → RC ; 6, 14 → R ; 15, 95 → É ; 96, 100 → ÉC.
 - Vérifié : ouverture depuis l'inventaire, recherche, filtre #rebellion, adresses, précédent / suivant, synchro depuis
   la fiche, modification et création depuis l'Holonet visibles dans Notes → Infos, aucune erreur JS.
 

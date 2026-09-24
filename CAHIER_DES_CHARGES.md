@@ -87,7 +87,7 @@ Voir l'arborescence commentée dans `README.md` (module/config, module/data, mod
 ### 5.1 Implémentées (v0.1.0)
 - Actor `personnage` : caractéristiques (Corps/Mental/Dextérité), ~37 compétences en %, PV, points de force, stress, race/métier appliqués depuis compendium avec bouton "Appliquer". Voir aussi §5.1octies (v0.9.0) pour la refonte ergonomique (onglets, réserves Lumière/Obscurité, notes) qui a depuis remplacé l'alignement d'origine.
 - Item `race` (modificateurs caractéristiques/compétences, armure naturelle, capacité spéciale), `metier` (prérequis, compétences accordées, équipement de départ, talent signature), `talent` (traits génériques), `arme`, `armure`, `pouvoir` (pouvoir de force), `equipement`.
-- Jet de compétence 1d100 (réussite si ≤ total%), avec seuils de réussite/échec critique.
+- Jet de compétence 1d100 : réussite si ≤ total % ; réussite critique de 1 à 5 et échec critique de 96 à 100, quelle que soit la cible (règle de l'auteur, 2026-09-24 — auparavant réussite critique ≤ 10 % de la cible).
 - Application d'un métier : vérifie les prérequis (métier requis + niveau minimum), remplace proprement l'équipement de départ précédent (flag `startingGear`) et les compétences accordées.
 - Compendiums : 6 races, 6 métiers, 8 talents, 6 armes, 3 armures (échantillon vérifié, pas encore les listes complètes du matériel source — voir §7.1 et §10).
 

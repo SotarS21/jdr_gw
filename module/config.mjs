@@ -151,6 +151,10 @@ GW.baremeNiveauCompetence = { 0: 0, 1: 5, 2: 10, 3: 20 };
 /** Plafond d'une compétence : 90 %, dépassable seulement par l'ethnie (bonus racial) — et plus tard
  *  par des effets. Gain d'expérience : +5 % sur une compétence, dans la limite du plafond. */
 GW.plafondCompetence = 90;
+
+/** Jets en % (1d100) : 1-5 = réussite critique, 96-100 = échec critique, quelle que soit la cible. */
+GW.seuilReussiteCritique = 5;
+GW.seuilEchecCritique = 96;
 GW.gainExperience = 5;
 
 /** Total attendu des caractéristiques de base saisies (fiche classique, cf. case B4 de
