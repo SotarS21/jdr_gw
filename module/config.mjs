@@ -148,6 +148,11 @@ GW.malusCompetenceNonAcquise = {
 /** Barème niveau (0-3) -> % de base, avant modificateurs raciaux/métier. */
 GW.baremeNiveauCompetence = { 0: 0, 1: 5, 2: 10, 3: 20 };
 
+/** Plafond d'une compétence : 90 %, dépassable seulement par l'ethnie (bonus racial) — et plus tard
+ *  par des effets. Gain d'expérience : +5 % sur une compétence, dans la limite du plafond. */
+GW.plafondCompetence = 90;
+GW.gainExperience = 5;
+
 /** Total attendu des caractéristiques de base saisies (fiche classique, cf. case B4 de
  *  `Template corriger.xlsx`) — validation indicative, jamais bloquante. */
 GW.pointsCaracteristiques = 120;

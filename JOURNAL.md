@@ -1,5 +1,17 @@
 # Journal de développement — Galactic Wars
 
+## Session du 2026-09-24 (suite 5) — Gain d'expérience et plafond à 90 % (v0.13.0→v0.13.1)
+
+- **Bouton « Gain d'XP » (todo)** dans l'en-tête, à côté d'Édition (propriétaire seulement) : passe la fiche en édition,
+  ouvre une fenêtre avec le texte de l'auteur et la liste des compétences éligibles (ni bloquées ni au plafond,
+  « 88 % → 90 % ») ; +`GW.gainExperience` (5) ajouté à l'ajustement, limité au plafond ; message dans le tchat
+  (« X gagne +5 % en … (a % → b %) ») pour le MJ.
+- **Plafond (`GW.plafondCompetence` = 90)** dans `prepareDerivedData` : total = min(90 + bonus racial positif, calcul) —
+  « à part avec des effets ou une ethnie ». Les effets n'existent pas encore dans le système. `atteintPlafond` →
+  ajustement grisé en édition (input caché conservé : ArrayField). Aucun personnage du monde de test n'était au-delà.
+- Vérifié (Playwright) : bascule en édition, +5 % (14 → 19), 88 → 90 (+2), compétence au plafond retirée de la liste,
+  ajustement grisé et conservé après une sauvegarde, ajustement manuel de 200 ramené à 90, données restaurées.
+
 ## Session du 2026-09-24 (suite 4) — Refonte des objets (v0.12.4→v0.13.0)
 
 Choix de l'auteur : boucliers = armures d'emplacement « bouclier » ; tout objet **rangé** par défaut (y compris

@@ -1768,3 +1768,33 @@
   align-items: center;
   gap: 0.3rem;
 }
+
+/* ---- Gain d'expérience ---- */
+.galactic-wars.personnage .btn-experience {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--gw-gold);
+  border-color: rgba(232, 179, 77, 0.45);
+}
+.galactic-wars.personnage .btn-experience:hover {
+  background: rgba(232, 179, 77, 0.12);
+}
+/* Ajustement au plafond (90 %) : grisé, non modifiable. */
+.galactic-wars.personnage .competence-row .ajustement-plafond {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  color: var(--gw-dim);
+  opacity: 0.55;
+  cursor: not-allowed;
+  border: 1px dashed var(--gw-border);
+  border-radius: 4px;
+  padding: 0.05rem 0.2rem;
+}
+.galactic-wars-experience .hint {
+  font-size: 0.85em;
+  opacity: 0.8;
+}

@@ -70,5 +70,12 @@ export const RELEASE_NOTES = {
       <li>Nouvelle compétence « Arme contondante/blanche » (Corps, −10 % hors métier), accordée par les 8 métiers qui la recommandent (Padawan, Apprenti sith, Chasseur de primes, Assassin, Pirate, Contrebandier, Mandalorien soldat, Mécanicien) ; l'« Arme contondante » du compendium l'utilise.</li>
       <li>Compendium Armes : Lance-roquette, Grenade, Grenade militaire et Trident sith sont de nouveau utilisables (type invalide corrigé).</li>
     </ul>`
+  },
+  "0.13.1": {
+    title: "v0.13.1",
+    html: `<ul>
+      <li>Bouton « Gain d'XP » sur la fiche classique : passe en édition et propose +5 % sur une compétence au choix (message dans le tchat).</li>
+      <li>Plafond des compétences à 90 %, dépassable seulement par le bonus d'ethnie ; au plafond, l'ajustement est grisé en mode édition.</li>
+    </ul>`
   }
 };

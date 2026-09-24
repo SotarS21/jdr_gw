@@ -15,6 +15,11 @@
           <i class="fa-solid {{#if modeEdition}}fa-lock-open{{else}}fa-lock{{/if}}"></i>
           {{localize 'GALACTICWARS.Sheet.ModeEdition'}}
         </button>
+        {{#if actor.isOwner}}
+        <button type="button" class="btn btn-experience" data-action="gainExperience" data-tooltip="{{localize 'GALACTICWARS.Experience.BoutonHint'}}">
+          <i class="fa-solid fa-arrow-trend-up"></i> {{localize 'GALACTICWARS.Experience.Bouton'}}
+        </button>
+        {{/if}}
         <input type="text" class="nom-input mono" name="name" value="{{actor.name}}" placeholder="{{localize 'GALACTICWARS.Sheet.Nom'}}">
       </div>
       <div class="race-metier-row">
@@ -197,8 +202,12 @@
             <input type="hidden" name="system.competences.{{cpt.index}}.niveau" value="{{cpt.niveau}}" data-dtype="Number">
             <span class="niveau niveau-lecture mono" data-tooltip="{{localize 'GALACTICWARS.Sheet.Niveau'}}">{{#if cpt.bloquee}}0{{else}}{{cpt.niveau}}{{/if}}</span>
             {{/if}}
-            {{#if @root.modeEdition}}
+            {{#if (and @root.modeEdition (not cpt.atteintPlafond))}}
             <input type="number" class="ajustement mono" name="system.competences.{{cpt.index}}.ajustement" value="{{cpt.ajustement}}" data-tooltip="{{localize 'GALACTICWARS.Sheet.AjustementManuelHint'}}">
+            {{else if @root.modeEdition}}
+            {{!-- Plafond atteint : ajustement grisé, mais toujours soumis (ArrayField). --}}
+            <input type="hidden" name="system.competences.{{cpt.index}}.ajustement" value="{{cpt.ajustement}}" data-dtype="Number">
+            <span class="ajustement ajustement-plafond mono" data-tooltip="{{localize 'GALACTICWARS.Experience.PlafondAtteint'}}">{{cpt.ajustement}}</span>
             {{else}}
             <input type="hidden" name="system.competences.{{cpt.index}}.ajustement" value="{{cpt.ajustement}}" data-dtype="Number">
             {{/if}}

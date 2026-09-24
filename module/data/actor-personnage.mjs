@@ -162,7 +162,11 @@ export class PersonnageData extends foundry.abstract.TypeDataModel {
       // La caractéristique liée est un plancher : niveau, bonus racial/métier, ajustement et
       // malus de non-acquisition se cumulent au-dessus, sans jamais la faire descendre.
       const modulation = base + competence.racial + competence.metier + competence.ajustement + malus;
-      competence.total = Math.max(0, bonusCaracteristique + Math.max(0, modulation));
+      // Plafond à 90 % (GW.plafondCompetence), relevé du seul bonus racial positif : « à part avec des
+      // effets ou une ethnie, une compétence ne peut pas dépasser 90 % » (règle de l'auteur, 2026-09-24).
+      const plafond = GW.plafondCompetence + Math.max(0, competence.racial);
+      competence.total = Math.min(plafond, Math.max(0, bonusCaracteristique + Math.max(0, modulation)));
+      competence.atteintPlafond = competence.total >= GW.plafondCompetence;
       competence.label = def?.label ?? competence.cle;
       competence.caracteristique = def?.caracteristique;
       competence.estCompetenceMetier = def?.metier ?? false;

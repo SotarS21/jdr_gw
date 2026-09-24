@@ -287,6 +287,19 @@
       "Activer": "Marquer « {tag} »",
       "Desactiver": "Retirer « {tag} »"
     },
+    "Experience": {
+      "Bouton": "Gain d'XP",
+      "BoutonHint": "Gain d'expérience : +5 % sur une compétence (maximum 90 %)",
+      "Titre": "Gain d'expérience",
+      "Texte": "Votre gain d'expérience vous permet de modifier une compétence en lui donnant {gain} %, qui s'ajoutent au total de la compétence jusqu'à un maximum de {plafond} %.",
+      "Note": "À part avec des effets ou une ethnie, une compétence ne peut pas dépasser {plafond} %.",
+      "Competence": "Compétence",
+      "Appliquer": "Appliquer",
+      "Annuler": "Annuler",
+      "AucuneEligible": "Aucune compétence ne peut progresser : toutes sont au plafond ou bloquées.",
+      "PlafondAtteint": "Plafond de 90 % atteint : l'ajustement n'est plus modifiable.",
+      "Message": "{nom} gagne +{gain} % en {competence} ({avant} % → {apres} %)."
+    },
     "Favoris": {
       "Titre": "Favoris",
       "Ajouter": "Ajouter aux favoris",

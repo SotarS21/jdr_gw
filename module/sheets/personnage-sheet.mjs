@@ -38,6 +38,7 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       supprimerEntreeNote: PersonnageSheet.#onSupprimerEntreeNote,
       ajouterTrait: PersonnageSheet.#onAjouterTrait,
       basculerFavori: PersonnageSheet.#onBasculerFavori,
+      gainExperience: PersonnageSheet.#onGainExperience,
       ouvrirObjet: PersonnageSheet.#onOuvrirObjet,
       afficherObjet: PersonnageSheet.#onAfficherObjet,
       basculerPorteObjet: PersonnageSheet.#onBasculerPorteObjet,
@@ -449,6 +450,64 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     if (!competences[index]) return;
     competences[index].favori = !competences[index].favori;
     await this.actor.update({ "system.competences": competences });
+  }
+
+  /**
+   * Gain d'expérience : passe la fiche en édition, puis propose +GW.gainExperience % sur une compétence
+   * (ajouté à son ajustement), sans dépasser GW.plafondCompetence. Compétences bloquées ou déjà au
+   * plafond exclues. Un message dans le tchat garde la trace du gain pour le MJ.
+   */
+  static async #onGainExperience() {
+    if (!this.actor.isOwner) return;
+    if (!this.modeEdition) {
+      this.#modeEdition = true;
+      await this.render();
+    }
+    const plafond = GW.plafondCompetence;
+    const eligibles = this.actor.system.competences
+      .map((c, index) => ({ c, index }))
+      .filter(({ c }) => !c.bloquee && c.total < plafond)
+      .map(({ c, index }) => {
+        const gain = Math.min(GW.gainExperience, plafond - c.total);
+        return { index, gain, label: game.i18n.localize(c.label), avant: c.total, apres: c.total + gain };
+      })
+      .sort((a, b) => a.label.localeCompare(b.label, game.i18n.lang));
+    if (!eligibles.length) return ui.notifications.info(game.i18n.localize("GALACTICWARS.Experience.AucuneEligible"));
+
+    const options = eligibles
+      .map((e) => `<option value="${e.index}">${foundry.utils.escapeHTML(e.label)} — ${e.avant} % → ${e.apres} %</option>`)
+      .join("");
+    const content = `<div class="galactic-wars-experience">
+      <p>${game.i18n.format("GALACTICWARS.Experience.Texte", { gain: GW.gainExperience, plafond })}</p>
+      <p class="hint">${game.i18n.format("GALACTICWARS.Experience.Note", { plafond })}</p>
+      <div class="form-group"><label>${game.i18n.localize("GALACTICWARS.Experience.Competence")}</label>
+        <select name="competence" autofocus>${options}</select></div>
+    </div>`;
+    const choix = await foundry.applications.api.DialogV2.wait({
+      window: { title: game.i18n.localize("GALACTICWARS.Experience.Titre"), icon: "fa-solid fa-arrow-trend-up" },
+      position: { width: 480 },
+      content,
+      buttons: [
+        { action: "ok", label: game.i18n.localize("GALACTICWARS.Experience.Appliquer"), icon: "fa-solid fa-check", default: true,
+          callback: (event, button) => Number(button.form.elements.competence.value) },
+        { action: "annuler", label: game.i18n.localize("GALACTICWARS.Experience.Annuler"), icon: "fa-solid fa-xmark" }
+      ],
+      rejectClose: false
+    });
+    const retenue = eligibles.find((e) => e.index === choix);
+    if (!retenue) return;
+
+    // Tableau complet réécrit (jamais un seul index d'ArrayField).
+    const competences = this.actor.system.toObject().competences;
+    competences[retenue.index].ajustement += retenue.gain;
+    await this.actor.update({ "system.competences": competences });
+    await ChatMessage.create({
+      speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+      content: `<p><i class="fa-solid fa-arrow-trend-up"></i> ${game.i18n.format("GALACTICWARS.Experience.Message", {
+        nom: foundry.utils.escapeHTML(this.actor.name), gain: retenue.gain,
+        competence: foundry.utils.escapeHTML(retenue.label), avant: retenue.avant, apres: retenue.apres
+      })}</p>`
+    });
   }
 
   static async #onRepos() {
