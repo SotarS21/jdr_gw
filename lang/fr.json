@@ -27,12 +27,12 @@
 
     "Competence": {
       "CommanderGuider": "Commander/guider",
-      "Blaster": "Blaster",
+      "Blaster": "Blaster/Lancer",
       "Artifice": "Artifice",
       "DrainDeForce": "Drain de force",
       "ControleTelekinetique": "Contrôle télékinétique",
       "Bagarre": "Bagarre",
-      "ArmeBlanche": "Arme contondante et blanche",
+      "ArmeBlanche": "Arme contondante/blanche",
       "EscroquerieMensonge": "Escroquerie/mensonge",
       "InformatiquePiratage": "Informatique/piratage",
       "Blocage": "Blocage",

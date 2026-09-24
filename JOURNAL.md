@@ -40,6 +40,7 @@ les existants — donc aucun correctif de contenu nécessaire) ; réalisation en
   Mandalorien soldat, Mécanicien (mention « aucune compétence dédiée » retirée des descriptions) ; « Arme contondante » du compendium passée de Bagarre à la nouvelle compétence. Ajout aux personnages
   existants par la migration (38 compétences) ; deux correctifs MJ : acquisition sur les personnages de ces métiers,
   copies de l'arme contondante restées sur Bagarre. Vérifié après redémarrage.
+- Libellés renommés à la demande de l'auteur : « Arme contondante/blanche », « Blaster/Lancer » (clés inchangées).
 
 ## Session du 2026-09-24 (suite 3) — Favoris, tag Caché, fiche d'objet réparée (v0.12.3→v0.12.4)
 

@@ -52,9 +52,9 @@ export const PACK_UPDATES = [
     id: "0.13.0-arme-blanche-metiers",
     cible: "acteurs",
     version: "0.13.0",
-    label: "Nouvelle compétence « Arme contondante et blanche » accordée par les métiers",
+    label: "Nouvelle compétence « Arme contondante/blanche » accordée par les métiers",
     description:
-      "La compétence manquante « Arme contondante et blanche » (Corps) est ajoutée à tous les personnages. " +
+      "La compétence manquante « Arme contondante/blanche » (Corps) est ajoutée à tous les personnages. " +
       "Les 8 métiers qui la recommandent (Padawan, Apprenti sith, Chasseur de primes, Assassin, Pirate, Contrebandier, " +
       "Mandalorien soldat, Mécanicien) l'accordent désormais : recalcule l'acquisition " +
       "et le point orange des personnages de ces métiers. Niveaux, ajustements et équipement ne sont pas touchés.",
@@ -72,7 +72,7 @@ export const PACK_UPDATES = [
     label: "« Arme contondante » liée à la nouvelle compétence",
     description:
       "Les copies de l'« Arme contondante » encore liées à Bagarre (faute de mieux jusqu'ici) passent sur " +
-      "« Arme contondante et blanche ». Une arme dont vous avez choisi une autre compétence n'est pas touchée.",
+      "« Arme contondante/blanche ». Une arme dont vous avez choisi une autre compétence n'est pas touchée.",
     concernes: async () => (await armesContondantesSurBagarre()).length,
     apply: async () => {
       const liste = await armesContondantesSurBagarre();
