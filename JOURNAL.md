@@ -25,6 +25,12 @@
   chargement MJ, exposée en macro `game.galacticWars.completerCompetences()` (bilan en notification) et en correctif
   MJ `0.13.2-competences-manquantes`. Dans le monde de test, les 6 fiches avaient déjà leurs 38 compétences. Vérifié :
   acteur 37 → 38 et token non lié 36 → 38, second passage sans effet, données restaurées.
+- **Image unique par acteur (bug remonté par l'auteur)** : les fiches affichaient `system.portrait`, indépendant de
+  `img` et du token. `GalacticWarsActor` (documents/actor.mjs) unifie les trois à la création (portrait personnalisé,
+  sinon img) et à chaque changement du portrait ou de l'image (`_preUpdate`), puis met à jour les tokens posés (liés, ou
+  affichant l'ancienne image) dans `_onUpdate` côté auteur. Vaut pour les 4 fiches. Correctif MJ
+  `0.13.2-image-unique-acteurs` pour l'existant (monde de test : Alek, portrait personnalisé mais acteur et token
+  par défaut). Vérifié : portrait → img + token + token posé ; img → portrait + token ; création ; restauration.
 - Vérifié : ouverture depuis l'inventaire, recherche, filtre #rebellion, adresses, précédent / suivant, synchro depuis
   la fiche, modification et création depuis l'Holonet visibles dans Notes → Infos, aucune erreur JS.
 

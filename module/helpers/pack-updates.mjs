@@ -1,5 +1,6 @@
 import { appareilSelonNom } from "./appareils.mjs";
 import { fichesIncompletes, completerToutesLesFiches } from "./migration.mjs";
+import { GalacticWarsActor } from "../documents/actor.mjs";
 import { competencesSelonMetier } from "./metier.mjs";
 
 /**
@@ -83,6 +84,29 @@ export const PACK_UPDATES = [
     }
   },
   {
+    id: "0.13.2-image-unique-acteurs",
+    cible: "acteurs",
+    version: "0.13.2",
+    label: "Une seule image par personnage (fiche, acteur, token)",
+    description:
+      "Aligne l'image de l'acteur et celle de son token sur le portrait de la fiche (ou sur l'image de l'acteur si le " +
+      "portrait n'a jamais été changé), tokens déjà posés sur les scènes compris. Désormais, changer l'image de la " +
+      "fiche change aussi l'acteur et le token.",
+    concernes: () => Promise.resolve(acteursImagesDivergentes().length),
+    apply: async () => {
+      const liste = acteursImagesDivergentes();
+      for (const { actor, image } of liste) {
+        // _preUpdate ne réagit qu'à un changement : on écrit directement les trois champs, puis les tokens posés.
+        await actor.update(GalacticWarsActor.champsImage(image));
+        for (const scene of game.scenes) {
+          const tokens = scene.tokens.filter((t) => t.actorId === actor.id && t.actorLink && t.texture.src !== image);
+          if (tokens.length) await scene.updateEmbeddedDocuments("Token", tokens.map((t) => ({ _id: t.id, "texture.src": image })));
+        }
+      }
+      return liste.length;
+    }
+  },
+  {
     id: "0.13.2-competences-manquantes",
     cible: "acteurs",
     version: "0.13.2",
@@ -110,6 +134,19 @@ export const PACK_UPDATES = [
     }
   }
 ];
+
+/** Acteurs du monde (avec portrait) dont portrait, image et image de token ne sont pas identiques. */
+function acteursImagesDivergentes() {
+  const liste = [];
+  for (const actor of game.actors) {
+    if (!actor.aUnPortrait) continue;
+    const image = GalacticWarsActor.imageUnique(actor.system.portrait, actor.img);
+    if (!image) continue;
+    const jeton = actor.prototypeToken.texture.src;
+    if (actor.system.portrait !== image || actor.img !== image || jeton !== image) liste.push({ actor, image });
+  }
+  return liste;
+}
 
 /** Équipements nommés « Datapad » (monde, acteurs, tokens non liés) sans appareil renseigné. */
 function datapadsNonReconnus() {

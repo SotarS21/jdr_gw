@@ -85,6 +85,7 @@ export const RELEASE_NOTES = {
       <li>Un datapad a un onglet <strong>Holonet</strong> : navigateur sur les Infos du personnage (onglet Notes → Infos) — recherche, mots-clés, pages, précédent / suivant — avec création, modification et suppression, synchronisées avec la fiche.</li>
       <li>Jets en pourcentage : réussite critique de 1 à 5 et échec critique de 96 à 100, quel que soit le taux (auparavant réussite critique à 10 % du taux).</li>
       <li>Compétences manquantes (dont « Arme contondante/blanche ») ajoutées automatiquement à toutes les fiches existantes au chargement du monde par le MJ, y compris les tokens non liés et les compendiums du monde ; aussi en macro : <code>game.galacticWars.completerCompetences()</code>.</li>
+      <li>Une seule image par personnage : changer le portrait de la fiche change aussi l'image de l'acteur et celle de son token (tokens posés compris) ; correctif proposé au MJ pour les acteurs existants.</li>
       <li>Bouton Holonet sur la ligne du datapad dans l'inventaire ; les « Datapad » de départ des métiers sont reconnus (correctif proposé au MJ pour les existants).</li>
     </ul>`
   }
