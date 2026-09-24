@@ -384,3 +384,12 @@
   font-weight: 600;
   color: var(--gw-carte-corail, #c0343b);
 }
+
+/* Bouton d'édition de l'objet : visible en mode édition de la fiche seulement. */
+.galactic-wars.personnage .editer-objet-btn {
+  color: var(--gw-gold);
+  border-color: rgba(232, 179, 77, 0.45);
+}
+.galactic-wars.personnage .editer-objet-btn:hover {
+  background: rgba(232, 179, 77, 0.15);
+}

@@ -31,6 +31,8 @@ les existants — donc aucun correctif de contenu nécessaire) ; réalisation en
   (3d6 + explosion → 3d6), carte cachée en murmure, fiches à 480 px sans défilement horizontal, taux en direct,
   emplacement Bouclier, fiche de race inchangée, aucune erreur JS. Ajustements : fond sombre de l'image de carte,
   bouton d'édition des textes toujours visible.
+- **Demande de l'auteur** : en mode édition de la fiche, bouton crayon (doré) sur chaque ligne d'inventaire →
+  fiche de l'objet (action `ouvrirObjet`), sans envoyer de carte au tchat. Absent hors édition. Vérifié.
 
 ## Session du 2026-09-24 (suite 3) — Favoris, tag Caché, fiche d'objet réparée (v0.12.3→v0.12.4)
 

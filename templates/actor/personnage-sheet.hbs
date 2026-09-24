@@ -274,6 +274,11 @@
         <i class="fa-solid fa-crosshairs"></i>
       </button>
       {{/if}}
+      {{#if @root.modeEdition}}
+      <button type="button" class="roll-btn editer-objet-btn" data-action="ouvrirObjet" data-tooltip="{{localize 'GALACTICWARS.Objet.Modifier'}}">
+        <i class="fa-solid fa-pen-to-square"></i>
+      </button>
+      {{/if}}
     </div>
   </div>
   {{/inline}}

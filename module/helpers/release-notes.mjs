@@ -64,6 +64,7 @@ export const RELEASE_NOTES = {
       <li>Nouvelles fiches d'arme, d'armure / bouclier et d'équipement : image entière, porté / rangé, onglets Détails / Description / Notes du MJ, compétence liée avec le taux du porteur, boutons Attaquer et Dégâts.</li>
       <li>Boucliers : armures d'emplacement « Bouclier », cumulables avec les autres armures.</li>
       <li>Inventaire : lignes avec image et badges, objets rangés grisés, réduction totale des armures portées, attaque rapide ; clic = carte dans le tchat, clic droit = porter / ranger, tags, fiche, suppression.</li>
+      <li>En mode édition de la fiche, un bouton crayon sur chaque objet de l'inventaire ouvre sa fiche.</li>
       <li>Cartes d'objet dans le tchat avec Attaquer / Dégâts (propriétaire et MJ) ; un objet caché est montré en murmure.</li>
       <li>Tout objet est désormais rangé par défaut : portez vos armes et armures pour les utiliser.</li>
       <li>Compendium Armes : Lance-roquette, Grenade, Grenade militaire et Trident sith sont de nouveau utilisables (type invalide corrigé).</li>
