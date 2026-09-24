@@ -155,6 +155,15 @@ GW.pointsCaracteristiques = 120;
  * dans l'inventaire, bascule au clic droit. Ajouter un tag = une clé ici + un BooleanField dans
  * module/data/tags-objet.mjs (même clé) + un libellé GALACTICWARS.Tags.<clé>.
  */
+/** Emplacements d'armure ; « bouclier » = les boucliers (pas de type d'objet dédié). */
+GW.emplacementsArmure = {
+  plastron: "GALACTICWARS.Objet.Emplacement.plastron",
+  casque: "GALACTICWARS.Objet.Emplacement.casque",
+  bras: "GALACTICWARS.Objet.Emplacement.bras",
+  jambes: "GALACTICWARS.Objet.Emplacement.jambes",
+  bouclier: "GALACTICWARS.Objet.Emplacement.bouclier"
+};
+
 GW.tagsObjet = {
   cache: { label: "GALACTICWARS.Tags.cache", icone: "fa-solid fa-eye-slash" }
 };

@@ -234,6 +234,38 @@
       "Capacites": "Capacités"
     },
 
+    "Objet": {
+      "Details": "Détails",
+      "Description": "Description",
+      "NotesMJ": "Notes du MJ",
+      "Porte": "Porté",
+      "Range": "Rangé",
+      "Porter": "Porter",
+      "Ranger": "Ranger",
+      "Quantite": "Quantité",
+      "Prix": "Prix",
+      "Degats": "Dégâts",
+      "Competence": "Compétence liée",
+      "AucuneCompetence": "— Aucune —",
+      "Instable": "Instable",
+      "Portee": "Portée",
+      "Reduction": "Réduction",
+      "EmplacementLabel": "Emplacement",
+      "Emplacement": {
+        "plastron": "Plastron",
+        "casque": "Casque",
+        "bras": "Bras",
+        "jambes": "Jambes",
+        "bouclier": "Bouclier"
+      },
+      "Attaquer": "Attaquer",
+      "LancerDegats": "Dégâts",
+      "EnvoyerTchat": "Montrer dans le tchat",
+      "Ouvrir": "Ouvrir la fiche",
+      "Supprimer": "Supprimer",
+      "ReductionTotale": "Réduction totale (armures portées)",
+      "TauxCompetence": "Taux actuel du porteur"
+    },
     "Tags": {
       "Titre": "Tags",
       "cache": "Caché",

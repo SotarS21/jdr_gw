@@ -1,13 +1,7 @@
-import { tagsObjet } from "./tags-objet.mjs";
-const { StringField, NumberField, HTMLField } = foundry.data.fields;
+import { champsObjet } from "./objet-base.mjs";
 
 export class EquipementData extends foundry.abstract.TypeDataModel {
   static defineSchema() {
-    return {
-      quantite: new NumberField({ required: true, integer: true, min: 0, initial: 1 }),
-      prix: new StringField({ initial: "" }), // en crédits, texte libre (ex. "150c", "NA" = non achetable)
-      tags: tagsObjet(),
-      description: new HTMLField({ initial: "" })
-    };
+    return { ...champsObjet() };
   }
 }
