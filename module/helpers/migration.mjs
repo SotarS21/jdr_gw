@@ -17,11 +17,68 @@ export function completerCompetences(competences = []) {
 }
 
 /**
+ * Fiches « personnage » à compléter : acteurs du monde, acteurs synthétiques des tokens non liés
+ * (leurs données propres peuvent masquer celles de l'acteur de base) et acteurs des compendiums
+ * du MONDE déverrouillés — les compendiums du système sont remplacés à chaque mise à jour.
+ * @returns {Promise<Actor[]>}
+ */
+async function fichesPersonnage() {
+  const fiches = game.actors.filter((a) => a.type === "personnage");
+  for (const scene of game.scenes) {
+    for (const token of scene.tokens) {
+      if (!token.actorLink && token.actor?.type === "personnage") fiches.push(token.actor);
+    }
+  }
+  for (const pack of game.packs) {
+    if (pack.documentName !== "Actor" || pack.metadata.packageType !== "world" || pack.locked) continue;
+    fiches.push(...(await pack.getDocuments()).filter((a) => a.type === "personnage"));
+  }
+  return fiches;
+}
+
+/** Fiches auxquelles il manque au moins une compétence de GW.competences. */
+export async function fichesIncompletes() {
+  return (await fichesPersonnage()).filter((a) => completerCompetences(a.system.toObject().competences));
+}
+
+/**
+ * Ajoute à chaque fiche « personnage » les compétences qui lui manquent (ex. « Arme contondante/blanche »,
+ * ajoutée en v0.13.0), valeurs à 0, sans toucher aux autres. MJ uniquement. Appelable depuis une macro :
+ * `game.galacticWars.completerCompetences()`.
+ * @returns {Promise<{fiches: number, competences: number, noms: string[]}>}
+ */
+export async function completerToutesLesFiches({ notifier = true } = {}) {
+  if (!game.user.isGM) {
+    ui.notifications.warn(game.i18n.localize("GALACTICWARS.Migration.ReserveMJ"));
+    return { fiches: 0, competences: 0, noms: [] };
+  }
+  const bilan = { fiches: 0, competences: 0, noms: [] };
+  for (const actor of await fichesIncompletes()) {
+    const source = actor.system.toObject().competences;
+    const completees = completerCompetences(source);
+    // Tableau complet réécrit (jamais un seul index d'ArrayField).
+    await actor.update({ "system.competences": completees });
+    bilan.fiches++;
+    bilan.competences += completees.length - source.length;
+    bilan.noms.push(actor.token ? `${actor.name} (token)` : actor.pack ? `${actor.name} (${actor.pack})` : actor.name);
+  }
+  if (notifier) {
+    ui.notifications.info(bilan.fiches
+      ? game.i18n.format("GALACTICWARS.Migration.Bilan", { fiches: bilan.fiches, competences: bilan.competences })
+      : game.i18n.localize("GALACTICWARS.Migration.RienAFaire"));
+  }
+  if (bilan.fiches) console.log("Galactic Wars | Compétences complétées :", bilan.noms.join(", "));
+  return bilan;
+}
+
+/**
  * Migration idempotente : s'assure que tout Actor "personnage" a bien une entrée de
  * compétence pour chaque clé connue de GW.competences (utile quand de nouvelles
  * compétences sont ajoutées après la création des personnages).
  */
 export async function runMigrations() {
+  // Tokens non liés et compendiums du monde (la boucle ci-dessous ne voit que les acteurs du monde).
+  await completerToutesLesFiches({ notifier: false });
   for (const actor of game.actors) {
     if (actor.type !== "personnage") continue;
 

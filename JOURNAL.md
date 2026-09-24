@@ -19,6 +19,12 @@
   ≥ 96 = échec critique, quel que soit le taux (`GW.seuilReussiteCritique` / `GW.seuilEchecCritique`, dans
   `resoudrePourcentage`, donc aussi pour les jets de PNJ en %). Auparavant : réussite critique ≤ 10 % du taux.
   Vérifié avec dé forcé (taux 14) : 1, 5 → RC ; 6, 14 → R ; 15, 95 → É ; 96, 100 → ÉC.
+- **Compétences manquantes sur des fiches existantes (bug remonté par l'auteur)** : la migration du `ready` ne
+  parcourait que `game.actors`. `completerToutesLesFiches()` (helpers/migration.mjs) couvre aussi les tokens non liés
+  (données propres qui masquent l'acteur de base) et les compendiums Actor du monde déverrouillés ; appelée à chaque
+  chargement MJ, exposée en macro `game.galacticWars.completerCompetences()` (bilan en notification) et en correctif
+  MJ `0.13.2-competences-manquantes`. Dans le monde de test, les 6 fiches avaient déjà leurs 38 compétences. Vérifié :
+  acteur 37 → 38 et token non lié 36 → 38, second passage sans effet, données restaurées.
 - Vérifié : ouverture depuis l'inventaire, recherche, filtre #rebellion, adresses, précédent / suivant, synchro depuis
   la fiche, modification et création depuis l'Holonet visibles dans Notes → Infos, aucune erreur JS.
 

@@ -1,4 +1,5 @@
 import { appareilSelonNom } from "./appareils.mjs";
+import { fichesIncompletes, completerToutesLesFiches } from "./migration.mjs";
 import { competencesSelonMetier } from "./metier.mjs";
 
 /**
@@ -80,6 +81,18 @@ export const PACK_UPDATES = [
       for (const copie of liste) await copie.update({ "system.competence": "armeBlanche" });
       return liste.length;
     }
+  },
+  {
+    id: "0.13.2-competences-manquantes",
+    cible: "acteurs",
+    version: "0.13.2",
+    label: "Compétences manquantes ajoutées aux fiches existantes",
+    description:
+      "Ajoute aux fiches de personnage déjà créées les compétences qui leur manquent (dont « Arme contondante/blanche ») : " +
+      "personnages du monde, tokens non liés et compendiums du monde. Les autres compétences ne sont pas touchées. " +
+      "Aussi disponible en macro : game.galacticWars.completerCompetences()",
+    concernes: async () => (await fichesIncompletes()).length,
+    apply: async () => (await completerToutesLesFiches({ notifier: false })).fiches
   },
   {
     id: "0.13.1-appareil-datapad",

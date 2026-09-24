@@ -321,6 +321,11 @@
       "AucuneInfo": "Aucune info pour l'instant : elles apparaissent ici et dans l'onglet Notes → Infos.",
       "HorsLigne": "Datapad hors ligne : il doit être dans l'inventaire d'un personnage pour accéder à ses infos."
     },
+    "Migration": {
+      "ReserveMJ": "Seul le MJ peut mettre à jour les fiches du monde.",
+      "Bilan": "Galactic Wars — {competences} compétence(s) ajoutée(s) sur {fiches} fiche(s).",
+      "RienAFaire": "Galactic Wars — toutes les fiches ont déjà toutes leurs compétences."
+    },
     "Favoris": {
       "Titre": "Favoris",
       "Ajouter": "Ajouter aux favoris",

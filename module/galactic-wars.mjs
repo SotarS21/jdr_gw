@@ -18,7 +18,7 @@ import { PersonnageRapideSheet } from "./sheets/personnage-rapide-sheet.mjs";
 import { PersonnageSithSheet } from "./sheets/personnage-sith-sheet.mjs";
 import { VaisseauSheet } from "./sheets/vaisseau-sheet.mjs";
 import { GalacticWarsItemSheet } from "./sheets/item-sheet.mjs";
-import { runMigrations } from "./helpers/migration.mjs";
+import { runMigrations, completerToutesLesFiches } from "./helpers/migration.mjs";
 import { registerVersionCheckSettings, checkSystemVersionUpdate } from "./helpers/version-check.mjs";
 import { registerPackUpdateSettings, checkPendingPackUpdates } from "./helpers/pack-updates.mjs";
 import { enregistrerHooksChatObjet } from "./helpers/chat-objet.mjs";
@@ -28,7 +28,11 @@ enregistrerHooksChatObjet();
 Hooks.once("init", () => {
   console.log("Galactic Wars | Initialisation du système");
 
-  game.galacticWars = { config: GW };
+  game.galacticWars = {
+    config: GW,
+    // Macro MJ : ajoute les compétences manquantes à toutes les fiches déjà créées (monde, tokens, compendiums du monde).
+    completerCompetences: () => completerToutesLesFiches()
+  };
   CONFIG.GW = GW;
   registerVersionCheckSettings();
   registerPackUpdateSettings();
