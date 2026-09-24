@@ -393,3 +393,11 @@
 .galactic-wars.personnage .editer-objet-btn:hover {
   background: rgba(232, 179, 77, 0.15);
 }
+
+/* Datapad : accès direct à l'Holonet depuis l'inventaire. */
+.galactic-wars.personnage .holonet-btn {
+  color: var(--gw-accent);
+}
+.galactic-wars.personnage .holonet-btn:hover {
+  border-color: var(--gw-accent);
+}

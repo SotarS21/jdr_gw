@@ -1,3 +1,4 @@
+import { appareilSelonNom } from "./appareils.mjs";
 import { competencesSelonMetier } from "./metier.mjs";
 
 /**
@@ -79,8 +80,29 @@ export const PACK_UPDATES = [
       for (const copie of liste) await copie.update({ "system.competence": "armeBlanche" });
       return liste.length;
     }
+  },
+  {
+    id: "0.13.1-appareil-datapad",
+    cible: "acteurs",
+    version: "0.13.1",
+    label: "Datapads reconnus (onglet Holonet)",
+    description:
+      "Les équipements nommés « Datapad » (équipement de départ des métiers) deviennent des appareils Datapad : " +
+      "leur fiche gagne l'onglet Holonet, qui affiche et modifie les Infos du personnage (onglet Notes).",
+    concernes: () => Promise.resolve(datapadsNonReconnus().length),
+    apply: async () => {
+      const liste = datapadsNonReconnus();
+      for (const objet of liste) await objet.update({ "system.appareil": "datapad" });
+      return liste.length;
+    }
   }
 ];
+
+/** Équipements nommés « Datapad » (monde, acteurs, tokens non liés) sans appareil renseigné. */
+function datapadsNonReconnus() {
+  const objets = [...game.items, ...tousLesActeurs().flatMap((a) => [...a.items])];
+  return objets.filter((i) => i.type === "equipement" && !i.system.appareil && appareilSelonNom(i.name) === "datapad");
+}
 
 /** Copies de l'« Arme contondante » du compendium restées sur l'ancienne compétence (bagarre). */
 async function armesContondantesSurBagarre() {

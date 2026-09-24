@@ -1,0 +1,63 @@
+{{!-- Holonet du datapad : navigateur sur les Infos du porteur (system.notes, les mêmes que l'onglet
+      Notes → Infos de la fiche de personnage — toute modification est donc synchronisée). --}}
+<section class="holonet">
+  {{#if holonet.connecte}}
+  <div class="holonet-barre">
+    <button type="button" class="holonet-nav" data-action="holonetPrecedent" {{#unless holonet.peutReculer}}disabled{{/unless}} data-tooltip="{{localize 'GALACTICWARS.Holonet.Precedent'}}"><i class="fa-solid fa-arrow-left"></i></button>
+    <button type="button" class="holonet-nav" data-action="holonetSuivant" {{#unless holonet.peutAvancer}}disabled{{/unless}} data-tooltip="{{localize 'GALACTICWARS.Holonet.Suivant'}}"><i class="fa-solid fa-arrow-right"></i></button>
+    <button type="button" class="holonet-nav" data-action="holonetAccueil" data-tooltip="{{localize 'GALACTICWARS.Holonet.Accueil'}}"><i class="fa-solid fa-house"></i></button>
+    <div class="holonet-adresse mono" title="{{holonet.adresse}}"><i class="fa-solid fa-lock"></i> {{holonet.adresse}}</div>
+  </div>
+
+  {{#if holonet.accueil}}
+  <div class="holonet-page holonet-accueil">
+    <div class="holonet-logo"><i class="fa-solid fa-satellite-dish"></i> HOLONET</div>
+    <div class="holonet-outils">
+      <input type="search" class="holonet-recherche" value="{{holonet.recherche}}" placeholder="{{localize 'GALACTICWARS.Holonet.Rechercher'}}" aria-label="{{localize 'GALACTICWARS.Holonet.Rechercher'}}">
+      {{#if holonet.editable}}
+      <button type="button" class="holonet-nouvelle" data-action="holonetNouvelle"><i class="fa-solid fa-plus"></i> {{localize 'GALACTICWARS.Holonet.Nouvelle'}}</button>
+      {{/if}}
+    </div>
+    {{#if holonet.motsCles.length}}
+    <div class="holonet-mots-cles">
+      {{#each holonet.motsCles as |m|}}<button type="button" class="holonet-mot {{#if m.actif}}actif{{/if}}" data-action="holonetMotCle" data-mot="{{m.mot}}">#{{m.mot}}</button>{{/each}}
+    </div>
+    {{/if}}
+    <div class="holonet-resultats">
+      {{#each holonet.resultats as |r|}}
+      <article class="holonet-resultat" data-index="{{r.index}}" data-action="holonetOuvrir" data-recherche="{{r.recherche}}" role="link" tabindex="0">
+        <h3 class="holonet-resultat-titre">{{r.titre}}</h3>
+        {{#if r.motsCles.length}}<div class="holonet-resultat-mots">{{#each r.motsCles as |mot|}}<span>#{{mot}}</span>{{/each}}</div>{{/if}}
+        {{#if r.extrait}}<p class="holonet-extrait">{{r.extrait}}</p>{{/if}}
+      </article>
+      {{/each}}
+      <p class="holonet-aucun-resultat" {{#if holonet.resultats.length}}hidden{{/if}}>
+        {{#if holonet.total}}{{localize 'GALACTICWARS.Holonet.AucunResultat'}}{{else}}{{localize 'GALACTICWARS.Holonet.AucuneInfo'}}{{/if}}
+      </p>
+    </div>
+  </div>
+  {{/if}}
+
+  {{#if holonet.page}}
+  <article class="holonet-page holonet-article" data-index="{{holonet.page.index}}">
+    <header class="holonet-article-entete">
+      <h3>{{holonet.page.titre}}</h3>
+      {{#if holonet.editable}}
+      <div class="holonet-article-actions">
+        <button type="button" data-action="holonetModifier" data-tooltip="{{localize 'GALACTICWARS.Holonet.Modifier'}}"><i class="fa-solid fa-pen-to-square"></i></button>
+        <button type="button" data-action="holonetSupprimer" data-tooltip="{{localize 'GALACTICWARS.Holonet.Supprimer'}}"><i class="fa-solid fa-trash"></i></button>
+      </div>
+      {{/if}}
+    </header>
+    {{#if holonet.page.motsCles.length}}
+    <div class="holonet-mots-cles">
+      {{#each holonet.page.motsCles as |mot|}}<button type="button" class="holonet-mot" data-action="holonetMotCle" data-mot="{{mot}}">#{{mot}}</button>{{/each}}
+    </div>
+    {{/if}}
+    <div class="holonet-contenu">{{{holonet.page.contenu}}}</div>
+  </article>
+  {{/if}}
+  {{else}}
+  <p class="holonet-hors-ligne"><i class="fa-solid fa-plug-circle-xmark"></i> {{localize 'GALACTICWARS.Holonet.HorsLigne'}}</p>
+  {{/if}}
+</section>

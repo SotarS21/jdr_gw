@@ -300,6 +300,27 @@
       "PlafondAtteint": "Plafond de 90 % atteint : l'ajustement n'est plus modifiable.",
       "Message": "{nom} gagne +{gain} % en {competence} ({avant} % → {apres} %)."
     },
+    "Appareil": {
+      "Label": "Appareil",
+      "aucun": "— Aucun —",
+      "datapad": "Datapad",
+      "comlink": "Comlink"
+    },
+    "Holonet": {
+      "Onglet": "Holonet",
+      "Ouvrir": "Ouvrir l'Holonet",
+      "Precedent": "Page précédente",
+      "Suivant": "Page suivante",
+      "Accueil": "Accueil",
+      "Rechercher": "Rechercher dans vos infos…",
+      "Nouvelle": "Nouvelle info",
+      "Modifier": "Modifier cette info",
+      "Supprimer": "Supprimer cette info",
+      "SansTitre": "(sans titre)",
+      "AucunResultat": "Aucun résultat.",
+      "AucuneInfo": "Aucune info pour l'instant : elles apparaissent ici et dans l'onglet Notes → Infos.",
+      "HorsLigne": "Datapad hors ligne : il doit être dans l'inventaire d'un personnage pour accéder à ses infos."
+    },
     "Favoris": {
       "Titre": "Favoris",
       "Ajouter": "Ajouter aux favoris",

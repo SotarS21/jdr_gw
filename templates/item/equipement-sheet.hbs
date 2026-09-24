@@ -17,10 +17,20 @@
         <span class="eyebrow">{{localize 'GALACTICWARS.Objet.Prix'}}</span>
         <input type="text" class="mono" name="system.prix" value="{{system.prix}}">
       </label>
+      <label class="objet-champ">
+        <span class="eyebrow">{{localize "GALACTICWARS.Appareil.Label"}}</span>
+        <select name="system.appareil">
+          {{#each appareils as |a|}}<option value="{{a.cle}}" {{#if a.selected}}selected{{/if}}>{{a.label}}</option>{{/each}}
+        </select>
+      </label>
     </div>
   </section>
 
   {{> gw-objet-tags}}
+  {{/if}}
+
+  {{#if (eq ongletActif "holonet")}}
+  {{> gw-holonet}}
   {{/if}}
 
   {{> gw-objet-textes}}

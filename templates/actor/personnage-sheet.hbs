@@ -283,6 +283,11 @@
         <i class="fa-solid fa-crosshairs"></i>
       </button>
       {{/if}}
+      {{#if ligne.datapad}}
+      <button type="button" class="roll-btn holonet-btn" data-action="ouvrirHolonet" data-tooltip="{{localize 'GALACTICWARS.Holonet.Ouvrir'}}">
+        <i class="fa-solid fa-globe"></i>
+      </button>
+      {{/if}}
       {{#if @root.modeEdition}}
       <button type="button" class="roll-btn editer-objet-btn" data-action="ouvrirObjet" data-tooltip="{{localize 'GALACTICWARS.Objet.Modifier'}}">
         <i class="fa-solid fa-pen-to-square"></i>

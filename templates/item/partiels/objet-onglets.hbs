@@ -1,6 +1,9 @@
 {{!-- Onglets des fiches d'objet — état gardé sur l'instance de fiche (#ongletActif). --}}
 <nav class="onglets objet-onglets">
   <button type="button" class="onglet-btn {{#if (eq ongletActif 'details')}}active{{/if}}" data-action="changerOnglet" data-onglet="details">{{localize 'GALACTICWARS.Objet.Details'}}</button>
+  {{#if estDatapad}}
+  <button type="button" class="onglet-btn onglet-holonet {{#if (eq ongletActif 'holonet')}}active{{/if}}" data-action="changerOnglet" data-onglet="holonet"><i class="fa-solid fa-globe"></i> {{localize 'GALACTICWARS.Holonet.Onglet'}}</button>
+  {{/if}}
   <button type="button" class="onglet-btn {{#if (eq ongletActif 'description')}}active{{/if}}" data-action="changerOnglet" data-onglet="description">{{localize 'GALACTICWARS.Objet.Description'}}</button>
   {{#if isGM}}
   <button type="button" class="onglet-btn onglet-mj {{#if (eq ongletActif 'notes')}}active{{/if}}" data-action="changerOnglet" data-onglet="notes"><i class="fa-solid fa-user-secret"></i> {{localize 'GALACTICWARS.Objet.NotesMJ'}}</button>

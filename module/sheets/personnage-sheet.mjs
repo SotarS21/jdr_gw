@@ -42,7 +42,8 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       ouvrirObjet: PersonnageSheet.#onOuvrirObjet,
       afficherObjet: PersonnageSheet.#onAfficherObjet,
       basculerPorteObjet: PersonnageSheet.#onBasculerPorteObjet,
-      attaquerObjet: PersonnageSheet.#onAttaquerObjet
+      attaquerObjet: PersonnageSheet.#onAttaquerObjet,
+      ouvrirHolonet: PersonnageSheet.#onOuvrirHolonet
     }
   };
 
@@ -234,7 +235,8 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
         badges,
         valeur,
         // Attaque rapide : arme portée ET dotée d'une compétence (sinon attaquer() refuserait).
-        attaqueRapide: item.type === "arme" && !!system.porte && !!system.competence
+        attaqueRapide: item.type === "arme" && !!system.porte && !!system.competence,
+        datapad: item.type === "equipement" && system.appareil === "datapad"
       };
     };
     const objets = (type) => this.actor.items.filter((i) => i.type === type).sort(parNom);
@@ -426,6 +428,14 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     event.stopPropagation();
     if (!this.isEditable) return;
     await this.#objetDeLigne(target)?.basculerPorte();
+  }
+
+  /** Datapad : ouvre sa fiche directement sur l'onglet Holonet. */
+  static async #onOuvrirHolonet(event, target) {
+    event.stopPropagation();
+    const item = this.#objetDeLigne(target);
+    if (item?.sheet.ouvrirHolonet) await item.sheet.ouvrirHolonet();
+    else item?.sheet.render({ force: true });
   }
 
   /** Attaque rapide : même réserve que #onRollCompetence, décrémentée par item.attaquer(). */

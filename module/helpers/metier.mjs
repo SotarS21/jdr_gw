@@ -1,3 +1,4 @@
+import { appareilSelonNom } from "./appareils.mjs";
 import { GW } from "../config.mjs";
 
 /**
@@ -27,7 +28,7 @@ export async function applyMetier(actor, metierItem) {
   const nouveauxObjets = metierItem.system.equipement.map((e) => ({
     name: e.nom,
     type: "equipement",
-    system: { quantite: e.quantite },
+    system: { quantite: e.quantite, appareil: appareilSelonNom(e.nom) },
     flags: { "galactic-wars": { startingGear: true } }
   }));
   if (nouveauxObjets.length) await actor.createEmbeddedDocuments("Item", nouveauxObjets);

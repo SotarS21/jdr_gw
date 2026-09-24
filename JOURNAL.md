@@ -1,5 +1,23 @@
 # Journal de développement — Galactic Wars
 
+## Session du 2026-09-24 (suite 6) — Datapad et Holonet (v0.13.1→v0.13.2)
+
+- **Appareils** : champ `appareil` sur les équipements (`GW.appareils` : datapad, comlink — ce dernier réservé au futur
+  Comlink de la todo) ; `helpers/appareils.mjs::appareilSelonNom` reconnaît « Datapad », « ComLink »… — utilisé par
+  `applyMetier` (équipement de départ) et par le correctif MJ `0.13.1-appareil-datapad` (2 datapads dans le monde de test).
+- **Holonet (demande de l'auteur)** : onglet de la fiche d'un datapad (ouvert par défaut quand il est porté par un
+  personnage ; bouton globe sur sa ligne d'inventaire). Navigateur sur `system.notes` du porteur — les Infos de
+  l'onglet Notes, donc synchronisées par construction : barre précédent / suivant / accueil, adresse
+  `holonet://<perso>/infos/<titre>`, recherche filtrée dans le DOM (focus conservé), mots-clés cliquables, résultats
+  façon moteur de recherche, page d'info. Création / modification / suppression par les fenêtres de `helpers/notes.mjs`
+  (les mêmes que l'onglet Notes). Rafraîchi par un hook `updateActor` (retiré à la fermeture). Hors ligne si le
+  datapad n'est porté par personne.
+- **Incident de test** : un premier test a planté avant sa restauration et laissé des Infos de test sur Kael Dorn ;
+  l'Info d'origine (« Premier contact ») a été retrouvée dans le journal LevelDB du monde (`actors/000092.log`) et
+  restaurée à l'identique. Les tests Playwright restaurent désormais dans un `finally`.
+- Vérifié : ouverture depuis l'inventaire, recherche, filtre #rebellion, adresses, précédent / suivant, synchro depuis
+  la fiche, modification et création depuis l'Holonet visibles dans Notes → Infos, aucune erreur JS.
+
 ## Session du 2026-09-24 (suite 5) — Gain d'expérience et plafond à 90 % (v0.13.0→v0.13.1)
 
 - **Bouton « Gain d'XP » (todo)** dans l'en-tête, à côté d'Édition (propriétaire seulement) : passe la fiche en édition,

@@ -172,6 +172,15 @@ GW.emplacementsArmure = {
   bouclier: "GALACTICWARS.Objet.Emplacement.bouclier"
 };
 
+/**
+ * Appareils électroniques (équipements à fonctionnalité propre) : un datapad a un onglet Holonet
+ * (Infos du porteur), le comlink est réservé à ses canaux (todo). Clé "" = équipement ordinaire.
+ */
+GW.appareils = {
+  datapad: "GALACTICWARS.Appareil.datapad",
+  comlink: "GALACTICWARS.Appareil.comlink"
+};
+
 GW.tagsObjet = {
   cache: { label: "GALACTICWARS.Tags.cache", icone: "fa-solid fa-eye-slash" }
 };

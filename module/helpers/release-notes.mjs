@@ -77,5 +77,13 @@ export const RELEASE_NOTES = {
       <li>Bouton « Gain d'XP » sur la fiche classique : passe en édition et propose +5 % sur une compétence au choix (message dans le tchat).</li>
       <li>Plafond des compétences à 90 %, dépassable seulement par le bonus d'ethnie ; au plafond, l'ajustement est grisé en mode édition.</li>
     </ul>`
+  },
+  "0.13.2": {
+    title: "v0.13.2 — Datapad et Holonet",
+    html: `<ul>
+      <li>Nouveau champ « Appareil » sur les équipements (Datapad, Comlink).</li>
+      <li>Un datapad a un onglet <strong>Holonet</strong> : navigateur sur les Infos du personnage (onglet Notes → Infos) — recherche, mots-clés, pages, précédent / suivant — avec création, modification et suppression, synchronisées avec la fiche.</li>
+      <li>Bouton Holonet sur la ligne du datapad dans l'inventaire ; les « Datapad » de départ des métiers sont reconnus (correctif proposé au MJ pour les existants).</li>
+    </ul>`
   }
 };

@@ -1,4 +1,5 @@
 import { GW } from "../config.mjs";
+import { editerEntreeNote, supprimerEntreeNote } from "../helpers/notes.mjs";
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ItemSheetV2 } = foundry.applications.sheets;
 
@@ -18,7 +19,8 @@ const PARTIELS_OBJET = {
   "gw-objet-entete": "systems/galactic-wars/templates/item/partiels/objet-entete.hbs",
   "gw-objet-onglets": "systems/galactic-wars/templates/item/partiels/objet-onglets.hbs",
   "gw-objet-tags": "systems/galactic-wars/templates/item/partiels/objet-tags.hbs",
-  "gw-objet-textes": "systems/galactic-wars/templates/item/partiels/objet-textes.hbs"
+  "gw-objet-textes": "systems/galactic-wars/templates/item/partiels/objet-textes.hbs",
+  "gw-holonet": "systems/galactic-wars/templates/item/partiels/holonet.hbs"
 };
 
 export class GalacticWarsItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
@@ -36,7 +38,15 @@ export class GalacticWarsItemSheet extends HandlebarsApplicationMixin(ItemSheetV
       basculerPorte: GalacticWarsItemSheet.#onBasculerPorte,
       afficherDansTchat: GalacticWarsItemSheet.#onAfficherDansTchat,
       attaquer: GalacticWarsItemSheet.#onAttaquer,
-      lancerDegats: GalacticWarsItemSheet.#onLancerDegats
+      lancerDegats: GalacticWarsItemSheet.#onLancerDegats,
+      holonetAccueil: GalacticWarsItemSheet.#onHolonetAccueil,
+      holonetPrecedent: GalacticWarsItemSheet.#onHolonetPrecedent,
+      holonetSuivant: GalacticWarsItemSheet.#onHolonetSuivant,
+      holonetOuvrir: GalacticWarsItemSheet.#onHolonetOuvrir,
+      holonetMotCle: GalacticWarsItemSheet.#onHolonetMotCle,
+      holonetNouvelle: GalacticWarsItemSheet.#onHolonetNouvelle,
+      holonetModifier: GalacticWarsItemSheet.#onHolonetModifier,
+      holonetSupprimer: GalacticWarsItemSheet.#onHolonetSupprimer
     }
   };
 
@@ -55,6 +65,29 @@ export class GalacticWarsItemSheet extends HandlebarsApplicationMixin(ItemSheetV
   /** Onglet actif des fiches d'objet (details / description / notes) — état d'affichage pur,
    *  gardé sur l'instance comme #ongletActif dans personnage-sheet.mjs. */
   #ongletActif = "details";
+
+  /** Onglet choisi explicitement : sinon un datapad porté par un personnage s'ouvre sur l'Holonet. */
+  #ongletChoisi = false;
+
+  /**
+   * Navigation de l'Holonet (datapad) : historique de pages, null = accueil, sinon index dans
+   * system.notes du porteur ; recherche et mot-clé filtrent l'accueil. État d'affichage pur.
+   */
+  #holonet = { historique: [null], position: 0, recherche: "", motCle: "" };
+
+  /** Hook updateActor : l'Holonet se rafraîchit quand les Infos du porteur changent (onglet Notes). */
+  #hookActeur = null;
+
+  get estDatapad() {
+    return this.item.type === "equipement" && this.item.system.appareil === "datapad";
+  }
+
+  /** Ouvre (ou ramène au premier plan) la fiche sur l'onglet Holonet — bouton de l'inventaire. */
+  ouvrirHolonet() {
+    this.#ongletActif = "holonet";
+    this.#ongletChoisi = true;
+    return this.render({ force: true });
+  }
 
   /** Vrai pour arme / armure / équipement (fiche « datapad »). */
   get estObjet() {
@@ -121,12 +154,16 @@ export class GalacticWarsItemSheet extends HandlebarsApplicationMixin(ItemSheetV
     // Un joueur ne doit jamais rester sur l'onglet Notes du MJ (ex. fiche ouverte par le MJ puis
     // droits changés) : retour aux détails.
     if (this.#ongletActif === "notes" && !isGM) this.#ongletActif = "details";
+    if (this.estDatapad && item.actor && !this.#ongletChoisi) this.#ongletActif = "holonet";
+    if (this.#ongletActif === "holonet" && !this.estDatapad) this.#ongletActif = "details";
     const estBouclier = item.type === "armure" && system.emplacement === "bouclier";
     const context = {
       isGM,
       ongletActif: this.#ongletActif,
       proprietaire: item.actor ?? null,
-      typeLabel: estBouclier ? "GALACTICWARS.Objet.Emplacement.bouclier" : `TYPES.Item.${item.type}`,
+      // Badge de type : Bouclier pour une armure d'emplacement bouclier, nom de l'appareil (Datapad…) pour un équipement.
+      typeLabel: estBouclier ? "GALACTICWARS.Objet.Emplacement.bouclier"
+        : (item.type === "equipement" && GW.appareils[system.appareil]) || `TYPES.Item.${item.type}`,
       estBouclier
     };
     if (isGM && this.#ongletActif === "notes") {
@@ -136,6 +173,14 @@ export class GalacticWarsItemSheet extends HandlebarsApplicationMixin(ItemSheetV
     }
     if (item.type === "arme") context.arme = this.#preparerArme();
     if (item.type === "armure") context.emplacements = this.#preparerEmplacements();
+    if (item.type === "equipement") {
+      context.appareils = [
+        { cle: "", label: game.i18n.localize("GALACTICWARS.Appareil.aucun"), selected: !system.appareil },
+        ...Object.entries(GW.appareils).map(([cle, label]) => ({ cle, label: game.i18n.localize(label), selected: cle === system.appareil }))
+      ];
+      context.estDatapad = this.estDatapad;
+      if (this.estDatapad && this.#ongletActif === "holonet") context.holonet = await this.#preparerHolonet();
+    }
     return context;
   }
 
@@ -182,6 +227,121 @@ export class GalacticWarsItemSheet extends HandlebarsApplicationMixin(ItemSheetV
     return emplacements;
   }
 
+  /** Holonet : accueil (liste filtrée + mots-clés) ou page d'une info, avec barre d'adresse. */
+  async #preparerHolonet() {
+    const actor = this.item.actor;
+    const h = this.#holonet;
+    if (!actor || !Array.isArray(actor.system.notes)) return { connecte: false };
+    const infos = actor.system.notes;
+    let page = h.historique[h.position];
+    // Info supprimée entre-temps : retour à l'accueil.
+    if (page !== null && !infos[page]) {
+      h.historique = [null];
+      h.position = 0;
+      page = null;
+    }
+    const slug = (texte) => String(texte ?? "").trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+      .replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") || "sans-titre";
+    const texteBrut = (html) => String(html ?? "").replace(/<[^>]+>/g, " ").replace(/&nbsp;/g, " ").replace(/\s+/g, " ").trim();
+    const hote = slug(actor.name);
+    const sansTitre = game.i18n.localize("GALACTICWARS.Holonet.SansTitre");
+    const base = {
+      connecte: true,
+      editable: actor.isOwner,
+      peutReculer: h.position > 0,
+      peutAvancer: h.position < h.historique.length - 1,
+      recherche: h.recherche,
+      motCle: h.motCle
+    };
+    if (page !== null) {
+      const info = infos[page];
+      return {
+        ...base,
+        page: {
+          index: page,
+          titre: info.titre || sansTitre,
+          motsCles: info.motsCles ?? [],
+          contenu: await foundry.applications.ux.TextEditor.implementation.enrichHTML(info.contenu ?? "", { relativeTo: actor })
+        },
+        adresse: `holonet://${hote}/infos/${slug(info.titre)}`
+      };
+    }
+    const resultats = infos
+      .map((info, index) => {
+        const texte = texteBrut(info.contenu);
+        const motsCles = info.motsCles ?? [];
+        return {
+          index,
+          titre: info.titre || sansTitre,
+          motsCles,
+          extrait: texte.length > 180 ? `${texte.slice(0, 180)}…` : texte,
+          // Texte de recherche (titre + mots-clés + contenu), filtré dans le DOM par _onRender.
+          recherche: [info.titre, ...motsCles, texte].join(" ").toLowerCase()
+        };
+      })
+      .filter((r) => !h.motCle || r.motsCles.includes(h.motCle));
+    const tousMotsCles = [...new Set(infos.flatMap((i) => i.motsCles ?? []))].sort((a, b) => a.localeCompare(b, game.i18n.lang));
+    return {
+      ...base,
+      accueil: true,
+      motsCles: tousMotsCles.map((mot) => ({ mot, actif: mot === h.motCle })),
+      resultats,
+      total: infos.length,
+      adresse: `holonet://${hote}/infos${h.motCle ? `?mot=${encodeURIComponent(h.motCle)}` : ""}`
+    };
+  }
+
+  /** Navigue vers une page (null = accueil) en tronquant l'historique « suivant ». */
+  #naviguer(page) {
+    const h = this.#holonet;
+    if (h.historique[h.position] !== page) {
+      h.historique = h.historique.slice(0, h.position + 1);
+      h.historique.push(page);
+      h.position = h.historique.length - 1;
+    }
+    return this.render();
+  }
+
+  /** @override */
+  _onRender(context, options) {
+    super._onRender(context, options);
+    // Recherche de l'accueil : filtrage direct dans le DOM (pas de re-rendu : le focus reste dans le champ).
+    const champ = this.element.querySelector(".holonet-recherche");
+    if (!champ) return;
+    const filtrer = () => {
+      const terme = champ.value.trim().toLowerCase();
+      this.#holonet.recherche = champ.value;
+      let visibles = 0;
+      for (const carte of this.element.querySelectorAll(".holonet-resultat")) {
+        const ok = !terme || carte.dataset.recherche.includes(terme);
+        carte.hidden = !ok;
+        if (ok) visibles++;
+      }
+      const vide = this.element.querySelector(".holonet-aucun-resultat");
+      if (vide) vide.hidden = visibles > 0;
+    };
+    champ.addEventListener("input", filtrer);
+    // Entrée ne doit pas soumettre le formulaire de la fiche.
+    champ.addEventListener("keydown", (e) => { if (e.key === "Enter") e.preventDefault(); });
+    filtrer();
+  }
+
+  /** @override */
+  _onFirstRender(context, options) {
+    super._onFirstRender(context, options);
+    this.#hookActeur = Hooks.on("updateActor", (actor, changes) => {
+      if (actor !== this.item.actor || !this.estDatapad || this.#ongletActif !== "holonet") return;
+      if (foundry.utils.hasProperty(changes, "system.notes") || "name" in changes) this.render();
+    });
+  }
+
+  /** @override */
+  _onClose(options) {
+    super._onClose(options);
+    if (this.#hookActeur !== null) Hooks.off("updateActor", this.#hookActeur);
+    this.#hookActeur = null;
+  }
+
   /* -------------------------------------------- */
   /*  Actions                                     */
   /* -------------------------------------------- */
@@ -200,6 +360,7 @@ export class GalacticWarsItemSheet extends HandlebarsApplicationMixin(ItemSheetV
 
   static async #onChangerOnglet(event, target) {
     this.#ongletActif = target.dataset.onglet;
+    this.#ongletChoisi = true;
     this.render();
   }
 
@@ -218,5 +379,55 @@ export class GalacticWarsItemSheet extends HandlebarsApplicationMixin(ItemSheetV
 
   static async #onLancerDegats(event, target) {
     await this.item.lancerDegats();
+  }
+
+  static #onHolonetAccueil() {
+    this.#holonet.motCle = "";
+    return this.#naviguer(null);
+  }
+
+  static #onHolonetPrecedent() {
+    if (this.#holonet.position > 0) this.#holonet.position--;
+    return this.render();
+  }
+
+  static #onHolonetSuivant() {
+    if (this.#holonet.position < this.#holonet.historique.length - 1) this.#holonet.position++;
+    return this.render();
+  }
+
+  static #onHolonetOuvrir(event, target) {
+    return this.#naviguer(Number(target.closest("[data-index]").dataset.index));
+  }
+
+  /** Filtre de l'accueil par mot-clé (second clic sur le même mot = retrait du filtre). */
+  static #onHolonetMotCle(event, target) {
+    event.stopPropagation();
+    const mot = target.dataset.mot;
+    this.#holonet.motCle = this.#holonet.motCle === mot ? "" : mot;
+    return this.#naviguer(null);
+  }
+
+  /** Mêmes fenêtres d'édition que l'onglet Notes → Infos : mêmes données (system.notes), donc synchronisées. */
+  static async #onHolonetNouvelle() {
+    const actor = this.item.actor;
+    if (!actor?.isOwner) return;
+    const avant = actor.system.notes.length;
+    await editerEntreeNote(actor, "info");
+    // Nouvelle info créée : on l'ouvre directement.
+    if (actor.system.notes.length > avant) this.#naviguer(actor.system.notes.length - 1);
+  }
+
+  static async #onHolonetModifier(event, target) {
+    const actor = this.item.actor;
+    if (!actor?.isOwner) return;
+    await editerEntreeNote(actor, "info", Number(target.closest("[data-index]").dataset.index));
+  }
+
+  static async #onHolonetSupprimer(event, target) {
+    event.stopPropagation();
+    const actor = this.item.actor;
+    if (!actor?.isOwner) return;
+    await supprimerEntreeNote(actor, "info", Number(target.closest("[data-index]").dataset.index));
   }
 }
