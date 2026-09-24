@@ -452,8 +452,31 @@
   min-width: 0;
 }
 
+.galactic-wars.personnage .header-ressources .stat-credits {
+  width: 6.5rem;
+}
+
 .galactic-wars.personnage .header-ressources .stat-credits input {
-  width: 5.5rem;
+  width: 100%;
+}
+
+/* Affichage formaté des crédits : groupes de 3 chiffres, retour à la ligne entre groupes,
+   police réduite en JS (_onRender) si 2 lignes ne suffisent pas. */
+.galactic-wars.personnage .stat-credits .credits-affichage {
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--gw-gold);
+  cursor: text;
+  white-space: normal;
+  word-break: normal;
+  min-height: 1.15em;
+  overflow: hidden;
+}
+
+.galactic-wars.personnage .stat-credits .credits-affichage:focus {
+  outline: 1px solid var(--gw-accent);
+  border-radius: 3px;
 }
 
 .galactic-wars.personnage .header-ressources .eyebrow {
@@ -1426,4 +1449,9 @@
 .galactic-wars-note-dialog .form-group.stacked {
   flex-direction: column;
   align-items: stretch;
+}
+
+/* L'attribut hidden doit gagner sur les display des règles d'input/carte ci-dessus. */
+.galactic-wars.personnage .stat-credits [hidden] {
+  display: none !important;
 }

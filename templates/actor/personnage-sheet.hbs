@@ -54,7 +54,11 @@
       </div>
       <div class="stat-card stat-credits">
         <span class="eyebrow">{{localize 'GALACTICWARS.Sheet.Credits'}}</span>
-        <input type="number" class="mono" name="system.credits" value="{{system.credits}}" min="0">
+        {{!-- Un input number ne sait ni grouper les chiffres ni aller à la ligne : on affiche un
+             texte formaté (espace tous les 3 chiffres, purement visuel) et l'input n'apparaît
+             qu'au clic. La taille de police est réduite dans _onRender si ça déborde encore. --}}
+        <div class="credits-affichage mono" tabindex="0" data-tooltip="{{system.credits}}">{{creditsFormates}}</div>
+        <input type="number" class="mono credits-saisie" name="system.credits" value="{{system.credits}}" min="0" hidden>
       </div>
     </div>
   </header>

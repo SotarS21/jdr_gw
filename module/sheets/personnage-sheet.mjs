@@ -122,8 +122,48 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     // purement visuel, la valeur réelle reste system.lumiere/system.obscurite.
     context.pipsLumiere = Array.from({ length: 10 }, (_, i) => i < system.lumiere);
     context.pipsObscurite = Array.from({ length: 10 }, (_, i) => i < system.obscurite);
+    // Espace fine (U+2009, sécable) tous les 3 chiffres : autorise le retour à la ligne entre
+    // deux groupes, contrairement à toLocaleString("fr") qui insère une espace insécable.
+    context.creditsFormates = String(system.credits ?? 0).replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 
     return context;
+  }
+
+  /** @override */
+  async _onRender(context, options) {
+    await super._onRender(context, options);
+    this.#activerCredits();
+  }
+
+  /** Box Crédits : clic sur le texte formaté → saisie ; sortie sans changement → retour au texte
+   *  (un changement, lui, déclenche submitOnChange puis un re-rendu). */
+  #activerCredits() {
+    const affichage = this.element.querySelector(".stat-credits .credits-affichage");
+    const saisie = this.element.querySelector(".stat-credits .credits-saisie");
+    if (!affichage || !saisie) return;
+    const basculer = (enSaisie) => {
+      affichage.hidden = enSaisie;
+      saisie.hidden = !enSaisie;
+      if (enSaisie) { saisie.focus(); saisie.select(); }
+      else this.#ajusterPoliceCredits(affichage);
+    };
+    affichage.addEventListener("click", () => basculer(true));
+    affichage.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); basculer(true); } });
+    saisie.addEventListener("blur", () => basculer(false));
+    saisie.addEventListener("keydown", (e) => { if (e.key === "Enter") saisie.blur(); });
+    this.#ajusterPoliceCredits(affichage);
+  }
+
+  /** Réduit la police jusqu'à ce que le nombre tienne (2 lignes max) dans la box. */
+  #ajusterPoliceCredits(el) {
+    el.style.fontSize = "";
+    let taille = parseFloat(getComputedStyle(el).fontSize);
+    const tailleMin = 8;
+    const hauteurMax = () => parseFloat(getComputedStyle(el).lineHeight) * 2 + 1;
+    while (taille > tailleMin && (el.scrollHeight > hauteurMax() || el.scrollWidth > el.clientWidth)) {
+      taille -= 0.5;
+      el.style.fontSize = `${taille}px`;
+    }
   }
 
   /** Données d'affichage de l'onglet Notes (listes enrichies, libellés de statut). */
