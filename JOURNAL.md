@@ -23,6 +23,10 @@
 - `objets-depart.mjs` : Couteau → Lame (1d4, 25c), Sabre d'entraînement → Sabre d'entraînement jedi.
 - Onglet Combat (demande de l'auteur) : plus de bouton d'attaque sur les lignes d'armes (l'attaque passe par la carte
   de tchat au clic sur l'arme), libellé « Dégâts » devant la valeur (`libelleValeur` du partiel `gwLigneObjet`).
+- Réserves Lumière / Obscurité (demande de l'auteur) : choix retiré de l'onglet Équipements (boutons peu visibles),
+  remplacé dans l'onglet Combat par des pastilles colorées rappelant les points restants. `reserveChoisie()` devient
+  publique : une attaque lancée depuis la carte de tchat (pool non précisé) prend le bonus choisi sur la fiche ouverte.
+  Vérifié : Lumière 2 → attaque à 14 + 15 = 29 %, Lumière 1 ensuite (Kael restauré, message supprimé).
 
 ## Session du 2026-09-25 (suite 2) — Armes de départ sans dégâts ni compétence (v0.14.0→v0.14.1)
 

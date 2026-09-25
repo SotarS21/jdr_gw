@@ -313,15 +313,30 @@
             <i class="fa-solid fa-dice-d20"></i> {{localize 'GALACTICWARS.Combat.Initiative'}}
           </button>
         </div>
-        <div class="bonus-choix inventaire-bonus">
-          <label><input type="radio" name="bonusAlignement" value="aucun" checked> {{localize 'GALACTICWARS.Alignement.Aucun'}}</label>
-          <label{{#unless system.lumiere}} class="disabled"{{/unless}}>
-            <input type="radio" name="bonusAlignement" value="lumiere" {{#unless system.lumiere}}disabled{{/unless}}> {{localize 'GALACTICWARS.Alignement.Lumiere'}} (+{{bonusAlignement}}%)
+        {{!-- Réserves Lumière / Obscurité : rappel des points et choix du bonus (même groupe radio que l'onglet
+              Personnage). Le bonus choisi vaut pour le prochain jet de compétence de cet onglet ou la prochaine
+              attaque lancée depuis la carte de tchat de l'arme (PersonnageSheet#reserveChoisie). --}}
+        <div class="combat-reserves">
+          <label class="reserve-choix aucun">
+            <input type="radio" name="bonusAlignement" value="aucun" checked>
+            <span>{{localize 'GALACTICWARS.Alignement.Aucun'}}</span>
           </label>
-          <label{{#unless system.obscurite}} class="disabled"{{/unless}}>
-            <input type="radio" name="bonusAlignement" value="obscurite" {{#unless system.obscurite}}disabled{{/unless}}> {{localize 'GALACTICWARS.Alignement.Obscurite'}} (+{{bonusAlignement}}%)
+          <label class="reserve-choix lumiere {{#unless system.lumiere}}vide{{/unless}}">
+            <input type="radio" name="bonusAlignement" value="lumiere" {{#unless system.lumiere}}disabled{{/unless}}>
+            <i class="fa-solid fa-sun"></i>
+            <span>{{localize 'GALACTICWARS.Alignement.Lumiere'}}</span>
+            <span class="reserve-points mono">{{system.lumiere}}</span>
+            <span class="reserve-bonus mono">+{{bonusAlignement}}%</span>
+          </label>
+          <label class="reserve-choix obscurite {{#unless system.obscurite}}vide{{/unless}}">
+            <input type="radio" name="bonusAlignement" value="obscurite" {{#unless system.obscurite}}disabled{{/unless}}>
+            <i class="fa-solid fa-moon"></i>
+            <span>{{localize 'GALACTICWARS.Alignement.Obscurite'}}</span>
+            <span class="reserve-points mono">{{system.obscurite}}</span>
+            <span class="reserve-bonus mono">+{{bonusAlignement}}%</span>
           </label>
         </div>
+        <p class="combat-reserves-aide">{{localize 'GALACTICWARS.Alignement.RappelCombat' bonus=bonusAlignement}}</p>
         <div class="objet-liste">
           {{#each combat.armes as |arme|}}{{> gwLigneObjet ligne=arme}}{{else}}<p class="inventaire-vide">{{localize 'GALACTICWARS.Combat.AucuneArme'}}</p>{{/each}}
         </div>
@@ -384,17 +399,6 @@
       <div class="section-header">
         <h2 class="eyebrow">{{localize 'GALACTICWARS.Sheet.Armes'}}</h2>
         <button type="button" class="roll-btn" data-action="createItem" data-type="arme">+</button>
-      </div>
-      {{!-- Même groupe radio que l'onglet Personnage (un seul onglet est rendu à la fois) :
-            la réserve choisie s'applique à l'attaque rapide, voir #onAttaquerObjet. --}}
-      <div class="bonus-choix inventaire-bonus">
-        <label><input type="radio" name="bonusAlignement" value="aucun" checked> {{localize 'GALACTICWARS.Alignement.Aucun'}}</label>
-        <label{{#unless system.lumiere}} class="disabled"{{/unless}}>
-          <input type="radio" name="bonusAlignement" value="lumiere" {{#unless system.lumiere}}disabled{{/unless}}> {{localize 'GALACTICWARS.Alignement.Lumiere'}} (+{{bonusAlignement}}%)
-        </label>
-        <label{{#unless system.obscurite}} class="disabled"{{/unless}}>
-          <input type="radio" name="bonusAlignement" value="obscurite" {{#unless system.obscurite}}disabled{{/unless}}> {{localize 'GALACTICWARS.Alignement.Obscurite'}} (+{{bonusAlignement}}%)
-        </label>
       </div>
       <div class="objet-liste">
         {{#each armes as |arme|}}{{> gwLigneObjet ligne=arme}}{{else}}<p class="inventaire-vide">{{localize 'GALACTICWARS.Objet.ListeVide'}}</p>{{/each}}

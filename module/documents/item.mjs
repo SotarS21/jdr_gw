@@ -177,6 +177,8 @@ export class GalacticWarsItem extends Item {
     if (this._attaqueEnCours) return null;
     this._attaqueEnCours = true;
     try {
+      // Attaque depuis la carte de tchat (pool non précisé) : bonus choisi sur la fiche ouverte (onglet Combat).
+      if (pool === undefined) pool = actor.sheet?.rendered ? actor.sheet.reserveChoisie?.() ?? null : null;
       const reserve = (pool === "lumiere" || pool === "obscurite") && (actor.system[pool] ?? 0) > 0 ? pool : null;
       const resultat = await rollCompetence(actor, this.system.competence, { pool: reserve, titre: this.name });
       if (resultat && reserve) await actor.update({ [`system.${reserve}`]: actor.system[reserve] - 1 });

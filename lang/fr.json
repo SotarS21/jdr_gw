@@ -107,6 +107,7 @@
       "Lumiere": "Lumière",
       "Obscurite": "Obscurité",
       "Aucun": "Aucun bonus",
+      "RappelCombat": "Choisir une réserve dépense 1 point : +{bonus} % sur le prochain jet de compétence ou la prochaine attaque (carte de tchat de l'arme).",
       "Tendance": {
         "neutre": "Équilibre",
         "penche-lumiere": "Penche vers la Lumière",

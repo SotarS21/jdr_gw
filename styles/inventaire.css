@@ -540,3 +540,66 @@
   font-size: 0.8em;
   opacity: 0.75;
 }
+
+/* Onglet Combat : réserves Lumière / Obscurité (rappel des points + choix du bonus). */
+.galactic-wars.personnage .combat-reserves {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.2rem 0 0.25rem;
+}
+.galactic-wars.personnage .reserve-choix {
+  --reserve: var(--gw-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.6rem;
+  border: 1px solid var(--reserve);
+  border-radius: 999px;
+  background: var(--gw-card);
+  color: var(--gw-text);
+  font-size: 0.78rem;
+  cursor: pointer;
+  user-select: none;
+}
+.galactic-wars.personnage .reserve-choix.lumiere { --reserve: #3b82f6; }
+.galactic-wars.personnage .reserve-choix.obscurite { --reserve: #dc2626; }
+.galactic-wars.personnage .reserve-choix input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.galactic-wars.personnage .reserve-choix i {
+  color: var(--reserve);
+}
+.galactic-wars.personnage .reserve-choix .reserve-points {
+  min-width: 1.4em;
+  padding: 0 0.3em;
+  border-radius: 999px;
+  background: var(--reserve);
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+}
+.galactic-wars.personnage .reserve-choix .reserve-bonus {
+  color: var(--gw-dim);
+  font-size: 0.7rem;
+}
+.galactic-wars.personnage .reserve-choix:has(input:checked) {
+  background: color-mix(in srgb, var(--reserve) 22%, var(--gw-card));
+  box-shadow: 0 0 0 1px var(--reserve) inset;
+}
+.galactic-wars.personnage .reserve-choix:has(input:focus-visible) {
+  outline: 2px solid var(--gw-accent);
+  outline-offset: 2px;
+}
+.galactic-wars.personnage .reserve-choix.vide {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.galactic-wars.personnage .combat-reserves-aide {
+  margin: 0 0 0.45rem;
+  font-size: 0.7rem;
+  color: var(--gw-dim);
+  line-height: 1.3;
+}

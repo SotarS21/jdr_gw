@@ -458,8 +458,9 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     return this.actor.items.get(target.closest("[data-item-id]")?.dataset.itemId);
   }
 
-  /** Réserve Lumière/Obscurité choisie (boutons radio « bonusAlignement ») si elle n'est pas vide. */
-  #reserveChoisie() {
+  /** Réserve Lumière/Obscurité choisie (boutons radio « bonusAlignement ») si elle n'est pas vide — aussi lue
+   *  par GalacticWarsItem#attaquer quand l'attaque part de la carte de tchat, fiche ouverte. */
+  reserveChoisie() {
     const choix = this.element.querySelector('input[name="bonusAlignement"]:checked')?.value;
     return (choix === "lumiere" || choix === "obscurite") && this.actor.system[choix] > 0 ? choix : null;
   }
@@ -486,7 +487,7 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   /** Attaque rapide : même réserve que #onRollCompetence, décrémentée par item.attaquer(). */
   static async #onAttaquerObjet(event, target) {
     event.stopPropagation();
-    await this.#objetDeLigne(target)?.attaquer({ pool: this.#reserveChoisie() });
+    await this.#objetDeLigne(target)?.attaquer({ pool: this.reserveChoisie() });
   }
 
   /** Onglet Combat : jet de dégâts de l'arme de la ligne (carte de tchat avec « Appliquer » pour le MJ). */
