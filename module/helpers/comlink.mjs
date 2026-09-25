@@ -140,6 +140,36 @@ export async function basculerVu(item, index, indexMessage) {
   await enregistrer(item, canaux);
 }
 
+/**
+ * Montre la conversation d'un canal dans le tchat (demande de l'auteur) : mêmes bulles que la
+ * messagerie (MJ à gauche, PJ à droite, « vu »). Même visibilité que « Montrer dans le tchat » d'un
+ * objet : publique, sauf comlink tagué « Caché » (chuchotée au MJ et à soi).
+ */
+export async function montrerConversation(item, index) {
+  const canal = item.system.comlink?.canaux?.[index];
+  if (!canal) return null;
+  const bulles = canal.messages.map((m) => `
+    <div class="gw-conv-message ${m.auteur === "mj" ? "recu" : "envoye"} ${m.vu ? "vu" : ""}">
+      <span class="gw-conv-auteur">${echapper(m.nom)}</span>
+      <p>${echapper(m.texte)}</p>
+      ${m.auteur === "pj" && m.vu ? `<span class="gw-conv-vu"><i class="fa-solid fa-check-double"></i> ${t("Vu")}</span>` : ""}
+    </div>`).join("");
+  const messageData = {
+    speaker: ChatMessage.getSpeaker({ actor: item.actor }),
+    content: `<div class="gw-conversation-comlink">
+      <header><i class="fa-solid fa-tower-broadcast"></i>
+        <strong>#${canal.numero}</strong> ${echapper(canal.nom || t("ContactInconnu"))}
+        <span class="gw-conv-porteur">${t("ComlinkDe", { porteur: echapper(item.actor?.name ?? item.name) })}</span>
+      </header>
+      <div class="gw-conv-fil">${bulles || `<p class="gw-conv-vide">${t("AucunMessage")}</p>`}</div>
+    </div>`
+  };
+  if (item.system.tags?.cache) {
+    messageData.whisper = [...new Set([...ChatMessage.getWhisperRecipients("GM").map((u) => u.id), game.user.id])];
+  }
+  return ChatMessage.create(messageData);
+}
+
 /** Chuchotement « nouveau message » avec un bouton pour ouvrir le comlink sur ce canal. */
 async function alerter(item, canal, depuisMJ) {
   const destinataires = depuisMJ

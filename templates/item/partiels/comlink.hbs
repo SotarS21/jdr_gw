@@ -9,6 +9,7 @@
       <span class="comlink-contact">{{#if comlink.canal.nom}}{{comlink.canal.nom}}{{else}}{{localize 'GALACTICWARS.Comlink.ContactInconnu'}}{{/if}}</span>
       <span class="comlink-statut {{#if comlink.canal.actif}}actif{{/if}}">{{#if comlink.canal.actif}}{{localize 'GALACTICWARS.Comlink.Actif'}}{{else}}{{localize 'GALACTICWARS.Comlink.Inactif'}}{{/if}}</span>
     </div>
+    <button type="button" class="comlink-outil" data-action="comlinkMontrer" data-index="{{comlink.canal.index}}" data-tooltip="{{localize 'GALACTICWARS.Comlink.Montrer'}}"><i class="fa-solid fa-comment-dots"></i></button>
     {{#if comlink.editable}}
     <button type="button" class="comlink-outil" data-action="comlinkModifier" data-index="{{comlink.canal.index}}" data-tooltip="{{localize 'GALACTICWARS.Comlink.ModifierCanal'}}"><i class="fa-solid fa-pen"></i></button>
     {{/if}}

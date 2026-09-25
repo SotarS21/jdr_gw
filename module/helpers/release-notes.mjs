@@ -137,5 +137,11 @@ export const RELEASE_NOTES = {
       <li>État « Inconscient » : un personnage ou un PNJ qui tombe à 0 PV passe inconscient (sur ses tokens), et se réveille dès qu'il regagne 1 PV.</li>
       <li>Fiches PNJ et partie rapide : points de vie (actuels / max) ; les dégâts appliqués depuis le tchat fonctionnent aussi sur les PNJ.</li>
     </ul>`
+  },
+  "0.15.1": {
+    title: "v0.15.1",
+    html: `<ul>
+      <li>Comlink : bouton « Montrer la conversation dans le tchat » dans la conversation d'un canal (mêmes bulles : contact à gauche, personnage à droite, « vu ») ; publique, ou chuchotée au MJ si le comlink est « Caché ».</li>
+    </ul>`
   }
 };

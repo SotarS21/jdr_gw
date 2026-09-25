@@ -402,6 +402,8 @@
       "MarquerVu": "Cliquer pour marquer « vu » (ou retirer la marque)",
       "Alerte": "Nouveau message sur le canal <strong>#{numero}</strong> ({contact}) — comlink de {porteur}.",
       "Ouvrir": "Ouvrir",
+      "Montrer": "Montrer la conversation dans le tchat",
+      "ComlinkDe": "comlink de {porteur}",
       "Introuvable": "Comlink introuvable (supprimé ou non accessible)."
     },
     "Inconscient": {

@@ -603,3 +603,60 @@
   color: var(--gw-dim);
   line-height: 1.3;
 }
+
+/* Conversation de comlink montrée dans le tchat (helpers/comlink.mjs#montrerConversation). */
+.gw-conversation-comlink header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.3rem;
+  padding-bottom: 0.25rem;
+  margin-bottom: 0.3rem;
+  border-bottom: 1px solid rgba(127, 127, 127, 0.3);
+}
+.gw-conversation-comlink header i { color: #b7791f; }
+.gw-conversation-comlink .gw-conv-porteur {
+  margin-left: auto;
+  font-size: 0.8em;
+  opacity: 0.7;
+}
+.gw-conversation-comlink .gw-conv-fil {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.gw-conversation-comlink .gw-conv-message {
+  max-width: 85%;
+  padding: 0.25rem 0.5rem;
+  border-radius: 10px;
+  line-height: 1.3;
+}
+.gw-conversation-comlink .gw-conv-message p {
+  margin: 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.gw-conversation-comlink .gw-conv-message.recu {
+  align-self: flex-start;
+  background: rgba(127, 127, 127, 0.15);
+  border-bottom-left-radius: 3px;
+}
+.gw-conversation-comlink .gw-conv-message.envoye {
+  align-self: flex-end;
+  background: rgba(14, 116, 144, 0.2);
+  border-bottom-right-radius: 3px;
+}
+.gw-conversation-comlink .gw-conv-auteur {
+  display: block;
+  font-size: 0.75em;
+  font-weight: 700;
+}
+.gw-conversation-comlink .gw-conv-message.recu .gw-conv-auteur { color: #b7791f; }
+.gw-conversation-comlink .gw-conv-message.envoye .gw-conv-auteur { color: #0e7490; }
+.gw-conversation-comlink .gw-conv-vu {
+  display: block;
+  text-align: right;
+  font-size: 0.7em;
+  color: #15803d;
+}
+.gw-conversation-comlink .gw-conv-vide { margin: 0; font-style: italic; opacity: 0.7; }

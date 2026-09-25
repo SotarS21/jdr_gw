@@ -57,7 +57,8 @@ export class GalacticWarsItemSheet extends HandlebarsApplicationMixin(ItemSheetV
       comlinkOuvrirCanal: GalacticWarsItemSheet.#onComlinkOuvrirCanal,
       comlinkRetour: GalacticWarsItemSheet.#onComlinkRetour,
       comlinkEnvoyer: GalacticWarsItemSheet.#onComlinkEnvoyer,
-      comlinkVu: GalacticWarsItemSheet.#onComlinkVu
+      comlinkVu: GalacticWarsItemSheet.#onComlinkVu,
+      comlinkMontrer: GalacticWarsItemSheet.#onComlinkMontrer
     }
   };
 
@@ -578,6 +579,11 @@ export class GalacticWarsItemSheet extends HandlebarsApplicationMixin(ItemSheetV
 
   static async #onComlinkEnvoyer() {
     await this.#envoyerComlink();
+  }
+
+  /** Conversation du canal ouvert postée dans le tchat. */
+  static async #onComlinkMontrer(event, target) {
+    await Comlink.montrerConversation(this.item, GalacticWarsItemSheet.#indexCanal(target));
   }
 
   /** MJ : clic sur un message du joueur = marque « vu » (second clic = retrait). */

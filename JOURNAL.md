@@ -1,5 +1,17 @@
 # Journal de développement — Galactic Wars
 
+## Session du 2026-09-25 (suite 5) — Reprise, conversation du comlink dans le tchat (v0.15.0→v0.15.1)
+
+- Foundry redémarré sur la v0.15.0 (accord de l'auteur) : « Comlink » du compendium reconnu (appareil comlink),
+  correctif « Inconscient » validé par l'auteur à sa reconnexion (token « classique », 0 PV → inconscient), plus
+  aucun correctif en attente.
+- **Todo (ajout de l'auteur)** : montrer la conversation dans le tchat depuis la conversation. Bouton bulle dans
+  l'en-tête de la conversation → `helpers/comlink.mjs#montrerConversation` : carte de tchat (canal, contact, porteur,
+  bulles contact à gauche / personnage à droite, « vu »). Visibilité comme « Montrer dans le tchat » d'un objet :
+  publique, chuchotée au MJ et à soi si le comlink est tagué « Caché » (choix par défaut, non demandé).
+  Vérifié sur Kael (conversation de test, carte publique, 3 bulles dans le bon sens), comlink remis à vide et
+  message supprimé.
+
 ## Session du 2026-09-25 (suite 4) — Comlink : canaux et messagerie (v0.14.2→v0.15.0)
 
 - Dernier point de la todo. **Choix de l'auteur** : historique complet dans une zone ≈ 10 messages de haut (rien
