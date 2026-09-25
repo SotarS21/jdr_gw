@@ -29,6 +29,8 @@
   Vérifié : Lumière 2 → attaque à 14 + 15 = 29 %, Lumière 1 ensuite (Kael restauré, message supprimé).
 - Carte de tchat d'une arme (clic pour attaquer) : prix retiré (demande de l'auteur) ; il reste sur les cartes
   d'armure et d'équipement et dans la fiche de l'arme.
+- Fiches d'objet (arme, armure, équipement) : onglets réordonnés, Description puis Détails en deuxième, puis
+  Holonet (datapad) et Notes MJ ; onglet ouvert par défaut inchangé (Détails, ou Holonet pour un datapad porté).
 
 ## Session du 2026-09-25 (suite 2) — Armes de départ sans dégâts ni compétence (v0.14.0→v0.14.1)
 
