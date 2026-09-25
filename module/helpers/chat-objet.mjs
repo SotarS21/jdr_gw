@@ -48,6 +48,7 @@ function brancherCarte(message, html) {
       try {
         if (bouton.dataset.gwCarteAction === "attaquer") await item.attaquer();
         else if (bouton.dataset.gwCarteAction === "degats") await item.lancerDegats();
+        else if (bouton.dataset.gwCarteAction === "soigner") await item.utiliserSoin();
       } finally {
         bouton.disabled = false;
       }

@@ -76,6 +76,29 @@ export class GalacticWarsActor extends Actor {
     return { brut, reduction, subis, avant, apres };
   }
 
+  /**
+   * Soin : `soin` = nombre de PV, formule de dés ou "max" (tous les PV), plafonné aux PV max.
+   * `null` si ce type d'acteur n'a pas de PV (GW.cheminPV).
+   * @param {string|number} soin
+   * @returns {Promise<{gain: number, avant: number, apres: number, max: number, roll: Roll|null}|null>}
+   */
+  async soigner(soin) {
+    const chemin = GW.cheminPV[this.type];
+    if (!chemin) return null;
+    const avant = foundry.utils.getProperty(this, chemin) ?? 0;
+    const max = this.system.pv?.max ?? avant;
+    let montant;
+    let roll = null;
+    if (String(soin).trim().toLowerCase() === "max") montant = max;
+    else {
+      roll = await new Roll(String(soin)).evaluate();
+      montant = Math.max(0, roll.total);
+    }
+    const apres = Math.min(max, avant + montant);
+    if (apres !== avant) await this.update({ [chemin]: apres });
+    return { gain: apres - avant, avant, apres, max, roll };
+  }
+
   /** @override */
   async _preUpdate(changes, options, user) {
     if ((await super._preUpdate(changes, options, user)) === false) return false;

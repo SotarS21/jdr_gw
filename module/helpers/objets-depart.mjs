@@ -53,8 +53,14 @@ function bonusDeLaLigne(nom) {
 export async function objetDeDepart(ligne) {
   const flags = { "galactic-wars": { startingGear: true } };
   const correspondance = correspondanceDepart(ligne.nom);
-  const pack = correspondance && game.packs.get(`${game.system.id}.${correspondance.pack}`);
-  const entree = pack?.index.find((e) => e.name === correspondance.modele);
+  let pack = correspondance && game.packs.get(`${game.system.id}.${correspondance.pack}`);
+  let entree = pack?.index.find((e) => e.name === correspondance.modele);
+  // Sinon, équipement du compendium au nom identique (« Matériel médical », « Kolto »…) : soin, prix, visuel.
+  if (!entree) {
+    pack = game.packs.get(`${game.system.id}.equipements`);
+    const nom = String(ligne.nom).trim().toLowerCase();
+    entree = pack?.index.find((e) => e.name.trim().toLowerCase() === nom);
+  }
   const modele = entree ? await pack.getDocument(entree._id) : null;
   if (modele) {
     const data = game.items.fromCompendium(modele, { keepId: false });
@@ -66,7 +72,7 @@ export async function objetDeDepart(ligne) {
     if (modele.type === "arme") {
       data.system.degats = desDeLaLigne(ligne.nom) ?? data.system.degats;
       if (correspondance.competence) data.system.competence = correspondance.competence;
-    } else {
+    } else if (modele.type === "armure") {
       data.system.reduction = bonusDeLaLigne(ligne.nom) ?? data.system.reduction;
     }
     return data;

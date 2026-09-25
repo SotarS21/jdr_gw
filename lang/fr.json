@@ -357,6 +357,13 @@
       "Marges": "Marges : attaque {attaque}, défense {defense}",
       "Bilan": "{nom} : {brut} − {reduction} (armure) = <strong>{subis}</strong> dégât(s), PV {avant} → {apres}"
     },
+    "Soin": {
+      "Label": "Soin (PV)",
+      "Aide": "PV rendus par le bouton de la carte de tchat : un nombre (4), une formule (1d4) ou max (tous les PV). Vide = pas un objet de soin.",
+      "Montant": "Utiliser : regagne {soin} PV",
+      "Tous": "Utiliser : regagne tous les PV",
+      "Bilan": "{nom} utilise {objet} : +{gain} PV ({avant} → {apres} / {max})"
+    },
     "Favoris": {
       "Titre": "Favoris",
       "Ajouter": "Ajouter aux favoris",

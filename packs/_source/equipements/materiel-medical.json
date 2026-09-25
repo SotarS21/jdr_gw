@@ -7,7 +7,8 @@
   "system": {
     "quantite": 1,
     "prix": "15c",
-    "description": "<p>Nécessaire de premiers soins.</p>"
+    "description": "<p>Nécessaire de premiers soins.</p>",
+    "soin": "max"
   },
   "folder": null,
   "sort": 100000,

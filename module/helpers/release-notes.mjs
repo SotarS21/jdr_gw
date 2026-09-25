@@ -123,6 +123,7 @@ export const RELEASE_NOTES = {
       <li>Onglet Combat : bouton d'attaque retiré des lignes d'armes (attaque au clic sur l'arme, depuis sa carte de tchat), libellé « Dégâts » devant la valeur ; rappel des points de Lumière / Obscurité et choix du bonus (retiré de l'onglet Équipements), appliqué aussi à l'attaque lancée depuis la carte de tchat.</li>
       <li>La carte de tchat d'une arme n'affiche plus son prix.</li>
       <li>Fiches d'objet : onglet Détails en deuxième position (après Description).</li>
+      <li>Objets de soin : bouton « Utiliser » sur la carte de tchat — Kolto regagne 4 PV, Kolto max 6 PV, Matériel médical tous les PV (champ « Soin » réglable sur tout équipement).</li>
       <li>Équipement de départ : le Couteau devient une Lame (1d4), le Sabre d'entraînement un Sabre d'entraînement jedi.</li>
     </ul>`
   }

@@ -85,6 +85,22 @@ export const PACK_UPDATES = [
     }
   },
   {
+    id: "0.14.2-objets-de-soin",
+    cible: "acteurs",
+    version: "0.14.2",
+    label: "Objets de soin (Kolto, Kolto max, Matériel médical)",
+    description:
+      "Nouveau bouton « Utiliser » sur la carte de tchat des objets de soin : Kolto regagne 4 PV, Kolto max 6 PV, " +
+      "Matériel médical tous les PV. Renseigne ce soin sur les copies déjà dans le monde ou portées (copies du " +
+      "compendium, ou objets au nom identique). Un soin déjà saisi n'est pas remplacé.",
+    concernes: async () => (await objetsDeSoinARenseigner()).length,
+    apply: async () => {
+      const liste = await objetsDeSoinARenseigner();
+      for (const { objet, soin } of liste) await objet.update({ "system.soin": soin });
+      return liste.length;
+    }
+  },
+  {
     id: "0.14.2-prix-catalogue",
     cible: "armes",
     version: "0.14.2",
@@ -247,6 +263,24 @@ async function objetsAIllustrer() {
     if (img && !IMAGES_GENERIQUES.has(img) && img !== objet.img) liste.push({ objet, img });
   }
   return liste;
+}
+
+/** Équipements sans soin dont l'équipement du compendium (même source ou même nom) en a un. */
+async function objetsDeSoinARenseigner() {
+  const pack = game.packs.get(`${game.system.id}.equipements`);
+  const index = (await pack?.getIndex({ fields: ["system.soin"] })) ?? [];
+  const parNom = new Map();
+  const parUuid = new Map();
+  for (const e of index) {
+    const soin = e.system?.soin;
+    if (!soin) continue;
+    parNom.set(e.name.trim().toLowerCase(), soin);
+    parUuid.set(e.uuid, soin);
+  }
+  return [...game.items, ...tousLesActeurs().flatMap((a) => [...a.items])]
+    .filter((i) => i.type === "equipement" && !i.system.soin)
+    .map((objet) => ({ objet, soin: parUuid.get(objet._stats?.compendiumSource) ?? parNom.get(objet.name.trim().toLowerCase()) }))
+    .filter((o) => o.soin);
 }
 
 /** Anciennes valeurs du compendium Armes avant la v0.14.2 (remplacées si la copie les a gardées). */

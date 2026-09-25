@@ -7,7 +7,8 @@
   "system": {
     "quantite": 1,
     "prix": "80c",
-    "description": "<p>Soigne 1d6 points de vie.</p>"
+    "description": "<p>Soigne 1d6 points de vie.</p>",
+    "soin": "6"
   },
   "folder": null,
   "sort": 100000,

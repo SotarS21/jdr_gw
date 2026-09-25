@@ -31,6 +31,12 @@
   d'armure et d'équipement et dans la fiche de l'arme.
 - Fiches d'objet (arme, armure, équipement) : onglets réordonnés, Description puis Détails en deuxième, puis
   Holonet (datapad) et Notes MJ ; onglet ouvert par défaut inchangé (Détails, ou Holonet pour un datapad porté).
+- **Objets de soin** (demande de l'auteur) : champ `soin` des équipements (nombre, formule ou « max »), bouton
+  « Utiliser : regagne N PV » sur la carte de tchat → `GalacticWarsActor#soigner` (plafond PV max) + bilan. Kolto 4,
+  Kolto max 6, Matériel médical max (le classeur disait 1d4 / 1d6 pour les Kolto : valeurs de l'auteur retenues).
+  Le porteur se soigne lui-même ; l'objet n'est pas consommé. Équipement de départ au nom identique à un équipement
+  du compendium → copie de celui-ci (soin, prix, visuel). Correctif MJ `0.14.2-objets-de-soin`. Vérifié sur Kael (PV 10 →
+  14 / 16 / 30), restauré.
 
 ## Session du 2026-09-25 (suite 2) — Armes de départ sans dégâts ni compétence (v0.14.0→v0.14.1)
 

@@ -39,6 +39,12 @@
   </div>
   {{/if}}
 
+  {{#if soin}}
+  <div class="carte-actions">
+    <button type="button" data-gw-carte-action="soigner"><i class="fa-solid fa-kit-medical"></i> {{soin}}</button>
+  </div>
+  {{/if}}
+
   {{#if cache}}
   <p class="carte-note-cache"><i class="fa-solid fa-eye-slash"></i> {{localize 'GALACTICWARS.Objet.CarteCachee'}}</p>
   {{/if}}

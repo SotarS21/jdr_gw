@@ -89,6 +89,7 @@ export class GalacticWarsItem extends Item {
         relativeTo: this, secrets: false
       }),
       estArme,
+      soin: this.#libelleSoin(),
       cache
     });
 
@@ -101,6 +102,38 @@ export class GalacticWarsItem extends Item {
       messageData.whisper = [...new Set([...ChatMessage.getWhisperRecipients("GM").map((u) => u.id), game.user.id])];
     }
     return ChatMessage.create(messageData);
+  }
+
+  /** Libellé du bouton de soin de la carte (« Regagne 4 PV », « Regagne tous les PV »), ou "". */
+  #libelleSoin() {
+    const soin = this.type === "equipement" ? String(this.system.soin ?? "").trim() : "";
+    if (!soin) return "";
+    return soin.toLowerCase() === "max"
+      ? game.i18n.localize("GALACTICWARS.Soin.Tous")
+      : game.i18n.format("GALACTICWARS.Soin.Montant", { soin });
+  }
+
+  /** Bouton « Utiliser » d'un objet de soin : le porteur regagne ses PV, bilan dans le tchat. */
+  async utiliserSoin() {
+    const actor = this.actor;
+    if (!actor) {
+      ui.notifications.warn(game.i18n.format("GALACTICWARS.Objet.SansActeur", { nom: this.name }));
+      return null;
+    }
+    const resultat = await actor.soigner(this.system.soin);
+    if (!resultat) {
+      ui.notifications.warn(game.i18n.format("GALACTICWARS.Combat.SansPV", { nom: actor.name }));
+      return null;
+    }
+    const echapper = foundry.utils.escapeHTML;
+    await ChatMessage.create({
+      speaker: ChatMessage.getSpeaker({ actor }),
+      content: `<div class="gw-soin"><i class="fa-solid fa-kit-medical"></i> ${game.i18n.format("GALACTICWARS.Soin.Bilan", {
+        nom: echapper(actor.name), objet: echapper(this.name), ...resultat
+      })}</div>`,
+      rolls: resultat.roll ? [resultat.roll] : []
+    });
+    return resultat;
   }
 
   /** Badges d'état de la carte (même logique que les lignes de l'inventaire). */
