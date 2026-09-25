@@ -84,6 +84,21 @@ export const PACK_UPDATES = [
     }
   },
   {
+    id: "0.13.3-competences-armes",
+    cible: "armes",
+    version: "0.13.3",
+    label: "Compétence liée au Lance-roquette, aux Grenades et au Trident sith",
+    description:
+      "Ces armes n'avaient aucune compétence liée : Lance-roquette → Canon lourd, Grenade et Grenade militaire → " +
+      "Artifice, Trident sith → Arme contondante/blanche. Seules les copies encore sans compétence sont modifiées.",
+    concernes: async () => (await armesSansCompetence()).length,
+    apply: async () => {
+      const liste = await armesSansCompetence();
+      for (const { copie, competence } of liste) await copie.update({ "system.competence": competence });
+      return liste.length;
+    }
+  },
+  {
     id: "0.13.2-icones-objets",
     cible: "acteurs",
     version: "0.13.2",
@@ -183,6 +198,17 @@ function acteursImagesDivergentes() {
 function datapadsNonReconnus() {
   const objets = [...game.items, ...tousLesActeurs().flatMap((a) => [...a.items])];
   return objets.filter((i) => i.type === "equipement" && !i.system.appareil && appareilSelonNom(i.name) === "datapad");
+}
+
+/** Copies d'armes sans compétence alors que leur arme du compendium en a désormais une. */
+async function armesSansCompetence() {
+  const liste = [];
+  for (const copie of copiesDepuis("armes")) {
+    if (copie.system.competence) continue;
+    const source = await fromUuid(copie._stats.compendiumSource).catch(() => null);
+    if (source?.system.competence) liste.push({ copie, competence: source.system.competence });
+  }
+  return liste;
 }
 
 /** Copies de l'« Arme contondante » du compendium restées sur l'ancienne compétence (bagarre). */

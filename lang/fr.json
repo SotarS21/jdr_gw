@@ -297,7 +297,7 @@
       "Appliquer": "Appliquer",
       "Annuler": "Annuler",
       "AucuneEligible": "Aucune compétence ne peut progresser : toutes sont au plafond ou bloquées.",
-      "PlafondAtteint": "Plafond de 90 % atteint : l'ajustement n'est plus modifiable.",
+      "PlafondAtteint": "Plafond de 90 % atteint : l'ajustement ne peut plus que baisser.",
       "Message": "{nom} gagne +{gain} % en {competence} ({avant} % → {apres} %)."
     },
     "Appareil": {

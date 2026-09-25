@@ -1,5 +1,17 @@
 # Journal de développement — Galactic Wars
 
+## Session du 2026-09-25 — Reprise : compétences des armes, plafond de 90 % (v0.13.2→v0.13.3)
+
+- Foundry local redémarré sur la v0.13.2 : visuels des compendiums chargés (armes 10/10, armures 3/3) ; tous les
+  correctifs MJ en attente étaient appliqués (Kael Dorn : « Arme contondante/blanche » acquise par métier, 2 datapads,
+  image d'Alek unifiée).
+- **Choix de l'auteur** : Lance-roquette → Canon lourd ; Grenade, Grenade militaire → Artifice ; Trident sith →
+  Arme contondante/blanche (`packs/_source/armes`) + correctif MJ `0.13.3-competences-armes` (copies encore sans
+  compétence seulement).
+- **Plafond de 90 %** (choix de l'auteur) : l'ajustement n'est plus verrouillé mais seulement limité à la baisse —
+  champ grisé avec `max` = valeur actuelle, et `PersonnageSheet#_processFormData` ramène toute hausse saisie au
+  clavier à la valeur actuelle.
+
 ## Session du 2026-09-24 — Récapitulatif : v0.12.1 → v0.13.2 (7 versions)
 
 Vue d'ensemble ; le détail de chaque changement est dans les entrées « 2026-09-24 (suite …) » ci-dessous.

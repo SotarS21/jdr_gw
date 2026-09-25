@@ -90,5 +90,12 @@ export const RELEASE_NOTES = {
       <li>Holonet : la barre d'adresse reste fixe et la page défile.</li>
       <li>Bouton Holonet sur la ligne du datapad dans l'inventaire ; les « Datapad » de départ des métiers sont reconnus (correctif proposé au MJ pour les existants).</li>
     </ul>`
+  },
+  "0.13.3": {
+    title: "v0.13.3",
+    html: `<ul>
+      <li>Compétence liée : Lance-roquette → Canon lourd, Grenade et Grenade militaire → Artifice, Trident sith → Arme contondante/blanche (correctif proposé au MJ pour les copies sans compétence).</li>
+      <li>Au plafond de 90 %, l'ajustement d'une compétence reste modifiable à la baisse (la hausse reste bloquée).</li>
+    </ul>`
   }
 };

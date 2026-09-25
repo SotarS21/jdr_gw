@@ -6,7 +6,7 @@
   "img": "systems/galactic-wars/asset_visuel/objets/armes-grenade.jpg",
   "system": {
     "degats": "2d6",
-    "competence": "",
+    "competence": "artifice",
     "instable": false,
     "prix": "150c",
     "description": "<p>Grenade standard, catalogue \"[GW] Science économique.xlsx\".</p>"

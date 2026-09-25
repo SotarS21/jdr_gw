@@ -142,6 +142,22 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     return context;
   }
 
+  /** @override — au plafond (GW.plafondCompetence), l'ajustement ne peut que baisser : une hausse
+   *  saisie au clavier (l'attribut max ne bloque que les flèches) est ramenée à la valeur actuelle. */
+  _processFormData(event, form, formData) {
+    const data = super._processFormData(event, form, formData);
+    const soumises = data.system?.competences;
+    if (soumises) {
+      for (const [index, competence] of Object.entries(soumises)) {
+        const actuelle = this.actor.system.competences[index];
+        if (actuelle?.atteintPlafond && competence.ajustement > actuelle.ajustement) {
+          competence.ajustement = actuelle.ajustement;
+        }
+      }
+    }
+    return data;
+  }
+
   /** @override */
   async _onRender(context, options) {
     await super._onRender(context, options);

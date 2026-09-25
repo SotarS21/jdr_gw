@@ -6,7 +6,7 @@
   "img": "systems/galactic-wars/asset_visuel/objets/armes-grenade-militaire.jpg",
   "system": {
     "degats": "3d6",
-    "competence": "",
+    "competence": "artifice",
     "instable": false,
     "prix": "1250c",
     "description": "<p>Version militaire, plus puissante que la grenade standard.</p>"

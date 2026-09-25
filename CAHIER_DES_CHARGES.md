@@ -176,7 +176,11 @@ Voir l'arborescence commentée dans `README.md` (module/config, module/data, mod
 - **Datapad** : champ « Appareil » des équipements (datapad, comlink) ; onglet **Holonet** = navigateur sur les Infos du porteur (onglet Notes), synchronisé, avec création / modification / suppression.
 - **Image unique par acteur** : portrait de la fiche = image de l'acteur = image du token (tokens posés compris).
 - **Visuels des objets** : `asset_visuel/objets/` (repris de `asset_visuel/item/`) pour les armes, armures et équipements des compendiums, datapads et comlinks.
-- **Données corrigées** : 4 armes du compendium au type invalide « armé » (Lance-roquette, Grenade, Grenade militaire, Trident sith) — toujours **sans compétence liée**, à fixer par l'auteur.
+- **Données corrigées** : 4 armes du compendium au type invalide « armé » (Lance-roquette, Grenade, Grenade militaire, Trident sith) ; compétence liée choisie par l'auteur en v0.13.3 : Canon lourd, Artifice, Artifice, Arme contondante/blanche.
+
+### 5.1sexdecies Ajoutées (v0.13.3, session du 2026-09-25)
+- **Compétences liées** du Lance-roquette (Canon lourd), des Grenades (Artifice) et du Trident sith (Arme contondante/blanche) ; correctif MJ `0.13.3-competences-armes` pour les copies sans compétence.
+- **Plafond de 90 %** : l'ajustement reste modifiable à la baisse (attribut `max` + hausse refusée dans `_processFormData` de la fiche classique).
 
 ### 5.2 Roadmap
 Voir §10.

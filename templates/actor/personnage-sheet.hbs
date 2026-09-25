@@ -205,9 +205,9 @@
             {{#if (and @root.modeEdition (not cpt.atteintPlafond))}}
             <input type="number" class="ajustement mono" name="system.competences.{{cpt.index}}.ajustement" value="{{cpt.ajustement}}" data-tooltip="{{localize 'GALACTICWARS.Sheet.AjustementManuelHint'}}">
             {{else if @root.modeEdition}}
-            {{!-- Plafond atteint : ajustement grisé, mais toujours soumis (ArrayField). --}}
-            <input type="hidden" name="system.competences.{{cpt.index}}.ajustement" value="{{cpt.ajustement}}" data-dtype="Number">
-            <span class="ajustement ajustement-plafond mono" data-tooltip="{{localize 'GALACTICWARS.Experience.PlafondAtteint'}}">{{cpt.ajustement}}</span>
+            {{!-- Plafond atteint : ajustement grisé, modifiable à la baisse seulement (max = valeur actuelle ;
+                  une hausse saisie au clavier est aussi refusée dans _processFormData). --}}
+            <input type="number" class="ajustement ajustement-plafond mono" name="system.competences.{{cpt.index}}.ajustement" value="{{cpt.ajustement}}" max="{{cpt.ajustement}}" data-tooltip="{{localize 'GALACTICWARS.Experience.PlafondAtteint'}}">
             {{else}}
             <input type="hidden" name="system.competences.{{cpt.index}}.ajustement" value="{{cpt.ajustement}}" data-dtype="Number">
             {{/if}}

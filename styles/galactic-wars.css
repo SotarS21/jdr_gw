@@ -1781,15 +1781,10 @@
 .galactic-wars.personnage .btn-experience:hover {
   background: rgba(232, 179, 77, 0.12);
 }
-/* Ajustement au plafond (90 %) : grisé, non modifiable. */
+/* Ajustement au plafond (90 %) : grisé, modifiable à la baisse seulement. */
 .galactic-wars.personnage .competence-row .ajustement-plafond {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.75rem;
   color: var(--gw-dim);
   opacity: 0.55;
-  cursor: not-allowed;
   border: 1px dashed var(--gw-border);
   border-radius: 4px;
   padding: 0.05rem 0.2rem;

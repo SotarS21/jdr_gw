@@ -6,7 +6,7 @@
   "img": "systems/galactic-wars/asset_visuel/objets/armes-trident-sith.jpg",
   "system": {
     "degats": "1d4+4",
-    "competence": "",
+    "competence": "armeBlanche",
     "instable": false,
     "prix": "NA",
     "description": "<p>Arme rituelle sith, non vendue en boutique (marquée \"NA\" dans le classeur source) — distincte du \"Trident électrique\" (1d4+4, 1200c, achetable, non transcrit ici).</p>"

@@ -6,7 +6,7 @@
   "img": "systems/galactic-wars/asset_visuel/objets/armes-lance-roquette.jpg",
   "system": {
     "degats": "3d6 + explosion",
-    "competence": "",
+    "competence": "canonLourd",
     "instable": true,
     "prix": "2000c",
     "description": "<p>Arme lourde à explosif. Amélioration existante dans le classeur source (2d10 + explosion, 4000c) non transcrite ici (échantillon).</p>"
