@@ -146,7 +146,8 @@ export class GalacticWarsItem extends Item {
     }
     if (this.estObjetInventaire) {
       if ((system.quantite ?? 1) !== 1) ajouter("GALACTICWARS.Objet.Quantite", `×${system.quantite}`, true);
-      ajouter("GALACTICWARS.Objet.Prix", system.prix);
+      // Pas de prix sur la carte d'une arme (demande de l'auteur) : c'est la carte d'attaque, pas de boutique.
+      if (this.type !== "arme") ajouter("GALACTICWARS.Objet.Prix", system.prix);
     }
     return details;
   }

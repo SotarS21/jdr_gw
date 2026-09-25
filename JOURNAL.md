@@ -27,6 +27,8 @@
   remplacé dans l'onglet Combat par des pastilles colorées rappelant les points restants. `reserveChoisie()` devient
   publique : une attaque lancée depuis la carte de tchat (pool non précisé) prend le bonus choisi sur la fiche ouverte.
   Vérifié : Lumière 2 → attaque à 14 + 15 = 29 %, Lumière 1 ensuite (Kael restauré, message supprimé).
+- Carte de tchat d'une arme (clic pour attaquer) : prix retiré (demande de l'auteur) ; il reste sur les cartes
+  d'armure et d'équipement et dans la fiche de l'arme.
 
 ## Session du 2026-09-25 (suite 2) — Armes de départ sans dégâts ni compétence (v0.14.0→v0.14.1)
 
