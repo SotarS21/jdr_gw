@@ -5,10 +5,10 @@
   "type": "arme",
   "img": "systems/galactic-wars/asset_visuel/objets/armes-blaster-lourd.jpg",
   "system": {
-    "degats": "2d6",
+    "degats": "2d6+3",
     "competence": "blaster",
     "instable": false,
-    "prix": "4500c",
+    "prix": "400c",
     "description": ""
   },
   "folder": null,

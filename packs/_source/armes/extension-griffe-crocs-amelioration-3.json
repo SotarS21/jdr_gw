@@ -1,0 +1,34 @@
+{
+  "_key": "!items!VtFCLdRDuetVea04",
+  "_id": "VtFCLdRDuetVea04",
+  "name": "Extension griffe / crocs (amélioration 3)",
+  "type": "arme",
+  "img": "systems/galactic-wars/asset_visuel/objets/armes-extension-griffe-crocs.jpg",
+  "system": {
+    "degats": "2d6",
+    "competence": "bagarre",
+    "instable": false,
+    "prix": "4500c",
+    "description": "<p>Classeur « [GW] Science économique.xlsx », ligne 17.</p>",
+    "quantite": 1,
+    "porte": false,
+    "tags": {
+      "cache": false
+    },
+    "notesMJ": "",
+    "portee": ""
+  },
+  "folder": null,
+  "sort": 100036,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.14.2"
+  }
+}

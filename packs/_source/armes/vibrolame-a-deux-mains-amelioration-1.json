@@ -1,0 +1,34 @@
+{
+  "_key": "!items!OYB2aRrXcaz9dGYT",
+  "_id": "OYB2aRrXcaz9dGYT",
+  "name": "Vibrolame à deux mains (amélioration 1)",
+  "type": "arme",
+  "img": "systems/galactic-wars/asset_visuel/objets/armes-vibrolame-a-deux-mains.jpg",
+  "system": {
+    "degats": "1d8",
+    "competence": "armeBlanche",
+    "instable": false,
+    "prix": "3000c",
+    "description": "<p>Classeur « [GW] Science économique.xlsx », ligne 53.</p>",
+    "quantite": 1,
+    "porte": false,
+    "tags": {
+      "cache": false
+    },
+    "notesMJ": "",
+    "portee": ""
+  },
+  "folder": null,
+  "sort": 100060,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.14.2"
+  }
+}

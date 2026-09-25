@@ -8,7 +8,8 @@
     "degats": "2d10",
     "competence": "blaster",
     "instable": false,
-    "description": ""
+    "description": "",
+    "prix": "1200c"
   },
   "folder": null,
   "sort": 100000,

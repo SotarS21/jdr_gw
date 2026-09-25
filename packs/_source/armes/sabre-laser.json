@@ -8,7 +8,8 @@
     "degats": "2d8",
     "competence": "sabreLaser",
     "instable": false,
-    "description": ""
+    "description": "",
+    "prix": "NA"
   },
   "folder": null,
   "sort": 100000,

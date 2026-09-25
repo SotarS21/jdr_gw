@@ -1,0 +1,34 @@
+{
+  "_key": "!items!VVVCXdIwvvjlE4nA",
+  "_id": "VVVCXdIwvvjlE4nA",
+  "name": "Pistolet blaster militaire",
+  "type": "arme",
+  "img": "systems/galactic-wars/asset_visuel/objets/armes-blaster.jpg",
+  "system": {
+    "degats": "1d6",
+    "competence": "blaster",
+    "instable": false,
+    "prix": "600c",
+    "description": "<p>Classeur « [GW] Science économique.xlsx », ligne 8.</p>",
+    "quantite": 1,
+    "porte": false,
+    "tags": {
+      "cache": false
+    },
+    "notesMJ": "",
+    "portee": ""
+  },
+  "folder": null,
+  "sort": 100002,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.14.2"
+  }
+}

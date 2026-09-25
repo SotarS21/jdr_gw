@@ -1,0 +1,34 @@
+{
+  "_key": "!items!xkaOjHMr79TUwy9F",
+  "_id": "xkaOjHMr79TUwy9F",
+  "name": "Lame militaire",
+  "type": "arme",
+  "img": "systems/galactic-wars/asset_visuel/objets/armes-lame-militaire.jpg",
+  "system": {
+    "degats": "1d6",
+    "competence": "armeBlanche",
+    "instable": false,
+    "prix": "522c",
+    "description": "<p>Classeur « [GW] Science économique.xlsx », ligne 50.</p>",
+    "quantite": 1,
+    "porte": false,
+    "tags": {
+      "cache": false
+    },
+    "notesMJ": "",
+    "portee": ""
+  },
+  "folder": null,
+  "sort": 100058,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.14.2"
+  }
+}

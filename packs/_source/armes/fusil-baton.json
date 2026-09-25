@@ -1,0 +1,34 @@
+{
+  "_key": "!items!4L8V0rfCZh8X1EgF",
+  "_id": "4L8V0rfCZh8X1EgF",
+  "name": "Fusil bâton",
+  "type": "arme",
+  "img": "systems/galactic-wars/asset_visuel/objets/armes-fusil-baton.jpg",
+  "system": {
+    "degats": "1d6",
+    "competence": "blaster",
+    "instable": false,
+    "prix": "400c",
+    "description": "<p>Classeur « [GW] Science économique.xlsx », ligne 22.</p>",
+    "quantite": 1,
+    "porte": false,
+    "tags": {
+      "cache": false
+    },
+    "notesMJ": "",
+    "portee": ""
+  },
+  "folder": null,
+  "sort": 100011,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.14.2"
+  }
+}

@@ -85,6 +85,22 @@ export const PACK_UPDATES = [
     }
   },
   {
+    id: "0.14.2-prix-catalogue",
+    cible: "armes",
+    version: "0.14.2",
+    label: "Prix du catalogue économique (armes)",
+    description:
+      "Prix repris du classeur « Science économique » : Arme contondante 522c, Fusil de précision 1200c, sabres laser " +
+      "non achetables (NA), Blaster lourd 400c et 2d6+3 dégâts (au lieu de 4500c et 2d6). Seules les copies sans prix " +
+      "ou encore à l'ancienne valeur du compendium sont modifiées.",
+    concernes: async () => (await armesAuPrixDuCatalogue()).length,
+    apply: async () => {
+      const liste = await armesAuPrixDuCatalogue();
+      for (const { copie, changements } of liste) await copie.update(changements);
+      return liste.length;
+    }
+  },
+  {
     id: "0.14.1-armes-depart",
     cible: "acteurs",
     version: "0.14.1",
@@ -229,6 +245,29 @@ async function objetsAIllustrer() {
     if (source?.startsWith(`Compendium.${game.system.id}.`)) img = (await fromUuid(source).catch(() => null))?.img;
     img ??= IMAGES_APPAREILS[objet.system.appareil || appareilSelonNom(objet.name)] ?? null;
     if (img && !IMAGES_GENERIQUES.has(img) && img !== objet.img) liste.push({ objet, img });
+  }
+  return liste;
+}
+
+/** Anciennes valeurs du compendium Armes avant la v0.14.2 (remplacées si la copie les a gardées). */
+const ANCIENNES_VALEURS_ARMES = { "Blaster lourd": { prix: "4500c", degats: "2d6" } };
+
+/** Copies d'armes dont le prix (et, pour le Blaster lourd, les dégâts) suit l'ancien compendium. */
+async function armesAuPrixDuCatalogue() {
+  const liste = [];
+  for (const copie of copiesDepuis("armes")) {
+    const source = await fromUuid(copie._stats.compendiumSource).catch(() => null);
+    if (!source) continue;
+    const ancien = ANCIENNES_VALEURS_ARMES[source.name] ?? {};
+    const changements = {};
+    const prix = copie.system.prix ?? "";
+    if (source.system.prix && prix !== source.system.prix && (!prix || prix === ancien.prix)) {
+      changements["system.prix"] = source.system.prix;
+    }
+    if (ancien.degats && copie.system.degats === ancien.degats && source.system.degats !== ancien.degats) {
+      changements["system.degats"] = source.system.degats;
+    }
+    if (Object.keys(changements).length) liste.push({ copie, changements });
   }
   return liste;
 }

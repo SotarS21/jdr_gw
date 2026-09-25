@@ -1,0 +1,31 @@
+{
+  "_key": "!items!HepX7iHCkL0JnMye",
+  "_id": "HepX7iHCkL0JnMye",
+  "name": "Cartouche de carbonite",
+  "type": "equipement",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "quantite": 1,
+    "prix": "300c",
+    "description": "<p>Munition du canon à carbonite. Classeur « [GW] Science économique.xlsx », ligne 54.</p>",
+    "porte": false,
+    "tags": {
+      "cache": false
+    },
+    "notesMJ": "",
+    "appareil": ""
+  },
+  "folder": null,
+  "sort": 100072,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.14.2"
+  }
+}

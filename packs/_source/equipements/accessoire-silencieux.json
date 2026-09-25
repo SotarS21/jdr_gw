@@ -1,0 +1,31 @@
+{
+  "_key": "!items!fYuuCIJvNB7F9tbr",
+  "_id": "fYuuCIJvNB7F9tbr",
+  "name": "Accessoire silencieux",
+  "type": "equipement",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "quantite": 1,
+    "prix": "420c",
+    "description": "<p>Accessoire d'arme : −2 aux dégâts, tir silencieux. Classeur « [GW] Science économique.xlsx », ligne 43.</p>",
+    "porte": false,
+    "tags": {
+      "cache": false
+    },
+    "notesMJ": "",
+    "appareil": ""
+  },
+  "folder": null,
+  "sort": 100071,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.14.2"
+  }
+}

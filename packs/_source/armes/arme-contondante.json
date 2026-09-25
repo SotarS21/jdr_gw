@@ -8,7 +8,8 @@
     "degats": "1d6",
     "competence": "armeBlanche",
     "instable": false,
-    "description": ""
+    "description": "",
+    "prix": "522c"
   },
   "folder": null,
   "sort": 100000,

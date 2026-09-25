@@ -1,0 +1,34 @@
+{
+  "_key": "!items!Y1OFzZ5FT27oA71c",
+  "_id": "Y1OFzZ5FT27oA71c",
+  "name": "Canon à fléchettes",
+  "type": "arme",
+  "img": "systems/galactic-wars/asset_visuel/objets/armes-canon-a-flechettes.jpg",
+  "system": {
+    "degats": "1 + fléchette",
+    "competence": "canonLourd",
+    "instable": false,
+    "prix": "1000c",
+    "description": "<p>Classeur « [GW] Science économique.xlsx », ligne 40.</p>",
+    "quantite": 1,
+    "porte": false,
+    "tags": {
+      "cache": false
+    },
+    "notesMJ": "",
+    "portee": ""
+  },
+  "folder": null,
+  "sort": 100022,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.14.2"
+  }
+}

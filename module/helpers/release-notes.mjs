@@ -114,5 +114,13 @@ export const RELEASE_NOTES = {
       <li>Objets créés à la main portant le nom exact d'un objet du compendium : son visuel leur est proposé (correctif MJ).</li>
       <li>Fiches de race, métier, talent, pouvoir et école : l'image est de nouveau modifiable au clic.</li>
     </ul>`
+  },
+  "0.14.2": {
+    title: "v0.14.2 — Catalogue économique",
+    html: `<ul>
+      <li>Compendium Armes : 70 armes et améliorations du classeur « Science économique » (blasters, fusils, canons, lance-flamme, grenades, bâtons, tridents, vibrolames, sabres, tasers…) avec dégâts, compétence liée, prix et visuel ; compendium Équipements : Gant magnétique, Accessoire silencieux, Cartouche de carbonite.</li>
+      <li>Prix d'après le classeur : Arme contondante 522c, Fusil de précision 1200c, sabres laser non achetables (NA) ; Blaster lourd 2d6+3 pour 400c (correctif proposé au MJ pour les copies).</li>
+      <li>Équipement de départ : le Couteau devient une Lame (1d4), le Sabre d'entraînement un Sabre d'entraînement jedi.</li>
+    </ul>`
   }
 };

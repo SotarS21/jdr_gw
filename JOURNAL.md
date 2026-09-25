@@ -1,5 +1,27 @@
 # Journal de développement — Galactic Wars
 
+## Session du 2026-09-25 (suite 3) — Catalogue économique : prix et armes (v0.14.1→v0.14.2)
+
+- Classeur `[GW]  Science économique.xlsx` lu sans Python (xlsx dézippé, sharedStrings + sheet1 parsés en Node).
+  Colonnes : Arme (B/F/H), Lancer + Corps à corps (L/P/R), Outils (V/Z/AB), Véhicule (AF/AL), Commun (AQ/AW).
+- **Choix de l'auteur** : Blaster lourd = classeur (2d6+3, 400c ; l'ancien 4500c venait d'une ligne « Amélioration
+  2d6 4500 » d'une autre colonne) ; Fusil de précision 1200c (Fusil sniper) ; Arme contondante 522c (Lame militaire) ;
+  sabres laser NA ; **tout ajouter**.
+- 70 armes créées (générateur hors dépôt, IDs aléatoires, description = ligne source) : améliorations en objets
+  distincts « (amélioration N) » ; compétences : blaster (pistolets, fusils, arbalète), canonLourd (canons, tourelle,
+  lance-flamme, carbonite, lance-roquette), artifice (grenades), bagarre (extension griffe / crocs), armeBlanche
+  (bâtons, tridents, haches, lames, vibrolames, tasers), sabreLaser (sabres). Grenades flash / fumigène sans dégâts
+  (le classeur n'en donne pas). 3 équipements (Gant magnétique, Accessoire silencieux, Cartouche de carbonite).
+  Véhicules / vaisseaux : déjà dans le compendium Vaisseaux avec leurs prix ; non repris : « transporteur de base
+  80 000c 6 places » (cellule du Lantallian) et le prix alternatif 50 000c du Frelon (col. AP).
+- 20 visuels copiés de `asset_visuel/item/` vers `asset_visuel/objets/` (`arme_fusil_blaster_lourd.pgn` est un JPEG) ;
+  sans visuel : Canon à gaz (×2), Chouchou étrangleur, Accessoire silencieux, Cartouche de carbonite. Armures : aucun
+  prix dans le classeur.
+- Correctif `0.14.2-prix-catalogue` (copies sans prix ou à l'ancienne valeur) : appliqué par l'auteur au
+  redémarrage (Arme blanche au choix ×2 → 522c). Le « Blaster lourd » de Kael, créé à la main (3d6, 4500c), n'est pas
+  une copie : non touché.
+- `objets-depart.mjs` : Couteau → Lame (1d4, 25c), Sabre d'entraînement → Sabre d'entraînement jedi.
+
 ## Session du 2026-09-25 (suite 2) — Armes de départ sans dégâts ni compétence (v0.14.0→v0.14.1)
 
 - **Bug remonté par l'auteur** : les armes des personnages posés sur les scènes n'avaient ni dégâts ni compétence.

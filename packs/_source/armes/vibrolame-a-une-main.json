@@ -1,0 +1,34 @@
+{
+  "_key": "!items!QXQTX9ScTvYZ70Lk",
+  "_id": "QXQTX9ScTvYZ70Lk",
+  "name": "Vibrolame à une main",
+  "type": "arme",
+  "img": "systems/galactic-wars/asset_visuel/objets/armes-vibrolame-a-une-main.jpg",
+  "system": {
+    "degats": "1d4+2",
+    "competence": "armeBlanche",
+    "instable": false,
+    "prix": "NA",
+    "description": "<p>Classeur « [GW] Science économique.xlsx », ligne 57.</p>",
+    "quantite": 1,
+    "porte": false,
+    "tags": {
+      "cache": false
+    },
+    "notesMJ": "",
+    "portee": ""
+  },
+  "folder": null,
+  "sort": 100063,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.14.2"
+  }
+}

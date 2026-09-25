@@ -1,0 +1,34 @@
+{
+  "_key": "!items!gVHkk1mcFn4csrl5",
+  "_id": "gVHkk1mcFn4csrl5",
+  "name": "Bâton de combat (amélioration électrique)",
+  "type": "arme",
+  "img": "systems/galactic-wars/asset_visuel/objets/armes-arme-contondante.jpg",
+  "system": {
+    "degats": "1d6 étourdissant",
+    "competence": "armeBlanche",
+    "instable": false,
+    "prix": "1250c",
+    "description": "<p>Classeur « [GW] Science économique.xlsx », ligne 25.</p>",
+    "quantite": 1,
+    "porte": false,
+    "tags": {
+      "cache": false
+    },
+    "notesMJ": "",
+    "portee": ""
+  },
+  "folder": null,
+  "sort": 100042,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.14.2"
+  }
+}

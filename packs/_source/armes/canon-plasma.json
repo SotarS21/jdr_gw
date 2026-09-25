@@ -1,0 +1,34 @@
+{
+  "_key": "!items!6lFfuHYDHrGurXud",
+  "_id": "6lFfuHYDHrGurXud",
+  "name": "Canon plasma",
+  "type": "arme",
+  "img": "systems/galactic-wars/asset_visuel/objets/armes-canon-plasma.jpg",
+  "system": {
+    "degats": "4d6 + brûlure",
+    "competence": "canonLourd",
+    "instable": false,
+    "prix": "10000c",
+    "description": "<p>Classeur « [GW] Science économique.xlsx », ligne 32.</p>",
+    "quantite": 1,
+    "porte": false,
+    "tags": {
+      "cache": false
+    },
+    "notesMJ": "",
+    "portee": ""
+  },
+  "folder": null,
+  "sort": 100016,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.14.2"
+  }
+}
