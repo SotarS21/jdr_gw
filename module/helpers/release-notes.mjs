@@ -165,5 +165,12 @@ export const RELEASE_NOTES = {
       <li>Gain de niveau : 3 niveaux à répartir, la même compétence pouvant être choisie plusieurs fois (niveau 3 au maximum) ; aperçu du niveau et du taux avant → après, repris dans le message du tchat.</li>
       <li>Inventaire : bouton Porté / Rangé à droite de chaque ligne ; boutons Attaquer, Comlink et Holonet retirés (un clic sur la ligne ouvre le datapad ou le comlink, l'attaque passe par la carte de tchat de l'arme).</li>
     </ul>`
+  },
+  "0.15.5": {
+    title: "v0.15.5",
+    html: `<ul>
+      <li>Lumière / Obscurité : boutons « Utiliser un point de Lumière / d'Obscurité » (onglets Personnage et Combat), à utiliser avant l'action — le point est retiré et « &lt;nom&gt; a utilisé un point de … » s'affiche dans le tchat ; le MJ le convertit en niveau virtuel sur la compétence le temps de l'action.</li>
+      <li>Le bonus automatique de +15 % sur les jets est supprimé (il ne correspondait pas à la règle).</li>
+    </ul>`
   }
 };

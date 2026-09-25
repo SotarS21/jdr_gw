@@ -114,14 +114,15 @@
           </span>
           <button type="button" class="pip-btn" data-action="ajusterObscurite" data-delta="1">+</button>
         </div>
-        <div class="bonus-choix">
-          <label><input type="radio" name="bonusAlignement" value="aucun" checked> {{localize 'GALACTICWARS.Alignement.Aucun'}}</label>
-          <label{{#unless system.lumiere}} class="disabled"{{/unless}}>
-            <input type="radio" name="bonusAlignement" value="lumiere" {{#unless system.lumiere}}disabled{{/unless}}> {{localize 'GALACTICWARS.Alignement.Lumiere'}} (+{{bonusAlignement}}%)
-          </label>
-          <label{{#unless system.obscurite}} class="disabled"{{/unless}}>
-            <input type="radio" name="bonusAlignement" value="obscurite" {{#unless system.obscurite}}disabled{{/unless}}> {{localize 'GALACTICWARS.Alignement.Obscurite'}} (+{{bonusAlignement}}%)
-          </label>
+        {{!-- Utiliser un point (règle de l'auteur) : dépensé AVANT l'action, le MJ le convertit en niveau virtuel sur la
+              compétence le temps de l'action — aucun effet automatique, juste le point retiré et un message dans le tchat. --}}
+        <div class="reserves-utiliser">
+          <button type="button" class="reserve-utiliser lumiere" data-action="utiliserReserve" data-reserve="lumiere" {{#unless system.lumiere}}disabled{{/unless}}>
+            <i class="fa-solid fa-sun"></i> {{localize 'GALACTICWARS.Alignement.UtiliserLumiere'}} <span class="reserve-points mono">{{system.lumiere}}</span>
+          </button>
+          <button type="button" class="reserve-utiliser obscurite" data-action="utiliserReserve" data-reserve="obscurite" {{#unless system.obscurite}}disabled{{/unless}}>
+            <i class="fa-solid fa-moon"></i> {{localize 'GALACTICWARS.Alignement.UtiliserObscurite'}} <span class="reserve-points mono">{{system.obscurite}}</span>
+          </button>
         </div>
         <p class="hint">{{localize 'GALACTICWARS.Alignement.Hint'}}</p>
       </div>
@@ -310,30 +311,17 @@
             <i class="fa-solid fa-dice-d20"></i> {{localize 'GALACTICWARS.Combat.Initiative'}}
           </button>
         </div>
-        {{!-- Réserves Lumière / Obscurité : rappel des points et choix du bonus (même groupe radio que l'onglet
-              Personnage). Le bonus choisi vaut pour le prochain jet de compétence de cet onglet ou la prochaine
-              attaque lancée depuis la carte de tchat de l'arme (PersonnageSheet#reserveChoisie). --}}
-        <div class="combat-reserves">
-          <label class="reserve-choix aucun">
-            <input type="radio" name="bonusAlignement" value="aucun" checked>
-            <span>{{localize 'GALACTICWARS.Alignement.Aucun'}}</span>
-          </label>
-          <label class="reserve-choix lumiere {{#unless system.lumiere}}vide{{/unless}}">
-            <input type="radio" name="bonusAlignement" value="lumiere" {{#unless system.lumiere}}disabled{{/unless}}>
-            <i class="fa-solid fa-sun"></i>
-            <span>{{localize 'GALACTICWARS.Alignement.Lumiere'}}</span>
-            <span class="reserve-points mono">{{system.lumiere}}</span>
-            <span class="reserve-bonus mono">+{{bonusAlignement}}%</span>
-          </label>
-          <label class="reserve-choix obscurite {{#unless system.obscurite}}vide{{/unless}}">
-            <input type="radio" name="bonusAlignement" value="obscurite" {{#unless system.obscurite}}disabled{{/unless}}>
-            <i class="fa-solid fa-moon"></i>
-            <span>{{localize 'GALACTICWARS.Alignement.Obscurite'}}</span>
-            <span class="reserve-points mono">{{system.obscurite}}</span>
-            <span class="reserve-bonus mono">+{{bonusAlignement}}%</span>
-          </label>
+        {{!-- Utiliser un point (règle de l'auteur) : dépensé AVANT l'action, le MJ le convertit en niveau virtuel sur la
+              compétence le temps de l'action — aucun effet automatique, juste le point retiré et un message dans le tchat. --}}
+        <div class="reserves-utiliser">
+          <button type="button" class="reserve-utiliser lumiere" data-action="utiliserReserve" data-reserve="lumiere" {{#unless system.lumiere}}disabled{{/unless}}>
+            <i class="fa-solid fa-sun"></i> {{localize 'GALACTICWARS.Alignement.UtiliserLumiere'}} <span class="reserve-points mono">{{system.lumiere}}</span>
+          </button>
+          <button type="button" class="reserve-utiliser obscurite" data-action="utiliserReserve" data-reserve="obscurite" {{#unless system.obscurite}}disabled{{/unless}}>
+            <i class="fa-solid fa-moon"></i> {{localize 'GALACTICWARS.Alignement.UtiliserObscurite'}} <span class="reserve-points mono">{{system.obscurite}}</span>
+          </button>
         </div>
-        <p class="combat-reserves-aide">{{localize 'GALACTICWARS.Alignement.RappelCombat' bonus=bonusAlignement}}</p>
+        <p class="combat-reserves-aide">{{localize 'GALACTICWARS.Alignement.RappelCombat'}}</p>
         <div class="objet-liste">
           {{#each combat.armes as |arme|}}{{> gwLigneObjet ligne=arme}}{{else}}<p class="inventaire-vide">{{localize 'GALACTICWARS.Combat.AucuneArme'}}</p>{{/each}}
         </div>

@@ -40,6 +40,7 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       basculerFavori: PersonnageSheet.#onBasculerFavori,
       gainExperience: PersonnageSheet.#onGainExperience,
       gainNiveau: PersonnageSheet.#onGainNiveau,
+      utiliserReserve: PersonnageSheet.#onUtiliserReserve,
       ouvrirObjet: PersonnageSheet.#onOuvrirObjet,
       afficherObjet: PersonnageSheet.#onAfficherObjet,
       basculerPorteObjet: PersonnageSheet.#onBasculerPorteObjet,
@@ -85,7 +86,6 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     context.sousOngletNotes = this.#sousOngletNotes;
     context.modeEdition = this.modeEdition;
     context.isGM = game.user.isGM;
-    context.bonusAlignement = GW.bonusAlignement;
     // Barre de PV : vert > 50 %, orange de 25 à 50 %, rouge < 25 % (le PJ voit quand il est « dans le rouge »).
     const pvMax = system.pv.max || 0;
     const pourcentagePV = pvMax > 0 ? Math.round(Math.min(100, Math.max(0, (system.pv.value / pvMax) * 100))) : 0;
@@ -456,13 +456,6 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     return this.actor.items.get(target.closest("[data-item-id]")?.dataset.itemId);
   }
 
-  /** Réserve Lumière/Obscurité choisie (boutons radio « bonusAlignement ») si elle n'est pas vide — aussi lue
-   *  par GalacticWarsItem#attaquer quand l'attaque part de la carte de tchat, fiche ouverte. */
-  reserveChoisie() {
-    const choix = this.element.querySelector('input[name="bonusAlignement"]:checked')?.value;
-    return (choix === "lumiere" || choix === "obscurite") && this.actor.system[choix] > 0 ? choix : null;
-  }
-
   /** Clic sur une ligne d'inventaire : carte de l'objet dans le tchat. */
   static async #onAfficherObjet(event, target) {
     await this.#activerObjet(this.#objetDeLigne(target));
@@ -692,18 +685,12 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   }
 
   static async #onRollCompetence(event, target) {
-    const choix = this.element.querySelector('input[name="bonusAlignement"]:checked')?.value;
-    const pool =
-      (choix === "lumiere" && this.actor.system.lumiere > 0) ||
-      (choix === "obscurite" && this.actor.system.obscurite > 0)
-        ? choix
-        : null;
+    await rollCompetence(this.actor, target.dataset.cle);
+  }
 
-    await rollCompetence(this.actor, target.dataset.cle, { pool });
-
-    if (pool) {
-      await this.actor.update({ [`system.${pool}`]: this.actor.system[pool] - 1 });
-    }
+  /** Bouton « Utiliser un point de Lumière / d'Obscurité » (avant l'action). */
+  static async #onUtiliserReserve(event, target) {
+    await this.actor.utiliserReserve(target.dataset.reserve);
   }
 
   static async #onAjusterLumiere(event, target) {

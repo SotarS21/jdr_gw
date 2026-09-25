@@ -1,5 +1,19 @@
 # Journal de développement — Galactic Wars
 
+## Session du 2026-09-26 (suite 2) — Lumière / Obscurité : « Utiliser un point » (v0.15.4→v0.15.5)
+
+- **Todo (ajout de l'auteur)** : rendre les réserves plus ergonomiques. Proposition faite (dépense avant / après le jet,
+  don par le MJ, widget d'en-tête…). **Réponse de l'auteur** : dépense **avant** l'action, car le MJ fixe une difficulté
+  en niveaux ; un point dépensé devient un niveau virtuel sur la compétence le temps de l'action. Pas de mécanique :
+  « simplement un bouton pour utiliser ses points avec un message dans le tchat ».
+- `GalacticWarsActor#utiliserReserve(cle)` : −1 point, message « <nom> a utilisé un point de Lumière / d'Obscurité »
+  (clés distinctes pour l'élision). Boutons « Utiliser un point de … » avec le compteur, grisés à 0, dans les onglets
+  Personnage (sous la jauge, à la place des radios) et Combat (à la place des pastilles).
+- **Retiré** : le bonus automatique de +15 % (radios `bonusAlignement`, `reserveChoisie`, `pool` des jets de
+  compétence et des attaques) — contraire à la règle. `GW.bonusAlignement` et le paramètre `pool` de `rollCompetence`
+  restent dans le code mais ne sont plus utilisés par la fiche. Les −/+ de la jauge sont inchangés (don / retrait).
+- Vérifié sur Kael (2 / 1 → 1 / 0, deux messages, bouton grisé à 0, un jet ne consomme plus rien), restauré.
+
 ## Session du 2026-09-26 (suite) — Gain de niveau répétable, lignes d'inventaire (v0.15.3→v0.15.4)
 
 - **Todo (ajouts de l'auteur)** :

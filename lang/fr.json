@@ -107,7 +107,13 @@
       "Lumiere": "Lumière",
       "Obscurite": "Obscurité",
       "Aucun": "Aucun bonus",
-      "RappelCombat": "Choisir une réserve dépense 1 point : +{bonus} % sur le prochain jet de compétence ou la prochaine attaque (carte de tchat de l'arme).",
+      "RappelCombat": "À utiliser avant l'action : le MJ convertit le point en niveau virtuel sur la compétence, le temps de l'action.",
+      "UtiliserLumiere": "Utiliser un point de Lumière",
+      "UtiliserObscurite": "Utiliser un point d'Obscurité",
+      "AucunPointLumiere": "Plus aucun point de Lumière à utiliser.",
+      "AucunPointObscurite": "Plus aucun point d'Obscurité à utiliser.",
+      "MessageLumiere": "{nom} a utilisé un point de Lumière.",
+      "MessageObscurite": "{nom} a utilisé un point d'Obscurité.",
       "Tendance": {
         "neutre": "Équilibre",
         "penche-lumiere": "Penche vers la Lumière",
@@ -115,7 +121,7 @@
         "penche-obscurite": "Penche vers l'Obscurité",
         "obscurite-dominante": "Obscurité dominante"
       },
-      "Hint": "1 point dépensé = +15% sur le jet (1 maximum par action, Lumière ou Obscurité, jamais les deux).",
+      "Hint": "1 point utilisé avant l'action = 1 niveau virtuel sur la compétence, le temps de l'action (1 maximum par action, Lumière ou Obscurité, jamais les deux).",
       "FlavorBonus": "Bonus de {bonus}% ({reserve}) dépensé"
     },
 

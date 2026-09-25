@@ -186,13 +186,10 @@ export class GalacticWarsItem extends Item {
   }
 
   /**
-   * Jet d'attaque (arme portée) : jet de la compétence liée, nom de l'arme en en-tête.
-   * Si `pool` est fourni et que la réserve n'est pas vide, 1 point est dépensé (+GW.bonusAlignement %)
-   * et décrémenté ICI une fois le jet lancé — l'appelant n'a rien à décrémenter lui-même.
-   * @param {object} [options]
-   * @param {"lumiere"|"obscurite"|null} [options.pool]
+   * Jet d'attaque (arme portée) : jet de la compétence liée, nom de l'arme en en-tête. Les points de Lumière /
+   * d'Obscurité ne modifient pas le jet : ils se dépensent avant, par le bouton « Utiliser » de la fiche.
    */
-  async attaquer({ pool } = {}) {
+  async attaquer() {
     if (this.type !== "arme") return null;
     const actor = this.actor;
     if (!actor) {
@@ -211,11 +208,7 @@ export class GalacticWarsItem extends Item {
     if (this._attaqueEnCours) return null;
     this._attaqueEnCours = true;
     try {
-      // Attaque depuis la carte de tchat (pool non précisé) : bonus choisi sur la fiche ouverte (onglet Combat).
-      if (pool === undefined) pool = actor.sheet?.rendered ? actor.sheet.reserveChoisie?.() ?? null : null;
-      const reserve = (pool === "lumiere" || pool === "obscurite") && (actor.system[pool] ?? 0) > 0 ? pool : null;
-      const resultat = await rollCompetence(actor, this.system.competence, { pool: reserve, titre: this.name });
-      if (resultat && reserve) await actor.update({ [`system.${reserve}`]: actor.system[reserve] - 1 });
+      const resultat = await rollCompetence(actor, this.system.competence, { titre: this.name });
       // Attaque réussie sur des tokens ciblés : carte « Défense » pour chaque cible.
       if (resultat?.reussite) await proposerDefense(this, resultat, [...game.user.targets].map((t) => t.document));
       return resultat;

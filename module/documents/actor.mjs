@@ -101,6 +101,28 @@ export class GalacticWarsActor extends Actor {
     return { gain: apres - avant, avant, apres, max, roll };
   }
 
+  /**
+   * Utilise un point de Lumière ou d'Obscurité (dépensé avant l'action ; le MJ le convertit en niveau virtuel) :
+   * 1 point retiré et « <nom> a utilisé un point de <type> » dans le tchat.
+   * @param {"lumiere"|"obscurite"} cle
+   */
+  async utiliserReserve(cle) {
+    if (!["lumiere", "obscurite"].includes(cle) || !this.isOwner) return null;
+    const points = this.system[cle] ?? 0;
+    // Clés distinctes par réserve : « de Lumière » / « d'Obscurité » (élision).
+    const suffixe = cle === "lumiere" ? "Lumiere" : "Obscurite";
+    if (points <= 0) {
+      ui.notifications.warn(game.i18n.localize(`GALACTICWARS.Alignement.AucunPoint${suffixe}`));
+      return null;
+    }
+    await this.update({ [`system.${cle}`]: points - 1 });
+    return ChatMessage.create({
+      speaker: ChatMessage.getSpeaker({ actor: this }),
+      content: `<div class="gw-point-utilise ${cle}"><i class="fa-solid ${cle === "lumiere" ? "fa-sun" : "fa-moon"}"></i> ${game.i18n.format(
+        `GALACTICWARS.Alignement.Message${suffixe}`, { nom: foundry.utils.escapeHTML(this.name) })}</div>`
+    });
+  }
+
   /** @override */
   async _preUpdate(changes, options, user) {
     if ((await super._preUpdate(changes, options, user)) === false) return false;

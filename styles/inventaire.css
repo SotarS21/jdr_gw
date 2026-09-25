@@ -533,38 +533,43 @@
   opacity: 0.75;
 }
 
-/* Onglet Combat : réserves Lumière / Obscurité (rappel des points + choix du bonus). */
-.galactic-wars.personnage .combat-reserves {
+/* Réserves Lumière / Obscurité : boutons « Utiliser un point » (onglets Personnage et Combat). */
+.galactic-wars.personnage .reserves-utiliser {
   display: flex;
   flex-wrap: wrap;
   gap: 0.4rem;
-  margin: 0.2rem 0 0.25rem;
+  margin: 0.35rem 0 0.25rem;
 }
-.galactic-wars.personnage .reserve-choix {
-  --reserve: var(--gw-muted);
+.galactic-wars.personnage .reserve-utiliser {
+  --reserve: #3b82f6;
+  flex: 1 1 12rem;
+  width: auto;
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
-  padding: 0.2rem 0.6rem;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.7rem;
+  line-height: 1.4;
   border: 1px solid var(--reserve);
   border-radius: 999px;
-  background: var(--gw-card);
+  background: color-mix(in srgb, var(--reserve) 12%, var(--gw-card));
   color: var(--gw-text);
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   cursor: pointer;
-  user-select: none;
+  transition: background 0.15s, box-shadow 0.15s, transform 0.1s;
 }
-.galactic-wars.personnage .reserve-choix.lumiere { --reserve: #3b82f6; }
-.galactic-wars.personnage .reserve-choix.obscurite { --reserve: #dc2626; }
-.galactic-wars.personnage .reserve-choix input {
-  position: absolute;
-  opacity: 0;
-  pointer-events: none;
+.galactic-wars.personnage .reserve-utiliser.obscurite { --reserve: #dc2626; }
+.galactic-wars.personnage .reserve-utiliser i { color: var(--reserve); }
+.galactic-wars.personnage .reserve-utiliser:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--reserve) 26%, var(--gw-card));
+  box-shadow: 0 0 10px color-mix(in srgb, var(--reserve) 45%, transparent);
 }
-.galactic-wars.personnage .reserve-choix i {
-  color: var(--reserve);
+.galactic-wars.personnage .reserve-utiliser:active:not(:disabled) { transform: scale(0.97); }
+.galactic-wars.personnage .reserve-utiliser:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
 }
-.galactic-wars.personnage .reserve-choix .reserve-points {
+.galactic-wars.personnage .reserve-utiliser .reserve-points {
   min-width: 1.4em;
   padding: 0 0.3em;
   border-radius: 999px;
@@ -573,28 +578,22 @@
   font-weight: 700;
   text-align: center;
 }
-.galactic-wars.personnage .reserve-choix .reserve-bonus {
-  color: var(--gw-dim);
-  font-size: 0.7rem;
-}
-.galactic-wars.personnage .reserve-choix:has(input:checked) {
-  background: color-mix(in srgb, var(--reserve) 22%, var(--gw-card));
-  box-shadow: 0 0 0 1px var(--reserve) inset;
-}
-.galactic-wars.personnage .reserve-choix:has(input:focus-visible) {
-  outline: 2px solid var(--gw-accent);
-  outline-offset: 2px;
-}
-.galactic-wars.personnage .reserve-choix.vide {
-  opacity: 0.45;
-  cursor: not-allowed;
-}
 .galactic-wars.personnage .combat-reserves-aide {
   margin: 0 0 0.45rem;
   font-size: 0.7rem;
   color: var(--gw-dim);
   line-height: 1.3;
 }
+
+/* Message « a utilisé un point de … » dans le tchat. */
+.gw-point-utilise {
+  padding: 0.3rem 0.5rem;
+  border-left: 3px solid #3b82f6;
+  border-radius: 4px;
+}
+.gw-point-utilise.obscurite { border-left-color: #dc2626; }
+.gw-point-utilise i { color: #3b82f6; }
+.gw-point-utilise.obscurite i { color: #dc2626; }
 
 /* Conversation de comlink montrée dans le tchat (helpers/comlink.mjs#montrerConversation). */
 .gw-conversation-comlink header {
