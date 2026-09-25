@@ -580,7 +580,7 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const base = GW.baremeNiveauCompetence[niveau] ?? 0;
     const carac = this.actor.system.caracteristiques[def?.caracteristique]?.total ?? 0;
     const malus = def && !competence.acquiseParMetier ? (def.metier ? -30 : -10) : 0;
-    const modulation = base + competence.racial + competence.metier + competence.ajustement + malus;
+    const modulation = base + Math.max(0, competence.racial + competence.metier + competence.ajustement + malus);
     const plafond = GW.plafondCompetence + Math.max(0, competence.racial);
     return Math.min(plafond, Math.max(0, carac + Math.max(0, modulation)));
   }

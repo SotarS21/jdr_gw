@@ -1,5 +1,15 @@
 # Journal de développement — Galactic Wars
 
+## Session du 2026-09-26 (suite 3) — Taux : le niveau s'ajoute toujours (v0.15.5→v0.15.6)
+
+- **Bug confirmé par l'auteur** : avec `carac + max(0, niveau + racial + métier + ajustement + malus)`, le malus hors
+  métier (−10 / −30) absorbait les premiers niveaux (Artifice 20 % aux niveaux 0, 1 et 2). **Choix de l'auteur** :
+  « niveau toujours ajouté » → `carac + barème(niveau) + max(0, racial + métier + ajustement + malus)`, plafond
+  inchangé. Modifié dans `PersonnageData#prepareDerivedData` et l'aperçu `PersonnageSheet#tauxPourNiveau`.
+- Vérifié : Artifice (Kael) 20 → 25 → 30 → 40 %. Taux dérivé : aucune donnée à migrer. Impact mesuré dans le monde de
+  test : 28 taux relevés de +5 à +20 points (Alek, Gueran Cell, « classique »), ex. Artifice niv. 3 de Gueran Cell
+  20 → 40 %.
+
 ## Session du 2026-09-26 (suite 2) — Lumière / Obscurité : « Utiliser un point » (v0.15.4→v0.15.5)
 
 - **Todo (ajout de l'auteur)** : rendre les réserves plus ergonomiques. Proposition faite (dépense avant / après le jet,

@@ -172,5 +172,11 @@ export const RELEASE_NOTES = {
       <li>Lumière / Obscurité : boutons « Utiliser un point de Lumière / d'Obscurité » (onglets Personnage et Combat), à utiliser avant l'action — le point est retiré et « &lt;nom&gt; a utilisé un point de … » s'affiche dans le tchat ; le MJ le convertit en niveau virtuel sur la compétence le temps de l'action.</li>
       <li>Le bonus automatique de +15 % sur les jets est supprimé (il ne correspondait pas à la règle).</li>
     </ul>`
+  },
+  "0.15.6": {
+    title: "v0.15.6",
+    html: `<ul>
+      <li>Correction du taux des compétences : le bonus de niveau (5 / 10 / 20 %) s'ajoute toujours ; le malus hors métier ne compense plus que les autres bonus (racial, métier, ajustement), toujours sans descendre sous la caractéristique. Auparavant, les premiers niveaux d'une compétence hors métier ne faisaient pas monter le taux. Les taux des fiches existantes se mettent à jour d'eux-mêmes.</li>
+    </ul>`
   }
 };
