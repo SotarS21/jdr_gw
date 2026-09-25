@@ -14,6 +14,7 @@
   restent dans le code mais ne sont plus utilisés par la fiche. Les −/+ de la jauge sont inchangés (don / retrait).
 - Vérifié sur Kael (2 / 1 → 1 / 0, deux messages, bouton grisé à 0, un jet ne consomme plus rien), restauré.
 - **Confirmé par l'auteur** : le gain de niveau fait aussi monter le niveau du personnage de 1 (`GW.gainNiveauPersonnage`).
+- **Confirmé par l'auteur** : bouton Porté / Rangé à droite sur toutes les lignes (onglets Équipements et Combat).
 
 ## Session du 2026-09-26 (suite) — Gain de niveau répétable, lignes d'inventaire (v0.15.3→v0.15.4)
 
