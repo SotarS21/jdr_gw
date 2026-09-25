@@ -1826,3 +1826,15 @@
   border: 1px dashed var(--gw-border);
   border-radius: 4px;
 }
+
+/* Gain de niveau : aperçu des niveaux et taux avant → après. */
+.galactic-wars-experience .gain-niveau-apercu {
+  margin: 0.4rem 0;
+  padding-left: 1.1rem;
+  font-size: 0.85em;
+}
+.galactic-wars-experience .gain-niveau-apercu .erreur {
+  color: #dc2626;
+  list-style: none;
+  margin-left: -1.1rem;
+}

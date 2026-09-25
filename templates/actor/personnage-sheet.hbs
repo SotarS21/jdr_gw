@@ -260,17 +260,12 @@
   {{/if}}
   {{/if}}
 
-  {{!-- Ligne d'inventaire des onglets Équipements et Combat (préparée par
-        PersonnageSheet#preparerInventaire). Clic = carte dans le tchat, clic droit = menu (porter/ranger, tags, tchat, fiche, suppression). Objet
-        rangé atténué ; l'indicateur de gauche bascule porté/rangé. --}}
+  {{!-- Ligne d'inventaire des onglets Équipements et Combat (préparée par PersonnageSheet#preparerInventaire).
+        Clic = carte dans le tchat (Datapad / Comlink : leur onglet Holonet / Comlink), clic droit = menu (porter /
+        ranger, tags, tchat, fiche, suppression). Objet rangé atténué ; le bouton de droite bascule porté / rangé. --}}
   {{#*inline "gwLigneObjet"}}
   <div class="objet-row inventaire-ligne {{#unless ligne.porte}}range{{/unless}} {{#if ligne.cache}}tag-cache{{/if}}"
        data-item-id="{{ligne.id}}" data-action="afficherObjet" role="button" tabindex="0">
-    <button type="button" class="porte-btn {{#if ligne.porte}}actif{{/if}}" data-action="basculerPorteObjet"
-            aria-pressed="{{#if ligne.porte}}true{{else}}false{{/if}}"
-            data-tooltip="{{#if ligne.porte}}{{localize 'GALACTICWARS.Objet.Porte'}} — {{localize 'GALACTICWARS.Objet.Ranger'}}{{else}}{{localize 'GALACTICWARS.Objet.Range'}} — {{localize 'GALACTICWARS.Objet.Porter'}}{{/if}}">
-      <i class="fa-solid {{#if ligne.porte}}fa-hand-fist{{else}}fa-box-archive{{/if}}"></i>
-    </button>
     <img class="objet-img" src="{{ligne.img}}" alt="">
     <div class="objet-corps">
       <span class="objet-nom">{{ligne.name}}</span>
@@ -286,26 +281,16 @@
     <div class="objet-meta">
       {{#if ligne.libelleValeur}}<span class="valeur-libelle">{{localize ligne.libelleValeur}}</span>{{/if}}
       <span class="mono valeur-cle">{{ligne.valeur}}</span>
-      {{#if ligne.attaqueRapide}}
-      <button type="button" class="roll-btn attaque-btn" data-action="attaquerObjet" data-tooltip="{{localize 'GALACTICWARS.Objet.Attaquer'}}">
-        <i class="fa-solid fa-crosshairs"></i>
-      </button>
-      {{/if}}
       {{#if ligne.degatsRapide}}
       <button type="button" class="roll-btn degats-btn" data-action="degatsObjet" data-tooltip="{{localize 'GALACTICWARS.Objet.LancerDegats'}}">
         <i class="fa-solid fa-burst"></i>
       </button>
       {{/if}}
-      {{#if ligne.comlink}}
-      <button type="button" class="roll-btn holonet-btn comlink-btn" data-action="ouvrirComlink" data-tooltip="{{localize 'GALACTICWARS.Comlink.Titre'}}">
-        <i class="fa-solid fa-tower-broadcast"></i>
+      <button type="button" class="porte-btn {{#if ligne.porte}}actif{{/if}}" data-action="basculerPorteObjet"
+              aria-pressed="{{#if ligne.porte}}true{{else}}false{{/if}}"
+              data-tooltip="{{#if ligne.porte}}{{localize 'GALACTICWARS.Objet.Porte'}} — {{localize 'GALACTICWARS.Objet.Ranger'}}{{else}}{{localize 'GALACTICWARS.Objet.Range'}} — {{localize 'GALACTICWARS.Objet.Porter'}}{{/if}}">
+        <i class="fa-solid {{#if ligne.porte}}fa-hand-fist{{else}}fa-box-archive{{/if}}"></i>
       </button>
-      {{/if}}
-      {{#if ligne.datapad}}
-      <button type="button" class="roll-btn holonet-btn" data-action="ouvrirHolonet" data-tooltip="{{localize 'GALACTICWARS.Holonet.Ouvrir'}}">
-        <i class="fa-solid fa-globe"></i>
-      </button>
-      {{/if}}
       {{#if @root.modeEdition}}
       <button type="button" class="roll-btn editer-objet-btn" data-action="ouvrirObjet" data-tooltip="{{localize 'GALACTICWARS.Objet.Modifier'}}">
         <i class="fa-solid fa-pen-to-square"></i>

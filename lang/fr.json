@@ -291,15 +291,18 @@
     },
     "GainNiveau": {
       "Bouton": "Gain de niveau",
-      "BoutonHint": "Gain de niveau : +1 niveau sur trois compétences",
+      "BoutonHint": "Gain de niveau : 3 niveaux de compétence à répartir",
       "Titre": "Gain de niveau",
-      "Texte": "Votre gain de niveau vous permet d'ajouter 1 niveau à {nombre} compétences différentes (niveau {max} au maximum).",
+      "Texte": "Votre gain de niveau vous donne {nombre} niveaux de compétence à répartir : la même compétence peut être choisie plusieurs fois, jusqu'au niveau {max}.",
+      "Option": "niveau {niveau}, {taux} %",
+      "Apercu": "{competence} : niveau {avant} → {apres}, taux {tauxAvant} % → {tauxApres} %",
+      "Depassement": "Une compétence dépasserait le niveau {max} : choisissez-la moins souvent.",
       "Choix": "Compétence {numero}",
       "NiveauPersonnage": "Le niveau du personnage passe de {avant} à {apres}.",
-      "ChoixInvalide": "Choisissez {nombre} compétences différentes.",
+      "ChoixInvalide": "Choisissez les {nombre} niveaux à répartir.",
       "AucuneEligible": "Aucune compétence ne peut gagner de niveau : toutes sont au niveau maximal ou bloquées.",
       "Verrouille": "Modifiable en mode Édition",
-      "Message": "{nom} gagne un niveau (niveau {niveau}) : +1 niveau en {competences}."
+      "Message": "{nom} gagne un niveau (niveau {niveau}) :"
     },
     "Experience": {
       "Bouton": "Gain d'XP",

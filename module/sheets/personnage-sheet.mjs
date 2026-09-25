@@ -43,11 +43,8 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       ouvrirObjet: PersonnageSheet.#onOuvrirObjet,
       afficherObjet: PersonnageSheet.#onAfficherObjet,
       basculerPorteObjet: PersonnageSheet.#onBasculerPorteObjet,
-      attaquerObjet: PersonnageSheet.#onAttaquerObjet,
       degatsObjet: PersonnageSheet.#onDegatsObjet,
-      lancerInitiative: PersonnageSheet.#onLancerInitiative,
-      ouvrirHolonet: PersonnageSheet.#onOuvrirHolonet,
-      ouvrirComlink: PersonnageSheet.#onOuvrirComlink
+      lancerInitiative: PersonnageSheet.#onLancerInitiative
     }
   };
 
@@ -256,9 +253,7 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
         badges,
         valeur,
         // Attaque rapide : arme portée ET dotée d'une compétence (sinon attaquer() refuserait).
-        attaqueRapide: item.type === "arme" && !!system.porte && !!system.competence,
-        datapad: item.type === "equipement" && system.appareil === "datapad",
-        comlink: item.type === "equipement" && system.appareil === "comlink"
+        // Plus d'attaque rapide sur la ligne (demande de l'auteur) : l'attaque passe par la carte de tchat.
       };
     };
     const objets = (type) => this.actor.items.filter((i) => i.type === type).sort(parNom);
@@ -285,7 +280,7 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       // Onglet Combat (demande de l'auteur) : pas de bouton d'attaque sur la ligne (l'attaque passe par la
       // carte de tchat, au clic sur l'arme) ; valeur libellée « Dégâts ».
       armes: context.armes.filter((l) => l.porte)
-        .map((l) => ({ ...l, attaqueRapide: false, degatsRapide: true, libelleValeur: "GALACTICWARS.Objet.Degats" })),
+        .map((l) => ({ ...l, degatsRapide: true, libelleValeur: "GALACTICWARS.Objet.Degats" })),
       armures: context.armures.filter((l) => l.porte),
       reduction,
       competences: GW.competencesCombat
@@ -492,28 +487,6 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     await this.#objetDeLigne(target)?.basculerPorte();
   }
 
-  /** Datapad : ouvre sa fiche directement sur l'onglet Holonet. */
-  static async #onOuvrirHolonet(event, target) {
-    event.stopPropagation();
-    const item = this.#objetDeLigne(target);
-    if (item?.sheet.ouvrirHolonet) await item.sheet.ouvrirHolonet();
-    else item?.sheet.render({ force: true });
-  }
-
-  /** Comlink : ouvre sa fiche directement sur l'onglet Comlink. */
-  static async #onOuvrirComlink(event, target) {
-    event.stopPropagation();
-    const item = this.#objetDeLigne(target);
-    if (item?.sheet.ouvrirComlink) await item.sheet.ouvrirComlink();
-    else item?.sheet.render({ force: true });
-  }
-
-  /** Attaque rapide : même réserve que #onRollCompetence, décrémentée par item.attaquer(). */
-  static async #onAttaquerObjet(event, target) {
-    event.stopPropagation();
-    await this.#objetDeLigne(target)?.attaquer({ pool: this.reserveChoisie() });
-  }
-
   /** Onglet Combat : jet de dégâts de l'arme de la ligne (carte de tchat avec « Appliquer » pour le MJ). */
   static async #onDegatsObjet(event, target) {
     event.stopPropagation();
@@ -606,8 +579,23 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   }
 
   /**
-   * Gain de niveau (mode Édition, demande de l'auteur) : +1 niveau sur trois compétences différentes
-   * (non bloquées, niveau < 3) ; le niveau du personnage gagne aussi 1 (GW.gainNiveauPersonnage).
+   * Taux d'une compétence pour un niveau donné, avec la même règle que PersonnageData#prepareDerivedData
+   * (caractéristique liée = plancher, malus hors métier, plafond) — aperçu du gain de niveau.
+   */
+  #tauxPourNiveau(competence, niveau) {
+    const def = GW.competences[competence.cle];
+    const base = GW.baremeNiveauCompetence[niveau] ?? 0;
+    const carac = this.actor.system.caracteristiques[def?.caracteristique]?.total ?? 0;
+    const malus = def && !competence.acquiseParMetier ? (def.metier ? -30 : -10) : 0;
+    const modulation = base + competence.racial + competence.metier + competence.ajustement + malus;
+    const plafond = GW.plafondCompetence + Math.max(0, competence.racial);
+    return Math.min(plafond, Math.max(0, carac + Math.max(0, modulation)));
+  }
+
+  /**
+   * Gain de niveau (mode Édition, demande de l'auteur) : GW.competencesParNiveau points de niveau à
+   * répartir, la même compétence pouvant être choisie plusieurs fois jusqu'au niveau maximal ; aperçu du
+   * taux avant → après ; le niveau du personnage gagne aussi 1 (GW.gainNiveauPersonnage).
    */
   static async #onGainNiveau() {
     if (!this.actor.isOwner || !this.modeEdition) return;
@@ -615,50 +603,82 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const eligibles = this.actor.system.competences
       .map((c, index) => ({ c, index }))
       .filter(({ c }) => !c.bloquee && c.niveau < max)
-      .map(({ c, index }) => ({ index, label: game.i18n.localize(c.label), niveau: c.niveau }))
-      .sort((a, b) => a.label.localeCompare(b.label, game.i18n.lang));
-    const nombre = Math.min(GW.competencesParNiveau, eligibles.length);
+      .map(({ c, index }) => ({ index, c, label: game.i18n.localize(c.label), niveau: c.niveau, taux: c.total }))
+      .sort((x, y) => x.label.localeCompare(y.label, game.i18n.lang));
+    const capacite = eligibles.reduce((somme, e) => somme + (max - e.niveau), 0);
+    const nombre = Math.min(GW.competencesParNiveau, capacite);
     if (!nombre) return ui.notifications.info(game.i18n.localize("GALACTICWARS.GainNiveau.AucuneEligible"));
 
+    /** Répartition choisie → lignes { e, gain, apres, tauxApres }, ou null si un niveau dépasse le maximum. */
+    const repartition = (indices) => {
+      const compte = new Map();
+      for (const i of indices) compte.set(i, (compte.get(i) ?? 0) + 1);
+      const lignes = [...compte].map(([i, gain]) => {
+        const e = eligibles.find((x) => x.index === i);
+        const apres = e.niveau + gain;
+        return { e, gain, apres, tauxApres: this.#tauxPourNiveau(e.c, Math.min(apres, max)) };
+      });
+      return lignes.some((l) => l.apres > max) ? null : lignes;
+    };
+    const libelleLigne = (l) => game.i18n.format("GALACTICWARS.GainNiveau.Apercu", {
+      competence: foundry.utils.escapeHTML(l.e.label), avant: l.e.niveau, apres: l.apres, tauxAvant: l.e.taux, tauxApres: l.tauxApres
+    });
+
     const options = [`<option value="">—</option>`, ...eligibles.map((e) =>
-      `<option value="${e.index}">${foundry.utils.escapeHTML(e.label)} — ${e.niveau} → ${e.niveau + 1}</option>`)].join("");
+      `<option value="${e.index}">${foundry.utils.escapeHTML(e.label)} — ${game.i18n.format("GALACTICWARS.GainNiveau.Option", { niveau: e.niveau, taux: e.taux })}</option>`)].join("");
     const selects = Array.from({ length: nombre }, (_, i) => `<div class="form-group">
         <label>${game.i18n.format("GALACTICWARS.GainNiveau.Choix", { numero: i + 1 })}</label>
         <select name="competence${i}" ${i === 0 ? "autofocus" : ""}>${options}</select></div>`).join("");
     const content = `<div class="galactic-wars-experience">
       <p>${game.i18n.format("GALACTICWARS.GainNiveau.Texte", { nombre, max })}</p>
       ${selects}
+      <ul class="gain-niveau-apercu"></ul>
       ${GW.gainNiveauPersonnage ? `<p class="hint">${game.i18n.format("GALACTICWARS.GainNiveau.NiveauPersonnage", { avant: this.actor.system.niveau, apres: this.actor.system.niveau + 1 })}</p>` : ""}
     </div>`;
+    const lire = (racine) => Array.from({ length: nombre }, (_, i) => racine.querySelector(`[name="competence${i}"]`)?.value ?? "")
+      .filter((v) => v !== "").map(Number);
     const choix = await foundry.applications.api.DialogV2.wait({
       window: { title: game.i18n.localize("GALACTICWARS.GainNiveau.Titre"), icon: "fa-solid fa-angles-up" },
-      position: { width: 480 },
+      position: { width: 520 },
       content,
+      // Aperçu en direct : niveaux et taux avant → après de chaque compétence choisie.
+      render: (event, dialogue) => {
+        const racine = dialogue.element;
+        const apercu = racine.querySelector(".gain-niveau-apercu");
+        const maj = () => {
+          const lignes = repartition(lire(racine));
+          apercu.innerHTML = lignes
+            ? lignes.map((l) => `<li>${libelleLigne(l)}</li>`).join("")
+            : `<li class="erreur">${game.i18n.format("GALACTICWARS.GainNiveau.Depassement", { max })}</li>`;
+        };
+        racine.addEventListener("change", maj);
+        maj();
+      },
       buttons: [
         { action: "ok", label: game.i18n.localize("GALACTICWARS.Experience.Appliquer"), icon: "fa-solid fa-check", default: true,
-          callback: (event, button) => Array.from({ length: nombre }, (_, i) => button.form.elements[`competence${i}`].value) },
+          callback: (event, button) => lire(button.form) },
         { action: "annuler", label: game.i18n.localize("GALACTICWARS.Experience.Annuler"), icon: "fa-solid fa-xmark" }
       ],
       rejectClose: false
     });
     if (!Array.isArray(choix)) return;
-    const indices = choix.filter((v) => v !== "").map(Number);
-    if (indices.length !== nombre || new Set(indices).size !== nombre) {
-      return ui.notifications.warn(game.i18n.format("GALACTICWARS.GainNiveau.ChoixInvalide", { nombre }));
-    }
+    const lignes = repartition(choix);
+    if (choix.length !== nombre) return ui.notifications.warn(game.i18n.format("GALACTICWARS.GainNiveau.ChoixInvalide", { nombre }));
+    if (!lignes) return ui.notifications.warn(game.i18n.format("GALACTICWARS.GainNiveau.Depassement", { max }));
 
-    // Tableau complet réécrit (jamais un seul index d'ArrayField).
+    // Tableau complet réécrit (jamais un seul index d'ArrayField) ; le taux se recalcule à la préparation.
     const competences = this.actor.system.toObject().competences;
-    for (const i of indices) competences[i].niveau = Math.min(max, competences[i].niveau + 1);
+    for (const l of lignes) competences[l.e.index].niveau = l.apres;
     const updates = { "system.competences": competences };
     if (GW.gainNiveauPersonnage) updates["system.niveau"] = this.actor.system.niveau + 1;
     await this.actor.update(updates);
-    const noms = indices.map((i) => foundry.utils.escapeHTML(eligibles.find((e) => e.index === i).label)).join(", ");
+    // Taux réels après application (prepareDerivedData), pour le message.
+    const bilan = lignes.map((l) => ({ ...l, tauxApres: this.actor.system.competences[l.e.index].total }));
     await ChatMessage.create({
       speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-      content: `<p><i class="fa-solid fa-angles-up"></i> ${game.i18n.format("GALACTICWARS.GainNiveau.Message", {
-        nom: foundry.utils.escapeHTML(this.actor.name), competences: noms, niveau: this.actor.system.niveau
-      })}</p>`
+      content: `<div><i class="fa-solid fa-angles-up"></i> ${game.i18n.format("GALACTICWARS.GainNiveau.Message", {
+        nom: foundry.utils.escapeHTML(this.actor.name), niveau: this.actor.system.niveau
+      })}<ul>${bilan.map((l) => `<li>${libelleLigne(l)}</li>`).join("")}</ul></div>`
     });
   }
 

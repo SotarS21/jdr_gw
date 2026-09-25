@@ -158,5 +158,12 @@ export const RELEASE_NOTES = {
       <li>Niveau du personnage modifiable en mode Édition seulement ; nouveau bouton <strong>Gain de niveau</strong> (mode Édition) : +1 niveau sur trois compétences différentes (niveau 3 au maximum) et +1 au niveau du personnage.</li>
       <li>Le bouton « Gain d'XP » n'apparaît qu'en mode Édition.</li>
     </ul>`
+  },
+  "0.15.4": {
+    title: "v0.15.4",
+    html: `<ul>
+      <li>Gain de niveau : 3 niveaux à répartir, la même compétence pouvant être choisie plusieurs fois (niveau 3 au maximum) ; aperçu du niveau et du taux avant → après, repris dans le message du tchat.</li>
+      <li>Inventaire : bouton Porté / Rangé à droite de chaque ligne ; boutons Attaquer, Comlink et Holonet retirés (un clic sur la ligne ouvre le datapad ou le comlink, l'attaque passe par la carte de tchat de l'arme).</li>
+    </ul>`
   }
 };

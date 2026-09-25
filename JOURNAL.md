@@ -1,5 +1,22 @@
 # Journal de développement — Galactic Wars
 
+## Session du 2026-09-26 (suite) — Gain de niveau répétable, lignes d'inventaire (v0.15.3→v0.15.4)
+
+- **Todo (ajouts de l'auteur)** :
+  - Gain de niveau : même compétence choisissable plusieurs fois jusqu'au niveau 3, taux mis à jour. Fenêtre à 3
+    listes, aperçu en direct (`render` de DialogV2) « niveau a → b, taux x % → y % » calculé par
+    `#tauxPourNiveau` (copie de la règle de `prepareDerivedData`), dépassement du niveau 3 signalé et refusé ;
+    message du tchat avec les taux réels après application. **Constat signalé à l'auteur** : avec la caractéristique
+    en plancher et le malus hors métier (−10 / −30), les premiers niveaux d'une compétence non acquise ne changent
+    pas le taux (Artifice 0 → 2 : 20 % → 20 %) ; règle gardée telle quelle en attendant sa réponse.
+  - Boutons antenne (Comlink) et globe (Holonet) retirés des lignes (le clic sur la ligne les ouvre).
+  - Bouton Attaquer retiré des lignes d'armes ; Porté / Rangé déplacé à droite de **toutes** les lignes (partiel
+    `gwLigneObjet` partagé avec l'onglet Combat — choix par défaut, question posée à l'auteur).
+- Piège : le découpage automatique du code a emporté `#onDegatsObjet` / `#onLancerInitiative` (placés entre les
+  méthodes supprimées) — vu au `node --check`, restaurés.
+- Vérifié sur Kael (restauré) : Artifice ×2 + Bagarre → 0 → 2 (20 → 20 %) et 0 → 1 (30 → 35 %), niveau 3 → 4,
+  dépassement signalé ; ligne = image, nom, valeur, Porté / Rangé, crayon ; bascule sans message dans le tchat.
+
 ## Session du 2026-09-26 — Petits points de la todo (v0.15.2→v0.15.3)
 
 - La todo s'est remplie de 10 points (voir le fichier de l'auteur) ; traités ici les 4 petits (7 à 10) :

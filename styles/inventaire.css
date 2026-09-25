@@ -151,14 +151,6 @@
   color: var(--gw-accent);
 }
 
-.galactic-wars.personnage .attaque-btn {
-  color: var(--gw-coral);
-}
-
-.galactic-wars.personnage .attaque-btn:hover {
-  border-color: var(--gw-coral);
-}
-
 .galactic-wars.personnage .inventaire-vide {
   margin: 0.2rem 0.3rem;
   font-size: 0.72rem;
