@@ -15,9 +15,12 @@
           <i class="fa-solid {{#if modeEdition}}fa-lock-open{{else}}fa-lock{{/if}}"></i>
           {{localize 'GALACTICWARS.Sheet.ModeEdition'}}
         </button>
-        {{#if actor.isOwner}}
+        {{#if (and actor.isOwner modeEdition)}}
         <button type="button" class="btn btn-experience" data-action="gainExperience" data-tooltip="{{localize 'GALACTICWARS.Experience.BoutonHint'}}">
           <i class="fa-solid fa-arrow-trend-up"></i> {{localize 'GALACTICWARS.Experience.Bouton'}}
+        </button>
+        <button type="button" class="btn btn-experience btn-niveau" data-action="gainNiveau" data-tooltip="{{localize 'GALACTICWARS.GainNiveau.BoutonHint'}}">
+          <i class="fa-solid fa-angles-up"></i> {{localize 'GALACTICWARS.GainNiveau.Bouton'}}
         </button>
         {{/if}}
         <input type="text" class="nom-input mono" name="name" value="{{actor.name}}" placeholder="{{localize 'GALACTICWARS.Sheet.Nom'}}">
@@ -30,7 +33,11 @@
       </div>
       <div class="niveau-row">
         <span class="eyebrow">{{localize 'GALACTICWARS.Sheet.Niveau'}}</span>
-        <input type="number" class="mono niveau-input" name="system.niveau" value="{{system.niveau}}">
+        {{#if modeEdition}}
+        <input type="number" class="mono niveau-input" name="system.niveau" value="{{system.niveau}}" min="0">
+        {{else}}
+        <span class="mono niveau-input niveau-perso-lecture" data-tooltip="{{localize 'GALACTICWARS.GainNiveau.Verrouille'}}">{{system.niveau}}</span>
+        {{/if}}
       </div>
     </div>
     {{!-- PV / Force / Crédits dans l'en-tête : accessibles quel que soit l'onglet. (Stress retiré

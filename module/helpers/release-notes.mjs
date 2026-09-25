@@ -149,5 +149,14 @@ export const RELEASE_NOTES = {
     html: `<ul>
       <li>Contacts de départ des métiers (« Connaissance dans la pègre » du Contrebandier, du Pirate, de l'Assassin…, « Contact sur quasiment chaque planète » de l'Agent secret) : ce sont désormais des PNJ alliés de l'onglet Notes → PNJ, et non plus des objets de l'inventaire. Un contact complété par le joueur est conservé au changement de métier. Correctif proposé au MJ pour les fiches existantes.</li>
     </ul>`
+  },
+  "0.15.3": {
+    title: "v0.15.3",
+    html: `<ul>
+      <li>Inventaire : un clic sur la ligne d'un Datapad ou d'un Comlink ouvre sa fiche sur l'onglet Holonet / Comlink (au lieu de l'envoyer dans le tchat ; le clic droit garde « Montrer dans le tchat »).</li>
+      <li>Comlink : cliquer sur l'onglet Comlink ramène à la liste des canaux, même depuis une conversation.</li>
+      <li>Niveau du personnage modifiable en mode Édition seulement ; nouveau bouton <strong>Gain de niveau</strong> (mode Édition) : +1 niveau sur trois compétences différentes (niveau 3 au maximum) et +1 au niveau du personnage.</li>
+      <li>Le bouton « Gain d'XP » n'apparaît qu'en mode Édition.</li>
+    </ul>`
   }
 };

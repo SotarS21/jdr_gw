@@ -39,6 +39,7 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       ajouterTrait: PersonnageSheet.#onAjouterTrait,
       basculerFavori: PersonnageSheet.#onBasculerFavori,
       gainExperience: PersonnageSheet.#onGainExperience,
+      gainNiveau: PersonnageSheet.#onGainNiveau,
       ouvrirObjet: PersonnageSheet.#onOuvrirObjet,
       afficherObjet: PersonnageSheet.#onAfficherObjet,
       basculerPorteObjet: PersonnageSheet.#onBasculerPorteObjet,
@@ -175,7 +176,7 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       ligne.addEventListener("keydown", (e) => {
         if (e.target !== ligne || (e.key !== "Enter" && e.key !== " ")) return;
         e.preventDefault();
-        this.actor.items.get(ligne.dataset.itemId)?.afficherDansTchat();
+        this.#activerObjet(this.actor.items.get(ligne.dataset.itemId));
       });
     }
   }
@@ -469,7 +470,20 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 
   /** Clic sur une ligne d'inventaire : carte de l'objet dans le tchat. */
   static async #onAfficherObjet(event, target) {
-    await this.#objetDeLigne(target)?.afficherDansTchat();
+    await this.#activerObjet(this.#objetDeLigne(target));
+  }
+
+  /**
+   * Action principale d'une ligne d'inventaire : un Datapad ou un Comlink s'ouvre sur son onglet Holonet /
+   * Comlink (bug remonté par l'auteur, ils partaient dans le tchat) ; les autres objets vont dans le tchat
+   * (le menu clic droit garde « Montrer dans le tchat » pour tous).
+   */
+  async #activerObjet(item) {
+    if (!item) return;
+    const appareil = item.type === "equipement" ? item.system.appareil : "";
+    if (appareil === "datapad" && item.sheet.ouvrirHolonet) return item.sheet.ouvrirHolonet();
+    if (appareil === "comlink" && item.sheet.ouvrirComlink) return item.sheet.ouvrirComlink();
+    return item.afficherDansTchat();
   }
 
   static async #onBasculerPorteObjet(event, target) {
@@ -587,6 +601,63 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       content: `<p><i class="fa-solid fa-arrow-trend-up"></i> ${game.i18n.format("GALACTICWARS.Experience.Message", {
         nom: foundry.utils.escapeHTML(this.actor.name), gain: retenue.gain,
         competence: foundry.utils.escapeHTML(retenue.label), avant: retenue.avant, apres: retenue.apres
+      })}</p>`
+    });
+  }
+
+  /**
+   * Gain de niveau (mode Édition, demande de l'auteur) : +1 niveau sur trois compétences différentes
+   * (non bloquées, niveau < 3) ; le niveau du personnage gagne aussi 1 (GW.gainNiveauPersonnage).
+   */
+  static async #onGainNiveau() {
+    if (!this.actor.isOwner || !this.modeEdition) return;
+    const max = GW.niveauMaxCompetence;
+    const eligibles = this.actor.system.competences
+      .map((c, index) => ({ c, index }))
+      .filter(({ c }) => !c.bloquee && c.niveau < max)
+      .map(({ c, index }) => ({ index, label: game.i18n.localize(c.label), niveau: c.niveau }))
+      .sort((a, b) => a.label.localeCompare(b.label, game.i18n.lang));
+    const nombre = Math.min(GW.competencesParNiveau, eligibles.length);
+    if (!nombre) return ui.notifications.info(game.i18n.localize("GALACTICWARS.GainNiveau.AucuneEligible"));
+
+    const options = [`<option value="">—</option>`, ...eligibles.map((e) =>
+      `<option value="${e.index}">${foundry.utils.escapeHTML(e.label)} — ${e.niveau} → ${e.niveau + 1}</option>`)].join("");
+    const selects = Array.from({ length: nombre }, (_, i) => `<div class="form-group">
+        <label>${game.i18n.format("GALACTICWARS.GainNiveau.Choix", { numero: i + 1 })}</label>
+        <select name="competence${i}" ${i === 0 ? "autofocus" : ""}>${options}</select></div>`).join("");
+    const content = `<div class="galactic-wars-experience">
+      <p>${game.i18n.format("GALACTICWARS.GainNiveau.Texte", { nombre, max })}</p>
+      ${selects}
+      ${GW.gainNiveauPersonnage ? `<p class="hint">${game.i18n.format("GALACTICWARS.GainNiveau.NiveauPersonnage", { avant: this.actor.system.niveau, apres: this.actor.system.niveau + 1 })}</p>` : ""}
+    </div>`;
+    const choix = await foundry.applications.api.DialogV2.wait({
+      window: { title: game.i18n.localize("GALACTICWARS.GainNiveau.Titre"), icon: "fa-solid fa-angles-up" },
+      position: { width: 480 },
+      content,
+      buttons: [
+        { action: "ok", label: game.i18n.localize("GALACTICWARS.Experience.Appliquer"), icon: "fa-solid fa-check", default: true,
+          callback: (event, button) => Array.from({ length: nombre }, (_, i) => button.form.elements[`competence${i}`].value) },
+        { action: "annuler", label: game.i18n.localize("GALACTICWARS.Experience.Annuler"), icon: "fa-solid fa-xmark" }
+      ],
+      rejectClose: false
+    });
+    if (!Array.isArray(choix)) return;
+    const indices = choix.filter((v) => v !== "").map(Number);
+    if (indices.length !== nombre || new Set(indices).size !== nombre) {
+      return ui.notifications.warn(game.i18n.format("GALACTICWARS.GainNiveau.ChoixInvalide", { nombre }));
+    }
+
+    // Tableau complet réécrit (jamais un seul index d'ArrayField).
+    const competences = this.actor.system.toObject().competences;
+    for (const i of indices) competences[i].niveau = Math.min(max, competences[i].niveau + 1);
+    const updates = { "system.competences": competences };
+    if (GW.gainNiveauPersonnage) updates["system.niveau"] = this.actor.system.niveau + 1;
+    await this.actor.update(updates);
+    const noms = indices.map((i) => foundry.utils.escapeHTML(eligibles.find((e) => e.index === i).label)).join(", ");
+    await ChatMessage.create({
+      speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+      content: `<p><i class="fa-solid fa-angles-up"></i> ${game.i18n.format("GALACTICWARS.GainNiveau.Message", {
+        nom: foundry.utils.escapeHTML(this.actor.name), competences: noms, niveau: this.actor.system.niveau
       })}</p>`
     });
   }

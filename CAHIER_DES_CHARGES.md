@@ -196,6 +196,7 @@ Voir l'arborescence commentée dans `README.md` (module/config, module/data, mod
 - **PV des fiches rapide / PNJ** : `system.pv.value / max` (10 / 10 par défaut), `GW.cheminPV` étendu — dégâts et soins s'y appliquent.
 - **v0.15.1** : Comlink — `montrerConversation` (bouton dans l'en-tête de la conversation) poste le fil du canal dans le tchat, visibilité comme « Montrer dans le tchat » d'un objet (tag Caché = chuchoté).
 - **v0.15.2** : contacts de départ → PNJ des Notes (`estContactDeDepart` / `pnjDeDepart`, champ `pnjs[].origineMetier` : contact intact remplacé au changement de métier, contact édité par le joueur conservé) ; correctif MJ `0.15.2-contacts-en-pnj`.
+- **v0.15.3** : clic / Entrée sur une ligne Datapad ou Comlink → onglet Holonet / Comlink (`PersonnageSheet#activerObjet`) ; onglet Comlink = retour à la liste ; niveau du personnage en lecture seule hors Édition ; « Gain de niveau » (Édition : +1 niveau sur `GW.competencesParNiveau` = 3 compétences distinctes, max `GW.niveauMaxCompetence` = 3, niveau du personnage +1 si `GW.gainNiveauPersonnage`) ; « Gain d'XP » affiché en Édition seulement.
 
 ### 5.2 Roadmap
 Voir §10.

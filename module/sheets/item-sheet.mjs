@@ -458,6 +458,8 @@ export class GalacticWarsItemSheet extends HandlebarsApplicationMixin(ItemSheetV
 
   static async #onChangerOnglet(event, target) {
     this.#ongletActif = target.dataset.onglet;
+    // Clic sur l'onglet Comlink (même depuis une conversation) : retour à la liste des canaux.
+    if (this.#ongletActif === "comlink") this.#comlink.canal = null;
     this.#ongletChoisi = true;
     this.render();
   }

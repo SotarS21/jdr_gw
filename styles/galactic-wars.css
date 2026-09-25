@@ -1815,3 +1815,14 @@
   color: #fecaca;
   font-weight: 700;
 }
+
+/* Niveau du personnage hors mode Édition : lecture seule. */
+.galactic-wars.personnage .niveau-perso-lecture {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.5rem;
+  padding: 0.1rem 0.4rem;
+  border: 1px dashed var(--gw-border);
+  border-radius: 4px;
+}

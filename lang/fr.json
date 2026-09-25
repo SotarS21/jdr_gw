@@ -289,6 +289,18 @@
       "Activer": "Marquer « {tag} »",
       "Desactiver": "Retirer « {tag} »"
     },
+    "GainNiveau": {
+      "Bouton": "Gain de niveau",
+      "BoutonHint": "Gain de niveau : +1 niveau sur trois compétences",
+      "Titre": "Gain de niveau",
+      "Texte": "Votre gain de niveau vous permet d'ajouter 1 niveau à {nombre} compétences différentes (niveau {max} au maximum).",
+      "Choix": "Compétence {numero}",
+      "NiveauPersonnage": "Le niveau du personnage passe de {avant} à {apres}.",
+      "ChoixInvalide": "Choisissez {nombre} compétences différentes.",
+      "AucuneEligible": "Aucune compétence ne peut gagner de niveau : toutes sont au niveau maximal ou bloquées.",
+      "Verrouille": "Modifiable en mode Édition",
+      "Message": "{nom} gagne un niveau (niveau {niveau}) : +1 niveau en {competences}."
+    },
     "Experience": {
       "Bouton": "Gain d'XP",
       "BoutonHint": "Gain d'expérience : +5 % sur une compétence (maximum 90 %)",

@@ -1,5 +1,21 @@
 # Journal de développement — Galactic Wars
 
+## Session du 2026-09-26 — Petits points de la todo (v0.15.2→v0.15.3)
+
+- La todo s'est remplie de 10 points (voir le fichier de l'auteur) ; traités ici les 4 petits (7 à 10) :
+  - **Clic sur Datapad / Comlink** dans l'inventaire (bug) : `PersonnageSheet#activerObjet` ouvre l'onglet Holonet /
+    Comlink (clic et Entrée) ; les autres objets vont toujours dans le tchat. Vérifié : 0 message pour les deux
+    appareils, 1 pour une arme.
+  - **Onglet Comlink** : `#onChangerOnglet` remet `#comlink.canal` à null → retour à la liste (vérifié).
+  - **Niveaux** : niveau du personnage en lecture seule hors Édition (`.niveau-perso-lecture` — attention, la classe
+    `.niveau-lecture` existe déjà sur les niveaux des lignes de compétence) ; bouton **Gain de niveau** (Édition) :
+    fenêtre à 3 listes, compétences distinctes non bloquées < niveau 3, +1 niveau chacune, tableau complet réécrit,
+    message dans le tchat. **Choix par défaut non confirmé** : le niveau du personnage gagne aussi 1
+    (`GW.gainNiveauPersonnage`). Vérifié : 3 → 4, trois compétences 0 → 1, Kael restauré.
+  - **Gain d'XP** visible en mode Édition seulement.
+- Restent dans la todo : kit de réparation (prix / effet à préciser), lien vers le vaisseau, refonte de la fiche de
+  vaisseau (mockup), images des vaisseaux, bannières des compendiums, acteur « Équipage ».
+
 ## Session du 2026-09-25 (suite 6) — Contacts de départ en PNJ (v0.15.1→v0.15.2)
 
 - **Bug remonté par l'auteur** : le Contrebandier recevait « Connaissance dans la pègre » comme objet d'inventaire ;
