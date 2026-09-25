@@ -23,9 +23,11 @@ import { registerVersionCheckSettings, checkSystemVersionUpdate } from "./helper
 import { registerPackUpdateSettings, checkPendingPackUpdates } from "./helpers/pack-updates.mjs";
 import { enregistrerHooksChatObjet } from "./helpers/chat-objet.mjs";
 import { enregistrerHooksCombat } from "./helpers/combat.mjs";
+import { enregistrerHooksComlink } from "./helpers/comlink.mjs";
 
 enregistrerHooksChatObjet();
 enregistrerHooksCombat();
+enregistrerHooksComlink();
 
 Hooks.once("init", () => {
   console.log("Galactic Wars | Initialisation du système");

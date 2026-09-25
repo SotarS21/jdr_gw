@@ -126,5 +126,14 @@ export const RELEASE_NOTES = {
       <li>Objets de soin : bouton « Utiliser » sur la carte de tchat — Kolto regagne 4 PV, Kolto max 6 PV, Matériel médical tous les PV (champ « Soin » réglable sur tout équipement).</li>
       <li>Équipement de départ : le Couteau devient une Lame (1d4), le Sabre d'entraînement un Sabre d'entraînement jedi.</li>
     </ul>`
+  },
+  "0.15.0": {
+    title: "v0.15.0 — Comlink",
+    html: `<ul>
+      <li>Nouvel onglet <strong>Comlink</strong> sur les comlinks (bouton antenne dans l'inventaire) : canaux numérotés automatiquement, nom du contact, communication active / inactive, numéro modifiable à tout moment (jamais un numéro déjà pris), archivage et affichage des canaux archivés.</li>
+      <li>Messagerie (« comlink ++ », à activer dans la configuration du comlink) : un clic sur un canal ouvre la conversation — messages du MJ à gauche au nom du contact, du joueur à droite au nom du personnage, historique complet dans une zone défilante ; le MJ clique sur un message du joueur pour le marquer « vu ».</li>
+      <li>Alerte privée dans le tchat à chaque nouveau message (au MJ, ou au joueur quand le MJ répond), avec un bouton pour ouvrir le comlink sur le canal.</li>
+      <li>Les équipements nommés « Comlink » sont reconnus comme comlinks (correctif proposé au MJ pour l'existant).</li>
+    </ul>`
   }
 };

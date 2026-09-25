@@ -749,3 +749,212 @@
   scrollbar-width: thin;
   scrollbar-color: var(--gw-muted) transparent;
 }
+
+/* ---- Comlink : canaux et messagerie (templates/item/partiels/comlink.hbs) ---- */
+.galactic-wars.item.objet .onglet-comlink i { color: var(--gw-gold); }
+.galactic-wars.item.objet section.comlink {
+  flex: 1 1 auto;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  color: var(--gw-text);
+  border: 1px solid var(--gw-border);
+  border-radius: 8px;
+  overflow: hidden;
+  background: #0a0c11;
+}
+.galactic-wars.item.objet .comlink-barre {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.5rem;
+  background: var(--gw-panel);
+  border-bottom: 1px solid var(--gw-border);
+}
+.galactic-wars.item.objet .comlink-titre {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
+}
+.galactic-wars.item.objet .comlink-titre > i { color: var(--gw-gold); }
+.galactic-wars.item.objet .comlink-contact {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.galactic-wars.item.objet .comlink-plus {
+  padding: 0 0.35rem;
+  border-radius: 999px;
+  background: var(--gw-gold);
+  color: #1b1405;
+  font-size: 0.7rem;
+  font-weight: 800;
+}
+.galactic-wars.item.objet .comlink-outil {
+  flex: 0 0 26px;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: var(--gw-muted);
+}
+.galactic-wars.item.objet .comlink-outil:hover { color: var(--gw-accent); background: rgba(34, 211, 238, 0.08); }
+.galactic-wars.item.objet .comlink-numero { color: var(--gw-gold); font-weight: 700; }
+.galactic-wars.item.objet .comlink-statut {
+  flex: 0 0 auto;
+  padding: 0 0.45rem;
+  border-radius: 999px;
+  border: 1px solid var(--gw-border);
+  color: var(--gw-dim);
+  font-size: 0.72rem;
+}
+.galactic-wars.item.objet .comlink-statut.actif { color: #4ade80; border-color: rgba(74, 222, 128, 0.5); }
+
+/* Liste des canaux. */
+.galactic-wars.item.objet .comlink-outils {
+  display: flex;
+  gap: 0.4rem;
+  padding: 0.5rem;
+}
+.galactic-wars.item.objet .comlink-outils button {
+  flex: 0 1 auto;
+  width: auto;
+  padding: 0.15rem 0.6rem;
+  line-height: 1.5;
+  font-size: 0.8rem;
+}
+.galactic-wars.item.objet .comlink-canaux {
+  list-style: none;
+  margin: 0;
+  padding: 0 0.5rem 0.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  overflow-y: auto;
+}
+.galactic-wars.item.objet .comlink-canal {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.5rem;
+  border-radius: 6px;
+  background: var(--gw-card);
+  border: 1px solid transparent;
+}
+.galactic-wars.item.objet .comlink-canal .comlink-contact { flex: 1 1 auto; }
+.galactic-wars.item.objet .comlink-canal.ouvrable { cursor: pointer; }
+.galactic-wars.item.objet .comlink-canal.ouvrable:hover,
+.galactic-wars.item.objet .comlink-canal.ouvrable:focus-visible { border-color: var(--gw-accent); outline: none; }
+.galactic-wars.item.objet .comlink-canal.archive { opacity: 0.6; }
+.galactic-wars.item.objet .comlink-compte { color: var(--gw-muted); font-size: 0.75rem; }
+.galactic-wars.item.objet .comlink-archives-titre { margin: 0.4rem 0.5rem 0.2rem; }
+.galactic-wars.item.objet .comlink-vide,
+.galactic-wars.item.objet .comlink-aide {
+  margin: 0.4rem 0.5rem;
+  color: var(--gw-dim);
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+/* Conversation : zone d'environ 10 messages de haut, défilante (choix de l'auteur : tout est gardé). */
+.galactic-wars.item.objet .comlink-fil {
+  flex: 1 1 auto;
+  min-height: 0;
+  max-height: 26rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 0.6rem 0.5rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--gw-muted) transparent;
+}
+.galactic-wars.item.objet .comlink-message {
+  max-width: 78%;
+  padding: 0.35rem 0.6rem 0.3rem;
+  border-radius: 12px;
+  line-height: 1.35;
+}
+.galactic-wars.item.objet .comlink-message.recu {
+  align-self: flex-start;
+  background: var(--gw-card);
+  border: 1px solid var(--gw-border);
+  border-bottom-left-radius: 3px;
+}
+.galactic-wars.item.objet .comlink-message.envoye {
+  align-self: flex-end;
+  background: #0e4a5a;
+  border: 1px solid rgba(34, 211, 238, 0.35);
+  border-bottom-right-radius: 3px;
+}
+.galactic-wars.item.objet .comlink-message[data-action] { cursor: pointer; }
+.galactic-wars.item.objet .comlink-auteur {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--gw-accent-soft);
+}
+.galactic-wars.item.objet .comlink-message.recu .comlink-auteur { color: var(--gw-gold); }
+.galactic-wars.item.objet .comlink-texte {
+  margin: 0.1rem 0 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.galactic-wars.item.objet .comlink-vu {
+  display: block;
+  text-align: right;
+  font-size: 0.68rem;
+  color: var(--gw-muted);
+}
+.galactic-wars.item.objet .comlink-message.vu .comlink-vu { color: #4ade80; }
+.galactic-wars.item.objet .comlink-composer {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-end;
+  gap: 0.4rem;
+  padding: 0.45rem 0.5rem;
+  border-top: 1px solid var(--gw-border);
+  background: var(--gw-panel);
+}
+.galactic-wars.item.objet .comlink-saisie {
+  flex: 1 1 auto;
+  min-height: 2.4rem;
+  max-height: 6rem;
+  resize: vertical;
+  border-radius: 10px;
+}
+.galactic-wars.item.objet .comlink-envoyer {
+  flex: 0 0 34px;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border-radius: 50%;
+  background: var(--gw-accent);
+  color: #06232b;
+  border: none;
+}
+
+/* Alerte « nouveau message » dans le tchat. */
+.gw-alerte-comlink {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+}
+.gw-alerte-comlink button {
+  flex: 0 0 auto;
+  width: auto;
+  margin-left: auto;
+  padding: 0 0.6rem;
+  line-height: 1.6;
+}

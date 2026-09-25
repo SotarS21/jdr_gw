@@ -25,6 +25,21 @@ import { correspondanceDepart, objetDeDepart } from "./objets-depart.mjs";
  */
 export const PACK_UPDATES = [
   {
+    id: "0.15.0-appareil-comlink",
+    cible: "acteurs",
+    version: "0.15.0",
+    label: "Comlinks reconnus (onglet Comlink)",
+    description:
+      "Les équipements nommés « Comlink » (compendium, équipement de départ, objets créés à la main) deviennent des " +
+      "appareils Comlink : leur fiche gagne l'onglet Comlink (canaux, messagerie).",
+    concernes: () => Promise.resolve(comlinksNonReconnus().length),
+    apply: async () => {
+      const liste = comlinksNonReconnus();
+      for (const objet of liste) await objet.update({ "system.appareil": "comlink" });
+      return liste.length;
+    }
+  },
+  {
     id: "0.12.2-images-races",
     cible: "races",
     version: "0.12.2",
@@ -374,6 +389,12 @@ function acteursImagesDivergentes() {
 function datapadsNonReconnus() {
   const objets = [...game.items, ...tousLesActeurs().flatMap((a) => [...a.items])];
   return objets.filter((i) => i.type === "equipement" && !i.system.appareil && appareilSelonNom(i.name) === "datapad");
+}
+
+/** Équipements nommés « Comlink… » sans appareil renseigné. */
+function comlinksNonReconnus() {
+  const objets = [...game.items, ...tousLesActeurs().flatMap((a) => [...a.items])];
+  return objets.filter((i) => i.type === "equipement" && !i.system.appareil && appareilSelonNom(i.name) === "comlink");
 }
 
 /** Copies d'armes sans compétence alors que leur arme du compendium en a désormais une. */

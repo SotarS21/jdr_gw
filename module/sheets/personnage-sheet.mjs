@@ -45,7 +45,8 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       attaquerObjet: PersonnageSheet.#onAttaquerObjet,
       degatsObjet: PersonnageSheet.#onDegatsObjet,
       lancerInitiative: PersonnageSheet.#onLancerInitiative,
-      ouvrirHolonet: PersonnageSheet.#onOuvrirHolonet
+      ouvrirHolonet: PersonnageSheet.#onOuvrirHolonet,
+      ouvrirComlink: PersonnageSheet.#onOuvrirComlink
     }
   };
 
@@ -255,7 +256,8 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
         valeur,
         // Attaque rapide : arme portée ET dotée d'une compétence (sinon attaquer() refuserait).
         attaqueRapide: item.type === "arme" && !!system.porte && !!system.competence,
-        datapad: item.type === "equipement" && system.appareil === "datapad"
+        datapad: item.type === "equipement" && system.appareil === "datapad",
+        comlink: item.type === "equipement" && system.appareil === "comlink"
       };
     };
     const objets = (type) => this.actor.items.filter((i) => i.type === type).sort(parNom);
@@ -481,6 +483,14 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     event.stopPropagation();
     const item = this.#objetDeLigne(target);
     if (item?.sheet.ouvrirHolonet) await item.sheet.ouvrirHolonet();
+    else item?.sheet.render({ force: true });
+  }
+
+  /** Comlink : ouvre sa fiche directement sur l'onglet Comlink. */
+  static async #onOuvrirComlink(event, target) {
+    event.stopPropagation();
+    const item = this.#objetDeLigne(target);
+    if (item?.sheet.ouvrirComlink) await item.sheet.ouvrirComlink();
     else item?.sheet.render({ force: true });
   }
 

@@ -1,5 +1,6 @@
 import { GW } from "../config.mjs";
 import { editerEntreeNote, supprimerEntreeNote } from "../helpers/notes.mjs";
+import * as Comlink from "../helpers/comlink.mjs";
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ItemSheetV2 } = foundry.applications.sheets;
 
@@ -20,7 +21,8 @@ const PARTIELS_OBJET = {
   "gw-objet-onglets": "systems/galactic-wars/templates/item/partiels/objet-onglets.hbs",
   "gw-objet-tags": "systems/galactic-wars/templates/item/partiels/objet-tags.hbs",
   "gw-objet-textes": "systems/galactic-wars/templates/item/partiels/objet-textes.hbs",
-  "gw-holonet": "systems/galactic-wars/templates/item/partiels/holonet.hbs"
+  "gw-holonet": "systems/galactic-wars/templates/item/partiels/holonet.hbs",
+  "gw-comlink": "systems/galactic-wars/templates/item/partiels/comlink.hbs"
 };
 
 export class GalacticWarsItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
@@ -46,7 +48,16 @@ export class GalacticWarsItemSheet extends HandlebarsApplicationMixin(ItemSheetV
       holonetMotCle: GalacticWarsItemSheet.#onHolonetMotCle,
       holonetNouvelle: GalacticWarsItemSheet.#onHolonetNouvelle,
       holonetModifier: GalacticWarsItemSheet.#onHolonetModifier,
-      holonetSupprimer: GalacticWarsItemSheet.#onHolonetSupprimer
+      holonetSupprimer: GalacticWarsItemSheet.#onHolonetSupprimer,
+      comlinkConfigurer: GalacticWarsItemSheet.#onComlinkConfigurer,
+      comlinkNouveauCanal: GalacticWarsItemSheet.#onComlinkNouveauCanal,
+      comlinkModifier: GalacticWarsItemSheet.#onComlinkModifier,
+      comlinkArchiver: GalacticWarsItemSheet.#onComlinkArchiver,
+      comlinkVoirArchives: GalacticWarsItemSheet.#onComlinkVoirArchives,
+      comlinkOuvrirCanal: GalacticWarsItemSheet.#onComlinkOuvrirCanal,
+      comlinkRetour: GalacticWarsItemSheet.#onComlinkRetour,
+      comlinkEnvoyer: GalacticWarsItemSheet.#onComlinkEnvoyer,
+      comlinkVu: GalacticWarsItemSheet.#onComlinkVu
     }
   };
 
@@ -75,11 +86,30 @@ export class GalacticWarsItemSheet extends HandlebarsApplicationMixin(ItemSheetV
    */
   #holonet = { historique: [null], position: 0, recherche: "", motCle: "" };
 
+  /** Comlink : canal ouvert (numéro, null = liste), archives affichées, brouillon du message. */
+  #comlink = { canal: null, voirArchives: false, brouillon: "" };
+
   /** Hook updateActor : l'Holonet se rafraîchit quand les Infos du porteur changent (onglet Notes). */
   #hookActeur = null;
 
   get estDatapad() {
     return this.item.type === "equipement" && this.item.system.appareil === "datapad";
+  }
+
+  get estComlink() {
+    return this.item.type === "equipement" && this.item.system.appareil === "comlink";
+  }
+
+  /** Ouvre la fiche sur l'onglet Comlink, sur le canal `numero` s'il est donné (alertes du tchat). */
+  ouvrirComlink(numero = null) {
+    this.#ongletActif = "comlink";
+    this.#ongletChoisi = true;
+    const canal = this.item.system.comlink?.canaux?.find((c) => c.numero === numero);
+    if (canal) {
+      this.#comlink.canal = numero;
+      if (canal.archive) this.#comlink.voirArchives = true;
+    }
+    return this.render({ force: true });
   }
 
   /** Ouvre (ou ramène au premier plan) la fiche sur l'onglet Holonet — bouton de l'inventaire. */
@@ -156,6 +186,8 @@ export class GalacticWarsItemSheet extends HandlebarsApplicationMixin(ItemSheetV
     if (this.#ongletActif === "notes" && !isGM) this.#ongletActif = "details";
     if (this.estDatapad && item.actor && !this.#ongletChoisi) this.#ongletActif = "holonet";
     if (this.#ongletActif === "holonet" && !this.estDatapad) this.#ongletActif = "details";
+    if (this.estComlink && item.actor && !this.#ongletChoisi) this.#ongletActif = "comlink";
+    if (this.#ongletActif === "comlink" && !this.estComlink) this.#ongletActif = "details";
     const estBouclier = item.type === "armure" && system.emplacement === "bouclier";
     const context = {
       isGM,
@@ -180,6 +212,8 @@ export class GalacticWarsItemSheet extends HandlebarsApplicationMixin(ItemSheetV
       ];
       context.estDatapad = this.estDatapad;
       if (this.estDatapad && this.#ongletActif === "holonet") context.holonet = await this.#preparerHolonet();
+      context.estComlink = this.estComlink;
+      if (this.estComlink && this.#ongletActif === "comlink") context.comlink = this.#preparerComlink();
     }
     return context;
   }
@@ -291,6 +325,40 @@ export class GalacticWarsItemSheet extends HandlebarsApplicationMixin(ItemSheetV
     };
   }
 
+  /** Comlink : liste des canaux (archives à part) ou conversation du canal ouvert. */
+  #preparerComlink() {
+    const system = this.item.system;
+    const c = this.#comlink;
+    const canaux = (system.comlink?.canaux ?? []).map((canal, index) => ({ ...canal, index }));
+    const messagerie = !!system.comlink?.messagerie;
+    const base = {
+      editable: this.item.isOwner,
+      isGM: game.user.isGM,
+      messagerie,
+      porteur: this.item.actor?.name ?? "",
+      voirArchives: c.voirArchives,
+      nbArchives: canaux.filter((k) => k.archive).length
+    };
+    const ouvert = messagerie && c.canal !== null ? canaux.find((k) => k.numero === c.canal) : null;
+    if (!ouvert) c.canal = null;
+    if (ouvert) {
+      return {
+        ...base,
+        canal: {
+          ...ouvert,
+          messages: ouvert.messages.map((m, indexMessage) => ({ ...m, indexMessage, mj: m.auteur === "mj" }))
+        },
+        brouillon: c.brouillon
+      };
+    }
+    const tri = (a, b) => a.numero - b.numero;
+    return {
+      ...base,
+      actifs: canaux.filter((k) => !k.archive).sort(tri),
+      archives: c.voirArchives ? canaux.filter((k) => k.archive).sort(tri) : []
+    };
+  }
+
   /** Navigue vers une page (null = accueil) en tronquant l'historique « suivant ». */
   #naviguer(page) {
     const h = this.#holonet;
@@ -305,6 +373,7 @@ export class GalacticWarsItemSheet extends HandlebarsApplicationMixin(ItemSheetV
   /** @override */
   _onRender(context, options) {
     super._onRender(context, options);
+    this.#activerComlink();
     // Recherche de l'accueil : filtrage direct dans le DOM (pas de re-rendu : le focus reste dans le champ).
     const champ = this.element.querySelector(".holonet-recherche");
     if (!champ) return;
@@ -324,6 +393,34 @@ export class GalacticWarsItemSheet extends HandlebarsApplicationMixin(ItemSheetV
     // Entrée ne doit pas soumettre le formulaire de la fiche.
     champ.addEventListener("keydown", (e) => { if (e.key === "Enter") e.preventDefault(); });
     filtrer();
+  }
+
+  /** Conversation : défilement en bas, brouillon conservé, Entrée = envoyer (Maj+Entrée = retour à la ligne). */
+  #activerComlink() {
+    const fil = this.element.querySelector(".comlink-fil");
+    if (fil) fil.scrollTop = fil.scrollHeight;
+    const saisie = this.element.querySelector(".comlink-saisie");
+    if (!saisie) return;
+    saisie.addEventListener("input", () => { this.#comlink.brouillon = saisie.value; });
+    saisie.addEventListener("keydown", (e) => {
+      if (e.key !== "Enter" || e.shiftKey) return;
+      e.preventDefault();
+      this.#envoyerComlink();
+    });
+    if (this.#comlink.brouillon) {
+      saisie.focus();
+      saisie.setSelectionRange(saisie.value.length, saisie.value.length);
+    }
+  }
+
+  async #envoyerComlink() {
+    const saisie = this.element.querySelector(".comlink-saisie");
+    const canal = this.item.system.comlink?.canaux?.findIndex((k) => k.numero === this.#comlink.canal) ?? -1;
+    if (!saisie || canal < 0 || !saisie.value.trim()) return;
+    const texte = saisie.value;
+    this.#comlink.brouillon = "";
+    saisie.value = "";
+    await Comlink.envoyerMessage(this.item, canal, texte);
   }
 
   /** @override */
@@ -429,5 +526,65 @@ export class GalacticWarsItemSheet extends HandlebarsApplicationMixin(ItemSheetV
     const actor = this.item.actor;
     if (!actor?.isOwner) return;
     await supprimerEntreeNote(actor, "info", Number(target.closest("[data-index]").dataset.index));
+  }
+
+  /* ---- Comlink ---- */
+
+  /** Index (dans system.comlink.canaux) de la ligne / du canal ciblé. */
+  static #indexCanal(target) {
+    return Number(target.closest("[data-index]")?.dataset.index);
+  }
+
+  static async #onComlinkConfigurer() {
+    if (this.item.isOwner) await Comlink.configurerComlink(this.item);
+  }
+
+  static async #onComlinkNouveauCanal() {
+    if (!this.item.isOwner) return;
+    const index = await Comlink.ajouterCanal(this.item);
+    await Comlink.modifierCanal(this.item, index);
+  }
+
+  static async #onComlinkModifier(event, target) {
+    event.stopPropagation();
+    if (this.item.isOwner) await Comlink.modifierCanal(this.item, GalacticWarsItemSheet.#indexCanal(target));
+  }
+
+  static async #onComlinkArchiver(event, target) {
+    event.stopPropagation();
+    if (!this.item.isOwner) return;
+    await Comlink.archiverCanal(this.item, GalacticWarsItemSheet.#indexCanal(target), target.dataset.archive === "true");
+  }
+
+  static #onComlinkVoirArchives() {
+    this.#comlink.voirArchives = !this.#comlink.voirArchives;
+    return this.render();
+  }
+
+  /** Clic sur un canal : conversation, si la messagerie est activée (comlink ++). */
+  static #onComlinkOuvrirCanal(event, target) {
+    if (!this.item.system.comlink?.messagerie) return;
+    const canal = this.item.system.comlink.canaux[GalacticWarsItemSheet.#indexCanal(target)];
+    if (!canal) return;
+    this.#comlink.canal = canal.numero;
+    this.#comlink.brouillon = "";
+    return this.render();
+  }
+
+  static #onComlinkRetour() {
+    this.#comlink.canal = null;
+    return this.render();
+  }
+
+  static async #onComlinkEnvoyer() {
+    await this.#envoyerComlink();
+  }
+
+  /** MJ : clic sur un message du joueur = marque « vu » (second clic = retrait). */
+  static async #onComlinkVu(event, target) {
+    if (!game.user.isGM) return;
+    const canal = this.item.system.comlink?.canaux?.findIndex((k) => k.numero === this.#comlink.canal) ?? -1;
+    if (canal < 0) return;
+    await Comlink.basculerVu(this.item, canal, Number(target.closest("[data-message]").dataset.message));
   }
 }

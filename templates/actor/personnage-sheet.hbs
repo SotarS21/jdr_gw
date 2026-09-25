@@ -289,6 +289,11 @@
         <i class="fa-solid fa-burst"></i>
       </button>
       {{/if}}
+      {{#if ligne.comlink}}
+      <button type="button" class="roll-btn holonet-btn comlink-btn" data-action="ouvrirComlink" data-tooltip="{{localize 'GALACTICWARS.Comlink.Titre'}}">
+        <i class="fa-solid fa-tower-broadcast"></i>
+      </button>
+      {{/if}}
       {{#if ligne.datapad}}
       <button type="button" class="roll-btn holonet-btn" data-action="ouvrirHolonet" data-tooltip="{{localize 'GALACTICWARS.Holonet.Ouvrir'}}">
         <i class="fa-solid fa-globe"></i>

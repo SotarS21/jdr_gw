@@ -1,0 +1,89 @@
+{{!-- Comlink : canaux numérotés (helpers/comlink.mjs) et, si la messagerie est activée (comlink ++),
+      conversation du canal ouvert — MJ à gauche (au nom du contact), PJ à droite (au nom du porteur). --}}
+<section class="comlink">
+  <header class="comlink-barre">
+    {{#if comlink.canal}}
+    <button type="button" class="comlink-outil" data-action="comlinkRetour" data-tooltip="{{localize 'GALACTICWARS.Comlink.Retour'}}"><i class="fa-solid fa-arrow-left"></i></button>
+    <div class="comlink-titre">
+      <span class="comlink-numero mono">#{{comlink.canal.numero}}</span>
+      <span class="comlink-contact">{{#if comlink.canal.nom}}{{comlink.canal.nom}}{{else}}{{localize 'GALACTICWARS.Comlink.ContactInconnu'}}{{/if}}</span>
+      <span class="comlink-statut {{#if comlink.canal.actif}}actif{{/if}}">{{#if comlink.canal.actif}}{{localize 'GALACTICWARS.Comlink.Actif'}}{{else}}{{localize 'GALACTICWARS.Comlink.Inactif'}}{{/if}}</span>
+    </div>
+    {{#if comlink.editable}}
+    <button type="button" class="comlink-outil" data-action="comlinkModifier" data-index="{{comlink.canal.index}}" data-tooltip="{{localize 'GALACTICWARS.Comlink.ModifierCanal'}}"><i class="fa-solid fa-pen"></i></button>
+    {{/if}}
+    {{else}}
+    <div class="comlink-titre">
+      <i class="fa-solid fa-tower-broadcast"></i>
+      <span>{{localize 'GALACTICWARS.Comlink.Titre'}}{{#if comlink.porteur}} — {{comlink.porteur}}{{/if}}</span>
+      {{#if comlink.messagerie}}<span class="comlink-plus" data-tooltip="{{localize 'GALACTICWARS.Comlink.MessagerieActive'}}">++</span>{{/if}}
+    </div>
+    {{#if comlink.editable}}
+    <button type="button" class="comlink-outil" data-action="comlinkConfigurer" data-tooltip="{{localize 'GALACTICWARS.Comlink.ConfigTitre'}}"><i class="fa-solid fa-gear"></i></button>
+    {{/if}}
+    {{/if}}
+  </header>
+
+  {{#if comlink.canal}}
+  {{!-- Conversation --}}
+  <div class="comlink-fil" role="log" aria-live="polite">
+    {{#each comlink.canal.messages as |m|}}
+    <div class="comlink-message {{#if m.mj}}recu{{else}}envoye{{/if}} {{#if m.vu}}vu{{/if}}" data-message="{{m.indexMessage}}"
+         {{#if (and @root.comlink.isGM (not m.mj))}}data-action="comlinkVu" role="button" tabindex="0" data-tooltip="{{localize 'GALACTICWARS.Comlink.MarquerVu'}}"{{/if}}>
+      <span class="comlink-auteur">{{m.nom}}</span>
+      <p class="comlink-texte">{{m.texte}}</p>
+      {{#unless m.mj}}<span class="comlink-vu">{{#if m.vu}}<i class="fa-solid fa-check-double"></i> {{localize 'GALACTICWARS.Comlink.Vu'}}{{else}}<i class="fa-solid fa-check"></i>{{/if}}</span>{{/unless}}
+    </div>
+    {{else}}
+    <p class="comlink-vide">{{localize 'GALACTICWARS.Comlink.AucunMessage'}}</p>
+    {{/each}}
+  </div>
+  {{#if (or comlink.editable comlink.isGM)}}
+  <div class="comlink-composer">
+    <textarea class="comlink-saisie" rows="2" placeholder="{{#if comlink.isGM}}{{localize 'GALACTICWARS.Comlink.EcrireMJ'}}{{else}}{{localize 'GALACTICWARS.Comlink.Ecrire'}}{{/if}}">{{comlink.brouillon}}</textarea>
+    <button type="button" class="comlink-envoyer" data-action="comlinkEnvoyer" data-tooltip="{{localize 'GALACTICWARS.Comlink.Envoyer'}}"><i class="fa-solid fa-paper-plane"></i></button>
+  </div>
+  {{/if}}
+
+  {{else}}
+  {{!-- Liste des canaux --}}
+  <div class="comlink-outils">
+    {{#if comlink.editable}}
+    <button type="button" data-action="comlinkNouveauCanal"><i class="fa-solid fa-plus"></i> {{localize 'GALACTICWARS.Comlink.NouveauCanal'}}</button>
+    {{/if}}
+    <button type="button" data-action="comlinkVoirArchives" {{#unless comlink.nbArchives}}disabled{{/unless}}>
+      <i class="fa-solid {{#if comlink.voirArchives}}fa-eye-slash{{else}}fa-box-archive{{/if}}"></i>
+      {{#if comlink.voirArchives}}{{localize 'GALACTICWARS.Comlink.CacherArchives'}}{{else}}{{localize 'GALACTICWARS.Comlink.VoirArchives'}}{{/if}} ({{comlink.nbArchives}})
+    </button>
+  </div>
+
+  {{#*inline "gwCanal"}}
+  <li class="comlink-canal {{#if canal.archive}}archive{{/if}} {{#if @root.comlink.messagerie}}ouvrable{{/if}}" data-index="{{canal.index}}"
+      {{#if @root.comlink.messagerie}}data-action="comlinkOuvrirCanal" role="button" tabindex="0"{{/if}}>
+    <span class="comlink-numero mono">#{{canal.numero}}</span>
+    <span class="comlink-contact">{{#if canal.nom}}{{canal.nom}}{{else}}{{localize 'GALACTICWARS.Comlink.ContactInconnu'}}{{/if}}</span>
+    {{#if (and @root.comlink.messagerie canal.messages.length)}}<span class="comlink-compte mono" data-tooltip="{{localize 'GALACTICWARS.Comlink.Messages'}}"><i class="fa-regular fa-comment"></i> {{canal.messages.length}}</span>{{/if}}
+    <span class="comlink-statut {{#if canal.actif}}actif{{/if}}">{{#if canal.actif}}{{localize 'GALACTICWARS.Comlink.Actif'}}{{else}}{{localize 'GALACTICWARS.Comlink.Inactif'}}{{/if}}</span>
+    {{#if @root.comlink.editable}}
+    <button type="button" class="comlink-outil" data-action="comlinkModifier" data-tooltip="{{localize 'GALACTICWARS.Comlink.ModifierCanal'}}"><i class="fa-solid fa-pen"></i></button>
+    {{#if canal.archive}}
+    <button type="button" class="comlink-outil" data-action="comlinkArchiver" data-archive="false" data-tooltip="{{localize 'GALACTICWARS.Comlink.Desarchiver'}}"><i class="fa-solid fa-box-open"></i></button>
+    {{else}}
+    <button type="button" class="comlink-outil" data-action="comlinkArchiver" data-archive="true" data-tooltip="{{localize 'GALACTICWARS.Comlink.Archiver'}}"><i class="fa-solid fa-box-archive"></i></button>
+    {{/if}}
+    {{/if}}
+  </li>
+  {{/inline}}
+
+  <ul class="comlink-canaux">
+    {{#each comlink.actifs as |canal|}}{{> gwCanal canal=canal}}{{else}}<li class="comlink-vide">{{localize 'GALACTICWARS.Comlink.AucunCanal'}}</li>{{/each}}
+  </ul>
+  {{#if comlink.archives.length}}
+  <h3 class="eyebrow comlink-archives-titre"><i class="fa-solid fa-box-archive"></i> {{localize 'GALACTICWARS.Comlink.Archives'}}</h3>
+  <ul class="comlink-canaux">
+    {{#each comlink.archives as |canal|}}{{> gwCanal canal=canal}}{{/each}}
+  </ul>
+  {{/if}}
+  {{#unless comlink.messagerie}}<p class="comlink-aide">{{localize 'GALACTICWARS.Comlink.SansMessagerie'}}</p>{{/unless}}
+  {{/if}}
+</section>

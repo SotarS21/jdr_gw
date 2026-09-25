@@ -1,5 +1,23 @@
 # Journal de développement — Galactic Wars
 
+## Session du 2026-09-25 (suite 4) — Comlink : canaux et messagerie (v0.14.2→v0.15.0)
+
+- Dernier point de la todo. **Choix de l'auteur** : historique complet dans une zone ≈ 10 messages de haut (rien
+  n'est supprimé) ; alerte chuchotée au destinataire (MJ, ou propriétaires du porteur) ; « comlink ++ » = option
+  Messagerie on / off du comlink (pas un objet à part).
+- Données `system.comlink` (EquipementData) ; `helpers/comlink.mjs` : `ajouterCanal` (numéro = max + 1, archives
+  comprises), `modifierCanal` (DialogV2 : numéro, contact, actif ; numéro pris ou invalide refusé),
+  `archiverCanal`, `configurerComlink`, `envoyerMessage` (MJ au nom du contact, PJ au nom du porteur), `basculerVu`
+  (MJ, messages du PJ), alerte + bouton « Ouvrir » (`ouvrirComlink(numero)` de la fiche).
+- Fiche d'objet : onglet Comlink (ouvert par défaut pour un comlink porté par un personnage, comme l'Holonet), liste
+  des canaux / conversation, brouillon conservé entre deux rendus, Entrée = envoyer, défilement en bas. Bouton antenne
+  sur la ligne d'inventaire.
+- Trouvé en testant : le « Comlink » du compendium et celui de Kael n'avaient pas d'appareil → compendium corrigé +
+  correctif `0.15.0-appareil-comlink` (appliqué au monde de test : 2 objets).
+- Vérifié (Kael, remis à vide ensuite) : numéros 1-2-3 puis 4 après archivage du 3, numéro pris refusé, archives
+  masquées, bulles gauche / droite, « vu », saisie présente. Non testé en réel : l'alerte côté joueur (pas de compte
+  joueur de test propriétaire de Kael).
+
 ## Session du 2026-09-25 (suite 3) — Catalogue économique : prix et armes (v0.14.1→v0.14.2)
 
 - Classeur `[GW]  Science économique.xlsx` lu sans Python (xlsx dézippé, sharedStrings + sheet1 parsés en Node).

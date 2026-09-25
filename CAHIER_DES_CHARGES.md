@@ -190,6 +190,9 @@ Voir l'arborescence commentée dans `README.md` (module/config, module/data, mod
 - **v0.14.1** : équipement de départ des métiers typé (`helpers/objets-depart.mjs`, table de correspondances ligne → arme / armure du compendium, dés et bonus de la ligne prioritaires) ; correctifs MJ `0.14.1-armes-depart` (tokens non liés : objet hérité de la base mis à jour, pas dupliqué) et `0.14.1-visuels-par-nom` ; image cliquable sur la fiche d'objet générique.
 - **v0.14.2** : catalogue « [GW] Science économique.xlsx » transcrit (70 armes / améliorations, 3 équipements ; véhicules et vaisseaux déjà présents dans le compendium Vaisseaux) ; chaque objet cite sa ligne du classeur en description ; améliorations = objets distincts « <arme> (amélioration N) » ; doublons du classeur (Lance-flamme l. 49-50, Hache électrique l. 40) transcrits une fois ; correctif MJ `0.14.2-prix-catalogue`.
 
+### 5.1octodecies Ajoutées (v0.15.0, session du 2026-09-25)
+- **Comlink** : `system.comlink` des équipements (`messagerie`, `canaux[]` : numéro unique, contact, actif, archivé, `messages[]` : auteur pj / mj, nom, texte, vu), onglet de la fiche d'objet (`templates/item/partiels/comlink.hbs`, logique `helpers/comlink.mjs`, tableau toujours réécrit en entier). Messagerie = « comlink ++ » (option on / off) ; historique complet, zone ≈ 10 messages défilante ; alertes chuchotées avec bouton d'ouverture ; correctif MJ `0.15.0-appareil-comlink`.
+
 ### 5.2 Roadmap
 Voir §10.
 

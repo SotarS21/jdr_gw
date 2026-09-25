@@ -7,7 +7,8 @@
   "system": {
     "quantite": 1,
     "prix": "150c",
-    "description": "<p>Communicateur portable.</p>"
+    "description": "<p>Communicateur portable.</p>",
+    "appareil": "comlink"
   },
   "folder": null,
   "sort": 100000,

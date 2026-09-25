@@ -1,10 +1,13 @@
 {{!-- Onglets des fiches d'objet — état gardé sur l'instance de fiche (#ongletActif).
-      Ordre (demande de l'auteur) : Description, Détails toujours en deuxième, puis Holonet (datapad) et Notes MJ. --}}
+      Ordre (demande de l'auteur) : Description, Détails toujours en deuxième, puis Holonet (datapad) / Comlink et Notes MJ. --}}
 <nav class="onglets objet-onglets">
   <button type="button" class="onglet-btn {{#if (eq ongletActif 'description')}}active{{/if}}" data-action="changerOnglet" data-onglet="description">{{localize 'GALACTICWARS.Objet.Description'}}</button>
   <button type="button" class="onglet-btn {{#if (eq ongletActif 'details')}}active{{/if}}" data-action="changerOnglet" data-onglet="details">{{localize 'GALACTICWARS.Objet.Details'}}</button>
   {{#if estDatapad}}
   <button type="button" class="onglet-btn onglet-holonet {{#if (eq ongletActif 'holonet')}}active{{/if}}" data-action="changerOnglet" data-onglet="holonet"><i class="fa-solid fa-globe"></i> {{localize 'GALACTICWARS.Holonet.Onglet'}}</button>
+  {{/if}}
+  {{#if estComlink}}
+  <button type="button" class="onglet-btn onglet-comlink {{#if (eq ongletActif 'comlink')}}active{{/if}}" data-action="changerOnglet" data-onglet="comlink"><i class="fa-solid fa-tower-broadcast"></i> {{localize 'GALACTICWARS.Comlink.Onglet'}}</button>
   {{/if}}
   {{#if isGM}}
   <button type="button" class="onglet-btn onglet-mj {{#if (eq ongletActif 'notes')}}active{{/if}}" data-action="changerOnglet" data-onglet="notes"><i class="fa-solid fa-user-secret"></i> {{localize 'GALACTICWARS.Objet.NotesMJ'}}</button>
