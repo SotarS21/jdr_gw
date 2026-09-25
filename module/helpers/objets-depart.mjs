@@ -27,6 +27,26 @@ const CORRESPONDANCES = [
   { motif: /^blindage suppl[ée]mentaire/, pack: "armures", modele: "Armure lourde" }
 ];
 
+/**
+ * Lignes d'équipement de départ qui sont en fait des contacts (bug remonté par l'auteur, 2026-09-25 :
+ * « Connaissance dans la pègre » du Contrebandier doit être un PNJ de l'onglet Notes, pas un objet).
+ */
+export function estContactDeDepart(nom) {
+  return /^(connaissances?\s+dans\s+la\s+p[èe]gre|contacts?\s+sur\s)/i.test(String(nom ?? "").trim());
+}
+
+/** Entrée de PNJ (onglet Notes → PNJ) pour un contact de départ. */
+export function pnjDeDepart(nom, metierNom) {
+  return {
+    nom: String(nom).trim(),
+    sousTitre: game.i18n.format("GALACTICWARS.Notes.ContactDeDepart", { metier: metierNom }),
+    img: "",
+    description: `<p>${game.i18n.format("GALACTICWARS.Notes.ContactDeDepartDescription", { metier: foundry.utils.escapeHTML(metierNom) })}</p>`,
+    statut: "allie",
+    origineMetier: metierNom
+  };
+}
+
 /** Correspondance d'une ligne d'équipement, ou null. */
 export function correspondanceDepart(nom) {
   const n = String(nom ?? "").trim().toLowerCase();

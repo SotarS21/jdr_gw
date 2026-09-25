@@ -3,7 +3,7 @@ import { appareilSelonNom, IMAGES_APPAREILS, IMAGES_GENERIQUES } from "./apparei
 import { fichesIncompletes, completerToutesLesFiches } from "./migration.mjs";
 import { GalacticWarsActor } from "../documents/actor.mjs";
 import { competencesSelonMetier } from "./metier.mjs";
-import { correspondanceDepart, objetDeDepart } from "./objets-depart.mjs";
+import { correspondanceDepart, objetDeDepart, estContactDeDepart, pnjDeDepart } from "./objets-depart.mjs";
 
 /**
  * Registre des correctifs de contenu proposés au MJ après une mise à jour (sur le modèle
@@ -25,6 +25,38 @@ import { correspondanceDepart, objetDeDepart } from "./objets-depart.mjs";
  * - `apply()`     → applique le correctif, renvoie le nombre de documents modifiés.
  */
 export const PACK_UPDATES = [
+  {
+    id: "0.15.2-contacts-en-pnj",
+    cible: "acteurs",
+    version: "0.15.2",
+    label: "Contacts de départ déplacés dans les PNJ (onglet Notes)",
+    description:
+      "« Connaissance dans la pègre » (Contrebandier, Pirate, Assassin…) et « Contact sur quasiment chaque planète » " +
+      "(Agent secret) étaient des objets de l'inventaire. Ils deviennent des PNJ alliés de l'onglet Notes → PNJ " +
+      "(fiche classique), et l'objet est retiré.",
+    concernes: () => Promise.resolve(contactsEnObjet().length),
+    apply: async () => {
+      const liste = contactsEnObjet();
+      const parActeur = new Map();
+      for (const objet of liste) {
+        if (!parActeur.has(objet.parent)) parActeur.set(objet.parent, []);
+        parActeur.get(objet.parent).push(objet);
+      }
+      for (const [acteur, objets] of parActeur) {
+        const metier = acteur.system.metier?.nom || game.i18n.localize("GALACTICWARS.Sheet.Metier");
+        const pnjs = acteur.system.toObject().pnjs;
+        const noms = new Set(pnjs.map((p) => p.nom.trim().toLowerCase()));
+        for (const objet of objets) {
+          if (!noms.has(objet.name.trim().toLowerCase())) pnjs.push(pnjDeDepart(objet.name, metier));
+        }
+        await acteur.update({ "system.pnjs": pnjs });
+        // Token non lié : un objet hérité de l'acteur de base n'est pas supprimable ici (la base s'en charge).
+        const propres = objets.filter((o) => acteur.items.has(o.id)).map((o) => o.id);
+        await acteur.deleteEmbeddedDocuments("Item", propres).catch(() => null);
+      }
+      return liste.length;
+    }
+  },
   {
     id: "0.15.0-etat-inconscient",
     cible: "acteurs",
@@ -405,6 +437,14 @@ function acteursImagesDivergentes() {
 function datapadsNonReconnus() {
   const objets = [...game.items, ...tousLesActeurs().flatMap((a) => [...a.items])];
   return objets.filter((i) => i.type === "equipement" && !i.system.appareil && appareilSelonNom(i.name) === "datapad");
+}
+
+/** Objets « Connaissance dans la pègre »… portés par des personnages qui ont un onglet Notes. */
+function contactsEnObjet() {
+  return tousLesActeurs()
+    .filter((a) => Array.isArray(a.system.pnjs))
+    .flatMap((a) => [...a.items])
+    .filter((i) => i.type === "equipement" && estContactDeDepart(i.name));
 }
 
 /** Acteurs (monde + tokens non liés) dont l'état Inconscient ne correspond pas à leurs PV. */

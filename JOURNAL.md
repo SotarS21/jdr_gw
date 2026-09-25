@@ -1,5 +1,19 @@
 # Journal de développement — Galactic Wars
 
+## Session du 2026-09-25 (suite 6) — Contacts de départ en PNJ (v0.15.1→v0.15.2)
+
+- **Bug remonté par l'auteur** : le Contrebandier recevait « Connaissance dans la pègre » comme objet d'inventaire ;
+  ce doit être un PNJ de l'onglet Notes. Même cas : Assassin, Chasseur de primes, Mandalorien soldat, Pirate,
+  Voleur (« … pègre locale ») et, par extension (même nature), « Contact sur quasiment chaque planète » (Agent secret).
+- `objets-depart.mjs` : `estContactDeDepart`, `pnjDeDepart` (PNJ allié, sous-titre « Contact de départ — <métier> »,
+  `origineMetier`). `applyMetier` : sur la fiche classique (qui a des Notes) ces lignes deviennent des PNJ ; les
+  contacts de départ encore intacts de l'ancien métier sont remplacés. La fenêtre d'édition des Notes réécrit l'entrée
+  sans `origineMetier` : un contact complété par le joueur lui appartient et survit au changement de métier (vérifié).
+  Autres fiches (rapide / PNJ, sans Notes) : la ligne reste un équipement.
+- Correctif `0.15.2-contacts-en-pnj` appliqué au monde de test (Kael, son token, token Gueran Cell : objet retiré,
+  PNJ ajouté ; tokens non liés sans doublon).
+- **Ajout de l'auteur à la todo** : « Kit de réparation » (mécanique) avec description dans le compendium Équipements.
+
 ## Session du 2026-09-25 (suite 5) — Reprise, conversation du comlink dans le tchat (v0.15.0→v0.15.1)
 
 - Foundry redémarré sur la v0.15.0 (accord de l'auteur) : « Comlink » du compendium reconnu (appareil comlink),

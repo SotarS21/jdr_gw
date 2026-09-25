@@ -143,5 +143,11 @@ export const RELEASE_NOTES = {
     html: `<ul>
       <li>Comlink : bouton « Montrer la conversation dans le tchat » dans la conversation d'un canal (mêmes bulles : contact à gauche, personnage à droite, « vu ») ; publique, ou chuchotée au MJ si le comlink est « Caché ».</li>
     </ul>`
+  },
+  "0.15.2": {
+    title: "v0.15.2",
+    html: `<ul>
+      <li>Contacts de départ des métiers (« Connaissance dans la pègre » du Contrebandier, du Pirate, de l'Assassin…, « Contact sur quasiment chaque planète » de l'Agent secret) : ce sont désormais des PNJ alliés de l'onglet Notes → PNJ, et non plus des objets de l'inventaire. Un contact complété par le joueur est conservé au changement de métier. Correctif proposé au MJ pour les fiches existantes.</li>
+    </ul>`
   }
 };

@@ -427,6 +427,8 @@
       "DejaPresent": "{nom} est déjà dans les traits du personnage."
     },
     "Notes": {
+      "ContactDeDepart": "Contact de départ — {metier}",
+      "ContactDeDepartDescription": "Contact accordé par le métier {metier} (équipement de départ).",
       "Resume": "Résumé",
       "Resumes": "Résumés",
       "AucunResume": "Aucun résumé pour l'instant.",

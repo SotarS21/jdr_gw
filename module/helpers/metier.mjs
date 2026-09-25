@@ -1,4 +1,4 @@
-import { objetDeDepart } from "./objets-depart.mjs";
+import { objetDeDepart, estContactDeDepart, pnjDeDepart } from "./objets-depart.mjs";
 import { GW } from "../config.mjs";
 
 /**
@@ -25,8 +25,12 @@ export async function applyMetier(actor, metierItem) {
     );
   }
 
-  // Armes et armures reconnues : copies typées du compendium (helpers/objets-depart.mjs).
-  const nouveauxObjets = await Promise.all(metierItem.system.equipement.map((e) => objetDeDepart(e)));
+  // Contacts (« Connaissance dans la pègre »…) : PNJ de l'onglet Notes sur la fiche classique, qui a
+  // des Notes ; objets ailleurs. Armes et armures reconnues : copies typées du compendium.
+  const avecNotes = Array.isArray(actor.system.pnjs);
+  const lignes = metierItem.system.equipement;
+  const contacts = avecNotes ? lignes.filter((e) => estContactDeDepart(e.nom)) : [];
+  const nouveauxObjets = await Promise.all(lignes.filter((e) => !contacts.includes(e)).map((e) => objetDeDepart(e)));
   if (nouveauxObjets.length) await actor.createEmbeddedDocuments("Item", nouveauxObjets);
 
   const updates = {
@@ -34,6 +38,11 @@ export async function applyMetier(actor, metierItem) {
     "system.metier.nom": metierItem.name
   };
 
+  if (avecNotes) {
+    // Contacts de départ de l'ancien métier encore intacts remplacés ; les PNJ du joueur sont gardés.
+    const pnjs = actor.system.toObject().pnjs.filter((p) => !p.origineMetier);
+    updates["system.pnjs"] = [...pnjs, ...contacts.map((e) => pnjDeDepart(e.nom, metierItem.name))];
+  }
   if (Array.isArray(actor.system.competences)) {
     updates["system.competences"] = competencesSelonMetier(actor.system.toObject().competences, metierItem);
   }

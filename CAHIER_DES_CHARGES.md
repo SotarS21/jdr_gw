@@ -195,6 +195,7 @@ Voir l'arborescence commentée dans `README.md` (module/config, module/data, mod
 - **État Inconscient** : `GalacticWarsActor#synchroniserInconscient` (statut core `unconscious`, `GW.etatInconscient`) appelé après toute modification des PV (`_onUpdate`, client auteur) et par `encaisserDegats` ; actif à 0 PV, retiré dès 1 PV ; correctif MJ `0.15.0-etat-inconscient`.
 - **PV des fiches rapide / PNJ** : `system.pv.value / max` (10 / 10 par défaut), `GW.cheminPV` étendu — dégâts et soins s'y appliquent.
 - **v0.15.1** : Comlink — `montrerConversation` (bouton dans l'en-tête de la conversation) poste le fil du canal dans le tchat, visibilité comme « Montrer dans le tchat » d'un objet (tag Caché = chuchoté).
+- **v0.15.2** : contacts de départ → PNJ des Notes (`estContactDeDepart` / `pnjDeDepart`, champ `pnjs[].origineMetier` : contact intact remplacé au changement de métier, contact édité par le joueur conservé) ; correctif MJ `0.15.2-contacts-en-pnj`.
 
 ### 5.2 Roadmap
 Voir §10.

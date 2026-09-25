@@ -112,7 +112,11 @@ export class PersonnageData extends foundry.abstract.TypeDataModel {
           sousTitre: new StringField({ initial: "" }),
           img: new FilePathField({ categories: ["IMAGE"], blank: true, initial: "" }),
           description: new HTMLField({ initial: "" }),
-          statut: new StringField({ initial: "neutre", choices: () => GW.statutsPnj })
+          statut: new StringField({ initial: "neutre", choices: () => GW.statutsPnj }),
+          // Nom du métier qui a créé ce contact (équipement de départ, helpers/objets-depart.mjs) ; "" = PNJ du
+          // joueur. La fenêtre d'édition des Notes réécrit l'entrée sans ce champ : un contact modifié par le
+          // joueur lui appartient et n'est plus remplacé au changement de métier.
+          origineMetier: new StringField({ initial: "" })
         })
       ),
       missions: new ArrayField(
