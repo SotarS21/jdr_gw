@@ -163,14 +163,15 @@ export class PersonnageData extends foundry.abstract.TypeDataModel {
       if (def && !competence.acquiseParMetier) {
         malus = def.metier ? -30 : -10;
       }
-      // La caractéristique liée est un plancher. Le bonus de niveau s'ajoute toujours (bug remonté par l'auteur,
-      // 2026-09-26 : le malus hors métier « mangeait » les premiers niveaux) ; bonus racial / métier, ajustement et
-      // malus de non-acquisition se compensent entre eux sans jamais descendre sous la caractéristique.
-      const modulation = base + Math.max(0, competence.racial + competence.metier + competence.ajustement + malus);
+      // Règle de l'auteur (2026-09-26) : le bonus de niveau s'ajoute toujours ; le bonus / malus racial s'applique
+      // toujours (même sous la caractéristique) ; le malus hors métier ne s'applique qu'au niveau 0 et, avec le bonus
+      // de métier et l'ajustement, ne fait jamais descendre sous la caractéristique.
+      const horsMetier = niveauEffectif === 0 ? malus : 0;
+      const modulation = base + competence.racial + Math.max(0, competence.metier + competence.ajustement + horsMetier);
       // Plafond à 90 % (GW.plafondCompetence), relevé du seul bonus racial positif : « à part avec des
       // effets ou une ethnie, une compétence ne peut pas dépasser 90 % » (règle de l'auteur, 2026-09-24).
       const plafond = GW.plafondCompetence + Math.max(0, competence.racial);
-      competence.total = Math.min(plafond, Math.max(0, bonusCaracteristique + Math.max(0, modulation)));
+      competence.total = Math.min(plafond, Math.max(0, bonusCaracteristique + modulation));
       competence.atteintPlafond = competence.total >= GW.plafondCompetence;
       competence.label = def?.label ?? competence.cle;
       competence.caracteristique = def?.caracteristique;

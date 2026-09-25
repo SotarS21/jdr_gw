@@ -6,7 +6,12 @@
   métier (−10 / −30) absorbait les premiers niveaux (Artifice 20 % aux niveaux 0, 1 et 2). **Choix de l'auteur** :
   « niveau toujours ajouté » → `carac + barème(niveau) + max(0, racial + métier + ajustement + malus)`, plafond
   inchangé. Modifié dans `PersonnageData#prepareDerivedData` et l'aperçu `PersonnageSheet#tauxPourNiveau`.
-- Vérifié : Artifice (Kael) 20 → 25 → 30 → 40 %. Taux dérivé : aucune donnée à migrer. Impact mesuré dans le monde de
+- **Précision de l'auteur** (dans la foulée) : « les malus raciaux s'appliquent tout le temps et le malus hors métier ne
+  s'applique que si le niveau est à 0 » → formule finale `carac + racial + barème(niveau) + max(0, métier + ajustement +
+  (niveau 0 ? malus : 0))`, bornée à [0, plafond]. Vérifié : Artifice 20 / 25 / 30 / 40 % ; racial −10 → 10 % au
+  niveau 0 (sous la caractéristique), 20 % au niveau 2. Par rapport à la v0.15.5 : 18 taux changent sur les acteurs du
+  monde (ex. Alek : Sagesse racial −5 25 → 20 %, Commander/guider racial +10 25 → 35 %).
+- Première version (remplacée) : Artifice (Kael) 20 → 25 → 30 → 40 %. Taux dérivé : aucune donnée à migrer. Impact mesuré dans le monde de
   test : 28 taux relevés de +5 à +20 points (Alek, Gueran Cell, « classique »), ex. Artifice niv. 3 de Gueran Cell
   20 → 40 %.
 

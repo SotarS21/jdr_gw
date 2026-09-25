@@ -176,7 +176,7 @@ export const RELEASE_NOTES = {
   "0.15.6": {
     title: "v0.15.6",
     html: `<ul>
-      <li>Correction du taux des compétences : le bonus de niveau (5 / 10 / 20 %) s'ajoute toujours ; le malus hors métier ne compense plus que les autres bonus (racial, métier, ajustement), toujours sans descendre sous la caractéristique. Auparavant, les premiers niveaux d'une compétence hors métier ne faisaient pas monter le taux. Les taux des fiches existantes se mettent à jour d'eux-mêmes.</li>
+      <li>Correction du taux des compétences : le bonus de niveau (5 / 10 / 20 %) s'ajoute toujours ; le bonus ou malus racial s'applique toujours ; le malus hors métier (−10 / −30 %) ne s'applique qu'au niveau 0, sans descendre sous la caractéristique. Auparavant, les premiers niveaux d'une compétence hors métier ne faisaient pas monter le taux. Les taux des fiches existantes se mettent à jour d'eux-mêmes.</li>
     </ul>`
   }
 };
