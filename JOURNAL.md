@@ -21,6 +21,8 @@
   redémarrage (Arme blanche au choix ×2 → 522c). Le « Blaster lourd » de Kael, créé à la main (3d6, 4500c), n'est pas
   une copie : non touché.
 - `objets-depart.mjs` : Couteau → Lame (1d4, 25c), Sabre d'entraînement → Sabre d'entraînement jedi.
+- Onglet Combat (demande de l'auteur) : plus de bouton d'attaque sur les lignes d'armes (l'attaque passe par la carte
+  de tchat au clic sur l'arme), libellé « Dégâts » devant la valeur (`libelleValeur` du partiel `gwLigneObjet`).
 
 ## Session du 2026-09-25 (suite 2) — Armes de départ sans dégâts ni compétence (v0.14.0→v0.14.1)
 

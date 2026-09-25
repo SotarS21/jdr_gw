@@ -120,6 +120,7 @@ export const RELEASE_NOTES = {
     html: `<ul>
       <li>Compendium Armes : 70 armes et améliorations du classeur « Science économique » (blasters, fusils, canons, lance-flamme, grenades, bâtons, tridents, vibrolames, sabres, tasers…) avec dégâts, compétence liée, prix et visuel ; compendium Équipements : Gant magnétique, Accessoire silencieux, Cartouche de carbonite.</li>
       <li>Prix d'après le classeur : Arme contondante 522c, Fusil de précision 1200c, sabres laser non achetables (NA) ; Blaster lourd 2d6+3 pour 400c (correctif proposé au MJ pour les copies).</li>
+      <li>Onglet Combat : bouton d'attaque retiré des lignes d'armes (attaque au clic sur l'arme, depuis sa carte de tchat), libellé « Dégâts » devant la valeur.</li>
       <li>Équipement de départ : le Couteau devient une Lame (1d4), le Sabre d'entraînement un Sabre d'entraînement jedi.</li>
     </ul>`
   }

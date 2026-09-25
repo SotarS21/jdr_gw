@@ -113,6 +113,15 @@
   white-space: nowrap;
 }
 
+/* Libellé devant la valeur (onglet Combat : « Dégâts »). */
+.galactic-wars.personnage .inventaire-ligne .valeur-libelle {
+  font-size: 0.7rem;
+  color: var(--gw-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
 /* Indicateur porté / rangé, cliquable. */
 .galactic-wars.personnage .porte-btn {
   width: 22px;

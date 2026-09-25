@@ -277,6 +277,7 @@
       {{/if}}
     </div>
     <div class="objet-meta">
+      {{#if ligne.libelleValeur}}<span class="valeur-libelle">{{localize ligne.libelleValeur}}</span>{{/if}}
       <span class="mono valeur-cle">{{ligne.valeur}}</span>
       {{#if ligne.attaqueRapide}}
       <button type="button" class="roll-btn attaque-btn" data-action="attaquerObjet" data-tooltip="{{localize 'GALACTICWARS.Objet.Attaquer'}}">

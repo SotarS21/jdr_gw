@@ -279,7 +279,10 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const accessibles = competencesIndexees.filter((c) => !c.bloquee);
     const reduction = await this.actor.reductionDegats();
     return {
-      armes: context.armes.filter((l) => l.porte).map((l) => ({ ...l, degatsRapide: true })),
+      // Onglet Combat (demande de l'auteur) : pas de bouton d'attaque sur la ligne (l'attaque passe par la
+      // carte de tchat, au clic sur l'arme) ; valeur libellée « Dégâts ».
+      armes: context.armes.filter((l) => l.porte)
+        .map((l) => ({ ...l, attaqueRapide: false, degatsRapide: true, libelleValeur: "GALACTICWARS.Objet.Degats" })),
       armures: context.armures.filter((l) => l.porte),
       reduction,
       competences: GW.competencesCombat
