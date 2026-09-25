@@ -1,3 +1,5 @@
+import { GW } from "../config.mjs";
+
 /** Image par défaut d'un acteur (portrait des DataModels, img de Foundry). */
 const IMAGE_DEFAUT = "icons/svg/mystery-man.svg";
 
@@ -37,6 +39,41 @@ export class GalacticWarsActor extends Actor {
     if (!this.aUnPortrait) return;
     const image = GalacticWarsActor.imageUnique(this.system.portrait, this.img);
     if (image) this.updateSource(GalacticWarsActor.champsImage(image));
+  }
+
+  /**
+   * Réduction des dégâts subis : armures et boucliers portés + armure naturelle de l'ethnie liée
+   * (valeur positive seulement).
+   * @returns {Promise<{armures: number, naturelle: number, total: number}>}
+   */
+  async reductionDegats() {
+    const armures = this.items
+      .filter((i) => i.type === "armure" && i.system.porte)
+      .reduce((s, i) => s + (i.system.reduction ?? 0), 0);
+    let naturelle = 0;
+    const uuid = this.system?.race?.uuid;
+    if (uuid) {
+      const race = await fromUuid(uuid).catch(() => null);
+      if (race?.type === "race") naturelle = Math.max(0, race.system.armureNaturelle ?? 0);
+    }
+    return { armures, naturelle, total: armures + naturelle };
+  }
+
+  /**
+   * Encaisse des dégâts bruts : la réduction est soustraite, les PV ne descendent pas sous 0.
+   * `null` si ce type d'acteur n'a pas de PV (GW.cheminPV).
+   * @param {number} brut
+   * @returns {Promise<{brut: number, reduction: number, subis: number, avant: number, apres: number}|null>}
+   */
+  async encaisserDegats(brut) {
+    const chemin = GW.cheminPV[this.type];
+    if (!chemin) return null;
+    const { total: reduction } = await this.reductionDegats();
+    const subis = Math.max(0, brut - reduction);
+    const avant = foundry.utils.getProperty(this, chemin) ?? 0;
+    const apres = Math.max(0, avant - subis);
+    if (apres !== avant) await this.update({ [chemin]: apres });
+    return { brut, reduction, subis, avant, apres };
   }
 
   /** @override */

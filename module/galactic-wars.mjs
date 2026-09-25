@@ -22,8 +22,10 @@ import { runMigrations, completerToutesLesFiches } from "./helpers/migration.mjs
 import { registerVersionCheckSettings, checkSystemVersionUpdate } from "./helpers/version-check.mjs";
 import { registerPackUpdateSettings, checkPendingPackUpdates } from "./helpers/pack-updates.mjs";
 import { enregistrerHooksChatObjet } from "./helpers/chat-objet.mjs";
+import { enregistrerHooksCombat } from "./helpers/combat.mjs";
 
 enregistrerHooksChatObjet();
+enregistrerHooksCombat();
 
 Hooks.once("init", () => {
   console.log("Galactic Wars | Initialisation du système");
@@ -34,6 +36,7 @@ Hooks.once("init", () => {
     completerCompetences: () => completerToutesLesFiches()
   };
   CONFIG.GW = GW;
+  CONFIG.Combat.initiative = { formula: GW.formuleInitiative, decimals: 0 };
   registerVersionCheckSettings();
   registerPackUpdateSettings();
 

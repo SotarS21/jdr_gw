@@ -68,7 +68,8 @@ export async function rollCompetence(actor, cle, { pool, titre } = {}) {
     flavor: `${flavorTitre}${flavor}<br>${game.i18n.localize(flavorResultatCle(resultat))}${flavorBonus}`
   });
 
-  return resultat;
+  // `cible` : taux effectif du jet (marge = cible − dé, voir helpers/combat.mjs).
+  return { ...resultat, cible };
 }
 
 /**

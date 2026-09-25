@@ -1,5 +1,24 @@
 # Journal de développement — Galactic Wars
 
+## Session du 2026-09-25 (suite) — Onglet Combat, attaque / défense, dégâts appliqués (v0.13.3→v0.14.0)
+
+- **Choix de l'auteur** : onglet Combat = armes portées, protection, compétences de combat, compétences liées à la
+  Force accessibles (si sensible) ; initiative 1d20 ; dégâts réduits automatiquement par les armures, appliqués par le
+  MJ seul, aux tokens sélectionnés. Demande complémentaire : l'attaque d'une cible déclenche sa défense (Parade/esquive
+  ou Protection de la Force, toujours les deux), meilleure marge l'emporte ; mêlée / distance d'après la compétence.
+- Onglet : `PersonnageSheet#preparerCombat`, réutilise les lignes d'inventaire (partiel `gwLigneObjet` sorti du bloc
+  Équipements, bouton Dégâts `degatsRapide`) et les cartes de favoris pour les compétences.
+- `helpers/combat.mjs` (carte « Défense », verdict `attaqueLEmporte`), `GalacticWarsActor#reductionDegats` /
+  `#encaisserDegats`, bouton « Appliquer les dégâts » dans `helpers/chat-objet.mjs` (flag `degats` du jet).
+  `rollCompetence` renvoie aussi `cible` (taux effectif).
+- Vérifié (Playwright, Kael Dorn restauré) : onglet (1 arme / 1 armure portées, réduction 2, 7 compétences — Sabre
+  laser absent car réservé — Force : Protection de la force + Spiritisme une fois sensible), verdicts (5 cas),
+  carte Défense (Protection grisée pour une cible non sensible) et verdict « touche », bouton Appliquer présent,
+  encaissement (réduction 2, PV plancher 0, dégâts ≤ réduction = 0).
+- `scripts/verify-local.mjs` : option `GW_SCREENSHOT=<fichier.png>` (capture après le contrôle).
+- **Limite** : les PNJ (fiche rapide) n'ont pas de PV dans leur modèle → dégâts non applicables (avertissement) et
+  défense à résoudre par le MJ.
+
 ## Session du 2026-09-25 — Reprise : compétences des armes, plafond de 90 % (v0.13.2→v0.13.3)
 
 - Foundry local redémarré sur la v0.13.2 : visuels des compendiums chargés (armes 10/10, armures 3/3) ; tous les

@@ -182,6 +182,12 @@ Voir l'arborescence commentée dans `README.md` (module/config, module/data, mod
 - **Compétences liées** du Lance-roquette (Canon lourd), des Grenades (Artifice) et du Trident sith (Arme contondante/blanche) ; correctif MJ `0.13.3-competences-armes` pour les copies sans compétence.
 - **Plafond de 90 %** : l'ajustement reste modifiable à la baisse (attribut `max` + hausse refusée dans `_processFormData` de la fiche classique).
 
+### 5.1septdecies Ajoutées (v0.14.0, session du 2026-09-25)
+- **Onglet Combat** (fiche classique) : armes portées (Attaquer / Dégâts), protection portée + armure naturelle de l'ethnie (`GalacticWarsActor#reductionDegats`), compétences de combat (`GW.competencesCombat`, non bloquées), compétences liées à la Force accessibles si sensible à la Force, bouton Initiative.
+- **Initiative** : `CONFIG.Combat.initiative` = 1d20 (`GW.formuleInitiative`), toutes fiches.
+- **Attaque → défense** (`helpers/combat.mjs`) : attaque réussie sur des tokens ciblés → carte « Défense » ; la cible (propriétaire ou MJ) tente Parade/esquive ou Protection de la Force (toujours les deux, la seconde grisée si non accessible) ; verdict : critique > simple, puis marge (taux − dé), égalité = défense. Mêlée / distance d'après la compétence de l'arme (`GW.competencesDistance` : blaster, canonLourd, artifice), affiché seulement.
+- **Dégâts** : bouton MJ « Appliquer les dégâts » sur le jet de dégâts d'une arme → tokens sélectionnés, sinon cibles de l'attaquant ; dégâts − réduction, PV ≥ 0 (`GW.cheminPV` : fiche classique et sith ; PNJ rapide et vaisseau sans PV → avertissement).
+
 ### 5.2 Roadmap
 Voir §10.
 

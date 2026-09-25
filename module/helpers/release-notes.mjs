@@ -97,5 +97,14 @@ export const RELEASE_NOTES = {
       <li>Compétence liée : Lance-roquette → Canon lourd, Grenade et Grenade militaire → Artifice, Trident sith → Arme contondante/blanche (correctif proposé au MJ pour les copies sans compétence).</li>
       <li>Au plafond de 90 %, l'ajustement d'une compétence reste modifiable à la baisse (la hausse reste bloquée).</li>
     </ul>`
+  },
+  "0.14.0": {
+    title: "v0.14.0 — Onglet Combat",
+    html: `<ul>
+      <li>Nouvel onglet <strong>Combat</strong> : armes portées (Attaquer / Dégâts), protection (armures, bouclier, armure naturelle de l'ethnie, réduction totale), compétences de combat et, pour un personnage sensible à la Force, ses compétences liées à la Force.</li>
+      <li>Initiative du combat Foundry : 1d20 (bouton Initiative dans l'onglet).</li>
+      <li>Attaque réussie sur des tokens ciblés : chaque cible tente Parade/esquive ou Protection de la Force ; si les deux réussissent, la meilleure réussite l'emporte (critique, puis marge ; égalité = défense).</li>
+      <li>Jet de dégâts d'une arme : bouton MJ « Appliquer les dégâts » aux tokens sélectionnés (sinon aux cibles de l'attaquant), réduits par les armures ; bilan chuchoté au MJ.</li>
+    </ul>`
   }
 };

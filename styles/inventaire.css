@@ -401,3 +401,133 @@
 .galactic-wars.personnage .holonet-btn:hover {
   border-color: var(--gw-accent);
 }
+
+/* ------------------------------------------------------------------------------------------ */
+/* Onglet Combat (fiche classique) : armes et protections portées, compétences de combat.      */
+/* ------------------------------------------------------------------------------------------ */
+.galactic-wars.personnage .combat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+  align-items: start;
+}
+.galactic-wars.personnage .combat-colonne {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  min-width: 0;
+}
+.galactic-wars.personnage .initiative-btn {
+  margin-left: auto;
+  flex: 0 0 auto;
+  width: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.1rem 0.6rem;
+  line-height: 1.5;
+  color: var(--gw-accent);
+  border: 1px solid var(--gw-border);
+  border-radius: 999px;
+  background: var(--gw-card);
+}
+.galactic-wars.personnage .initiative-btn:hover {
+  border-color: var(--gw-accent);
+}
+.galactic-wars.personnage .armure-naturelle {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0.45rem 0 0;
+  font-size: 0.85rem;
+  color: var(--gw-dim);
+}
+.galactic-wars.personnage .armure-naturelle .mono {
+  margin-left: auto;
+  color: var(--gw-text, inherit);
+}
+@container galactic-wars-sheet (max-width: 620px) {
+  .galactic-wars.personnage .combat-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Jet de dégâts d'une arme : bouton MJ « Appliquer les dégâts » (helpers/chat-objet.mjs). */
+.gw-appliquer-degats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  width: 100%;
+  margin: 0.4rem 0 0;
+  padding: 0.25rem 0.4rem;
+  line-height: 1.4;
+  border-radius: 6px;
+  border: 1px solid #c0343b;
+  color: #c0343b;
+}
+.gw-appliquer-degats:hover {
+  background: rgba(192, 52, 59, 0.1);
+}
+.gw-bilan-degats ul {
+  margin: 0.3rem 0 0;
+  padding-left: 1.1rem;
+}
+
+/* Carte « Défense » et verdict (helpers/combat.mjs). */
+.gw-carte-defense ul {
+  list-style: none;
+  margin: 0.3rem 0 0;
+  padding: 0;
+}
+.gw-carte-defense .gw-defense-consigne {
+  margin: 0.2rem 0;
+  font-size: 0.85em;
+  opacity: 0.8;
+}
+.gw-defense-cible {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  align-items: center;
+  gap: 0.2rem 0.4rem;
+  padding: 0.25rem 0;
+  border-top: 1px solid rgba(127, 127, 127, 0.25);
+}
+.gw-defense-cible img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  border: none;
+}
+.gw-defense-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 0.3rem;
+}
+.gw-defense-actions button {
+  flex: 1 1 0;
+  margin: 0;
+  padding: 0.15rem 0.3rem;
+  line-height: 1.4;
+  font-size: 0.85em;
+}
+.gw-verdict {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.3rem 0.4rem;
+  padding: 0.3rem 0.4rem;
+  border-radius: 6px;
+  border-left: 3px solid;
+}
+.gw-verdict.touche {
+  border-color: #c0343b;
+}
+.gw-verdict.evite {
+  border-color: #0e7490;
+}
+.gw-verdict-marges {
+  flex-basis: 100%;
+  font-size: 0.8em;
+  opacity: 0.75;
+}

@@ -43,6 +43,8 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       afficherObjet: PersonnageSheet.#onAfficherObjet,
       basculerPorteObjet: PersonnageSheet.#onBasculerPorteObjet,
       attaquerObjet: PersonnageSheet.#onAttaquerObjet,
+      degatsObjet: PersonnageSheet.#onDegatsObjet,
+      lancerInitiative: PersonnageSheet.#onLancerInitiative,
       ouvrirHolonet: PersonnageSheet.#onOuvrirHolonet
     }
   };
@@ -121,6 +123,7 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     context.traits = this.actor.items.filter((i) => i.type === "talent").sort((a, b) => a.name.localeCompare(b.name));
     context.afficherTraits = context.traits.length > 0 || context.modeEdition;
     if (this.#ongletActif === "notes") Object.assign(context, await this.#preparerNotes(system));
+    if (this.#ongletActif === "combat") context.combat = await this.#preparerCombat(competencesIndexees, context);
     if (this.#ongletActif === "informations") {
       context.ethnie = await this.#preparerEthnie(system);
       context.descriptionEnrichie = await foundry.applications.ux.TextEditor.implementation.enrichHTML(
@@ -263,6 +266,29 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       armures: armures.map((i) => ligne(i, `+${i.system.reduction ?? 0}`)),
       equipements: objets("equipement").map((i) => ligne(i, `×${i.system.quantite ?? 0}`)),
       reductionTotale: armures.filter((i) => i.system.porte).reduce((s, i) => s + (i.system.reduction ?? 0), 0)
+    };
+  }
+
+  /**
+   * Onglet Combat : armes et protections portées (lignes de l'inventaire), réduction totale
+   * (armures + armure naturelle de l'ethnie), compétences de combat et, pour un personnage
+   * sensible à la Force, ses compétences liées à la Force accessibles (non bloquées).
+   */
+  async #preparerCombat(competencesIndexees, context) {
+    const parLibelle = (a, b) => game.i18n.localize(a.label).localeCompare(game.i18n.localize(b.label));
+    const accessibles = competencesIndexees.filter((c) => !c.bloquee);
+    const reduction = await this.actor.reductionDegats();
+    return {
+      armes: context.armes.filter((l) => l.porte).map((l) => ({ ...l, degatsRapide: true })),
+      armures: context.armures.filter((l) => l.porte),
+      reduction,
+      competences: GW.competencesCombat
+        .map((cle) => accessibles.find((c) => c.cle === cle))
+        .filter(Boolean),
+      competencesForce: this.actor.system.sensibleForce
+        ? accessibles.filter((c) => c.estCompetenceForce).sort(parLibelle)
+        : [],
+      enCombat: !!game.combat?.combatants.some((c) => c.actor === this.actor || c.actorId === this.actor.id)
     };
   }
 
@@ -458,6 +484,21 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   static async #onAttaquerObjet(event, target) {
     event.stopPropagation();
     await this.#objetDeLigne(target)?.attaquer({ pool: this.#reserveChoisie() });
+  }
+
+  /** Onglet Combat : jet de dégâts de l'arme de la ligne (carte de tchat avec « Appliquer » pour le MJ). */
+  static async #onDegatsObjet(event, target) {
+    event.stopPropagation();
+    await this.#objetDeLigne(target)?.lancerDegats();
+  }
+
+  /** Initiative (1d20, CONFIG.Combat.initiative) dans le combat actif ; ajoute le personnage si besoin. */
+  static async #onLancerInitiative() {
+    if (!game.combat) {
+      ui.notifications.warn(game.i18n.localize("GALACTICWARS.Combat.AucunCombat"));
+      return;
+    }
+    await this.actor.rollInitiative({ createCombatants: true });
   }
 
   /** Mise à jour du tableau complet (jamais d'update sur un seul index d'ArrayField). */

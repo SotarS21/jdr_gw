@@ -10,6 +10,8 @@
  * Exemple :
  *   node scripts/verify-local.mjs "(await game.packs.get('galactic-wars.races').getDocuments()).filter(r => r.img.includes('oak.svg')).length"
  *
+ * Variable GW_SCREENSHOT=<fichier.png> : capture de la page après le contrôle (ex. une fiche ouverte).
+ *
  * Playwright n'est pas une dépendance du projet : il est cherché dans le cache npx
  * (installé via `npx playwright install chromium` si absent).
  */
@@ -39,7 +41,7 @@ const { chromium } = await import(pathToFileURL(findPlaywright()).href);
 const browser = await chromium.launch();
 const errors = [];
 try {
-  const page = await browser.newPage();
+  const page = await browser.newPage({ viewport: { width: 1400, height: 950 } });
   page.on("pageerror", e => errors.push(e.message));
 
   const status = await (await fetch(`${URL_BASE}/api/status`)).json();
@@ -58,6 +60,7 @@ try {
   const version = await page.evaluate(() => game.system.version);
   const result = { world: status.world, expected, version, ok: version === expected };
   if (check) result.check = await page.evaluate(`(async () => (${check}))()`);
+  if (process.env.GW_SCREENSHOT) await page.screenshot({ path: process.env.GW_SCREENSHOT });
   result.pageErrors = errors;
   console.log(JSON.stringify(result, null, 2));
   process.exitCode = result.ok ? 0 : 1;

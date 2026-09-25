@@ -157,6 +157,21 @@ GW.seuilReussiteCritique = 5;
 GW.seuilEchecCritique = 96;
 GW.gainExperience = 5;
 
+/** Onglet Combat : compétences proposées en raccourci de jet (hors compétences liées à la Force). */
+GW.competencesCombat = ["paradeEsquive", "blocage", "bagarre", "armeBlanche", "blaster", "sabreLaser", "canonLourd", "artifice"];
+
+/** Armes à distance = armes liées à l'une de ces compétences (choix de l'auteur) ; les autres sont de mêlée. */
+GW.competencesDistance = ["blaster", "canonLourd", "artifice"];
+
+/** Défenses proposées à la cible d'une attaque réussie (toujours les deux, choix de l'auteur). */
+GW.competencesDefense = ["paradeEsquive", "protectionDeForce"];
+
+/** Initiative du combat Foundry (choix de l'auteur, 2026-09-25) : 1d20 simple, pour toutes les fiches. */
+GW.formuleInitiative = "1d20";
+
+/** Chemin des PV actuels selon le type d'acteur ; absent = pas de PV à retirer (PNJ rapide, vaisseau). */
+GW.cheminPV = { personnage: "system.pv.value", "personnage-sith": "system.pv.actuels" };
+
 /** Total attendu des caractéristiques de base saisies (fiche classique, cf. case B4 de
  *  `Template corriger.xlsx`) — validation indicative, jamais bloquante. */
 GW.pointsCaracteristiques = 120;

@@ -1,5 +1,6 @@
 import { GW } from "../config.mjs";
 import { rollCompetence } from "../helpers/rolls.mjs";
+import { proposerDefense } from "../helpers/combat.mjs";
 
 /** Carte d'objet postée dans le tchat (boutons gérés par helpers/chat-objet.mjs). */
 const TEMPLATE_CARTE = "systems/galactic-wars/templates/chat/objet-carte.hbs";
@@ -179,6 +180,8 @@ export class GalacticWarsItem extends Item {
       const reserve = (pool === "lumiere" || pool === "obscurite") && (actor.system[pool] ?? 0) > 0 ? pool : null;
       const resultat = await rollCompetence(actor, this.system.competence, { pool: reserve, titre: this.name });
       if (resultat && reserve) await actor.update({ [`system.${reserve}`]: actor.system[reserve] - 1 });
+      // Attaque réussie sur des tokens ciblés : carte « Défense » pour chaque cible.
+      if (resultat?.reussite) await proposerDefense(this, resultat, [...game.user.targets].map((t) => t.document));
       return resultat;
     } finally {
       this._attaqueEnCours = false;
@@ -211,7 +214,14 @@ export class GalacticWarsItem extends Item {
     await roll.toMessage({
       speaker: ChatMessage.getSpeaker({ actor: this.actor }),
       flavor: lignes.join("<br>"),
-      flags: { "galactic-wars": { itemUuid: this.uuid } }
+      // Cibles de l'attaquant au moment du jet : le MJ leur applique les dégâts depuis le tchat
+      // (helpers/chat-objet.mjs), réduits par leurs armures.
+      flags: {
+        "galactic-wars": {
+          itemUuid: this.uuid,
+          degats: { total: roll.total, cibles: [...game.user.targets].map((t) => t.document.uuid) }
+        }
+      }
     });
     return roll;
   }

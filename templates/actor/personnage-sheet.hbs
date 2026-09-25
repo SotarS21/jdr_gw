@@ -70,6 +70,7 @@
 
   <nav class="onglets">
     <button type="button" class="onglet-btn {{#if (eq ongletActif 'personnage')}}active{{/if}}" data-action="changerOnglet" data-onglet="personnage">{{localize 'GALACTICWARS.Sheet.OngletPersonnage'}}</button>
+    <button type="button" class="onglet-btn {{#if (eq ongletActif 'combat')}}active{{/if}}" data-action="changerOnglet" data-onglet="combat">{{localize 'GALACTICWARS.Sheet.OngletCombat'}}</button>
     <button type="button" class="onglet-btn {{#if (eq ongletActif 'equipements')}}active{{/if}}" data-action="changerOnglet" data-onglet="equipements">{{localize 'GALACTICWARS.Sheet.OngletEquipements'}}</button>
     <button type="button" class="onglet-btn {{#if (eq ongletActif 'informations')}}active{{/if}}" data-action="changerOnglet" data-onglet="informations">{{localize 'GALACTICWARS.Sheet.OngletInformations'}}</button>
     <button type="button" class="onglet-btn {{#if (eq ongletActif 'notes')}}active{{/if}}" data-action="changerOnglet" data-onglet="notes">{{localize 'GALACTICWARS.Sheet.OngletNotes'}}</button>
@@ -252,9 +253,8 @@
   {{/if}}
   {{/if}}
 
-  {{#if (eq ongletActif 'equipements')}}
-  {{!-- Ligne d'inventaire (préparée par PersonnageSheet#preparerInventaire). Clic = carte dans
-        le tchat, clic droit = menu (porter/ranger, tags, tchat, fiche, suppression). Objet
+  {{!-- Ligne d'inventaire des onglets Équipements et Combat (préparée par
+        PersonnageSheet#preparerInventaire). Clic = carte dans le tchat, clic droit = menu (porter/ranger, tags, tchat, fiche, suppression). Objet
         rangé atténué ; l'indicateur de gauche bascule porté/rangé. --}}
   {{#*inline "gwLigneObjet"}}
   <div class="objet-row inventaire-ligne {{#unless ligne.porte}}range{{/unless}} {{#if ligne.cache}}tag-cache{{/if}}"
@@ -283,6 +283,11 @@
         <i class="fa-solid fa-crosshairs"></i>
       </button>
       {{/if}}
+      {{#if ligne.degatsRapide}}
+      <button type="button" class="roll-btn degats-btn" data-action="degatsObjet" data-tooltip="{{localize 'GALACTICWARS.Objet.LancerDegats'}}">
+        <i class="fa-solid fa-burst"></i>
+      </button>
+      {{/if}}
       {{#if ligne.datapad}}
       <button type="button" class="roll-btn holonet-btn" data-action="ouvrirHolonet" data-tooltip="{{localize 'GALACTICWARS.Holonet.Ouvrir'}}">
         <i class="fa-solid fa-globe"></i>
@@ -296,6 +301,82 @@
     </div>
   </div>
   {{/inline}}
+
+  {{#if (eq ongletActif 'combat')}}
+  <section class="combat-grid">
+    <div class="combat-colonne">
+      <div class="panel panel-armes">
+        <div class="section-header">
+          <h2 class="eyebrow"><i class="fa-solid fa-crosshairs"></i> {{localize 'GALACTICWARS.Combat.ArmesPortees'}}</h2>
+          <button type="button" class="initiative-btn" data-action="lancerInitiative" data-tooltip="{{localize 'GALACTICWARS.Combat.InitiativeHint'}}">
+            <i class="fa-solid fa-dice-d20"></i> {{localize 'GALACTICWARS.Combat.Initiative'}}
+          </button>
+        </div>
+        <div class="bonus-choix inventaire-bonus">
+          <label><input type="radio" name="bonusAlignement" value="aucun" checked> {{localize 'GALACTICWARS.Alignement.Aucun'}}</label>
+          <label{{#unless system.lumiere}} class="disabled"{{/unless}}>
+            <input type="radio" name="bonusAlignement" value="lumiere" {{#unless system.lumiere}}disabled{{/unless}}> {{localize 'GALACTICWARS.Alignement.Lumiere'}} (+{{bonusAlignement}}%)
+          </label>
+          <label{{#unless system.obscurite}} class="disabled"{{/unless}}>
+            <input type="radio" name="bonusAlignement" value="obscurite" {{#unless system.obscurite}}disabled{{/unless}}> {{localize 'GALACTICWARS.Alignement.Obscurite'}} (+{{bonusAlignement}}%)
+          </label>
+        </div>
+        <div class="objet-liste">
+          {{#each combat.armes as |arme|}}{{> gwLigneObjet ligne=arme}}{{else}}<p class="inventaire-vide">{{localize 'GALACTICWARS.Combat.AucuneArme'}}</p>{{/each}}
+        </div>
+      </div>
+
+      <div class="panel panel-armures">
+        <div class="section-header">
+          <h2 class="eyebrow"><i class="fa-solid fa-shield-halved"></i> {{localize 'GALACTICWARS.Combat.Protection'}}</h2>
+          <span class="reduction-totale mono" data-tooltip="{{localize 'GALACTICWARS.Combat.ReductionHint'}}">
+            <i class="fa-solid fa-shield-halved"></i> {{combat.reduction.total}}
+          </span>
+        </div>
+        <div class="objet-liste">
+          {{#each combat.armures as |armure|}}{{> gwLigneObjet ligne=armure}}{{else}}<p class="inventaire-vide">{{localize 'GALACTICWARS.Combat.AucuneProtection'}}</p>{{/each}}
+        </div>
+        {{#if combat.reduction.naturelle}}
+        <p class="armure-naturelle"><i class="fa-solid fa-dna"></i> {{localize 'GALACTICWARS.Combat.ArmureNaturelle'}} <span class="mono">+{{combat.reduction.naturelle}}</span></p>
+        {{/if}}
+      </div>
+    </div>
+
+    <div class="combat-colonne">
+      <div class="panel panel-competences-combat">
+        <div class="section-header">
+          <h2 class="eyebrow"><i class="fa-solid fa-hand-fist"></i> {{localize 'GALACTICWARS.Combat.Competences'}}</h2>
+        </div>
+        <div class="favoris-liste">
+          {{#each combat.competences as |cpt|}}
+          <button type="button" class="favori-carte car-{{cpt.caracteristique}}" data-action="rollCompetence" data-cle="{{cpt.cle}}">
+            <span class="favori-nom">{{localize cpt.label}}</span>
+            <span class="favori-total mono">{{cpt.total}}%</span>
+          </button>
+          {{/each}}
+        </div>
+      </div>
+
+      {{#if combat.competencesForce.length}}
+      <div class="panel panel-competences-force">
+        <div class="section-header">
+          <h2 class="eyebrow"><i class="fa-solid fa-jedi"></i> {{localize 'GALACTICWARS.Combat.CompetencesForce'}}</h2>
+        </div>
+        <div class="favoris-liste">
+          {{#each combat.competencesForce as |cpt|}}
+          <button type="button" class="favori-carte force car-{{cpt.caracteristique}}" data-action="rollCompetence" data-cle="{{cpt.cle}}">
+            <span class="favori-nom">{{localize cpt.label}}</span>
+            <span class="favori-total mono">{{cpt.total}}%</span>
+          </button>
+          {{/each}}
+        </div>
+      </div>
+      {{/if}}
+    </div>
+  </section>
+  {{/if}}
+
+  {{#if (eq ongletActif 'equipements')}}
 
   <section class="inventaire-grid">
     <div class="panel panel-armes">
