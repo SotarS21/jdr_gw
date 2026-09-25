@@ -85,6 +85,19 @@ export const PACK_UPDATES = [
     }
   },
   {
+    id: "0.14.2-renommer-bage-taser",
+    cible: "armes",
+    version: "0.14.2",
+    label: "« Bage taser » renommé « Taser »",
+    description: "L'arme « Bage taser » (5000c) du compendium s'appelle désormais « Taser ». Renomme ses copies.",
+    concernes: async () => bagesTaser().length,
+    apply: async () => {
+      const liste = bagesTaser();
+      for (const objet of liste) await objet.update({ name: "Taser" });
+      return liste.length;
+    }
+  },
+  {
     id: "0.14.2-objets-de-soin",
     cible: "acteurs",
     version: "0.14.2",
@@ -263,6 +276,12 @@ async function objetsAIllustrer() {
     if (img && !IMAGES_GENERIQUES.has(img) && img !== objet.img) liste.push({ objet, img });
   }
   return liste;
+}
+
+/** Armes nommées « Bage taser » (monde, acteurs, tokens non liés). */
+function bagesTaser() {
+  return [...game.items, ...tousLesActeurs().flatMap((a) => [...a.items])]
+    .filter((i) => i.type === "arme" && i.name.trim().toLowerCase() === "bage taser");
 }
 
 /** Équipements sans soin dont l'équipement du compendium (même source ou même nom) en a un. */

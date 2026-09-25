@@ -37,6 +37,8 @@
   Le porteur se soigne lui-même ; l'objet n'est pas consommé. Équipement de départ au nom identique à un équipement
   du compendium → copie de celui-ci (soin, prix, visuel). Correctif MJ `0.14.2-objets-de-soin`. Vérifié sur Kael (PV 10 →
   14 / 16 / 30), restauré.
+- « Bage taser » (ligne 63, 5000c) renommé « Taser » à la demande de l'auteur, qui garde deux Taser (25c et 5000c) ;
+  fichier `armes/taser-5000c.json` ; correctif MJ `0.14.2-renommer-bage-taser` (copie de Gueran Cell renommée).
 
 ## Session du 2026-09-25 (suite 2) — Armes de départ sans dégâts ni compétence (v0.14.0→v0.14.1)
 

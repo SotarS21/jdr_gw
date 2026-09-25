@@ -1,7 +1,7 @@
 {
   "_key": "!items!pWWI2XoCdWxgYYAO",
   "_id": "pWWI2XoCdWxgYYAO",
-  "name": "Bage taser",
+  "name": "Taser",
   "type": "arme",
   "img": "systems/galactic-wars/asset_visuel/objets/armes-bage-taser.jpg",
   "system": {
@@ -9,7 +9,7 @@
     "competence": "armeBlanche",
     "instable": false,
     "prix": "5000c",
-    "description": "<p>Classeur « [GW] Science économique.xlsx », ligne 63. Nom repris tel quel du classeur (« bage taser », 1d4 t + 1c).</p>",
+    "description": "<p>Classeur « [GW] Science économique.xlsx », ligne 63 (« bage taser », 1d4 t + 1c, 5000c), renommé « Taser » par l'auteur ; distinct du Taser à 25c de la ligne 62.</p>",
     "quantite": 1,
     "porte": false,
     "tags": {
