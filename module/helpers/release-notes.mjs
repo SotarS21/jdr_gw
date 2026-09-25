@@ -178,5 +178,11 @@ export const RELEASE_NOTES = {
     html: `<ul>
       <li>Correction du taux des compétences : le bonus de niveau (5 / 10 / 20 %) s'ajoute toujours ; le bonus ou malus racial s'applique toujours ; le malus hors métier (−10 / −30 %) ne s'applique qu'au niveau 0, sans descendre sous la caractéristique. Auparavant, les premiers niveaux d'une compétence hors métier ne faisaient pas monter le taux. Les taux des fiches existantes se mettent à jour d'eux-mêmes.</li>
     </ul>`
+  },
+  "0.15.7": {
+    title: "v0.15.7",
+    html: `<ul>
+      <li>Nouvel équipement « Kit de réparation » (200c) au compendium Équipements : outils pour réparer droïdes, véhicules, vaisseaux, armes et équipements avec la compétence Mécanique. Les kits de réparation déjà présents sont complétés (correctif proposé au MJ).</li>
+    </ul>`
   }
 };

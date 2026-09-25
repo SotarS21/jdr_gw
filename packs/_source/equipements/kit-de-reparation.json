@@ -1,0 +1,32 @@
+{
+  "_key": "!items!Ju5eQHuDpTZPJqZy",
+  "_id": "Ju5eQHuDpTZPJqZy",
+  "name": "Kit de réparation",
+  "type": "equipement",
+  "img": "icons/tools/hand/wrench-mechanical-heal-blue.webp",
+  "system": {
+    "quantite": 1,
+    "prix": "200c",
+    "description": "<p>Trousse d'outils et de pièces détachées : clés, soudeur portatif, câbles, fusibles et circuits de rechange. Permet de réparer droïdes, véhicules, vaisseaux, armes et équipements ; s'utilise avec la compétence <strong>Mécanique</strong>.</p>",
+    "porte": false,
+    "tags": {
+      "cache": false
+    },
+    "notesMJ": "",
+    "appareil": "",
+    "soin": ""
+  },
+  "folder": null,
+  "sort": 100080,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.15.7"
+  }
+}

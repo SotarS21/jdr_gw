@@ -26,6 +26,22 @@ import { correspondanceDepart, objetDeDepart, estContactDeDepart, pnjDeDepart } 
  */
 export const PACK_UPDATES = [
   {
+    id: "0.15.7-kit-de-reparation",
+    cible: "acteurs",
+    version: "0.15.7",
+    label: "Kit de réparation (prix, description, visuel)",
+    description:
+      "Nouveau « Kit de réparation » au compendium Équipements (200c, outils de Mécanique). Complète les kits de " +
+      "réparation déjà présents (nom identique, accents ou non) : prix, description et visuel, seulement s'ils sont " +
+      "vides ou génériques.",
+    concernes: async () => (await kitsACompleter()).length,
+    apply: async () => {
+      const liste = await kitsACompleter();
+      for (const { objet, changements } of liste) await objet.update(changements);
+      return liste.length;
+    }
+  },
+  {
     id: "0.15.2-contacts-en-pnj",
     cible: "acteurs",
     version: "0.15.2",
@@ -437,6 +453,25 @@ function acteursImagesDivergentes() {
 function datapadsNonReconnus() {
   const objets = [...game.items, ...tousLesActeurs().flatMap((a) => [...a.items])];
   return objets.filter((i) => i.type === "equipement" && !i.system.appareil && appareilSelonNom(i.name) === "datapad");
+}
+
+/** Kits de réparation (nom sans accents « kit de reparation ») à compléter depuis le compendium. */
+async function kitsACompleter() {
+  const pack = game.packs.get(`${game.system.id}.equipements`);
+  const entree = pack?.index.find((e) => e.name === "Kit de réparation");
+  const modele = entree ? await pack.getDocument(entree._id) : null;
+  if (!modele) return [];
+  const cle = (n) => String(n ?? "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim().toLowerCase();
+  return [...game.items, ...tousLesActeurs().flatMap((a) => [...a.items])]
+    .filter((i) => i.type === "equipement" && cle(i.name) === "kit de reparation")
+    .map((objet) => {
+      const changements = {};
+      if (!objet.system.prix) changements["system.prix"] = modele.system.prix;
+      if (!String(objet.system.description ?? "").trim()) changements["system.description"] = modele.system.description;
+      if (IMAGES_GENERIQUES.has(objet.img ?? "")) changements.img = modele.img;
+      return { objet, changements };
+    })
+    .filter((o) => Object.keys(o.changements).length);
 }
 
 /** Objets « Connaissance dans la pègre »… portés par des personnages qui ont un onglet Notes. */

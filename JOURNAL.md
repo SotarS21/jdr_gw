@@ -1,5 +1,13 @@
 # Journal de développement — Galactic Wars
 
+## Session du 2026-09-26 (suite 4) — Kit de réparation (v0.15.6→v0.15.7)
+
+- **Todo** : « Kit de réparation » (mécanique) avec description, prix fixé par l'auteur à 200c. Description (outils,
+  soudeur, pièces ; droïdes, véhicules, vaisseaux, armes, équipements ; compétence Mécanique) sans effet de jeu.
+  Aucun visuel dans `asset_visuel` : icône Foundry `wrench-mechanical-heal-blue`.
+- Correctif `0.15.7-kit-de-reparation` : complète prix / description / visuel (s'ils sont vides ou génériques) des
+  équipements nommés « Kit de réparation » (accents ignorés) — validé par l'auteur à sa reconnexion (kit de Kael).
+
 ## Session du 2026-09-26 (suite 3) — Taux : le niveau s'ajoute toujours (v0.15.5→v0.15.6)
 
 - **Bug confirmé par l'auteur** : avec `carac + max(0, niveau + racial + métier + ajustement + malus)`, le malus hors
