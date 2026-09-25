@@ -1793,3 +1793,25 @@
   font-size: 0.85em;
   opacity: 0.8;
 }
+
+/* Fiche partie rapide / PNJ : PV et état Inconscient (0 PV). */
+.galactic-wars .pv-rapide {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.8rem;
+}
+.galactic-wars .pv-rapide h2 {
+  flex-basis: 100%;
+  margin: 0;
+}
+.galactic-wars .pv-rapide input {
+  width: 4.5rem;
+}
+.galactic-wars .etat-inconscient {
+  padding: 0.1rem 0.55rem;
+  border-radius: 999px;
+  background: #7f1d1d;
+  color: #fecaca;
+  font-weight: 700;
+}

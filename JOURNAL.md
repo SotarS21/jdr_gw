@@ -17,6 +17,13 @@
 - Vérifié (Kael, remis à vide ensuite) : numéros 1-2-3 puis 4 après archivage du 3, numéro pris refusé, archives
   masquées, bulles gauche / droite, « vu », saisie présente. Non testé en réel : l'alerte côté joueur (pas de compte
   joueur de test propriétaire de Kael).
+- **Ajout de l'auteur à la todo** (en cours de session) : état « Inconscient » à 0 PV. **Choix de l'auteur** : PV ajoutés
+  aux fiches PNJ / partie rapide (`system.pv.value / max`, qui n'existaient pas — les dégâts depuis le tchat
+  s'appliquent donc aussi aux PNJ) ; retrait automatique dès 1 PV. `synchroniserInconscient` (statut core
+  `unconscious` via `toggleStatusEffect`) : appelé par `_onUpdate` quand les PV changent (client auteur seulement) et
+  par `encaisserDegats` même sans variation (acteur déjà à 0 — cas trouvé en test sur le token « classique »).
+  Vérifié : Kael (lié), token non lié, PNJ rapide → 0 PV = inconscient, soin 3 = réveil, PV et état restaurés.
+  Correctif `0.15.0-etat-inconscient` laissé en attente pour l'auteur (1 token déjà à 0 PV).
 
 ## Session du 2026-09-25 (suite 3) — Catalogue économique : prix et armes (v0.14.1→v0.14.2)
 

@@ -192,6 +192,8 @@ Voir l'arborescence commentée dans `README.md` (module/config, module/data, mod
 
 ### 5.1octodecies Ajoutées (v0.15.0, session du 2026-09-25)
 - **Comlink** : `system.comlink` des équipements (`messagerie`, `canaux[]` : numéro unique, contact, actif, archivé, `messages[]` : auteur pj / mj, nom, texte, vu), onglet de la fiche d'objet (`templates/item/partiels/comlink.hbs`, logique `helpers/comlink.mjs`, tableau toujours réécrit en entier). Messagerie = « comlink ++ » (option on / off) ; historique complet, zone ≈ 10 messages défilante ; alertes chuchotées avec bouton d'ouverture ; correctif MJ `0.15.0-appareil-comlink`.
+- **État Inconscient** : `GalacticWarsActor#synchroniserInconscient` (statut core `unconscious`, `GW.etatInconscient`) appelé après toute modification des PV (`_onUpdate`, client auteur) et par `encaisserDegats` ; actif à 0 PV, retiré dès 1 PV ; correctif MJ `0.15.0-etat-inconscient`.
+- **PV des fiches rapide / PNJ** : `system.pv.value / max` (10 / 10 par défaut), `GW.cheminPV` étendu — dégâts et soins s'y appliquent.
 
 ### 5.2 Roadmap
 Voir §10.

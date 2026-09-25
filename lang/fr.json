@@ -404,6 +404,11 @@
       "Ouvrir": "Ouvrir",
       "Introuvable": "Comlink introuvable (supprimé ou non accessible)."
     },
+    "Inconscient": {
+      "Etat": "Inconscient",
+      "Actuels": "Actuels",
+      "Max": "Max"
+    },
     "Favoris": {
       "Titre": "Favoris",
       "Ajouter": "Ajouter aux favoris",

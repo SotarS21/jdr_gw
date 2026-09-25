@@ -134,6 +134,8 @@ export const RELEASE_NOTES = {
       <li>Messagerie (« comlink ++ », à activer dans la configuration du comlink) : un clic sur un canal ouvre la conversation — messages du MJ à gauche au nom du contact, du joueur à droite au nom du personnage, historique complet dans une zone défilante ; le MJ clique sur un message du joueur pour le marquer « vu ».</li>
       <li>Alerte privée dans le tchat à chaque nouveau message (au MJ, ou au joueur quand le MJ répond), avec un bouton pour ouvrir le comlink sur le canal.</li>
       <li>Les équipements nommés « Comlink » sont reconnus comme comlinks (correctif proposé au MJ pour l'existant).</li>
+      <li>État « Inconscient » : un personnage ou un PNJ qui tombe à 0 PV passe inconscient (sur ses tokens), et se réveille dès qu'il regagne 1 PV.</li>
+      <li>Fiches PNJ et partie rapide : points de vie (actuels / max) ; les dégâts appliqués depuis le tchat fonctionnent aussi sur les PNJ.</li>
     </ul>`
   }
 };

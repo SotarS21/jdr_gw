@@ -1,3 +1,4 @@
+import { GW } from "../config.mjs";
 import { appareilSelonNom, IMAGES_APPAREILS, IMAGES_GENERIQUES } from "./appareils.mjs";
 import { fichesIncompletes, completerToutesLesFiches } from "./migration.mjs";
 import { GalacticWarsActor } from "../documents/actor.mjs";
@@ -24,6 +25,21 @@ import { correspondanceDepart, objetDeDepart } from "./objets-depart.mjs";
  * - `apply()`     → applique le correctif, renvoie le nombre de documents modifiés.
  */
 export const PACK_UPDATES = [
+  {
+    id: "0.15.0-etat-inconscient",
+    cible: "acteurs",
+    version: "0.15.0",
+    label: "État « Inconscient » à 0 PV",
+    description:
+      "Désormais, un personnage ou un PNJ qui tombe à 0 PV passe automatiquement « Inconscient » (retiré dès 1 PV). " +
+      "Applique cet état aux personnages et tokens déjà à 0 PV, et le retire à ceux qui l'ont avec des PV.",
+    concernes: () => Promise.resolve(etatsInconscientADecaler().length),
+    apply: async () => {
+      const liste = etatsInconscientADecaler();
+      for (const actor of liste) await actor.synchroniserInconscient();
+      return liste.length;
+    }
+  },
   {
     id: "0.15.0-appareil-comlink",
     cible: "acteurs",
@@ -389,6 +405,15 @@ function acteursImagesDivergentes() {
 function datapadsNonReconnus() {
   const objets = [...game.items, ...tousLesActeurs().flatMap((a) => [...a.items])];
   return objets.filter((i) => i.type === "equipement" && !i.system.appareil && appareilSelonNom(i.name) === "datapad");
+}
+
+/** Acteurs (monde + tokens non liés) dont l'état Inconscient ne correspond pas à leurs PV. */
+function etatsInconscientADecaler() {
+  return tousLesActeurs().filter((a) => {
+    const chemin = GW.cheminPV[a.type];
+    if (!chemin) return false;
+    return ((foundry.utils.getProperty(a, chemin) ?? 1) <= 0) !== a.statuses.has(GW.etatInconscient);
+  });
 }
 
 /** Équipements nommés « Comlink… » sans appareil renseigné. */

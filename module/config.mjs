@@ -169,8 +169,16 @@ GW.competencesDefense = ["paradeEsquive", "protectionDeForce"];
 /** Initiative du combat Foundry (choix de l'auteur, 2026-09-25) : 1d20 simple, pour toutes les fiches. */
 GW.formuleInitiative = "1d20";
 
-/** Chemin des PV actuels selon le type d'acteur ; absent = pas de PV à retirer (PNJ rapide, vaisseau). */
-GW.cheminPV = { personnage: "system.pv.value", "personnage-sith": "system.pv.actuels" };
+/** Chemin des PV actuels selon le type d'acteur ; absent = pas de PV à retirer (vaisseau). */
+GW.cheminPV = {
+  personnage: "system.pv.value",
+  "personnage-sith": "system.pv.actuels",
+  "personnage-rapide": "system.pv.value",
+  pnj: "system.pv.value"
+};
+
+/** État appliqué au token quand les PV tombent à 0, retiré dès 1 PV (demande de l'auteur). */
+GW.etatInconscient = "unconscious";
 
 /** Total attendu des caractéristiques de base saisies (fiche classique, cf. case B4 de
  *  `Template corriger.xlsx`) — validation indicative, jamais bloquante. */

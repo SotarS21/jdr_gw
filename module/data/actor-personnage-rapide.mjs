@@ -51,6 +51,12 @@ export class PersonnageRapideData extends foundry.abstract.TypeDataModel {
         racial: new NumberField({ required: true, integer: true, initial: 0 })
       }),
 
+      // PV (demande de l'auteur, 2026-09-25) : dégâts appliqués depuis le tchat, état Inconscient à 0.
+      pv: new SchemaField({
+        value: new NumberField({ required: true, integer: true, min: 0, initial: 10 }),
+        max: new NumberField({ required: true, integer: true, min: 0, initial: 10 })
+      }),
+
       equipement: new StringField({ initial: "" }),
       credits: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
       portrait: new FilePathField({ categories: ["IMAGE"], initial: "icons/svg/mystery-man.svg" }),

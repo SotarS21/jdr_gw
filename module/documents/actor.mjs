@@ -73,6 +73,8 @@ export class GalacticWarsActor extends Actor {
     const avant = foundry.utils.getProperty(this, chemin) ?? 0;
     const apres = Math.max(0, avant - subis);
     if (apres !== avant) await this.update({ [chemin]: apres });
+    // Déjà à 0 PV (aucune mise à jour, donc pas de _onUpdate) : l'état doit quand même être posé.
+    else await this.synchroniserInconscient();
     return { brut, reduction, subis, avant, apres };
   }
 
@@ -117,9 +119,26 @@ export class GalacticWarsActor extends Actor {
     options.gwAncienneImage = this.prototypeToken.texture.src || this.img;
   }
 
+  /**
+   * État « Inconscient » (GW.etatInconscient) : actif à 0 PV, retiré dès 1 PV. Vaut pour les
+   * acteurs du monde (tous leurs tokens liés) comme pour les tokens non liés (acteur synthétique).
+   */
+  async synchroniserInconscient() {
+    const chemin = GW.cheminPV[this.type];
+    if (!chemin || !this.isOwner) return;
+    const inconscient = (foundry.utils.getProperty(this, chemin) ?? 1) <= 0;
+    if (inconscient === this.statuses.has(GW.etatInconscient)) return;
+    await this.toggleStatusEffect(GW.etatInconscient, { active: inconscient });
+  }
+
   /** @override */
   _onUpdate(changed, options, userId) {
     super._onUpdate(changed, options, userId);
+    // Une seule fois, côté client auteur de la modification des PV.
+    const chemin = GW.cheminPV[this.type];
+    if (userId === game.user.id && chemin && foundry.utils.hasProperty(changed, chemin)) {
+      this.synchroniserInconscient().catch((err) => console.warn("Galactic Wars | État Inconscient :", err));
+    }
     // Une seule fois (client auteur de la modification) : tokens posés sur les scènes.
     if (userId !== game.user.id || !("gwAncienneImage" in options)) return;
     const image = this.img;

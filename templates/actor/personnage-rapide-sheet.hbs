@@ -20,6 +20,13 @@
   </header>
 
   <div class="sheet-body">
+  <section class="pv-rapide">
+    <h2>{{localize 'GALACTICWARS.Sheet.PV'}}</h2>
+    <label>{{localize 'GALACTICWARS.Inconscient.Actuels'}} <input type="number" name="system.pv.value" value="{{system.pv.value}}" min="0"></label>
+    <label>{{localize 'GALACTICWARS.Inconscient.Max'}} <input type="number" name="system.pv.max" value="{{system.pv.max}}" min="0"></label>
+    {{#if (eq system.pv.value 0)}}<span class="etat-inconscient"><i class="fa-solid fa-bed"></i> {{localize 'GALACTICWARS.Inconscient.Etat'}}</span>{{/if}}
+  </section>
+
   <section class="talent">
     <h2>{{localize 'GALACTICWARS.Sheet.Talent'}}</h2>
     <label>{{localize 'GALACTICWARS.Sheet.Nom'}} <input type="text" name="system.talent.nom" value="{{system.talent.nom}}"></label>
