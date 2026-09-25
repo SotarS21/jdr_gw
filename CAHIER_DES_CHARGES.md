@@ -187,6 +187,7 @@ Voir l'arborescence commentée dans `README.md` (module/config, module/data, mod
 - **Initiative** : `CONFIG.Combat.initiative` = 1d20 (`GW.formuleInitiative`), toutes fiches.
 - **Attaque → défense** (`helpers/combat.mjs`) : attaque réussie sur des tokens ciblés → carte « Défense » ; la cible (propriétaire ou MJ) tente Parade/esquive ou Protection de la Force (toujours les deux, la seconde grisée si non accessible) ; verdict : critique > simple, puis marge (taux − dé), égalité = défense. Mêlée / distance d'après la compétence de l'arme (`GW.competencesDistance` : blaster, canonLourd, artifice), affiché seulement.
 - **Dégâts** : bouton MJ « Appliquer les dégâts » sur le jet de dégâts d'une arme → tokens sélectionnés, sinon cibles de l'attaquant ; dégâts − réduction, PV ≥ 0 (`GW.cheminPV` : fiche classique et sith ; PNJ rapide et vaisseau sans PV → avertissement).
+- **v0.14.1** : équipement de départ des métiers typé (`helpers/objets-depart.mjs`, table de correspondances ligne → arme / armure du compendium, dés et bonus de la ligne prioritaires) ; correctifs MJ `0.14.1-armes-depart` (tokens non liés : objet hérité de la base mis à jour, pas dupliqué) et `0.14.1-visuels-par-nom` ; image cliquable sur la fiche d'objet générique.
 
 ### 5.2 Roadmap
 Voir §10.

@@ -3,7 +3,7 @@
       Un seul élément racine reste requis (PARTS). --}}
 <div class="galactic-wars-body">
   <header class="sheet-header">
-    <img class="item-image" src="{{item.img}}" data-edit="img" alt="{{item.name}}">
+    <img class="item-image" src="{{item.img}}" alt="{{item.name}}" {{#if editable}}data-action="editImage" data-tooltip="{{localize 'GALACTICWARS.Objet.ChangerImage'}}"{{/if}}>
     <input type="text" name="name" value="{{item.name}}">
   </header>
 

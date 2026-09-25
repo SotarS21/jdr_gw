@@ -1,4 +1,4 @@
-import { appareilSelonNom, IMAGES_APPAREILS } from "./appareils.mjs";
+import { objetDeDepart } from "./objets-depart.mjs";
 import { GW } from "../config.mjs";
 
 /**
@@ -25,16 +25,8 @@ export async function applyMetier(actor, metierItem) {
     );
   }
 
-  const nouveauxObjets = metierItem.system.equipement.map((e) => {
-    const appareil = appareilSelonNom(e.nom);
-    return {
-      name: e.nom,
-      type: "equipement",
-      ...(IMAGES_APPAREILS[appareil] ? { img: IMAGES_APPAREILS[appareil] } : {}),
-      system: { quantite: e.quantite, appareil },
-      flags: { "galactic-wars": { startingGear: true } }
-    };
-  });
+  // Armes et armures reconnues : copies typées du compendium (helpers/objets-depart.mjs).
+  const nouveauxObjets = await Promise.all(metierItem.system.equipement.map((e) => objetDeDepart(e)));
   if (nouveauxObjets.length) await actor.createEmbeddedDocuments("Item", nouveauxObjets);
 
   const updates = {

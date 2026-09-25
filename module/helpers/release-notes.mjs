@@ -106,5 +106,13 @@ export const RELEASE_NOTES = {
       <li>Attaque réussie sur des tokens ciblés : chaque cible tente Parade/esquive ou Protection de la Force ; si les deux réussissent, la meilleure réussite l'emporte (critique, puis marge ; égalité = défense).</li>
       <li>Jet de dégâts d'une arme : bouton MJ « Appliquer les dégâts » aux tokens sélectionnés (sinon aux cibles de l'attaquant), réduits par les armures ; bilan chuchoté au MJ.</li>
     </ul>`
+  },
+  "0.14.1": {
+    title: "v0.14.1",
+    html: `<ul>
+      <li>Armes et armures de départ des métiers : créées comme de vraies armes / armures du compendium (dégâts, compétence liée, réduction, visuel) au lieu de simples équipements ; les dés ou le bonus écrits dans le nom sont repris (« Blaster 1D4 +2 », « Armure intermédiaire +2 »). Correctif proposé au MJ pour les personnages et tokens existants.</li>
+      <li>Objets créés à la main portant le nom exact d'un objet du compendium : son visuel leur est proposé (correctif MJ).</li>
+      <li>Fiches de race, métier, talent, pouvoir et école : l'image est de nouveau modifiable au clic.</li>
+    </ul>`
   }
 };

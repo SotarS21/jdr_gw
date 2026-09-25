@@ -1,5 +1,24 @@
 # Journal de développement — Galactic Wars
 
+## Session du 2026-09-25 (suite 2) — Armes de départ sans dégâts ni compétence (v0.14.0→v0.14.1)
+
+- **Bug remonté par l'auteur** : les armes des personnages posés sur les scènes n'avaient ni dégâts ni compétence.
+  Cause : `applyMetier` créait tout l'équipement de départ en type `equipement` (« Sabre laser double ou double lame
+  2d8 », « Arme blanche au choix », « Armure intermédiaire +2 »…) — ce n'étaient pas des armes. Les objets de type
+  `arme` et les compendiums, eux, étaient intacts (vérifié).
+- `helpers/objets-depart.mjs` : 13 correspondances ligne → modèle du compendium (19 lignes d'armes / armures des
+  métiers couvertes), nom de la ligne conservé, dés (`2D8`, `1D4 +2`) et bonus (`+2`) de la ligne prioritaires.
+  Choix par défaut à valider par l'auteur : Couteau et « Arme blanche au choix » = modèle Arme contondante (1d6) ;
+  « Arme lourde (…) » = Blaster lourd en Canon lourd ; « Sabre d'entraînement 1d6 » = Sabre laser à 1d6 ;
+  « Blindage supplémentaire +4 » = armure +4 ; Griffe, Bras explosif, Scalpel laser restent des équipements.
+- Correctifs MJ `0.14.1-armes-depart` (6 objets convertis dans le monde de test : Alek, Kael, token Gueran Cell,
+  token Alek) et `0.14.1-visuels-par-nom` (Blaster lourd de Kael). **Piège** : un token non lié hérite des objets de
+  son acteur de base ; convertir l'objet sur la base puis sur le token en créait deux (token Alek, réparé). Les objets
+  hérités sont désormais triés avant toute conversion et seulement mis à jour sur le token. Rejoué sur un acteur +
+  token jetables : aucun doublon, état « porté » du token conservé.
+- Fiche d'objet générique (race, métier, talent, pouvoir, école) : `data-edit="img"` (inopérant en ApplicationV2)
+  remplacé par l'action `editImage` (FilePicker). Les fiches arme / armure / équipement l'avaient déjà.
+
 ## Session du 2026-09-25 (suite) — Onglet Combat, attaque / défense, dégâts appliqués (v0.13.3→v0.14.0)
 
 - **Choix de l'auteur** : onglet Combat = armes portées, protection, compétences de combat, compétences liées à la

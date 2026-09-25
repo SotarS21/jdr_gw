@@ -2,6 +2,7 @@ import { appareilSelonNom, IMAGES_APPAREILS, IMAGES_GENERIQUES } from "./apparei
 import { fichesIncompletes, completerToutesLesFiches } from "./migration.mjs";
 import { GalacticWarsActor } from "../documents/actor.mjs";
 import { competencesSelonMetier } from "./metier.mjs";
+import { correspondanceDepart, objetDeDepart } from "./objets-depart.mjs";
 
 /**
  * Registre des correctifs de contenu proposés au MJ après une mise à jour (sur le modèle
@@ -80,6 +81,57 @@ export const PACK_UPDATES = [
     apply: async () => {
       const liste = await armesContondantesSurBagarre();
       for (const copie of liste) await copie.update({ "system.competence": "armeBlanche" });
+      return liste.length;
+    }
+  },
+  {
+    id: "0.14.1-armes-depart",
+    cible: "acteurs",
+    version: "0.14.1",
+    label: "Armes et armures de départ des métiers",
+    description:
+      "L'équipement de départ des métiers créait les armes et armures comme de simples équipements, sans dégâts, " +
+      "compétence liée ni réduction. Les objets reconnus (« Blaster 1D4 +2 », « Arme blanche au choix », « Armure " +
+      "intermédiaire +2 »…) sont remplacés par une arme ou une armure du compendium, sous le même nom, avec les dés " +
+      "ou le bonus écrits dans leur nom. Les autres équipements ne sont pas touchés.",
+    concernes: async () => equipementsDepartATyper().length,
+    apply: async () => {
+      const liste = equipementsDepartATyper();
+      // Un token non lié hérite des objets de son acteur de base : l'objet converti sur la base lui
+      // parvient déjà. Pour ces objets hérités (ou seulement surchargés), on reporte l'état du token
+      // (porté, tags) sur l'objet hérité et on retire l'ancien — sinon il en aurait deux.
+      // Tri AVANT toute conversion : ensuite, la base n'a plus l'ancien objet.
+      const estHerite = (objet) => objet.parent.isToken && !!game.actors.get(objet.parent.id)?.items.has(objet.id);
+      const herites = liste.filter(estHerite)
+        .map((objet) => ({ acteur: objet.parent, id: objet.id, nom: objet.name, etat: etatObjet(objet) }));
+      for (const objet of liste.filter((o) => !estHerite(o))) {
+        const acteur = objet.parent;
+        const data = await objetDeDepart({ nom: objet.name, quantite: objet.system.quantite ?? 1 });
+        Object.assign(data.system, etatObjet(objet));
+        await acteur.createEmbeddedDocuments("Item", [data]);
+        await acteur.deleteEmbeddedDocuments("Item", [objet.id]);
+      }
+      for (const { acteur, id, nom, etat } of herites) {
+        const nouveau = acteur.items.find((i) => i.name === nom && i.type !== "equipement" && i.getFlag("galactic-wars", "startingGear"));
+        if (nouveau) await nouveau.update({ "system.porte": etat.porte, "system.tags": etat.tags });
+        if (acteur.items.has(id)) await acteur.deleteEmbeddedDocuments("Item", [id]);
+      }
+      return liste.length;
+    }
+  },
+  {
+    id: "0.14.1-visuels-par-nom",
+    cible: "acteurs",
+    version: "0.14.1",
+    label: "Visuels des objets créés à la main",
+    description:
+      "Les objets créés à la main (sans lien au compendium) gardaient l'icône générique. Ceux dont le nom est " +
+      "exactement celui d'une arme, d'une armure ou d'un équipement du compendium (ex. « Blaster lourd ») reçoivent " +
+      "son visuel. Une image que vous avez choisie vous-même n'est jamais remplacée.",
+    concernes: async () => (await objetsAIllustrerParNom()).length,
+    apply: async () => {
+      const liste = await objetsAIllustrerParNom();
+      for (const { objet, img } of liste) await objet.update({ img });
       return liste.length;
     }
   },
@@ -179,6 +231,38 @@ async function objetsAIllustrer() {
     if (img && !IMAGES_GENERIQUES.has(img) && img !== objet.img) liste.push({ objet, img });
   }
   return liste;
+}
+
+/** Équipements de départ de métier (flag startingGear) qui correspondent à une arme ou une armure. */
+function equipementsDepartATyper() {
+  return tousLesActeurs()
+    .flatMap((a) => [...a.items])
+    .filter((i) => i.type === "equipement" && i.getFlag("galactic-wars", "startingGear") && correspondanceDepart(i.name));
+}
+
+/** État propre à l'objet d'un personnage, conservé lors de la conversion. */
+function etatObjet(objet) {
+  return {
+    porte: !!objet.system.porte,
+    tags: foundry.utils.deepClone(objet.system.tags ?? {}),
+    ...(objet.system.notesMJ ? { notesMJ: objet.system.notesMJ } : {})
+  };
+}
+
+/** Objets à icône générique dont le nom est celui d'un objet des compendiums d'objets. */
+async function objetsAIllustrerParNom() {
+  const images = new Map();
+  for (const nom of ["armes", "armures", "equipements"]) {
+    const pack = game.packs.get(`${game.system.id}.${nom}`);
+    for (const e of (await pack?.getIndex({ fields: ["img", "type"] })) ?? []) {
+      if (e.img && !IMAGES_GENERIQUES.has(e.img)) images.set(`${e.type}|${e.name.trim().toLowerCase()}`, e.img);
+    }
+  }
+  const objets = [...game.items, ...tousLesActeurs().flatMap((a) => [...a.items])]
+    .filter((i) => ["arme", "armure", "equipement"].includes(i.type) && IMAGES_GENERIQUES.has(i.img ?? ""));
+  return objets
+    .map((objet) => ({ objet, img: images.get(`${objet.type}|${objet.name.trim().toLowerCase()}`) }))
+    .filter((o) => o.img);
 }
 
 /** Acteurs du monde (avec portrait) dont portrait, image et image de token ne sont pas identiques. */
