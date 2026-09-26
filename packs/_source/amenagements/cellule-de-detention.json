@@ -1,0 +1,26 @@
+{
+  "_key": "!items!lHYYeq2Fa5UgeHtO",
+  "_id": "lHYYeq2Fa5UgeHtO",
+  "name": "Cellule de détention",
+  "type": "amenagement",
+  "img": "icons/sundries/misc/lock-steel-blue.webp",
+  "system": {
+    "prix": "20000c",
+    "modules": 1,
+    "description": "<p>Cellule verrouillée et renforcée pour un ou deux prisonniers — indispensable aux chasseurs de primes.</p><p><em>Prix et modules estimés (absents du matériel source), à ajuster par le MJ.</em></p>",
+    "notesMJ": ""
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.19.0"
+  }
+}

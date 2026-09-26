@@ -1,0 +1,26 @@
+{
+  "_key": "!items!oNtcy5V1qb6ydlCB",
+  "_id": "oNtcy5V1qb6ydlCB",
+  "name": "Soute agrandie",
+  "type": "amenagement",
+  "img": "systems/galactic-wars/asset_visuel/objets/amenagements-soute-agrandie.jpg",
+  "system": {
+    "prix": "30000c",
+    "modules": 2,
+    "description": "<p>Extension de la soute (environ +50 m²), avec rails de chargement et points d'arrimage.</p><p><em>Prix et modules estimés (absents du matériel source), à ajuster par le MJ.</em></p>",
+    "notesMJ": ""
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.19.0"
+  }
+}

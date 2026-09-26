@@ -1,0 +1,26 @@
+{
+  "_key": "!items!bSOqlAlffLT8IhDQ",
+  "_id": "bSOqlAlffLT8IhDQ",
+  "name": "Générateur de bouclier renforcé",
+  "type": "amenagement",
+  "img": "icons/magic/defensive/barrier-shield-dome-deflect-blue.webp",
+  "system": {
+    "prix": "80000c",
+    "modules": 2,
+    "description": "<p>Générateur de bouclier supplémentaire : environ +20 points de bouclier au maximum (à reporter sur la fiche du vaisseau).</p><p><em>Prix et modules estimés (absents du matériel source), à ajuster par le MJ.</em></p>",
+    "notesMJ": ""
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.19.0"
+  }
+}

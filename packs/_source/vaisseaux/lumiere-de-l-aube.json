@@ -61,6 +61,134 @@
         }
       },
       "sort": 200000
+    },
+    {
+      "_id": "Qhx1CzEx1H1TWtMy",
+      "_key": "!actors.items!HYYhqVxFVfJhthNJ.Qhx1CzEx1H1TWtMy",
+      "name": "Passerelle",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 300000
+    },
+    {
+      "_id": "W7mOTRoaSO3dMpS8",
+      "_key": "!actors.items!HYYhqVxFVfJhthNJ.W7mOTRoaSO3dMpS8",
+      "name": "Salon d'apparat",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "<p>Salon de réception aux parois dorées.</p>",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 400000
+    },
+    {
+      "_id": "otdzeJtXhz1eNT16",
+      "_key": "!actors.items!HYYhqVxFVfJhthNJ.otdzeJtXhz1eNT16",
+      "name": "Cabines VIP",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "<p>Quatre suites pour les passagers de marque.</p>",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 500000
+    },
+    {
+      "_id": "H9ed3MU2YZvXjJbK",
+      "_key": "!actors.items!HYYhqVxFVfJhthNJ.H9ed3MU2YZvXjJbK",
+      "name": "Quartiers d'équipage",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 600000
+    },
+    {
+      "_id": "nB8lipSI2HhNcdim",
+      "_key": "!actors.items!HYYhqVxFVfJhthNJ.nB8lipSI2HhNcdim",
+      "name": "Infirmerie",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 700000
+    },
+    {
+      "_id": "dYHH33dQ2Ow2wdS1",
+      "_key": "!actors.items!HYYhqVxFVfJhthNJ.dYHH33dQ2Ow2wdS1",
+      "name": "Salle des machines",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 800000
+    },
+    {
+      "_id": "hoZmP9lThvrUmC6a",
+      "_key": "!actors.items!HYYhqVxFVfJhthNJ.hoZmP9lThvrUmC6a",
+      "name": "Hangar à navette",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "<p>Une navette de 6 places.</p>",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 900000
+    },
+    {
+      "_id": "t5kcFQGwbv6FPPql",
+      "_key": "!actors.items!HYYhqVxFVfJhthNJ.t5kcFQGwbv6FPPql",
+      "name": "Pods de sauvetage",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "<p>Quatre pods de 6 places.</p>",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 1000000
     }
   ],
   "effects": [],
@@ -141,43 +269,11 @@
       }
     ],
     "soute": "Soute de 120 m².",
-    "amenagements": [
-      {
-        "nom": "Passerelle",
-        "description": ""
-      },
-      {
-        "nom": "Salon d'apparat",
-        "description": "Salon de réception aux parois dorées."
-      },
-      {
-        "nom": "Cabines VIP",
-        "description": "Quatre suites pour les passagers de marque."
-      },
-      {
-        "nom": "Quartiers d'équipage",
-        "description": ""
-      },
-      {
-        "nom": "Infirmerie",
-        "description": ""
-      },
-      {
-        "nom": "Salle des machines",
-        "description": ""
-      },
-      {
-        "nom": "Hangar à navette",
-        "description": "Une navette de 6 places."
-      },
-      {
-        "nom": "Pods de sauvetage",
-        "description": "Quatre pods de 6 places."
-      }
-    ],
+    "amenagements": [],
     "equipementsEmbarques": "",
     "portrait": "systems/galactic-wars/asset_visuel/objets/vaisseaux-lumiere-de-l-aube.jpg",
-    "description": "<p>Grande frégate de 90 m à la coque ivoire et or, conçue pour le transport de dignitaires. Ses boucliers, parmi les plus puissants pour sa taille, comptent davantage que son armement pour protéger ses passagers.</p><p><em>Caractéristiques estimées : ce vaisseau n'est pas détaillé dans le matériel source (valeurs calibrées sur les vaisseaux du compendium, à ajuster par le MJ).</em></p>"
+    "description": "<p>Grande frégate de 90 m à la coque ivoire et or, conçue pour le transport de dignitaires. Ses boucliers, parmi les plus puissants pour sa taille, comptent davantage que son armement pour protéger ses passagers.</p><p><em>Caractéristiques estimées : ce vaisseau n'est pas détaillé dans le matériel source (valeurs calibrées sur les vaisseaux du compendium, à ajuster par le MJ).</em></p>",
+    "modules": 10
   },
   "folder": null,
   "sort": 0,

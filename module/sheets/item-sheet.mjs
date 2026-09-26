@@ -10,7 +10,8 @@ const { ItemSheetV2 } = foundry.applications.sheets;
 const TEMPLATES_OBJET = {
   arme: "systems/galactic-wars/templates/item/arme-sheet.hbs",
   armure: "systems/galactic-wars/templates/item/armure-sheet.hbs",
-  equipement: "systems/galactic-wars/templates/item/equipement-sheet.hbs"
+  equipement: "systems/galactic-wars/templates/item/equipement-sheet.hbs",
+  amenagement: "systems/galactic-wars/templates/item/amenagement-sheet.hbs"
 };
 
 /** Partiels communs aux trois fiches d'objet (nom du partiel -> chemin). Enregistrés une seule
@@ -197,7 +198,9 @@ export class GalacticWarsItemSheet extends HandlebarsApplicationMixin(ItemSheetV
       // Badge de type : Bouclier pour une armure d'emplacement bouclier, nom de l'appareil (Datapad…) pour un équipement.
       typeLabel: estBouclier ? "GALACTICWARS.Objet.Emplacement.bouclier"
         : (item.type === "equipement" && GW.appareils[system.appareil]) || `TYPES.Item.${item.type}`,
-      estBouclier
+      estBouclier,
+      // Aménagement de vaisseau : pas d'interrupteur Porté / Rangé.
+      sansPorte: item.type === "amenagement"
     };
     if (isGM && this.#ongletActif === "notes") {
       context.notesMJEnrichies = await foundry.applications.ux.TextEditor.implementation.enrichHTML(

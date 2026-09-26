@@ -1,0 +1,26 @@
+{
+  "_key": "!items!8Aafgya2QCE0G5En",
+  "_id": "8Aafgya2QCE0G5En",
+  "name": "Hyperpropulseur amélioré",
+  "type": "amenagement",
+  "img": "icons/environment/cosmos/astronomy-planetary-orbits.webp",
+  "system": {
+    "prix": "120000c",
+    "modules": 2,
+    "description": "<p>Hyperpropulseur de meilleure classe : les voyages en hyperespace sont nettement plus courts.</p><p><em>Prix et modules estimés (absents du matériel source), à ajuster par le MJ.</em></p>",
+    "notesMJ": ""
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.19.0"
+  }
+}

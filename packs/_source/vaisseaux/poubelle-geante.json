@@ -61,6 +61,22 @@
         }
       },
       "sort": 200000
+    },
+    {
+      "_id": "4eCom9DnWbobX9dD",
+      "_key": "!actors.items!wq5sBNHltjALjKp7.4eCom9DnWbobX9dD",
+      "name": "Sanitaire",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 300000
     }
   ],
   "effects": [],
@@ -104,12 +120,8 @@
     "equipementsEmbarques": "Sanitaire.",
     "portrait": "systems/galactic-wars/asset_visuel/objets/vaisseaux-la-poubelle-geante.jpg",
     "description": "<p>Freighter d'occasion de 15 m sur 25 m, pour 5 places. Équipage de 2 pilotes ; une cale/dortoir/entrepôt/salle des machines faisant office d'espace polyvalent ; un sanitaire.</p><p>Armement : une tourelle lourde (4d6) et une paire de tourelles légères à l'avant (2d6 chacune).</p>",
-    "amenagements": [
-      {
-        "nom": "Sanitaire",
-        "description": ""
-      }
-    ]
+    "amenagements": [],
+    "modules": 4
   },
   "folder": null,
   "sort": 100000,

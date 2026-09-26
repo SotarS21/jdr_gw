@@ -61,6 +61,150 @@
         }
       },
       "sort": 200000
+    },
+    {
+      "_id": "a9v0GHHuSWqBczB2",
+      "_key": "!actors.items!1dJIKPImHcqOn0Zw.a9v0GHHuSWqBczB2",
+      "name": "Passerelle",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "<p>Poste de commandement, pilotage et commande des tourelles.</p>",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 300000
+    },
+    {
+      "_id": "hZQwgInknFFUfvoM",
+      "_key": "!actors.items!1dJIKPImHcqOn0Zw.hZQwgInknFFUfvoM",
+      "name": "Salle de négociation",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "<p>Salle de réunion blindée, où la frégate tient les « pourparlers » qui lui donnent son nom.</p>",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 400000
+    },
+    {
+      "_id": "y61ifqdaZbbwzM6w",
+      "_key": "!actors.items!1dJIKPImHcqOn0Zw.y61ifqdaZbbwzM6w",
+      "name": "Cabines d'officiers",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "<p>Quatre cabines individuelles.</p>",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 500000
+    },
+    {
+      "_id": "P1BljRfQswRag6CB",
+      "_key": "!actors.items!1dJIKPImHcqOn0Zw.P1BljRfQswRag6CB",
+      "name": "Quartiers d'équipage",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "<p>Dortoirs pour une dizaine de personnes.</p>",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 600000
+    },
+    {
+      "_id": "VtUVKKWd8Med93zw",
+      "_key": "!actors.items!1dJIKPImHcqOn0Zw.VtUVKKWd8Med93zw",
+      "name": "Mess",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 700000
+    },
+    {
+      "_id": "djANIMfEUcZ95WVP",
+      "_key": "!actors.items!1dJIKPImHcqOn0Zw.djANIMfEUcZ95WVP",
+      "name": "Infirmerie",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 800000
+    },
+    {
+      "_id": "f7krNNBrqcdc1D2y",
+      "_key": "!actors.items!1dJIKPImHcqOn0Zw.f7krNNBrqcdc1D2y",
+      "name": "Salle des machines",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 900000
+    },
+    {
+      "_id": "6zT0aE2njAHCmdjh",
+      "_key": "!actors.items!1dJIKPImHcqOn0Zw.6zT0aE2njAHCmdjh",
+      "name": "Hangar à navette",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "<p>Une navette de 8 places.</p>",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 1000000
+    },
+    {
+      "_id": "tbLafVs21OxUEBjK",
+      "_key": "!actors.items!1dJIKPImHcqOn0Zw.tbLafVs21OxUEBjK",
+      "name": "Pods de sauvetage",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "<p>Trois pods de 6 places.</p>",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 1100000
     }
   ],
   "effects": [],
@@ -133,47 +277,11 @@
       }
     ],
     "soute": "Soute de 200 m² et armurerie.",
-    "amenagements": [
-      {
-        "nom": "Passerelle",
-        "description": "Poste de commandement, pilotage et commande des tourelles."
-      },
-      {
-        "nom": "Salle de négociation",
-        "description": "Salle de réunion blindée, où la frégate tient les « pourparlers » qui lui donnent son nom."
-      },
-      {
-        "nom": "Cabines d'officiers",
-        "description": "Quatre cabines individuelles."
-      },
-      {
-        "nom": "Quartiers d'équipage",
-        "description": "Dortoirs pour une dizaine de personnes."
-      },
-      {
-        "nom": "Mess",
-        "description": ""
-      },
-      {
-        "nom": "Infirmerie",
-        "description": ""
-      },
-      {
-        "nom": "Salle des machines",
-        "description": ""
-      },
-      {
-        "nom": "Hangar à navette",
-        "description": "Une navette de 8 places."
-      },
-      {
-        "nom": "Pods de sauvetage",
-        "description": "Trois pods de 6 places."
-      }
-    ],
+    "amenagements": [],
     "equipementsEmbarques": "",
     "portrait": "systems/galactic-wars/asset_visuel/objets/vaisseaux-pourparler.png",
-    "description": "<p>Grande frégate armée de 80 m, aux lignes effilées et à la coque blanche. Deux batteries de canons lourds sur les flancs et six tourelles légères en font un vaisseau d'escorte redouté ; son nom, Pourparler, sonne comme une ironie pour ceux qui l'ont vu ouvrir le feu.</p><p><em>Caractéristiques estimées : ce vaisseau n'est pas détaillé dans le matériel source (valeurs calibrées sur les vaisseaux du compendium, à ajuster par le MJ).</em></p>"
+    "description": "<p>Grande frégate armée de 80 m, aux lignes effilées et à la coque blanche. Deux batteries de canons lourds sur les flancs et six tourelles légères en font un vaisseau d'escorte redouté ; son nom, Pourparler, sonne comme une ironie pour ceux qui l'ont vu ouvrir le feu.</p><p><em>Caractéristiques estimées : ce vaisseau n'est pas détaillé dans le matériel source (valeurs calibrées sur les vaisseaux du compendium, à ajuster par le MJ).</em></p>",
+    "modules": 10
   },
   "folder": null,
   "sort": 0,

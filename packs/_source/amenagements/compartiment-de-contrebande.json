@@ -1,0 +1,26 @@
+{
+  "_key": "!items!jfpQ9KCpVYPGAnYG",
+  "_id": "jfpQ9KCpVYPGAnYG",
+  "name": "Compartiment de contrebande",
+  "type": "amenagement",
+  "img": "icons/containers/boxes/crate-tech-red.webp",
+  "system": {
+    "prix": "60000c",
+    "modules": 1,
+    "description": "<p>Cache blindée contre les scanners, dissimulée dans la structure : de quoi passer quelques caisses sous le nez des douanes.</p><p><em>Prix et modules estimés (absents du matériel source), à ajuster par le MJ.</em></p>",
+    "notesMJ": ""
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.19.0"
+  }
+}

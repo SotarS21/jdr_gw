@@ -61,6 +61,70 @@
         }
       },
       "sort": 200000
+    },
+    {
+      "_id": "zLgg2DNhpPLI3QBY",
+      "_key": "!actors.items!ApzVjX38rzeIBHoO.zLgg2DNhpPLI3QBY",
+      "name": "Infirmerie",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 300000
+    },
+    {
+      "_id": "f0h4u8R2cqjCHIOO",
+      "_key": "!actors.items!ApzVjX38rzeIBHoO.f0h4u8R2cqjCHIOO",
+      "name": "Cabines",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "<p>6 cabines dont celle du capitaine, chacune avec son sanitaire. Confort grand luxe.</p>",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 400000
+    },
+    {
+      "_id": "cgIf72K72DQythyy",
+      "_key": "!actors.items!ApzVjX38rzeIBHoO.cgIf72K72DQythyy",
+      "name": "Salle de repos",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 500000
+    },
+    {
+      "_id": "f1i3yNkH8jU9nvD7",
+      "_key": "!actors.items!ApzVjX38rzeIBHoO.f1i3yNkH8jU9nvD7",
+      "name": "Cuisines",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "<p>Cuisines séparées.</p>",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 600000
     }
   ],
   "effects": [],
@@ -96,24 +160,8 @@
     "equipementsEmbarques": "Infirmerie ; 6 cabines dont celle du capitaine, chacune avec sanitaire ; une salle de repos ; des cuisines séparées. Confort grand luxe.",
     "portrait": "icons/svg/mystery-man.svg",
     "description": "<p>Freighter de luxe. 6 personnes. Infirmerie, 6 cabines dont celle du capitaine, 1 entrepôt, des sanitaires par cabine, une salle de repos, des cuisines séparées. Le confort grand luxe. 2 canons lourds 4d6, 2 canons légers 2d6. 50 Shield, 40 blindages.</p>",
-    "amenagements": [
-      {
-        "nom": "Infirmerie",
-        "description": ""
-      },
-      {
-        "nom": "Cabines",
-        "description": "6 cabines dont celle du capitaine, chacune avec son sanitaire. Confort grand luxe."
-      },
-      {
-        "nom": "Salle de repos",
-        "description": ""
-      },
-      {
-        "nom": "Cuisines",
-        "description": "Cuisines séparées."
-      }
-    ]
+    "amenagements": [],
+    "modules": 8
   },
   "folder": null,
   "sort": 100000,

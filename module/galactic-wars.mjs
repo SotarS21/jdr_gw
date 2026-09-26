@@ -18,6 +18,7 @@ import { ArmureData } from "./data/item-armure.mjs";
 import { PouvoirData } from "./data/item-pouvoir.mjs";
 import { EquipementData } from "./data/item-equipement.mjs";
 import { EcoleData } from "./data/item-ecole.mjs";
+import { AmenagementData } from "./data/item-amenagement.mjs";
 import { PersonnageSheet } from "./sheets/personnage-sheet.mjs";
 import { PersonnageRapideSheet } from "./sheets/personnage-rapide-sheet.mjs";
 import { PersonnageSithSheet } from "./sheets/personnage-sith-sheet.mjs";
@@ -69,6 +70,7 @@ Hooks.once("init", () => {
   CONFIG.Item.dataModels.pouvoir = PouvoirData;
   CONFIG.Item.dataModels.equipement = EquipementData;
   CONFIG.Item.dataModels.ecole = EcoleData;
+  CONFIG.Item.dataModels.amenagement = AmenagementData;
 
   const { DocumentSheetConfig } = foundry.applications.apps;
   const { Actors, Items } = foundry.documents.collections;
@@ -120,7 +122,7 @@ Hooks.once("init", () => {
   });
 
   DocumentSheetConfig.registerSheet(Item, "galactic-wars", GalacticWarsItemSheet, {
-    types: ["race", "metier", "talent", "arme", "armure", "pouvoir", "equipement", "ecole"],
+    types: ["race", "metier", "talent", "arme", "armure", "pouvoir", "equipement", "ecole", "amenagement"],
     makeDefault: true,
     label: "GALACTICWARS.Sheet.Item"
   });

@@ -11,7 +11,24 @@
     },
     "actorLink": true
   },
-  "items": [],
+  "items": [
+    {
+      "_id": "TgxcIKrUSA5f9kpM",
+      "_key": "!actors.items!uZZiUcRBvMpRoFoI.TgxcIKrUSA5f9kpM",
+      "name": "Selle ouverte",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "<p>Aucun compartiment : véhicule terrestre ouvert, une place.</p>",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 100000
+    }
+  ],
   "effects": [],
   "system": {
     "classe": "Speeder terrestre",
@@ -45,12 +62,8 @@
     "equipementsEmbarques": "Aucun compartiment : véhicule terrestre ouvert, une place.",
     "portrait": "systems/galactic-wars/asset_visuel/objets/vaisseaux-moto-speeder.jpg",
     "description": "<p>Moto speeder : solo place.</p><p><em>Note MJ : le matériel source ne précise pas les points de vie ni le bouclier de ce véhicule. Valeur de PV (5) estimée par cohérence avec les autres véhicules comparables du même classeur (échelle proportionnelle à la taille/au rôle) ; absence de bouclier estimée car ce type de véhicule ouvert monoplace est trop petit pour embarquer un générateur de bouclier. À ajuster librement.</em></p>",
-    "amenagements": [
-      {
-        "nom": "Selle ouverte",
-        "description": "Aucun compartiment : véhicule terrestre ouvert, une place."
-      }
-    ]
+    "amenagements": [],
+    "modules": 0
   },
   "folder": null,
   "sort": 100000,

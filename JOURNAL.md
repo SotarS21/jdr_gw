@@ -28,9 +28,9 @@
     9. [Fonctionnalité] Glisser-déposer des acteurs dans les PNJ des PJ.
     10. [Fonctionnalité] Afficher une note dans le tchat, et pouvoir la glisser du tchat vers ses propres notes.
     11. [Fonctionnalité] Succès en vert, échecs en rouge, plus visibles.
-    12. [Fonctionnalité] Compendium d'aménagements payants pour les vaisseaux.
-    13. [Fonctionnalité] Nombre de modules d'aménagement par vaisseau.
-    14. [Fonctionnalité] Ajouter de l'équipement directement dans le vaisseau.
+    12. ~~[Fonctionnalité] Compendium d'aménagements payants pour les vaisseaux~~ : fait (v0.19.0).
+    13. ~~[Fonctionnalité] Nombre de modules d'aménagement par vaisseau~~ : fait (v0.19.0).
+    14. ~~[Fonctionnalité] Ajouter de l'équipement directement dans le vaisseau~~ : fait (soute, v0.19.0).
     15. ~~[Bug] Postes du vaisseau : glisser-déposer des PJ d'un poste à l'autre~~ : fait (v0.18.3).
     16. ~~[Fonctionnalité] Bouton de jet par poste~~ (fait, v0.18.3) (le PJ du poste lance sa propre compétence) : Pilote → Pilotage,
         Navigateur → Informatique / piratage, Communicateur → Social, Manutention et entretien → Mécanique, Canonnier →
@@ -50,6 +50,35 @@
 - **Rappels techniques** : scripts de patch écrits avec l'outil Write (ou heredoc `<<'EOF'`, en doublant les
   antislashs à vérifier) — jamais de backticks dans un `node -e` en bash ; `git checkout` remet les fichiers en CRLF
   (normaliser avant de chercher du texte) ; `prose-mirror` doit rester en `display: flex`.
+
+## Session du 2026-09-26 (suite 15) — Aménagements et soute des vaisseaux (v0.18.3→v0.19.0)
+
+- **Choix de l'auteur** : aménagements tout en objets (les listes existantes converties en objets d'origine, 0 module,
+  0c) ; catalogue proposé par Claude (prix estimés) ; modules estimés selon la taille.
+- **Item `amenagement`** : prix, modules, description, notes MJ ; fiche d'objet (partiels communs, sans interrupteur
+  Porté / Rangé : `sansPorte`), carte de tchat (modules, prix ou « D'origine »).
+- **Compendium « Aménagements de vaisseau »** (19) : Infirmerie (2 mod., 40 000c), Cabine supplémentaire, Cabine
+  individuelle, Cuisine équipée, Salon, Salle de briefing, Cockpit amélioré, Passerelle de commandement, Soute agrandie,
+  Hangar à navette (3, 90 000c), Sas d'arrimage, Compartiment de contrebande, Générateur de bouclier renforcé, Brouilleur
+  de capteurs, Rayon tracteur (3, 60 000c — prix du classeur), Hyperpropulseur amélioré (2, 120 000c), Pods de
+  sauvetage, Cellule de détention, Atelier droïde. Effets décrits (bonus laissés au MJ). Images : 11 intérieurs de
+  vaisseau de l'auteur (`asset_visuel/vaiseau/`, `asset_visuel/lieux/front_vaisseau_*`, convertis dans le navigateur) ou
+  icônes Foundry ; bannière (6 intérieurs).
+- **Fiche de vaisseau** : aménagements = objets (glisser depuis le compendium ; « Ajouter » = aménagement vierge,
+  1 module ; clic = carte ; crayon / corbeille en Édition), icône déduite du nom si pas d'image, premier paragraphe de
+  la description sur la carte ; compteur « Modules x / y » (rouge si dépassé, avertissement à l'ajout, y réglable en
+  Édition) ; bandeau + bouton « Convertir » pour une ancienne liste. **Soute** : équipements et armures (depuis un acteur
+  = déplacés, sinon copiés), « Donner » aux membres assis que l'utilisateur possède, glisser vers une fiche = déplacé
+  (hook `dropActorSheetData` étendu aux vaisseaux). Un vaisseau refuse les autres types (talent…).
+- **Compendium Vaisseaux** : aménagements convertis en objets d'origine, `system.modules` estimé (Moto speeder 0, Land
+  speeder 1, Frelon 2, freighters 4-6, Barloz / Gunboat / Lance d'argent 8, Pourparler / Lumière de l'aube 10, Barmaid
+  Betty 12, Convergence 16). Correctif `0.19.0-amenagements-en-objets` (monde : conversion + modules du vaisseau
+  homonyme du compendium s'il est à 0).
+- Vérifié après redémarrage (personne de connecté) sur un vaisseau temporaire (supprimé) : 19 entrées, Poubelle
+  géante (Sanitaire / 0, 4 modules), conversion d'une ancienne liste, Infirmerie → « 2 / 4 », + Hangar → « 5 / 4 »
+  rouge, Kit de réparation de Kael → soute (retiré de Kael) → rendu par « Donner », talent refusé, fiche d'aménagement
+  sans interrupteur ; Kael restauré. Piège : `verify-local` sort en erreur quand la version du serveur diffère (avant
+  redémarrage) → récupérer sa sortie standard malgré le code de sortie.
 
 ## Session du 2026-09-26 (suite 14) — Postes de vaisseau (v0.18.2→v0.18.3)
 

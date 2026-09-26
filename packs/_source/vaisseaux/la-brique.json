@@ -36,6 +36,86 @@
         }
       },
       "sort": 100000
+    },
+    {
+      "_id": "OdmhNtjUD7hhucpw",
+      "_key": "!actors.items!fbISXf7FfxIdQ0Oi.OdmhNtjUD7hhucpw",
+      "name": "Poste de pilotage",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 200000
+    },
+    {
+      "_id": "2iKfa2OumyklQTbw",
+      "_key": "!actors.items!fbISXf7FfxIdQ0Oi.2iKfa2OumyklQTbw",
+      "name": "Cabines",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "<p>Quatre couchettes.</p>",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 300000
+    },
+    {
+      "_id": "0j4wA4rcaVVQzqQZ",
+      "_key": "!actors.items!fbISXf7FfxIdQ0Oi.0j4wA4rcaVVQzqQZ",
+      "name": "Sanitaire",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 400000
+    },
+    {
+      "_id": "A3if3xa3D46LlhTI",
+      "_key": "!actors.items!fbISXf7FfxIdQ0Oi.A3if3xa3D46LlhTI",
+      "name": "Salle des machines",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 500000
+    },
+    {
+      "_id": "jMN6e99CjGiXqPEO",
+      "_key": "!actors.items!fbISXf7FfxIdQ0Oi.jMN6e99CjGiXqPEO",
+      "name": "Sas de chargement",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "<p>Rampe arrière et sas latéral pour les conteneurs.</p>",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 600000
     }
   ],
   "effects": [],
@@ -76,31 +156,11 @@
       }
     ],
     "soute": "Grande soute blindée de 150 m², bras de chargement.",
-    "amenagements": [
-      {
-        "nom": "Poste de pilotage",
-        "description": ""
-      },
-      {
-        "nom": "Cabines",
-        "description": "Quatre couchettes."
-      },
-      {
-        "nom": "Sanitaire",
-        "description": ""
-      },
-      {
-        "nom": "Salle des machines",
-        "description": ""
-      },
-      {
-        "nom": "Sas de chargement",
-        "description": "Rampe arrière et sas latéral pour les conteneurs."
-      }
-    ],
+    "amenagements": [],
     "equipementsEmbarques": "",
     "portrait": "systems/galactic-wars/asset_visuel/objets/vaisseaux-la-brique.png",
-    "description": "<p>Transport moyen massif et anguleux, blindé comme un coffre-fort : lent et peu armé, mais sa coque encaisse bien plus qu'un cargo de sa taille — d'où son surnom, La Brique.</p><p><em>Caractéristiques estimées : ce vaisseau n'est pas détaillé dans le matériel source (valeurs calibrées sur les vaisseaux du compendium, à ajuster par le MJ).</em></p>"
+    "description": "<p>Transport moyen massif et anguleux, blindé comme un coffre-fort : lent et peu armé, mais sa coque encaisse bien plus qu'un cargo de sa taille — d'où son surnom, La Brique.</p><p><em>Caractéristiques estimées : ce vaisseau n'est pas détaillé dans le matériel source (valeurs calibrées sur les vaisseaux du compendium, à ajuster par le MJ).</em></p>",
+    "modules": 5
   },
   "folder": null,
   "sort": 0,

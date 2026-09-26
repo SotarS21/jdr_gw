@@ -61,6 +61,54 @@
         }
       },
       "sort": 200000
+    },
+    {
+      "_id": "wUZ5UIVUuKrBy7Tg",
+      "_key": "!actors.items!ZBYP2ojwKYSOCbwa.wUZ5UIVUuKrBy7Tg",
+      "name": "Poste de pilotage",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 300000
+    },
+    {
+      "_id": "K4BCErdaOVYR52Fl",
+      "_key": "!actors.items!ZBYP2ojwKYSOCbwa.K4BCErdaOVYR52Fl",
+      "name": "Poste de passager",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 400000
+    },
+    {
+      "_id": "oudKYhhMOv2xfMWL",
+      "_key": "!actors.items!ZBYP2ojwKYSOCbwa.oudKYhhMOv2xfMWL",
+      "name": "Poste d'astromech",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "<p>Emplacement pour un droïde astromech.</p>",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 500000
     }
   ],
   "effects": [],
@@ -96,20 +144,8 @@
     "equipementsEmbarques": "Poste de pilotage, poste de passager, poste de droïde astromech.",
     "portrait": "systems/galactic-wars/asset_visuel/objets/vaisseaux-le-frelon.png",
     "description": "<p>Chasseur léger de 10 m de long pour 5 m de large, 1 à 3 places : poste de pilotage, poste de passager, poste de droïde astromech. C'est ce même modèle de vaisseau de classe Frelon qui figure comme equipement de départ de l'école Assassin sith (compendium écoles).</p><p>Armement : un canon ION comptant comme un canon lourd (4d6+10), et deux tourelles légères blaster (2d6*10).</p><p><em>Note MJ : le matériel source ne précise ni bouclier, ni PV de coque, ni salles supplémentaires pour ce vaisseau. Bouclier (15) et PV de coque (12) sont des valeurs estimées par cohérence avec les vaisseaux comparables du même classeur (Barloz, La poubelle géante, Le Arcadia), a ajuster librement. Aucune cabine/dortoir n'a été ajoutée : les trois postes (pilotage, passager, droïde astromech) constituent déjà l'intégralité des emplacements cohérents pour un chasseur de ce gabarit (10 m, 1-3 places), et inventer des pièces supplémentaires n'aurait pas de sens ici.</em></p>",
-    "amenagements": [
-      {
-        "nom": "Poste de pilotage",
-        "description": ""
-      },
-      {
-        "nom": "Poste de passager",
-        "description": ""
-      },
-      {
-        "nom": "Poste d'astromech",
-        "description": "Emplacement pour un droïde astromech."
-      }
-    ]
+    "amenagements": [],
+    "modules": 2
   },
   "folder": null,
   "sort": 100000,

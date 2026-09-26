@@ -1,0 +1,26 @@
+{
+  "_key": "!items!akjw1KnfrfoC3GAO",
+  "_id": "akjw1KnfrfoC3GAO",
+  "name": "Sas d'arrimage",
+  "type": "amenagement",
+  "img": "systems/galactic-wars/asset_visuel/objets/amenagements-sas-d-arrimage.jpg",
+  "system": {
+    "prix": "25000c",
+    "modules": 1,
+    "description": "<p>Sas pressurisé et collier d'amarrage universel : s'arrimer à une station ou à un autre vaisseau sans passer par l'espace.</p><p><em>Prix et modules estimés (absents du matériel source), à ajuster par le MJ.</em></p>",
+    "notesMJ": ""
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.19.0"
+  }
+}

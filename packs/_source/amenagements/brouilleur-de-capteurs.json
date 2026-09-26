@@ -1,0 +1,26 @@
+{
+  "_key": "!items!EkLY4huojZPfJYqM",
+  "_id": "EkLY4huojZPfJYqM",
+  "name": "Brouilleur de capteurs",
+  "type": "amenagement",
+  "img": "icons/magic/defensive/illusion-evasion-echo-purple.webp",
+  "system": {
+    "prix": "70000c",
+    "modules": 1,
+    "description": "<p>Émetteur de brouillage : le vaisseau est plus difficile à repérer et à verrouiller par les capteurs ennemis.</p><p><em>Prix et modules estimés (absents du matériel source), à ajuster par le MJ.</em></p>",
+    "notesMJ": ""
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.19.0"
+  }
+}

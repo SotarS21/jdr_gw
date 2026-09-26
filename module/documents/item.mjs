@@ -183,6 +183,9 @@ export class GalacticWarsItem extends Item {
         ajouter("GALACTICWARS.Objet.Competence", game.i18n.localize("GALACTICWARS.Objet.AucuneCompetence"));
       }
       ajouter("GALACTICWARS.Objet.Portee", system.portee);
+    } else if (this.type === "amenagement") {
+      ajouter("GALACTICWARS.Amenagement.Modules", String(system.modules ?? 0), true);
+      ajouter("GALACTICWARS.Objet.Prix", system.prix || game.i18n.localize("GALACTICWARS.Amenagement.DOrigine"));
     } else if (this.type === "armure") {
       ajouter("GALACTICWARS.Objet.Reduction", `+${system.reduction ?? 0}`, true);
       ajouter("GALACTICWARS.Objet.EmplacementLabel",

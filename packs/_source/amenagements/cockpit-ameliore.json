@@ -1,0 +1,26 @@
+{
+  "_key": "!items!FAJ8mFFTP5G0n7aJ",
+  "_id": "FAJ8mFFTP5G0n7aJ",
+  "name": "Cockpit amélioré",
+  "type": "amenagement",
+  "img": "systems/galactic-wars/asset_visuel/objets/amenagements-cockpit-ameliore.jpg",
+  "system": {
+    "prix": "50000c",
+    "modules": 1,
+    "description": "<p>Avionique et commandes de pointe, sièges ergonomiques : le pilote dispose des meilleurs instruments (bonus au jet de Pilotage laissé au MJ).</p><p><em>Prix et modules estimés (absents du matériel source), à ajuster par le MJ.</em></p>",
+    "notesMJ": ""
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.19.0"
+  }
+}

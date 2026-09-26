@@ -36,36 +36,8 @@
     "equipementsEmbarques": "(inventé, non précisé dans le matériel source) Poste de pilotage, salon exécutif, trois cabines VIP, cabine d'équipage, sanitaires, cuisine/bar, salle de réunion.",
     "portrait": "icons/svg/mystery-man.svg",
     "description": "<p>Transport exécutif de luxe destiné au déplacement de personnalités (3 passagers) avec un équipage de 4 membres, faiblement armé pour la dissuasion.</p><p>Le classeur source mentionne également l'existence d'un \"transporteur de base\", variante moins chère (80 000c, 6 places) non détaillée dans le matériel source et non transcrite ici en Actor séparé.</p><p><em>Note MJ : PV de coque (30), bouclier (40 points) et armement (1 tourelle légère 2d6, défense symbolique) estimés par cohérence avec les vaisseaux comparables du même classeur (Barloz : 50 bouclier / 40 PV pour 6 personnes ; La poubelle géante : 20 bouclier / 15 PV pour 5 personnes ; Le Arcadia : 60 bouclier / 40 PV pour 6 personnes) — pas des valeurs du matériel source, à ajuster librement. La soute et les équipements embarqués sont également inventés, cohérents avec le standing \"exécutif\" du vaisseau.</em></p>",
-    "amenagements": [
-      {
-        "nom": "Poste de pilotage",
-        "description": "Inventé, non précisé dans le matériel source."
-      },
-      {
-        "nom": "Salon exécutif",
-        "description": "Inventé, non précisé dans le matériel source."
-      },
-      {
-        "nom": "Cabines VIP",
-        "description": "Trois cabines VIP. Inventé, non précisé dans le matériel source."
-      },
-      {
-        "nom": "Cabine d'équipage",
-        "description": "Inventé, non précisé dans le matériel source."
-      },
-      {
-        "nom": "Sanitaires",
-        "description": "Inventé, non précisé dans le matériel source."
-      },
-      {
-        "nom": "Cuisine / bar",
-        "description": "Inventé, non précisé dans le matériel source."
-      },
-      {
-        "nom": "Salle de réunion",
-        "description": "Inventé, non précisé dans le matériel source."
-      }
-    ]
+    "amenagements": [],
+    "modules": 6
   },
   "prototypeToken": {
     "name": "Lantallian GX-class Executive transport",
@@ -99,6 +71,118 @@
         }
       },
       "sort": 100000
+    },
+    {
+      "_id": "UHZRgAjaEEixGTzg",
+      "_key": "!actors.items!Up9pxINTjOFW2z3S.UHZRgAjaEEixGTzg",
+      "name": "Poste de pilotage",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "<p>Inventé, non précisé dans le matériel source.</p>",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 200000
+    },
+    {
+      "_id": "YswQJYflMh20dlYX",
+      "_key": "!actors.items!Up9pxINTjOFW2z3S.YswQJYflMh20dlYX",
+      "name": "Salon exécutif",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "<p>Inventé, non précisé dans le matériel source.</p>",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 300000
+    },
+    {
+      "_id": "wgTEhOkMwhfcsYrT",
+      "_key": "!actors.items!Up9pxINTjOFW2z3S.wgTEhOkMwhfcsYrT",
+      "name": "Cabines VIP",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "<p>Trois cabines VIP. Inventé, non précisé dans le matériel source.</p>",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 400000
+    },
+    {
+      "_id": "EaznvD0HN5r4e4Tq",
+      "_key": "!actors.items!Up9pxINTjOFW2z3S.EaznvD0HN5r4e4Tq",
+      "name": "Cabine d'équipage",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "<p>Inventé, non précisé dans le matériel source.</p>",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 500000
+    },
+    {
+      "_id": "fTu0wRNgG2azqB9A",
+      "_key": "!actors.items!Up9pxINTjOFW2z3S.fTu0wRNgG2azqB9A",
+      "name": "Sanitaires",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "<p>Inventé, non précisé dans le matériel source.</p>",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 600000
+    },
+    {
+      "_id": "JHVBhd5lzd6kQLiz",
+      "_key": "!actors.items!Up9pxINTjOFW2z3S.JHVBhd5lzd6kQLiz",
+      "name": "Cuisine / bar",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "<p>Inventé, non précisé dans le matériel source.</p>",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 700000
+    },
+    {
+      "_id": "A7Zce4yUw9ue4ONS",
+      "_key": "!actors.items!Up9pxINTjOFW2z3S.A7Zce4yUw9ue4ONS",
+      "name": "Salle de réunion",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "<p>Inventé, non précisé dans le matériel source.</p>",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 800000
     }
   ],
   "effects": [],

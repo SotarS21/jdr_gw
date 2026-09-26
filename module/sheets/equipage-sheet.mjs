@@ -280,7 +280,8 @@ export function enregistrerHooksEquipage() {
     if (donnees?.type !== "Item" || !donnees.uuid) return true;
     const objet = fromUuidSync(donnees.uuid);
     const source = objet?.parent;
-    if (!(source instanceof Actor) || source.type !== "equipage" || source === acteur) return true;
+    // Réserve d'un équipage ou soute d'un vaisseau : l'objet glissé vers une autre fiche y est déplacé.
+    if (!(source instanceof Actor) || !["equipage", "vaisseau"].includes(source.type) || source === acteur) return true;
     if (!TYPES_OBJETS_RESERVE.includes(objet.type) || !acteur.isOwner) return true;
     deplacerObjet(objet, acteur).then((cree) => {
       if (cree) ui.notifications.info(t("ObjetDonne", { objet: cree.name, nom: acteur.name }));

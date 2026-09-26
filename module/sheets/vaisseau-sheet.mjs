@@ -1,5 +1,7 @@
 import { GW } from "../config.mjs";
 import { rollCompetence } from "../helpers/rolls.mjs";
+import { IMAGE_AMENAGEMENT, TYPES_SOUTE, convertirAmenagements, modulesUtilises } from "../helpers/amenagements-vaisseau.mjs";
+import { deplacerObjet } from "../helpers/equipage.mjs";
 
 /** Compétence (clé de GW.competences) d'un poste : celle choisie, sinon déduite de son nom, sinon "". */
 export function competencePoste(poste) {
@@ -68,6 +70,11 @@ export class VaisseauSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       ajouterAmenagement: VaisseauSheet.#onAjouterAmenagement,
       editerAmenagement: VaisseauSheet.#onEditerAmenagement,
       supprimerAmenagement: VaisseauSheet.#onSupprimerAmenagement,
+      afficherObjet: VaisseauSheet.#onAfficherObjet,
+      convertirAmenagements: VaisseauSheet.#onConvertirAmenagements,
+      donnerObjetSoute: VaisseauSheet.#onDonnerObjetSoute,
+      ouvrirObjetSoute: VaisseauSheet.#onOuvrirObjetSoute,
+      supprimerObjetSoute: VaisseauSheet.#onSupprimerObjetSoute,
       basculerEdition: VaisseauSheet.#onBasculerEdition,
       editImage: VaisseauSheet.#onEditImage
     }
@@ -146,11 +153,28 @@ export class VaisseauSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
         })
       };
     });
-    context.amenagements = system.amenagements.map((a, index) => ({
-      ...a,
-      index,
-      icone: ICONES_AMENAGEMENT.find(([motif]) => motif.test(a.nom))?.[1] ?? "fa-cube"
+    // Aménagements = objets « amenagement » ; icône déduite du nom tant qu'ils n'ont pas d'image propre.
+    const texte = (html) => String(html ?? "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+    const parNom = (a, b) => a.name.localeCompare(b.name, game.i18n.lang);
+    context.amenagements = this.actor.items.filter((i) => i.type === "amenagement").sort(parNom).map((a) => ({
+      id: a.id,
+      nom: a.name,
+      img: a.img !== IMAGE_AMENAGEMENT ? a.img : null,
+      icone: ICONES_AMENAGEMENT.find(([motif]) => motif.test(a.name))?.[1] ?? "fa-cube",
+      // Premier paragraphe seulement (la mention « prix estimés » reste dans la fiche de l'aménagement).
+      description: texte(String(a.system.description ?? "").split("</p>")[0]),
+      modules: a.system.modules ?? 0,
+      prix: a.system.prix
     }));
+    const utilises = modulesUtilises(this.actor);
+    context.modules = { utilises, max: system.modules ?? 0, depasse: utilises > (system.modules ?? 0) };
+    context.ancienAmenagements = system.amenagements.length;
+    // Soute : équipements et armures du vaisseau ; « Donner à » propose les membres assis que l'utilisateur possède.
+    context.soute = this.actor.items.filter((i) => TYPES_SOUTE.includes(i.type)).sort(parNom)
+      .map((i) => ({ id: i.id, nom: i.name, img: i.img, quantite: i.system.quantite ?? 1 }));
+    const assis = [...new Set(system.equipage.flatMap((p) => p.uuids).filter(Boolean))];
+    context.destinataires = assis.map((uuid) => fromUuidSync(uuid)).filter((a) => a?.isOwner)
+      .map((a) => ({ uuid: a.uuid, nom: a.name }));
 
     return context;
   }
@@ -166,8 +190,11 @@ export class VaisseauSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   /** @override */
   async _onRender(context, options) {
     await super._onRender(context, options);
+    for (const select of this.element.querySelectorAll("select[data-destinataire]")) {
+      for (const type of ["click", "change", "keydown"]) select.addEventListener(type, (e) => e.stopPropagation());
+    }
     // Ligne d'arme (role="button") : Entrée / Espace = même effet que le clic.
-    for (const ligne of this.element.querySelectorAll(".vs-arme[data-action]")) {
+    for (const ligne of this.element.querySelectorAll(".vs-arme[data-action], .vs-amenagement[data-action], .vs-objet-soute[data-action]")) {
       ligne.addEventListener("keydown", (e) => {
         if (e.target !== ligne || (e.key !== "Enter" && e.key !== " ")) return;
         e.preventDefault();
@@ -225,19 +252,38 @@ export class VaisseauSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     return data;
   }
 
-  /** @override — seules les armes s'ajoutent au vaisseau (son armement) ; toujours utilisables (portées). */
+  /**
+   * @override — arme → armement (toujours portée) ; aménagement → aménagements ; équipement / armure → soute. Un objet
+   * venu d'un autre acteur (membre, équipage…) est déplacé ; depuis un compendium ou le monde, il est copié.
+   */
   async _onDropItem(event, item) {
     if (!this.isEditable || !item) return null;
-    if (item.type !== "arme") {
-      ui.notifications.warn(game.i18n.localize("GALACTICWARS.Vaisseau.SeulementArmes"));
+    if (item.type !== "arme" && item.type !== "amenagement" && !TYPES_SOUTE.includes(item.type)) {
+      ui.notifications.warn(game.i18n.localize("GALACTICWARS.Vaisseau.ObjetRefuse"));
       return null;
     }
     if (item.parent === this.actor) return null;
+    if (item.parent instanceof Actor && item.type !== "amenagement") {
+      const deplace = await deplacerObjet(item, this.actor);
+      if (deplace?.type === "arme") await deplace.update({ "system.porte": true });
+      return deplace;
+    }
     const donnees = item.toObject();
     delete donnees._id;
-    donnees.system.porte = true;
+    if (item.type === "arme") donnees.system.porte = true;
+    else if ("porte" in (donnees.system ?? {})) donnees.system.porte = false;
     const [cree] = await this.actor.createEmbeddedDocuments("Item", [donnees]);
+    if (cree?.type === "amenagement") this.#avertirModules();
     return cree ?? null;
+  }
+
+  /** Avertit quand les aménagements dépassent les modules disponibles (l'ajout reste permis : le MJ tranche). */
+  #avertirModules() {
+    const utilises = modulesUtilises(this.actor);
+    const max = this.actor.system.modules ?? 0;
+    if (utilises > max) {
+      ui.notifications.warn(game.i18n.format("GALACTICWARS.Amenagement.Depassement", { utilises, max, nom: this.actor.name }));
+    }
   }
 
   /**
@@ -324,49 +370,59 @@ export class VaisseauSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     this.render();
   }
 
-  /** Fenêtre d'édition d'un aménagement ; `amenagement` absent = nouvel aménagement. */
-  async #fenetreAmenagement(amenagement) {
-    const t = (cle) => game.i18n.localize(`GALACTICWARS.Vaisseau.${cle}`);
-    const valeur = (v) => foundry.utils.escapeHTML(String(v ?? ""));
-    return DialogV2.input({
-      window: { title: t(amenagement ? "EditerAmenagement" : "AjouterAmenagement"), icon: "fa-solid fa-couch" },
-      position: { width: 440 },
-      content: `<div class="gw-vaisseau-dialogue">
-        <label>${t("NomAmenagement")}<input type="text" name="nom" value="${valeur(amenagement?.nom)}" placeholder="${t("NomAmenagementExemple")}" autofocus required></label>
-        <label>${t("DescriptionAmenagement")}<textarea name="description" rows="4">${valeur(amenagement?.description)}</textarea></label>
-      </div>`,
-      ok: { label: t("Enregistrer"), icon: "fa-solid fa-floppy-disk" },
-      rejectClose: false
-    });
-  }
-
-  static #nettoyerAmenagement(saisie) {
-    return { nom: String(saisie.nom ?? "").trim(), description: String(saisie.description ?? "").trim() };
-  }
-
+  /** Nouvel aménagement vierge (1 module) : sa fiche s'ouvre pour le compléter. */
   static async #onAjouterAmenagement() {
-    const saisie = await this.#fenetreAmenagement(null);
-    if (!saisie) return;
-    const amenagements = this.actor.system.toObject().amenagements;
-    amenagements.push(VaisseauSheet.#nettoyerAmenagement(saisie));
-    await this.actor.update({ "system.amenagements": amenagements });
+    const [a] = await this.actor.createEmbeddedDocuments("Item", [{
+      name: game.i18n.localize("GALACTICWARS.Amenagement.Nouveau"), type: "amenagement", img: IMAGE_AMENAGEMENT,
+      system: { modules: 1 }
+    }]);
+    a?.sheet.render({ force: true });
+    this.#avertirModules();
+  }
+
+  #objetDeLigne(target) {
+    return this.actor.items.get(target.closest("[data-item-id]")?.dataset.itemId);
   }
 
   static async #onEditerAmenagement(event, target) {
-    const index = Number(target.closest("[data-index]").dataset.index);
-    const amenagements = this.actor.system.toObject().amenagements;
-    if (!amenagements[index]) return;
-    const saisie = await this.#fenetreAmenagement(amenagements[index]);
-    if (!saisie) return;
-    amenagements[index] = VaisseauSheet.#nettoyerAmenagement(saisie);
-    await this.actor.update({ "system.amenagements": amenagements });
+    event.stopPropagation();
+    this.#objetDeLigne(target)?.sheet.render({ force: true });
   }
 
   static async #onSupprimerAmenagement(event, target) {
-    const index = Number(target.closest("[data-index]").dataset.index);
-    const amenagements = this.actor.system.toObject().amenagements;
-    if (!amenagements[index] || !(await this.#confirmerSuppression(amenagements[index].nom))) return;
-    await this.actor.update({ "system.amenagements": amenagements.filter((_, i) => i !== index) });
+    event.stopPropagation();
+    const objet = this.#objetDeLigne(target);
+    if (objet && (await this.#confirmerSuppression(objet.name))) await objet.delete();
+  }
+
+  static async #onAfficherObjet(event, target) {
+    await this.#objetDeLigne(target)?.afficherDansTchat?.();
+  }
+
+  static async #onConvertirAmenagements() {
+    const nombre = await convertirAmenagements(this.actor);
+    if (nombre) ui.notifications.info(game.i18n.format("GALACTICWARS.Amenagement.Converti", { nombre }));
+  }
+
+  static async #onOuvrirObjetSoute(event, target) {
+    event.stopPropagation();
+    this.#objetDeLigne(target)?.sheet.render({ force: true });
+  }
+
+  static async #onSupprimerObjetSoute(event, target) {
+    event.stopPropagation();
+    const objet = this.#objetDeLigne(target);
+    if (objet && (await this.#confirmerSuppression(objet.name))) await objet.delete();
+  }
+
+  static async #onDonnerObjetSoute(event, target) {
+    event.stopPropagation();
+    const objet = this.#objetDeLigne(target);
+    const select = target.closest("[data-item-id]")?.querySelector("select[data-destinataire]");
+    const destinataire = select?.value ? await fromUuid(select.value) : null;
+    if (!objet || !destinataire) return ui.notifications.warn(game.i18n.localize("GALACTICWARS.Equipage.ChoisirDestinataire"));
+    const cree = await deplacerObjet(objet, destinataire);
+    if (cree) ui.notifications.info(game.i18n.format("GALACTICWARS.Equipage.ObjetDonne", { objet: cree.name, nom: destinataire.name }));
   }
 
   /** Fenêtre d'édition d'un poste d'équipage ; `poste` absent = nouveau poste. */

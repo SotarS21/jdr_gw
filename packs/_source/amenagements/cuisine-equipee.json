@@ -1,0 +1,26 @@
+{
+  "_key": "!items!9yIf1MepENao32LE",
+  "_id": "9yIf1MepENao32LE",
+  "name": "Cuisine équipée",
+  "type": "amenagement",
+  "img": "systems/galactic-wars/asset_visuel/objets/amenagements-cuisine.jpg",
+  "system": {
+    "prix": "12000c",
+    "modules": 1,
+    "description": "<p>Cuisine complète et réserve de vivres frais : de vrais repas pour tout l'équipage pendant les longs voyages.</p><p><em>Prix et modules estimés (absents du matériel source), à ajuster par le MJ.</em></p>",
+    "notesMJ": ""
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.19.0"
+  }
+}

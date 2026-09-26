@@ -95,44 +95,8 @@
     "equipementsEmbarques": "Une navette de transport de troupes de 20 personnes\nUn entrepôt\nRéserve de nourriture pour 14 jours\nQuatre pods de sauvetage de 6 places\nQuatre quartiers VIP où logent les sith\nDeux quartiers d'équipage\nUne infirmerie\nSéjour\n4 sas",
     "portrait": "systems/galactic-wars/asset_visuel/objets/vaisseaux-convergence.jpg",
     "description": "<p>Destroyer assigné à la garde des seigneurs sith. En cas de doute sur un membre d'équipage, envoyer un communiqué à son maître.</p><p><em>Note MJ : le classeur source indique aussi \"PV : 50 100\" en tête de fiche, incohérent avec les 300 PV de coque précisés plus loin dans le même document — retenu ici la valeur explicite (300), la mention initiale semble être un reliquat de gabarit non mis à jour.</em></p>",
-    "amenagements": [
-      {
-        "nom": "Navette",
-        "description": "Navette de transport de troupes de 20 personnes."
-      },
-      {
-        "nom": "Entrepôt",
-        "description": ""
-      },
-      {
-        "nom": "Réserve de nourriture",
-        "description": "Vivres pour 14 jours."
-      },
-      {
-        "nom": "Pods de sauvetage",
-        "description": "Quatre pods de 6 places."
-      },
-      {
-        "nom": "Quartiers VIP",
-        "description": "Quatre quartiers VIP où logent les sith."
-      },
-      {
-        "nom": "Quartiers d'équipage",
-        "description": "Deux quartiers d'équipage."
-      },
-      {
-        "nom": "Infirmerie",
-        "description": ""
-      },
-      {
-        "nom": "Séjour",
-        "description": ""
-      },
-      {
-        "nom": "Sas",
-        "description": "4 sas."
-      }
-    ]
+    "amenagements": [],
+    "modules": 16
   },
   "prototypeToken": {
     "name": "Convergence",
@@ -166,6 +130,150 @@
         }
       },
       "sort": 100000
+    },
+    {
+      "_id": "6oN38SHu9B9QgbQJ",
+      "_key": "!actors.items!WiWXMiy6UuunL1Nh.6oN38SHu9B9QgbQJ",
+      "name": "Navette",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "<p>Navette de transport de troupes de 20 personnes.</p>",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 200000
+    },
+    {
+      "_id": "Kd1WUykd9o8Q7yEA",
+      "_key": "!actors.items!WiWXMiy6UuunL1Nh.Kd1WUykd9o8Q7yEA",
+      "name": "Entrepôt",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 300000
+    },
+    {
+      "_id": "4NHBcYNbubVrvJr9",
+      "_key": "!actors.items!WiWXMiy6UuunL1Nh.4NHBcYNbubVrvJr9",
+      "name": "Réserve de nourriture",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "<p>Vivres pour 14 jours.</p>",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 400000
+    },
+    {
+      "_id": "aU4hqNgeviPBfoxB",
+      "_key": "!actors.items!WiWXMiy6UuunL1Nh.aU4hqNgeviPBfoxB",
+      "name": "Pods de sauvetage",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "<p>Quatre pods de 6 places.</p>",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 500000
+    },
+    {
+      "_id": "BQaSebW3fQ3KmG9Z",
+      "_key": "!actors.items!WiWXMiy6UuunL1Nh.BQaSebW3fQ3KmG9Z",
+      "name": "Quartiers VIP",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "<p>Quatre quartiers VIP où logent les sith.</p>",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 600000
+    },
+    {
+      "_id": "8dzlNDvfVIVLviGi",
+      "_key": "!actors.items!WiWXMiy6UuunL1Nh.8dzlNDvfVIVLviGi",
+      "name": "Quartiers d'équipage",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "<p>Deux quartiers d'équipage.</p>",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 700000
+    },
+    {
+      "_id": "wMkB5tIgM3YBfYc0",
+      "_key": "!actors.items!WiWXMiy6UuunL1Nh.wMkB5tIgM3YBfYc0",
+      "name": "Infirmerie",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 800000
+    },
+    {
+      "_id": "mY1dGBRpRPGuZYuh",
+      "_key": "!actors.items!WiWXMiy6UuunL1Nh.mY1dGBRpRPGuZYuh",
+      "name": "Séjour",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 900000
+    },
+    {
+      "_id": "EQuogJ7bSyDYTBiU",
+      "_key": "!actors.items!WiWXMiy6UuunL1Nh.EQuogJ7bSyDYTBiU",
+      "name": "Sas",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "<p>4 sas.</p>",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 1000000
     }
   ],
   "effects": [],

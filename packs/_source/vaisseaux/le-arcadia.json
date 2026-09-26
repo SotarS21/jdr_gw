@@ -61,6 +61,86 @@
         }
       },
       "sort": 200000
+    },
+    {
+      "_id": "Jxo8hWbAUDuxJjIB",
+      "_key": "!actors.items!bNYNvq4RwXj9dVX7.Jxo8hWbAUDuxJjIB",
+      "name": "Cabines",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "<p>6 cabines dont celle du capitaine.</p>",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 300000
+    },
+    {
+      "_id": "Fb5vkZZiUqqK63S2",
+      "_key": "!actors.items!bNYNvq4RwXj9dVX7.Fb5vkZZiUqqK63S2",
+      "name": "Sanitaires",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "<p>2 sanitaires.</p>",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 400000
+    },
+    {
+      "_id": "l3SqBCIp6bLLV1d6",
+      "_key": "!actors.items!bNYNvq4RwXj9dVX7.l3SqBCIp6bLLV1d6",
+      "name": "Salle des machines",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 500000
+    },
+    {
+      "_id": "11Pr6kyNyvQQmM0M",
+      "_key": "!actors.items!bNYNvq4RwXj9dVX7.11Pr6kyNyvQQmM0M",
+      "name": "Infirmerie",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 600000
+    },
+    {
+      "_id": "cLCbj4V8bnTsPrEi",
+      "_key": "!actors.items!bNYNvq4RwXj9dVX7.cLCbj4V8bnTsPrEi",
+      "name": "Cuisine / salle de repos",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 700000
     }
   ],
   "effects": [],
@@ -112,28 +192,8 @@
     "equipementsEmbarques": "6 cabines dont celle du capitaine ; 2 sanitaires ; une salle des machines ; une infirmerie ; une salle de repos/cuisine.",
     "portrait": "systems/galactic-wars/asset_visuel/objets/vaisseaux-le-arcadia.png",
     "description": "<p>Freighter armé de 20 m sur 35 m, pour 6 places. Équipage de 2 pilotes et 1 communicateur ; 6 cabines dont celle du capitaine, 2 sanitaires, un entrepôt de 10 m2, une salle des machines, une infirmerie et une salle de repos/cuisine.</p><p>Armement : 2 canons lourds places au milieu, en haut et en dessous (4d6 chacun), et 2 paires de tourelles légères sur les ailes à l'avant, pilotables depuis un poste dédié (2d6 chacune).</p>",
-    "amenagements": [
-      {
-        "nom": "Cabines",
-        "description": "6 cabines dont celle du capitaine."
-      },
-      {
-        "nom": "Sanitaires",
-        "description": "2 sanitaires."
-      },
-      {
-        "nom": "Salle des machines",
-        "description": ""
-      },
-      {
-        "nom": "Infirmerie",
-        "description": ""
-      },
-      {
-        "nom": "Cuisine / salle de repos",
-        "description": ""
-      }
-    ]
+    "amenagements": [],
+    "modules": 5
   },
   "folder": null,
   "sort": 100000,

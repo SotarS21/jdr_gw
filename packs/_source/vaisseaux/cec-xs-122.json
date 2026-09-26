@@ -36,6 +36,70 @@
         }
       },
       "sort": 100000
+    },
+    {
+      "_id": "bIVu2hgQOPnBuJzk",
+      "_key": "!actors.items!4D0t75XrLYQmwUX3.bIVu2hgQOPnBuJzk",
+      "name": "Poste de pilotage",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 200000
+    },
+    {
+      "_id": "dPgtQ9K6qATP028c",
+      "_key": "!actors.items!4D0t75XrLYQmwUX3.dPgtQ9K6qATP028c",
+      "name": "Cabines",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "<p>Deux cabines.</p>",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 300000
+    },
+    {
+      "_id": "5bkWU8gRdFIXG3LX",
+      "_key": "!actors.items!4D0t75XrLYQmwUX3.5bkWU8gRdFIXG3LX",
+      "name": "Sanitaire",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 400000
+    },
+    {
+      "_id": "2g9KbfQ48eWLGZlQ",
+      "_key": "!actors.items!4D0t75XrLYQmwUX3.2g9KbfQ48eWLGZlQ",
+      "name": "Salle des machines",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 500000
     }
   ],
   "effects": [],
@@ -71,24 +135,8 @@
     "equipementsEmbarques": "Poste de pilotage ; deux cabines ; sanitaire ; salle des machines.",
     "portrait": "systems/galactic-wars/asset_visuel/objets/vaisseaux-cec-xs-122.png",
     "description": "<p>Freighter léger, 3 à 4 personnes, 34.6 m de long.</p><p>Note MJ : les points de vie (25), le bouclier (30, réduction 0), l'armement (1 canon léger 2d6), la soute cargo et les salles à bord (poste de pilotage, deux cabines, sanitaire, salle des machines) sont des valeurs/éléments estimés par cohérence avec les vaisseaux comparables du même classeur (Barloz, La poubelle géante, Le Arcadia), pas des données du matériel source. À ajuster librement.</p>",
-    "amenagements": [
-      {
-        "nom": "Poste de pilotage",
-        "description": ""
-      },
-      {
-        "nom": "Cabines",
-        "description": "Deux cabines."
-      },
-      {
-        "nom": "Sanitaire",
-        "description": ""
-      },
-      {
-        "nom": "Salle des machines",
-        "description": ""
-      }
-    ]
+    "amenagements": [],
+    "modules": 4
   },
   "folder": null,
   "sort": 100000,

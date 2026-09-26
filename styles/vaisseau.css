@@ -690,6 +690,59 @@
   gap: 0.25rem;
 }
 
+/* ---- Modules d'aménagement, images d'aménagement, soute (v0.19.0) ---- */
+.galactic-wars.vaisseau .vs-modules {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0.3rem 0 0 auto;
+  padding: 0.15rem 0.6rem;
+  border: 1px solid var(--vs-bord-vif);
+  border-radius: 999px;
+  font-size: 0.82rem;
+  color: var(--vs-muet);
+}
+.galactic-wars.vaisseau .vs-modules i { color: var(--vs-cyan); }
+.galactic-wars.vaisseau .vs-modules.depasse { border-color: var(--vs-rouge); color: var(--vs-rouge); }
+.galactic-wars.vaisseau .vs-modules.depasse i { color: var(--vs-rouge); }
+.galactic-wars.vaisseau .vs-modules .vs-modules-max { width: 3.2rem; height: 1.6rem; text-align: center; }
+.galactic-wars.vaisseau .vs-entete .vs-modules + .vs-bouton { margin-left: 0.5rem; }
+
+.galactic-wars.vaisseau .vs-amenagement[data-action] { cursor: pointer; }
+.galactic-wars.vaisseau .vs-amenagement[data-action]:hover { border-color: var(--vs-bord-vif); }
+.galactic-wars.vaisseau .vs-amenagement-image {
+  flex: 0 0 3.2rem;
+  width: 3.2rem;
+  height: 2.4rem;
+  object-fit: cover;
+  border: none;
+  border-radius: 3px;
+}
+.galactic-wars.vaisseau .vs-amenagement-modules {
+  margin-left: 0.35rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--vs-cyan);
+}
+
+.galactic-wars.vaisseau .vs-objet-soute {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.3rem 0.4rem;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.galactic-wars.vaisseau .vs-objet-soute:hover,
+.galactic-wars.vaisseau .vs-objet-soute:focus-visible { background: #1b2735; border-color: var(--vs-bord); outline: none; }
+.galactic-wars.vaisseau .vs-objet-soute img { width: 32px; height: 32px; object-fit: contain; border: none; border-radius: 3px; background: #111a25; }
+.galactic-wars.vaisseau .vs-objet-nom { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.galactic-wars.vaisseau .vs-objet-quantite { font-size: 0.8rem; color: var(--vs-muet); }
+.galactic-wars.vaisseau .vs-donner { display: flex; align-items: center; gap: 0.3rem; }
+.galactic-wars.vaisseau .vs-donner select { max-width: 10rem; height: 1.8rem; }
+.galactic-wars.vaisseau .vs-donner .vs-bouton { margin-top: 0; }
+
 /* ---- Mode Édition / lecture ---- */
 .galactic-wars.vaisseau .vs-label-ligne {
   display: flex;

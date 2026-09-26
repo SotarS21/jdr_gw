@@ -58,6 +58,8 @@ export class VaisseauData extends foundry.abstract.TypeDataModel {
       ),
 
       soute: new StringField({ initial: "" }),
+      // Modules d'aménagement disponibles (v0.19.0) ; les aménagements (objets) en occupent chacun `system.modules`.
+      modules: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
       // Aménagements (sanitaire, navette, pods de sauvetage…), édités par fenêtre en mode Édition.
       amenagements: new ArrayField(
         new SchemaField({

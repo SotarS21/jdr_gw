@@ -36,20 +36,8 @@
     "equipementsEmbarques": "3 étages (donné par le matériel source) — (inventé, non précisé) pont supérieur : passerelle et quartiers officiers ; pont médian : quartiers équipage et infirmerie ; pont inférieur : salle des machines.",
     "portrait": "systems/galactic-wars/asset_visuel/objets/vaisseaux-gunboat-1061-968.png",
     "description": "<p>Canonnière de combat rapproché, armée pour l'assaut et l'escorte, disposant de 3 entrepôts répartis sur ses 3 étages.</p><p><em>Note MJ : PV de coque (60), bouclier (70 points) et armement (2 canons lourds 4d6 + 2 tourelles légères 2d6) estimés par cohérence avec les vaisseaux comparables du même classeur (Barloz : 50 bouclier / 40 PV pour 6 personnes ; La poubelle géante : 20 bouclier / 15 PV pour 5 personnes ; Le Arcadia : 60 bouclier / 40 PV pour 6 personnes) et avec le rôle de \"gunboat\" — pas des valeurs du matériel source, à ajuster librement. La répartition des 3 étages est également inventée.</em></p>",
-    "amenagements": [
-      {
-        "nom": "Pont supérieur",
-        "description": "Passerelle et quartiers des officiers. Inventé, non précisé dans le matériel source."
-      },
-      {
-        "nom": "Pont médian",
-        "description": "Quartiers de l'équipage et infirmerie. Inventé, non précisé dans le matériel source."
-      },
-      {
-        "nom": "Pont inférieur",
-        "description": "Salle des machines. Inventé, non précisé dans le matériel source."
-      }
-    ]
+    "amenagements": [],
+    "modules": 8
   },
   "prototypeToken": {
     "name": "Gunboat 1061-968",
@@ -108,6 +96,54 @@
         }
       },
       "sort": 200000
+    },
+    {
+      "_id": "5jvgCYj2lWeh6QBf",
+      "_key": "!actors.items!SgIDWPQ819hH8vPS.5jvgCYj2lWeh6QBf",
+      "name": "Pont supérieur",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "<p>Passerelle et quartiers des officiers. Inventé, non précisé dans le matériel source.</p>",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 300000
+    },
+    {
+      "_id": "YJu7T8OSdLJ7v99p",
+      "_key": "!actors.items!SgIDWPQ819hH8vPS.YJu7T8OSdLJ7v99p",
+      "name": "Pont médian",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "<p>Quartiers de l'équipage et infirmerie. Inventé, non précisé dans le matériel source.</p>",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 400000
+    },
+    {
+      "_id": "FCkIWWuTK4bZntzE",
+      "_key": "!actors.items!SgIDWPQ819hH8vPS.FCkIWWuTK4bZntzE",
+      "name": "Pont inférieur",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "<p>Salle des machines. Inventé, non précisé dans le matériel source.</p>",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 500000
     }
   ],
   "effects": [],

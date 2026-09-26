@@ -2,7 +2,7 @@
   "id": "galactic-wars",
   "title": "Galactic Wars",
   "description": "Système de jeu de rôle Star Wars maison : compétences en pourcentage, races, métiers, force, alignement Lumière/Obscurité.",
-  "version": "0.18.3",
+  "version": "0.19.0",
   "socket": true,
   "compatibility": {
     "minimum": "13",
@@ -36,7 +36,8 @@
       "armure": { "htmlFields": ["description"] },
       "pouvoir": { "htmlFields": ["description"] },
       "equipement": { "htmlFields": ["description"] },
-      "ecole": { "htmlFields": ["description"] }
+      "ecole": { "htmlFields": ["description"] },
+      "amenagement": { "htmlFields": ["description", "notesMJ"] }
     }
   },
   "grid": { "distance": 1, "units": "m" },
@@ -51,6 +52,7 @@
     { "name": "pregens-sith", "label": "Pregens sith", "path": "packs/pregens-sith", "type": "Actor", "banner": "systems/galactic-wars/asset_visuel/objets/banniere-pregens-sith.jpg" },
     { "name": "vaisseaux", "label": "Vaisseaux", "path": "packs/vaisseaux", "type": "Actor", "banner": "systems/galactic-wars/asset_visuel/objets/banniere-vaisseaux.jpg" },
     { "name": "equipements", "label": "Équipements", "path": "packs/equipements", "type": "Item", "banner": "systems/galactic-wars/asset_visuel/objets/banniere-equipements.jpg" },
+    { "name": "amenagements", "label": "Aménagements de vaisseau", "path": "packs/amenagements", "type": "Item", "banner": "systems/galactic-wars/asset_visuel/objets/banniere-amenagements.jpg" },
     { "name": "codex-especes", "label": "Codex des espèces", "path": "packs/codex-especes", "type": "JournalEntry", "banner": "systems/galactic-wars/asset_visuel/objets/banniere-codex-especes.jpg" }
   ],
   "url": "https://github.com/SotarS21/jdr_gw",

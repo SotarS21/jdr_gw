@@ -5,6 +5,7 @@ import { GalacticWarsActor } from "../documents/actor.mjs";
 import { competencesSelonMetier } from "./metier.mjs";
 import { correspondanceDepart, objetDeDepart, estContactDeDepart, pnjDeDepart } from "./objets-depart.mjs";
 import { convertirArmement } from "./armement-vaisseau.mjs";
+import { convertirAmenagements } from "./amenagements-vaisseau.mjs";
 
 /**
  * Registre des correctifs de contenu proposés au MJ après une mise à jour (sur le modèle
@@ -26,6 +27,26 @@ import { convertirArmement } from "./armement-vaisseau.mjs";
  * - `apply()`     → applique le correctif, renvoie le nombre de documents modifiés.
  */
 export const PACK_UPDATES = [
+  {
+    id: "0.19.0-amenagements-en-objets",
+    cible: "acteurs",
+    version: "0.19.0",
+    label: "Aménagements des vaisseaux convertis en objets, modules disponibles",
+    description:
+      "Les aménagements d'un vaisseau deviennent des objets « Aménagement » (compendium Aménagements de vaisseau, prix " +
+      "et modules). Convertit la liste d'aménagements des vaisseaux du monde et des tokens non liés en aménagements " +
+      "d'origine (0 module, 0c), et donne aux vaisseaux encore à 0 module le nombre de modules du vaisseau de même nom " +
+      "du compendium.",
+    concernes: async () => (await vaisseauxAmenagementsAConvertir()).length,
+    apply: async () => {
+      const liste = await vaisseauxAmenagementsAConvertir();
+      for (const { vaisseau, modules } of liste) {
+        await convertirAmenagements(vaisseau);
+        if (modules !== null) await vaisseau.update({ "system.modules": modules });
+      }
+      return liste.length;
+    }
+  },
   {
     id: "0.18.2-tokens-lies",
     cible: "acteurs",
@@ -728,6 +749,20 @@ function vaisseauxSansImage(images) {
   return tousLesActeurs()
     .filter((a) => a.type === "vaisseau" && images[a.name] && parDefaut(a.img))
     .map((vaisseau) => ({ vaisseau, image: images[vaisseau.name] }));
+}
+
+/** Vaisseaux à ancienne liste d'aménagements, ou à 0 module alors que le vaisseau homonyme du compendium en a. */
+async function vaisseauxAmenagementsAConvertir() {
+  const pack = game.packs.get(`${game.system.id}.vaisseaux`);
+  const index = (await pack?.getIndex({ fields: ["system.modules"] })) ?? [];
+  const modulesPack = new Map(index.map((e) => [e.name, foundry.utils.getProperty(e, "system.modules") ?? 0]));
+  const liste = [];
+  for (const vaisseau of tousLesActeurs().filter((a) => a.type === "vaisseau")) {
+    const ancienne = vaisseau.system.toObject().amenagements?.length > 0;
+    const modules = !vaisseau.system.modules && modulesPack.get(vaisseau.name) ? modulesPack.get(vaisseau.name) : null;
+    if (ancienne || modules !== null) liste.push({ vaisseau, modules });
+  }
+  return liste;
 }
 
 /** Vaisseaux (monde et tokens non liés) dont l'armement est encore à l'ancien format texte. */

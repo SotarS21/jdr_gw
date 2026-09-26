@@ -263,5 +263,14 @@ export const RELEASE_NOTES = {
       <li>Fiche de vaisseau, équipage : glissez un membre d'une place à une autre (ou d'un poste à l'autre) ; si la place est prise, les deux membres échangent. Un membre déjà à bord n'est plus dupliqué.</li>
       <li>Chaque poste a sa compétence (déduite de son nom : Pilote → Pilotage, Navigateur → Informatique / piratage, Communicateur → Social, Mécanicien / Manutention → Mécanique, Canonnier → Canon lourd, Médecin de bord → Médecine, Capitaine → Commander / guider ; modifiable dans la fenêtre du poste). Le bouton dé d'une place lance la compétence du membre assis, à son taux.</li>
     </ul>`
+  },
+  "0.19.0": {
+    title: "v0.19.0",
+    html: `<ul>
+      <li>Nouveau compendium <strong>Aménagements de vaisseau</strong> : 19 aménagements à acheter (infirmerie, cabines, cuisine, salon, salle de briefing, cockpit amélioré, soute agrandie, hangar à navette, sas d'arrimage, compartiment de contrebande, bouclier renforcé, brouilleur, rayon tracteur, hyperpropulseur…), avec prix et modules (estimés, à ajuster par le MJ).</li>
+      <li>Fiche de vaisseau : les aménagements sont des objets à glisser depuis le compendium ; compteur « Modules utilisés / disponibles » (en rouge en cas de dépassement), modules disponibles réglables en mode Édition. Les aménagements d'origine valent 0 module.</li>
+      <li>Nouvelle section <strong>Soute</strong> : glissez-y des équipements et des armures (depuis une fiche, ils y sont déplacés) ; « Donner » les rend à un membre de l'équipage assis à bord.</li>
+      <li>Les vaisseaux existants sont convertis par un correctif proposé au MJ (aménagements en objets d'origine, modules du vaisseau homonyme du compendium).</li>
+    </ul>`
   }
 };

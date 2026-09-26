@@ -19,6 +19,7 @@
       "armure": "Armure",
       "pouvoir": "Pouvoir de force",
       "equipement": "Équipement",
+      "amenagement": "Aménagement",
       "ecole": "École sith"
     }
   },
@@ -460,6 +461,9 @@
       "CompetenceTireur": "{competence} (taux du token sélectionné)",
       "SansTireur": "« {nom} » : sélectionnez le token du tireur (personnage) pour tirer.",
       "SeulementArmes": "Seules les armes peuvent être ajoutées à un vaisseau (son armement).",
+      "ObjetRefuse": "Un vaisseau accepte des armes (armement), des aménagements et, dans sa soute, des équipements et des armures.",
+      "SouteTitre": "Soute",
+      "SouteVide": "Soute vide. Glissez-y des équipements ou des armures (depuis une fiche, ils y sont déplacés).",
       "AncienArmement": "{nombre} arme(s) à l'ancien format (texte) : à convertir en objets pour pouvoir tirer.",
       "Convertir": "Convertir",
       "ArmementConverti": "{nombre} arme(s) converties en objets.",
@@ -568,6 +572,19 @@
       "Fermer": "Fermer",
       "FermerHint": "Fermer le générique (Échap) — chez vous seulement",
       "ReserveMJ": "Seul le MJ peut diffuser le générique."
+    },
+    "Amenagement": {
+      "Nouveau": "Nouvel aménagement",
+      "Modules": "Modules",
+      "ModulesHint": "Modules d'aménagement occupés sur le vaisseau (0 = aménagement d'origine, compris dans le vaisseau).",
+      "ModulesDisponibles": "Modules disponibles sur le vaisseau",
+      "ModulesVaisseauHint": "Modules occupés par les aménagements / modules disponibles sur le vaisseau.",
+      "PrixHint": "Prix d'achat et d'installation ; vide = aménagement d'origine.",
+      "DOrigine": "D'origine",
+      "Aucun": "Aucun aménagement. Glissez-déposez ici des aménagements (compendium Aménagements de vaisseau).",
+      "AncienFormat": "{nombre} aménagement(s) à l'ancien format (liste) : à convertir en objets.",
+      "Converti": "{nombre} aménagement(s) converti(s) en objets.",
+      "Depassement": "{nom} : les aménagements occupent {utilises} modules pour {max} disponibles."
     },
     "LienVaisseau": {
       "Titre": "Vaisseau",

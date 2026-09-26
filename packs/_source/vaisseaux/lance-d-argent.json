@@ -61,6 +61,118 @@
         }
       },
       "sort": 200000
+    },
+    {
+      "_id": "UqORtBQc3TDxcrMD",
+      "_key": "!actors.items!wgvOkN7f0lMawRkv.UqORtBQc3TDxcrMD",
+      "name": "Passerelle",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 300000
+    },
+    {
+      "_id": "jyEjmqTAo5LE24ug",
+      "_key": "!actors.items!wgvOkN7f0lMawRkv.jyEjmqTAo5LE24ug",
+      "name": "Cabines",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "<p>Cabine du capitaine et quatre cabines doubles.</p>",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 400000
+    },
+    {
+      "_id": "t6e9ZaQYZaTxVsAD",
+      "_key": "!actors.items!wgvOkN7f0lMawRkv.t6e9ZaQYZaTxVsAD",
+      "name": "Quartiers d'équipage",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 500000
+    },
+    {
+      "_id": "2LJ31GLn1fmPD8WT",
+      "_key": "!actors.items!wgvOkN7f0lMawRkv.2LJ31GLn1fmPD8WT",
+      "name": "Mess",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 600000
+    },
+    {
+      "_id": "DFnIrAU7JssnxqYu",
+      "_key": "!actors.items!wgvOkN7f0lMawRkv.DFnIrAU7JssnxqYu",
+      "name": "Infirmerie",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 700000
+    },
+    {
+      "_id": "5ZCu61S2pTTWcO8a",
+      "_key": "!actors.items!wgvOkN7f0lMawRkv.5ZCu61S2pTTWcO8a",
+      "name": "Salle des machines",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 800000
+    },
+    {
+      "_id": "5OAbUO8b6kurHYY3",
+      "_key": "!actors.items!wgvOkN7f0lMawRkv.5OAbUO8b6kurHYY3",
+      "name": "Pods de sauvetage",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "<p>Deux pods de 6 places.</p>",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 900000
     }
   ],
   "effects": [],
@@ -125,39 +237,11 @@
       }
     ],
     "soute": "Soute de 80 m².",
-    "amenagements": [
-      {
-        "nom": "Passerelle",
-        "description": ""
-      },
-      {
-        "nom": "Cabines",
-        "description": "Cabine du capitaine et quatre cabines doubles."
-      },
-      {
-        "nom": "Quartiers d'équipage",
-        "description": ""
-      },
-      {
-        "nom": "Mess",
-        "description": ""
-      },
-      {
-        "nom": "Infirmerie",
-        "description": ""
-      },
-      {
-        "nom": "Salle des machines",
-        "description": ""
-      },
-      {
-        "nom": "Pods de sauvetage",
-        "description": "Deux pods de 6 places."
-      }
-    ],
+    "amenagements": [],
     "equipementsEmbarques": "",
     "portrait": "systems/galactic-wars/asset_visuel/objets/vaisseaux-lance-d-argent.jpg",
-    "description": "<p>Frégate armée de 60 m, sœur cadette du Pourparler (même chantier, même silhouette effilée). Rapide pour sa taille, elle frappe avec ses deux canons lourds de proue avant de se dégager sous le feu de ses tourelles d'ailes.</p><p><em>Caractéristiques estimées : ce vaisseau n'est pas détaillé dans le matériel source (valeurs calibrées sur les vaisseaux du compendium, à ajuster par le MJ).</em></p>"
+    "description": "<p>Frégate armée de 60 m, sœur cadette du Pourparler (même chantier, même silhouette effilée). Rapide pour sa taille, elle frappe avec ses deux canons lourds de proue avant de se dégager sous le feu de ses tourelles d'ailes.</p><p><em>Caractéristiques estimées : ce vaisseau n'est pas détaillé dans le matériel source (valeurs calibrées sur les vaisseaux du compendium, à ajuster par le MJ).</em></p>",
+    "modules": 8
   },
   "folder": null,
   "sort": 0,

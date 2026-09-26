@@ -210,22 +210,32 @@
   <section class="vs-panneau vs-amenagements">
     <div class="vs-entete">
       <h2 class="vs-titre">{{localize 'GALACTICWARS.Vaisseau.Amenagements'}}</h2>
+      <span class="vs-modules {{#if modules.depasse}}depasse{{/if}}" data-tooltip="{{localize 'GALACTICWARS.Amenagement.ModulesVaisseauHint'}}">
+        <i class="fa-solid fa-puzzle-piece"></i> {{localize 'GALACTICWARS.Amenagement.Modules'}}
+        <span class="mono">{{modules.utilises}}</span> /
+        {{#if modeEdition}}<input type="number" name="system.modules" value="{{system.modules}}" min="0" step="1" class="vs-modules-max" aria-label="{{localize 'GALACTICWARS.Amenagement.ModulesDisponibles'}}">
+        {{else}}<span class="mono">{{modules.max}}</span>{{/if}}
+      </span>
       {{#if modeEdition}}
       <button type="button" class="vs-bouton" data-action="ajouterAmenagement"><i class="fa-solid fa-plus"></i> {{localize 'GALACTICWARS.Vaisseau.AjouterAmenagement'}}</button>
       {{/if}}
     </div>
-    <div class="vs-ligne-champ">
-      <span class="vs-label">{{localize 'GALACTICWARS.Vaisseau.Soute'}}</span>
-      {{#if modeEdition}}<input type="text" name="system.soute" value="{{system.soute}}">
-      {{else}}<span class="vs-valeur-texte">{{system.soute}}</span>{{/if}}
-    </div>
+    {{#if ancienAmenagements}}
+    <p class="vs-avertissement">
+      <i class="fa-solid fa-triangle-exclamation"></i> {{localize 'GALACTICWARS.Amenagement.AncienFormat' nombre=ancienAmenagements}}
+      {{#if editable}}<button type="button" class="vs-bouton" data-action="convertirAmenagements">{{localize 'GALACTICWARS.Vaisseau.Convertir'}}</button>{{/if}}
+    </p>
+    {{/if}}
     {{#if amenagements.length}}
     <div class="vs-amenagements-liste">
       {{#each amenagements as |a|}}
-      <div class="vs-amenagement" data-index="{{a.index}}">
-        <i class="fa-solid {{a.icone}} vs-amenagement-icone"></i>
+      <div class="vs-amenagement" data-item-id="{{a.id}}" data-action="afficherObjet" role="button" tabindex="0" data-tooltip="{{localize 'GALACTICWARS.Objet.EnvoyerTchat'}}">
+        {{#if a.img}}<img class="vs-amenagement-image" src="{{a.img}}" alt="">
+        {{else}}<i class="fa-solid {{a.icone}} vs-amenagement-icone"></i>{{/if}}
         <div class="vs-amenagement-texte">
-          <span class="vs-amenagement-nom">{{a.nom}}</span>
+          <span class="vs-amenagement-nom">{{a.nom}}
+            {{#if a.modules}}<span class="vs-amenagement-modules" data-tooltip="{{localize 'GALACTICWARS.Amenagement.Modules'}}"><i class="fa-solid fa-puzzle-piece"></i> {{a.modules}}</span>{{/if}}
+          </span>
           {{#if a.description}}<span class="vs-amenagement-description">{{a.description}}</span>{{/if}}
         </div>
         {{#if @root.modeEdition}}
@@ -238,8 +248,38 @@
       {{/each}}
     </div>
     {{else}}
-    <p class="vs-vide">{{localize 'GALACTICWARS.Vaisseau.AucunAmenagement'}}</p>
+    <p class="vs-vide">{{localize 'GALACTICWARS.Amenagement.Aucun'}}</p>
     {{/if}}
+  </section>
+
+  <section class="vs-panneau vs-soute">
+    <h2 class="vs-titre">{{localize 'GALACTICWARS.Vaisseau.SouteTitre'}}</h2>
+    <div class="vs-ligne-champ">
+      <span class="vs-label">{{localize 'GALACTICWARS.Vaisseau.Soute'}}</span>
+      {{#if modeEdition}}<input type="text" name="system.soute" value="{{system.soute}}">
+      {{else}}<span class="vs-valeur-texte">{{system.soute}}</span>{{/if}}
+    </div>
+    {{#each soute as |o|}}
+    <div class="vs-objet-soute draggable" data-item-id="{{o.id}}" data-action="afficherObjet" role="button" tabindex="0" data-tooltip="{{localize 'GALACTICWARS.Objet.EnvoyerTchat'}}">
+      <img src="{{o.img}}" alt="">
+      <span class="vs-objet-nom">{{o.nom}}</span>
+      <span class="vs-objet-quantite mono">×{{o.quantite}}</span>
+      {{#if @root.editable}}
+      {{#if @root.destinataires.length}}
+      <span class="vs-donner">
+        <select data-destinataire aria-label="{{localize 'GALACTICWARS.Equipage.DonnerA'}}">
+          {{#each @root.destinataires as |d|}}<option value="{{d.uuid}}">{{d.nom}}</option>{{/each}}
+        </select>
+        <button type="button" class="vs-bouton" data-action="donnerObjetSoute"><i class="fa-solid fa-hand-holding"></i> {{localize 'GALACTICWARS.Equipage.Donner'}}</button>
+      </span>
+      {{/if}}
+      <button type="button" class="vs-icone-btn editer" data-action="ouvrirObjetSoute" data-tooltip="{{localize 'GALACTICWARS.Objet.Modifier'}}" aria-label="{{localize 'GALACTICWARS.Objet.Modifier'}}"><i class="fa-solid fa-pen"></i></button>
+      <button type="button" class="vs-icone-btn supprimer" data-action="supprimerObjetSoute" data-tooltip="{{localize 'GALACTICWARS.Objet.SupprimerObjet'}}" aria-label="{{localize 'GALACTICWARS.Objet.SupprimerObjet'}}"><i class="fa-solid fa-trash"></i></button>
+      {{/if}}
+    </div>
+    {{else}}
+    <p class="vs-vide">{{localize 'GALACTICWARS.Vaisseau.SouteVide'}}</p>
+    {{/each}}
   </section>
 
   <section class="vs-panneau vs-description">

@@ -1,0 +1,26 @@
+{{!-- Fiche d'aménagement de vaisseau. <div>, pas <form> : DocumentSheetV2 rend déjà this.element comme
+      un <form>. Un seul élément racine reste requis (PARTS). --}}
+<div class="galactic-wars-body">
+  {{> gw-objet-entete}}
+  {{> gw-objet-onglets}}
+
+  <div class="sheet-body">
+  {{#if (eq ongletActif 'details')}}
+  <section class="objet-panneau objet-details">
+    <h2 class="eyebrow">{{localize 'GALACTICWARS.Objet.Details'}}</h2>
+    <div class="objet-champs">
+      <label class="objet-champ" data-tooltip="{{localize 'GALACTICWARS.Amenagement.ModulesHint'}}">
+        <span class="eyebrow">{{localize 'GALACTICWARS.Amenagement.Modules'}}</span>
+        <input type="number" class="mono" name="system.modules" value="{{system.modules}}" min="0" step="1">
+      </label>
+      <label class="objet-champ" data-tooltip="{{localize 'GALACTICWARS.Amenagement.PrixHint'}}">
+        <span class="eyebrow">{{localize 'GALACTICWARS.Objet.Prix'}}</span>
+        <input type="text" class="mono" name="system.prix" value="{{system.prix}}" placeholder="{{localize 'GALACTICWARS.Amenagement.DOrigine'}}">
+      </label>
+    </div>
+  </section>
+  {{/if}}
+
+  {{> gw-objet-textes}}
+  </div>
+</div>

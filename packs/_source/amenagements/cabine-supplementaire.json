@@ -1,0 +1,26 @@
+{
+  "_key": "!items!wRKxyVbDKRmJgFC2",
+  "_id": "wRKxyVbDKRmJgFC2",
+  "name": "Cabine supplémentaire",
+  "type": "amenagement",
+  "img": "systems/galactic-wars/asset_visuel/objets/amenagements-cabine-supplementaire.jpg",
+  "system": {
+    "prix": "15000c",
+    "modules": 1,
+    "description": "<p>Cabine de deux couchettes, rangements et éclairage de lecture : deux passagers ou membres d'équipage de plus peuvent vivre à bord.</p><p><em>Prix et modules estimés (absents du matériel source), à ajuster par le MJ.</em></p>",
+    "notesMJ": ""
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.19.0"
+  }
+}

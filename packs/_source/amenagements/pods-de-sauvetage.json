@@ -1,0 +1,26 @@
+{
+  "_key": "!items!nxoT8gmQtFXPmFft",
+  "_id": "nxoT8gmQtFXPmFft",
+  "name": "Pods de sauvetage",
+  "type": "amenagement",
+  "img": "icons/containers/boxes/crate-metal-heavy-grey.webp",
+  "system": {
+    "prix": "18000c",
+    "modules": 1,
+    "description": "<p>Deux pods de sauvetage de 4 places, éjectables en quelques secondes.</p><p><em>Prix et modules estimés (absents du matériel source), à ajuster par le MJ.</em></p>",
+    "notesMJ": ""
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.19.0"
+  }
+}

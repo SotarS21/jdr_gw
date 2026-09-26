@@ -14,6 +14,7 @@
     </div>
     {{#if proprietaire}}
     <div class="objet-entete-actions">
+      {{#unless sansPorte}}
       <button type="button" class="objet-porte {{#if system.porte}}porte{{else}}range{{/if}}" data-action="basculerPorte"
               aria-pressed="{{#if system.porte}}true{{else}}false{{/if}}"
               data-tooltip="{{#if system.porte}}{{localize 'GALACTICWARS.Objet.Ranger'}}{{else}}{{localize 'GALACTICWARS.Objet.Porter'}}{{/if}}"
@@ -21,6 +22,7 @@
         <span class="interrupteur" aria-hidden="true"><span class="curseur"></span></span>
         {{#if system.porte}}{{localize 'GALACTICWARS.Objet.Porte'}}{{else}}{{localize 'GALACTICWARS.Objet.Range'}}{{/if}}
       </button>
+      {{/unless}}
       <button type="button" class="objet-btn" data-action="afficherDansTchat">
         <i class="fa-solid fa-comment"></i> {{localize 'GALACTICWARS.Objet.EnvoyerTchat'}}
       </button>

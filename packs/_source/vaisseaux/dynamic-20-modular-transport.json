@@ -36,20 +36,8 @@
     "equipementsEmbarques": "(inventé, non précisé dans le matériel source) Poste de pilotage, quartiers réduits pour 2, sanitaire.",
     "portrait": "icons/svg/mystery-man.svg",
     "description": "<p>Transport cargo modulaire, conçu pour le fret plutôt que pour le combat, avec un équipage réduit à 2 personnes.</p><p><em>Note MJ : PV de coque (20) et bouclier (20 points) estimés par cohérence avec les vaisseaux comparables du même classeur (Barloz : 50 bouclier / 40 PV pour 6 personnes ; La poubelle géante : 20 bouclier / 15 PV pour 5 personnes ; Le Arcadia : 60 bouclier / 40 PV pour 6 personnes) — pas des valeurs du matériel source, à ajuster librement. La soute et les équipements embarqués sont également inventés pour cohérence avec le nom et le rôle du vaisseau.</em></p>",
-    "amenagements": [
-      {
-        "nom": "Poste de pilotage",
-        "description": "Inventé, non précisé dans le matériel source."
-      },
-      {
-        "nom": "Quartiers",
-        "description": "Quartiers réduits pour 2. Inventé, non précisé dans le matériel source."
-      },
-      {
-        "nom": "Sanitaire",
-        "description": "Inventé, non précisé dans le matériel source."
-      }
-    ]
+    "amenagements": [],
+    "modules": 6
   },
   "prototypeToken": {
     "name": "Dynamic 20 modular transport",
@@ -58,7 +46,56 @@
     },
     "actorLink": true
   },
-  "items": [],
+  "items": [
+    {
+      "_id": "0DgUsMrTWEtTQbna",
+      "_key": "!actors.items!4cr2v3V9pQjmyK5G.0DgUsMrTWEtTQbna",
+      "name": "Poste de pilotage",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "<p>Inventé, non précisé dans le matériel source.</p>",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 100000
+    },
+    {
+      "_id": "cJT04gyCR7Za6662",
+      "_key": "!actors.items!4cr2v3V9pQjmyK5G.cJT04gyCR7Za6662",
+      "name": "Quartiers",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "<p>Quartiers réduits pour 2. Inventé, non précisé dans le matériel source.</p>",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 200000
+    },
+    {
+      "_id": "Zr2qvZzRDaPuHngB",
+      "_key": "!actors.items!4cr2v3V9pQjmyK5G.Zr2qvZzRDaPuHngB",
+      "name": "Sanitaire",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 0,
+        "description": "<p>Inventé, non précisé dans le matériel source.</p>",
+        "notesMJ": ""
+      },
+      "effects": [],
+      "flags": {},
+      "sort": 300000
+    }
+  ],
   "effects": [],
   "folder": null,
   "sort": 100000,

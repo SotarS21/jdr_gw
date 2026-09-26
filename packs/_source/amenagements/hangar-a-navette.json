@@ -1,0 +1,26 @@
+{
+  "_key": "!items!K4mRmksk53V0WaXx",
+  "_id": "K4mRmksk53V0WaXx",
+  "name": "Hangar à navette",
+  "type": "amenagement",
+  "img": "systems/galactic-wars/asset_visuel/objets/amenagements-hangar.jpg",
+  "system": {
+    "prix": "90000c",
+    "modules": 3,
+    "description": "<p>Baie d'appontage pour une navette ou deux speeders (le véhicule n'est pas compris).</p><p><em>Prix et modules estimés (absents du matériel source), à ajuster par le MJ.</em></p>",
+    "notesMJ": ""
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.19.0"
+  }
+}
