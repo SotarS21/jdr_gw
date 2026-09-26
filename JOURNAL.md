@@ -14,6 +14,13 @@
   3. Bannière de chaque compendium (`system.json` `packs[].banner`, aucune aujourd'hui) ;
   4. Acteur « Équipage » (PJ membres, crédits communs, réserve d'objets, vaisseau associé ; modèle : Party de PF2e).
      Le lien vers le vaisseau de la v0.15.8 est individuel : l'Équipage pourra porter le vaisseau commun.
+  5. **Ajout de l'auteur** : synchroniser les images sur les objets anciens et nouveaux (ex. vêtements) ; créer les
+     objets nouveaux avec une description sommaire ; s'en inspirer pour enrichir les descriptions des objets
+     existants. Source : `asset_visuel/item/` (69 images, non suivi), dont 7 vêtements (`vetement_apprentis_jedi`,
+     `vetement_apprentis_sith`, `vetement_armure_guerrier_sith`, `vetement_armure_lourde`, `vetement_armure_plastron`,
+     `vetement_de_contrebandier`, `vetement_robe_jedi`). Tri à faire : l'item n'y contient pas que des objets (portes,
+     astéroïdes, barges, textures). Les visuels publiés passent par `asset_visuel/objets/` (suivi) + un correctif MJ
+     pour les objets déjà dans les mondes (voir v0.13.2 / `0.14.1-visuels-par-nom`).
 
 ## Session du 2026-09-26 (suite 5) — Lien vers le vaisseau, grille, corbeille (v0.15.7→v0.15.8)
 
