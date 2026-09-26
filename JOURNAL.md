@@ -31,8 +31,8 @@
     12. [Fonctionnalité] Compendium d'aménagements payants pour les vaisseaux.
     13. [Fonctionnalité] Nombre de modules d'aménagement par vaisseau.
     14. [Fonctionnalité] Ajouter de l'équipement directement dans le vaisseau.
-    15. [Bug] Postes du vaisseau : glisser-déposer des PJ d'un poste à l'autre, à volonté.
-    16. [Fonctionnalité] Bouton de jet par poste (le PJ du poste lance sa propre compétence) : Pilote → Pilotage,
+    15. ~~[Bug] Postes du vaisseau : glisser-déposer des PJ d'un poste à l'autre~~ : fait (v0.18.3).
+    16. ~~[Fonctionnalité] Bouton de jet par poste~~ (fait, v0.18.3) (le PJ du poste lance sa propre compétence) : Pilote → Pilotage,
         Navigateur → Informatique / piratage, Communicateur → Social, Manutention et entretien → Mécanique, Canonnier →
         Canon lourd, Médecin de bord → Médecine, Capitaine → Commander / guider.
     17. [Fonctionnalité] Dossier de musiques (depuis le dossier « music star wars » de l'auteur).
@@ -50,6 +50,17 @@
 - **Rappels techniques** : scripts de patch écrits avec l'outil Write (ou heredoc `<<'EOF'`, en doublant les
   antislashs à vérifier) — jamais de backticks dans un `node -e` en bash ; `git checkout` remet les fichiers en CRLF
   (normaliser avant de chercher du texte) ; `prose-mirror` doit rester en `display: flex`.
+
+## Session du 2026-09-26 (suite 14) — Postes de vaisseau (v0.18.2→v0.18.3)
+
+- v0.18.2 poussée et publiée (accord de l'auteur, Guerrier jedi validé). L'auteur : « passe aux fonctionnalités du vaisseau ».
+- **n° 15** : les places occupées sont glissables (données `{ type: "Actor", uuid, gwSiege: { vaisseau, index, siege } }`) ;
+  un dépôt **déplace** l'acteur (place d'origine = celle glissée, sinon celle où il est déjà assis) et **échange** avec
+  l'occupant de la place visée. Vérifié : Pilote → Canonnier (place 2), puis échange Kael / Alek.
+- **n° 16** : `equipage[].competence` (vide = déduite du nom : `GW.competencesPostes`, liste de l'auteur), choix dans la
+  fenêtre du poste ; libellé de la compétence sous le poste ; bouton dé sur chaque place occupée par un acteur à
+  compétences que l'utilisateur possède (ou MJ) → `rollCompetence` titré « Poste — Vaisseau ». Vérifié : Pilotage de
+  Kael à 14 %, message à son nom ; « Cuisinier » sans compétence = pas de bouton. Vaisseau et message de test supprimés.
 
 ## Session du 2026-09-26 (suite 13) — Bugs du suivi (v0.18.1→v0.18.2)
 

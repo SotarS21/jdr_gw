@@ -51,7 +51,9 @@ export class VaisseauData extends foundry.abstract.TypeDataModel {
           uuids: new ArrayField(new StringField({ blank: true, initial: "" })),
           // Ancien nom unique, repris dans `noms` par migrateData.
           nom: new StringField({ initial: "" }),
-          description: new StringField({ initial: "" })
+          description: new StringField({ initial: "" }),
+          // Compétence lancée depuis le poste ("" = déduite du nom du poste, GW.competencesPostes).
+          competence: new StringField({ initial: "", blank: true })
         })
       ),
 

@@ -184,6 +184,20 @@ GW.cheminPV = {
 };
 
 /**
+ * Compétence lancée depuis un poste de vaisseau, déduite du nom du poste (suivi de l'auteur n° 16) quand le poste n'en
+ * a pas de choisie : premier motif trouvé.
+ */
+GW.competencesPostes = [
+  [/pilot/i, "pilotage"],
+  [/navig/i, "informatiquePiratage"],
+  [/communic/i, "social"],
+  [/m[ée]cani|manutention|entretien|ing[ée]nieur/i, "mecanique"],
+  [/canon|artill|tourelle|tireur/i, "canonLourd"],
+  [/m[ée]dec/i, "medecine"],
+  [/capitaine|commandant/i, "commanderGuider"]
+];
+
+/**
  * Types d'acteurs dont le token est lié à l'acteur (une seule fiche, token et acteur synchronisés) : personnages
  * joueurs, vaisseaux, équipages. Les PNJ (`pnj`) restent non liés (un même modèle pour plusieurs tokens).
  * Suivi de l'auteur n° 5 et 24 (2026-09-26).

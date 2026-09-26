@@ -1,4 +1,11 @@
 import { GW } from "../config.mjs";
+import { rollCompetence } from "../helpers/rolls.mjs";
+
+/** Compétence (clé de GW.competences) d'un poste : celle choisie, sinon déduite de son nom, sinon "". */
+export function competencePoste(poste) {
+  if (poste?.competence && GW.competences[poste.competence]) return poste.competence;
+  return GW.competencesPostes.find(([motif]) => motif.test(poste?.role ?? ""))?.[1] ?? "";
+}
 import { COMPETENCE_ARME_VAISSEAU, IMAGE_ARME_VAISSEAU, convertirArmement, emplacementArme } from "../helpers/armement-vaisseau.mjs";
 
 const { HandlebarsApplicationMixin, DialogV2 } = foundry.applications.api;
@@ -57,6 +64,7 @@ export class VaisseauSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       supprimerPoste: VaisseauSheet.#onSupprimerPoste,
       ouvrirMembre: VaisseauSheet.#onOuvrirMembre,
       retirerMembre: VaisseauSheet.#onRetirerMembre,
+      jetPoste: VaisseauSheet.#onJetPoste,
       ajouterAmenagement: VaisseauSheet.#onAjouterAmenagement,
       editerAmenagement: VaisseauSheet.#onEditerAmenagement,
       supprimerAmenagement: VaisseauSheet.#onSupprimerAmenagement,
@@ -122,15 +130,22 @@ export class VaisseauSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     });
     context.ancienArmement = system.armement.length;
     // Places : acteur déposé (image, clic = sa fiche) ou nom saisi à la main.
-    context.equipage = system.equipage.map((poste, index) => ({
-      ...poste,
-      index,
-      sieges: Array.from({ length: Math.max(1, poste.places) }, (_, siege) => {
-        const uuid = poste.uuids[siege] || "";
-        const membre = uuid ? fromUuidSync(uuid) : null;
-        return { siege, nom: poste.noms[siege] ?? "", uuid, img: membre?.img ?? null, lie: !!uuid };
-      })
-    }));
+    context.equipage = system.equipage.map((poste, index) => {
+      const cle = competencePoste(poste);
+      return {
+        ...poste,
+        index,
+        competenceCle: cle,
+        competenceLabel: cle ? game.i18n.localize(GW.competences[cle].label) : "",
+        sieges: Array.from({ length: Math.max(1, poste.places) }, (_, siege) => {
+          const uuid = poste.uuids[siege] || "";
+          const membre = uuid ? fromUuidSync(uuid) : null;
+          // Jet possible : place occupée par un acteur à compétences que l'utilisateur peut faire agir.
+          const jet = !!cle && !!membre?.system?.competences?.length && (membre.isOwner || game.user.isGM);
+          return { siege, nom: poste.noms[siege] ?? "", uuid, img: membre?.img ?? null, lie: !!uuid, jet };
+        })
+      };
+    });
     context.amenagements = system.amenagements.map((a, index) => ({
       ...a,
       index,
@@ -165,6 +180,21 @@ export class VaisseauSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
         e.stopPropagation();
         this.actor.items.get(champ.dataset.emplacement)?.setFlag("galactic-wars", "emplacement", champ.value.trim());
       });
+    }
+    // Places occupées glissables (vers une autre place, un autre poste, ou une autre fiche) : on emporte l'acteur et
+    // la place d'origine, pour un déplacement plutôt qu'une copie (suivi de l'auteur n° 15).
+    if (this.isEditable) {
+      for (const membre of this.element.querySelectorAll(".vs-membre[data-uuid]")) {
+        membre.draggable = true;
+        membre.addEventListener("dragstart", (e) => {
+          const index = Number(membre.closest(".vs-poste[data-index]")?.dataset.index);
+          const siege = Number(membre.dataset.siege);
+          e.dataTransfer.setData("text/plain", JSON.stringify({
+            type: "Actor", uuid: membre.dataset.uuid, gwSiege: { vaisseau: this.actor.uuid, index, siege }
+          }));
+          e.stopPropagation();
+        });
+      }
     }
     // Surbrillance du poste survolé pendant le glisser-déposer d'un acteur.
     for (const poste of this.element.querySelectorAll(".vs-poste[data-index]")) {
@@ -234,11 +264,42 @@ export class VaisseauSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       ui.notifications.warn(t("PosteComplet", { poste: poste.role }));
       return null;
     }
-    for (let i = 0; i < poste.places; i++) { poste.noms[i] ??= ""; poste.uuids[i] ??= ""; }
+    for (const p of equipage) for (let i = 0; i < p.places; i++) { p.noms[i] ??= ""; p.uuids[i] ??= ""; }
+    // Place d'origine : celle d'où la carte a été glissée sur cette fiche, sinon la place où l'acteur est déjà assis.
+    let origine = null;
+    try {
+      const donnees = foundry.applications.ux.TextEditor.implementation.getDragEventData(event);
+      if (donnees?.gwSiege?.vaisseau === this.actor.uuid) origine = donnees.gwSiege;
+    } catch { /* dépôt simulé ou sans données */ }
+    if (!origine) {
+      equipage.forEach((p, i) => p.uuids.forEach((u, s) => { if (u === actor.uuid && !origine) origine = { index: i, siege: s }; }));
+    }
+    if (origine && origine.index === index && origine.siege === siege) return null;
+    // Occupant de la place visée : échangé vers la place d'origine si l'acteur vient d'une autre place.
+    const occupant = { nom: poste.noms[siege], uuid: poste.uuids[siege] };
+    if (origine) {
+      const depart = equipage[origine.index];
+      depart.noms[origine.siege] = origine && (occupant.uuid || occupant.nom) ? occupant.nom : "";
+      depart.uuids[origine.siege] = occupant.uuid || "";
+    }
     poste.noms[siege] = actor.name;
     poste.uuids[siege] = actor.uuid;
     await this.actor.update({ "system.equipage": equipage });
     return actor;
+  }
+
+  /** Jet de la compétence du poste par l'acteur assis à cette place (sa propre compétence et son taux). */
+  static async #onJetPoste(event, target) {
+    event.stopPropagation();
+    const index = Number(target.closest(".vs-poste[data-index]")?.dataset.index);
+    const poste = this.actor.system.equipage[index];
+    const acteur = await fromUuid(target.closest("[data-uuid]")?.dataset.uuid);
+    const cle = competencePoste(poste);
+    if (!acteur || !cle) return;
+    if (!acteur.isOwner && !game.user.isGM) {
+      return ui.notifications.warn(game.i18n.format("GALACTICWARS.Vaisseau.JetInterdit", { nom: acteur.name }));
+    }
+    return rollCompetence(acteur, cle, { titre: `${poste.role} — ${this.actor.name}` });
   }
 
   static async #onOuvrirMembre(event, target) {
@@ -318,6 +379,13 @@ export class VaisseauSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       content: `<div class="gw-vaisseau-dialogue">
         <label>${t("Poste")}<input type="text" name="role" value="${valeur(poste?.role)}" autofocus required></label>
         <label>${t("Places")}<input type="number" name="places" min="1" max="20" step="1" value="${poste?.places ?? 1}"></label>
+        <label>${t("CompetencePoste")}<select name="competence">
+          <option value="">${t("CompetenceAuto")}</option>
+          ${Object.entries(GW.competences)
+            .map(([cle, c]) => ({ cle, label: game.i18n.localize(c.label) }))
+            .sort((a, b) => a.label.localeCompare(b.label))
+            .map(({ cle, label }) => `<option value="${cle}" ${poste?.competence === cle ? "selected" : ""}>${label}</option>`).join("")}
+        </select></label>
         <label>${t("DescriptionPoste")}<textarea name="description" rows="3">${valeur(poste?.description)}</textarea></label>
       </div>`,
       ok: { label: t("Enregistrer"), icon: "fa-solid fa-floppy-disk" },
@@ -399,6 +467,7 @@ export class VaisseauSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 
   static #nettoyerPoste(saisie) {
     return {
+      competence: GW.competences[saisie.competence] ? saisie.competence : "",
       role: String(saisie.role ?? "").trim(),
       places: Math.min(20, Math.max(1, Math.round(Number(saisie.places) || 1))),
       description: String(saisie.description ?? "").trim()

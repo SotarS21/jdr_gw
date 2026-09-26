@@ -832,6 +832,30 @@
   color: var(--vs-rouge);
 }
 
+.galactic-wars.vaisseau .vs-poste-competence {
+  font-size: 0.78rem;
+  color: var(--vs-cyan);
+}
+
+.galactic-wars.vaisseau .vs-membre[draggable="true"] { cursor: grab; }
+
+.galactic-wars.vaisseau .vs-membre-jet {
+  flex: 0 0 2rem;
+  width: 2rem;
+  height: 2rem;
+  margin: 0;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid color-mix(in srgb, var(--vs-cyan) 50%, var(--vs-bord));
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--vs-cyan) 10%, #1c2735);
+  color: var(--vs-cyan);
+  cursor: pointer;
+}
+.galactic-wars.vaisseau .vs-membre-jet:hover { border-color: var(--vs-cyan); background: color-mix(in srgb, var(--vs-cyan) 22%, #1c2735); }
+
 .galactic-wars.vaisseau .vs-poste.survol-depot {
   outline: 2px dashed var(--vs-cyan);
   outline-offset: -2px;

@@ -170,6 +170,7 @@
     <div class="vs-poste" data-index="{{poste.index}}">
       <div class="vs-poste-infos">
         <span class="vs-poste-role">{{poste.role}}{{#if (gt poste.places 1)}} <span class="vs-poste-places">({{poste.places}} {{localize 'GALACTICWARS.Vaisseau.Positions'}})</span>{{/if}}</span>
+        {{#if poste.competenceLabel}}<span class="vs-poste-competence"><i class="fa-solid fa-dice-d20"></i> {{poste.competenceLabel}}</span>{{/if}}
         {{#if poste.description}}<span class="vs-poste-description">{{poste.description}}</span>{{/if}}
       </div>
       <div class="vs-poste-noms">
@@ -180,6 +181,9 @@
             {{#if s.img}}<img src="{{s.img}}" alt="">{{else}}<i class="fa-solid fa-user-astronaut"></i>{{/if}}
             <span>{{s.nom}}</span>
           </button>
+          {{#if s.jet}}
+          <button type="button" class="vs-membre-jet" data-action="jetPoste" data-tooltip="{{localize 'GALACTICWARS.Vaisseau.JetPoste' competence=poste.competenceLabel}}" aria-label="{{localize 'GALACTICWARS.Vaisseau.JetPoste' competence=poste.competenceLabel}}"><i class="fa-solid fa-dice-d20"></i></button>
+          {{/if}}
           {{#if @root.editable}}
           <button type="button" class="vs-membre-retirer" data-action="retirerMembre" data-tooltip="{{localize 'GALACTICWARS.Vaisseau.RetirerMembre'}}" aria-label="{{localize 'GALACTICWARS.Vaisseau.RetirerMembre'}}"><i class="fa-solid fa-xmark"></i></button>
           {{/if}}

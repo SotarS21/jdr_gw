@@ -256,5 +256,12 @@ export const RELEASE_NOTES = {
       <li>Nouveau métier <strong>Guerrier jedi</strong> (prérequis : Padawan niveau 4) et <strong>Datapad</strong> au compendium Équipements.</li>
       <li>Onglet Combat : compétences dans l'ordre alphabétique. Description du personnage (onglet Informations) plus grande. Gain de niveau : message « choisissez-en une autre ».</li>
     </ul>`
+  },
+  "0.18.3": {
+    title: "v0.18.3",
+    html: `<ul>
+      <li>Fiche de vaisseau, équipage : glissez un membre d'une place à une autre (ou d'un poste à l'autre) ; si la place est prise, les deux membres échangent. Un membre déjà à bord n'est plus dupliqué.</li>
+      <li>Chaque poste a sa compétence (déduite de son nom : Pilote → Pilotage, Navigateur → Informatique / piratage, Communicateur → Social, Mécanicien / Manutention → Mécanique, Canonnier → Canon lourd, Médecin de bord → Médecine, Capitaine → Commander / guider ; modifiable dans la fenêtre du poste). Le bouton dé d'une place lance la compétence du membre assis, à son taux.</li>
+    </ul>`
   }
 };
