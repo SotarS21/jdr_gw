@@ -28,6 +28,22 @@ import { convertirAmenagements, modulesOrigine } from "./amenagements-vaisseau.m
  */
 export const PACK_UPDATES = [
   {
+    id: "0.19.4-dynamic-20",
+    cible: "acteurs",
+    version: "0.19.4",
+    label: "Dynamic 20 modular transport : postes, taille, modules",
+    description:
+      "Précisions de l'auteur : le Dynamic 20 a deux postes, Pilote et Mécanicien (au lieu d'un poste « Équipage » " +
+      "non réparti ; ses occupants éventuels sont placés sur ces postes), fait 100 m de long et peut avoir 10 " +
+      "modules. Seules les valeurs d'origine sont remplacées (taille et modules modifiés à la main conservés).",
+    concernes: async () => dynamic20AMettreAJour().length,
+    apply: async () => {
+      const liste = dynamic20AMettreAJour();
+      for (const vaisseau of liste) await vaisseau.update(changementsDynamic20(vaisseau));
+      return liste.length;
+    }
+  },
+  {
     id: "0.19.1-modules-amenagements-origine",
     cible: "acteurs",
     version: "0.19.1",
@@ -79,6 +95,26 @@ export const PACK_UPDATES = [
       "plusieurs tokens modifiés, seul le premier est recopié (les autres sont signalés dans le tchat).",
     concernes: () => Promise.resolve(tokensALier().acteurs.size),
     apply: async () => lierTokens()
+  },
+  {
+    id: "0.19.4-images-vaisseaux",
+    cible: "vaisseaux",
+    version: "0.19.4",
+    label: "Images des vaisseaux (Barloz, Dynamic 20)",
+    description:
+      "Le Barloz class médium Freighter et le Dynamic 20 modular transport ont maintenant une image (acteur, fiche et " +
+      "token). Met à jour les copies du monde de même nom qui ont encore l'image par défaut.",
+    concernes: () => Promise.resolve(vaisseauxSansImage(IMAGES_VAISSEAUX_0194).length),
+    apply: async () => {
+      const liste = vaisseauxSansImage(IMAGES_VAISSEAUX_0194);
+      for (const { vaisseau, image } of liste) {
+        const changements = { img: image, "system.portrait": image };
+        if (vaisseau.isToken) await vaisseau.token.update({ "texture.src": image });
+        else changements["prototypeToken.texture.src"] = image;
+        await vaisseau.update(changements);
+      }
+      return liste.length;
+    }
   },
   {
     id: "0.18.1-images-vaisseaux",
@@ -762,6 +798,11 @@ const IMAGES_VAISSEAUX_0181 = {
   "La poubelle géante": "systems/galactic-wars/asset_visuel/objets/vaisseaux-la-poubelle-geante.jpg"
 };
 
+const IMAGES_VAISSEAUX_0194 = {
+  "Barloz class médium Freighter": "systems/galactic-wars/asset_visuel/objets/vaisseaux-barloz.jpg",
+  "Dynamic 20 modular transport": "systems/galactic-wars/asset_visuel/objets/vaisseaux-dynamic-20.jpg"
+};
+
 /** Vaisseaux (monde et tokens non liés) nommés comme une entrée de `images`, avec encore l'image par défaut. */
 function vaisseauxSansImage(images) {
   const parDefaut = (src) => !src || src === "icons/svg/mystery-man.svg";
@@ -863,6 +904,38 @@ async function personnagesMetierDivergent() {
 }
 
 /* ------------------------------------------------------------------------------------------ */
+/* Dynamic 20 modular transport (v0.19.4).                                                    */
+/* -------------------------------------------------------------------------------------------- */
+
+const NOM_DYNAMIC_20 = "Dynamic 20 modular transport";
+
+/** Changements à écrire (tableau d'équipage complet, jamais un index) ; objet vide si rien à faire. */
+export function changementsDynamic20(vaisseau) {
+  const s = vaisseau.system.toObject();
+  const changements = {};
+  if (s.taille === "35 m de long, 20 m de large") changements["system.taille"] = "100 m de long";
+  if (s.modules === 7) changements["system.modules"] = 10;
+  const generique = s.equipage.findIndex((p) => p.role === "Équipage" && /r[ée]partition non pr[ée]cis[ée]e/i.test(p.description ?? ""));
+  if (generique >= 0) {
+    const ancien = s.equipage[generique];
+    const occupants = ancien.uuids.map((uuid, i) => ({ uuid, nom: ancien.noms[i] ?? "" }));
+    const poste = (role, occupant) => ({
+      role, nom: "", description: "", places: 1, competence: "",
+      noms: occupant ? [occupant.nom] : [], uuids: occupant ? [occupant.uuid] : []
+    });
+    const equipage = [...s.equipage];
+    equipage.splice(generique, 1, poste("Pilote", occupants[0]), poste("Mécanicien", occupants[1]));
+    changements["system.equipage"] = equipage;
+  }
+  return changements;
+}
+
+function dynamic20AMettreAJour() {
+  return game.actors.filter((a) => a.type === "vaisseau" && a.name === NOM_DYNAMIC_20
+    && Object.keys(changementsDynamic20(a)).length);
+}
+
+/* -------------------------------------------------------------------------------------------- */
 /* Suivi des correctifs appliqués.                                                             */
 /* ------------------------------------------------------------------------------------------ */
 

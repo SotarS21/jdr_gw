@@ -3,10 +3,10 @@
   "_id": "4cr2v3V9pQjmyK5G",
   "name": "Dynamic 20 modular transport",
   "type": "vaisseau",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/galactic-wars/asset_visuel/objets/vaisseaux-dynamic-20.jpg",
   "system": {
     "classe": "Transport modulaire cargo",
-    "taille": "35 m de long, 20 m de large",
+    "taille": "100 m de long",
     "prix": "150000c",
     "pv": {
       "actuels": 20,
@@ -24,9 +24,17 @@
     "armement": [],
     "equipage": [
       {
-        "role": "Équipage",
+        "role": "Pilote",
         "nom": "",
-        "description": "2 personnes (répartition non précisée).",
+        "description": "",
+        "places": 1,
+        "noms": [],
+        "uuids": []
+      },
+      {
+        "role": "Mécanicien",
+        "nom": "",
+        "description": "",
         "places": 1,
         "noms": [],
         "uuids": []
@@ -34,15 +42,15 @@
     ],
     "soute": "Grand entrepôt modulaire (inventé, non précisé dans le matériel source, cohérent avec le nom \"modular transport\").",
     "equipementsEmbarques": "(inventé, non précisé dans le matériel source) Poste de pilotage, quartiers réduits pour 2, sanitaire.",
-    "portrait": "icons/svg/mystery-man.svg",
-    "description": "<p>Transport cargo modulaire, conçu pour le fret plutôt que pour le combat, avec un équipage réduit à 2 personnes.</p><p><em>Note MJ : PV de coque (20) et bouclier (20 points) estimés par cohérence avec les vaisseaux comparables du même classeur (Barloz : 50 bouclier / 40 PV pour 6 personnes ; La poubelle géante : 20 bouclier / 15 PV pour 5 personnes ; Le Arcadia : 60 bouclier / 40 PV pour 6 personnes) — pas des valeurs du matériel source, à ajuster librement. La soute et les équipements embarqués sont également inventés pour cohérence avec le nom et le rôle du vaisseau.</em></p>",
+    "portrait": "systems/galactic-wars/asset_visuel/objets/vaisseaux-dynamic-20.jpg",
+    "description": "<p>Transport cargo modulaire, conçu pour le fret plutôt que pour le combat, avec un équipage réduit à 2 personnes : un pilote et un mécanicien. 100 m de long, 10 modules d'aménagement (précisions de l'auteur).</p><p><em>Note MJ : PV de coque (20) et bouclier (20 points) estimés par cohérence avec les vaisseaux comparables du même classeur (Barloz : 50 bouclier / 40 PV pour 6 personnes ; La poubelle géante : 20 bouclier / 15 PV pour 5 personnes ; Le Arcadia : 60 bouclier / 40 PV pour 6 personnes) — pas des valeurs du matériel source, à ajuster librement. La soute et les équipements embarqués sont également inventés pour cohérence avec le nom et le rôle du vaisseau.</em></p>",
     "amenagements": [],
-    "modules": 7
+    "modules": 10
   },
   "prototypeToken": {
     "name": "Dynamic 20 modular transport",
     "texture": {
-      "src": "icons/svg/mystery-man.svg"
+      "src": "systems/galactic-wars/asset_visuel/objets/vaisseaux-dynamic-20.jpg"
     },
     "actorLink": true
   },

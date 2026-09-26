@@ -62,6 +62,16 @@
   - **n° 27** : section **Métier** sous l'ethnie (même présentation) : portrait, description, talent du métier s'il en
     a un, compétences spéciales (réservées, absentes de base de la fiche, avec leur bonus), équipement de départ ;
     message si aucun métier ou métier non lié. Vérifié sur un Guerrier jedi temporaire (supprimé).
+- **Dynamic 20 modular transport** (précisions de l'auteur) : deux postes, Pilote et Mécanicien (au lieu d'un poste
+  « Équipage » de 2 personnes non réparties), 100 m de long, 10 modules. Compendium modifié (recompilé au prochain
+  redémarrage de Foundry, MJ connecté) ; correctif MJ `0.19.4-dynamic-20` pour le vaisseau du monde (taille et modules
+  remplacés seulement s'ils ont leur valeur d'origine, occupants du poste générique replacés sur Pilote puis
+  Mécanicien). Testé sur une copie temporaire avec Alek à bord (→ Pilote, bouton de jet Pilotage) ; vaisseau de
+  l'auteur non modifié.
+- **Images déposées par l'auteur** dans `asset_visuel/vaiseau/` : Barloz (800 × 427) et Dynamic 20 (900 × 571), vrais
+  JPEG → copiés en `asset_visuel/objets/vaisseaux-barloz.jpg` / `vaisseaux-dynamic-20.jpg` (servis, 200) ; compendium
+  (acteur, portrait, token) et correctif MJ `0.19.4-images-vaisseaux` (3 copies du monde à l'image par défaut : 2 Barloz,
+  1 Dynamic 20). Restent sans image : Barmaid Betty, Lantallian, Land speeder.
 
 ## Session du 2026-09-27 (suite 4) — Tests avec un compte joueur (v0.19.3)
 
@@ -82,8 +92,8 @@
   appliqué par le joueur (Contrebandier → 5 objets, vus par le MJ ; contact en PNJ) et par le MJ fiche du joueur
   ouverte (Médecin → 8 objets, tous affichés dans l'onglet Équipements du joueur). Aucune erreur.
 - **n° 20** : l'auteur confirme que 75 en Médecine au niveau 0 est normal (bonus de métier) → rien à changer.
-- **Suivi de 25 points entièrement traité.** Reste : images de 5 vaisseaux (Barloz, Barmaid Betty, Lantallian,
-  Dynamic 20, Land speeder), en attente des images de l'auteur.
+- **Suivi de 25 points entièrement traité.** Reste : images de vaisseaux en attente de l'auteur (Barloz et Dynamic 20
+  reçus en v0.19.4 ; restent Barmaid Betty, Lantallian, Land speeder).
 
 ## Session du 2026-09-27 (suite 3) — Animations vérifiées, musique du générique (v0.19.2→v0.19.3)
 

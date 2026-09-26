@@ -3,11 +3,11 @@
   "_id": "ApzVjX38rzeIBHoO",
   "name": "Barloz class médium Freighter",
   "type": "vaisseau",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/galactic-wars/asset_visuel/objets/vaisseaux-barloz.jpg",
   "prototypeToken": {
     "name": "Barloz class médium Freighter",
     "texture": {
-      "src": "icons/svg/mystery-man.svg"
+      "src": "systems/galactic-wars/asset_visuel/objets/vaisseaux-barloz.jpg"
     },
     "actorLink": true
   },
@@ -158,7 +158,7 @@
     ],
     "soute": "1 entrepôt.",
     "equipementsEmbarques": "Infirmerie ; 6 cabines dont celle du capitaine, chacune avec sanitaire ; une salle de repos ; des cuisines séparées. Confort grand luxe.",
-    "portrait": "icons/svg/mystery-man.svg",
+    "portrait": "systems/galactic-wars/asset_visuel/objets/vaisseaux-barloz.jpg",
     "description": "<p>Freighter de luxe. 6 personnes. Infirmerie, 6 cabines dont celle du capitaine, 1 entrepôt, des sanitaires par cabine, une salle de repos, des cuisines séparées. Le confort grand luxe. 2 canons lourds 4d6, 2 canons légers 2d6. 50 Shield, 40 blindages.</p>",
     "amenagements": [],
     "modules": 7
