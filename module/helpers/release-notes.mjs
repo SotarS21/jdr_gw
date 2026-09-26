@@ -296,5 +296,12 @@ export const RELEASE_NOTES = {
       <li>Générique : la musique démarre avec la phrase d'ouverture « Il y a longtemps, dans une galaxie lointaine, très lointaine… » ; si l'ouverture est passée, au début du défilement.</li>
       <li>Animations : sabre laser et fumée des vaisseaux via la base de Sequencer (JB2A) ; coups de mêlée du tireur vers la cible.</li>
     </ul>`
+  },
+  "0.19.4": {
+    title: "v0.19.4",
+    html: `<ul>
+      <li>Notes : barre de recherche dans les PNJ et les missions (nom, sous-titre, statut, texte ; sans tenir compte des accents).</li>
+      <li>Informations : nouvelle section <strong>Métier</strong> sous l'ethnie — description, talent, compétences spéciales et équipement de départ du métier.</li>
+    </ul>`
   }
 };

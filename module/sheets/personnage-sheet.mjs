@@ -66,6 +66,9 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   /** Sous-onglet actif de l'onglet Notes (résumé / infos / pnj / missions) — même principe. */
   #sousOngletNotes = "resume";
 
+  /** Recherche dans les PNJ et les missions (suivi de l'auteur, n° 26) — même principe : gardée entre deux rendus. */
+  #recherche = { pnj: "", missions: "" };
+
   /** Mode édition des caractéristiques, de la race et du métier — même principe que l'onglet
    *  actif (état d'affichage de l'instance, rien n'est écrit sur l'Actor). null = pas encore
    *  choisi : ouvert d'office sur un personnage vierge, verrouillé sinon. */
@@ -90,6 +93,7 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     context.system = system;
     context.ongletActif = this.#ongletActif;
     context.sousOngletNotes = this.#sousOngletNotes;
+    context.recherche = this.#recherche;
     context.modeEdition = this.modeEdition;
     context.isGM = game.user.isGM;
     // Barre de PV : vert > 50 %, orange de 25 à 50 %, rouge < 25 % (le PJ voit quand il est « dans le rouge »).
@@ -140,6 +144,7 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     if (this.#ongletActif === "combat") context.combat = await this.#preparerCombat(competencesIndexees, context);
     if (this.#ongletActif === "informations") {
       context.ethnie = await this.#preparerEthnie(system);
+      context.metier = await this.#preparerMetier(system);
       context.descriptionEnrichie = await foundry.applications.ux.TextEditor.implementation.enrichHTML(
         system.description ?? "", { relativeTo: this.actor }
       );
@@ -180,6 +185,28 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     await super._onRender(context, options);
     this.#activerCredits();
     this.#activerInventaire();
+    this.#activerRecherche();
+  }
+
+  /** Barres de recherche des PNJ et des missions : filtre les cartes à la frappe (nom, sous-titre, statut, texte),
+   *  sans tenir compte des accents ni de la casse. Aucun champ `name` : rien n'est soumis au formulaire. */
+  #activerRecherche() {
+    const normaliser = (texte) => String(texte ?? "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
+    for (const champ of this.element.querySelectorAll(".recherche-notes")) {
+      const section = champ.closest("section");
+      const filtrer = () => {
+        const requete = normaliser(champ.value);
+        this.#recherche[champ.dataset.liste] = champ.value;
+        const cartes = [...section.querySelectorAll(".carte-note")];
+        for (const carte of cartes) carte.hidden = !!requete && !normaliser(carte.textContent).includes(requete);
+        const vide = section.querySelector(".recherche-vide");
+        if (vide) vide.hidden = !cartes.length || cartes.some((c) => !c.hidden);
+      };
+      champ.addEventListener("input", filtrer);
+      champ.addEventListener("change", (e) => e.stopPropagation());
+      champ.addEventListener("click", (e) => e.stopPropagation());
+      filtrer();
+    }
   }
 
   /** Lignes d'inventaire (role="button") : Entrée / Espace = même effet que le clic. */
@@ -431,6 +458,26 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
         .filter(([, v]) => v)
         .map(([cle, v]) => ({ label: game.i18n.localize(GW.competences[cle]?.label ?? cle), valeur: `${signe(v)} %`, sens: v > 0 ? "bonus" : "malus" })),
       armureNaturelle: race.system.armureNaturelle
+    };
+  }
+
+  /** Onglet Informations : métier lié (portrait, description, talent, équipement de départ, compétences spéciales). */
+  async #preparerMetier(system) {
+    const metier = system.metier?.uuid ? await fromUuid(system.metier.uuid).catch(() => null) : null;
+    if (metier?.type !== "metier") return { nom: system.metier?.nom || "", trouve: false };
+    const s = metier.system;
+    return {
+      trouve: true,
+      nom: metier.name,
+      img: metier.img,
+      description: await foundry.applications.ux.TextEditor.implementation.enrichHTML(s.description ?? "", { relativeTo: metier }),
+      talent: s.talent?.nom ? { nom: s.talent.nom, description: s.talent.description } : null,
+      // Compétences spéciales : celles que la fiche n'a pas de base (réservées aux métiers qui les accordent).
+      competences: (s.competences ?? [])
+        .filter((c) => GW.competences[c.cle]?.reservee || !GW.competences[c.cle])
+        .map((c) => ({ label: game.i18n.localize(GW.competences[c.cle]?.label ?? c.cle), bonus: c.bonus ? `+${c.bonus} %` : "" }))
+        .sort((a, b) => a.label.localeCompare(b.label)),
+      equipement: (s.equipement ?? []).map((e) => (e.quantite > 1 ? `${e.nom} × ${e.quantite}` : e.nom))
     };
   }
 

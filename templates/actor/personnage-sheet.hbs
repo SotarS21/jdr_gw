@@ -561,6 +561,47 @@
     <p class="hint">{{#if ethnie.nom}}{{localize 'GALACTICWARS.Notes.EthnieNonLiee'}}{{else}}{{localize 'GALACTICWARS.Notes.AucuneEthnie'}}{{/if}}</p>
     {{/if}}
   </section>
+
+  {{!-- Métier (suivi de l'auteur, n° 27) : description, talent, équipement de départ et compétences spéciales
+        (réservées, absentes de base de la fiche), en lecture seule depuis l'Item métier lié. --}}
+  <section class="ethnie metier panel">
+    <div class="section-header">
+      <h2 class="eyebrow">{{localize 'GALACTICWARS.Notes.Metier'}}</h2>
+    </div>
+    {{#if metier.trouve}}
+    <div class="ethnie-contenu">
+      <img class="ethnie-portrait" src="{{metier.img}}" alt="{{metier.nom}}">
+      <div class="ethnie-details">
+        <h3 class="ethnie-nom">{{metier.nom}}</h3>
+        <div class="ethnie-description">{{{metier.description}}}</div>
+        {{#if metier.talent}}
+        <div class="ethnie-groupe">
+          <h4 class="eyebrow">{{localize 'GALACTICWARS.Notes.TalentMetier'}}</h4>
+          <p class="metier-talent"><strong>{{metier.talent.nom}}</strong>{{#if metier.talent.description}} — {{metier.talent.description}}{{/if}}</p>
+        </div>
+        {{/if}}
+        {{#if metier.competences.length}}
+        <div class="ethnie-groupe">
+          <h4 class="eyebrow">{{localize 'GALACTICWARS.Notes.CompetencesSpeciales'}}</h4>
+          <div class="ethnie-modificateurs">
+            {{#each metier.competences as |c|}}<span class="etiquette bonus">{{c.label}}{{#if c.bonus}} {{c.bonus}}{{/if}}</span>{{/each}}
+          </div>
+        </div>
+        {{/if}}
+        {{#if metier.equipement.length}}
+        <div class="ethnie-groupe">
+          <h4 class="eyebrow">{{localize 'GALACTICWARS.Notes.EquipementDepart'}}</h4>
+          <ul class="metier-equipement">
+            {{#each metier.equipement as |ligne|}}<li>{{ligne}}</li>{{/each}}
+          </ul>
+        </div>
+        {{/if}}
+      </div>
+    </div>
+    {{else}}
+    <p class="hint">{{#if metier.nom}}{{localize 'GALACTICWARS.Notes.MetierNonLie'}}{{else}}{{localize 'GALACTICWARS.Notes.AucunMetier'}}{{/if}}</p>
+    {{/if}}
+  </section>
   {{/if}}
 
   {{#if (eq ongletActif 'notes')}}
@@ -619,6 +660,8 @@
   <section class="notes panel {{#if modeEdition}}texte-complet{{/if}}">
     <div class="section-header">
       <h2 class="eyebrow">{{localize 'GALACTICWARS.Notes.Pnj'}}</h2>
+      <input type="search" class="recherche-notes" data-liste="pnj" value="{{lookup recherche 'pnj'}}"
+             placeholder="{{localize 'GALACTICWARS.Notes.Rechercher'}}" aria-label="{{localize 'GALACTICWARS.Notes.Rechercher'}}">
       <button type="button" class="roll-btn" data-action="ajouterEntreeNote" data-type="pnj" data-tooltip="{{localize 'GALACTICWARS.Notes.Ajouter'}}">+</button>
     </div>
     {{#each pnjs as |pnj|}}
@@ -639,6 +682,7 @@
     {{else}}
     <p class="hint">{{localize 'GALACTICWARS.Notes.AucunPnj'}} {{localize 'GALACTICWARS.Notes.AideDepotPnj'}}</p>
     {{/each}}
+    <p class="hint recherche-vide" hidden>{{localize 'GALACTICWARS.Notes.AucunResultat'}}</p>
   </section>
   {{/if}}
 
@@ -646,6 +690,8 @@
   <section class="notes panel {{#if modeEdition}}texte-complet{{/if}}">
     <div class="section-header">
       <h2 class="eyebrow">{{localize 'GALACTICWARS.Notes.Missions'}}</h2>
+      <input type="search" class="recherche-notes" data-liste="missions" value="{{lookup recherche 'missions'}}"
+             placeholder="{{localize 'GALACTICWARS.Notes.Rechercher'}}" aria-label="{{localize 'GALACTICWARS.Notes.Rechercher'}}">
       <button type="button" class="roll-btn" data-action="ajouterEntreeNote" data-type="mission" data-tooltip="{{localize 'GALACTICWARS.Notes.Ajouter'}}">+</button>
     </div>
     {{#each missions as |mission|}}
@@ -662,6 +708,7 @@
     {{else}}
     <p class="hint">{{localize 'GALACTICWARS.Notes.AucuneMission'}}</p>
     {{/each}}
+    <p class="hint recherche-vide" hidden>{{localize 'GALACTICWARS.Notes.AucunResultat'}}</p>
   </section>
   {{/if}}
   {{/if}}

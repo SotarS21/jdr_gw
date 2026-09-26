@@ -1446,6 +1446,30 @@
   margin-top: 0.6rem;
 }
 
+/* Métier (suivi n° 27) : même présentation que l'ethnie. */
+.galactic-wars.personnage .metier-talent {
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+.galactic-wars.personnage .metier-equipement {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-size: 0.85rem;
+}
+
+/* Recherche dans les PNJ et les missions (suivi n° 26). */
+.galactic-wars.personnage .section-header .recherche-notes {
+  flex: 0 1 14rem;
+  margin-left: auto;
+  height: 1.7rem;
+  font-size: 0.8rem;
+}
+
+.galactic-wars.personnage .carte-note[hidden] {
+  display: none;
+}
+
 .galactic-wars.personnage .ethnie-groupe h4 {
   margin: 0 0 0.2rem;
   border: none;

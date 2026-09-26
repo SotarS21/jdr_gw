@@ -43,11 +43,25 @@
     23. [Bug] Libellé : « Une compétence dépasserait le niveau 3 : choisissez-en une autre. »
     24. ~~[Bug] Synchronisation fiche du token / fiche de l'acteur~~ : vérifié (v0.18.2, tokens liés).
     25. ~~[Bug] Glisser-déposer des acteurs observés / possédés par les PJ~~ : vérifié avec un compte joueur.
+    26. ~~[Fonctionnalité] Barre de recherche dans les PNJ et les missions~~ : fait (v0.19.4).
+    27. ~~[Fonctionnalité] Métier dans l'onglet Informations (nom, description, équipement, compétences spéciales)~~ : fait (v0.19.4).
 - **Faits dans cette session** : lien vers le vaisseau, grille 2 × 2 et corbeille de l'onglet Équipements (v0.15.8) ;
   fiche de vaisseau d'après le mockup et tous les ajouts de l'auteur (v0.16.0) ; nouveaux vaisseaux et images (v0.16.1).
 - **Rappels techniques** : scripts de patch écrits avec l'outil Write (ou heredoc `<<'EOF'`, en doublant les
   antislashs à vérifier) — jamais de backticks dans un `node -e` en bash ; `git checkout` remet les fichiers en CRLF
   (normaliser avant de chercher du texte) ; `prose-mirror` doit rester en `display: flex`.
+
+## Session du 2026-09-27 (suite 5) — Suivi n° 26-27 (v0.19.4)
+
+- Deux lignes ajoutées au tableur par l'auteur (relu par son export CSV public) :
+  - **n° 26** : barre de recherche dans les sous-onglets PNJ et Missions → filtre à la frappe sur le texte des cartes
+    (nom, sous-titre, statut, description), sans accents ni casse, « Aucun résultat » ; saisie gardée entre deux rendus
+    (`#recherche`) ; champ sans `name` et `change` stoppé (rien n'est soumis). Vérifié : « senateur » → « Sauver le
+    sénateur », « TATOO » → mission par sa description, « hostile » → PNJ par son statut, saisie conservée après une
+    mise à jour de l'acteur.
+  - **n° 27** : section **Métier** sous l'ethnie (même présentation) : portrait, description, talent du métier s'il en
+    a un, compétences spéciales (réservées, absentes de base de la fiche, avec leur bonus), équipement de départ ;
+    message si aucun métier ou métier non lié. Vérifié sur un Guerrier jedi temporaire (supprimé).
 
 ## Session du 2026-09-27 (suite 4) — Tests avec un compte joueur (v0.19.3)
 
