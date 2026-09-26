@@ -18,13 +18,12 @@
     tous « Pas commencé », à traiter ensuite) :
     1. ~~[Bug] Métier « Guerrier jedi »~~ : fait et validé (v0.18.2).
     2. [Bug] Les objets d'équipement ne sont pas mis à jour.
-    3. [Bug] Comlink : les canaux ne se mettent pas à jour pour tout le monde ; le bouton Ouvrir n'est pas synchronisé
-       avec celui de la fiche.
+    3. ~~[Bug] Comlink : canaux et bouton Ouvrir non synchronisés~~ : vérifié MJ + joueur après liaison des tokens.
     4. [Bug] Ajouter le Datapad au compendium.
-    5. [Bug] Synchronisation de l'image de token.
+    5. ~~[Bug] Synchronisation de l'image de token~~ : vérifié (v0.18.2, tokens liés).
     6. ~~[Fonctionnalité] Informations : champ « Signe distinctif »~~ : fait (v0.19.1).
     7. [Bug] Agrandir la taille de la description.
-    8. [Bug] Notes : synchronisation entre ce que voit le PJ et le MJ.
+    8. ~~[Bug] Notes : synchronisation PJ / MJ~~ : vérifié MJ + joueur après liaison des tokens.
     9. ~~[Fonctionnalité] Glisser-déposer des acteurs dans les PNJ des PJ~~ : fait (v0.19.1).
     10. ~~[Fonctionnalité] Afficher une note dans le tchat, la glisser vers ses propres notes~~ : fait (v0.19.1).
     11. ~~[Fonctionnalité] Succès en vert, échecs en rouge~~ : fait (v0.19.1).
@@ -42,13 +41,29 @@
     21. [Bug] Onglet Combat : compétences pas dans l'ordre alphabétique.
     22. ~~[Fonctionnalité] État « Endommagé »~~ : fait (tag, v0.19.1).
     23. [Bug] Libellé : « Une compétence dépasserait le niveau 3 : choisissez-en une autre. »
-    24. [Bug] Synchronisation entre la fiche du token et la fiche de l'acteur.
-    25. [Bug] Les PJ doivent pouvoir glisser-déposer les acteurs dont ils sont observateurs ou propriétaires.
+    24. ~~[Bug] Synchronisation fiche du token / fiche de l'acteur~~ : vérifié (v0.18.2, tokens liés).
+    25. ~~[Bug] Glisser-déposer des acteurs observés / possédés par les PJ~~ : vérifié avec un compte joueur.
 - **Faits dans cette session** : lien vers le vaisseau, grille 2 × 2 et corbeille de l'onglet Équipements (v0.15.8) ;
   fiche de vaisseau d'après le mockup et tous les ajouts de l'auteur (v0.16.0) ; nouveaux vaisseaux et images (v0.16.1).
 - **Rappels techniques** : scripts de patch écrits avec l'outil Write (ou heredoc `<<'EOF'`, en doublant les
   antislashs à vérifier) — jamais de backticks dans un `node -e` en bash ; `git checkout` remet les fichiers en CRLF
   (normaliser avant de chercher du texte) ; `prose-mirror` doit rester en `display: flex`.
+
+## Session du 2026-09-27 (suite 4) — Tests avec un compte joueur (v0.19.3)
+
+- v0.19.3 poussée et publiée. États du tableur de suivi fournis à l'auteur (pas d'accès Google Drive).
+- Le correctif MJ `0.18.2-tokens-lies` **a été appliqué par l'auteur** : les 6 personnages ont un token lié et une
+  sauvegarde (Neili : 1 450 245 c repris sur l'acteur, Alek 24 PV).
+- Test à deux navigateurs simultanés (MJ « claude » + compte joueur temporaire, acteurs / scène / messages temporaires
+  supprimés à la fin, aucune erreur de page) :
+  - **n° 25** : le joueur glisse depuis l'onglet Acteurs un acteur qu'il observe, le dépose sur sa fiche → PNJ créé,
+    vu par le MJ ; un acteur sans droit n'est pas visible.
+  - **n° 24** : crédits modifiés par le joueur via le token lié → vus par le MJ sur l'acteur, et inversement.
+  - **n° 5** : portrait changé par le joueur → image du token posé et du prototype mises à jour chez le MJ.
+  - **n° 3** : canal ajouté par le MJ → la fiche ouverte du joueur se redessine ; message du MJ → alerte chuchotée au
+    joueur, bouton « Ouvrir » → même fiche (une seule fenêtre) sur la conversation ; réponse du joueur vue par le MJ.
+  - **n° 8** : note ajoutée par le joueur → vue dans la fiche du MJ ; modifiée par le MJ → vue par le joueur.
+- Restent : n° 2 et n° 20 (réponses de l'auteur attendues), images de 5 vaisseaux.
 
 ## Session du 2026-09-27 (suite 3) — Animations vérifiées, musique du générique (v0.19.2→v0.19.3)
 
