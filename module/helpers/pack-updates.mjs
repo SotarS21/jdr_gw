@@ -27,6 +27,27 @@ import { convertirArmement } from "./armement-vaisseau.mjs";
  */
 export const PACK_UPDATES = [
   {
+    id: "0.16.1-images-vaisseaux",
+    cible: "vaisseaux",
+    version: "0.16.1",
+    label: "Images des vaisseaux (Le Frelon, Convergence, Gunboat 1061-968)",
+    description:
+      "Ces trois vaisseaux du compendium ont maintenant une image (acteur, fiche et token). Met à jour les copies du " +
+      "monde de même nom qui ont encore l'image par défaut.",
+    concernes: () => Promise.resolve(vaisseauxSansImage().length),
+    apply: async () => {
+      const liste = vaisseauxSansImage();
+      for (const { vaisseau, image } of liste) {
+        const changements = { img: image, "system.portrait": image };
+        // Token non lié : sa texture est portée par le token, pas par un prototype.
+        if (vaisseau.isToken) await vaisseau.token.update({ "texture.src": image });
+        else changements["prototypeToken.texture.src"] = image;
+        await vaisseau.update(changements);
+      }
+      return liste.length;
+    }
+  },
+  {
     id: "0.16.0-armement-en-objets",
     cible: "acteurs",
     version: "0.16.0",
@@ -539,6 +560,21 @@ async function armesContondantesSurBagarre() {
 /* ------------------------------------------------------------------------------------------ */
 /* Outils génériques pour écrire de futurs correctifs en quelques lignes.                      */
 /* ------------------------------------------------------------------------------------------ */
+
+/** Images des vaisseaux du compendium ajoutées en v0.16.1, par nom exact. */
+const IMAGES_VAISSEAUX = {
+  "Le Frelon": "systems/galactic-wars/asset_visuel/objets/vaisseaux-le-frelon.png",
+  "Convergence": "systems/galactic-wars/asset_visuel/objets/vaisseaux-convergence.jpg",
+  "Gunboat 1061-968": "systems/galactic-wars/asset_visuel/objets/vaisseaux-gunboat-1061-968.png"
+};
+
+/** Vaisseaux (monde et tokens non liés) nommés comme l'un d'eux, avec encore l'image par défaut. */
+function vaisseauxSansImage() {
+  const parDefaut = (src) => !src || src === "icons/svg/mystery-man.svg";
+  return tousLesActeurs()
+    .filter((a) => a.type === "vaisseau" && IMAGES_VAISSEAUX[a.name] && parDefaut(a.img))
+    .map((vaisseau) => ({ vaisseau, image: IMAGES_VAISSEAUX[vaisseau.name] }));
+}
 
 /** Vaisseaux (monde et tokens non liés) dont l'armement est encore à l'ancien format texte. */
 function vaisseauxAConvertir() {

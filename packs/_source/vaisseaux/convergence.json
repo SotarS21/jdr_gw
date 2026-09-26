@@ -3,7 +3,7 @@
   "_id": "WiWXMiy6UuunL1Nh",
   "name": "Convergence",
   "type": "vaisseau",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/galactic-wars/asset_visuel/objets/vaisseaux-convergence.jpg",
   "system": {
     "classe": "Destroyer stellaire sith",
     "taille": "300 m de long",
@@ -93,7 +93,7 @@
     ],
     "soute": "Soute de 100 m de long et 40 m de large.",
     "equipementsEmbarques": "Une navette de transport de troupes de 20 personnes\nUn entrepôt\nRéserve de nourriture pour 14 jours\nQuatre pods de sauvetage de 6 places\nQuatre quartiers VIP où logent les sith\nDeux quartiers d'équipage\nUne infirmerie\nSéjour\n4 sas",
-    "portrait": "icons/svg/mystery-man.svg",
+    "portrait": "systems/galactic-wars/asset_visuel/objets/vaisseaux-convergence.jpg",
     "description": "<p>Destroyer assigné à la garde des seigneurs sith. En cas de doute sur un membre d'équipage, envoyer un communiqué à son maître.</p><p><em>Note MJ : le classeur source indique aussi \"PV : 50 100\" en tête de fiche, incohérent avec les 300 PV de coque précisés plus loin dans le même document — retenu ici la valeur explicite (300), la mention initiale semble être un reliquat de gabarit non mis à jour.</em></p>",
     "amenagements": [
       {
@@ -137,7 +137,7 @@
   "prototypeToken": {
     "name": "Convergence",
     "texture": {
-      "src": "icons/svg/mystery-man.svg"
+      "src": "systems/galactic-wars/asset_visuel/objets/vaisseaux-convergence.jpg"
     },
     "actorLink": true
   },

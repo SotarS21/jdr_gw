@@ -3,7 +3,7 @@
   "_id": "SgIDWPQ819hH8vPS",
   "name": "Gunboat 1061-968",
   "type": "vaisseau",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/galactic-wars/asset_visuel/objets/vaisseaux-gunboat-1061-968.png",
   "system": {
     "classe": "Canonnière (gunboat)",
     "taille": "48 m de long, 48 m de large, 3 étages",
@@ -34,7 +34,7 @@
     ],
     "soute": "3 entrepôts (donné par le matériel source).",
     "equipementsEmbarques": "3 étages (donné par le matériel source) — (inventé, non précisé) pont supérieur : passerelle et quartiers officiers ; pont médian : quartiers équipage et infirmerie ; pont inférieur : salle des machines.",
-    "portrait": "icons/svg/mystery-man.svg",
+    "portrait": "systems/galactic-wars/asset_visuel/objets/vaisseaux-gunboat-1061-968.png",
     "description": "<p>Canonnière de combat rapproché, armée pour l'assaut et l'escorte, disposant de 3 entrepôts répartis sur ses 3 étages.</p><p><em>Note MJ : PV de coque (60), bouclier (70 points) et armement (2 canons lourds 4d6 + 2 tourelles légères 2d6) estimés par cohérence avec les vaisseaux comparables du même classeur (Barloz : 50 bouclier / 40 PV pour 6 personnes ; La poubelle géante : 20 bouclier / 15 PV pour 5 personnes ; Le Arcadia : 60 bouclier / 40 PV pour 6 personnes) et avec le rôle de \"gunboat\" — pas des valeurs du matériel source, à ajuster librement. La répartition des 3 étages est également inventée.</em></p>",
     "amenagements": [
       {
@@ -54,7 +54,7 @@
   "prototypeToken": {
     "name": "Gunboat 1061-968",
     "texture": {
-      "src": "icons/svg/mystery-man.svg"
+      "src": "systems/galactic-wars/asset_visuel/objets/vaisseaux-gunboat-1061-968.png"
     },
     "actorLink": true
   },

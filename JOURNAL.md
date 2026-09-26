@@ -2,8 +2,8 @@
 
 ## À faire à la reprise (état au 2026-09-26, fin de session)
 
-- **État** : v0.16.0 (refonte de la fiche de vaisseau, mode Édition, armement en objets) **validée par l'auteur,
-  poussée et publiée**. Foundry redémarré en 0.16.0 (accord de l'auteur) ; les 13 vaisseaux du compendium vérifiés
+- **État** : v0.16.1 (4 nouveaux vaisseaux, images de 3 vaisseaux) **validée, poussée et publiée** ; v0.16.0
+  (refonte de la fiche de vaisseau, mode Édition, armement en objets) aussi. Foundry redémarré en 0.16.0 (accord de l'auteur) ; les 13 vaisseaux du compendium vérifiés
   (armes en objets, 0 ancien armement, aménagements, bouclier max). Correctif `0.16.0-armement-en-objets` proposé au
   MJ pour le Barloz du monde de test.
   Seuls fichiers non suivis (voulu) : `asset_visuel/{Personnage,item,lieux,vaiseau}`.
@@ -14,10 +14,9 @@
      Lance d'argent, La Brique, Lumière de l'aube) : association à valider avec l'auteur (proposition faite).
      `front_speeder.jpg` n'est pas lisible par System.Drawing (format à vérifier). **Réponse de l'auteur** : oui, les
      images nommées (Pourparler, Lance d'argent, La Brique, Lumière de l'aube) sont de **nouveaux vaisseaux** à créer
-     → faits en v0.16.1. Reste à valider l'association des images aux 13 vaisseaux existants (proposition : Frelon ←
-     `front_vaiseau_petit_chasseur`, Convergence ← `front_vaiseau_croiseau_tres_grand`, Gunboat ←
-     `front_vaiseau_croiseur_très_grand_nom_gun` ?, Land speeder ← `front_speeder` illisible ; rien d'évident pour les
-     9 autres).
+     → faits en v0.16.1, avec les images du Frelon, de la Convergence et du Gunboat (validées par l'auteur). Restent
+     sans image : les 10 autres vaisseaux (rien d'évident dans `asset_visuel/vaiseau/` ; `front_speeder.jpg`
+     illisible, à vérifier pour le Land speeder).
   3. Bannière de chaque compendium (`system.json` `packs[].banner`, aucune aujourd'hui) ;
   4. Acteur « Équipage » (PJ membres, crédits communs, réserve d'objets, vaisseau associé ; modèle : Party de PF2e).
      Le lien vers le vaisseau de la v0.15.8 est individuel : l'Équipage pourra porter le vaisseau commun.
@@ -48,6 +47,13 @@
 - Images réduites (PowerShell / System.Drawing) dans `asset_visuel/objets/vaisseaux-*` (dossier embarqué par la
   release) : PNG transparent gardé pour le Pourparler et La Brique (bons tokens vus de dessus), JPEG 85 % pour les
   deux autres ; même image pour l'acteur, le portrait de la fiche et le token.
+- **Images validées par l'auteur** (« je valide ») : Le Frelon ← `front_vaiseau_petit_chasseur`, Convergence ←
+  `front_vaiseau_croiseau_tres_grand`, Gunboat 1061-968 ← `front_vaiseau_croiseur_très_grand_nom_gun` (réduites dans
+  `asset_visuel/objets/vaisseaux-*`). Correctif MJ `0.16.1-images-vaisseaux` : copies du monde de même nom encore à
+  l'image par défaut (acteur, portrait, prototype ou texture du token non lié).
+- Foundry redémarré (accord de l'auteur) ; vérifié : 17 vaisseaux au compendium, 7 avec image (fichier servi,
+  token et portrait identiques à l'image), armes et aménagements des 4 nouveaux ; aucune erreur de page. Validé par
+  l'auteur, publié.
 
 ## Session du 2026-09-26 (suite 6) — Refonte de la fiche de vaisseau (v0.15.8→v0.16.0)
 
