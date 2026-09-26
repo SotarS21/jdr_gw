@@ -1,36 +1,32 @@
 # Journal de développement — Galactic Wars
 
-## À faire à la reprise (état au 2026-09-26, fin de session)
+## À faire à la reprise (état au 2026-09-26, fin de session — « on reprendra la suite plus tard »)
 
-- **État** : v0.16.1 (4 nouveaux vaisseaux, images de 3 vaisseaux) **validée, poussée et publiée** ; v0.16.0
-  (refonte de la fiche de vaisseau, mode Édition, armement en objets) aussi. Foundry redémarré en 0.16.0 (accord de l'auteur) ; les 13 vaisseaux du compendium vérifiés
-  (armes en objets, 0 ancien armement, aménagements, bouclier max). Correctif `0.16.0-armement-en-objets` proposé au
-  MJ pour le Barloz du monde de test.
-  Seuls fichiers non suivis (voulu) : `asset_visuel/{Personnage,item,lieux,vaiseau}`.
+- **État** : tout est poussé ; **v0.16.1 = dernière release** (4 nouveaux vaisseaux, images du Frelon, de la
+  Convergence et du Gunboat), après la v0.16.0 (refonte de la fiche de vaisseau, mode Édition, armement en objets
+  « arme », équipage par glisser-déposer, aménagements décrits). Foundry local tourne en 0.16.1. Seuls fichiers non
+  suivis (voulu) : `asset_visuel/{Personnage,item,lieux,vaiseau}`.
+- **Monde de test** : deux correctifs MJ en attente, à laisser accepter par l'auteur à sa connexion —
+  `0.16.0-armement-en-objets` (le Barloz, 2 armes à l'ancien format) et `0.16.1-images-vaisseaux` (copies de même nom).
 - **Todo restante** (fichier de l'auteur sur le Bureau) :
-  1. ~~Refonte de la fiche de vaisseau~~ : faite (v0.16.0).
-  2. Images des vaisseaux (token, acteur… : les 13 vaisseaux du compendium ont l'homme mystère ; images candidates
-     dans `asset_visuel/vaiseau/`, non suivi). Plusieurs images portent le nom d'autres vaisseaux (Pourparler,
-     Lance d'argent, La Brique, Lumière de l'aube) : association à valider avec l'auteur (proposition faite).
-     `front_speeder.jpg` n'est pas lisible par System.Drawing (format à vérifier). **Réponse de l'auteur** : oui, les
-     images nommées (Pourparler, Lance d'argent, La Brique, Lumière de l'aube) sont de **nouveaux vaisseaux** à créer
-     → faits en v0.16.1, avec les images du Frelon, de la Convergence et du Gunboat (validées par l'auteur). Restent
-     sans image : les 10 autres vaisseaux (rien d'évident dans `asset_visuel/vaiseau/` ; `front_speeder.jpg`
-     illisible, à vérifier pour le Land speeder).
-  3. Bannière de chaque compendium (`system.json` `packs[].banner`, aucune aujourd'hui) ;
-  4. Acteur « Équipage » (PJ membres, crédits communs, réserve d'objets, vaisseau associé ; modèle : Party de PF2e).
-     Le lien vers le vaisseau de la v0.15.8 est individuel : l'Équipage pourra porter le vaisseau commun.
-  5. **Ajout de l'auteur** : synchroniser les images sur les objets anciens et nouveaux (ex. vêtements) ; créer les
-     objets nouveaux avec une description sommaire ; s'en inspirer pour enrichir les descriptions des objets
-     existants. Source : `asset_visuel/item/` (69 images, non suivi), dont 7 vêtements (`vetement_apprentis_jedi`,
-     `vetement_apprentis_sith`, `vetement_armure_guerrier_sith`, `vetement_armure_lourde`, `vetement_armure_plastron`,
-     `vetement_de_contrebandier`, `vetement_robe_jedi`). Tri à faire : l'item n'y contient pas que des objets (portes,
-     astéroïdes, barges, textures). Les visuels publiés passent par `asset_visuel/objets/` (suivi) + un correctif MJ
-     pour les objets déjà dans les mondes (voir v0.13.2 / `0.14.1-visuels-par-nom`).
-  6. ~~Mode Édition des vaisseaux, aménagements décrits, glisser-déposer d'acteurs sur les postes, armement en objets
-     « arme » (tir au taux du token sélectionné)~~ : faits (v0.16.0, ajouts de l'auteur en cours de lot).
-  7. **Ajout de l'auteur** : scène de générique qui défile sur un fond, à la façon de l'intro de Star Wars, avec
-     animation, à montrer aux PJ — **faire plusieurs propositions** quand on reprendra ce point.
+  1. Images des 10 autres vaisseaux du compendium (rien d'évident dans `asset_visuel/vaiseau/` ; `front_speeder.jpg`
+     illisible par System.Drawing — format à vérifier, candidat pour le Land speeder).
+  2. Bannière de chaque compendium (`system.json` `packs[].banner`, aucune aujourd'hui).
+  3. Acteur « Équipage » (PJ membres, crédits communs, réserve d'objets, vaisseau associé ; modèle : Party de PF2e).
+     Le lien vers le vaisseau (v0.15.8) est individuel : l'Équipage pourra porter le vaisseau commun.
+  4. Synchroniser les images sur les objets anciens et nouveaux (ex. vêtements) ; créer les nouveaux avec une
+     description sommaire ; en profiter pour enrichir les descriptions existantes. Source : `asset_visuel/item/`
+     (69 images, non suivi), dont 7 vêtements (`vetement_apprentis_jedi`, `vetement_apprentis_sith`,
+     `vetement_armure_guerrier_sith`, `vetement_armure_lourde`, `vetement_armure_plastron`, `vetement_de_contrebandier`,
+     `vetement_robe_jedi`). Tri à faire (portes, astéroïdes, barges, textures n'en sont pas). Publication par
+     `asset_visuel/objets/` (suivi) + correctif MJ pour les objets déjà dans les mondes (voir `0.14.1-visuels-par-nom`).
+  5. Scène de générique qui défile sur un fond, à la façon de l'intro de Star Wars, avec animation, à montrer aux
+     PJ — **faire plusieurs propositions** avant de coder.
+- **Faits dans cette session** : lien vers le vaisseau, grille 2 × 2 et corbeille de l'onglet Équipements (v0.15.8) ;
+  fiche de vaisseau d'après le mockup et tous les ajouts de l'auteur (v0.16.0) ; nouveaux vaisseaux et images (v0.16.1).
+- **Rappels techniques** : scripts de patch écrits avec l'outil Write (ou heredoc `<<'EOF'`, en doublant les
+  antislashs à vérifier) — jamais de backticks dans un `node -e` en bash ; `git checkout` remet les fichiers en CRLF
+  (normaliser avant de chercher du texte) ; `prose-mirror` doit rester en `display: flex`.
 
 ## Session du 2026-09-26 (suite 7) — Nouveaux vaisseaux (v0.16.0→v0.16.1)
 
