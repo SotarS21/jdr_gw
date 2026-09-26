@@ -17,7 +17,7 @@
   - **Suivi de l'auteur** (tableur https://docs.google.com/spreadsheets/d/1znh5uDSFQPvQjuDRWs7nIHRQDTmR3EqXHkBvLAfjPyQ/, 25 points,
     tous « Pas commencé », à traiter ensuite) :
     1. ~~[Bug] Métier « Guerrier jedi »~~ : fait et validé (v0.18.2).
-    2. [Bug] Les objets d'équipement ne sont pas mis à jour.
+    2. ~~[Bug] Le PJ ne voit pas les objets créés au changement de métier~~ : vérifié MJ + joueur après liaison des tokens.
     3. ~~[Bug] Comlink : canaux et bouton Ouvrir non synchronisés~~ : vérifié MJ + joueur après liaison des tokens.
     4. [Bug] Ajouter le Datapad au compendium.
     5. ~~[Bug] Synchronisation de l'image de token~~ : vérifié (v0.18.2, tokens liés).
@@ -63,7 +63,11 @@
   - **n° 3** : canal ajouté par le MJ → la fiche ouverte du joueur se redessine ; message du MJ → alerte chuchotée au
     joueur, bouton « Ouvrir » → même fiche (une seule fenêtre) sur la conversation ; réponse du joueur vue par le MJ.
   - **n° 8** : note ajoutée par le joueur → vue dans la fiche du MJ ; modifiée par le MJ → vue par le joueur.
-- Restent : n° 2 et n° 20 (réponses de l'auteur attendues), images de 5 vaisseaux.
+- **n° 2** précisé par l'auteur : « le PJ ne voyait pas les équipements créés automatiquement par le changement de
+  classe ». Même cause que n° 24 (métier appliqué sur l'acteur, joueur sur son token non lié). Vérifié : métier
+  appliqué par le joueur (Contrebandier → 5 objets, vus par le MJ ; contact en PNJ) et par le MJ fiche du joueur
+  ouverte (Médecin → 8 objets, tous affichés dans l'onglet Équipements du joueur). Aucune erreur.
+- Restent : n° 20 (réponse de l'auteur attendue), images de 5 vaisseaux.
 
 ## Session du 2026-09-27 (suite 3) — Animations vérifiées, musique du générique (v0.19.2→v0.19.3)
 
