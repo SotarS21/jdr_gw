@@ -12,8 +12,8 @@
   1. Images des 10 autres vaisseaux du compendium (rien d'évident dans `asset_visuel/vaiseau/` ; `front_speeder.jpg`
      illisible par System.Drawing — format à vérifier, candidat pour le Land speeder).
   2. ~~Bannière de chaque compendium~~ : faite (v0.16.2, commitée ; Foundry à redémarrer pour la voir).
-  3. Acteur « Équipage » (PJ membres, crédits communs, réserve d'objets, vaisseau associé ; modèle : Party de PF2e).
-     Le lien vers le vaisseau (v0.15.8) est individuel : l'Équipage pourra porter le vaisseau commun.
+  3. ~~Acteur « Équipage »~~ : fait (v0.17.0, commitée ; **non testé en jeu** : le nouveau type n'existe qu'après le
+     redémarrage de Foundry).
   4. ~~Synchroniser les images et descriptions des objets~~ : fait (v0.16.3, commitée ; à vérifier au redémarrage :
      compendiums, correctif, tenues de départ). Ancien texte de la todo : créer les nouveaux avec une
      description sommaire ; en profiter pour enrichir les descriptions existantes. Source : `asset_visuel/item/`
@@ -21,13 +21,37 @@
      `vetement_armure_guerrier_sith`, `vetement_armure_lourde`, `vetement_armure_plastron`, `vetement_de_contrebandier`,
      `vetement_robe_jedi`). Tri à faire (portes, astéroïdes, barges, textures n'en sont pas). Publication par
      `asset_visuel/objets/` (suivi) + correctif MJ pour les objets déjà dans les mondes (voir `0.14.1-visuels-par-nom`).
-  5. Scène de générique qui défile sur un fond, à la façon de l'intro de Star Wars, avec animation, à montrer aux
-     PJ — **faire plusieurs propositions** avant de coder.
+  5. Scène de générique façon intro Star Wars : 4 propositions faites (A écran intégré diffusé à tous, B scène Foundry,
+     C vidéo pré-rendue, D module tiers) ; **maquette de A** publiée (https://claude.ai/artifact/JRU8AwQ4TW15FLA1Um8KrW)
+     — en attente du retour de l'auteur.
 - **Faits dans cette session** : lien vers le vaisseau, grille 2 × 2 et corbeille de l'onglet Équipements (v0.15.8) ;
   fiche de vaisseau d'après le mockup et tous les ajouts de l'auteur (v0.16.0) ; nouveaux vaisseaux et images (v0.16.1).
 - **Rappels techniques** : scripts de patch écrits avec l'outil Write (ou heredoc `<<'EOF'`, en doublant les
   antislashs à vérifier) — jamais de backticks dans un `node -e` en bash ; `git checkout` remet les fichiers en CRLF
   (normaliser avant de chercher du texte) ; `prose-mirror` doit rester en `display: flex`.
+
+## Session du 2026-09-26 (suite 10) — Maquette du générique, acteur Équipage (v0.16.3→v0.17.0)
+
+- **Générique** : l'auteur a demandé la maquette de la proposition A. Page publiée (artifact) : champ d'étoiles en
+  canvas, phrase d'ouverture bleue, logo « GALACTIC WARS » qui recule, texte jaune en perspective (`rotateX`,
+  masque de fondu), commandes Lancer / Passer / Arrêter / vitesse / plein écran, formulaire épisode / titre / phrase /
+  texte appliqué au prochain lancement, encadré « ce que ça donnerait dans Foundry ». Mouvements réduits respectés.
+- **Acteur Équipage** (todo, modèle : acteur « Groupe » de PF2e) :
+  - `EquipageData` : membres (UUID, ordre d'affichage), vaisseau, caisse commune, portrait, notes.
+  - `EquipageSheet` : en-tête (portrait, nom, résumé, caisse, carte du vaisseau), onglets **Membres** (cartes :
+    portrait rond, type · race · métier · niveau, barre de PV colorée, crédits — PV et crédits seulement avec le droit
+    Observateur —, bouton « Crédits » = fenêtre Verser / Prendre, retrait avec confirmation, membre supprimé signalé),
+    **Réserve** (armes / armures / équipement, clic = carte dans le tchat, « Donner à » + « Donner », crayon, corbeille),
+    **Notes** (éditeur repliable).
+  - Dépôts : personnage / PNJ → membre (acteur de compendium refusé, doublon signalé) ; vaisseau → vaisseau de
+    l'équipage ; objet d'un acteur → **déplacé** dans la réserve ; objet de compendium / du monde → copié.
+  - `dropActorSheetData` : un objet glissé de la réserve vers une fiche est déplacé (Foundry le dupliquerait).
+  - Fiche classique : lignes d'inventaire `draggable` ; panneau Vaisseau = vaisseau de l'équipage quand le
+    personnage n'en a pas (« Vaisseau de l'équipage … », pas de bouton de retrait).
+  - `GalacticWarsActor#_preCreate` : un nouvel équipage prend l'image de groupe de Foundry et le droit Propriétaire
+    par défaut (réserve et caisse partagées par les joueurs) — choix par défaut, à confirmer par l'auteur.
+- Non déployé en jeu : 2 utilisateurs connectés et `system.json` modifié (nouveau type, nouvelle feuille de style) →
+  à tester au redémarrage (création, dépôts, transferts d'objets et de crédits, fiche classique).
 
 ## Session du 2026-09-26 (suite 9) — Visuels et descriptions des objets (v0.16.2→v0.16.3)
 

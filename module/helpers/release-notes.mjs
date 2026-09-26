@@ -224,5 +224,15 @@ export const RELEASE_NOTES = {
       <li>Visuels pour l'Accessoire silencieux et la Cartouche de carbonite.</li>
       <li>Correctif proposé au MJ : met à jour les objets déjà présents dans le monde (image encore générique, description vide ou ancienne) sans toucher à ce que vous avez personnalisé.</li>
     </ul>`
+  },
+  "0.17.0": {
+    title: "v0.17.0",
+    html: `<ul>
+      <li>Nouveau type d'acteur <strong>Équipage</strong> (à créer dans l'onglet Acteurs) : on y dépose les personnages de l'équipe et son vaisseau.</li>
+      <li>Onglet Membres : portrait, métier, PV et crédits de chacun ; bouton « Crédits » pour verser dans la caisse commune ou y prendre (message dans le tchat).</li>
+      <li>Onglet Réserve : glissez un objet depuis la fiche d'un membre pour le mettre en commun ; « Donner » (ou un glisser vers une fiche) le rend à un membre. L'objet est déplacé, jamais dupliqué.</li>
+      <li>Un personnage sans vaisseau à lui voit celui de son équipage dans l'onglet Équipements.</li>
+      <li>Un nouvel équipage est utilisable par tous les joueurs (droit Propriétaire par défaut) ; le MJ peut le restreindre.</li>
+    </ul>`
   }
 };

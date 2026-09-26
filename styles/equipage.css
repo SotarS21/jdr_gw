@@ -1,0 +1,329 @@
+/* ==========================================================================
+   Fiche d'équipage (acteur « equipage », v0.17.0) — même famille que la fiche de vaisseau (acier / cyan / ambre).
+   Scopé sous .galactic-wars.equipage.
+   ========================================================================== */
+
+.galactic-wars.equipage {
+  --eq-fond: #0e141d;
+  --eq-panneau: #151e2a;
+  --eq-champ: #0f1620;
+  --eq-bord: #2a3a4e;
+  --eq-bord-vif: #3d5673;
+  --eq-texte: #e4e9f1;
+  --eq-muet: #8b98ab;
+  --eq-cyan: #3fd8e8;
+  --eq-ambre: #e2a84a;
+  --eq-vert: #3de0a0;
+  --eq-orange: #f59e42;
+  --eq-rouge: #f05a5f;
+  background: var(--eq-fond);
+  color: var(--eq-texte);
+  font-family: "Space Grotesk", system-ui, sans-serif;
+}
+
+.galactic-wars.equipage section { border: none; padding: 0; margin: 0; }
+
+.galactic-wars.equipage input[type="text"],
+.galactic-wars.equipage input[type="number"],
+.galactic-wars.equipage select {
+  background: var(--eq-champ);
+  border: 1px solid var(--eq-bord);
+  border-radius: 4px;
+  color: var(--eq-texte);
+  height: 2rem;
+  padding: 0 0.5rem;
+}
+
+.galactic-wars.equipage input:focus,
+.galactic-wars.equipage select:focus { outline: none; border-color: var(--eq-cyan); }
+
+/* ---- En-tête ---- */
+.galactic-wars.equipage .eq-entete {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto minmax(0, 1.1fr);
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.8rem 0.9rem;
+  border-bottom: 1px solid var(--eq-bord);
+  background: linear-gradient(180deg, #172233, var(--eq-fond));
+}
+
+.galactic-wars.equipage .eq-portrait {
+  width: 76px;
+  height: 76px;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--eq-bord-vif);
+  border-radius: 6px;
+  background: var(--eq-champ);
+  overflow: hidden;
+  display: block;
+}
+
+.galactic-wars.equipage button.eq-portrait { cursor: pointer; }
+.galactic-wars.equipage button.eq-portrait:hover { border-color: var(--eq-cyan); }
+.galactic-wars.equipage .eq-portrait img { width: 100%; height: 100%; object-fit: cover; border: none; }
+
+.galactic-wars.equipage .eq-identite { display: flex; flex-direction: column; gap: 0.15rem; min-width: 0; }
+.galactic-wars.equipage .eq-type,
+.galactic-wars.equipage .eq-etiquette {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--eq-muet);
+}
+.galactic-wars.equipage .eq-etiquette i { color: var(--eq-ambre); }
+.galactic-wars.equipage .eq-nom { font-size: 1.35rem; font-weight: 700; }
+.galactic-wars.equipage input.eq-nom { height: 2.3rem; }
+.galactic-wars.equipage .eq-resume { font-size: 0.82rem; color: var(--eq-muet); }
+
+.galactic-wars.equipage .eq-caisse {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.45rem 0.7rem;
+  border: 1px solid color-mix(in srgb, var(--eq-ambre) 45%, var(--eq-bord));
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--eq-ambre) 8%, var(--eq-panneau));
+}
+.galactic-wars.equipage .eq-caisse input,
+.galactic-wars.equipage .eq-caisse-valeur {
+  width: 7.5rem;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--eq-ambre);
+  text-align: right;
+}
+
+.galactic-wars.equipage .eq-vaisseau { display: flex; flex-direction: column; gap: 0.25rem; min-width: 0; }
+.galactic-wars.equipage .eq-vaisseau-carte { display: flex; align-items: center; gap: 0.35rem; }
+.galactic-wars.equipage .eq-vaisseau-lien {
+  flex: 1;
+  min-width: 0;
+  height: auto;
+  margin: 0;
+  padding: 0.3rem 0.45rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.55rem;
+  border: 1px solid var(--eq-bord-vif);
+  border-radius: 5px;
+  background: var(--eq-panneau);
+  color: var(--eq-texte);
+  text-align: left;
+  cursor: pointer;
+}
+.galactic-wars.equipage .eq-vaisseau-lien:hover { border-color: var(--eq-cyan); }
+.galactic-wars.equipage .eq-vaisseau-lien img { width: 52px; height: 36px; object-fit: contain; border: none; border-radius: 3px; background: #10345f; }
+.galactic-wars.equipage .eq-vaisseau-lien span { display: flex; flex-direction: column; min-width: 0; }
+.galactic-wars.equipage .eq-vaisseau-lien strong,
+.galactic-wars.equipage .eq-vaisseau-lien small { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.galactic-wars.equipage .eq-vaisseau-lien small { color: var(--eq-muet); font-size: 0.75rem; }
+
+/* ---- Onglets ---- */
+.galactic-wars.equipage .eq-onglets {
+  display: flex;
+  gap: 0.3rem;
+  padding: 0.5rem 0.9rem 0;
+  border-bottom: 1px solid var(--eq-bord);
+}
+.galactic-wars.equipage .eq-onglets button {
+  width: auto;
+  height: auto;
+  margin: 0 0 -1px;
+  padding: 0.4rem 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border: 1px solid transparent;
+  border-bottom: none;
+  border-radius: 5px 5px 0 0;
+  background: none;
+  color: var(--eq-muet);
+  font-weight: 600;
+  cursor: pointer;
+}
+.galactic-wars.equipage .eq-onglets button:hover { color: var(--eq-texte); }
+.galactic-wars.equipage .eq-onglets button.actif {
+  color: var(--eq-texte);
+  background: var(--eq-panneau);
+  border-color: var(--eq-bord);
+}
+
+.galactic-wars.equipage .sheet-body { padding: 0.8rem 0.9rem 1rem; }
+
+/* ---- Boutons ---- */
+.galactic-wars.equipage .eq-bouton {
+  width: auto;
+  height: 1.9rem;
+  margin: 0;
+  padding: 0 0.7rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border: 1px solid var(--eq-bord-vif);
+  border-radius: 4px;
+  background: #1c2735;
+  color: var(--eq-texte);
+  font-size: 0.82rem;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.galactic-wars.equipage .eq-bouton:hover { border-color: var(--eq-cyan); color: var(--eq-cyan); }
+.galactic-wars.equipage .eq-icone {
+  flex: 0 0 1.9rem;
+  width: 1.9rem;
+  height: 1.9rem;
+  margin: 0;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--eq-bord-vif);
+  border-radius: 4px;
+  background: #1c2735;
+  color: var(--eq-ambre);
+  cursor: pointer;
+}
+.galactic-wars.equipage .eq-icone.danger { color: var(--eq-rouge); }
+.galactic-wars.equipage .eq-icone:hover { border-color: currentColor; }
+
+.galactic-wars.equipage .eq-vide { color: var(--eq-muet); font-style: italic; font-size: 0.85rem; margin: 0; }
+.galactic-wars.equipage .eq-consigne {
+  padding: 1.5rem;
+  border: 1px dashed var(--eq-bord-vif);
+  border-radius: 6px;
+  text-align: center;
+}
+.galactic-wars.equipage .eq-aide { margin: 0; color: var(--eq-muet); font-size: 0.8rem; }
+
+/* ---- Membres ---- */
+.galactic-wars.equipage .eq-membres {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+  gap: 0.6rem;
+}
+.galactic-wars.equipage .eq-membres > .eq-consigne,
+.galactic-wars.equipage .eq-membres > .eq-aide { grid-column: 1 / -1; }
+
+.galactic-wars.equipage .eq-membre {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  grid-template-rows: auto auto;
+  gap: 0.5rem 0.7rem;
+  padding: 0.6rem;
+  border: 1px solid var(--eq-bord);
+  border-radius: 6px;
+  background: var(--eq-panneau);
+}
+.galactic-wars.equipage .eq-membre.manquant { opacity: 0.6; grid-template-columns: minmax(0, 1fr) auto; }
+.galactic-wars.equipage .eq-membre-portrait {
+  grid-row: 1 / 3;
+  width: 64px;
+  height: 64px;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--eq-bord-vif);
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--eq-champ);
+  cursor: pointer;
+}
+.galactic-wars.equipage .eq-membre-portrait:hover { border-color: var(--eq-cyan); }
+.galactic-wars.equipage .eq-membre-portrait img { width: 100%; height: 100%; object-fit: cover; object-position: top; border: none; }
+.galactic-wars.equipage .eq-membre-corps { display: flex; flex-direction: column; gap: 0.2rem; min-width: 0; }
+.galactic-wars.equipage .eq-membre-nom { font-weight: 700; font-size: 1rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.galactic-wars.equipage .eq-membre-details { font-size: 0.78rem; color: var(--eq-muet); }
+
+.galactic-wars.equipage .eq-pv { display: flex; align-items: center; gap: 0.45rem; }
+.galactic-wars.equipage .eq-pv-barre {
+  flex: 1;
+  height: 6px;
+  border-radius: 999px;
+  background: #22303f;
+  overflow: hidden;
+}
+.galactic-wars.equipage .eq-pv-barre span { display: block; height: 100%; border-radius: inherit; background: var(--eq-vert); }
+.galactic-wars.equipage .eq-pv.etat-blesse .eq-pv-barre span { background: var(--eq-orange); }
+.galactic-wars.equipage .eq-pv.etat-critique .eq-pv-barre span { background: var(--eq-rouge); }
+.galactic-wars.equipage .eq-pv-texte { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 0.75rem; color: var(--eq-muet); }
+
+.galactic-wars.equipage .eq-membre-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+.galactic-wars.equipage .eq-membre-credits {
+  margin-right: auto;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.85rem;
+  color: var(--eq-ambre);
+}
+
+/* ---- Réserve ---- */
+.galactic-wars.equipage .eq-reserve { display: flex; flex-direction: column; gap: 0.8rem; }
+.galactic-wars.equipage .eq-groupe {
+  padding: 0.6rem 0.7rem;
+  border: 1px solid var(--eq-bord);
+  border-radius: 6px;
+  background: var(--eq-panneau);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.galactic-wars.equipage .eq-groupe h2 {
+  margin: 0 0 0.25rem;
+  border: none;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--eq-cyan);
+}
+.galactic-wars.equipage .eq-objet {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.3rem 0.4rem;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.galactic-wars.equipage .eq-objet:hover,
+.galactic-wars.equipage .eq-objet:focus-visible { background: #1b2735; border-color: var(--eq-bord); outline: none; }
+.galactic-wars.equipage .eq-objet img { width: 32px; height: 32px; object-fit: contain; border: none; border-radius: 3px; background: #111a25; }
+.galactic-wars.equipage .eq-objet-nom { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.galactic-wars.equipage .eq-objet-valeur,
+.galactic-wars.equipage .eq-objet-quantite { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 0.8rem; color: var(--eq-muet); }
+.galactic-wars.equipage .eq-donner { display: flex; align-items: center; gap: 0.3rem; }
+.galactic-wars.equipage .eq-donner select { max-width: 10rem; height: 1.9rem; }
+
+/* ---- Notes ---- */
+/* display:flex obligatoire : un display:block écrase le contenu de l'éditeur à 0 px (voir galactic-wars.css). */
+.galactic-wars.equipage .eq-notes prose-mirror {
+  display: flex;
+  flex-direction: column;
+  min-height: 12rem;
+  background: var(--eq-champ);
+  border: 1px solid var(--eq-bord);
+  border-radius: 5px;
+  padding: 0.4rem 0.6rem;
+}
+.galactic-wars.equipage .eq-notes prose-mirror.active { height: 420px; }
+
+/* ---- Fenêtre de crédits ---- */
+.gw-equipage-dialogue { display: flex; flex-direction: column; gap: 0.5rem; }
+.gw-equipage-dialogue label { display: flex; flex-direction: column; gap: 0.2rem; font-weight: 600; }
+.gw-equipage-credits i { color: #e2a84a; margin-right: 0.3rem; }
+
+/* ---- Fenêtre étroite ---- */
+@container galactic-wars-sheet (max-width: 640px) {
+  .galactic-wars.equipage .eq-entete { grid-template-columns: auto minmax(0, 1fr); }
+  .galactic-wars.equipage .eq-caisse,
+  .galactic-wars.equipage .eq-vaisseau { grid-column: 1 / -1; }
+  .galactic-wars.equipage .eq-objet { flex-wrap: wrap; }
+}

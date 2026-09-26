@@ -1,0 +1,127 @@
+{{!-- <div>, pas <form> : DocumentSheetV2 rend déjà this.element comme un <form>. Un seul élément racine (PARTS). --}}
+<div class="galactic-wars-body">
+  <header class="eq-entete">
+    {{#if editable}}
+    <button type="button" class="eq-portrait" data-action="editImage" data-tooltip="{{localize 'GALACTICWARS.Equipage.ChangerImage'}}"><img src="{{portrait}}" alt=""></button>
+    {{else}}
+    <span class="eq-portrait"><img src="{{portrait}}" alt=""></span>
+    {{/if}}
+    <div class="eq-identite">
+      <span class="eq-type">{{localize 'TYPES.Actor.equipage'}}</span>
+      {{#if editable}}<input type="text" name="name" value="{{actor.name}}" class="eq-nom" aria-label="{{localize 'GALACTICWARS.Sheet.Nom'}}">
+      {{else}}<span class="eq-nom">{{actor.name}}</span>{{/if}}
+      <span class="eq-resume">{{localize 'GALACTICWARS.Equipage.Resume' membres=nombreMembres objets=nombreObjets}}</span>
+    </div>
+
+    <label class="eq-caisse" data-tooltip="{{localize 'GALACTICWARS.Equipage.CaisseHint'}}">
+      <span class="eq-etiquette"><i class="fa-solid fa-coins"></i> {{localize 'GALACTICWARS.Equipage.Caisse'}}</span>
+      {{#if editable}}<input type="number" name="system.credits" value="{{system.credits}}" min="0" step="1">
+      {{else}}<span class="eq-caisse-valeur">{{system.credits}}</span>{{/if}}
+    </label>
+
+    <div class="eq-vaisseau">
+      <span class="eq-etiquette"><i class="fa-solid fa-shuttle-space"></i> {{localize 'GALACTICWARS.Equipage.Vaisseau'}}</span>
+      {{#if vaisseau}}
+        {{#if vaisseau.manquant}}
+        <span class="eq-vide">{{localize 'GALACTICWARS.LienVaisseau.Manquant' nom=vaisseau.nom}}</span>
+        {{else}}
+        <span class="eq-vaisseau-carte" data-uuid="{{system.vaisseau.uuid}}">
+          <button type="button" class="eq-vaisseau-lien" data-action="ouvrirActeur" data-tooltip="{{localize 'GALACTICWARS.LienVaisseau.Ouvrir'}}">
+            <img src="{{vaisseau.img}}" alt="">
+            <span><strong>{{vaisseau.nom}}</strong>{{#if vaisseau.classe}}<small>{{vaisseau.classe}}</small>{{/if}}</span>
+          </button>
+          {{#if editable}}<button type="button" class="eq-icone" data-action="retirerVaisseau" data-tooltip="{{localize 'GALACTICWARS.LienVaisseau.Retirer'}}" aria-label="{{localize 'GALACTICWARS.LienVaisseau.Retirer'}}"><i class="fa-solid fa-link-slash"></i></button>{{/if}}
+        </span>
+        {{/if}}
+      {{else}}
+      <span class="eq-vide">{{localize 'GALACTICWARS.Equipage.VaisseauVide'}}</span>
+      {{/if}}
+    </div>
+  </header>
+
+  <nav class="eq-onglets" aria-label="{{localize 'TYPES.Actor.equipage'}}">
+    <button type="button" class="{{#if (eq onglet 'membres')}}actif{{/if}}" data-action="changerOnglet" data-onglet="membres"><i class="fa-solid fa-users"></i> {{localize 'GALACTICWARS.Equipage.OngletMembres'}}</button>
+    <button type="button" class="{{#if (eq onglet 'reserve')}}actif{{/if}}" data-action="changerOnglet" data-onglet="reserve"><i class="fa-solid fa-box-open"></i> {{localize 'GALACTICWARS.Equipage.OngletReserve'}}</button>
+    <button type="button" class="{{#if (eq onglet 'notes')}}actif{{/if}}" data-action="changerOnglet" data-onglet="notes"><i class="fa-solid fa-book-open"></i> {{localize 'GALACTICWARS.Equipage.OngletNotes'}}</button>
+  </nav>
+
+  <div class="sheet-body">
+  {{#if (eq onglet 'membres')}}
+  <section class="eq-membres">
+    {{#each membres as |m|}}
+    {{#if m.manquant}}
+    <article class="eq-membre manquant" data-uuid="{{m.uuid}}">
+      <div class="eq-membre-corps"><span class="eq-membre-nom">{{localize 'GALACTICWARS.Equipage.MembreInconnu'}}</span></div>
+      {{#if @root.editable}}<button type="button" class="eq-icone danger" data-action="retirerMembre" data-tooltip="{{localize 'GALACTICWARS.Equipage.RetirerMembre'}}" aria-label="{{localize 'GALACTICWARS.Equipage.RetirerMembre'}}"><i class="fa-solid fa-user-minus"></i></button>{{/if}}
+    </article>
+    {{else}}
+    <article class="eq-membre" data-uuid="{{m.uuid}}">
+      <button type="button" class="eq-membre-portrait" data-action="ouvrirActeur" data-tooltip="{{localize 'GALACTICWARS.Equipage.OuvrirFiche'}}"><img src="{{m.img}}" alt=""></button>
+      <div class="eq-membre-corps">
+        <span class="eq-membre-nom">{{m.nom}}</span>
+        <span class="eq-membre-details">{{m.type}}{{#if m.details}} · {{m.details}}{{/if}}{{#if m.niveau}} · {{localize 'GALACTICWARS.Equipage.Niveau' niveau=m.niveau}}{{/if}}</span>
+        {{#if m.visible}}
+        {{#if m.pv}}
+        <span class="eq-pv etat-{{m.pvEtat}}" data-tooltip="{{localize 'GALACTICWARS.Sheet.PV'}}">
+          <span class="eq-pv-barre"><span style="width: {{m.pvPourcent}}%"></span></span>
+          <span class="eq-pv-texte">{{m.pv.value}} / {{m.pv.max}}</span>
+        </span>
+        {{/if}}
+        {{/if}}
+      </div>
+      <div class="eq-membre-actions">
+        {{#if m.visible}}<span class="eq-membre-credits" data-tooltip="{{localize 'GALACTICWARS.Equipage.CreditsPersonnels'}}"><i class="fa-solid fa-coins"></i> {{m.credits}}</span>{{/if}}
+        {{#if m.modifiable}}{{#if @root.editable}}
+        <button type="button" class="eq-bouton" data-action="creditsMembre"><i class="fa-solid fa-right-left"></i> {{localize 'GALACTICWARS.Equipage.Credits'}}</button>
+        {{/if}}{{/if}}
+        {{#if @root.editable}}<button type="button" class="eq-icone danger" data-action="retirerMembre" data-tooltip="{{localize 'GALACTICWARS.Equipage.RetirerMembre'}}" aria-label="{{localize 'GALACTICWARS.Equipage.RetirerMembre'}}"><i class="fa-solid fa-user-minus"></i></button>{{/if}}
+      </div>
+    </article>
+    {{/if}}
+    {{else}}
+    <p class="eq-vide eq-consigne">{{localize 'GALACTICWARS.Equipage.AucunMembre'}}</p>
+    {{/each}}
+    {{#if membres.length}}<p class="eq-aide">{{localize 'GALACTICWARS.Equipage.AideMembres'}}</p>{{/if}}
+  </section>
+  {{/if}}
+
+  {{#if (eq onglet 'reserve')}}
+  <section class="eq-reserve">
+    <p class="eq-aide">{{localize 'GALACTICWARS.Equipage.AideReserve'}}</p>
+    {{#each reserve as |groupe|}}
+    <div class="eq-groupe">
+      <h2>{{localize groupe.titre}}</h2>
+      {{#each groupe.objets as |o|}}
+      <div class="eq-objet draggable" data-item-id="{{o.id}}" data-action="afficherObjet" role="button" tabindex="0" data-tooltip="{{localize 'GALACTICWARS.Objet.EnvoyerTchat'}}">
+        <img src="{{o.img}}" alt="">
+        <span class="eq-objet-nom">{{o.nom}}</span>
+        {{#if o.valeur}}<span class="eq-objet-valeur">{{o.valeur}}</span>{{/if}}
+        <span class="eq-objet-quantite">×{{o.quantite}}</span>
+        {{#if @root.editable}}
+        {{#if @root.destinataires.length}}
+        <span class="eq-donner">
+          <select data-destinataire aria-label="{{localize 'GALACTICWARS.Equipage.DonnerA'}}">
+            {{#each @root.destinataires as |d|}}<option value="{{d.uuid}}">{{d.nom}}</option>{{/each}}
+          </select>
+          <button type="button" class="eq-bouton" data-action="donnerObjet"><i class="fa-solid fa-hand-holding"></i> {{localize 'GALACTICWARS.Equipage.Donner'}}</button>
+        </span>
+        {{/if}}
+        <button type="button" class="eq-icone" data-action="ouvrirObjet" data-tooltip="{{localize 'GALACTICWARS.Objet.Modifier'}}" aria-label="{{localize 'GALACTICWARS.Objet.Modifier'}}"><i class="fa-solid fa-pen"></i></button>
+        <button type="button" class="eq-icone danger" data-action="supprimerObjet" data-tooltip="{{localize 'GALACTICWARS.Objet.SupprimerObjet'}}" aria-label="{{localize 'GALACTICWARS.Objet.SupprimerObjet'}}"><i class="fa-solid fa-trash"></i></button>
+        {{/if}}
+      </div>
+      {{else}}
+      <p class="eq-vide">{{localize 'GALACTICWARS.Objet.ListeVide'}}</p>
+      {{/each}}
+    </div>
+    {{/each}}
+  </section>
+  {{/if}}
+
+  {{#if (eq onglet 'notes')}}
+  <section class="eq-notes">
+    <prose-mirror name="system.description" value="{{system.description}}" toggled>{{{descriptionEnrichie}}}</prose-mirror>
+  </section>
+  {{/if}}
+  </div>
+</div>

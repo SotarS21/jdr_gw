@@ -36,6 +36,13 @@ export class GalacticWarsActor extends Actor {
   /** @override */
   async _preCreate(data, options, user) {
     if ((await super._preCreate(data, options, user)) === false) return false;
+    if (this.type === "equipage") {
+      const image = "icons/environment/people/group.webp";
+      const changements = {};
+      if (!data.img || data.img === IMAGE_DEFAUT) Object.assign(changements, GalacticWarsActor.champsImage(image));
+      if (!data.ownership) changements.ownership = { default: CONST.DOCUMENT_OWNERSHIP_LEVELS.OWNER, [user.id]: CONST.DOCUMENT_OWNERSHIP_LEVELS.OWNER };
+      if (Object.keys(changements).length) this.updateSource(changements);
+    }
     if (!this.aUnPortrait) return;
     const image = GalacticWarsActor.imageUnique(this.system.portrait, this.img);
     if (image) this.updateSource(GalacticWarsActor.champsImage(image));

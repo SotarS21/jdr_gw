@@ -4,6 +4,7 @@ import { applyRace } from "../helpers/race.mjs";
 import { applyMetier } from "../helpers/metier.mjs";
 import { choisirItemCompendium } from "../helpers/compendium-picker.mjs";
 import { editerEntreeNote, supprimerEntreeNote } from "../helpers/notes.mjs";
+import { vaisseauDEquipage } from "../helpers/equipage.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
@@ -204,9 +205,11 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   /** Onglet Équipements : vaisseau lié (system.vaisseau). Sans le droit Observateur sur le vaisseau, seuls son nom
    *  et son image sont montrés (comme le droit Limité de Foundry). */
   #preparerVaisseau(system) {
+    // Sans vaisseau à lui, le personnage voit celui de son équipage (acteur « Équipage » dont il est membre).
     const uuid = system.vaisseau?.uuid;
-    if (!uuid) return null;
-    const vaisseau = fromUuidSync(uuid);
+    const viaEquipage = uuid ? null : vaisseauDEquipage(this.actor);
+    if (!uuid && !viaEquipage) return null;
+    const vaisseau = viaEquipage?.vaisseau ?? fromUuidSync(uuid);
     if (!vaisseau) return { manquant: true, nom: system.vaisseau.nom };
     const s = vaisseau.system;
     const portraitParDefaut = !s.portrait || s.portrait === "icons/svg/mystery-man.svg";
@@ -217,7 +220,9 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       accessible: vaisseau.testUserPermission(game.user, "OBSERVER"),
       coque: `${s.pv.actuels} / ${s.pv.max}`,
       bouclierActif: s.bouclier.actif,
-      bouclier: s.bouclier.points
+      bouclier: s.bouclier.points,
+      uuid: vaisseau.uuid,
+      equipage: viaEquipage?.equipage.name ?? null
     };
   }
 
@@ -794,8 +799,8 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     this.actor.items.get(id)?.sheet.render({ force: true });
   }
 
-  static async #onOuvrirVaisseau() {
-    const vaisseau = await fromUuid(this.actor.system.vaisseau.uuid);
+  static async #onOuvrirVaisseau(event, target) {
+    const vaisseau = await fromUuid(target.closest("[data-uuid]")?.dataset.uuid || this.actor.system.vaisseau.uuid);
     if (!vaisseau) return;
     if (!vaisseau.testUserPermission(game.user, "OBSERVER")) {
       ui.notifications.warn(game.i18n.format("GALACTICWARS.LienVaisseau.AccesRefuse", { nom: vaisseau.name }));
