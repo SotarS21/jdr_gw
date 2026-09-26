@@ -1,16 +1,22 @@
 # Journal de développement — Galactic Wars
 
-## À faire à la reprise (état au 2026-09-26, fin de session — « on reprendra la suite plus tard »)
+## À faire à la reprise (état au 2026-09-27, fin de session — « on en a fini pour aujourd'hui »)
 
-- **État** : tout est poussé ; **v0.16.1 = dernière release** (4 nouveaux vaisseaux, images du Frelon, de la
-  Convergence et du Gunboat), après la v0.16.0 (refonte de la fiche de vaisseau, mode Édition, armement en objets
-  « arme », équipage par glisser-déposer, aménagements décrits). Foundry local tourne en 0.16.1. Seuls fichiers non
-  suivis (voulu) : `asset_visuel/{Personnage,item,lieux,vaiseau}`.
-- **Monde de test** : deux correctifs MJ en attente, à laisser accepter par l'auteur à sa connexion —
-  `0.16.0-armement-en-objets` (le Barloz, 2 armes à l'ancien format) et `0.16.1-images-vaisseaux` (copies de même nom).
+- **État** : tout est poussé ; **v0.19.4 = dernière release** (recherche PNJ / missions, section Métier, Dynamic 20,
+  images Barloz / Dynamic 20 / Land speeder). Foundry local redémarré, tourne en 0.19.4 (monde `galacit-wars-v-final`).
+- **Monde de l'auteur** : deux correctifs MJ en attente, à laisser accepter par l'auteur à sa connexion —
+  `0.19.4-dynamic-20` (1 vaisseau) et `0.19.4-images-vaisseaux` (2 Barloz, Dynamic 20, Land speeder). Le correctif
+  `0.18.2-tokens-lies` a été appliqué par l'auteur (tokens des personnages liés, sauvegardes « (sauvegarde) »).
+  Modules d'animation (Sequencer, socketlib, JB2A, Automated Animations) activés ; playlist et compendium de musiques
+  du monde (hors système).
+- **Prochaine tâche : suivi n° 28, point d'équipe** (voir la liste ci-dessous). Rien de codé. Pistes relevées :
+  champ `pointsEquipe` (NumberField ≥ 0) dans `EquipageData` ; en-tête de la fiche d'équipage à côté de la caisse :
+  +/− réservés au MJ (pas de champ saisissable), bouton « Dépenser » pour les membres (confirmation, −1, carte de tchat
+  « l'équipage réussit son action d'équipe ») ; garde `_preUpdate` : un non-MJ ne peut que diminuer. Dans le monde,
+  « Nova crew » a `default: 3` (propriétaire) → les joueurs peuvent écrire directement, pas besoin de socket ; prévoir
+  quand même un relais MJ (`game.socket`, canal `system.galactic-wars`) si un équipage n'est qu'observé.
 - **Todo restante** :
-  - Images des vaisseaux : restent sans image Barloz, Barmaid Betty, Lantallian, Dynamic 20 et Land speeder (rien
-    d'adapté dans `asset_visuel/vaiseau/` ; attendre des images de l'auteur).
+  - Images des vaisseaux : restent sans image Barmaid Betty et Lantallian (attendre des images de l'auteur).
   - **Fiche de personnage WOLF** (tableur de l'auteur, https://docs.google.com/spreadsheets/d/1w5r84L8HT_6WWQ2diVqvG5HM5YRCGroU24iRukmWinI/) :
     robot « I.A.F PTR-85j / WOLF », niveau 7, caractéristiques, compétences, passifs / actifs, équipement, 8 714 c,
     notes sur ses PNJ. **Choix de l'auteur : juste noter** pour l'instant (rien à faire).
@@ -45,11 +51,25 @@
     25. ~~[Bug] Glisser-déposer des acteurs observés / possédés par les PJ~~ : vérifié avec un compte joueur.
     26. ~~[Fonctionnalité] Barre de recherche dans les PNJ et les missions~~ : fait (v0.19.4).
     27. ~~[Fonctionnalité] Métier dans l'onglet Informations (nom, description, équipement, compétences spéciales)~~ : fait (v0.19.4).
+    28. [Fonctionnalité] **Point d'équipe** : permet à tous les membres d'un équipage de réussir une action d'équipe. Ne
+        se gagne que par le MJ (en édition sur la fiche d'équipage) ; dépensable par les PJ, disparaît une fois utilisé.
 - **Faits dans cette session** : lien vers le vaisseau, grille 2 × 2 et corbeille de l'onglet Équipements (v0.15.8) ;
   fiche de vaisseau d'après le mockup et tous les ajouts de l'auteur (v0.16.0) ; nouveaux vaisseaux et images (v0.16.1).
 - **Rappels techniques** : scripts de patch écrits avec l'outil Write (ou heredoc `<<'EOF'`, en doublant les
   antislashs à vérifier) — jamais de backticks dans un `node -e` en bash ; `git checkout` remet les fichiers en CRLF
   (normaliser avant de chercher du texte) ; `prose-mirror` doit rester en `display: flex`.
+
+## Session du 2026-09-27 — Bilan de la journée
+
+- Releases publiées : **v0.19.1** (modules d'origine, signe distinctif, PNJ par glisser-déposer, notes dans le tchat,
+  succès / échecs colorés, validateur de niveaux, état Endommagé), **v0.19.2** (animations), **v0.19.3** (musique du
+  générique avec la phrase d'ouverture, sabre laser et fumée via Sequencer, chemin de secours du sabre corrigé),
+  **v0.19.4** (recherche PNJ / missions, section Métier, Dynamic 20, images de 3 vaisseaux).
+- Musiques : playlist locale « Galactic Wars » (23 pistes dont l'intro) et compendium de musiques du monde.
+- Tests à deux navigateurs (MJ + compte joueur temporaire) : suivi n° 2, 3, 5, 8, 24, 25 vérifiés sans correction
+  (cause commune : tokens non liés, réglée par le correctif appliqué par l'auteur) ; n° 20 confirmé par l'auteur.
+- Tableur de suivi : n° 1 à 27 traités ; **n° 28 (point d'équipe) ajouté en fin de journée, à faire**. L'auteur met
+  lui-même les états à jour (pas d'accès Google Drive ; tableur relu par son export CSV public).
 
 ## Session du 2026-09-27 (suite 5) — Suivi n° 26-27 (v0.19.4)
 
