@@ -2,17 +2,18 @@
 
 ## À faire à la reprise (état au 2026-09-26, fin de session)
 
-- **État** : v0.16.0 (refonte de la fiche de vaisseau, mode Édition, armement en objets) commitée en local, **pas
-  encore poussée** (en attente de validation de l'auteur). v0.15.8 = dernière release publiée. Code déployé sans
-  redémarrage (un utilisateur connecté) : le compendium Vaisseaux converti n'est **pas encore chargé** → redémarrer
-  Foundry (demander avant) puis vérifier les 13 vaisseaux (armes en objets, aménagements).
+- **État** : v0.16.0 (refonte de la fiche de vaisseau, mode Édition, armement en objets) **validée par l'auteur,
+  poussée et publiée**. Foundry redémarré en 0.16.0 (accord de l'auteur) ; les 13 vaisseaux du compendium vérifiés
+  (armes en objets, 0 ancien armement, aménagements, bouclier max). Correctif `0.16.0-armement-en-objets` proposé au
+  MJ pour le Barloz du monde de test.
   Seuls fichiers non suivis (voulu) : `asset_visuel/{Personnage,item,lieux,vaiseau}`.
 - **Todo restante** (fichier de l'auteur sur le Bureau) :
   1. ~~Refonte de la fiche de vaisseau~~ : faite (v0.16.0).
   2. Images des vaisseaux (token, acteur… : les 13 vaisseaux du compendium ont l'homme mystère ; images candidates
      dans `asset_visuel/vaiseau/`, non suivi). Plusieurs images portent le nom d'autres vaisseaux (Pourparler,
      Lance d'argent, La Brique, Lumière de l'aube) : association à valider avec l'auteur (proposition faite).
-     `front_speeder.jpg` n'est pas lisible par System.Drawing (format à vérifier).
+     `front_speeder.jpg` n'est pas lisible par System.Drawing (format à vérifier). **Réponse de l'auteur** : oui, les
+     images nommées (Pourparler, Lance d'argent, La Brique, Lumière de l'aube) sont de **nouveaux vaisseaux** à créer.
   3. Bannière de chaque compendium (`system.json` `packs[].banner`, aucune aujourd'hui) ;
   4. Acteur « Équipage » (PJ membres, crédits communs, réserve d'objets, vaisseau associé ; modèle : Party de PF2e).
      Le lien vers le vaisseau de la v0.15.8 est individuel : l'Équipage pourra porter le vaisseau commun.
