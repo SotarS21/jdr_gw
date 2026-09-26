@@ -9,6 +9,7 @@ import { EquipageData } from "./data/actor-equipage.mjs";
 import { GeneriqueData } from "./data/page-generique.mjs";
 import { PageGeneriqueSheet } from "./sheets/page-generique-sheet.mjs";
 import { enregistrerSocketGenerique } from "./apps/generique.mjs";
+import { GalacticWarsActorDirectory } from "./apps/actor-directory.mjs";
 import { RaceData } from "./data/item-race.mjs";
 import { MetierData } from "./data/item-metier.mjs";
 import { TalentData } from "./data/item-talent.mjs";
@@ -48,6 +49,7 @@ Hooks.once("init", () => {
   registerPackUpdateSettings();
 
   CONFIG.Actor.documentClass = GalacticWarsActor;
+  CONFIG.ui.actors = GalacticWarsActorDirectory;
   CONFIG.Item.documentClass = GalacticWarsItem;
 
   CONFIG.Actor.dataModels.personnage = PersonnageData;

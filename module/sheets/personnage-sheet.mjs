@@ -325,9 +325,11 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
         .map((l) => ({ ...l, degatsRapide: true, libelleValeur: "GALACTICWARS.Objet.Degats" })),
       armures: context.armures.filter((l) => l.porte),
       reduction,
+      // Ordre alphabétique (suivi de l'auteur, n° 21), comme les autres listes de compétences.
       competences: GW.competencesCombat
         .map((cle) => accessibles.find((c) => c.cle === cle))
-        .filter(Boolean),
+        .filter(Boolean)
+        .sort(parLibelle),
       competencesForce: this.actor.system.sensibleForce
         ? accessibles.filter((c) => c.estCompetenceForce).sort(parLibelle)
         : [],

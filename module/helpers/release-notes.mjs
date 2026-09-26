@@ -247,5 +247,14 @@ export const RELEASE_NOTES = {
     html: `<ul>
       <li>Images pour le Moto speeder, Le Arcadia, le Corellian Dawn, le CEC XS-122 et La poubelle géante (acteur, fiche et token) ; les copies du monde qui ont encore l'image par défaut sont mises à jour par un correctif proposé au MJ.</li>
     </ul>`
+  },
+  "0.18.2": {
+    title: "v0.18.2",
+    html: `<ul>
+      <li><strong>Tokens liés à leur fiche</strong> : les tokens des personnages avaient chacun leur propre fiche, différente de celle de l'acteur (PV, crédits, objets, image…). Les nouveaux personnages, vaisseaux et équipages ont désormais un token lié ; pour les existants, un correctif proposé au MJ sauvegarde l'acteur, y recopie la fiche du token puis le lie.</li>
+      <li>Les joueurs peuvent glisser depuis l'onglet Acteurs les acteurs dont ils sont observateurs ou propriétaires (vers un équipage, un poste de vaisseau…).</li>
+      <li>Nouveau métier <strong>Guerrier jedi</strong> (prérequis : Padawan niveau 4) et <strong>Datapad</strong> au compendium Équipements.</li>
+      <li>Onglet Combat : compétences dans l'ordre alphabétique. Description du personnage (onglet Informations) plus grande. Gain de niveau : message « choisissez-en une autre ».</li>
+    </ul>`
   }
 };

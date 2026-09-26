@@ -27,6 +27,20 @@ import { convertirArmement } from "./armement-vaisseau.mjs";
  */
 export const PACK_UPDATES = [
   {
+    id: "0.18.2-tokens-lies",
+    cible: "acteurs",
+    version: "0.18.2",
+    label: "Tokens des personnages liés à leur fiche",
+    description:
+      "Les tokens des personnages (et vaisseaux, équipages) n'étaient pas liés à leur acteur : chaque token avait sa " +
+      "propre fiche, qui divergeait de celle de l'acteur (image, PV, crédits, objets…). Pour chaque personnage : " +
+      "l'acteur est d'abord SAUVEGARDÉ (copie dans le dossier « Sauvegardes avant liaison des tokens »), puis les " +
+      "données de son token posé (fiche et inventaire) sont recopiées dans l'acteur, et le token est lié. S'il a " +
+      "plusieurs tokens modifiés, seul le premier est recopié (les autres sont signalés dans le tchat).",
+    concernes: () => Promise.resolve(tokensALier().acteurs.size),
+    apply: async () => lierTokens()
+  },
+  {
     id: "0.18.1-images-vaisseaux",
     cible: "vaisseaux",
     version: "0.18.1",
@@ -644,6 +658,60 @@ const IMAGES_VAISSEAUX = {
   "Convergence": "systems/galactic-wars/asset_visuel/objets/vaisseaux-convergence.jpg",
   "Gunboat 1061-968": "systems/galactic-wars/asset_visuel/objets/vaisseaux-gunboat-1061-968.png"
 };
+
+/**
+ * Acteurs du monde de GW.typesTokenLie dont le prototype ou un token posé n'est pas lié.
+ * @returns {{acteurs: Map<Actor, TokenDocument[]>}}
+ */
+function tokensALier(filtre = () => true) {
+  const acteurs = new Map();
+  for (const acteur of game.actors) {
+    if (!GW.typesTokenLie.includes(acteur.type) || !filtre(acteur)) continue;
+    const tokens = game.scenes.contents.flatMap((s) => s.tokens.filter((tk) => tk.actorId === acteur.id && !tk.actorLink));
+    if (!acteur.prototypeToken.actorLink || tokens.length) acteurs.set(acteur, tokens);
+  }
+  return { acteurs };
+}
+
+/** Un token non lié a-t-il des données propres (fiche ou objets) ? */
+function deltaModifie(token) {
+  const delta = token.delta?.toObject() ?? {};
+  return Object.keys(foundry.utils.flattenObject(delta.system ?? {})).length > 0 || (delta.items?.length ?? 0) > 0;
+}
+
+/** Exporté pour les tests (`filtre` : acteurs à traiter) ; le correctif traite tous les acteurs. */
+export async function lierTokens(filtre) {
+  const { acteurs } = tokensALier(filtre);
+  if (!acteurs.size) return 0;
+  const nomDossier = game.i18n.localize("GALACTICWARS.Migration.DossierSauvegardes");
+  let dossier = game.folders.find((f) => f.type === "Actor" && f.name === nomDossier);
+  const bilan = [];
+  for (const [acteur, tokens] of acteurs) {
+    const modifies = tokens.filter(deltaModifie);
+    if (modifies.length) {
+      dossier ??= await Folder.create({ name: nomDossier, type: "Actor" });
+      const sauvegarde = acteur.toObject();
+      delete sauvegarde._id;
+      sauvegarde.name = `${acteur.name} (sauvegarde)`;
+      sauvegarde.folder = dossier.id;
+      await Actor.create(sauvegarde, { keepId: false });
+      // Le token posé fait foi : c'est la fiche que les joueurs ont remplie.
+      const source = modifies[0].actor.toObject();
+      await acteur.deleteEmbeddedDocuments("Item", acteur.items.map((i) => i.id));
+      await acteur.createEmbeddedDocuments("Item", source.items ?? [], { keepId: true });
+      await acteur.update({ system: source.system, img: source.img }, { diff: false, recursive: false });
+      bilan.push(`${acteur.name} : fiche du token recopiée${modifies.length > 1 ? ` (${modifies.length - 1} autre(s) token(s) modifié(s) non recopié(s))` : ""}`);
+    }
+    if (!acteur.prototypeToken.actorLink) await acteur.update({ "prototypeToken.actorLink": true });
+    for (const token of tokens) await token.update({ actorLink: true });
+    if (!modifies.length) bilan.push(`${acteur.name} : token lié`);
+  }
+  await ChatMessage.create({
+    whisper: ChatMessage.getWhisperRecipients("GM").map((u) => u.id),
+    content: `<p><strong>${game.i18n.localize("GALACTICWARS.Migration.TokensLies")}</strong></p><ul>${bilan.map((l) => `<li>${foundry.utils.escapeHTML(l)}</li>`).join("")}</ul>`
+  });
+  return acteurs.size;
+}
 
 /** Images ajoutées en v0.18.1 (validées par l'auteur). */
 const IMAGES_VAISSEAUX_0181 = {

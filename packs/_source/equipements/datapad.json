@@ -1,0 +1,26 @@
+{
+  "_key": "!items!LN3r4mKatnPIn4Sv",
+  "_id": "LN3r4mKatnPIn4Sv",
+  "name": "Datapad",
+  "type": "equipement",
+  "img": "systems/galactic-wars/asset_visuel/objets/equipements-datapad.png",
+  "system": {
+    "quantite": 1,
+    "prix": "200c",
+    "appareil": "datapad",
+    "description": "<p>Tablette de données portable : notes, cartes, fichiers et accès à l'Holonet (onglet Holonet de sa fiche).</p><p><em>Prix estimé (absent du classeur).</em></p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.18.2"
+  }
+}

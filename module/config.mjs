@@ -183,6 +183,13 @@ GW.cheminPV = {
   pnj: "system.pv.value"
 };
 
+/**
+ * Types d'acteurs dont le token est lié à l'acteur (une seule fiche, token et acteur synchronisés) : personnages
+ * joueurs, vaisseaux, équipages. Les PNJ (`pnj`) restent non liés (un même modèle pour plusieurs tokens).
+ * Suivi de l'auteur n° 5 et 24 (2026-09-26).
+ */
+GW.typesTokenLie = ["personnage", "personnage-sith", "personnage-rapide", "vaisseau", "equipage"];
+
 /** État appliqué au token quand les PV tombent à 0, retiré dès 1 PV (demande de l'auteur). */
 GW.etatInconscient = "unconscious";
 

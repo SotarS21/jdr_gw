@@ -308,7 +308,7 @@
       "Texte": "Votre gain de niveau vous donne {nombre} niveaux de compétence à répartir : la même compétence peut être choisie plusieurs fois, jusqu'au niveau {max}.",
       "Option": "niveau {niveau}, {taux} %",
       "Apercu": "{competence} : niveau {avant} → {apres}, taux {tauxAvant} % → {tauxApres} %",
-      "Depassement": "Une compétence dépasserait le niveau {max} : choisissez-la moins souvent.",
+      "Depassement": "Une compétence dépasserait le niveau {max} : choisissez-en une autre.",
       "Choix": "Compétence {numero}",
       "NiveauPersonnage": "Le niveau du personnage passe de {avant} à {apres}.",
       "ChoixInvalide": "Choisissez les {nombre} niveaux à répartir.",
@@ -351,6 +351,8 @@
       "HorsLigne": "Datapad hors ligne : il doit être dans l'inventaire d'un personnage pour accéder à ses infos."
     },
     "Migration": {
+      "DossierSauvegardes": "Sauvegardes avant liaison des tokens",
+      "TokensLies": "Tokens liés à leur fiche (correctif 0.18.2) :",
       "ReserveMJ": "Seul le MJ peut mettre à jour les fiches du monde.",
       "Bilan": "Galactic Wars — {competences} compétence(s) ajoutée(s) sur {fiches} fiche(s).",
       "RienAFaire": "Galactic Wars — toutes les fiches ont déjà toutes leurs compétences."

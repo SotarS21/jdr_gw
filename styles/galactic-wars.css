@@ -1420,11 +1420,12 @@
 .galactic-wars.personnage .description-pj prose-mirror {
   display: flex;
   flex-direction: column;
-  min-height: 90px;
+  min-height: 180px;
 }
 
+/* Agrandie (suivi de l'auteur, n° 7) : 180 px en lecture, 440 px en édition. */
 .galactic-wars.personnage .description-pj prose-mirror.active {
-  height: 260px;
+  height: 440px;
 }
 
 .galactic-wars.personnage .ethnie-groupe {

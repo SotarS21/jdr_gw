@@ -1,0 +1,102 @@
+{
+  "_key": "!items!FefnzykiE01dovlH",
+  "_id": "FefnzykiE01dovlH",
+  "name": "Guerrier jedi",
+  "type": "metier",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "prerequis": {
+      "metier": "Padawan",
+      "niveauMinimum": 4,
+      "texteLibre": ""
+    },
+    "competences": [
+      {
+        "cle": "sabreLaser",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "paradeEsquive",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "protectionDeForce",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "pousseeDeForce",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "controleTelekinetique",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "pilotage",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "sangFroid",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "meditationDeForce",
+        "bonus": 0,
+        "obligatoire": false
+      },
+      {
+        "cle": "sagesse",
+        "bonus": 0,
+        "obligatoire": false
+      },
+      {
+        "cle": "escaladeSaut",
+        "bonus": 0,
+        "obligatoire": false
+      }
+    ],
+    "equipement": [
+      {
+        "nom": "Robe traditionnelle de jedi",
+        "quantite": 1
+      },
+      {
+        "nom": "Sabre laser 2D8",
+        "quantite": 1
+      },
+      {
+        "nom": "ComLink",
+        "quantite": 1
+      },
+      {
+        "nom": "Kolto",
+        "quantite": 1
+      }
+    ],
+    "talent": {
+      "nom": "",
+      "description": ""
+    },
+    "description": "<p>Chevalier jedi formé au combat : gardien de la République en première ligne, maître du sabre laser et des formes de combat, il protège ses alliés par la Force autant que par la lame.</p><p><em>Métier reconstitué d'après le Guerrier sith et la fiche de Neili (compétences et équipement à valider par l'auteur).</em></p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.18.2"
+  }
+}

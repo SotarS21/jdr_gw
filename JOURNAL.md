@@ -51,6 +51,35 @@
   antislashs à vérifier) — jamais de backticks dans un `node -e` en bash ; `git checkout` remet les fichiers en CRLF
   (normaliser avant de chercher du texte) ; `prose-mirror` doit rester en `display: flex`.
 
+## Session du 2026-09-26 (suite 13) — Bugs du suivi (v0.18.1→v0.18.2)
+
+- Foundry redémarré (accord de l'auteur) : 12 vaisseaux sur 17 avec image, tous servis. **Consigne de l'auteur** :
+  commencer le suivi par les bugs ; **mettre à jour le tableur Drive** au fil du traitement → impossible ici (aucun
+  connecteur Google, le tableur n'est lisible que par son lien public) : états à recopier fournis à l'auteur.
+- **n° 5 et 24 — token / acteur désynchronisés** : aucun token de personnage n'était lié (prototypes et 5 tokens posés
+  `actorLink: false`) → chaque token avait sa propre fiche (delta). Les joueurs avaient rempli leurs personnages **sur
+  les tokens** (Neili : 1 450 245 c sur le token, 0 sur l'acteur ; Test_robin presque entièrement ; Alek 24 PV sur le
+  token, 30 sur l'acteur). Correctifs : `GW.typesTokenLie` → token lié à la création ; correctif MJ
+  `0.18.2-tokens-lies` : sauvegarde de l'acteur (dossier « Sauvegardes avant liaison des tokens »), recopie de la
+  fiche du premier token modifié (`token.actor.toObject()` : système, objets, image), liaison du prototype et des
+  tokens, bilan chuchoté au MJ. Testé sur des données temporaires (acteur 0 c / token 1 450 c + objet → acteur 1 450 c,
+  niveau et objet repris, sauvegarde à 0 c, token lié qui affiche l'acteur) ; **non appliqué au monde de l'auteur**
+  (proposé à sa prochaine connexion MJ). Les n° 3 (Comlink) et 8 (Notes) viennent probablement de la même cause (MJ
+  sur l'acteur, joueur sur le token) : à revérifier après le correctif.
+- **n° 25 — glisser des acteurs** : Foundry réserve le glisser depuis l'onglet Acteurs au droit « Créer des tokens »
+  → `GalacticWarsActorDirectory` (`CONFIG.ui.actors`) : autorisé pour les acteurs observés / possédés. Non testé avec un
+  compte joueur.
+- **n° 1 — Guerrier jedi** : absent des sources de métiers ; fiche de Neili (« Guerrier jedi ») → brouillon calqué sur
+  le Guerrier sith : prérequis Padawan niv. 4 ; Sabre laser, Parade / esquive, Protection de la force, Poussée de la
+  force, Contrôle télékinétique, Pilotage, Sang-froid (+ Méditation, Sagesse, Escalade / saut) ; Robe traditionnelle de
+  jedi, Sabre laser 2D8, ComLink, Kolto. **À valider par l'auteur.**
+- **n° 4** Datapad au compendium (200c estimé, appareil « datapad ») ; **n° 7** description du personnage 180 px en
+  lecture / 440 px en édition ; **n° 21** compétences de l'onglet Combat triées ; **n° 23** libellé « choisissez-en une
+  autre ».
+- **n° 20 — Médecine** : reproduit — le métier Médecin donne +20 à Médecine (bonus de métier) : 55 + 20 = 75 au niveau 0,
+  conforme à la règle actuelle → **question posée à l'auteur**. **n° 2** (« objets d'équipement pas mis à jour ») : trop
+  vague, **question posée**.
+
 ## Session du 2026-09-26 (suite 12) — Images de vaisseaux, nouveau suivi (v0.18.0→v0.18.1)
 
 - v0.18.0 confirmée chez les joueurs par l'auteur, poussée et publiée.

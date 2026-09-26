@@ -36,6 +36,9 @@ export class GalacticWarsActor extends Actor {
   /** @override */
   async _preCreate(data, options, user) {
     if ((await super._preCreate(data, options, user)) === false) return false;
+    if (GW.typesTokenLie.includes(this.type) && data.prototypeToken?.actorLink === undefined) {
+      this.updateSource({ "prototypeToken.actorLink": true });
+    }
     if (this.type === "equipage") {
       const image = "icons/environment/people/group.webp";
       const changements = {};
