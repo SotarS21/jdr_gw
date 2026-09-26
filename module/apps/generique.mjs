@@ -117,15 +117,21 @@ export function jouerGenerique(donnees, { apercu = false } = {}) {
   const surRedimension = () => { dimensionner(); dessiner(); };
   window.addEventListener("resize", surRedimension);
 
-  // Musique : jouée chez chaque client, arrêtée à la fermeture.
+  // Musique : jouée chez chaque client à l'apparition du logo « Galactic Wars » (bug remonté par l'auteur : elle
+  // démarrait dès l'ouverture), ou au début du défilement s'il n'y a pas de logo (mouvements réduits, « Passer »).
+  // Arrêtée à la fermeture.
   let son = null;
-  if (donnees.musique) {
+  let musiqueLancee = false;
+  const lancerMusique = () => {
+    if (musiqueLancee || !donnees.musique || !actif) return;
+    musiqueLancee = true;
     foundry.audio.AudioHelper.play({ src: donnees.musique, volume: 0.8, loop: false }, false)
       .then((s) => { if (actif) son = s; else s?.stop(); })
       .catch(() => null);
-  }
+  };
 
   const lancerDefilement = () => {
+    lancerMusique();
     defilement.style.opacity = 1;
     // Vitesse en pixels, proportionnelle à la taille du texte (même rythme de lecture quelle que soit la taille de
     // l'écran) ; le texte part déjà au bas de l'écran (80 %) pour ne pas laisser un long vide après le logo.
@@ -196,6 +202,7 @@ export function jouerGenerique(donnees, { apercu = false } = {}) {
       { duration: 5000, fill: "forwards" }
     ));
     minuteurs.push(setTimeout(() => {
+      lancerMusique();
       animations.push(logo.animate([
         { opacity: 1, transform: "translate(-50%, -50%) scale(1.25)" },
         { opacity: 1, transform: "translate(-50%, -50%) scale(0.05)", offset: 0.92 },

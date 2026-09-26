@@ -289,5 +289,12 @@ export const RELEASE_NOTES = {
     html: `<ul>
       <li><strong>Animations</strong> (avec les modules Sequencer et JB2A activés) : tir laser vers les cibles pour les blasters et canons (vert pour les armes de vaisseau, raté si l'attaque échoue), coup de sabre laser, coup d'arme blanche ou de poing, explosion pour l'artifice ; traînée de fumée quand un vaisseau se déplace. Une arme configurée dans Automated Animations utilise sa propre animation. Réglage « Animations » dans les paramètres du monde pour tout couper.</li>
     </ul>`
+  },
+  "0.19.3": {
+    title: "v0.19.3",
+    html: `<ul>
+      <li>Générique : la musique démarre à l'apparition du logo « Galactic Wars » (et non plus dès l'ouverture) ; sans logo (mouvements réduits, « Passer au texte »), au début du défilement.</li>
+      <li>Animations : sabre laser et fumée des vaisseaux via la base de Sequencer (JB2A) ; coups de mêlée du tireur vers la cible.</li>
+    </ul>`
   }
 };

@@ -36,7 +36,7 @@
         Navigateur → Informatique / piratage, Communicateur → Social, Manutention et entretien → Mécanique, Canonnier →
         Canon lourd, Médecin de bord → Médecine, Capitaine → Commander / guider.
     17. ~~[Fonctionnalité] Dossier de musiques~~ : fait (playlist locale « Galactic Wars », hors système).
-    18. ~~[Fonctionnalité] Animations (armes, déplacement des vaisseaux)~~ : fait (v0.19.2) — **à tester une fois Sequencer / JB2A / Automated Animations activés**.
+    18. ~~[Fonctionnalité] Animations (armes, déplacement des vaisseaux)~~ : fait et vérifié (v0.19.2-0.19.3).
     19. ~~[Fonctionnalité] Validateur de niveaux (12 au niveau 1, +3 par niveau)~~ : fait (v0.19.1).
     20. [Bug] Médecine mal synchronisée avec les niveaux (55 en Dextérité, niveau 0 en Médecine → 75).
     21. [Bug] Onglet Combat : compétences pas dans l'ordre alphabétique.
@@ -49,6 +49,20 @@
 - **Rappels techniques** : scripts de patch écrits avec l'outil Write (ou heredoc `<<'EOF'`, en doublant les
   antislashs à vérifier) — jamais de backticks dans un `node -e` en bash ; `git checkout` remet les fichiers en CRLF
   (normaliser avant de chercher du texte) ; `prose-mirror` doit rester en `display: flex`.
+
+## Session du 2026-09-27 (suite 3) — Animations vérifiées, musique du générique (v0.19.2→v0.19.3)
+
+- L'auteur pensait avoir activé les modules : seul JB2A l'était (Sequencer, socketlib, Automated Animations désactivés
+  dans `core.moduleConfiguration`). **Activés par Claude à la demande de l'auteur** (réglage du monde, rechargement).
+- La base de Sequencer se remplit après le chargement : `entryExists` renvoie `false` juste après `ready`, `true` 3 s
+  plus tard (`jb2a.lasershot.red` / `.green`, `jb2a.club.melee.01.white`, `jb2a.explosion.01.orange`) ; ajoutés
+  `jb2a.lasersword.melee.blue` et `jb2a.fumes.steam.white` ; mêlée en `stretchTo` (comme Automated Animations).
+- Vérifié sur la scène Corucentre : blaster de Kael sur Alek (3 effets, tir raté sur échec), grenade (effet), La Brique
+  déplacée d'une case (fumée) puis ramenée, sabre laser d'Alek sur Kael (effet ; Kael n'a pas la compétence réservée
+  Sabre laser, d'où aucun jet ni animation pour lui). Armes et messages de test supprimés.
+- **Bug remonté par l'auteur** : « lance la musique au moment où Galactic Wars apparaît, pas avant » → `lancerMusique`
+  appelé au début de l'animation du logo (5,6 s) et, à défaut, au début du défilement ; vérifié par un espion sur
+  `AudioHelper.play` : aucun appel à 3 s, un appel à 6,07 s.
 
 ## Session du 2026-09-27 (suite 2) — Intro et compendium de musique (monde)
 
