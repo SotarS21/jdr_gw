@@ -32,6 +32,7 @@ import { enregistrerHooksChatObjet } from "./helpers/chat-objet.mjs";
 import { enregistrerHooksCombat } from "./helpers/combat.mjs";
 import { enregistrerHooksJets } from "./helpers/rolls.mjs";
 import { enregistrerHooksNotes } from "./helpers/notes.mjs";
+import { enregistrerReglageAnimations, enregistrerHooksAnimations } from "./helpers/animations.mjs";
 import { enregistrerHooksComlink } from "./helpers/comlink.mjs";
 
 enregistrerHooksChatObjet();
@@ -118,6 +119,8 @@ Hooks.once("init", () => {
   enregistrerHooksEquipage();
   enregistrerHooksJets();
   enregistrerHooksNotes();
+  enregistrerReglageAnimations();
+  enregistrerHooksAnimations();
 
   DocumentSheetConfig.registerSheet(JournalEntryPage, "galactic-wars", PageGeneriqueSheet, {
     types: ["generique"],

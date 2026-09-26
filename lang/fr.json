@@ -593,6 +593,10 @@
       "Converti": "{nombre} aménagement(s) converti(s) en objets.",
       "Depassement": "{nom} : les aménagements occupent {utilises} modules pour {max} disponibles."
     },
+    "Animations": {
+      "Reglage": "Animations (Sequencer / JB2A)",
+      "ReglageHint": "Tirs, coups et explosions lors des attaques, traînée de fumée au déplacement des vaisseaux. Nécessite les modules Sequencer et JB2A (et Automated Animations pour les armes que vous y configurez)."
+    },
     "LienVaisseau": {
       "Titre": "Vaisseau",
       "Vide": "Aucun vaisseau. Glissez-déposez ici un vaisseau depuis l'onglet Acteurs pour y accéder depuis la fiche.",

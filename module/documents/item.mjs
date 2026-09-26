@@ -2,6 +2,7 @@ import { GW } from "../config.mjs";
 import { rollCompetence } from "../helpers/rolls.mjs";
 import { proposerDefense } from "../helpers/combat.mjs";
 import { tireurSelectionne } from "../helpers/armement-vaisseau.mjs";
+import { animerAttaque } from "../helpers/animations.mjs";
 
 /** Carte d'objet postée dans le tchat (boutons gérés par helpers/chat-objet.mjs). */
 const TEMPLATE_CARTE = "systems/galactic-wars/templates/chat/objet-carte.hbs";
@@ -238,6 +239,11 @@ export class GalacticWarsItem extends Item {
     try {
       const titre = this.estArmeDeVaisseau ? `${this.name} — ${this.actor.name}` : this.name;
       const resultat = await rollCompetence(actor, this.system.competence, { titre });
+      // Animation (Sequencer / JB2A, ou Automated Animations) : depuis le token du vaisseau pour une arme de vaisseau.
+      if (resultat) {
+        const tireur = (this.estArmeDeVaisseau ? this.actor : actor).getActiveTokens?.()[0] ?? null;
+        animerAttaque(this, tireur, [...game.user.targets], !!resultat.reussite);
+      }
       // Attaque réussie sur des tokens ciblés : carte « Défense » pour chaque cible.
       if (resultat?.reussite) await proposerDefense(this, resultat, [...game.user.targets].map((t) => t.document));
       return resultat;

@@ -283,5 +283,11 @@ export const RELEASE_NOTES = {
       <li>Onglet Notes : glissez un personnage ou un PNJ sur la fiche pour l'ajouter à vos PNJ (relié à sa fiche) ; chaque carte a « Montrer dans le tchat », et la carte du tchat se glisse sur une fiche pour l'ajouter à ses propres notes.</li>
       <li>Mode Édition : compteur des niveaux de compétences répartis (12 au niveau 1, puis +3 par niveau).</li>
     </ul>`
+  },
+  "0.19.2": {
+    title: "v0.19.2",
+    html: `<ul>
+      <li><strong>Animations</strong> (avec les modules Sequencer et JB2A activés) : tir laser vers les cibles pour les blasters et canons (vert pour les armes de vaisseau, raté si l'attaque échoue), coup de sabre laser, coup d'arme blanche ou de poing, explosion pour l'artifice ; traînée de fumée quand un vaisseau se déplace. Une arme configurée dans Automated Animations utilise sa propre animation. Réglage « Animations » dans les paramètres du monde pour tout couper.</li>
+    </ul>`
   }
 };

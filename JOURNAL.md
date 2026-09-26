@@ -35,8 +35,8 @@
     16. ~~[Fonctionnalité] Bouton de jet par poste~~ (fait, v0.18.3) (le PJ du poste lance sa propre compétence) : Pilote → Pilotage,
         Navigateur → Informatique / piratage, Communicateur → Social, Manutention et entretien → Mécanique, Canonnier →
         Canon lourd, Médecin de bord → Médecine, Capitaine → Commander / guider.
-    17. [Fonctionnalité] Dossier de musiques (depuis le dossier « music star wars » de l'auteur).
-    18. [Fonctionnalité] Animations via P2A (armes, déplacement des vaisseaux).
+    17. ~~[Fonctionnalité] Dossier de musiques~~ : fait (playlist locale « Galactic Wars », hors système).
+    18. ~~[Fonctionnalité] Animations (armes, déplacement des vaisseaux)~~ : fait (v0.19.2) — **à tester une fois Sequencer / JB2A / Automated Animations activés**.
     19. ~~[Fonctionnalité] Validateur de niveaux (12 au niveau 1, +3 par niveau)~~ : fait (v0.19.1).
     20. [Bug] Médecine mal synchronisée avec les niveaux (55 en Dextérité, niveau 0 en Médecine → 75).
     21. [Bug] Onglet Combat : compétences pas dans l'ordre alphabétique.
@@ -49,6 +49,22 @@
 - **Rappels techniques** : scripts de patch écrits avec l'outil Write (ou heredoc `<<'EOF'`, en doublant les
   antislashs à vérifier) — jamais de backticks dans un `node -e` en bash ; `git checkout` remet les fichiers en CRLF
   (normaliser avant de chercher du texte) ; `prose-mirror` doit rester en `display: flex`.
+
+## Session du 2026-09-27 (suite) — Musiques et animations (v0.19.1→v0.19.2)
+
+- **Choix de l'auteur** : musiques en **playlist locale** (les 22 morceaux de `asset_son/` sont sous droits : jamais dans le
+  système ni la release publique) ; animations avec **Automated Animations**.
+- **n° 17** : morceaux copiés (noms ASCII) dans `Data/galactic-wars-musiques/` du Foundry local ; playlist « Galactic Wars »
+  créée dans le monde de test (22 pistes, titres nettoyés : Marche impériale, Duel of the Fates, Cantina, ambiances
+  Dantooine / Tatooine / repaire sith…, volume 0,6, sans lecture auto) ; fichier servi (200). Utilisable aussi comme
+  musique du générique.
+- **n° 18** : `helpers/animations.mjs`. Modules installés et compatibles v14 (Automated Animations 7.1.3, Sequencer
+  4.2.3, JB2A libre 0.9.3, socketlib) mais **désactivés** dans le monde de test → intégration facultative : `Item#attaquer`
+  anime l'attaque (token du vaisseau pour une arme de vaisseau) — tir laser (blaster / canon lourd ; vert pour le
+  vaisseau), sabre laser, mêlée (arme blanche / bagarre), explosion (artifice), `missed` si échec ; Automated
+  Animations prioritaire pour une arme qui a sa configuration ; traînée de fumée au déplacement d'un vaisseau. Réglage
+  monde « Animations ». Vérifié modules désactivés : attaque normale, aucune erreur. **Animations non vérifiées** :
+  l'auteur doit activer Sequencer, socketlib, JB2A et Automated Animations (rechargement du monde).
 
 ## Session du 2026-09-27 — Fonctionnalités du suivi, modules d'origine (v0.19.0→v0.19.1)
 
