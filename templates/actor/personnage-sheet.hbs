@@ -380,6 +380,39 @@
   {{#if (eq ongletActif 'equipements')}}
 
   <section class="inventaire-grid">
+    <div class="panel panel-armes">
+      <div class="section-header">
+        <h2 class="eyebrow">{{localize 'GALACTICWARS.Sheet.Armes'}}</h2>
+        <button type="button" class="roll-btn" data-action="createItem" data-type="arme">+</button>
+      </div>
+      <div class="objet-liste">
+        {{#each armes as |arme|}}{{> gwLigneObjet ligne=arme}}{{else}}<p class="inventaire-vide">{{localize 'GALACTICWARS.Objet.ListeVide'}}</p>{{/each}}
+      </div>
+    </div>
+
+    <div class="panel panel-armures">
+      <div class="section-header">
+        <h2 class="eyebrow">{{localize 'GALACTICWARS.Objet.ArmuresBoucliers'}}</h2>
+        <span class="reduction-totale mono" data-tooltip="{{localize 'GALACTICWARS.Objet.ReductionTotale'}}">
+          <i class="fa-solid fa-shield-halved"></i> {{reductionTotale}}
+        </span>
+        <button type="button" class="roll-btn" data-action="createItem" data-type="armure">+</button>
+      </div>
+      <div class="objet-liste">
+        {{#each armures as |armure|}}{{> gwLigneObjet ligne=armure}}{{else}}<p class="inventaire-vide">{{localize 'GALACTICWARS.Objet.ListeVide'}}</p>{{/each}}
+      </div>
+    </div>
+
+    <div class="panel panel-equipement">
+      <div class="section-header">
+        <h2 class="eyebrow">{{localize 'GALACTICWARS.Sheet.Equipement'}}</h2>
+        <button type="button" class="roll-btn" data-action="createItem" data-type="equipement">+</button>
+      </div>
+      <div class="objet-liste">
+        {{#each equipements as |objet|}}{{> gwLigneObjet ligne=objet}}{{else}}<p class="inventaire-vide">{{localize 'GALACTICWARS.Objet.ListeVide'}}</p>{{/each}}
+      </div>
+    </div>
+
     {{!-- Vaisseau lié : déposer un acteur « vaisseau » du monde sur la fiche (PersonnageSheet#_onDropActor). --}}
     <div class="panel panel-vaisseau">
       <div class="section-header">
@@ -414,39 +447,6 @@
       {{else}}
       <p class="inventaire-vide">{{localize 'GALACTICWARS.LienVaisseau.Vide'}}</p>
       {{/if}}
-    </div>
-
-    <div class="panel panel-armes">
-      <div class="section-header">
-        <h2 class="eyebrow">{{localize 'GALACTICWARS.Sheet.Armes'}}</h2>
-        <button type="button" class="roll-btn" data-action="createItem" data-type="arme">+</button>
-      </div>
-      <div class="objet-liste">
-        {{#each armes as |arme|}}{{> gwLigneObjet ligne=arme}}{{else}}<p class="inventaire-vide">{{localize 'GALACTICWARS.Objet.ListeVide'}}</p>{{/each}}
-      </div>
-    </div>
-
-    <div class="panel panel-armures">
-      <div class="section-header">
-        <h2 class="eyebrow">{{localize 'GALACTICWARS.Objet.ArmuresBoucliers'}}</h2>
-        <span class="reduction-totale mono" data-tooltip="{{localize 'GALACTICWARS.Objet.ReductionTotale'}}">
-          <i class="fa-solid fa-shield-halved"></i> {{reductionTotale}}
-        </span>
-        <button type="button" class="roll-btn" data-action="createItem" data-type="armure">+</button>
-      </div>
-      <div class="objet-liste">
-        {{#each armures as |armure|}}{{> gwLigneObjet ligne=armure}}{{else}}<p class="inventaire-vide">{{localize 'GALACTICWARS.Objet.ListeVide'}}</p>{{/each}}
-      </div>
-    </div>
-
-    <div class="panel panel-equipement">
-      <div class="section-header">
-        <h2 class="eyebrow">{{localize 'GALACTICWARS.Sheet.Equipement'}}</h2>
-        <button type="button" class="roll-btn" data-action="createItem" data-type="equipement">+</button>
-      </div>
-      <div class="objet-liste">
-        {{#each equipements as |objet|}}{{> gwLigneObjet ligne=objet}}{{else}}<p class="inventaire-vide">{{localize 'GALACTICWARS.Objet.ListeVide'}}</p>{{/each}}
-      </div>
     </div>
   </section>
   {{/if}}

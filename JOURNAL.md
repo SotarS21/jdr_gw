@@ -13,6 +13,8 @@
 - Déployé sans redémarrage (1 utilisateur connecté, aucun compendium modifié). Vérifié sur Kael avec « Convergence
   (test) » : dépôt → onglet Équipements, carte, fiche du vaisseau ouverte, dépôt depuis le compendium refusé, lien
   retiré (Kael restauré), aucune erreur de page.
+- **Retour de l'auteur** : onglet Équipements en grille 2 × 2 — Armes | Armures et boucliers, puis Équipement |
+  Vaisseau (les armes ne prennent plus toute la largeur). Vérifié à l'écran (positions des 4 panneaux).
 
 ## Session du 2026-09-26 (suite 4) — Kit de réparation (v0.15.6→v0.15.7)
 

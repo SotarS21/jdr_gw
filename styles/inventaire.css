@@ -4,11 +4,7 @@
    Inventaire — palette « datapad » de .galactic-wars.personnage (galactic-wars.css)
    ========================================================================== */
 
-/* Armes sur toute la largeur (plus d'informations par ligne), armures et équipement côte à côte. */
-.galactic-wars.personnage .inventaire-grid .panel-armes,
-.galactic-wars.personnage .inventaire-grid .panel-vaisseau {
-  grid-column: 1 / -1;
-}
+/* Grille 2 × 2 (demande de l'auteur) : Armes | Armures et boucliers, puis Équipement | Vaisseau. */
 
 /* Vaisseau lié : carte cliquable qui ouvre la fiche du vaisseau. */
 .galactic-wars.personnage .vaisseau-lien {
