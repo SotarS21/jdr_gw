@@ -5,7 +5,7 @@ import { GalacticWarsActor } from "../documents/actor.mjs";
 import { competencesSelonMetier } from "./metier.mjs";
 import { correspondanceDepart, objetDeDepart, estContactDeDepart, pnjDeDepart } from "./objets-depart.mjs";
 import { convertirArmement } from "./armement-vaisseau.mjs";
-import { convertirAmenagements } from "./amenagements-vaisseau.mjs";
+import { convertirAmenagements, modulesOrigine } from "./amenagements-vaisseau.mjs";
 
 /**
  * Registre des correctifs de contenu proposés au MJ après une mise à jour (sur le modèle
@@ -27,6 +27,25 @@ import { convertirAmenagements } from "./amenagements-vaisseau.mjs";
  * - `apply()`     → applique le correctif, renvoie le nombre de documents modifiés.
  */
 export const PACK_UPDATES = [
+  {
+    id: "0.19.1-modules-amenagements-origine",
+    cible: "acteurs",
+    version: "0.19.1",
+    label: "Aménagements d'origine comptés dans les modules",
+    description:
+      "Les aménagements d'origine des vaisseaux (convertis en v0.19.0) valaient 0 module et n'entraient pas dans le " +
+      "décompte. Ils valent désormais 1 module chacun (sauf l'habitacle / la selle ouverts d'un speeder), et les " +
+      "modules disponibles du vaisseau sont relevés d'autant (ou repris du vaisseau de même nom du compendium).",
+    concernes: async () => (await vaisseauxModulesOrigine()).length,
+    apply: async () => {
+      const liste = await vaisseauxModulesOrigine();
+      for (const { vaisseau, objets, modules } of liste) {
+        await vaisseau.updateEmbeddedDocuments("Item", objets.map((o) => ({ _id: o.id, "system.modules": 1 })));
+        await vaisseau.update({ "system.modules": modules });
+      }
+      return liste.length;
+    }
+  },
   {
     id: "0.19.0-amenagements-en-objets",
     cible: "acteurs",
@@ -749,6 +768,22 @@ function vaisseauxSansImage(images) {
   return tousLesActeurs()
     .filter((a) => a.type === "vaisseau" && images[a.name] && parDefaut(a.img))
     .map((vaisseau) => ({ vaisseau, image: images[vaisseau.name] }));
+}
+
+/** Vaisseaux dont des aménagements d'origine (0c) valent encore 0 module alors qu'ils devraient en valoir 1. */
+async function vaisseauxModulesOrigine() {
+  const pack = game.packs.get(`${game.system.id}.vaisseaux`);
+  const index = (await pack?.getIndex({ fields: ["system.modules"] })) ?? [];
+  const modulesPack = new Map(index.map((e) => [e.name, foundry.utils.getProperty(e, "system.modules") ?? 0]));
+  const liste = [];
+  for (const vaisseau of tousLesActeurs().filter((a) => a.type === "vaisseau")) {
+    const objets = vaisseau.items.filter((i) => i.type === "amenagement" && !i.system.prix
+      && (i.system.modules ?? 0) === 0 && modulesOrigine(i.name) === 1);
+    if (!objets.length) continue;
+    const modules = modulesPack.get(vaisseau.name) ?? ((vaisseau.system.modules ?? 0) + objets.length);
+    liste.push({ vaisseau, objets, modules });
+  }
+  return liste;
 }
 
 /** Vaisseaux à ancienne liste d'aménagements, ou à 0 module alors que le vaisseau homonyme du compendium en a. */

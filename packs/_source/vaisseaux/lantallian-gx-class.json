@@ -37,7 +37,7 @@
     "portrait": "icons/svg/mystery-man.svg",
     "description": "<p>Transport exécutif de luxe destiné au déplacement de personnalités (3 passagers) avec un équipage de 4 membres, faiblement armé pour la dissuasion.</p><p>Le classeur source mentionne également l'existence d'un \"transporteur de base\", variante moins chère (80 000c, 6 places) non détaillée dans le matériel source et non transcrite ici en Actor séparé.</p><p><em>Note MJ : PV de coque (30), bouclier (40 points) et armement (1 tourelle légère 2d6, défense symbolique) estimés par cohérence avec les vaisseaux comparables du même classeur (Barloz : 50 bouclier / 40 PV pour 6 personnes ; La poubelle géante : 20 bouclier / 15 PV pour 5 personnes ; Le Arcadia : 60 bouclier / 40 PV pour 6 personnes) — pas des valeurs du matériel source, à ajuster librement. La soute et les équipements embarqués sont également inventés, cohérents avec le standing \"exécutif\" du vaisseau.</em></p>",
     "amenagements": [],
-    "modules": 6
+    "modules": 9
   },
   "prototypeToken": {
     "name": "Lantallian GX-class Executive transport",
@@ -80,7 +80,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "<p>Inventé, non précisé dans le matériel source.</p>",
         "notesMJ": ""
       },
@@ -96,7 +96,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "<p>Inventé, non précisé dans le matériel source.</p>",
         "notesMJ": ""
       },
@@ -112,7 +112,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "<p>Trois cabines VIP. Inventé, non précisé dans le matériel source.</p>",
         "notesMJ": ""
       },
@@ -128,7 +128,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "<p>Inventé, non précisé dans le matériel source.</p>",
         "notesMJ": ""
       },
@@ -144,7 +144,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "<p>Inventé, non précisé dans le matériel source.</p>",
         "notesMJ": ""
       },
@@ -160,7 +160,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "<p>Inventé, non précisé dans le matériel source.</p>",
         "notesMJ": ""
       },
@@ -176,7 +176,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "<p>Inventé, non précisé dans le matériel source.</p>",
         "notesMJ": ""
       },

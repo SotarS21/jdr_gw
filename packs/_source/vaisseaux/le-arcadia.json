@@ -70,7 +70,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "<p>6 cabines dont celle du capitaine.</p>",
         "notesMJ": ""
       },
@@ -86,7 +86,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "<p>2 sanitaires.</p>",
         "notesMJ": ""
       },
@@ -102,7 +102,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "",
         "notesMJ": ""
       },
@@ -118,7 +118,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "",
         "notesMJ": ""
       },
@@ -134,7 +134,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "",
         "notesMJ": ""
       },
@@ -193,7 +193,7 @@
     "portrait": "systems/galactic-wars/asset_visuel/objets/vaisseaux-le-arcadia.png",
     "description": "<p>Freighter armé de 20 m sur 35 m, pour 6 places. Équipage de 2 pilotes et 1 communicateur ; 6 cabines dont celle du capitaine, 2 sanitaires, un entrepôt de 10 m2, une salle des machines, une infirmerie et une salle de repos/cuisine.</p><p>Armement : 2 canons lourds places au milieu, en haut et en dessous (4d6 chacun), et 2 paires de tourelles légères sur les ailes à l'avant, pilotables depuis un poste dédié (2d6 chacune).</p>",
     "amenagements": [],
-    "modules": 5
+    "modules": 7
   },
   "folder": null,
   "sort": 100000,

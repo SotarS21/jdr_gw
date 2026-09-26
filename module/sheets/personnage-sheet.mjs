@@ -3,7 +3,7 @@ import { rollCompetence } from "../helpers/rolls.mjs";
 import { applyRace } from "../helpers/race.mjs";
 import { applyMetier } from "../helpers/metier.mjs";
 import { choisirItemCompendium } from "../helpers/compendium-picker.mjs";
-import { editerEntreeNote, supprimerEntreeNote } from "../helpers/notes.mjs";
+import { editerEntreeNote, supprimerEntreeNote, pnjDepuisActeur, ajouterEntreeNote, montrerEntreeNote, entreeDepuisGlisser } from "../helpers/notes.mjs";
 import { vaisseauDEquipage } from "../helpers/equipage.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
@@ -37,6 +37,8 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       ajouterEntreeNote: PersonnageSheet.#onAjouterEntreeNote,
       editerEntreeNote: PersonnageSheet.#onEditerEntreeNote,
       supprimerEntreeNote: PersonnageSheet.#onSupprimerEntreeNote,
+      montrerEntreeNote: PersonnageSheet.#onMontrerEntreeNote,
+      ouvrirActeurPnj: PersonnageSheet.#onOuvrirActeurPnj,
       ajouterTrait: PersonnageSheet.#onAjouterTrait,
       basculerFavori: PersonnageSheet.#onBasculerFavori,
       gainExperience: PersonnageSheet.#onGainExperience,
@@ -105,6 +107,14 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       attendu: GW.pointsCaracteristiques,
       etat: pointsCaracteristiques === GW.pointsCaracteristiques ? "ok"
         : pointsCaracteristiques < GW.pointsCaracteristiques ? "manque" : "exces"
+    };
+    // Niveaux de compétences répartis (somme des niveaux 0-3) comparés au nombre attendu pour le niveau du personnage.
+    const niveauxRepartis = system.competences.reduce((s, c) => s + (c.niveau ?? 0), 0);
+    const niveauxAttendus = GW.niveauxCompetencesDepart + GW.niveauxCompetencesParNiveau * Math.max(0, (system.niveau ?? 1) - 1);
+    context.niveauxCompetences = {
+      valeur: niveauxRepartis,
+      attendu: niveauxAttendus,
+      etat: niveauxRepartis === niveauxAttendus ? "ok" : niveauxRepartis < niveauxAttendus ? "manque" : "exces"
     };
     // `index` conserve la position réelle dans system.competences (pas celle, différente,
     // dans la sous-liste triée/filtrée par caractéristique ci-dessous) pour que les inputs
@@ -226,9 +236,47 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     };
   }
 
-  /** @override — un vaisseau du monde déposé sur la fiche devient le vaisseau du personnage (onglet Équipements). */
+  /** @override — note glissée depuis le tchat (carte « Montrer dans le tchat ») : ajoutée aux notes de la fiche. */
+  async _onDrop(event) {
+    let donnees = null;
+    try { donnees = foundry.applications.ux.TextEditor.implementation.getDragEventData(event); } catch { /* rien */ }
+    if (donnees?.type !== "GalacticWarsNote") return super._onDrop(event);
+    if (!this.isEditable) return null;
+    const entree = entreeDepuisGlisser(donnees.note);
+    if (!entree) return null;
+    if (donnees.note.type === "pnj" && entree.acteurUuid && this.actor.system.pnjs.some((p) => p.acteurUuid === entree.acteurUuid)) {
+      ui.notifications.info(game.i18n.format("GALACTICWARS.Notes.PnjDejaPresent", { nom: entree.nom }));
+      return null;
+    }
+    await this.#ajouterNote(donnees.note.type, entree);
+    return null;
+  }
+
+  async #ajouterNote(type, entree) {
+    this.#ongletActif = "notes";
+    this.#sousOngletNotes = { resume: "resume", info: "infos", pnj: "pnj", mission: "missions" }[type] ?? "resume";
+    await ajouterEntreeNote(this.actor, type, entree);
+    ui.notifications.info(game.i18n.format("GALACTICWARS.Notes.Ajoutee", {
+      titre: entree.nom ?? entree.titre ?? "", type: game.i18n.localize(`GALACTICWARS.Notes.Type.${type}`)
+    }));
+  }
+
+  /**
+   * @override — un vaisseau du monde déposé sur la fiche devient le vaisseau du personnage (onglet Équipements) ;
+   * un personnage ou un PNJ devient un PNJ de l'onglet Notes, relié à sa fiche (suivi de l'auteur n° 9).
+   */
   async _onDropActor(event, actor) {
-    if (actor?.type !== "vaisseau" || !this.isEditable) return null;
+    if (!this.isEditable || !actor) return null;
+    if (["personnage", "personnage-rapide", "personnage-sith", "pnj"].includes(actor.type)) {
+      if (actor === this.actor) return null;
+      if (this.actor.system.pnjs.some((p) => p.acteurUuid === actor.uuid)) {
+        ui.notifications.info(game.i18n.format("GALACTICWARS.Notes.PnjDejaPresent", { nom: actor.name }));
+        return null;
+      }
+      await this.#ajouterNote("pnj", pnjDepuisActeur(actor));
+      return actor;
+    }
+    if (actor.type !== "vaisseau") return null;
     if (actor.pack) {
       ui.notifications.warn(game.i18n.localize("GALACTICWARS.LienVaisseau.DepuisCompendium"));
       return null;
@@ -818,6 +866,21 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   /** Onglet Équipements (mode Édition) : corbeille de la ligne — même suppression que le menu contextuel. */
   static async #onSupprimerObjet(event, target) {
     await this.#supprimerObjet(this.#objetDeLigne(target));
+  }
+
+  static async #onMontrerEntreeNote(event, target) {
+    event.stopPropagation();
+    const carte = target.closest("[data-type][data-index]");
+    await montrerEntreeNote(this.actor, carte.dataset.type, Number(carte.dataset.index));
+  }
+
+  static async #onOuvrirActeurPnj(event, target) {
+    event.stopPropagation();
+    const index = Number(target.closest("[data-index]")?.dataset.index);
+    const acteur = await fromUuid(this.actor.system.pnjs[index]?.acteurUuid ?? "");
+    if (!acteur) return ui.notifications.warn(game.i18n.localize("GALACTICWARS.Notes.ActeurIntrouvable"));
+    if (!acteur.testUserPermission(game.user, "LIMITED")) return;
+    acteur.sheet.render({ force: true });
   }
 
   static async #onDeleteItem(event, target) {

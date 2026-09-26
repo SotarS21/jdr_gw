@@ -22,12 +22,12 @@
        avec celui de la fiche.
     4. [Bug] Ajouter le Datapad au compendium.
     5. [Bug] Synchronisation de l'image de token.
-    6. [Fonctionnalité] Informations : champ « Signe distinctif ».
+    6. ~~[Fonctionnalité] Informations : champ « Signe distinctif »~~ : fait (v0.19.1).
     7. [Bug] Agrandir la taille de la description.
     8. [Bug] Notes : synchronisation entre ce que voit le PJ et le MJ.
-    9. [Fonctionnalité] Glisser-déposer des acteurs dans les PNJ des PJ.
-    10. [Fonctionnalité] Afficher une note dans le tchat, et pouvoir la glisser du tchat vers ses propres notes.
-    11. [Fonctionnalité] Succès en vert, échecs en rouge, plus visibles.
+    9. ~~[Fonctionnalité] Glisser-déposer des acteurs dans les PNJ des PJ~~ : fait (v0.19.1).
+    10. ~~[Fonctionnalité] Afficher une note dans le tchat, la glisser vers ses propres notes~~ : fait (v0.19.1).
+    11. ~~[Fonctionnalité] Succès en vert, échecs en rouge~~ : fait (v0.19.1).
     12. ~~[Fonctionnalité] Compendium d'aménagements payants pour les vaisseaux~~ : fait (v0.19.0).
     13. ~~[Fonctionnalité] Nombre de modules d'aménagement par vaisseau~~ : fait (v0.19.0).
     14. ~~[Fonctionnalité] Ajouter de l'équipement directement dans le vaisseau~~ : fait (soute, v0.19.0).
@@ -37,11 +37,10 @@
         Canon lourd, Médecin de bord → Médecine, Capitaine → Commander / guider.
     17. [Fonctionnalité] Dossier de musiques (depuis le dossier « music star wars » de l'auteur).
     18. [Fonctionnalité] Animations via P2A (armes, déplacement des vaisseaux).
-    19. [Fonctionnalité] Création de personnage en Édition : validateur de niveaux déjà répartis (12 / 12 au niveau 1,
-        +3 par niveau).
+    19. ~~[Fonctionnalité] Validateur de niveaux (12 au niveau 1, +3 par niveau)~~ : fait (v0.19.1).
     20. [Bug] Médecine mal synchronisée avec les niveaux (55 en Dextérité, niveau 0 en Médecine → 75).
     21. [Bug] Onglet Combat : compétences pas dans l'ordre alphabétique.
-    22. [Fonctionnalité] État « Endommagé » sur armes et armures, qui empêche de les porter.
+    22. ~~[Fonctionnalité] État « Endommagé »~~ : fait (tag, v0.19.1).
     23. [Bug] Libellé : « Une compétence dépasserait le niveau 3 : choisissez-en une autre. »
     24. [Bug] Synchronisation entre la fiche du token et la fiche de l'acteur.
     25. [Bug] Les PJ doivent pouvoir glisser-déposer les acteurs dont ils sont observateurs ou propriétaires.
@@ -50,6 +49,29 @@
 - **Rappels techniques** : scripts de patch écrits avec l'outil Write (ou heredoc `<<'EOF'`, en doublant les
   antislashs à vérifier) — jamais de backticks dans un `node -e` en bash ; `git checkout` remet les fichiers en CRLF
   (normaliser avant de chercher du texte) ; `prose-mirror` doit rester en `display: flex`.
+
+## Session du 2026-09-27 — Fonctionnalités du suivi, modules d'origine (v0.19.0→v0.19.1)
+
+- v0.19.0 poussée et publiée. L'auteur : « passe aux fonctionnalités restantes du suivi ».
+- **Bug remonté par l'auteur** : « les aménagements déjà présents sur les vaisseaux ne sont pas pris en compte dans le
+  décompte des modules » (ils valaient 0 module). → 1 module par aménagement d'origine (`modulesOrigine` : sauf
+  « Habitacle ouvert » / « Selle ouverte » des speeders) ; modules disponibles = d'origine + places libres (speeders 0,
+  Frelon 1, freighters 2, Dynamic 20 4 (modulaire), Barloz / Gunboat / Lance d'argent 3, frégates 4, Convergence 6) :
+  Poubelle 1 + 2 = 3 … Convergence 9 + 6 = 15. Correctif `0.19.1-modules-amenagements-origine` (3 vaisseaux concernés
+  dans le monde de test, l'auteur ayant déjà appliqué la conversion 0.19.0).
+- **n° 6** `infos.signeDistinctif` (zone de texte sous la grille d'identité). **n° 11** jets : badge coloré
+  (`gw-resultat reussite / echec / critique / echec-critique`) + drapeau `resultat` → classe `gw-jet gw-<nature>` sur
+  le message (total du dé coloré) — jets en %, d20 (fiche rapide), Survie, PNJ. **n° 22** tag `endommage` : un objet
+  marqué endommagé est rangé d'office (`Item#_preUpdate`) et « Porter » est refusé avec un message.
+- **n° 9** un personnage / PNJ déposé sur la fiche devient un PNJ des Notes (`pnjDepuisActeur` : nom, image,
+  métier · race ou type, `acteurUuid`), bouton « Ouvrir sa fiche », doublon refusé (dépôt et glisser depuis le tchat).
+  **n° 10** bouton « Montrer dans le tchat » sur chaque carte (résumé, info, PNJ, mission) → carte de tchat (drapeau
+  `note`), glissable (`dragstart` posé au rendu) vers une fiche : `PersonnageSheet#_onDrop` ajoute l'entrée
+  (résumé redaté). **n° 19** compteur « Niveaux de compétences x / y » en Édition (12 + 3 × (niveau − 1)).
+- Vérifié sans redémarrage (l'auteur connecté) sur Kael (restauré) : 0 / 18 (niveau 3), signe enregistré, jet
+  « echec » (badge + classe), arme endommagée rangée et non portable, Alek déposé → PNJ relié (« Guerrier sith ·
+  Humain »), doublon refusé, carte du tchat glissable puis ajoutée. Les modules du compendium changés attendent le
+  redémarrage.
 
 ## Session du 2026-09-26 (suite 15) — Aménagements et soute des vaisseaux (v0.18.3→v0.19.0)
 

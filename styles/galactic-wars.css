@@ -919,6 +919,8 @@
   font-size: 0.8rem;
 }
 
+.galactic-wars.personnage .points-caracteristiques.niveaux-competences { margin-top: 0.35rem; }
+
 .galactic-wars.personnage .points-caracteristiques .valeur {
   font-weight: 700;
 }
@@ -1415,6 +1417,18 @@
 .galactic-wars.personnage .identite-champ input {
   width: 100%;
   min-width: 0;
+}
+
+.galactic-wars.personnage .identite-champ.signe-distinctif { margin-bottom: 0.6rem; }
+.galactic-wars.personnage .identite-champ.signe-distinctif textarea {
+  width: 100%;
+  min-height: 2.8rem;
+  resize: vertical;
+  background: var(--gw-card);
+  border: 1px solid var(--gw-border);
+  border-radius: 5px;
+  color: var(--gw-text);
+  padding: 0.3rem 0.4rem;
 }
 
 .galactic-wars.personnage .description-pj prose-mirror {

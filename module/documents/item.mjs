@@ -59,6 +59,15 @@ export class GalacticWarsItem extends Item {
     return TYPES_INVENTAIRE.includes(this.type);
   }
 
+  /** @override — objet endommagé (tag) : toujours rangé ; le marquer endommagé le range. */
+  async _preUpdate(changes, options, user) {
+    if ((await super._preUpdate(changes, options, user)) === false) return false;
+    if (!this.estObjetInventaire || this.estArmeDeVaisseau) return;
+    const endommage = foundry.utils.getProperty(changes, "system.tags.endommage") ?? this.system.tags?.endommage;
+    const porte = foundry.utils.getProperty(changes, "system.porte") ?? this.system.porte;
+    if (endommage && porte) foundry.utils.setProperty(changes, "system.porte", false);
+  }
+
   /** Arme montée sur un vaisseau (toujours utilisable, tir au taux du token sélectionné). */
   get estArmeDeVaisseau() {
     return this.type === "arme" && this.actor?.type === "vaisseau";
@@ -72,6 +81,10 @@ export class GalacticWarsItem extends Item {
   /** Inverse porté / rangé (objets d'inventaire seulement). */
   async basculerPorte() {
     if (!this.estObjetInventaire) return null;
+    if (!this.system.porte && this.system.tags?.endommage) {
+      ui.notifications.warn(game.i18n.format("GALACTICWARS.Tags.EndommageNonPorte", { nom: this.name }));
+      return null;
+    }
     return this.update({ "system.porte": !this.system.porte });
   }
 

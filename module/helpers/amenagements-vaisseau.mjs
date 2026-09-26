@@ -11,6 +11,14 @@ export const IMAGE_AMENAGEMENT = "icons/svg/upgrade.svg";
 /** Types d'objets rangés dans la soute d'un vaisseau. */
 export const TYPES_SOUTE = ["equipement", "armure"];
 
+/**
+ * Modules d'un aménagement d'origine : 1, sauf l'habitacle / la selle ouverts d'un speeder (le véhicule lui-même).
+ * Bug remonté par l'auteur (v0.19.1) : à 0 module, les aménagements d'origine n'entraient pas dans le décompte.
+ */
+export function modulesOrigine(nom) {
+  return /habitacle ouvert|selle ouverte/i.test(String(nom ?? "")) ? 0 : 1;
+}
+
 /** Données d'objet « amenagement » d'origine depuis une entrée de l'ancienne liste. */
 export function amenagementDepuisAncienFormat(entree) {
   const echapper = foundry.utils.escapeHTML;
@@ -18,7 +26,7 @@ export function amenagementDepuisAncienFormat(entree) {
     name: entree.nom || game.i18n.localize("GALACTICWARS.Amenagement.Nouveau"),
     type: "amenagement",
     img: IMAGE_AMENAGEMENT,
-    system: { prix: "", modules: 0, description: entree.description ? `<p>${echapper(entree.description)}</p>` : "" }
+    system: { prix: "", modules: modulesOrigine(entree.nom), description: entree.description ? `<p>${echapper(entree.description)}</p>` : "" }
   };
 }
 

@@ -26,7 +26,9 @@ export class PersonnageData extends foundry.abstract.TypeDataModel {
         sexe: new StringField({ initial: "" }),
         couleurCheveux: new StringField({ initial: "" }),
         couleurPeau: new StringField({ initial: "" }),
-        couleurYeux: new StringField({ initial: "" })
+        couleurYeux: new StringField({ initial: "" }),
+        // Signe distinctif (cicatrice, tatouage, implant…) : texte libre (suivi de l'auteur n° 6).
+        signeDistinctif: new StringField({ initial: "" })
       }),
 
       // Description libre du personnage (onglet Informations, avec les champs de `infos`).
@@ -122,7 +124,9 @@ export class PersonnageData extends foundry.abstract.TypeDataModel {
           // Nom du métier qui a créé ce contact (équipement de départ, helpers/objets-depart.mjs) ; "" = PNJ du
           // joueur. La fenêtre d'édition des Notes réécrit l'entrée sans ce champ : un contact modifié par le
           // joueur lui appartient et n'est plus remplacé au changement de métier.
-          origineMetier: new StringField({ initial: "" })
+          origineMetier: new StringField({ initial: "" }),
+          // Acteur déposé sur la fiche pour créer ce PNJ (suivi de l'auteur n° 9) : sa fiche s'ouvre depuis la carte.
+          acteurUuid: new StringField({ initial: "", blank: true })
         })
       ),
       missions: new ArrayField(

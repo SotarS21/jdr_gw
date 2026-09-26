@@ -16,6 +16,19 @@ async function resoudrePourcentage(cible) {
   return { roll, reussite, critique, echecCritique };
 }
 
+/** Nature du résultat, pour la couleur du message (vert / rouge) : reussite, echec, critique, echec-critique. */
+function natureResultat({ critique, echecCritique, reussite }) {
+  return echecCritique ? "echec-critique" : critique ? "critique" : reussite ? "reussite" : "echec";
+}
+
+/** Libellé coloré du résultat (suivi de l'auteur n° 11 : succès en vert, échecs en rouge). */
+function libelleResultat(resultat) {
+  return `<span class="gw-resultat ${natureResultat(resultat)}">${game.i18n.localize(flavorResultatCle(resultat))}</span>`;
+}
+
+/** Drapeau du message : la classe gw-<nature> est posée sur le message à l'affichage (couleur du total). */
+const drapeauResultat = (resultat) => ({ "galactic-wars": { resultat: natureResultat(resultat) } });
+
 function flavorResultatCle({ critique, echecCritique, reussite }) {
   return echecCritique
     ? "GALACTICWARS.Jet.EchecCritique"
@@ -65,7 +78,8 @@ export async function rollCompetence(actor, cle, { pool, titre } = {}) {
 
   await resultat.roll.toMessage({
     speaker: ChatMessage.getSpeaker({ actor }),
-    flavor: `${flavorTitre}${flavor}<br>${game.i18n.localize(flavorResultatCle(resultat))}${flavorBonus}`
+    flavor: `${flavorTitre}${flavor}<br>${libelleResultat(resultat)}${flavorBonus}`,
+    flags: drapeauResultat(resultat)
   });
 
   // `cible` : taux effectif du jet (marge = cible − dé, voir helpers/combat.mjs).
@@ -86,7 +100,8 @@ export async function rollSurvie(actor) {
 
   await resultat.roll.toMessage({
     speaker: ChatMessage.getSpeaker({ actor }),
-    flavor: `${flavor}<br>${game.i18n.localize(flavorResultatCle(resultat))}`
+    flavor: `${flavor}<br>${libelleResultat(resultat)}`,
+    flags: drapeauResultat(resultat)
   });
 
   return resultat;
@@ -122,17 +137,11 @@ export async function rollCaracteristiqueD20(actor, cle) {
     cible: valeur
   });
 
+  const resultat = { reussite, critique, echecCritique };
   await roll.toMessage({
     speaker: ChatMessage.getSpeaker({ actor }),
-    flavor: `${flavor}<br>${game.i18n.localize(
-      echecCritique
-        ? "GALACTICWARS.Jet.EchecCritique"
-        : critique
-        ? "GALACTICWARS.Jet.ReussiteCritique"
-        : reussite
-        ? "GALACTICWARS.Jet.Reussite"
-        : "GALACTICWARS.Jet.Echec"
-    )}`
+    flavor: `${flavor}<br>${libelleResultat(resultat)}`,
+    flags: drapeauResultat(resultat)
   });
 
   return { roll, reussite, critique, echecCritique };
@@ -164,7 +173,8 @@ export async function rollCaracteristiquePourcentage(actor, cle) {
 
   await resultat.roll.toMessage({
     speaker: ChatMessage.getSpeaker({ actor }),
-    flavor: `${flavor}<br>${game.i18n.localize(flavorResultatCle(resultat))}`
+    flavor: `${flavor}<br>${libelleResultat(resultat)}`,
+    flags: drapeauResultat(resultat)
   });
 
   return resultat;
@@ -178,6 +188,14 @@ export async function rollCaracteristiquePourcentage(actor, cle) {
  * @param {string} labelKey clé i18n du libellé affiché dans le message de jet
  * @param {number} valeur le modificateur ajouté au d20
  */
+/** À enregistrer au hook "init" : classe gw-<nature> sur les messages de jet (couleur du total du dé). */
+export function enregistrerHooksJets() {
+  Hooks.on("renderChatMessageHTML", (message, html) => {
+    const nature = message.getFlag?.("galactic-wars", "resultat");
+    if (nature) html.classList.add("gw-jet", `gw-${nature}`);
+  });
+}
+
 export async function rollD20Plus(actor, labelKey, valeur) {
   const roll = new Roll("1d20 + @valeur", { valeur });
   await roll.evaluate();

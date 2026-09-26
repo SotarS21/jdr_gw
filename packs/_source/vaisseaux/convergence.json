@@ -96,7 +96,7 @@
     "portrait": "systems/galactic-wars/asset_visuel/objets/vaisseaux-convergence.jpg",
     "description": "<p>Destroyer assigné à la garde des seigneurs sith. En cas de doute sur un membre d'équipage, envoyer un communiqué à son maître.</p><p><em>Note MJ : le classeur source indique aussi \"PV : 50 100\" en tête de fiche, incohérent avec les 300 PV de coque précisés plus loin dans le même document — retenu ici la valeur explicite (300), la mention initiale semble être un reliquat de gabarit non mis à jour.</em></p>",
     "amenagements": [],
-    "modules": 16
+    "modules": 15
   },
   "prototypeToken": {
     "name": "Convergence",
@@ -139,7 +139,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "<p>Navette de transport de troupes de 20 personnes.</p>",
         "notesMJ": ""
       },
@@ -155,7 +155,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "",
         "notesMJ": ""
       },
@@ -171,7 +171,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "<p>Vivres pour 14 jours.</p>",
         "notesMJ": ""
       },
@@ -187,7 +187,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "<p>Quatre pods de 6 places.</p>",
         "notesMJ": ""
       },
@@ -203,7 +203,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "<p>Quatre quartiers VIP où logent les sith.</p>",
         "notesMJ": ""
       },
@@ -219,7 +219,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "<p>Deux quartiers d'équipage.</p>",
         "notesMJ": ""
       },
@@ -235,7 +235,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "",
         "notesMJ": ""
       },
@@ -251,7 +251,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "",
         "notesMJ": ""
       },
@@ -267,7 +267,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "<p>4 sas.</p>",
         "notesMJ": ""
       },

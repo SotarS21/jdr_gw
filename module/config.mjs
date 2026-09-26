@@ -152,6 +152,10 @@ GW.baremeNiveauCompetence = { 0: 0, 1: 5, 2: 10, 3: 20 };
  *  par des effets. Gain d'expérience : +5 % sur une compétence, dans la limite du plafond. */
 GW.plafondCompetence = 90;
 
+/** Niveaux de compétences à répartir (suivi de l'auteur n° 19) : 12 au niveau 1 du personnage, puis +3 par niveau. */
+GW.niveauxCompetencesDepart = 12;
+GW.niveauxCompetencesParNiveau = 3;
+
 /** Jets en % (1d100) : 1-5 = réussite critique, 96-100 = échec critique, quelle que soit la cible. */
 GW.seuilReussiteCritique = 5;
 GW.seuilEchecCritique = 96;
@@ -236,7 +240,8 @@ GW.appareils = {
 };
 
 GW.tagsObjet = {
-  cache: { label: "GALACTICWARS.Tags.cache", icone: "fa-solid fa-eye-slash" }
+  cache: { label: "GALACTICWARS.Tags.cache", icone: "fa-solid fa-eye-slash" },
+  endommage: { label: "GALACTICWARS.Tags.endommage", icone: "fa-solid fa-heart-crack" }
 };
 
 GW.statutsPnj = {

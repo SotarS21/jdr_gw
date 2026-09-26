@@ -70,7 +70,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "",
         "notesMJ": ""
       },
@@ -86,7 +86,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "<p>Cabine du capitaine et quatre cabines doubles.</p>",
         "notesMJ": ""
       },
@@ -102,7 +102,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "",
         "notesMJ": ""
       },
@@ -118,7 +118,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "",
         "notesMJ": ""
       },
@@ -134,7 +134,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "",
         "notesMJ": ""
       },
@@ -150,7 +150,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "",
         "notesMJ": ""
       },
@@ -166,7 +166,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "<p>Deux pods de 6 places.</p>",
         "notesMJ": ""
       },
@@ -241,7 +241,7 @@
     "equipementsEmbarques": "",
     "portrait": "systems/galactic-wars/asset_visuel/objets/vaisseaux-lance-d-argent.jpg",
     "description": "<p>Frégate armée de 60 m, sœur cadette du Pourparler (même chantier, même silhouette effilée). Rapide pour sa taille, elle frappe avec ses deux canons lourds de proue avant de se dégager sous le feu de ses tourelles d'ailes.</p><p><em>Caractéristiques estimées : ce vaisseau n'est pas détaillé dans le matériel source (valeurs calibrées sur les vaisseaux du compendium, à ajuster par le MJ).</em></p>",
-    "modules": 8
+    "modules": 10
   },
   "folder": null,
   "sort": 0,

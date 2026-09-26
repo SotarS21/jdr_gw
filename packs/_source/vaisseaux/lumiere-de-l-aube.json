@@ -70,7 +70,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "",
         "notesMJ": ""
       },
@@ -86,7 +86,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "<p>Salon de réception aux parois dorées.</p>",
         "notesMJ": ""
       },
@@ -102,7 +102,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "<p>Quatre suites pour les passagers de marque.</p>",
         "notesMJ": ""
       },
@@ -118,7 +118,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "",
         "notesMJ": ""
       },
@@ -134,7 +134,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "",
         "notesMJ": ""
       },
@@ -150,7 +150,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "",
         "notesMJ": ""
       },
@@ -166,7 +166,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "<p>Une navette de 6 places.</p>",
         "notesMJ": ""
       },
@@ -182,7 +182,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "<p>Quatre pods de 6 places.</p>",
         "notesMJ": ""
       },
@@ -273,7 +273,7 @@
     "equipementsEmbarques": "",
     "portrait": "systems/galactic-wars/asset_visuel/objets/vaisseaux-lumiere-de-l-aube.jpg",
     "description": "<p>Grande frégate de 90 m à la coque ivoire et or, conçue pour le transport de dignitaires. Ses boucliers, parmi les plus puissants pour sa taille, comptent davantage que son armement pour protéger ses passagers.</p><p><em>Caractéristiques estimées : ce vaisseau n'est pas détaillé dans le matériel source (valeurs calibrées sur les vaisseaux du compendium, à ajuster par le MJ).</em></p>",
-    "modules": 10
+    "modules": 12
   },
   "folder": null,
   "sort": 0,

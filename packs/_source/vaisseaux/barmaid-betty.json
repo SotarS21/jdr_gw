@@ -45,7 +45,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "<p>Large infirmerie.</p>",
         "notesMJ": ""
       },
@@ -61,7 +61,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "<p>Plusieurs dortoirs de soldats.</p>",
         "notesMJ": ""
       },
@@ -77,7 +77,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "<p>Mess commun.</p>",
         "notesMJ": ""
       },
@@ -93,7 +93,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "",
         "notesMJ": ""
       },
@@ -109,7 +109,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "<p>Poste de pilotage et passerelle.</p>",
         "notesMJ": ""
       },
@@ -125,7 +125,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "<p>Plusieurs sas de débarquement.</p>",
         "notesMJ": ""
       },
@@ -168,7 +168,7 @@
     "portrait": "icons/svg/mystery-man.svg",
     "description": "<p>Transport de troupes et de combat, 18 à 26 personnes, 100 m de long sur 70 m de large. Dispose d'une large infirmerie et de plusieurs dortoirs de soldats.</p><p>Note MJ : les points de vie (100), le bouclier (120, réduction 0), l'armement (4 canons lourds 4d6) ainsi que le mess commun, la salle des machines, le poste de pilotage/passerelle et les sas de débarquement sont des valeurs/salles estimées par cohérence avec les vaisseaux comparables du même classeur (Barloz, La poubelle géante, Le Arcadia), pas des données du matériel source. À ajuster librement.</p>",
     "amenagements": [],
-    "modules": 12
+    "modules": 10
   },
   "folder": null,
   "sort": 100000,

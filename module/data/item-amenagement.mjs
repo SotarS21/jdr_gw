@@ -3,7 +3,7 @@ const { StringField, NumberField, HTMLField } = foundry.data.fields;
 /**
  * Aménagement de vaisseau (v0.19.0, suivi de l'auteur n° 12-13) : infirmerie, cabine, soute agrandie, bouclier
  * renforcé… Porté par l'acteur vaisseau, il occupe `modules` modules sur les `system.modules` du vaisseau. Effet
- * décrit, appliqué par le MJ (pas de mécanique automatique). Un aménagement d'origine vaut 0 module et 0c.
+ * décrit, appliqué par le MJ (pas de mécanique automatique). Un aménagement d'origine vaut 0c et 1 module (v0.19.1).
  */
 export class AmenagementData extends foundry.abstract.TypeDataModel {
   static defineSchema() {

@@ -70,7 +70,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "",
         "notesMJ": ""
       },
@@ -86,7 +86,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "<p>Trois cabines.</p>",
         "notesMJ": ""
       },
@@ -102,7 +102,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "",
         "notesMJ": ""
       },
@@ -118,7 +118,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "",
         "notesMJ": ""
       },
@@ -161,7 +161,7 @@
     "portrait": "systems/galactic-wars/asset_visuel/objets/vaisseaux-corellian-dawn.png",
     "description": "<p>Freighter, 5 à 6 personnes, 36 m de long sur 27 m de large.</p><p>Note MJ : les points de vie (30), le bouclier (35, réduction 0), l'armement (1 canon léger 2d6 et 1 tourelle légère 2d6), l'entrepôt cargo et les salles à bord (poste de pilotage, trois cabines, sanitaire, salle de repos/cuisine) sont des valeurs/éléments estimés par cohérence avec les vaisseaux comparables du même classeur (Barloz, La poubelle géante, Le Arcadia), pas des données du matériel source. À ajuster librement.</p>",
     "amenagements": [],
-    "modules": 4
+    "modules": 6
   },
   "folder": null,
   "sort": 100000,

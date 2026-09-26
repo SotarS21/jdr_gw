@@ -37,7 +37,7 @@
     "portrait": "icons/svg/mystery-man.svg",
     "description": "<p>Transport cargo modulaire, conçu pour le fret plutôt que pour le combat, avec un équipage réduit à 2 personnes.</p><p><em>Note MJ : PV de coque (20) et bouclier (20 points) estimés par cohérence avec les vaisseaux comparables du même classeur (Barloz : 50 bouclier / 40 PV pour 6 personnes ; La poubelle géante : 20 bouclier / 15 PV pour 5 personnes ; Le Arcadia : 60 bouclier / 40 PV pour 6 personnes) — pas des valeurs du matériel source, à ajuster librement. La soute et les équipements embarqués sont également inventés pour cohérence avec le nom et le rôle du vaisseau.</em></p>",
     "amenagements": [],
-    "modules": 6
+    "modules": 7
   },
   "prototypeToken": {
     "name": "Dynamic 20 modular transport",
@@ -55,7 +55,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "<p>Inventé, non précisé dans le matériel source.</p>",
         "notesMJ": ""
       },
@@ -71,7 +71,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "<p>Quartiers réduits pour 2. Inventé, non précisé dans le matériel source.</p>",
         "notesMJ": ""
       },
@@ -87,7 +87,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "<p>Inventé, non précisé dans le matériel source.</p>",
         "notesMJ": ""
       },

@@ -272,5 +272,16 @@ export const RELEASE_NOTES = {
       <li>Nouvelle section <strong>Soute</strong> : glissez-y des équipements et des armures (depuis une fiche, ils y sont déplacés) ; « Donner » les rend à un membre de l'équipage assis à bord.</li>
       <li>Les vaisseaux existants sont convertis par un correctif proposé au MJ (aménagements en objets d'origine, modules du vaisseau homonyme du compendium).</li>
     </ul>`
+  },
+  "0.19.1": {
+    title: "v0.19.1",
+    html: `<ul>
+      <li><strong>Correction</strong> : les aménagements d'origine des vaisseaux comptent maintenant dans les modules (1 module chacun) ; les modules disponibles = aménagements d'origine + places libres selon la taille. Un correctif proposé au MJ met à jour les vaisseaux déjà convertis.</li>
+      <li>Jets : réussites en vert, échecs en rouge (critiques en badge plein), total du dé coloré.</li>
+      <li>Onglet Informations : champ « Signe distinctif ».</li>
+      <li>Tag « Endommagé » sur les armes, armures et équipements : l'objet ne peut plus être porté tant que le tag n'est pas retiré.</li>
+      <li>Onglet Notes : glissez un personnage ou un PNJ sur la fiche pour l'ajouter à vos PNJ (relié à sa fiche) ; chaque carte a « Montrer dans le tchat », et la carte du tchat se glisse sur une fiche pour l'ajouter à ses propres notes.</li>
+      <li>Mode Édition : compteur des niveaux de compétences répartis (12 au niveau 1, puis +3 par niveau).</li>
+    </ul>`
   }
 };

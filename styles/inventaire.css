@@ -731,3 +731,60 @@
   color: #15803d;
 }
 .gw-conversation-comlink .gw-conv-vide { margin: 0; font-style: italic; opacity: 0.7; }
+
+/* ==========================================================================
+   Résultat des jets (suivi de l'auteur n° 11) : succès en vert, échecs en rouge ; critiques en badge plein.
+   ========================================================================== */
+.gw-resultat {
+  display: inline-block;
+  margin-top: 0.15rem;
+  padding: 0.05rem 0.5rem;
+  border-radius: 4px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.gw-resultat.reussite { color: #1f9d55; background: rgba(31, 157, 85, 0.12); border: 1px solid rgba(31, 157, 85, 0.45); }
+.gw-resultat.echec { color: #d33a3a; background: rgba(211, 58, 58, 0.1); border: 1px solid rgba(211, 58, 58, 0.45); }
+.gw-resultat.critique { color: #fff; background: #1f9d55; border: 1px solid #1f9d55; }
+.gw-resultat.echec-critique { color: #fff; background: #d33a3a; border: 1px solid #d33a3a; }
+.chat-message.gw-jet.gw-reussite .dice-total,
+.chat-message.gw-jet.gw-critique .dice-total { color: #1f9d55; border-color: rgba(31, 157, 85, 0.6); }
+.chat-message.gw-jet.gw-echec .dice-total,
+.chat-message.gw-jet.gw-echec-critique .dice-total { color: #d33a3a; border-color: rgba(211, 58, 58, 0.6); }
+.chat-message.gw-jet.gw-critique .dice-total,
+.chat-message.gw-jet.gw-echec-critique .dice-total { font-weight: 800; }
+
+/* Tag « Endommagé » (suivi n° 22) : badge rouge. */
+.badge-tag.badge-endommage { color: #f05a5f; border-color: rgba(240, 90, 95, 0.5); }
+.objet-badge.endommage, .gw-carte-objet .badge-endommage { color: #f05a5f; }
+
+/* ==========================================================================
+   Notes montrées dans le tchat (suivi n° 10) et boutons des cartes de notes.
+   ========================================================================== */
+.galactic-wars.personnage .carte-entete .note-btn {
+  width: 1.6rem;
+  height: 1.6rem;
+  flex: 0 0 1.6rem;
+  margin: 0;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--gw-border);
+  border-radius: 4px;
+  background: none;
+  color: var(--gw-accent);
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+.galactic-wars.personnage .carte-entete .note-btn:hover { border-color: var(--gw-accent); }
+.gw-note-carte { cursor: grab; }
+.gw-note-carte header { display: flex; gap: 0.5rem; align-items: flex-start; margin-bottom: 0.3rem; }
+.gw-note-carte header img { width: 48px; height: 48px; object-fit: cover; border-radius: 4px; border: none; }
+.gw-note-carte header > div { display: flex; flex-direction: column; gap: 0.15rem; }
+.gw-note-type { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.7; }
+.gw-note-sous-titre { font-size: 0.82rem; opacity: 0.8; }
+.gw-note-carte .pastille { display: inline-block; font-size: 0.72rem; padding: 0 0.4rem; border-radius: 999px; border: 1px solid currentColor; }
+.gw-note-carte .mots-cles { display: flex; flex-wrap: wrap; gap: 0.2rem; }
+.gw-note-carte .etiquette { font-size: 0.72rem; padding: 0 0.35rem; border-radius: 999px; background: rgba(127, 127, 127, 0.18); }
+.gw-note-aide { margin: 0.3rem 0 0; font-size: 0.75rem; opacity: 0.7; }

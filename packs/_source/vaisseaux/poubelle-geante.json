@@ -70,7 +70,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "",
         "notesMJ": ""
       },
@@ -121,7 +121,7 @@
     "portrait": "systems/galactic-wars/asset_visuel/objets/vaisseaux-la-poubelle-geante.jpg",
     "description": "<p>Freighter d'occasion de 15 m sur 25 m, pour 5 places. Équipage de 2 pilotes ; une cale/dortoir/entrepôt/salle des machines faisant office d'espace polyvalent ; un sanitaire.</p><p>Armement : une tourelle lourde (4d6) et une paire de tourelles légères à l'avant (2d6 chacune).</p>",
     "amenagements": [],
-    "modules": 4
+    "modules": 3
   },
   "folder": null,
   "sort": 100000,

@@ -70,7 +70,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "",
         "notesMJ": ""
       },
@@ -86,7 +86,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "<p>6 cabines dont celle du capitaine, chacune avec son sanitaire. Confort grand luxe.</p>",
         "notesMJ": ""
       },
@@ -102,7 +102,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "",
         "notesMJ": ""
       },
@@ -118,7 +118,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "<p>Cuisines séparées.</p>",
         "notesMJ": ""
       },
@@ -161,7 +161,7 @@
     "portrait": "icons/svg/mystery-man.svg",
     "description": "<p>Freighter de luxe. 6 personnes. Infirmerie, 6 cabines dont celle du capitaine, 1 entrepôt, des sanitaires par cabine, une salle de repos, des cuisines séparées. Le confort grand luxe. 2 canons lourds 4d6, 2 canons légers 2d6. 50 Shield, 40 blindages.</p>",
     "amenagements": [],
-    "modules": 8
+    "modules": 7
   },
   "folder": null,
   "sort": 100000,

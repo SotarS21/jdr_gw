@@ -130,6 +130,8 @@ export async function editerEntreeNote(actor, type, index) {
   if (!donnees) return;
 
   const entree = normaliser(type, donnees);
+  // Lien vers l'acteur d'un PNJ déposé : conservé à la modification (la fenêtre ne l'affiche pas).
+  if (type === "pnj" && existante?.acteurUuid) entree.acteurUuid = existante.acteurUuid;
   const nouvelleListe = [...liste];
   if (existante) nouvelleListe[index] = entree;
   else nouvelleListe.push(entree);
@@ -152,4 +154,90 @@ export async function supprimerEntreeNote(actor, type, index) {
   });
   if (!confirme) return;
   await actor.update({ [`system.${champ}`]: liste.filter((_, i) => i !== index) });
+}
+
+/* ------------------------------------------------------------------------------------------ */
+/* PNJ depuis un acteur (n° 9), notes montrées dans le tchat et glissées vers une fiche (n° 10). */
+/* ------------------------------------------------------------------------------------------ */
+
+/** Entrée PNJ tirée d'un acteur déposé sur la fiche (nom, image, métier / race / type, lien). */
+export function pnjDepuisActeur(acteur) {
+  const s = acteur.system ?? {};
+  const sousTitre = [s.metier?.nom ?? s.ecole?.nom, s.race?.nom].filter(Boolean).join(" · ")
+    || game.i18n.localize(`TYPES.Actor.${acteur.type}`);
+  return { nom: acteur.name, sousTitre, img: acteur.img ?? "", description: "", statut: "neutre", acteurUuid: acteur.uuid };
+}
+
+/** Ajoute une entrée à une liste de notes (tableau complet réécrit). */
+export async function ajouterEntreeNote(actor, type, entree) {
+  const champ = LISTES_NOTES[type];
+  if (!champ) return null;
+  const liste = actor.system.toObject()[champ] ?? [];
+  return actor.update({ [`system.${champ}`]: [...liste, entree] });
+}
+
+/** Contenu HTML d'une entrée, pour la carte de tchat. */
+async function carteEntree(type, entree) {
+  const t = (cle) => game.i18n.localize(`GALACTICWARS.Notes.${cle}`);
+  const enrichir = (html) => foundry.applications.ux.TextEditor.implementation.enrichHTML(html ?? "");
+  const titre = type === "pnj" ? entree.nom : entree.titre;
+  let entete = "";
+  if (type === "pnj") {
+    entete = `${entree.sousTitre ? `<div class="gw-note-sous-titre">${echapper(entree.sousTitre)}</div>` : ""}
+      <span class="pastille statut-${entree.statut}">${game.i18n.localize(GW.statutsPnj[entree.statut] ?? "")}</span>`;
+  } else if (type === "mission") {
+    entete = `<span class="pastille importance-${entree.importance}">${game.i18n.localize(GW.importancesMission[entree.importance] ?? "")}</span>
+      <span class="pastille mission-${entree.statut}">${game.i18n.localize(GW.statutsMission[entree.statut] ?? "")}</span>`;
+  } else if (type === "info" && entree.motsCles?.length) {
+    entete = `<div class="mots-cles">${entree.motsCles.map((m) => `<span class="etiquette">${echapper(m)}</span>`).join("")}</div>`;
+  }
+  const texte = await enrichir(type === "info" ? entree.contenu : entree.description);
+  return `<div class="gw-note-carte" data-type="${type}">
+    <header>
+      ${type === "pnj" && entree.img ? `<img src="${echapper(entree.img)}" alt="">` : ""}
+      <div>
+        <span class="gw-note-type">${t(`Type.${type}`)}</span>
+        <strong>${echapper(titre)}</strong>
+        ${entete}
+      </div>
+    </header>
+    <div class="gw-note-texte">${texte}</div>
+    <p class="gw-note-aide"><i class="fa-solid fa-hand-pointer"></i> ${t("GlisserVersFiche")}</p>
+  </div>`;
+}
+
+/** Poste une entrée des Notes dans le tchat (carte glissable vers une autre fiche). */
+export async function montrerEntreeNote(actor, type, index) {
+  const champ = LISTES_NOTES[type];
+  const entree = actor.system.toObject()[champ]?.[index];
+  if (!entree) return null;
+  const copie = foundry.utils.deepClone(entree);
+  delete copie.origineMetier;
+  return ChatMessage.create({
+    speaker: ChatMessage.getSpeaker({ actor }),
+    content: await carteEntree(type, copie),
+    flags: { "galactic-wars": { note: { type, entree: copie } } }
+  });
+}
+
+/** Données d'une note glissée depuis le tchat, prêtes à ajouter à une fiche (date d'un résumé renouvelée). */
+export function entreeDepuisGlisser(note) {
+  if (!note || !LISTES_NOTES[note.type]) return null;
+  const entree = foundry.utils.deepClone(note.entree ?? {});
+  delete entree.origineMetier;
+  if (note.type === "resume") entree.date = Date.now();
+  return entree;
+}
+
+/** À enregistrer au hook "init" : les cartes de note du tchat se glissent vers une fiche de personnage. */
+export function enregistrerHooksNotes() {
+  Hooks.on("renderChatMessageHTML", (message, html) => {
+    const note = message.getFlag?.("galactic-wars", "note");
+    const carte = html.querySelector(".gw-note-carte");
+    if (!note || !carte) return;
+    carte.draggable = true;
+    carte.addEventListener("dragstart", (e) => {
+      e.dataTransfer.setData("text/plain", JSON.stringify({ type: "GalacticWarsNote", note }));
+    });
+  });
 }

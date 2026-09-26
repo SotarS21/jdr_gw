@@ -70,7 +70,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "<p>Poste de commandement, pilotage et commande des tourelles.</p>",
         "notesMJ": ""
       },
@@ -86,7 +86,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "<p>Salle de réunion blindée, où la frégate tient les « pourparlers » qui lui donnent son nom.</p>",
         "notesMJ": ""
       },
@@ -102,7 +102,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "<p>Quatre cabines individuelles.</p>",
         "notesMJ": ""
       },
@@ -118,7 +118,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "<p>Dortoirs pour une dizaine de personnes.</p>",
         "notesMJ": ""
       },
@@ -134,7 +134,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "",
         "notesMJ": ""
       },
@@ -150,7 +150,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "",
         "notesMJ": ""
       },
@@ -166,7 +166,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "",
         "notesMJ": ""
       },
@@ -182,7 +182,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "<p>Une navette de 8 places.</p>",
         "notesMJ": ""
       },
@@ -198,7 +198,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "<p>Trois pods de 6 places.</p>",
         "notesMJ": ""
       },
@@ -281,7 +281,7 @@
     "equipementsEmbarques": "",
     "portrait": "systems/galactic-wars/asset_visuel/objets/vaisseaux-pourparler.png",
     "description": "<p>Grande frégate armée de 80 m, aux lignes effilées et à la coque blanche. Deux batteries de canons lourds sur les flancs et six tourelles légères en font un vaisseau d'escorte redouté ; son nom, Pourparler, sonne comme une ironie pour ceux qui l'ont vu ouvrir le feu.</p><p><em>Caractéristiques estimées : ce vaisseau n'est pas détaillé dans le matériel source (valeurs calibrées sur les vaisseaux du compendium, à ajuster par le MJ).</em></p>",
-    "modules": 10
+    "modules": 13
   },
   "folder": null,
   "sort": 0,

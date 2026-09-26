@@ -162,6 +162,12 @@
       {{#if (eq pointsCaracteristiques.etat 'manque')}}<span class="etat">{{localize 'GALACTICWARS.Sheet.PointsCaracteristiquesManque'}}</span>{{/if}}
       {{#if (eq pointsCaracteristiques.etat 'exces')}}<span class="etat">{{localize 'GALACTICWARS.Sheet.PointsCaracteristiquesExces'}}</span>{{/if}}
     </div>
+    <div class="points-caracteristiques niveaux-competences {{niveauxCompetences.etat}}" data-tooltip="{{localize 'GALACTICWARS.Sheet.NiveauxCompetencesHint' depart=niveauxCompetences.depart}}">
+      <span class="eyebrow">{{localize 'GALACTICWARS.Sheet.NiveauxCompetences'}}</span>
+      <span class="mono valeur">{{niveauxCompetences.valeur}} / {{niveauxCompetences.attendu}}</span>
+      {{#if (eq niveauxCompetences.etat 'manque')}}<span class="etat">{{localize 'GALACTICWARS.Sheet.NiveauxCompetencesManque'}}</span>{{/if}}
+      {{#if (eq niveauxCompetences.etat 'exces')}}<span class="etat">{{localize 'GALACTICWARS.Sheet.NiveauxCompetencesExces'}}</span>{{/if}}
+    </div>
     {{/if}}
     <div class="caracteristiques-grid">
       {{#each caracteristiques as |car|}}
@@ -473,6 +479,10 @@
       </label>
       {{/each}}
     </div>
+    <label class="identite-champ signe-distinctif">
+      <span class="eyebrow">{{localize 'GALACTICWARS.Notes.Identite.signeDistinctif'}}</span>
+      <textarea name="system.infos.signeDistinctif" rows="2" placeholder="{{localize 'GALACTICWARS.Notes.SigneDistinctifExemple'}}">{{system.infos.signeDistinctif}}</textarea>
+    </label>
     <prose-mirror name="system.description" value="{{system.description}}" toggled>{{{descriptionEnrichie}}}</prose-mirror>
   </section>
 
@@ -572,6 +582,7 @@
       <header class="carte-entete">
         <span class="carte-titre">{{resume.titre}}</span>
         {{#if resume.dateLabel}}<span class="carte-date" data-tooltip="{{localize 'GALACTICWARS.Notes.DateHint'}}">{{resume.dateLabel}}</span>{{/if}}
+        <button type="button" class="note-btn" data-action="montrerEntreeNote" data-tooltip="{{localize 'GALACTICWARS.Notes.MontrerTchat'}}" aria-label="{{localize 'GALACTICWARS.Notes.MontrerTchat'}}"><i class="fa-solid fa-comment"></i></button>
         <button type="button" class="del-btn" data-action="supprimerEntreeNote" data-tooltip="{{localize 'GALACTICWARS.Notes.Supprimer'}}">🗑</button>
       </header>
       <div class="carte-texte">{{{resume.descriptionEnrichie}}}</div>
@@ -592,6 +603,7 @@
     <article class="carte-note" data-type="info" data-index="{{info.index}}" data-action="editerEntreeNote">
       <header class="carte-entete">
         <span class="carte-titre">{{info.titre}}</span>
+        <button type="button" class="note-btn" data-action="montrerEntreeNote" data-tooltip="{{localize 'GALACTICWARS.Notes.MontrerTchat'}}" aria-label="{{localize 'GALACTICWARS.Notes.MontrerTchat'}}"><i class="fa-solid fa-comment"></i></button>
         <button type="button" class="del-btn" data-action="supprimerEntreeNote" data-tooltip="{{localize 'GALACTICWARS.Notes.Supprimer'}}">🗑</button>
       </header>
       {{#if info.motsCles.length}}<div class="mots-cles">{{#each info.motsCles as |mot|}}<span class="etiquette">{{mot}}</span>{{/each}}</div>{{/if}}
@@ -616,14 +628,16 @@
         <header class="carte-entete">
           <span class="carte-titre">{{pnj.nom}}</span>
           <span class="pastille statut-{{pnj.statut}}">{{pnj.statutLabel}}</span>
-          <button type="button" class="del-btn" data-action="supprimerEntreeNote" data-tooltip="{{localize 'GALACTICWARS.Notes.Supprimer'}}">🗑</button>
+          {{#if pnj.acteurUuid}}<button type="button" class="note-btn" data-action="ouvrirActeurPnj" data-tooltip="{{localize 'GALACTICWARS.Notes.OuvrirFichePnj'}}" aria-label="{{localize 'GALACTICWARS.Notes.OuvrirFichePnj'}}"><i class="fa-solid fa-id-card"></i></button>{{/if}}
+          <button type="button" class="note-btn" data-action="montrerEntreeNote" data-tooltip="{{localize 'GALACTICWARS.Notes.MontrerTchat'}}" aria-label="{{localize 'GALACTICWARS.Notes.MontrerTchat'}}"><i class="fa-solid fa-comment"></i></button>
+        <button type="button" class="del-btn" data-action="supprimerEntreeNote" data-tooltip="{{localize 'GALACTICWARS.Notes.Supprimer'}}">🗑</button>
         </header>
         {{#if pnj.sousTitre}}<div class="carte-sous-titre">{{pnj.sousTitre}}</div>{{/if}}
         <div class="carte-texte">{{{pnj.descriptionEnrichie}}}</div>
       </div>
     </article>
     {{else}}
-    <p class="hint">{{localize 'GALACTICWARS.Notes.AucunPnj'}}</p>
+    <p class="hint">{{localize 'GALACTICWARS.Notes.AucunPnj'}} {{localize 'GALACTICWARS.Notes.AideDepotPnj'}}</p>
     {{/each}}
   </section>
   {{/if}}
@@ -640,6 +654,7 @@
         <span class="carte-titre">{{mission.titre}}</span>
         <span class="pastille importance-{{mission.importance}}">{{mission.importanceLabel}}</span>
         <span class="pastille mission-{{mission.statut}}">{{mission.statutLabel}}</span>
+        <button type="button" class="note-btn" data-action="montrerEntreeNote" data-tooltip="{{localize 'GALACTICWARS.Notes.MontrerTchat'}}" aria-label="{{localize 'GALACTICWARS.Notes.MontrerTchat'}}"><i class="fa-solid fa-comment"></i></button>
         <button type="button" class="del-btn" data-action="supprimerEntreeNote" data-tooltip="{{localize 'GALACTICWARS.Notes.Supprimer'}}">🗑</button>
       </header>
       <div class="carte-texte">{{{mission.descriptionEnrichie}}}</div>

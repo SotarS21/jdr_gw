@@ -45,7 +45,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "",
         "notesMJ": ""
       },
@@ -61,7 +61,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "<p>Quatre couchettes.</p>",
         "notesMJ": ""
       },
@@ -77,7 +77,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "",
         "notesMJ": ""
       },
@@ -93,7 +93,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "",
         "notesMJ": ""
       },
@@ -109,7 +109,7 @@
       "img": "icons/svg/upgrade.svg",
       "system": {
         "prix": "",
-        "modules": 0,
+        "modules": 1,
         "description": "<p>Rampe arrière et sas latéral pour les conteneurs.</p>",
         "notesMJ": ""
       },
@@ -160,7 +160,7 @@
     "equipementsEmbarques": "",
     "portrait": "systems/galactic-wars/asset_visuel/objets/vaisseaux-la-brique.png",
     "description": "<p>Transport moyen massif et anguleux, blindé comme un coffre-fort : lent et peu armé, mais sa coque encaisse bien plus qu'un cargo de sa taille — d'où son surnom, La Brique.</p><p><em>Caractéristiques estimées : ce vaisseau n'est pas détaillé dans le matériel source (valeurs calibrées sur les vaisseaux du compendium, à ajuster par le MJ).</em></p>",
-    "modules": 5
+    "modules": 7
   },
   "folder": null,
   "sort": 0,
