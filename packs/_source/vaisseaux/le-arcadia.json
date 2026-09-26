@@ -11,7 +11,58 @@
     },
     "actorLink": true
   },
-  "items": [],
+  "items": [
+    {
+      "_id": "FjiuAz4c3yEoBGr9",
+      "_key": "!actors.items!bNYNvq4RwXj9dVX7.FjiuAz4c3yEoBGr9",
+      "name": "Canon lourd",
+      "type": "arme",
+      "img": "systems/galactic-wars/asset_visuel/objets/armes-tourelle-laser-lourde.jpg",
+      "system": {
+        "quantite": 2,
+        "prix": "",
+        "porte": true,
+        "description": "",
+        "notesMJ": "",
+        "degats": "4d6",
+        "competence": "canonLourd",
+        "instable": false,
+        "portee": ""
+      },
+      "effects": [],
+      "flags": {
+        "galactic-wars": {
+          "emplacement": ""
+        }
+      },
+      "sort": 100000
+    },
+    {
+      "_id": "OV8hOhcVv8vNLuGD",
+      "_key": "!actors.items!bNYNvq4RwXj9dVX7.OV8hOhcVv8vNLuGD",
+      "name": "Tourelle légère (aile, poste dédié)",
+      "type": "arme",
+      "img": "systems/galactic-wars/asset_visuel/objets/armes-tourelle-laser-lourde.jpg",
+      "system": {
+        "quantite": 4,
+        "prix": "",
+        "porte": true,
+        "description": "",
+        "notesMJ": "",
+        "degats": "2d6",
+        "competence": "canonLourd",
+        "instable": false,
+        "portee": ""
+      },
+      "effects": [],
+      "flags": {
+        "galactic-wars": {
+          "emplacement": ""
+        }
+      },
+      "sort": 200000
+    }
+  ],
   "effects": [],
   "system": {
     "classe": "Freighter armé",
@@ -24,44 +75,65 @@
     "bouclier": {
       "actif": true,
       "points": 60,
-      "reduction": 0
+      "reduction": 0,
+      "max": 60
     },
     "moteur": {
       "deplacement": 0
     },
-    "armement": [
-      {
-        "nom": "Canon lourd",
-        "degats": "4d6",
-        "quantite": 2
-      },
-      {
-        "nom": "Tourelle légère (aile, poste dédié)",
-        "degats": "2d6",
-        "quantite": 4
-      }
-    ],
+    "armement": [],
     "equipage": [
       {
         "role": "Pilote",
         "nom": "",
-        "description": "2 pilotes."
+        "description": "2 pilotes.",
+        "places": 1,
+        "noms": [],
+        "uuids": []
       },
       {
         "role": "Communicateur",
         "nom": "",
-        "description": "1 communicateur."
+        "description": "1 communicateur.",
+        "places": 1,
+        "noms": [],
+        "uuids": []
       },
       {
         "role": "Équipage",
         "nom": "",
-        "description": "6 places au total dont le capitaine (répartition non précisée)."
+        "description": "6 places au total dont le capitaine (répartition non précisée).",
+        "places": 1,
+        "noms": [],
+        "uuids": []
       }
     ],
     "soute": "Un entrepôt de 10 m2.",
     "equipementsEmbarques": "6 cabines dont celle du capitaine ; 2 sanitaires ; une salle des machines ; une infirmerie ; une salle de repos/cuisine.",
     "portrait": "icons/svg/mystery-man.svg",
-    "description": "<p>Freighter armé de 20 m sur 35 m, pour 6 places. Équipage de 2 pilotes et 1 communicateur ; 6 cabines dont celle du capitaine, 2 sanitaires, un entrepôt de 10 m2, une salle des machines, une infirmerie et une salle de repos/cuisine.</p><p>Armement : 2 canons lourds places au milieu, en haut et en dessous (4d6 chacun), et 2 paires de tourelles légères sur les ailes à l'avant, pilotables depuis un poste dédié (2d6 chacune).</p>"
+    "description": "<p>Freighter armé de 20 m sur 35 m, pour 6 places. Équipage de 2 pilotes et 1 communicateur ; 6 cabines dont celle du capitaine, 2 sanitaires, un entrepôt de 10 m2, une salle des machines, une infirmerie et une salle de repos/cuisine.</p><p>Armement : 2 canons lourds places au milieu, en haut et en dessous (4d6 chacun), et 2 paires de tourelles légères sur les ailes à l'avant, pilotables depuis un poste dédié (2d6 chacune).</p>",
+    "amenagements": [
+      {
+        "nom": "Cabines",
+        "description": "6 cabines dont celle du capitaine."
+      },
+      {
+        "nom": "Sanitaires",
+        "description": "2 sanitaires."
+      },
+      {
+        "nom": "Salle des machines",
+        "description": ""
+      },
+      {
+        "nom": "Infirmerie",
+        "description": ""
+      },
+      {
+        "nom": "Cuisine / salle de repos",
+        "description": ""
+      }
+    ]
   },
   "folder": null,
   "sort": 100000,

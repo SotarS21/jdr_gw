@@ -4,6 +4,7 @@ import { fichesIncompletes, completerToutesLesFiches } from "./migration.mjs";
 import { GalacticWarsActor } from "../documents/actor.mjs";
 import { competencesSelonMetier } from "./metier.mjs";
 import { correspondanceDepart, objetDeDepart, estContactDeDepart, pnjDeDepart } from "./objets-depart.mjs";
+import { convertirArmement } from "./armement-vaisseau.mjs";
 
 /**
  * Registre des correctifs de contenu proposés au MJ après une mise à jour (sur le modèle
@@ -25,6 +26,22 @@ import { correspondanceDepart, objetDeDepart, estContactDeDepart, pnjDeDepart } 
  * - `apply()`     → applique le correctif, renvoie le nombre de documents modifiés.
  */
 export const PACK_UPDATES = [
+  {
+    id: "0.16.0-armement-en-objets",
+    cible: "acteurs",
+    version: "0.16.0",
+    label: "Armement des vaisseaux converti en objets « arme »",
+    description:
+      "L'armement d'un vaisseau devient une liste d'objets « arme » (glisser-déposer, carte d'attaque, tir au taux du " +
+      "token sélectionné). Convertit l'ancien armement texte des vaisseaux du monde et des tokens non liés : une arme " +
+      "par ligne (nom, dégâts, quantité, emplacement), compétence Canon lourd.",
+    concernes: () => Promise.resolve(vaisseauxAConvertir().length),
+    apply: async () => {
+      const liste = vaisseauxAConvertir();
+      for (const vaisseau of liste) await convertirArmement(vaisseau);
+      return liste.length;
+    }
+  },
   {
     id: "0.15.7-kit-de-reparation",
     cible: "acteurs",
@@ -522,6 +539,11 @@ async function armesContondantesSurBagarre() {
 /* ------------------------------------------------------------------------------------------ */
 /* Outils génériques pour écrire de futurs correctifs en quelques lignes.                      */
 /* ------------------------------------------------------------------------------------------ */
+
+/** Vaisseaux (monde et tokens non liés) dont l'armement est encore à l'ancien format texte. */
+function vaisseauxAConvertir() {
+  return tousLesActeurs().filter((a) => a.type === "vaisseau" && a.system.toObject().armement?.length);
+}
 
 /** Personnages du monde + acteurs synthétiques des tokens non liés (qui ont leurs propres données). */
 export function tousLesActeurs() {

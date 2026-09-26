@@ -8,32 +8,63 @@
     "classe": "Transport modulaire cargo",
     "taille": "35 m de long, 20 m de large",
     "prix": "150000c",
-    "pv": { "actuels": 20, "max": 20 },
-    "bouclier": { "actif": true, "points": 20, "reduction": 0 },
-    "moteur": { "deplacement": 0 },
+    "pv": {
+      "actuels": 20,
+      "max": 20
+    },
+    "bouclier": {
+      "actif": true,
+      "points": 20,
+      "reduction": 0,
+      "max": 20
+    },
+    "moteur": {
+      "deplacement": 0
+    },
     "armement": [],
     "equipage": [
       {
         "role": "Équipage",
         "nom": "",
-        "description": "2 personnes (répartition non précisée)."
+        "description": "2 personnes (répartition non précisée).",
+        "places": 1,
+        "noms": [],
+        "uuids": []
       }
     ],
     "soute": "Grand entrepôt modulaire (inventé, non précisé dans le matériel source, cohérent avec le nom \"modular transport\").",
     "equipementsEmbarques": "(inventé, non précisé dans le matériel source) Poste de pilotage, quartiers réduits pour 2, sanitaire.",
     "portrait": "icons/svg/mystery-man.svg",
-    "description": "<p>Transport cargo modulaire, conçu pour le fret plutôt que pour le combat, avec un équipage réduit à 2 personnes.</p><p><em>Note MJ : PV de coque (20) et bouclier (20 points) estimés par cohérence avec les vaisseaux comparables du même classeur (Barloz : 50 bouclier / 40 PV pour 6 personnes ; La poubelle géante : 20 bouclier / 15 PV pour 5 personnes ; Le Arcadia : 60 bouclier / 40 PV pour 6 personnes) — pas des valeurs du matériel source, à ajuster librement. La soute et les équipements embarqués sont également inventés pour cohérence avec le nom et le rôle du vaisseau.</em></p>"
+    "description": "<p>Transport cargo modulaire, conçu pour le fret plutôt que pour le combat, avec un équipage réduit à 2 personnes.</p><p><em>Note MJ : PV de coque (20) et bouclier (20 points) estimés par cohérence avec les vaisseaux comparables du même classeur (Barloz : 50 bouclier / 40 PV pour 6 personnes ; La poubelle géante : 20 bouclier / 15 PV pour 5 personnes ; Le Arcadia : 60 bouclier / 40 PV pour 6 personnes) — pas des valeurs du matériel source, à ajuster librement. La soute et les équipements embarqués sont également inventés pour cohérence avec le nom et le rôle du vaisseau.</em></p>",
+    "amenagements": [
+      {
+        "nom": "Poste de pilotage",
+        "description": "Inventé, non précisé dans le matériel source."
+      },
+      {
+        "nom": "Quartiers",
+        "description": "Quartiers réduits pour 2. Inventé, non précisé dans le matériel source."
+      },
+      {
+        "nom": "Sanitaire",
+        "description": "Inventé, non précisé dans le matériel source."
+      }
+    ]
   },
   "prototypeToken": {
     "name": "Dynamic 20 modular transport",
-    "texture": { "src": "icons/svg/mystery-man.svg" },
+    "texture": {
+      "src": "icons/svg/mystery-man.svg"
+    },
     "actorLink": true
   },
   "items": [],
   "effects": [],
   "folder": null,
   "sort": 100000,
-  "ownership": { "default": 0 },
+  "ownership": {
+    "default": 0
+  },
   "flags": {},
   "_stats": {
     "compendiumSource": null,

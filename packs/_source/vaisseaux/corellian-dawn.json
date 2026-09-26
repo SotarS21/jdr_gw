@@ -11,7 +11,58 @@
     },
     "actorLink": true
   },
-  "items": [],
+  "items": [
+    {
+      "_id": "Q1onNg7K1CNxEfvj",
+      "_key": "!actors.items!kFKrbrwc64nlOnXP.Q1onNg7K1CNxEfvj",
+      "name": "Canon léger",
+      "type": "arme",
+      "img": "systems/galactic-wars/asset_visuel/objets/armes-tourelle-laser-lourde.jpg",
+      "system": {
+        "quantite": 1,
+        "prix": "",
+        "porte": true,
+        "description": "",
+        "notesMJ": "",
+        "degats": "2d6",
+        "competence": "canonLourd",
+        "instable": false,
+        "portee": ""
+      },
+      "effects": [],
+      "flags": {
+        "galactic-wars": {
+          "emplacement": ""
+        }
+      },
+      "sort": 100000
+    },
+    {
+      "_id": "cgVpIRuMIKdQkTVn",
+      "_key": "!actors.items!kFKrbrwc64nlOnXP.cgVpIRuMIKdQkTVn",
+      "name": "Tourelle légère",
+      "type": "arme",
+      "img": "systems/galactic-wars/asset_visuel/objets/armes-tourelle-laser-lourde.jpg",
+      "system": {
+        "quantite": 1,
+        "prix": "",
+        "porte": true,
+        "description": "",
+        "notesMJ": "",
+        "degats": "2d6",
+        "competence": "canonLourd",
+        "instable": false,
+        "portee": ""
+      },
+      "effects": [],
+      "flags": {
+        "galactic-wars": {
+          "emplacement": ""
+        }
+      },
+      "sort": 200000
+    }
+  ],
   "effects": [],
   "system": {
     "classe": "Freighter",
@@ -24,34 +75,45 @@
     "bouclier": {
       "actif": true,
       "points": 35,
-      "reduction": 0
+      "reduction": 0,
+      "max": 35
     },
     "moteur": {
       "deplacement": 0
     },
-    "armement": [
-      {
-        "nom": "Canon léger",
-        "degats": "2d6",
-        "quantite": 1
-      },
-      {
-        "nom": "Tourelle légère",
-        "degats": "2d6",
-        "quantite": 1
-      }
-    ],
+    "armement": [],
     "equipage": [
       {
         "role": "Équipage",
         "nom": "",
-        "description": "5 à 6 personnes (répartition non précisée dans le matériel source)."
+        "description": "5 à 6 personnes (répartition non précisée dans le matériel source).",
+        "places": 1,
+        "noms": [],
+        "uuids": []
       }
     ],
     "soute": "Entrepôt cargo (inventé, non précisé dans le matériel source).",
     "equipementsEmbarques": "Poste de pilotage ; trois cabines ; sanitaire ; salle de repos/cuisine.",
     "portrait": "icons/svg/mystery-man.svg",
-    "description": "<p>Freighter, 5 à 6 personnes, 36 m de long sur 27 m de large.</p><p>Note MJ : les points de vie (30), le bouclier (35, réduction 0), l'armement (1 canon léger 2d6 et 1 tourelle légère 2d6), l'entrepôt cargo et les salles à bord (poste de pilotage, trois cabines, sanitaire, salle de repos/cuisine) sont des valeurs/éléments estimés par cohérence avec les vaisseaux comparables du même classeur (Barloz, La poubelle géante, Le Arcadia), pas des données du matériel source. À ajuster librement.</p>"
+    "description": "<p>Freighter, 5 à 6 personnes, 36 m de long sur 27 m de large.</p><p>Note MJ : les points de vie (30), le bouclier (35, réduction 0), l'armement (1 canon léger 2d6 et 1 tourelle légère 2d6), l'entrepôt cargo et les salles à bord (poste de pilotage, trois cabines, sanitaire, salle de repos/cuisine) sont des valeurs/éléments estimés par cohérence avec les vaisseaux comparables du même classeur (Barloz, La poubelle géante, Le Arcadia), pas des données du matériel source. À ajuster librement.</p>",
+    "amenagements": [
+      {
+        "nom": "Poste de pilotage",
+        "description": ""
+      },
+      {
+        "nom": "Cabines",
+        "description": "Trois cabines."
+      },
+      {
+        "nom": "Sanitaire",
+        "description": ""
+      },
+      {
+        "nom": "Cuisine / salle de repos",
+        "description": ""
+      }
+    ]
   },
   "folder": null,
   "sort": 100000,

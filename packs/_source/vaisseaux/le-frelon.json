@@ -11,7 +11,58 @@
     },
     "actorLink": true
   },
-  "items": [],
+  "items": [
+    {
+      "_id": "GLaAHCp614wkFpPP",
+      "_key": "!actors.items!ZBYP2ojwKYSOCbwa.GLaAHCp614wkFpPP",
+      "name": "Canon ION (compte comme canon lourd)",
+      "type": "arme",
+      "img": "systems/galactic-wars/asset_visuel/objets/armes-tourelle-laser-lourde.jpg",
+      "system": {
+        "quantite": 1,
+        "prix": "",
+        "porte": true,
+        "description": "",
+        "notesMJ": "",
+        "degats": "4d6+10",
+        "competence": "canonLourd",
+        "instable": false,
+        "portee": ""
+      },
+      "effects": [],
+      "flags": {
+        "galactic-wars": {
+          "emplacement": ""
+        }
+      },
+      "sort": 100000
+    },
+    {
+      "_id": "1OIuvtupRH9roMUW",
+      "_key": "!actors.items!ZBYP2ojwKYSOCbwa.1OIuvtupRH9roMUW",
+      "name": "Tourelle légère (blaster)",
+      "type": "arme",
+      "img": "systems/galactic-wars/asset_visuel/objets/armes-tourelle-laser-lourde.jpg",
+      "system": {
+        "quantite": 2,
+        "prix": "",
+        "porte": true,
+        "description": "",
+        "notesMJ": "",
+        "degats": "2d6*10",
+        "competence": "canonLourd",
+        "instable": false,
+        "portee": ""
+      },
+      "effects": [],
+      "flags": {
+        "galactic-wars": {
+          "emplacement": ""
+        }
+      },
+      "sort": 200000
+    }
+  ],
   "effects": [],
   "system": {
     "classe": "Chasseur léger",
@@ -24,34 +75,41 @@
     "bouclier": {
       "actif": true,
       "points": 15,
-      "reduction": 0
+      "reduction": 0,
+      "max": 15
     },
     "moteur": {
       "deplacement": 0
     },
-    "armement": [
-      {
-        "nom": "Canon ION (compte comme canon lourd)",
-        "degats": "4d6+10",
-        "quantite": 1
-      },
-      {
-        "nom": "Tourelle légère (blaster)",
-        "degats": "2d6*10",
-        "quantite": 2
-      }
-    ],
+    "armement": [],
     "equipage": [
       {
         "role": "Pilote",
         "nom": "",
-        "description": "1 à 3 places : pilotage, passager, droïde astromech."
+        "description": "1 à 3 places : pilotage, passager, droïde astromech.",
+        "places": 1,
+        "noms": [],
+        "uuids": []
       }
     ],
     "soute": "Aucune soute dédiée (chasseur léger, pas de cale cargo).",
     "equipementsEmbarques": "Poste de pilotage, poste de passager, poste de droïde astromech.",
     "portrait": "icons/svg/mystery-man.svg",
-    "description": "<p>Chasseur léger de 10 m de long pour 5 m de large, 1 à 3 places : poste de pilotage, poste de passager, poste de droïde astromech. C'est ce même modèle de vaisseau de classe Frelon qui figure comme equipement de départ de l'école Assassin sith (compendium écoles).</p><p>Armement : un canon ION comptant comme un canon lourd (4d6+10), et deux tourelles légères blaster (2d6*10).</p><p><em>Note MJ : le matériel source ne précise ni bouclier, ni PV de coque, ni salles supplémentaires pour ce vaisseau. Bouclier (15) et PV de coque (12) sont des valeurs estimées par cohérence avec les vaisseaux comparables du même classeur (Barloz, La poubelle géante, Le Arcadia), a ajuster librement. Aucune cabine/dortoir n'a été ajoutée : les trois postes (pilotage, passager, droïde astromech) constituent déjà l'intégralité des emplacements cohérents pour un chasseur de ce gabarit (10 m, 1-3 places), et inventer des pièces supplémentaires n'aurait pas de sens ici.</em></p>"
+    "description": "<p>Chasseur léger de 10 m de long pour 5 m de large, 1 à 3 places : poste de pilotage, poste de passager, poste de droïde astromech. C'est ce même modèle de vaisseau de classe Frelon qui figure comme equipement de départ de l'école Assassin sith (compendium écoles).</p><p>Armement : un canon ION comptant comme un canon lourd (4d6+10), et deux tourelles légères blaster (2d6*10).</p><p><em>Note MJ : le matériel source ne précise ni bouclier, ni PV de coque, ni salles supplémentaires pour ce vaisseau. Bouclier (15) et PV de coque (12) sont des valeurs estimées par cohérence avec les vaisseaux comparables du même classeur (Barloz, La poubelle géante, Le Arcadia), a ajuster librement. Aucune cabine/dortoir n'a été ajoutée : les trois postes (pilotage, passager, droïde astromech) constituent déjà l'intégralité des emplacements cohérents pour un chasseur de ce gabarit (10 m, 1-3 places), et inventer des pièces supplémentaires n'aurait pas de sens ici.</em></p>",
+    "amenagements": [
+      {
+        "nom": "Poste de pilotage",
+        "description": ""
+      },
+      {
+        "nom": "Poste de passager",
+        "description": ""
+      },
+      {
+        "nom": "Poste d'astromech",
+        "description": "Emplacement pour un droïde astromech."
+      }
+    ]
   },
   "folder": null,
   "sort": 100000,

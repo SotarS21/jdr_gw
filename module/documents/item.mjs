@@ -1,6 +1,7 @@
 import { GW } from "../config.mjs";
 import { rollCompetence } from "../helpers/rolls.mjs";
 import { proposerDefense } from "../helpers/combat.mjs";
+import { tireurSelectionne } from "../helpers/armement-vaisseau.mjs";
 
 /** Carte d'objet postée dans le tchat (boutons gérés par helpers/chat-objet.mjs). */
 const TEMPLATE_CARTE = "systems/galactic-wars/templates/chat/objet-carte.hbs";
@@ -56,6 +57,11 @@ export class GalacticWarsItem extends Item {
   /** Objet d'inventaire (arme / armure / équipement), c.-à-d. qui a porte, tags, quantite. */
   get estObjetInventaire() {
     return TYPES_INVENTAIRE.includes(this.type);
+  }
+
+  /** Arme montée sur un vaisseau (toujours utilisable, tir au taux du token sélectionné). */
+  get estArmeDeVaisseau() {
+    return this.type === "arme" && this.actor?.type === "vaisseau";
   }
 
   /** Armure d'emplacement bouclier (cumulable avec les autres armures). */
@@ -140,7 +146,7 @@ export class GalacticWarsItem extends Item {
   #badgesCarte() {
     const system = this.system;
     const badges = [];
-    if (this.estObjetInventaire && this.actor) {
+    if (this.estObjetInventaire && this.actor && !this.estArmeDeVaisseau) {
       badges.push(system.porte
         ? { cle: "porte", label: "GALACTICWARS.Objet.Porte", icone: "fa-solid fa-hand-fist" }
         : { cle: "range", label: "GALACTICWARS.Objet.Range", icone: "fa-solid fa-box-archive" });
@@ -164,10 +170,15 @@ export class GalacticWarsItem extends Item {
       ajouter("GALACTICWARS.Objet.Degats", system.degats, true);
       const competence = system.competence ? GW.competences[system.competence] : null;
       if (competence) {
-        // Taux du porteur, si l'objet est sur un personnage classique (system.competences préparé).
+        // Taux du porteur, si l'objet est sur un personnage classique (system.competences préparé) ; arme de
+        // vaisseau : taux du token sélectionné au moment du tir.
         const total = this.actor?.system.competences?.find?.((c) => c.cle === system.competence)?.total;
         const label = game.i18n.localize(competence.label);
-        ajouter("GALACTICWARS.Objet.Competence", total !== undefined ? `${label} (${total} %)` : label);
+        if (this.estArmeDeVaisseau) {
+          ajouter("GALACTICWARS.Objet.Competence", game.i18n.format("GALACTICWARS.Vaisseau.CompetenceTireur", { competence: label }));
+        } else {
+          ajouter("GALACTICWARS.Objet.Competence", total !== undefined ? `${label} (${total} %)` : label);
+        }
       } else {
         ajouter("GALACTICWARS.Objet.Competence", game.i18n.localize("GALACTICWARS.Objet.AucuneCompetence"));
       }
@@ -191,12 +202,13 @@ export class GalacticWarsItem extends Item {
    */
   async attaquer() {
     if (this.type !== "arme") return null;
-    const actor = this.actor;
+    // Arme de vaisseau : le tireur est le token sélectionné (sa compétence, son taux), pas le vaisseau.
+    const actor = this.estArmeDeVaisseau ? tireurSelectionne() : this.actor;
     if (!actor) {
-      ui.notifications.warn(game.i18n.format("GALACTICWARS.Objet.SansActeur", { nom: this.name }));
+      ui.notifications.warn(game.i18n.format(this.estArmeDeVaisseau ? "GALACTICWARS.Vaisseau.SansTireur" : "GALACTICWARS.Objet.SansActeur", { nom: this.name }));
       return null;
     }
-    if (!this.system.porte) {
+    if (!this.system.porte && !this.estArmeDeVaisseau) {
       ui.notifications.warn(game.i18n.format("GALACTICWARS.Objet.NonPorte", { nom: this.name }));
       return null;
     }
@@ -208,7 +220,8 @@ export class GalacticWarsItem extends Item {
     if (this._attaqueEnCours) return null;
     this._attaqueEnCours = true;
     try {
-      const resultat = await rollCompetence(actor, this.system.competence, { titre: this.name });
+      const titre = this.estArmeDeVaisseau ? `${this.name} — ${this.actor.name}` : this.name;
+      const resultat = await rollCompetence(actor, this.system.competence, { titre });
       // Attaque réussie sur des tokens ciblés : carte « Défense » pour chaque cible.
       if (resultat?.reussite) await proposerDefense(this, resultat, [...game.user.targets].map((t) => t.document));
       return resultat;

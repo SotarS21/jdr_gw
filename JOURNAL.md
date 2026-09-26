@@ -2,8 +2,10 @@
 
 ## À faire à la reprise (état au 2026-09-26, fin de session)
 
-- **État** : v0.16.0 (refonte de la fiche de vaisseau) commitée en local, déployée et vérifiée, **pas encore
-  poussée** (en attente de validation de l'auteur). v0.15.8 = dernière release publiée. Foundry redémarré en 0.16.0.
+- **État** : v0.16.0 (refonte de la fiche de vaisseau, mode Édition, armement en objets) commitée en local, **pas
+  encore poussée** (en attente de validation de l'auteur). v0.15.8 = dernière release publiée. Code déployé sans
+  redémarrage (un utilisateur connecté) : le compendium Vaisseaux converti n'est **pas encore chargé** → redémarrer
+  Foundry (demander avant) puis vérifier les 13 vaisseaux (armes en objets, aménagements).
   Seuls fichiers non suivis (voulu) : `asset_visuel/{Personnage,item,lieux,vaiseau}`.
 - **Todo restante** (fichier de l'auteur sur le Bureau) :
   1. ~~Refonte de la fiche de vaisseau~~ : faite (v0.16.0).
@@ -21,7 +23,9 @@
      `vetement_de_contrebandier`, `vetement_robe_jedi`). Tri à faire : l'item n'y contient pas que des objets (portes,
      astéroïdes, barges, textures). Les visuels publiés passent par `asset_visuel/objets/` (suivi) + un correctif MJ
      pour les objets déjà dans les mondes (voir v0.13.2 / `0.14.1-visuels-par-nom`).
-  6. **Ajout de l'auteur** : scène de générique qui défile sur un fond, à la façon de l'intro de Star Wars, avec
+  6. ~~Mode Édition des vaisseaux, aménagements décrits, glisser-déposer d'acteurs sur les postes, armement en objets
+     « arme » (tir au taux du token sélectionné)~~ : faits (v0.16.0, ajouts de l'auteur en cours de lot).
+  7. **Ajout de l'auteur** : scène de générique qui défile sur un fond, à la façon de l'intro de Star Wars, avec
      animation, à montrer aux PJ — **faire plusieurs propositions** quand on reprendra ce point.
 
 ## Session du 2026-09-26 (suite 6) — Refonte de la fiche de vaisseau (v0.15.8→v0.16.0)
@@ -48,6 +52,40 @@
   intacts), ajout / modification / suppression d'arme (Non garde, Supprimer retire), places 2 → 3 (3 champs), bouclier
   coupé, pastilles d'aménagements, description ; migration sur la Convergence du compendium (bouclier max 500, noms
   repris) ; aucune erreur de page. Notes de version 0.15.8 (oubliées à la release) et 0.16.0 ajoutées.
+
+- **Ajouts de l'auteur pendant le lot** (intégrés à la v0.16.0, pas encore publiée) :
+  - **Mode Édition** (bouton « Édition » à côté du nom, état de l'instance comme la fiche de personnage ; ouvert
+    d'office sur un vaisseau vierge). Hors Édition : identité, maximums (coque, bouclier), réduction, soute et
+    description en lecture ; pas de boutons d'ajout / modification / suppression. Restent utilisables en jeu : coque,
+    points de bouclier, interrupteur, déplacement, armes (clic = carte), noms et dépôts d'équipage.
+  - **Aménagements** : nouveau champ `amenagements[] { nom, description }` (ajout / modification / suppression par
+    fenêtre en Édition), cartes avec icône devinée du nom (table `ICONES_AMENAGEMENT` étoffée : pilotage, machines,
+    sas, entrepôt, séjour…). L'ancien texte `equipementsEmbarques` est découpé par `migrateData` (découpage brut) ;
+    les 13 vaisseaux du compendium ont des listes **rédigées à la main** (nom court + description, mention « Inventé,
+    non précisé dans le matériel source » reprise là où la source le disait).
+  - **Équipage** : glisser-déposer d'un acteur (hors vaisseau) sur un poste, même hors Édition — sur la place visée,
+    sinon la première libre (poste complet = message). `equipage[].uuids[]` en parallèle de `noms[]` ; la place
+    montre le portrait et le nom (clic = fiche), croix = libérer. Surbrillance du poste pendant le dépôt.
+  - **Armement en objets « arme »** (`helpers/armement-vaisseau.mjs`) : `_onDropItem` n'accepte que les armes
+    (portées d'office) ; « Nouvelle arme » crée une arme vierge (Canon lourd, visuel de tourelle) et ouvre sa fiche ;
+    emplacement = drapeau `galactic-wars.emplacement` (saisi sur la ligne en Édition). Clic sur la ligne = carte de
+    tchat (Attaquer / Dégâts). `Item#estArmeDeVaisseau` : `attaquer()` prend le **token sélectionné** (sinon le
+    personnage de l'utilisateur) comme tireur, sans exiger « porté » ; titre « arme — vaisseau » ; la carte indique
+    « <compétence> (taux du token sélectionné) ». Seul le propriétaire du vaisseau (ou le MJ) a les boutons de la carte.
+  - **Conversion de l'ancien armement texte** : bouton « Convertir » sur la fiche (bandeau d'avertissement) et
+    correctif MJ `0.16.0-armement-en-objets` (vaisseaux du monde et tokens non liés ; compétence Canon lourd) ; les
+    13 vaisseaux du compendium sont convertis dans les sources (objets intégrés ; emplacements et places du mockup
+    pour La poubelle géante : 2 pilotes, 3 autres places). Monde de test : le Barloz (token lié) a encore 2 armes à
+    l'ancien format → correctif laissé à l'auteur.
+  - **migrateData** : jamais sur une mise à jour partielle (`options.partial`) — sinon `{ bouclier: { points } }`
+    seul remettait le maximum aux points. Ne s'applique pas non plus à un `Actor.create` (seulement aux données
+    chargées) : sans conséquence, les anciens champs n'existent que dans les données enregistrées.
+  - Vérifié sur un vaisseau temporaire (supprimé) : conversion (2 armes, Canon lourd, portées), dépôt d'une arme du
+    compendium (+1) et refus d'un équipement, 0 bouton en lecture / 8 en Édition, emplacement enregistré, aménagement
+    ajouté avec description, Kael déposé sur la 2ᵉ place du poste Pilote (portrait + lien), tir refusé sans token puis
+    « Tourelle lourde — Test armement (temp) » au taux Canon lourd de Kael (20 %), message au nom de Kael.
+  - Piège : un heredoc bash entre apostrophes réduit `\\s` en `\s` dans un script généré → antislashs doublés à
+    reprendre à l'outil d'édition.
 
 ## Session du 2026-09-26 (suite 5) — Lien vers le vaisseau, grille, corbeille (v0.15.7→v0.15.8)
 

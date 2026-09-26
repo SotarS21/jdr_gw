@@ -11,7 +11,58 @@
     },
     "actorLink": true
   },
-  "items": [],
+  "items": [
+    {
+      "_id": "vYdeOGk8Q8vhB3EB",
+      "_key": "!actors.items!wq5sBNHltjALjKp7.vYdeOGk8Q8vhB3EB",
+      "name": "Tourelle lourde",
+      "type": "arme",
+      "img": "systems/galactic-wars/asset_visuel/objets/armes-tourelle-laser-lourde.jpg",
+      "system": {
+        "quantite": 1,
+        "prix": "",
+        "porte": true,
+        "description": "",
+        "notesMJ": "",
+        "degats": "4d6",
+        "competence": "canonLourd",
+        "instable": false,
+        "portee": ""
+      },
+      "effects": [],
+      "flags": {
+        "galactic-wars": {
+          "emplacement": "Haut / Arrière"
+        }
+      },
+      "sort": 100000
+    },
+    {
+      "_id": "QEb2h9kctUfbyUxl",
+      "_key": "!actors.items!wq5sBNHltjALjKp7.QEb2h9kctUfbyUxl",
+      "name": "Tourelle légère",
+      "type": "arme",
+      "img": "systems/galactic-wars/asset_visuel/objets/armes-tourelle-laser-lourde.jpg",
+      "system": {
+        "quantite": 2,
+        "prix": "",
+        "porte": true,
+        "description": "",
+        "notesMJ": "",
+        "degats": "2d6",
+        "competence": "canonLourd",
+        "instable": false,
+        "portee": ""
+      },
+      "effects": [],
+      "flags": {
+        "galactic-wars": {
+          "emplacement": "Avant-Gauche, Avant-Droite"
+        }
+      },
+      "sort": 200000
+    }
+  ],
   "effects": [],
   "system": {
     "classe": "Freighter d'occasion",
@@ -24,39 +75,41 @@
     "bouclier": {
       "actif": true,
       "points": 20,
-      "reduction": 0
+      "reduction": 0,
+      "max": 20
     },
     "moteur": {
       "deplacement": 0
     },
-    "armement": [
-      {
-        "nom": "Tourelle lourde",
-        "degats": "4d6",
-        "quantite": 1
-      },
-      {
-        "nom": "Tourelle légère",
-        "degats": "2d6",
-        "quantite": 2
-      }
-    ],
+    "armement": [],
     "equipage": [
       {
         "role": "Pilote",
         "nom": "",
-        "description": "2 pilotes."
+        "description": "2 pilotes.",
+        "places": 2,
+        "noms": [],
+        "uuids": []
       },
       {
         "role": "Équipage",
         "nom": "",
-        "description": "5 places au total (répartition non précisée)."
+        "description": "5 places au total (répartition non précisée).",
+        "places": 3,
+        "noms": [],
+        "uuids": []
       }
     ],
     "soute": "Une cale/dortoir/entrepôt/salle des machines (espace polyvalent, donné tel quel par le matériel source).",
     "equipementsEmbarques": "Sanitaire.",
     "portrait": "icons/svg/mystery-man.svg",
-    "description": "<p>Freighter d'occasion de 15 m sur 25 m, pour 5 places. Équipage de 2 pilotes ; une cale/dortoir/entrepôt/salle des machines faisant office d'espace polyvalent ; un sanitaire.</p><p>Armement : une tourelle lourde (4d6) et une paire de tourelles légères à l'avant (2d6 chacune).</p>"
+    "description": "<p>Freighter d'occasion de 15 m sur 25 m, pour 5 places. Équipage de 2 pilotes ; une cale/dortoir/entrepôt/salle des machines faisant office d'espace polyvalent ; un sanitaire.</p><p>Armement : une tourelle lourde (4d6) et une paire de tourelles légères à l'avant (2d6 chacune).</p>",
+    "amenagements": [
+      {
+        "nom": "Sanitaire",
+        "description": ""
+      }
+    ]
   },
   "folder": null,
   "sort": 100000,

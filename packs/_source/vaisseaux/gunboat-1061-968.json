@@ -8,35 +8,114 @@
     "classe": "Canonnière (gunboat)",
     "taille": "48 m de long, 48 m de large, 3 étages",
     "prix": "500000c",
-    "pv": { "actuels": 60, "max": 60 },
-    "bouclier": { "actif": true, "points": 70, "reduction": 0 },
-    "moteur": { "deplacement": 0 },
-    "armement": [
-      { "nom": "Canon lourd", "degats": "4d6", "quantite": 2 },
-      { "nom": "Tourelle légère", "degats": "2d6", "quantite": 2 }
-    ],
+    "pv": {
+      "actuels": 60,
+      "max": 60
+    },
+    "bouclier": {
+      "actif": true,
+      "points": 70,
+      "reduction": 0,
+      "max": 70
+    },
+    "moteur": {
+      "deplacement": 0
+    },
+    "armement": [],
     "equipage": [
       {
         "role": "Équipage",
         "nom": "",
-        "description": "5 à 6 personnes (répartition non précisée)."
+        "description": "5 à 6 personnes (répartition non précisée).",
+        "places": 1,
+        "noms": [],
+        "uuids": []
       }
     ],
     "soute": "3 entrepôts (donné par le matériel source).",
     "equipementsEmbarques": "3 étages (donné par le matériel source) — (inventé, non précisé) pont supérieur : passerelle et quartiers officiers ; pont médian : quartiers équipage et infirmerie ; pont inférieur : salle des machines.",
     "portrait": "icons/svg/mystery-man.svg",
-    "description": "<p>Canonnière de combat rapproché, armée pour l'assaut et l'escorte, disposant de 3 entrepôts répartis sur ses 3 étages.</p><p><em>Note MJ : PV de coque (60), bouclier (70 points) et armement (2 canons lourds 4d6 + 2 tourelles légères 2d6) estimés par cohérence avec les vaisseaux comparables du même classeur (Barloz : 50 bouclier / 40 PV pour 6 personnes ; La poubelle géante : 20 bouclier / 15 PV pour 5 personnes ; Le Arcadia : 60 bouclier / 40 PV pour 6 personnes) et avec le rôle de \"gunboat\" — pas des valeurs du matériel source, à ajuster librement. La répartition des 3 étages est également inventée.</em></p>"
+    "description": "<p>Canonnière de combat rapproché, armée pour l'assaut et l'escorte, disposant de 3 entrepôts répartis sur ses 3 étages.</p><p><em>Note MJ : PV de coque (60), bouclier (70 points) et armement (2 canons lourds 4d6 + 2 tourelles légères 2d6) estimés par cohérence avec les vaisseaux comparables du même classeur (Barloz : 50 bouclier / 40 PV pour 6 personnes ; La poubelle géante : 20 bouclier / 15 PV pour 5 personnes ; Le Arcadia : 60 bouclier / 40 PV pour 6 personnes) et avec le rôle de \"gunboat\" — pas des valeurs du matériel source, à ajuster librement. La répartition des 3 étages est également inventée.</em></p>",
+    "amenagements": [
+      {
+        "nom": "Pont supérieur",
+        "description": "Passerelle et quartiers des officiers. Inventé, non précisé dans le matériel source."
+      },
+      {
+        "nom": "Pont médian",
+        "description": "Quartiers de l'équipage et infirmerie. Inventé, non précisé dans le matériel source."
+      },
+      {
+        "nom": "Pont inférieur",
+        "description": "Salle des machines. Inventé, non précisé dans le matériel source."
+      }
+    ]
   },
   "prototypeToken": {
     "name": "Gunboat 1061-968",
-    "texture": { "src": "icons/svg/mystery-man.svg" },
+    "texture": {
+      "src": "icons/svg/mystery-man.svg"
+    },
     "actorLink": true
   },
-  "items": [],
+  "items": [
+    {
+      "_id": "jfmw7hy9QYLjapeU",
+      "_key": "!actors.items!SgIDWPQ819hH8vPS.jfmw7hy9QYLjapeU",
+      "name": "Canon lourd",
+      "type": "arme",
+      "img": "systems/galactic-wars/asset_visuel/objets/armes-tourelle-laser-lourde.jpg",
+      "system": {
+        "quantite": 2,
+        "prix": "",
+        "porte": true,
+        "description": "",
+        "notesMJ": "",
+        "degats": "4d6",
+        "competence": "canonLourd",
+        "instable": false,
+        "portee": ""
+      },
+      "effects": [],
+      "flags": {
+        "galactic-wars": {
+          "emplacement": ""
+        }
+      },
+      "sort": 100000
+    },
+    {
+      "_id": "EcQvi56veKWxbAmY",
+      "_key": "!actors.items!SgIDWPQ819hH8vPS.EcQvi56veKWxbAmY",
+      "name": "Tourelle légère",
+      "type": "arme",
+      "img": "systems/galactic-wars/asset_visuel/objets/armes-tourelle-laser-lourde.jpg",
+      "system": {
+        "quantite": 2,
+        "prix": "",
+        "porte": true,
+        "description": "",
+        "notesMJ": "",
+        "degats": "2d6",
+        "competence": "canonLourd",
+        "instable": false,
+        "portee": ""
+      },
+      "effects": [],
+      "flags": {
+        "galactic-wars": {
+          "emplacement": ""
+        }
+      },
+      "sort": 200000
+    }
+  ],
   "effects": [],
   "folder": null,
   "sort": 100000,
-  "ownership": { "default": 0 },
+  "ownership": {
+    "default": 0
+  },
   "flags": {},
   "_stats": {
     "compendiumSource": null,

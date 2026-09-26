@@ -1,3 +1,6 @@
+import { GW } from "../config.mjs";
+import { COMPETENCE_ARME_VAISSEAU, IMAGE_ARME_VAISSEAU, convertirArmement, emplacementArme } from "../helpers/armement-vaisseau.mjs";
+
 const { HandlebarsApplicationMixin, DialogV2 } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
 
@@ -10,7 +13,7 @@ function jauge(valeur, max) {
   return { arc: ARC.toFixed(1), rempli: (ARC * ratio).toFixed(1), circonference: CIRCONFERENCE.toFixed(1), ratio };
 }
 
-/** Icône d'un équipement embarqué d'après son libellé (texte libre de system.equipementsEmbarques). */
+/** Icône d'un aménagement d'après son nom (premier motif trouvé ; par défaut une caisse). */
 const ICONES_AMENAGEMENT = [
   [/sanitaire|toilette|douche/i, "fa-toilet"],
   [/navette/i, "fa-shuttle-space"],
@@ -18,10 +21,18 @@ const ICONES_AMENAGEMENT = [
   [/quartier|cabine|couchette|dortoir|chambre/i, "fa-bed"],
   [/cuisine|réfectoire|mess|repas/i, "fa-utensils"],
   [/infirmerie|médic|medic|bacta|kolto/i, "fa-kit-medical"],
-  [/réserve|stock|vivres|provision/i, "fa-boxes-stacked"],
-  [/droïde|droide/i, "fa-robot"],
-  [/hangar|chasseur|speeder/i, "fa-warehouse"],
-  [/salon|bar|luxe/i, "fa-martini-glass"],
+  [/réserve|stock|vivres|provision|nourriture/i, "fa-boxes-stacked"],
+  [/droïde|droide|astromech/i, "fa-robot"],
+  [/pilotage|passerelle|cockpit/i, "fa-gauge-high"],
+  [/machine|moteur|réacteur|reacteur/i, "fa-gears"],
+  [/\bsas\b|débarquement|debarquement/i, "fa-door-open"],
+  [/hangar|entrepôt|entrepot|cale/i, "fa-warehouse"],
+  [/réunion|reunion/i, "fa-people-group"],
+  [/\bbar\b/i, "fa-martini-glass"],
+  [/salon|séjour|sejour|repos|luxe/i, "fa-couch"],
+  [/pont|étage|etage/i, "fa-layer-group"],
+  [/passager/i, "fa-person"],
+  [/habitacle|selle|ouvert/i, "fa-wind"],
   [/prison|cellule|carbonite/i, "fa-lock"],
   [/communication|antenne|holo/i, "fa-tower-broadcast"]
 ];
@@ -37,11 +48,19 @@ export class VaisseauSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     form: { submitOnChange: true },
     actions: {
       ajouterArme: VaisseauSheet.#onAjouterArme,
+      afficherArme: VaisseauSheet.#onAfficherArme,
       editerArme: VaisseauSheet.#onEditerArme,
       supprimerArme: VaisseauSheet.#onSupprimerArme,
+      convertirArmement: VaisseauSheet.#onConvertirArmement,
       ajouterPoste: VaisseauSheet.#onAjouterPoste,
       editerPoste: VaisseauSheet.#onEditerPoste,
       supprimerPoste: VaisseauSheet.#onSupprimerPoste,
+      ouvrirMembre: VaisseauSheet.#onOuvrirMembre,
+      retirerMembre: VaisseauSheet.#onRetirerMembre,
+      ajouterAmenagement: VaisseauSheet.#onAjouterAmenagement,
+      editerAmenagement: VaisseauSheet.#onEditerAmenagement,
+      supprimerAmenagement: VaisseauSheet.#onSupprimerAmenagement,
+      basculerEdition: VaisseauSheet.#onBasculerEdition,
       editImage: VaisseauSheet.#onEditImage
     }
   };
@@ -50,6 +69,19 @@ export class VaisseauSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     body: { template: "systems/galactic-wars/templates/actor/vaisseau-sheet.hbs", scrollable: [".sheet-body"] }
   };
 
+  /** Mode Édition — état d'affichage de l'instance (comme la fiche de personnage). null = pas encore choisi :
+   *  ouvert d'office sur un vaisseau vierge, verrouillé sinon. */
+  #modeEdition = null;
+
+  get modeEdition() {
+    if (!this.isEditable) return false;
+    if (this.#modeEdition === null) {
+      const s = this.actor.system;
+      this.#modeEdition = !s.classe && !s.pv.max && !this.#armes().length && !s.equipage.length;
+    }
+    return this.#modeEdition;
+  }
+
   /** @override */
   async _prepareContext(options) {
     const context = await super._prepareContext(options);
@@ -57,6 +89,7 @@ export class VaisseauSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 
     context.actor = this.actor;
     context.system = system;
+    context.modeEdition = this.modeEdition;
     context.descriptionEnrichie = await foundry.applications.ux.TextEditor.implementation.enrichHTML(
       system.description,
       { relativeTo: this.actor }
@@ -73,57 +106,207 @@ export class VaisseauSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       reduction: jauge(system.bouclier.reduction > 0 ? 1 : 0, 1)
     };
     context.bouclierInactif = !system.bouclier.actif;
-    context.armement = system.armement.map((arme, index) => ({
-      ...arme,
-      index,
-      emplacements: arme.emplacement.split(/\s*[,;\n]\s*/).filter(Boolean)
-    }));
+    // Armes = objets « arme » du vaisseau ; tir au taux du token sélectionné (Item#attaquer).
+    context.armement = this.#armes().map((arme) => {
+      const emplacement = emplacementArme(arme);
+      const competence = GW.competences[arme.system.competence];
+      return {
+        id: arme.id,
+        nom: arme.name,
+        img: arme.img,
+        degats: arme.system.degats,
+        quantite: arme.system.quantite,
+        competence: competence ? game.i18n.localize(competence.label) : "",
+        emplacement,
+        emplacements: emplacement.split(/\s*[,;\n]\s*/).filter(Boolean)
+      };
+    });
+    context.ancienArmement = system.armement.length;
+    // Places : acteur déposé (image, clic = sa fiche) ou nom saisi à la main.
     context.equipage = system.equipage.map((poste, index) => ({
       ...poste,
       index,
-      sieges: Array.from({ length: Math.max(1, poste.places) }, (_, siege) => ({ siege, nom: poste.noms[siege] ?? "" }))
+      sieges: Array.from({ length: Math.max(1, poste.places) }, (_, siege) => {
+        const uuid = poste.uuids[siege] || "";
+        const membre = uuid ? fromUuidSync(uuid) : null;
+        return { siege, nom: poste.noms[siege] ?? "", uuid, img: membre?.img ?? null, lie: !!uuid };
+      })
     }));
-    context.amenagements = system.equipementsEmbarques
-      .split(/\s*[,;.\n]\s*/)
-      .filter(Boolean)
-      .map((libelle) => ({ libelle, icone: ICONES_AMENAGEMENT.find(([motif]) => motif.test(libelle))?.[1] ?? "fa-cube" }));
+    context.amenagements = system.amenagements.map((a, index) => ({
+      ...a,
+      index,
+      icone: ICONES_AMENAGEMENT.find(([motif]) => motif.test(a.nom))?.[1] ?? "fa-cube"
+    }));
 
     return context;
   }
 
-  /** @override — seuls les noms de l'équipage sont dans le formulaire : ils sont fusionnés dans le tableau complet
-   *  (sinon rôle, places et description seraient perdus, un ArrayField étant toujours remplacé en entier). */
+  #armes() {
+    return this.actor.items.filter((i) => i.type === "arme").sort((a, b) => (a.sort - b.sort) || a.name.localeCompare(b.name));
+  }
+
+  #armeDeLigne(target) {
+    return this.actor.items.get(target.closest("[data-item-id]")?.dataset.itemId);
+  }
+
+  /** @override */
+  async _onRender(context, options) {
+    await super._onRender(context, options);
+    // Ligne d'arme (role="button") : Entrée / Espace = même effet que le clic.
+    for (const ligne of this.element.querySelectorAll(".vs-arme[data-action]")) {
+      ligne.addEventListener("keydown", (e) => {
+        if (e.target !== ligne || (e.key !== "Enter" && e.key !== " ")) return;
+        e.preventDefault();
+        this.actor.items.get(ligne.dataset.itemId)?.afficherDansTchat();
+      });
+    }
+    // Emplacement d'une arme (mode Édition) : drapeau de l'objet, hors du formulaire du vaisseau.
+    for (const champ of this.element.querySelectorAll("input[data-emplacement]")) {
+      champ.addEventListener("change", (e) => {
+        e.stopPropagation();
+        this.actor.items.get(champ.dataset.emplacement)?.setFlag("galactic-wars", "emplacement", champ.value.trim());
+      });
+    }
+    // Surbrillance du poste survolé pendant le glisser-déposer d'un acteur.
+    for (const poste of this.element.querySelectorAll(".vs-poste[data-index]")) {
+      poste.addEventListener("dragover", () => poste.classList.add("survol-depot"));
+      poste.addEventListener("dragleave", (e) => { if (!poste.contains(e.relatedTarget)) poste.classList.remove("survol-depot"); });
+      poste.addEventListener("drop", () => poste.classList.remove("survol-depot"));
+    }
+  }
+
+  /** @override — seuls les noms saisis de l'équipage sont dans le formulaire : ils sont fusionnés place par place dans
+   *  le tableau complet (sinon rôle, places, description et acteurs déposés seraient perdus, un ArrayField étant
+   *  toujours remplacé en entier). */
   _processFormData(event, form, formData) {
     const data = super._processFormData(event, form, formData);
     const soumis = data.system?.equipage;
     if (soumis) {
       const equipage = this.actor.system.toObject().equipage;
       for (const [index, poste] of Object.entries(soumis)) {
-        if (!equipage[index] || !poste?.noms) continue;
-        const noms = Object.values(poste.noms).map((n) => String(n ?? "").trim());
-        equipage[index].noms = noms.slice(0, equipage[index].places);
+        const cible = equipage[index];
+        if (!cible || !poste?.noms) continue;
+        for (const [siege, nom] of Object.entries(poste.noms)) {
+          if (Number(siege) < cible.places) cible.noms[siege] = String(nom ?? "").trim();
+        }
+        cible.noms = Array.from({ length: cible.noms.length }, (_, i) => cible.noms[i] ?? "");
       }
       data.system.equipage = equipage;
     }
     return data;
   }
 
-  /** Fenêtre d'édition d'une arme ; `arme` absent = nouvelle arme. Renvoie les valeurs saisies, ou null. */
-  async #fenetreArme(arme) {
+  /** @override — seules les armes s'ajoutent au vaisseau (son armement) ; toujours utilisables (portées). */
+  async _onDropItem(event, item) {
+    if (!this.isEditable || !item) return null;
+    if (item.type !== "arme") {
+      ui.notifications.warn(game.i18n.localize("GALACTICWARS.Vaisseau.SeulementArmes"));
+      return null;
+    }
+    if (item.parent === this.actor) return null;
+    const donnees = item.toObject();
+    delete donnees._id;
+    donnees.system.porte = true;
+    const [cree] = await this.actor.createEmbeddedDocuments("Item", [donnees]);
+    return cree ?? null;
+  }
+
+  /**
+   * @override — un acteur (personnage, PNJ…) déposé sur un poste d'équipage occupe la place visée, sinon la première
+   * place libre du poste ; possible hors mode Édition.
+   */
+  async _onDropActor(event, actor) {
+    if (!actor || !this.isEditable) return null;
+    const t = (cle, donnees) => game.i18n.format(`GALACTICWARS.Vaisseau.${cle}`, donnees);
+    if (actor.type === "vaisseau") return null;
+    const posteEl = event.target.closest?.(".vs-poste[data-index]");
+    if (!posteEl) {
+      ui.notifications.warn(t("DeposerSurPoste"));
+      return null;
+    }
+    const index = Number(posteEl.dataset.index);
+    const equipage = this.actor.system.toObject().equipage;
+    const poste = equipage[index];
+    if (!poste) return null;
+    const occupee = (i) => !!(poste.uuids[i] || poste.noms[i]);
+    const visee = event.target.closest?.("[data-siege]")?.dataset.siege;
+    let siege = visee !== undefined ? Number(visee) : Array.from({ length: poste.places }, (_, i) => i).find((i) => !occupee(i));
+    if (siege === undefined) {
+      ui.notifications.warn(t("PosteComplet", { poste: poste.role }));
+      return null;
+    }
+    for (let i = 0; i < poste.places; i++) { poste.noms[i] ??= ""; poste.uuids[i] ??= ""; }
+    poste.noms[siege] = actor.name;
+    poste.uuids[siege] = actor.uuid;
+    await this.actor.update({ "system.equipage": equipage });
+    return actor;
+  }
+
+  static async #onOuvrirMembre(event, target) {
+    const acteur = await fromUuid(target.closest("[data-uuid]")?.dataset.uuid);
+    if (!acteur) return ui.notifications.warn(game.i18n.localize("GALACTICWARS.Vaisseau.MembreIntrouvable"));
+    if (!acteur.testUserPermission(game.user, "LIMITED")) return;
+    acteur.sheet.render({ force: true });
+  }
+
+  static async #onRetirerMembre(event, target) {
+    const index = Number(target.closest(".vs-poste[data-index]").dataset.index);
+    const siege = Number(target.closest("[data-siege]").dataset.siege);
+    const equipage = this.actor.system.toObject().equipage;
+    if (!equipage[index]) return;
+    equipage[index].noms[siege] = "";
+    equipage[index].uuids[siege] = "";
+    await this.actor.update({ "system.equipage": equipage });
+  }
+
+  static async #onBasculerEdition() {
+    this.#modeEdition = !this.modeEdition;
+    this.render();
+  }
+
+  /** Fenêtre d'édition d'un aménagement ; `amenagement` absent = nouvel aménagement. */
+  async #fenetreAmenagement(amenagement) {
     const t = (cle) => game.i18n.localize(`GALACTICWARS.Vaisseau.${cle}`);
     const valeur = (v) => foundry.utils.escapeHTML(String(v ?? ""));
     return DialogV2.input({
-      window: { title: t(arme ? "EditerArme" : "AjouterArme"), icon: "fa-solid fa-crosshairs" },
-      position: { width: 420 },
+      window: { title: t(amenagement ? "EditerAmenagement" : "AjouterAmenagement"), icon: "fa-solid fa-couch" },
+      position: { width: 440 },
       content: `<div class="gw-vaisseau-dialogue">
-        <label>${t("NomArme")}<input type="text" name="nom" value="${valeur(arme?.nom)}" autofocus required></label>
-        <label>${t("Degats")}<input type="text" name="degats" value="${valeur(arme?.degats)}" placeholder="4d6"></label>
-        <label>${t("Quantite")}<input type="number" name="quantite" min="1" step="1" value="${arme?.quantite ?? 1}"></label>
-        <label>${t("Emplacement")}<input type="text" name="emplacement" value="${valeur(arme?.emplacement)}" placeholder="${t("EmplacementExemple")}"></label>
+        <label>${t("NomAmenagement")}<input type="text" name="nom" value="${valeur(amenagement?.nom)}" placeholder="${t("NomAmenagementExemple")}" autofocus required></label>
+        <label>${t("DescriptionAmenagement")}<textarea name="description" rows="4">${valeur(amenagement?.description)}</textarea></label>
       </div>`,
       ok: { label: t("Enregistrer"), icon: "fa-solid fa-floppy-disk" },
       rejectClose: false
     });
+  }
+
+  static #nettoyerAmenagement(saisie) {
+    return { nom: String(saisie.nom ?? "").trim(), description: String(saisie.description ?? "").trim() };
+  }
+
+  static async #onAjouterAmenagement() {
+    const saisie = await this.#fenetreAmenagement(null);
+    if (!saisie) return;
+    const amenagements = this.actor.system.toObject().amenagements;
+    amenagements.push(VaisseauSheet.#nettoyerAmenagement(saisie));
+    await this.actor.update({ "system.amenagements": amenagements });
+  }
+
+  static async #onEditerAmenagement(event, target) {
+    const index = Number(target.closest("[data-index]").dataset.index);
+    const amenagements = this.actor.system.toObject().amenagements;
+    if (!amenagements[index]) return;
+    const saisie = await this.#fenetreAmenagement(amenagements[index]);
+    if (!saisie) return;
+    amenagements[index] = VaisseauSheet.#nettoyerAmenagement(saisie);
+    await this.actor.update({ "system.amenagements": amenagements });
+  }
+
+  static async #onSupprimerAmenagement(event, target) {
+    const index = Number(target.closest("[data-index]").dataset.index);
+    const amenagements = this.actor.system.toObject().amenagements;
+    if (!amenagements[index] || !(await this.#confirmerSuppression(amenagements[index].nom))) return;
+    await this.actor.update({ "system.amenagements": amenagements.filter((_, i) => i !== index) });
   }
 
   /** Fenêtre d'édition d'un poste d'équipage ; `poste` absent = nouveau poste. */
@@ -152,45 +335,43 @@ export class VaisseauSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     });
   }
 
-  static #nettoyerArme(saisie) {
-    return {
-      nom: String(saisie.nom ?? "").trim(),
-      degats: String(saisie.degats ?? "").trim(),
-      quantite: Math.max(1, Math.round(Number(saisie.quantite) || 1)),
-      emplacement: String(saisie.emplacement ?? "").trim()
-    };
+  /** Nouvelle arme vierge (compétence Canon lourd) : sa fiche s'ouvre pour la compléter. */
+  static async #onAjouterArme() {
+    const [arme] = await this.actor.createEmbeddedDocuments("Item", [{
+      name: game.i18n.localize("GALACTICWARS.Vaisseau.NouvelleArme"),
+      type: "arme",
+      img: IMAGE_ARME_VAISSEAU,
+      system: { degats: "", competence: COMPETENCE_ARME_VAISSEAU, porte: true }
+    }]);
+    arme?.sheet.render({ force: true });
   }
 
-  static async #onAjouterArme() {
-    const saisie = await this.#fenetreArme(null);
-    if (!saisie) return;
-    const armement = this.actor.system.toObject().armement;
-    armement.push(VaisseauSheet.#nettoyerArme(saisie));
-    await this.actor.update({ "system.armement": armement });
+  /** Clic sur la ligne : carte de l'arme dans le tchat (boutons Attaquer / Dégâts). */
+  static async #onAfficherArme(event, target) {
+    await this.#armeDeLigne(target)?.afficherDansTchat();
   }
 
   static async #onEditerArme(event, target) {
-    const index = Number(target.closest("[data-index]").dataset.index);
-    const armement = this.actor.system.toObject().armement;
-    if (!armement[index]) return;
-    const saisie = await this.#fenetreArme(armement[index]);
-    if (!saisie) return;
-    armement[index] = VaisseauSheet.#nettoyerArme(saisie);
-    await this.actor.update({ "system.armement": armement });
+    event.stopPropagation();
+    this.#armeDeLigne(target)?.sheet.render({ force: true });
   }
 
   static async #onSupprimerArme(event, target) {
-    const index = Number(target.closest("[data-index]").dataset.index);
-    const armement = this.actor.system.toObject().armement;
-    if (!armement[index] || !(await this.#confirmerSuppression(armement[index].nom))) return;
-    await this.actor.update({ "system.armement": armement.filter((_, i) => i !== index) });
+    event.stopPropagation();
+    const arme = this.#armeDeLigne(target);
+    if (arme && (await this.#confirmerSuppression(arme.name))) await arme.delete();
+  }
+
+  static async #onConvertirArmement() {
+    const nombre = await convertirArmement(this.actor);
+    if (nombre) ui.notifications.info(game.i18n.format("GALACTICWARS.Vaisseau.ArmementConverti", { nombre }));
   }
 
   static async #onAjouterPoste() {
     const saisie = await this.#fenetrePoste(null);
     if (!saisie) return;
     const equipage = this.actor.system.toObject().equipage;
-    equipage.push({ ...VaisseauSheet.#nettoyerPoste(saisie), noms: [], nom: "" });
+    equipage.push({ ...VaisseauSheet.#nettoyerPoste(saisie), noms: [], uuids: [], nom: "" });
     await this.actor.update({ "system.equipage": equipage });
   }
 
@@ -201,7 +382,12 @@ export class VaisseauSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const saisie = await this.#fenetrePoste(equipage[index]);
     if (!saisie) return;
     const poste = VaisseauSheet.#nettoyerPoste(saisie);
-    equipage[index] = { ...equipage[index], ...poste, noms: equipage[index].noms.slice(0, poste.places) };
+    equipage[index] = {
+      ...equipage[index],
+      ...poste,
+      noms: equipage[index].noms.slice(0, poste.places),
+      uuids: equipage[index].uuids.slice(0, poste.places)
+    };
     await this.actor.update({ "system.equipage": equipage });
   }
 

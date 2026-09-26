@@ -11,7 +11,58 @@
     },
     "actorLink": true
   },
-  "items": [],
+  "items": [
+    {
+      "_id": "KxI2rubvC1LIeIi1",
+      "_key": "!actors.items!ApzVjX38rzeIBHoO.KxI2rubvC1LIeIi1",
+      "name": "Canon lourd",
+      "type": "arme",
+      "img": "systems/galactic-wars/asset_visuel/objets/armes-tourelle-laser-lourde.jpg",
+      "system": {
+        "quantite": 2,
+        "prix": "",
+        "porte": true,
+        "description": "",
+        "notesMJ": "",
+        "degats": "4d6",
+        "competence": "canonLourd",
+        "instable": false,
+        "portee": ""
+      },
+      "effects": [],
+      "flags": {
+        "galactic-wars": {
+          "emplacement": ""
+        }
+      },
+      "sort": 100000
+    },
+    {
+      "_id": "xdWW51276OsYrCfH",
+      "_key": "!actors.items!ApzVjX38rzeIBHoO.xdWW51276OsYrCfH",
+      "name": "Canon léger",
+      "type": "arme",
+      "img": "systems/galactic-wars/asset_visuel/objets/armes-tourelle-laser-lourde.jpg",
+      "system": {
+        "quantite": 2,
+        "prix": "",
+        "porte": true,
+        "description": "",
+        "notesMJ": "",
+        "degats": "2d6",
+        "competence": "canonLourd",
+        "instable": false,
+        "portee": ""
+      },
+      "effects": [],
+      "flags": {
+        "galactic-wars": {
+          "emplacement": ""
+        }
+      },
+      "sort": 200000
+    }
+  ],
   "effects": [],
   "system": {
     "classe": "Freighter (transport de luxe)",
@@ -24,34 +75,45 @@
     "bouclier": {
       "actif": true,
       "points": 50,
-      "reduction": 0
+      "reduction": 0,
+      "max": 50
     },
     "moteur": {
       "deplacement": 0
     },
-    "armement": [
-      {
-        "nom": "Canon lourd",
-        "degats": "4d6",
-        "quantite": 2
-      },
-      {
-        "nom": "Canon léger",
-        "degats": "2d6",
-        "quantite": 2
-      }
-    ],
+    "armement": [],
     "equipage": [
       {
         "role": "Équipage",
         "nom": "",
-        "description": "6 personnes dont le capitaine (répartition non précisée)."
+        "description": "6 personnes dont le capitaine (répartition non précisée).",
+        "places": 1,
+        "noms": [],
+        "uuids": []
       }
     ],
     "soute": "1 entrepôt.",
     "equipementsEmbarques": "Infirmerie ; 6 cabines dont celle du capitaine, chacune avec sanitaire ; une salle de repos ; des cuisines séparées. Confort grand luxe.",
     "portrait": "icons/svg/mystery-man.svg",
-    "description": "<p>Freighter de luxe. 6 personnes. Infirmerie, 6 cabines dont celle du capitaine, 1 entrepôt, des sanitaires par cabine, une salle de repos, des cuisines séparées. Le confort grand luxe. 2 canons lourds 4d6, 2 canons légers 2d6. 50 Shield, 40 blindages.</p>"
+    "description": "<p>Freighter de luxe. 6 personnes. Infirmerie, 6 cabines dont celle du capitaine, 1 entrepôt, des sanitaires par cabine, une salle de repos, des cuisines séparées. Le confort grand luxe. 2 canons lourds 4d6, 2 canons légers 2d6. 50 Shield, 40 blindages.</p>",
+    "amenagements": [
+      {
+        "nom": "Infirmerie",
+        "description": ""
+      },
+      {
+        "nom": "Cabines",
+        "description": "6 cabines dont celle du capitaine, chacune avec son sanitaire. Confort grand luxe."
+      },
+      {
+        "nom": "Salle de repos",
+        "description": ""
+      },
+      {
+        "nom": "Cuisines",
+        "description": "Cuisines séparées."
+      }
+    ]
   },
   "folder": null,
   "sort": 100000,

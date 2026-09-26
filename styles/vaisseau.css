@@ -493,14 +493,57 @@
 .galactic-wars.vaisseau .vs-arme-icone {
   width: 2.4rem;
   height: 2.4rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  object-fit: contain;
   border: 1px solid var(--vs-bord-vif);
   border-radius: 4px;
   background: #111a25;
+}
+
+.galactic-wars.vaisseau .vs-arme[data-action] {
+  cursor: pointer;
+}
+
+.galactic-wars.vaisseau .vs-arme[data-action]:focus-visible {
+  outline: 2px solid var(--vs-cyan);
+  outline-offset: 1px;
+}
+
+.galactic-wars.vaisseau .vs-arme-competence {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--vs-muet);
+}
+
+/* Mode Édition : colonne d'emplacement saisissable + crayon + corbeille. */
+.galactic-wars.vaisseau .mode-edition .vs-arme {
+  grid-template-columns: 2.4rem minmax(0, 1.3fr) minmax(0, 1fr) minmax(0, 0.9fr) auto auto;
+}
+
+.galactic-wars.vaisseau .mode-lecture .vs-arme {
+  grid-template-columns: 2.4rem minmax(0, 1.3fr) minmax(0, 1fr) minmax(0, 0.9fr);
+}
+
+.galactic-wars.vaisseau .vs-arme-emplacement-saisie {
+  width: 100%;
+  font-size: 0.85rem;
+}
+
+.galactic-wars.vaisseau .vs-avertissement {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 0.5rem;
+  padding: 0.35rem 0.5rem;
+  border: 1px solid color-mix(in srgb, var(--vs-ambre) 50%, transparent);
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--vs-ambre) 10%, transparent);
   color: var(--vs-ambre);
-  font-size: 1.1rem;
+  font-size: 0.85rem;
+}
+
+.galactic-wars.vaisseau .vs-avertissement .vs-bouton {
+  margin: 0 0 0 auto;
 }
 
 .galactic-wars.vaisseau .vs-arme-nom {
@@ -598,22 +641,213 @@
 }
 
 .galactic-wars.vaisseau .vs-amenagements-liste {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem 0.9rem;
-  padding: 0.2rem 0.2rem 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: 0.4rem;
+  padding-top: 0.2rem;
 }
 
 .galactic-wars.vaisseau .vs-amenagement {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.95rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  padding: 0.4rem 0.5rem;
+  border: 1px solid var(--vs-bord);
+  border-radius: 4px;
+  background: #182230;
 }
 
-.galactic-wars.vaisseau .vs-amenagement i {
+.galactic-wars.vaisseau .vs-amenagement-icone {
+  flex: 0 0 1.4rem;
+  margin-top: 0.1rem;
   color: var(--vs-bouclier);
-  font-size: 1.05rem;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.galactic-wars.vaisseau .vs-amenagement-texte {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.galactic-wars.vaisseau .vs-amenagement-nom {
+  font-weight: 600;
+}
+
+.galactic-wars.vaisseau .vs-amenagement-description {
+  font-size: 0.82rem;
+  color: var(--vs-muet);
+}
+
+.galactic-wars.vaisseau .vs-amenagement-actions {
+  display: flex;
+  gap: 0.25rem;
+}
+
+/* ---- Mode Édition / lecture ---- */
+.galactic-wars.vaisseau .vs-label-ligne {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.galactic-wars.vaisseau .vs-edition {
+  width: auto;
+  height: 1.6rem;
+  margin: 0;
+  padding: 0 0.6rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border-radius: 999px;
+  border: 1px solid var(--vs-bord-vif);
+  background: #1c2735;
+  color: var(--vs-muet);
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.galactic-wars.vaisseau .vs-edition:hover {
+  color: var(--vs-texte);
+  border-color: var(--vs-cyan);
+}
+
+.galactic-wars.vaisseau .vs-edition.actif {
+  color: var(--vs-ambre);
+  border-color: var(--vs-ambre);
+  background: color-mix(in srgb, var(--vs-ambre) 12%, #1c2735);
+}
+
+/* Valeur en lecture : même encombrement qu'un champ, sans cadre. */
+.galactic-wars.vaisseau .vs-valeur-texte {
+  display: flex;
+  align-items: center;
+  min-height: 2rem;
+  padding: 0 0.5rem;
+  border-bottom: 1px solid var(--vs-bord);
+  font-size: 0.95rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.galactic-wars.vaisseau .vs-valeur-texte.vs-nom {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.galactic-wars.vaisseau .vs-prix-saisie .vs-valeur-texte {
+  width: 100%;
+  justify-content: flex-end;
+  padding-right: 1.8rem;
+}
+
+.galactic-wars.vaisseau .vs-cadran-saisie span.vs-grand,
+.galactic-wars.vaisseau .vs-cadran-saisie span.vs-petit {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.galactic-wars.vaisseau .vs-cadran-saisie span.vs-petit {
+  padding-top: 0.05rem;
+}
+
+/* ---- Équipage : acteurs déposés ---- */
+.galactic-wars.vaisseau .vs-aide {
+  margin-left: 0.3rem;
+  color: var(--vs-muet);
+  font-size: 0.8rem;
+  cursor: help;
+}
+
+.galactic-wars.vaisseau .vs-siege input {
+  width: 100%;
+}
+
+.galactic-wars.vaisseau .vs-membre {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  height: 2rem;
+}
+
+.galactic-wars.vaisseau .vs-membre-lien {
+  flex: 1;
+  min-width: 0;
+  height: 2rem;
+  margin: 0;
+  padding: 0 0.5rem 0 0.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.45rem;
+  border: 1px solid color-mix(in srgb, var(--vs-cyan) 45%, var(--vs-bord));
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--vs-cyan) 8%, var(--vs-champ));
+  color: var(--vs-texte);
+  font-size: 0.95rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.galactic-wars.vaisseau .vs-membre-lien:hover {
+  border-color: var(--vs-cyan);
+}
+
+.galactic-wars.vaisseau .vs-membre-lien img {
+  width: 1.6rem;
+  height: 1.6rem;
+  object-fit: cover;
+  border: none;
+  border-radius: 50%;
+}
+
+.galactic-wars.vaisseau .vs-membre-lien span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.galactic-wars.vaisseau .vs-membre-retirer {
+  flex: 0 0 1.6rem;
+  width: 1.6rem;
+  height: 1.6rem;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--vs-muet);
+  cursor: pointer;
+}
+
+.galactic-wars.vaisseau .vs-membre-retirer:hover {
+  color: var(--vs-rouge);
+}
+
+.galactic-wars.vaisseau .vs-poste.survol-depot {
+  outline: 2px dashed var(--vs-cyan);
+  outline-offset: -2px;
+  background: color-mix(in srgb, var(--vs-cyan) 8%, transparent);
+}
+
+.galactic-wars.vaisseau .mode-lecture .vs-equipage-tete,
+.galactic-wars.vaisseau .mode-lecture .vs-poste {
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+}
+
+.galactic-wars.vaisseau .vs-description-lecture {
+  padding: 0.2rem 0.3rem;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.galactic-wars.vaisseau .vs-description-lecture p {
+  margin: 0 0 0.4rem;
 }
 
 /* ---- Description ---- */
@@ -654,7 +888,7 @@
   .galactic-wars.vaisseau .vs-plan {
     min-height: 10rem;
   }
-  .galactic-wars.vaisseau .vs-arme {
+  .galactic-wars.vaisseau .galactic-wars-body .vs-arme {
     grid-template-columns: 2.4rem minmax(0, 1fr) auto auto;
   }
   .galactic-wars.vaisseau .vs-arme-stats,
@@ -679,8 +913,8 @@
   .galactic-wars.vaisseau .vs-classe {
     grid-column: 1 / -1;
   }
-  .galactic-wars.vaisseau .vs-equipage-tete,
-  .galactic-wars.vaisseau .vs-poste {
+  .galactic-wars.vaisseau .galactic-wars-body .vs-equipage-tete,
+  .galactic-wars.vaisseau .galactic-wars-body .vs-poste {
     grid-template-columns: minmax(0, 1fr) 4rem;
   }
   .galactic-wars.vaisseau .vs-poste-noms {

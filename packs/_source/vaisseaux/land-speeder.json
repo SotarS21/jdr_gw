@@ -24,7 +24,8 @@
     "bouclier": {
       "actif": false,
       "points": 0,
-      "reduction": 0
+      "reduction": 0,
+      "max": 0
     },
     "moteur": {
       "deplacement": 0
@@ -34,13 +35,22 @@
       {
         "role": "Équipage",
         "nom": "",
-        "description": "4 places."
+        "description": "4 places.",
+        "places": 1,
+        "noms": [],
+        "uuids": []
       }
     ],
     "soute": "",
     "equipementsEmbarques": "Aucun compartiment : véhicule terrestre ouvert, quatre places.",
     "portrait": "icons/svg/mystery-man.svg",
-    "description": "<p>Land speeder : quatres places.</p><p><em>Note MJ : le matériel source ne précise pas les points de vie ni le bouclier de ce véhicule. Valeur de PV (10) estimée par cohérence avec les autres véhicules comparables du même classeur (échelle proportionnelle à la taille/au rôle, un peu supérieure à la moto speeder monoplace) ; absence de bouclier estimée car ce type de véhicule ouvert est trop petit pour embarquer un générateur de bouclier. À ajuster librement.</em></p>"
+    "description": "<p>Land speeder : quatres places.</p><p><em>Note MJ : le matériel source ne précise pas les points de vie ni le bouclier de ce véhicule. Valeur de PV (10) estimée par cohérence avec les autres véhicules comparables du même classeur (échelle proportionnelle à la taille/au rôle, un peu supérieure à la moto speeder monoplace) ; absence de bouclier estimée car ce type de véhicule ouvert est trop petit pour embarquer un générateur de bouclier. À ajuster librement.</em></p>",
+    "amenagements": [
+      {
+        "nom": "Habitacle ouvert",
+        "description": "Aucun compartiment : véhicule terrestre ouvert, quatre places."
+      }
+    ]
   },
   "folder": null,
   "sort": 100000,

@@ -7,64 +7,173 @@
   "system": {
     "classe": "Destroyer stellaire sith",
     "taille": "300 m de long",
-    "pv": { "actuels": 300, "max": 300 },
-    "bouclier": { "actif": true, "points": 500, "reduction": 2 },
-    "moteur": { "deplacement": 3 },
-    "armement": [
-      { "nom": "Canon rotatif lourd", "degats": "50", "quantite": 4 }
-    ],
+    "pv": {
+      "actuels": 300,
+      "max": 300
+    },
+    "bouclier": {
+      "actif": true,
+      "points": 500,
+      "reduction": 2,
+      "max": 500
+    },
+    "moteur": {
+      "deplacement": 3
+    },
+    "armement": [],
     "equipage": [
       {
         "role": "Capitaine",
         "nom": "Bora Denisto",
-        "description": "Humain mâle, il est sec et agressif avec son équipage, car il en attend le meilleur. Il est exigeant, et parfois cruel. Il est apprécié dans les hautes sphères, c'est pour cela qu'il est là, et il est en adoration pour les dark. Il prend ça comme une punition d'avoir été assigné à la garde de seigneur."
+        "description": "Humain mâle, il est sec et agressif avec son équipage, car il en attend le meilleur. Il est exigeant, et parfois cruel. Il est apprécié dans les hautes sphères, c'est pour cela qu'il est là, et il est en adoration pour les dark. Il prend ça comme une punition d'avoir été assigné à la garde de seigneur.",
+        "places": 1,
+        "noms": [
+          "Bora Denisto"
+        ],
+        "uuids": []
       },
       {
         "role": "Pilote",
         "nom": "Begrf Tass",
-        "description": "Humaine femelle, elle est une pilote émérite de l'Empire, sortie première de l'académie de pilotage. Elle est déjà étoilée pour s'être distinguée pendant les batailles auxquelles elle a participé à tout juste 20 ans, alors qu'elle conduisait déjà un destroyer sous les feux ennemis. Elle en a aujourd'hui 33, mais elle est trop jeune pour passer amiral. Cependant, elle a des nerfs d'acier et l'autorité sur l'équipage, ce qui agace le capitaine. Elle a déjà travaillé avec des sith et certains membres de l'équipage."
+        "description": "Humaine femelle, elle est une pilote émérite de l'Empire, sortie première de l'académie de pilotage. Elle est déjà étoilée pour s'être distinguée pendant les batailles auxquelles elle a participé à tout juste 20 ans, alors qu'elle conduisait déjà un destroyer sous les feux ennemis. Elle en a aujourd'hui 33, mais elle est trop jeune pour passer amiral. Cependant, elle a des nerfs d'acier et l'autorité sur l'équipage, ce qui agace le capitaine. Elle a déjà travaillé avec des sith et certains membres de l'équipage.",
+        "places": 1,
+        "noms": [
+          "Begrf Tass"
+        ],
+        "uuids": []
       },
       {
         "role": "Navigateur",
         "nom": "Boris Dosuk",
-        "description": "Mâle Rattataki, il est raciste, brute, mais il est doué et calcule presque aussi vite qu'une machine. Il connaît les cartes stellaires du secteur où vous allez, c'est pour ça qu'il a été choisi, même s'il a parfois tendance à l'insubordination — il vénère les sith."
+        "description": "Mâle Rattataki, il est raciste, brute, mais il est doué et calcule presque aussi vite qu'une machine. Il connaît les cartes stellaires du secteur où vous allez, c'est pour ça qu'il a été choisi, même s'il a parfois tendance à l'insubordination — il vénère les sith.",
+        "places": 1,
+        "noms": [
+          "Boris Dosuk"
+        ],
+        "uuids": []
       },
       {
         "role": "Communicateur",
         "nom": "Michar Sirra",
-        "description": "Mâle Gotal maladroit, il connaît 437 moyens de communication et a reçu une bourse d'étude supérieure en langues à la prestigieuse académie de Dromund Kaas — le seul non-humain à avoir réussi à arriver aussi loin dans ce genre d'étude. Il est encore jeune (45 ans) mais a un très fort potentiel que l'Empire ne peut pas se permettre de gâcher."
+        "description": "Mâle Gotal maladroit, il connaît 437 moyens de communication et a reçu une bourse d'étude supérieure en langues à la prestigieuse académie de Dromund Kaas — le seul non-humain à avoir réussi à arriver aussi loin dans ce genre d'étude. Il est encore jeune (45 ans) mais a un très fort potentiel que l'Empire ne peut pas se permettre de gâcher.",
+        "places": 1,
+        "noms": [
+          "Michar Sirra"
+        ],
+        "uuids": []
       },
       {
         "role": "Médecin de bord",
         "nom": "Trara Quoon",
-        "description": "Femelle humaine n'ayant aucun sens des convenances, elle fait très bien son travail mais est très brute avec ses patients. Elle est là pour faire son métier et pas plus, nullement intéressée par l'argent ou la gloire. Elle vient d'une colonie de l'Empire et a avec elle un assistant droïde chirurgien, A-T0, un droïde bipède."
+        "description": "Femelle humaine n'ayant aucun sens des convenances, elle fait très bien son travail mais est très brute avec ses patients. Elle est là pour faire son métier et pas plus, nullement intéressée par l'argent ou la gloire. Elle vient d'une colonie de l'Empire et a avec elle un assistant droïde chirurgien, A-T0, un droïde bipède.",
+        "places": 1,
+        "noms": [
+          "Trara Quoon"
+        ],
+        "uuids": []
       },
       {
         "role": "Mécanicien",
         "nom": "Bob",
-        "description": "Humain mâle très sympathique dont personne ne sait vraiment pourquoi il est là. Doué en mécanique mais sans la hargne qu'il faudrait pour suivre les sith — du moins c'est ce que tout le monde se dit. Il répond aux ordres promptement et efficacement, et n'a quasiment aucun contact avec le reste de l'équipage : il dort près des moteurs, est taciturne et ne parle jamais en public à moins d'y être contraint. L'Empire a d'abord cru que c'était un espion, mais ses années de service parlent pour lui : surveillé pendant 5 ans sans le moindre signe de communication suspecte. Il n'apprécie apparemment que la compagnie des machines et des droïdes de maintenance. Capable de réparer un moteur en flammes sans contact visuel (et l'a déjà fait) — une ressource inestimable. ATTENTION : personnel à ne tuer sous aucun prétexte."
+        "description": "Humain mâle très sympathique dont personne ne sait vraiment pourquoi il est là. Doué en mécanique mais sans la hargne qu'il faudrait pour suivre les sith — du moins c'est ce que tout le monde se dit. Il répond aux ordres promptement et efficacement, et n'a quasiment aucun contact avec le reste de l'équipage : il dort près des moteurs, est taciturne et ne parle jamais en public à moins d'y être contraint. L'Empire a d'abord cru que c'était un espion, mais ses années de service parlent pour lui : surveillé pendant 5 ans sans le moindre signe de communication suspecte. Il n'apprécie apparemment que la compagnie des machines et des droïdes de maintenance. Capable de réparer un moteur en flammes sans contact visuel (et l'a déjà fait) — une ressource inestimable. ATTENTION : personnel à ne tuer sous aucun prétexte.",
+        "places": 1,
+        "noms": [
+          "Bob"
+        ],
+        "uuids": []
       },
       {
         "role": "Équipage supplémentaire",
         "nom": "",
-        "description": "14 personnes : 1 chef de soute, 2 mécaniciens, 2 cantiniers, 2 agents d'entretien, 1 sous-pilote, 2 agents de maintenance, 4 agents d'artillerie."
+        "description": "14 personnes : 1 chef de soute, 2 mécaniciens, 2 cantiniers, 2 agents d'entretien, 1 sous-pilote, 2 agents de maintenance, 4 agents d'artillerie.",
+        "places": 1,
+        "noms": [],
+        "uuids": []
       }
     ],
     "soute": "Soute de 100 m de long et 40 m de large.",
     "equipementsEmbarques": "Une navette de transport de troupes de 20 personnes\nUn entrepôt\nRéserve de nourriture pour 14 jours\nQuatre pods de sauvetage de 6 places\nQuatre quartiers VIP où logent les sith\nDeux quartiers d'équipage\nUne infirmerie\nSéjour\n4 sas",
     "portrait": "icons/svg/mystery-man.svg",
-    "description": "<p>Destroyer assigné à la garde des seigneurs sith. En cas de doute sur un membre d'équipage, envoyer un communiqué à son maître.</p><p><em>Note MJ : le classeur source indique aussi \"PV : 50 100\" en tête de fiche, incohérent avec les 300 PV de coque précisés plus loin dans le même document — retenu ici la valeur explicite (300), la mention initiale semble être un reliquat de gabarit non mis à jour.</em></p>"
+    "description": "<p>Destroyer assigné à la garde des seigneurs sith. En cas de doute sur un membre d'équipage, envoyer un communiqué à son maître.</p><p><em>Note MJ : le classeur source indique aussi \"PV : 50 100\" en tête de fiche, incohérent avec les 300 PV de coque précisés plus loin dans le même document — retenu ici la valeur explicite (300), la mention initiale semble être un reliquat de gabarit non mis à jour.</em></p>",
+    "amenagements": [
+      {
+        "nom": "Navette",
+        "description": "Navette de transport de troupes de 20 personnes."
+      },
+      {
+        "nom": "Entrepôt",
+        "description": ""
+      },
+      {
+        "nom": "Réserve de nourriture",
+        "description": "Vivres pour 14 jours."
+      },
+      {
+        "nom": "Pods de sauvetage",
+        "description": "Quatre pods de 6 places."
+      },
+      {
+        "nom": "Quartiers VIP",
+        "description": "Quatre quartiers VIP où logent les sith."
+      },
+      {
+        "nom": "Quartiers d'équipage",
+        "description": "Deux quartiers d'équipage."
+      },
+      {
+        "nom": "Infirmerie",
+        "description": ""
+      },
+      {
+        "nom": "Séjour",
+        "description": ""
+      },
+      {
+        "nom": "Sas",
+        "description": "4 sas."
+      }
+    ]
   },
   "prototypeToken": {
     "name": "Convergence",
-    "texture": { "src": "icons/svg/mystery-man.svg" },
+    "texture": {
+      "src": "icons/svg/mystery-man.svg"
+    },
     "actorLink": true
   },
-  "items": [],
+  "items": [
+    {
+      "_id": "4LUssarMGbWeHbpm",
+      "_key": "!actors.items!WiWXMiy6UuunL1Nh.4LUssarMGbWeHbpm",
+      "name": "Canon rotatif lourd",
+      "type": "arme",
+      "img": "systems/galactic-wars/asset_visuel/objets/armes-tourelle-laser-lourde.jpg",
+      "system": {
+        "quantite": 4,
+        "prix": "",
+        "porte": true,
+        "description": "",
+        "notesMJ": "",
+        "degats": "50",
+        "competence": "canonLourd",
+        "instable": false,
+        "portee": ""
+      },
+      "effects": [],
+      "flags": {
+        "galactic-wars": {
+          "emplacement": ""
+        }
+      },
+      "sort": 100000
+    }
+  ],
   "effects": [],
   "folder": null,
   "sort": 100000,
-  "ownership": { "default": 0 },
+  "ownership": {
+    "default": 0
+  },
   "flags": {},
   "_stats": {
     "compendiumSource": null,

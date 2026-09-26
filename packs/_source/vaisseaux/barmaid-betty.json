@@ -11,7 +11,33 @@
     },
     "actorLink": true
   },
-  "items": [],
+  "items": [
+    {
+      "_id": "Im6I3LrN8YwdJSYE",
+      "_key": "!actors.items!YXik8AR9uAhIhTLJ.Im6I3LrN8YwdJSYE",
+      "name": "Canon lourd",
+      "type": "arme",
+      "img": "systems/galactic-wars/asset_visuel/objets/armes-tourelle-laser-lourde.jpg",
+      "system": {
+        "quantite": 4,
+        "prix": "",
+        "porte": true,
+        "description": "",
+        "notesMJ": "",
+        "degats": "4d6",
+        "competence": "canonLourd",
+        "instable": false,
+        "portee": ""
+      },
+      "effects": [],
+      "flags": {
+        "galactic-wars": {
+          "emplacement": ""
+        }
+      },
+      "sort": 100000
+    }
+  ],
   "effects": [],
   "system": {
     "classe": "Transport de troupes et de combat",
@@ -24,29 +50,53 @@
     "bouclier": {
       "actif": true,
       "points": 120,
-      "reduction": 0
+      "reduction": 0,
+      "max": 120
     },
     "moteur": {
       "deplacement": 0
     },
-    "armement": [
-      {
-        "nom": "Canon lourd",
-        "degats": "4d6",
-        "quantite": 4
-      }
-    ],
+    "armement": [],
     "equipage": [
       {
         "role": "Équipage",
         "nom": "",
-        "description": "18 à 26 personnes (répartition non précisée dans le matériel source)."
+        "description": "18 à 26 personnes (répartition non précisée dans le matériel source).",
+        "places": 1,
+        "noms": [],
+        "uuids": []
       }
     ],
     "soute": "Cales et entrepôts pour le matériel des troupes transportées.",
     "equipementsEmbarques": "Large infirmerie ; plusieurs dortoirs de soldats ; mess commun ; salle des machines ; poste de pilotage/passerelle ; plusieurs sas de débarquement.",
     "portrait": "icons/svg/mystery-man.svg",
-    "description": "<p>Transport de troupes et de combat, 18 à 26 personnes, 100 m de long sur 70 m de large. Dispose d'une large infirmerie et de plusieurs dortoirs de soldats.</p><p>Note MJ : les points de vie (100), le bouclier (120, réduction 0), l'armement (4 canons lourds 4d6) ainsi que le mess commun, la salle des machines, le poste de pilotage/passerelle et les sas de débarquement sont des valeurs/salles estimées par cohérence avec les vaisseaux comparables du même classeur (Barloz, La poubelle géante, Le Arcadia), pas des données du matériel source. À ajuster librement.</p>"
+    "description": "<p>Transport de troupes et de combat, 18 à 26 personnes, 100 m de long sur 70 m de large. Dispose d'une large infirmerie et de plusieurs dortoirs de soldats.</p><p>Note MJ : les points de vie (100), le bouclier (120, réduction 0), l'armement (4 canons lourds 4d6) ainsi que le mess commun, la salle des machines, le poste de pilotage/passerelle et les sas de débarquement sont des valeurs/salles estimées par cohérence avec les vaisseaux comparables du même classeur (Barloz, La poubelle géante, Le Arcadia), pas des données du matériel source. À ajuster librement.</p>",
+    "amenagements": [
+      {
+        "nom": "Infirmerie",
+        "description": "Large infirmerie."
+      },
+      {
+        "nom": "Dortoirs",
+        "description": "Plusieurs dortoirs de soldats."
+      },
+      {
+        "nom": "Mess",
+        "description": "Mess commun."
+      },
+      {
+        "nom": "Salle des machines",
+        "description": ""
+      },
+      {
+        "nom": "Passerelle",
+        "description": "Poste de pilotage et passerelle."
+      },
+      {
+        "nom": "Sas de débarquement",
+        "description": "Plusieurs sas de débarquement."
+      }
+    ]
   },
   "folder": null,
   "sort": 100000,

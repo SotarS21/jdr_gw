@@ -29,7 +29,8 @@ export class VaisseauData extends foundry.abstract.TypeDataModel {
         deplacement: new NumberField({ required: true, integer: true, initial: 0 }) // cases avant de tomber en rade
       }),
 
-      // Modifiés par la fenêtre d'édition de la fiche (tableau complet réécrit), jamais par le formulaire.
+      // Ancien armement texte (avant la v0.16.0) : l'armement est désormais fait d'objets « arme » portés par le
+      // vaisseau (helpers/armement-vaisseau.mjs). Conservé pour la conversion (bouton de la fiche, correctif MJ).
       armement: new ArrayField(
         new SchemaField({
           nom: new StringField({ initial: "" }),
@@ -45,6 +46,8 @@ export class VaisseauData extends foundry.abstract.TypeDataModel {
           role: new StringField({ initial: "" }),
           places: new NumberField({ required: true, integer: true, min: 1, max: 20, initial: 1 }),
           noms: new ArrayField(new StringField({ initial: "" })),
+          // Acteur déposé sur une place (même index que `noms`) ; "" = nom saisi à la main.
+          uuids: new ArrayField(new StringField({ blank: true, initial: "" })),
           // Ancien nom unique, repris dans `noms` par migrateData.
           nom: new StringField({ initial: "" }),
           description: new StringField({ initial: "" })
@@ -52,21 +55,40 @@ export class VaisseauData extends foundry.abstract.TypeDataModel {
       ),
 
       soute: new StringField({ initial: "" }),
-      equipementsEmbarques: new StringField({ initial: "" }), // navette, pods de sauvetage, réserves, quartiers...
+      // Aménagements (sanitaire, navette, pods de sauvetage…), édités par fenêtre en mode Édition.
+      amenagements: new ArrayField(
+        new SchemaField({
+          nom: new StringField({ initial: "" }),
+          description: new StringField({ initial: "" })
+        })
+      ),
+      // Ancien texte libre, découpé en `amenagements` par migrateData ; plus affiché.
+      equipementsEmbarques: new StringField({ initial: "" }),
 
       portrait: new FilePathField({ categories: ["IMAGE"], initial: "icons/svg/mystery-man.svg" }),
       description: new HTMLField({ initial: "" })
     };
   }
 
-  /** @override — v0.16.0 : bouclier.max (jauge) et equipage[].noms (plusieurs places par poste). */
-  static migrateData(source) {
-    if (source.bouclier && source.bouclier.max === undefined) {
-      source.bouclier.max = Math.max(0, source.bouclier.points ?? 0);
+  /**
+   * @override — v0.16.0 : bouclier.max (jauge), equipage[].noms / uuids (plusieurs places par poste), amenagements
+   * (découpage brut de l'ancien texte ; ceux du compendium sont rédigés à la main).
+   * Jamais sur une mise à jour partielle : `{ bouclier: { points } }` seul y remettrait le maximum aux points.
+   */
+  static migrateData(source, options) {
+    if (!options?.partial) {
+      if (source.bouclier && source.bouclier.max === undefined) {
+        source.bouclier.max = Math.max(0, source.bouclier.points ?? 0);
+      }
+      if (source.amenagements === undefined && typeof source.equipementsEmbarques === "string") {
+        source.amenagements = source.equipementsEmbarques.split(/\s*[,;.\n]\s*/).filter(Boolean)
+          .map((nom) => ({ nom: nom.charAt(0).toUpperCase() + nom.slice(1), description: "" }));
+      }
     }
     for (const poste of source.equipage ?? []) {
       if (!Array.isArray(poste.noms)) poste.noms = poste.nom ? [poste.nom] : [];
+      if (!Array.isArray(poste.uuids)) poste.uuids = [];
     }
-    return super.migrateData(source);
+    return super.migrateData(source, options);
   }
 }

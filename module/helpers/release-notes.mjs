@@ -196,8 +196,11 @@ export const RELEASE_NOTES = {
   "0.16.0": {
     title: "v0.16.0",
     html: `<ul>
-      <li>Nouvelle fiche de vaisseau : grande image, jauges de coque et de bouclier, interrupteur de bouclier, armement avec emplacement (fenêtre d'ajout / de modification), équipage par poste avec plusieurs places nommées, aménagements avec icônes.</li>
-      <li>Les vaisseaux existants sont repris tels quels (bouclier maximum = points actuels, nom d'équipage conservé).</li>
+      <li>Nouvelle fiche de vaisseau : grande image, jauges de coque et de bouclier, interrupteur de bouclier, équipage par poste avec plusieurs places, aménagements avec icône et description.</li>
+      <li>Mode Édition (bouton en haut de la fiche) : identité, maximums, armes, postes et aménagements ne se modifient qu'en Édition ; hors Édition restent utilisables la coque, le bouclier, le déplacement, les armes et l'équipage.</li>
+      <li>Armement = objets « arme » : glissez-déposez des armes sur la fiche ; un clic sur une arme affiche sa carte d'attaque, et le tir utilise la compétence de l'arme au taux du token sélectionné.</li>
+      <li>Équipage : glissez-déposez un personnage ou un PNJ sur un poste (même hors Édition) ; son portrait ouvre sa fiche.</li>
+      <li>Les vaisseaux existants sont repris (bouclier maximum = points actuels, noms d'équipage, aménagements). Leur ancien armement texte se convertit en armes par un correctif proposé au MJ, ou par le bouton « Convertir » de la fiche.</li>
     </ul>`
   }
 };
