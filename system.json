@@ -2,7 +2,7 @@
   "id": "galactic-wars",
   "title": "Galactic Wars",
   "description": "Système de jeu de rôle Star Wars maison : compétences en pourcentage, races, métiers, force, alignement Lumière/Obscurité.",
-  "version": "0.17.0",
+  "version": "0.18.0",
   "socket": true,
   "compatibility": {
     "minimum": "13",
@@ -12,7 +12,7 @@
     { "name": "Mr Banane" }
   ],
   "esmodules": ["module/galactic-wars.mjs"],
-  "styles": ["styles/galactic-wars.css", "styles/objets.css", "styles/inventaire.css", "styles/vaisseau.css", "styles/equipage.css"],
+  "styles": ["styles/galactic-wars.css", "styles/objets.css", "styles/inventaire.css", "styles/vaisseau.css", "styles/equipage.css", "styles/generique.css"],
   "languages": [
     { "lang": "fr", "name": "Français", "path": "lang/fr.json" }
   ],
@@ -24,6 +24,9 @@
       "pnj": { "htmlFields": ["description"] },
       "vaisseau": { "htmlFields": ["description"] },
       "equipage": { "htmlFields": ["description"] }
+    },
+    "JournalEntryPage": {
+      "generique": {}
     },
     "Item": {
       "race": { "htmlFields": ["description"] },

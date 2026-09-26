@@ -19,14 +19,33 @@
      `vetement_armure_guerrier_sith`, `vetement_armure_lourde`, `vetement_armure_plastron`, `vetement_de_contrebandier`,
      `vetement_robe_jedi`). Tri à faire (portes, astéroïdes, barges, textures n'en sont pas). Publication par
      `asset_visuel/objets/` (suivi) + correctif MJ pour les objets déjà dans les mondes (voir `0.14.1-visuels-par-nom`).
-  5. Scène de générique façon intro Star Wars : 4 propositions faites (A écran intégré diffusé à tous, B scène Foundry,
-     C vidéo pré-rendue, D module tiers) ; **maquette de A** publiée (https://claude.ai/artifact/JRU8AwQ4TW15FLA1Um8KrW)
-     — en attente du retour de l'auteur.
+  5. ~~Générique façon intro Star Wars~~ : proposition A codée comme la maquette (v0.18.0, commitée) ; écran testé,
+     **page de journal et diffusion aux joueurs à tester au redémarrage** (nouveau type de page).
 - **Faits dans cette session** : lien vers le vaisseau, grille 2 × 2 et corbeille de l'onglet Équipements (v0.15.8) ;
   fiche de vaisseau d'après le mockup et tous les ajouts de l'auteur (v0.16.0) ; nouveaux vaisseaux et images (v0.16.1).
 - **Rappels techniques** : scripts de patch écrits avec l'outil Write (ou heredoc `<<'EOF'`, en doublant les
   antislashs à vérifier) — jamais de backticks dans un `node -e` en bash ; `git checkout` remet les fichiers en CRLF
   (normaliser avant de chercher du texte) ; `prose-mirror` doit rester en `display: flex`.
+
+## Session du 2026-09-26 (suite 11) — Générique (v0.17.0→v0.18.0)
+
+- v0.17.0 poussée et publiée (accord de l'auteur).
+- **Générique** : « code le générique comme la maquette ». Nouveau type de page de journal **Générique** (données :
+  épisode, titre, phrase d'ouverture, texte — un paragraphe par ligne vide —, vitesse lente / normale / rapide,
+  musique et image de fond facultatives). En lecture : encart (logo, épisode, titre, texte) et boutons **Diffuser le
+  générique** (MJ) et **Aperçu (vous seul)**.
+- `apps/generique.mjs` : écran plein écran par-dessus Foundry (z-index 10000), repris de la maquette — étoiles en
+  canvas (scintillement, redimensionnement), ouverture bleue 5 s, logo 8,5 s, défilement à 10,2 s ; fin = fondu et
+  fermeture. Diffusion : `game.socket` sur `system.galactic-wars` (`lancer` avec les données, `passer`,
+  `arreter`) ; le MJ a « Passer au texte » et « Arrêter pour tous », chacun « Fermer » / Échap chez lui ; musique
+  jouée chez chaque client (`AudioHelper.play`), arrêtée à la fermeture. Mouvements réduits : texte fixe.
+- Réglage de la vitesse : en plein écran, la vitesse relative à la hauteur du texte était trop lente (titre visible au
+  bout de 14 s, la perspective écrasant le mouvement) → vitesse en pixels proportionnelle à la taille de la police
+  (1,6 × taille / s × vitesse), départ à 80 % : titre à 524 px à 4 s, 271 px à 10 s (écran de 950 px), 41 s pour trois
+  paragraphes en vitesse normale.
+- Testé sans redémarrage (2 utilisateurs connectés) en appelant `jouerGenerique` : ouverture visible, boutons du MJ,
+  « Passer », défilement lisible, Échap. Reste à tester au redémarrage : création de la page, diffusion à un second
+  client, « Arrêter pour tous », musique.
 
 ## Session du 2026-09-26 (suite 10) — Maquette du générique, acteur Équipage (v0.16.3→v0.17.0)
 

@@ -8,6 +8,9 @@
       "vaisseau": "Vaisseau",
       "equipage": "Équipage"
     },
+    "JournalEntryPage": {
+      "generique": "Générique"
+    },
     "Item": {
       "race": "Race",
       "metier": "Métier",
@@ -534,6 +537,31 @@
       "ObjetDonne": "{objet} est passé dans l'inventaire de {nom}.",
       "AccesRefuse": "Vous n'avez pas accès à la fiche de « {nom} ».",
       "ViaEquipage": "Vaisseau de l'équipage {equipage}"
+    },
+    "Generique": {
+      "Fiche": "Générique (intro spatiale)",
+      "Titre": "Générique",
+      "Episode": "Épisode",
+      "TitreEpisode": "Titre",
+      "TitreExemple": "L'ombre de Corucentre",
+      "Ouverture": "Phrase d'ouverture",
+      "Texte": "Texte",
+      "TexteHint": "Un paragraphe par ligne vide. Le texte défile en jaune, en perspective, après le logo.",
+      "TexteVide": "Aucun texte : passez la page en édition pour écrire le générique.",
+      "VitesseLabel": "Vitesse",
+      "Vitesse": { "lente": "Lente", "normale": "Normale", "rapide": "Rapide" },
+      "Musique": "Musique (facultatif)",
+      "Fond": "Image de fond (facultatif)",
+      "FondHint": "Sans image, le générique défile sur un champ d'étoiles.",
+      "Diffuser": "Diffuser le générique",
+      "VoirApercu": "Aperçu (vous seul)",
+      "AideDiffusion": "« Diffuser » le joue en plein écran chez tous les joueurs connectés. Pendant la lecture, vous avez « Passer » et « Arrêter pour tous » ; chaque joueur peut le fermer chez lui avec Échap.",
+      "Apercu": "Aperçu",
+      "Passer": "Passer au texte",
+      "ArreterTous": "Arrêter pour tous",
+      "Fermer": "Fermer",
+      "FermerHint": "Fermer le générique (Échap) — chez vous seulement",
+      "ReserveMJ": "Seul le MJ peut diffuser le générique."
     },
     "LienVaisseau": {
       "Titre": "Vaisseau",

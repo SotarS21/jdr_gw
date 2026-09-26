@@ -1,0 +1,35 @@
+{{!-- Page de journal « Générique » : édition (voir module/sheets/page-generique-sheet.mjs). --}}
+<section class="gw-generique-edition">
+  <div class="form-group">
+    <label for="{{rootId}}-episode">{{localize 'GALACTICWARS.Generique.Episode'}}</label>
+    <input type="text" id="{{rootId}}-episode" name="system.episode" value="{{system.episode}}" placeholder="Épisode IV">
+  </div>
+  <div class="form-group">
+    <label for="{{rootId}}-titre">{{localize 'GALACTICWARS.Generique.TitreEpisode'}}</label>
+    <input type="text" id="{{rootId}}-titre" name="system.titre" value="{{system.titre}}" placeholder="{{localize 'GALACTICWARS.Generique.TitreExemple'}}">
+  </div>
+  <div class="form-group">
+    <label for="{{rootId}}-ouverture">{{localize 'GALACTICWARS.Generique.Ouverture'}}</label>
+    <input type="text" id="{{rootId}}-ouverture" name="system.ouverture" value="{{system.ouverture}}">
+  </div>
+  <div class="form-group stacked">
+    <label for="{{rootId}}-texte">{{localize 'GALACTICWARS.Generique.Texte'}}</label>
+    <textarea id="{{rootId}}-texte" name="system.texte" rows="12">{{system.texte}}</textarea>
+    <p class="hint">{{localize 'GALACTICWARS.Generique.TexteHint'}}</p>
+  </div>
+  <div class="form-group">
+    <label for="{{rootId}}-vitesse">{{localize 'GALACTICWARS.Generique.VitesseLabel'}}</label>
+    <select id="{{rootId}}-vitesse" name="system.vitesse">
+      {{selectOptions vitesses selected=system.vitesse localize=true}}
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="{{rootId}}-musique">{{localize 'GALACTICWARS.Generique.Musique'}}</label>
+    <file-picker id="{{rootId}}-musique" name="system.musique" type="audio" value="{{system.musique}}"></file-picker>
+  </div>
+  <div class="form-group">
+    <label for="{{rootId}}-fond">{{localize 'GALACTICWARS.Generique.Fond'}}</label>
+    <file-picker id="{{rootId}}-fond" name="system.fond" type="image" value="{{system.fond}}"></file-picker>
+    <p class="hint">{{localize 'GALACTICWARS.Generique.FondHint'}}</p>
+  </div>
+</section>

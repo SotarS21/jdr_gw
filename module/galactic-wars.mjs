@@ -6,6 +6,9 @@ import { PersonnageRapideData } from "./data/actor-personnage-rapide.mjs";
 import { PersonnageSithData } from "./data/actor-personnage-sith.mjs";
 import { VaisseauData } from "./data/actor-vaisseau.mjs";
 import { EquipageData } from "./data/actor-equipage.mjs";
+import { GeneriqueData } from "./data/page-generique.mjs";
+import { PageGeneriqueSheet } from "./sheets/page-generique-sheet.mjs";
+import { enregistrerSocketGenerique } from "./apps/generique.mjs";
 import { RaceData } from "./data/item-race.mjs";
 import { MetierData } from "./data/item-metier.mjs";
 import { TalentData } from "./data/item-talent.mjs";
@@ -55,6 +58,7 @@ Hooks.once("init", () => {
   CONFIG.Actor.dataModels["personnage-sith"] = PersonnageSithData;
   CONFIG.Actor.dataModels.vaisseau = VaisseauData;
   CONFIG.Actor.dataModels.equipage = EquipageData;
+  CONFIG.JournalEntryPage.dataModels.generique = GeneriqueData;
   CONFIG.Item.dataModels.race = RaceData;
   CONFIG.Item.dataModels.metier = MetierData;
   CONFIG.Item.dataModels.talent = TalentData;
@@ -107,6 +111,12 @@ Hooks.once("init", () => {
   });
   enregistrerHooksEquipage();
 
+  DocumentSheetConfig.registerSheet(JournalEntryPage, "galactic-wars", PageGeneriqueSheet, {
+    types: ["generique"],
+    makeDefault: true,
+    label: "GALACTICWARS.Generique.Fiche"
+  });
+
   DocumentSheetConfig.registerSheet(Item, "galactic-wars", GalacticWarsItemSheet, {
     types: ["race", "metier", "talent", "arme", "armure", "pouvoir", "equipement", "ecole"],
     makeDefault: true,
@@ -118,6 +128,7 @@ Hooks.once("init", () => {
 });
 
 Hooks.once("ready", async () => {
+  enregistrerSocketGenerique();
   if (!game.user.isGM) return;
   await runMigrations();
   await checkSystemVersionUpdate();

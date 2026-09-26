@@ -1,0 +1,20 @@
+{{!-- Page de journal « Générique » : lecture (encart + boutons). --}}
+<article class="gw-generique-lecture">
+  <div class="gw-generique-encart">
+    <span class="gw-generique-logo">Galactic Wars</span>
+    {{#if system.episode}}<span class="gw-generique-episode">{{system.episode}}</span>{{/if}}
+    <span class="gw-generique-titre">{{#if system.titre}}{{system.titre}}{{else}}{{name}}{{/if}}</span>
+    {{#if paragraphes.length}}
+    <div class="gw-generique-texte">{{#each paragraphes as |p|}}<p>{{p}}</p>{{/each}}</div>
+    {{else}}
+    <p class="gw-generique-vide">{{localize 'GALACTICWARS.Generique.TexteVide'}}</p>
+    {{/if}}
+  </div>
+  <div class="gw-generique-actions">
+    {{#if isGM}}
+    <button type="button" class="gw-generique-diffuser" data-action="diffuser"><i class="fa-solid fa-tower-broadcast"></i> {{localize 'GALACTICWARS.Generique.Diffuser'}}</button>
+    {{/if}}
+    <button type="button" data-action="apercu"><i class="fa-solid fa-eye"></i> {{localize 'GALACTICWARS.Generique.VoirApercu'}}</button>
+  </div>
+  {{#if isGM}}<p class="gw-generique-aide">{{localize 'GALACTICWARS.Generique.AideDiffusion'}}</p>{{/if}}
+</article>

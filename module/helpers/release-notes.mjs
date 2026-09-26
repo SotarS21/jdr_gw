@@ -234,5 +234,12 @@ export const RELEASE_NOTES = {
       <li>Un personnage sans vaisseau à lui voit celui de son équipage dans l'onglet Équipements.</li>
       <li>Un nouvel équipage est utilisable par tous les joueurs (droit Propriétaire par défaut) ; le MJ peut le restreindre.</li>
     </ul>`
+  },
+  "0.18.0": {
+    title: "v0.18.0",
+    html: `<ul>
+      <li>Nouveau : le <strong>générique façon intro spatiale</strong>. Dans un journal, ajoutez une page de type « Générique » (épisode, titre, phrase d'ouverture, texte, vitesse, musique et image de fond facultatives).</li>
+      <li>« Diffuser le générique » le joue en plein écran chez tous les joueurs connectés : champ d'étoiles, phrase d'ouverture, logo qui recule, texte jaune qui défile en perspective. Le MJ peut passer au texte ou l'arrêter pour tous ; chacun peut le fermer avec Échap. « Aperçu » le joue pour vous seul.</li>
+    </ul>`
   }
 };
