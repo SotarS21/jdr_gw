@@ -209,5 +209,11 @@ export const RELEASE_NOTES = {
       <li>Quatre nouveaux vaisseaux au compendium Vaisseaux, avec leur image (acteur, fiche et token) : les frégates armées <strong>Pourparler</strong> et <strong>Lance d'argent</strong>, le transport <strong>La Brique</strong> et la grande frégate <strong>Lumière de l'aube</strong>. Leurs caractéristiques sont des estimations, à ajuster par le MJ.</li>
       <li>Images pour Le Frelon, la Convergence et le Gunboat 1061-968 (acteur, fiche et token) ; les copies du monde qui ont encore l'image par défaut sont mises à jour par un correctif proposé au MJ.</li>
     </ul>`
+  },
+  "0.16.2": {
+    title: "v0.16.2",
+    html: `<ul>
+      <li>Chaque compendium du système a sa bannière (mosaïque de ses visuels : ethnies, armes, armures, équipements, vaisseaux, armes sith).</li>
+    </ul>`
   }
 };

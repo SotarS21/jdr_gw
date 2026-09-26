@@ -11,7 +11,7 @@
 - **Todo restante** (fichier de l'auteur sur le Bureau) :
   1. Images des 10 autres vaisseaux du compendium (rien d'évident dans `asset_visuel/vaiseau/` ; `front_speeder.jpg`
      illisible par System.Drawing — format à vérifier, candidat pour le Land speeder).
-  2. Bannière de chaque compendium (`system.json` `packs[].banner`, aucune aujourd'hui).
+  2. ~~Bannière de chaque compendium~~ : faite (v0.16.2, commitée ; Foundry à redémarrer pour la voir).
   3. Acteur « Équipage » (PJ membres, crédits communs, réserve d'objets, vaisseau associé ; modèle : Party de PF2e).
      Le lien vers le vaisseau (v0.15.8) est individuel : l'Équipage pourra porter le vaisseau commun.
   4. Synchroniser les images sur les objets anciens et nouveaux (ex. vêtements) ; créer les nouveaux avec une
@@ -27,6 +27,18 @@
 - **Rappels techniques** : scripts de patch écrits avec l'outil Write (ou heredoc `<<'EOF'`, en doublant les
   antislashs à vérifier) — jamais de backticks dans un `node -e` en bash ; `git checkout` remet les fichiers en CRLF
   (normaliser avant de chercher du texte) ; `prose-mirror` doit rester en `display: flex`.
+
+## Session du 2026-09-26 (suite 8) — Bannières des compendiums (v0.16.1→v0.16.2)
+
+- **Todo** : « Retravailler l'image de chaque compendium (bannière affichée sur la façade du compendium) ». Foundry
+  affiche `packs[].banner` en `object-fit: cover` (barre latérale ~300 × 84-100 px) → bannières de 600 × 168 px.
+- Chaque bannière = mosaïque de 3 à 6 bandes verticales recadrées, filet sombre entre les bandes, voile haut / bas
+  pour le titre posé par Foundry. **Seuls des visuels déjà publiés** : ethnies (Races, Codex des espèces, Talents),
+  objets (Armes, Armures, Équipements, Métiers : outils de métier), armes sith (Écoles, Pregens sith avec 2 portraits
+  d'ethnie), vaisseaux. Les dossiers non suivis `Personnage/` et `lieux/` (images de campagne) ne sont pas utilisés.
+- Piège : une bonne partie de `asset_visuel/Ethnie/*.jpg` est du **WebP** (System.Drawing : « Mémoire insuffisante »)
+  → bannières dessinées dans la page Foundry (canvas, Playwright via `verify-local.mjs`) et rapatriées en JPEG 85 %.
+- Déployé sans redémarrage (2 utilisateurs connectés) : `system.json` n'est relu qu'au redémarrage.
 
 ## Session du 2026-09-26 (suite 7) — Nouveaux vaisseaux (v0.16.0→v0.16.1)
 
