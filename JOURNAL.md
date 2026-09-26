@@ -8,23 +8,61 @@
   suivis (voulu) : `asset_visuel/{Personnage,item,lieux,vaiseau}`.
 - **Monde de test** : deux correctifs MJ en attente, à laisser accepter par l'auteur à sa connexion —
   `0.16.0-armement-en-objets` (le Barloz, 2 armes à l'ancien format) et `0.16.1-images-vaisseaux` (copies de même nom).
-- **Todo restante** (fichier de l'auteur sur le Bureau) :
-  1. Images des 10 autres vaisseaux du compendium (rien d'évident dans `asset_visuel/vaiseau/` ; `front_speeder.jpg`
-     illisible par System.Drawing — format à vérifier, candidat pour le Land speeder).
-  2. ~~Bannière de chaque compendium~~ : faite et vérifiée (v0.16.2).
-  3. ~~Acteur « Équipage »~~ : fait et vérifié en jeu (v0.17.0).
-  4. ~~Synchroniser les images et descriptions des objets~~ : fait et vérifié (v0.16.3). Ancien texte de la todo : créer les nouveaux avec une
-     description sommaire ; en profiter pour enrichir les descriptions existantes. Source : `asset_visuel/item/`
-     (69 images, non suivi), dont 7 vêtements (`vetement_apprentis_jedi`, `vetement_apprentis_sith`,
-     `vetement_armure_guerrier_sith`, `vetement_armure_lourde`, `vetement_armure_plastron`, `vetement_de_contrebandier`,
-     `vetement_robe_jedi`). Tri à faire (portes, astéroïdes, barges, textures n'en sont pas). Publication par
-     `asset_visuel/objets/` (suivi) + correctif MJ pour les objets déjà dans les mondes (voir `0.14.1-visuels-par-nom`).
-  5. ~~Générique façon intro Star Wars~~ : proposition A codée comme la maquette et vérifiée à deux clients (v0.18.0).
+- **Todo restante** :
+  - Images des vaisseaux : restent sans image Barloz, Barmaid Betty, Lantallian, Dynamic 20 et Land speeder (rien
+    d'adapté dans `asset_visuel/vaiseau/` ; attendre des images de l'auteur).
+  - **Fiche de personnage WOLF** (tableur de l'auteur, https://docs.google.com/spreadsheets/d/1w5r84L8HT_6WWQ2diVqvG5HM5YRCGroU24iRukmWinI/) :
+    robot « I.A.F PTR-85j / WOLF », niveau 7, caractéristiques, compétences, passifs / actifs, équipement, 8 714 c,
+    notes sur ses PNJ. **Choix de l'auteur : juste noter** pour l'instant (rien à faire).
+  - **Suivi de l'auteur** (tableur https://docs.google.com/spreadsheets/d/1znh5uDSFQPvQjuDRWs7nIHRQDTmR3EqXHkBvLAfjPyQ/, 25 points,
+    tous « Pas commencé », à traiter ensuite) :
+    1. [Bug] Métier « Guerrier jedi » à ajouter (vérifier les fiches pour son équipement).
+    2. [Bug] Les objets d'équipement ne sont pas mis à jour.
+    3. [Bug] Comlink : les canaux ne se mettent pas à jour pour tout le monde ; le bouton Ouvrir n'est pas synchronisé
+       avec celui de la fiche.
+    4. [Bug] Ajouter le Datapad au compendium.
+    5. [Bug] Synchronisation de l'image de token.
+    6. [Fonctionnalité] Informations : champ « Signe distinctif ».
+    7. [Bug] Agrandir la taille de la description.
+    8. [Bug] Notes : synchronisation entre ce que voit le PJ et le MJ.
+    9. [Fonctionnalité] Glisser-déposer des acteurs dans les PNJ des PJ.
+    10. [Fonctionnalité] Afficher une note dans le tchat, et pouvoir la glisser du tchat vers ses propres notes.
+    11. [Fonctionnalité] Succès en vert, échecs en rouge, plus visibles.
+    12. [Fonctionnalité] Compendium d'aménagements payants pour les vaisseaux.
+    13. [Fonctionnalité] Nombre de modules d'aménagement par vaisseau.
+    14. [Fonctionnalité] Ajouter de l'équipement directement dans le vaisseau.
+    15. [Bug] Postes du vaisseau : glisser-déposer des PJ d'un poste à l'autre, à volonté.
+    16. [Fonctionnalité] Bouton de jet par poste (le PJ du poste lance sa propre compétence) : Pilote → Pilotage,
+        Navigateur → Informatique / piratage, Communicateur → Social, Manutention et entretien → Mécanique, Canonnier →
+        Canon lourd, Médecin de bord → Médecine, Capitaine → Commander / guider.
+    17. [Fonctionnalité] Dossier de musiques (depuis le dossier « music star wars » de l'auteur).
+    18. [Fonctionnalité] Animations via P2A (armes, déplacement des vaisseaux).
+    19. [Fonctionnalité] Création de personnage en Édition : validateur de niveaux déjà répartis (12 / 12 au niveau 1,
+        +3 par niveau).
+    20. [Bug] Médecine mal synchronisée avec les niveaux (55 en Dextérité, niveau 0 en Médecine → 75).
+    21. [Bug] Onglet Combat : compétences pas dans l'ordre alphabétique.
+    22. [Fonctionnalité] État « Endommagé » sur armes et armures, qui empêche de les porter.
+    23. [Bug] Libellé : « Une compétence dépasserait le niveau 3 : choisissez-en une autre. »
+    24. [Bug] Synchronisation entre la fiche du token et la fiche de l'acteur.
+    25. [Bug] Les PJ doivent pouvoir glisser-déposer les acteurs dont ils sont observateurs ou propriétaires.
 - **Faits dans cette session** : lien vers le vaisseau, grille 2 × 2 et corbeille de l'onglet Équipements (v0.15.8) ;
   fiche de vaisseau d'après le mockup et tous les ajouts de l'auteur (v0.16.0) ; nouveaux vaisseaux et images (v0.16.1).
 - **Rappels techniques** : scripts de patch écrits avec l'outil Write (ou heredoc `<<'EOF'`, en doublant les
   antislashs à vérifier) — jamais de backticks dans un `node -e` en bash ; `git checkout` remet les fichiers en CRLF
   (normaliser avant de chercher du texte) ; `prose-mirror` doit rester en `display: flex`.
+
+## Session du 2026-09-26 (suite 12) — Images de vaisseaux, nouveau suivi (v0.18.0→v0.18.1)
+
+- v0.18.0 confirmée chez les joueurs par l'auteur, poussée et publiée.
+- **Images des vaisseaux** : `front_speeder.jpg` est en réalité un **WebP** (en-tête `RIFF…WEBP`) montrant une moto
+  speeder. Associations proposées et **validées par l'auteur** : Moto speeder ← `front_speeder`, Le Arcadia ←
+  `vaiseau_chasseur_moyen`, Corellian Dawn ← `front_vaiseau_moyen_corvette`, CEC XS-122 ←
+  `front_vaiseau_jaune_exploreur`, La poubelle géante ← `adb30907…` (freighter usé vu de dessus). Conversion dans
+  le navigateur (Playwright, image passée en `data:` — un `file://` « souille » le canvas et bloque `toDataURL`).
+  Correctif `0.18.1-images-vaisseaux`. Restent sans image : Barloz, Barmaid Betty, Lantallian, Dynamic 20, Land speeder.
+- **Deux tableurs de l'auteur** ajoutés à la todo : la fiche de WOLF (juste noter) et un **suivi de 25 points**
+  (recopié dans « À faire à la reprise »).
+- Déployé sans redémarrage (2 utilisateurs connectés) : images visibles au prochain redémarrage.
 
 ## Session du 2026-09-26 (suite 11) — Générique (v0.17.0→v0.18.0)
 

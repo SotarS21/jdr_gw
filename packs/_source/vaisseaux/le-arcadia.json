@@ -3,11 +3,11 @@
   "_id": "bNYNvq4RwXj9dVX7",
   "name": "Le Arcadia",
   "type": "vaisseau",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/galactic-wars/asset_visuel/objets/vaisseaux-le-arcadia.png",
   "prototypeToken": {
     "name": "Le Arcadia",
     "texture": {
-      "src": "icons/svg/mystery-man.svg"
+      "src": "systems/galactic-wars/asset_visuel/objets/vaisseaux-le-arcadia.png"
     },
     "actorLink": true
   },
@@ -110,7 +110,7 @@
     ],
     "soute": "Un entrepôt de 10 m2.",
     "equipementsEmbarques": "6 cabines dont celle du capitaine ; 2 sanitaires ; une salle des machines ; une infirmerie ; une salle de repos/cuisine.",
-    "portrait": "icons/svg/mystery-man.svg",
+    "portrait": "systems/galactic-wars/asset_visuel/objets/vaisseaux-le-arcadia.png",
     "description": "<p>Freighter armé de 20 m sur 35 m, pour 6 places. Équipage de 2 pilotes et 1 communicateur ; 6 cabines dont celle du capitaine, 2 sanitaires, un entrepôt de 10 m2, une salle des machines, une infirmerie et une salle de repos/cuisine.</p><p>Armement : 2 canons lourds places au milieu, en haut et en dessous (4d6 chacun), et 2 paires de tourelles légères sur les ailes à l'avant, pilotables depuis un poste dédié (2d6 chacune).</p>",
     "amenagements": [
       {

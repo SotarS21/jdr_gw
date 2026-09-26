@@ -3,11 +3,11 @@
   "_id": "wq5sBNHltjALjKp7",
   "name": "La poubelle géante",
   "type": "vaisseau",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/galactic-wars/asset_visuel/objets/vaisseaux-la-poubelle-geante.jpg",
   "prototypeToken": {
     "name": "La poubelle géante",
     "texture": {
-      "src": "icons/svg/mystery-man.svg"
+      "src": "systems/galactic-wars/asset_visuel/objets/vaisseaux-la-poubelle-geante.jpg"
     },
     "actorLink": true
   },
@@ -102,7 +102,7 @@
     ],
     "soute": "Une cale/dortoir/entrepôt/salle des machines (espace polyvalent, donné tel quel par le matériel source).",
     "equipementsEmbarques": "Sanitaire.",
-    "portrait": "icons/svg/mystery-man.svg",
+    "portrait": "systems/galactic-wars/asset_visuel/objets/vaisseaux-la-poubelle-geante.jpg",
     "description": "<p>Freighter d'occasion de 15 m sur 25 m, pour 5 places. Équipage de 2 pilotes ; une cale/dortoir/entrepôt/salle des machines faisant office d'espace polyvalent ; un sanitaire.</p><p>Armement : une tourelle lourde (4d6) et une paire de tourelles légères à l'avant (2d6 chacune).</p>",
     "amenagements": [
       {

@@ -27,6 +27,26 @@ import { convertirArmement } from "./armement-vaisseau.mjs";
  */
 export const PACK_UPDATES = [
   {
+    id: "0.18.1-images-vaisseaux",
+    cible: "vaisseaux",
+    version: "0.18.1",
+    label: "Images des vaisseaux (Moto speeder, Le Arcadia, Corellian Dawn, CEC XS-122, La poubelle géante)",
+    description:
+      "Ces cinq vaisseaux du compendium ont maintenant une image (acteur, fiche et token). Met à jour les copies du " +
+      "monde de même nom qui ont encore l'image par défaut.",
+    concernes: () => Promise.resolve(vaisseauxSansImage(IMAGES_VAISSEAUX_0181).length),
+    apply: async () => {
+      const liste = vaisseauxSansImage(IMAGES_VAISSEAUX_0181);
+      for (const { vaisseau, image } of liste) {
+        const changements = { img: image, "system.portrait": image };
+        if (vaisseau.isToken) await vaisseau.token.update({ "texture.src": image });
+        else changements["prototypeToken.texture.src"] = image;
+        await vaisseau.update(changements);
+      }
+      return liste.length;
+    }
+  },
+  {
     id: "0.16.3-visuels-descriptions-objets",
     cible: "acteurs",
     version: "0.16.3",
@@ -52,9 +72,9 @@ export const PACK_UPDATES = [
     description:
       "Ces trois vaisseaux du compendium ont maintenant une image (acteur, fiche et token). Met à jour les copies du " +
       "monde de même nom qui ont encore l'image par défaut.",
-    concernes: () => Promise.resolve(vaisseauxSansImage().length),
+    concernes: () => Promise.resolve(vaisseauxSansImage(IMAGES_VAISSEAUX).length),
     apply: async () => {
-      const liste = vaisseauxSansImage();
+      const liste = vaisseauxSansImage(IMAGES_VAISSEAUX);
       for (const { vaisseau, image } of liste) {
         const changements = { img: image, "system.portrait": image };
         // Token non lié : sa texture est portée par le token, pas par un prototype.
@@ -625,12 +645,21 @@ const IMAGES_VAISSEAUX = {
   "Gunboat 1061-968": "systems/galactic-wars/asset_visuel/objets/vaisseaux-gunboat-1061-968.png"
 };
 
-/** Vaisseaux (monde et tokens non liés) nommés comme l'un d'eux, avec encore l'image par défaut. */
-function vaisseauxSansImage() {
+/** Images ajoutées en v0.18.1 (validées par l'auteur). */
+const IMAGES_VAISSEAUX_0181 = {
+  "Moto speeder": "systems/galactic-wars/asset_visuel/objets/vaisseaux-moto-speeder.jpg",
+  "Le Arcadia": "systems/galactic-wars/asset_visuel/objets/vaisseaux-le-arcadia.png",
+  "Corellian Dawn": "systems/galactic-wars/asset_visuel/objets/vaisseaux-corellian-dawn.png",
+  "CEC XS-122 Freighter": "systems/galactic-wars/asset_visuel/objets/vaisseaux-cec-xs-122.png",
+  "La poubelle géante": "systems/galactic-wars/asset_visuel/objets/vaisseaux-la-poubelle-geante.jpg"
+};
+
+/** Vaisseaux (monde et tokens non liés) nommés comme une entrée de `images`, avec encore l'image par défaut. */
+function vaisseauxSansImage(images) {
   const parDefaut = (src) => !src || src === "icons/svg/mystery-man.svg";
   return tousLesActeurs()
-    .filter((a) => a.type === "vaisseau" && IMAGES_VAISSEAUX[a.name] && parDefaut(a.img))
-    .map((vaisseau) => ({ vaisseau, image: IMAGES_VAISSEAUX[vaisseau.name] }));
+    .filter((a) => a.type === "vaisseau" && images[a.name] && parDefaut(a.img))
+    .map((vaisseau) => ({ vaisseau, image: images[vaisseau.name] }));
 }
 
 /** Vaisseaux (monde et tokens non liés) dont l'armement est encore à l'ancien format texte. */

@@ -241,5 +241,11 @@ export const RELEASE_NOTES = {
       <li>Nouveau : le <strong>générique façon intro spatiale</strong>. Dans un journal, ajoutez une page de type « Générique » (épisode, titre, phrase d'ouverture, texte, vitesse, musique et image de fond facultatives).</li>
       <li>« Diffuser le générique » le joue en plein écran chez tous les joueurs connectés : champ d'étoiles, phrase d'ouverture, logo qui recule, texte jaune qui défile en perspective. Le MJ peut passer au texte ou l'arrêter pour tous ; chacun peut le fermer avec Échap. « Aperçu » le joue pour vous seul.</li>
     </ul>`
+  },
+  "0.18.1": {
+    title: "v0.18.1",
+    html: `<ul>
+      <li>Images pour le Moto speeder, Le Arcadia, le Corellian Dawn, le CEC XS-122 et La poubelle géante (acteur, fiche et token) ; les copies du monde qui ont encore l'image par défaut sont mises à jour par un correctif proposé au MJ.</li>
+    </ul>`
   }
 };

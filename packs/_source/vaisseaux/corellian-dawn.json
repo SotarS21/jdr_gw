@@ -3,11 +3,11 @@
   "_id": "kFKrbrwc64nlOnXP",
   "name": "Corellian Dawn",
   "type": "vaisseau",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/galactic-wars/asset_visuel/objets/vaisseaux-corellian-dawn.png",
   "prototypeToken": {
     "name": "Corellian Dawn",
     "texture": {
-      "src": "icons/svg/mystery-man.svg"
+      "src": "systems/galactic-wars/asset_visuel/objets/vaisseaux-corellian-dawn.png"
     },
     "actorLink": true
   },
@@ -94,7 +94,7 @@
     ],
     "soute": "Entrepôt cargo (inventé, non précisé dans le matériel source).",
     "equipementsEmbarques": "Poste de pilotage ; trois cabines ; sanitaire ; salle de repos/cuisine.",
-    "portrait": "icons/svg/mystery-man.svg",
+    "portrait": "systems/galactic-wars/asset_visuel/objets/vaisseaux-corellian-dawn.png",
     "description": "<p>Freighter, 5 à 6 personnes, 36 m de long sur 27 m de large.</p><p>Note MJ : les points de vie (30), le bouclier (35, réduction 0), l'armement (1 canon léger 2d6 et 1 tourelle légère 2d6), l'entrepôt cargo et les salles à bord (poste de pilotage, trois cabines, sanitaire, salle de repos/cuisine) sont des valeurs/éléments estimés par cohérence avec les vaisseaux comparables du même classeur (Barloz, La poubelle géante, Le Arcadia), pas des données du matériel source. À ajuster librement.</p>",
     "amenagements": [
       {
