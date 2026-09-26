@@ -16,7 +16,7 @@
     notes sur ses PNJ. **Choix de l'auteur : juste noter** pour l'instant (rien à faire).
   - **Suivi de l'auteur** (tableur https://docs.google.com/spreadsheets/d/1znh5uDSFQPvQjuDRWs7nIHRQDTmR3EqXHkBvLAfjPyQ/, 25 points,
     tous « Pas commencé », à traiter ensuite) :
-    1. [Bug] Métier « Guerrier jedi » à ajouter (vérifier les fiches pour son équipement).
+    1. ~~[Bug] Métier « Guerrier jedi »~~ : fait et validé (v0.18.2).
     2. [Bug] Les objets d'équipement ne sont pas mis à jour.
     3. [Bug] Comlink : les canaux ne se mettent pas à jour pour tout le monde ; le bouton Ouvrir n'est pas synchronisé
        avec celui de la fiche.
@@ -72,7 +72,7 @@
 - **n° 1 — Guerrier jedi** : absent des sources de métiers ; fiche de Neili (« Guerrier jedi ») → brouillon calqué sur
   le Guerrier sith : prérequis Padawan niv. 4 ; Sabre laser, Parade / esquive, Protection de la force, Poussée de la
   force, Contrôle télékinétique, Pilotage, Sang-froid (+ Méditation, Sagesse, Escalade / saut) ; Robe traditionnelle de
-  jedi, Sabre laser 2D8, ComLink, Kolto. **À valider par l'auteur.**
+  jedi, Sabre laser 2D8, ComLink, Kolto. **Validé par l'auteur** (« je valide le guerrier jedi »).
 - **n° 4** Datapad au compendium (200c estimé, appareil « datapad ») ; **n° 7** description du personnage 180 px en
   lecture / 440 px en édition ; **n° 21** compétences de l'onglet Combat triées ; **n° 23** libellé « choisissez-en une
   autre ».
