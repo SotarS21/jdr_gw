@@ -1,5 +1,19 @@
 # Journal de développement — Galactic Wars
 
+## Session du 2026-09-26 (suite 5) — Lien vers le vaisseau (v0.15.7→v0.15.8)
+
+- **Todo** : « Onglet Équipements : un lien vers le vaisseau, pour que les joueurs aient accès au vaisseau sur lequel ils
+  volent. » Panneau « Vaisseau » en tête de l'onglet (pleine largeur). On y **dépose un acteur vaisseau** depuis l'onglet
+  Acteurs (`PersonnageSheet#_onDropActor`, sans passer par le mode Édition) ; un vaisseau de compendium est refusé avec
+  un message (il ne serait pas partagé entre joueurs). La carte (image, nom, classe, coque, bouclier) ouvre la fiche du vaisseau.
+- **Droits** : le joueur doit avoir au moins le droit Observateur sur le vaisseau ; sinon la carte ne montre que le nom
+  et l'image (« Accès à demander au MJ ») et le clic l'explique. Vaisseau supprimé : message avec le nom mémorisé.
+- **Choix par défaut** : lien individuel par personnage ; l'acteur « Équipage » (à venir) pourra porter le vaisseau
+  commun. Onglet Équipements de la fiche classique seulement (les fiches rapide / sith n'en ont pas).
+- Déployé sans redémarrage (1 utilisateur connecté, aucun compendium modifié). Vérifié sur Kael avec « Convergence
+  (test) » : dépôt → onglet Équipements, carte, fiche du vaisseau ouverte, dépôt depuis le compendium refusé, lien
+  retiré (Kael restauré), aucune erreur de page.
+
 ## Session du 2026-09-26 (suite 4) — Kit de réparation (v0.15.6→v0.15.7)
 
 - **Todo** : « Kit de réparation » (mécanique) avec description, prix fixé par l'auteur à 200c. Description (outils,

@@ -437,6 +437,20 @@
       "Ajouter": "Ajouter aux favoris",
       "Retirer": "Retirer des favoris"
     },
+    "LienVaisseau": {
+      "Titre": "Vaisseau",
+      "Vide": "Aucun vaisseau. Glissez-déposez ici un vaisseau depuis l'onglet Acteurs pour y accéder depuis la fiche.",
+      "Ouvrir": "Ouvrir la fiche du vaisseau",
+      "Retirer": "Retirer le lien vers ce vaisseau",
+      "Coque": "Coque",
+      "Bouclier": "Bouclier",
+      "BouclierInactif": "Bouclier inactif",
+      "Manquant": "Le vaisseau « {nom} » n'existe plus dans le monde.",
+      "SansAcces": "Accès à demander au MJ",
+      "AccesRefuse": "Vous n'avez pas accès à la fiche de « {nom} » : le MJ doit vous donner au moins le droit Observateur sur ce vaisseau.",
+      "DepuisCompendium": "Importez d'abord le vaisseau dans le monde (onglet Acteurs), puis déposez-le depuis là : un vaisseau de compendium n'est pas partagé.",
+      "Lie": "{nom} est désormais le vaisseau de {personnage}."
+    },
     "Traits": {
       "Titre": "Traits",
       "Nom": "Trait",

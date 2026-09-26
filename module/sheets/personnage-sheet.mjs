@@ -45,7 +45,9 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       afficherObjet: PersonnageSheet.#onAfficherObjet,
       basculerPorteObjet: PersonnageSheet.#onBasculerPorteObjet,
       degatsObjet: PersonnageSheet.#onDegatsObjet,
-      lancerInitiative: PersonnageSheet.#onLancerInitiative
+      lancerInitiative: PersonnageSheet.#onLancerInitiative,
+      ouvrirVaisseau: PersonnageSheet.#onOuvrirVaisseau,
+      retirerVaisseau: PersonnageSheet.#onRetirerVaisseau
     }
   };
 
@@ -118,6 +120,7 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       .filter((c) => c.favori)
       .sort((a, b) => game.i18n.localize(a.label).localeCompare(game.i18n.localize(b.label)));
     Object.assign(context, this.#preparerInventaire());
+    if (this.#ongletActif === "equipements") context.vaisseau = this.#preparerVaisseau(system);
     context.pouvoirs = this.actor.items.filter((i) => i.type === "pouvoir");
     context.traits = this.actor.items.filter((i) => i.type === "talent").sort((a, b) => a.name.localeCompare(b.name));
     context.afficherTraits = context.traits.length > 0 || context.modeEdition;
@@ -195,6 +198,39 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     saisie.addEventListener("blur", () => basculer(false));
     saisie.addEventListener("keydown", (e) => { if (e.key === "Enter") saisie.blur(); });
     this.#ajusterPoliceCredits(affichage);
+  }
+
+  /** Onglet Équipements : vaisseau lié (system.vaisseau). Sans le droit Observateur sur le vaisseau, seuls son nom
+   *  et son image sont montrés (comme le droit Limité de Foundry). */
+  #preparerVaisseau(system) {
+    const uuid = system.vaisseau?.uuid;
+    if (!uuid) return null;
+    const vaisseau = fromUuidSync(uuid);
+    if (!vaisseau) return { manquant: true, nom: system.vaisseau.nom };
+    const s = vaisseau.system;
+    const portraitParDefaut = !s.portrait || s.portrait === "icons/svg/mystery-man.svg";
+    return {
+      nom: vaisseau.name,
+      img: portraitParDefaut ? vaisseau.img : s.portrait,
+      classe: s.classe,
+      accessible: vaisseau.testUserPermission(game.user, "OBSERVER"),
+      coque: `${s.pv.actuels} / ${s.pv.max}`,
+      bouclierActif: s.bouclier.actif,
+      bouclier: s.bouclier.points
+    };
+  }
+
+  /** @override — un vaisseau du monde déposé sur la fiche devient le vaisseau du personnage (onglet Équipements). */
+  async _onDropActor(event, actor) {
+    if (actor?.type !== "vaisseau" || !this.isEditable) return null;
+    if (actor.pack) {
+      ui.notifications.warn(game.i18n.localize("GALACTICWARS.LienVaisseau.DepuisCompendium"));
+      return null;
+    }
+    this.#ongletActif = "equipements";
+    await this.actor.update({ "system.vaisseau": { uuid: actor.uuid, nom: actor.name } });
+    ui.notifications.info(game.i18n.format("GALACTICWARS.LienVaisseau.Lie", { nom: actor.name, personnage: this.actor.name }));
+    return actor;
   }
 
   /** Réduit la police jusqu'à ce que le nombre tienne (2 lignes max) dans la box. */
@@ -753,6 +789,20 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   static async #onOuvrirObjet(event, target) {
     const id = target.closest("[data-item-id]")?.dataset.itemId;
     this.actor.items.get(id)?.sheet.render({ force: true });
+  }
+
+  static async #onOuvrirVaisseau() {
+    const vaisseau = await fromUuid(this.actor.system.vaisseau.uuid);
+    if (!vaisseau) return;
+    if (!vaisseau.testUserPermission(game.user, "OBSERVER")) {
+      ui.notifications.warn(game.i18n.format("GALACTICWARS.LienVaisseau.AccesRefuse", { nom: vaisseau.name }));
+      return;
+    }
+    vaisseau.sheet.render({ force: true });
+  }
+
+  static async #onRetirerVaisseau() {
+    await this.actor.update({ "system.vaisseau": { uuid: "", nom: "" } });
   }
 
   static async #onDeleteItem(event, target) {

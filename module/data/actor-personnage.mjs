@@ -42,6 +42,12 @@ export class PersonnageData extends foundry.abstract.TypeDataModel {
         uuid: new StringField({ required: false, blank: true, initial: "" }),
         nom: new StringField({ initial: "" })
       }),
+      // Vaisseau sur lequel vole le personnage (acteur du monde de type « vaisseau », déposé sur la fiche) :
+      // lien affiché dans l'onglet Équipements. `nom` sert de repli si l'acteur a été supprimé.
+      vaisseau: new SchemaField({
+        uuid: new StringField({ required: false, blank: true, initial: "" }),
+        nom: new StringField({ initial: "" })
+      }),
 
       caracteristiques: new SchemaField({
         corps: caracteristique(),

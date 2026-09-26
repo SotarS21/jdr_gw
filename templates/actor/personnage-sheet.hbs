@@ -380,6 +380,42 @@
   {{#if (eq ongletActif 'equipements')}}
 
   <section class="inventaire-grid">
+    {{!-- Vaisseau lié : déposer un acteur « vaisseau » du monde sur la fiche (PersonnageSheet#_onDropActor). --}}
+    <div class="panel panel-vaisseau">
+      <div class="section-header">
+        <h2 class="eyebrow">{{localize 'GALACTICWARS.LienVaisseau.Titre'}}</h2>
+        {{#if vaisseau}}{{#if editable}}
+        <button type="button" class="del-btn" data-action="retirerVaisseau" data-tooltip="{{localize 'GALACTICWARS.LienVaisseau.Retirer'}}" aria-label="{{localize 'GALACTICWARS.LienVaisseau.Retirer'}}"><i class="fa-solid fa-link-slash"></i></button>
+        {{/if}}{{/if}}
+      </div>
+      {{#if vaisseau}}
+        {{#if vaisseau.manquant}}
+        <p class="inventaire-vide">{{localize 'GALACTICWARS.LienVaisseau.Manquant' nom=vaisseau.nom}}</p>
+        {{else}}
+        <button type="button" class="vaisseau-lien" data-action="ouvrirVaisseau" data-tooltip="{{localize 'GALACTICWARS.LienVaisseau.Ouvrir'}}">
+          <img class="vaisseau-lien-img" src="{{vaisseau.img}}" alt="">
+          <span class="vaisseau-lien-texte">
+            <span class="vaisseau-lien-nom">{{vaisseau.nom}}</span>
+            {{#if vaisseau.classe}}<span class="valeur-secondaire">{{vaisseau.classe}}</span>{{/if}}
+          </span>
+          {{#if vaisseau.accessible}}
+          <span class="vaisseau-lien-stat mono" data-tooltip="{{localize 'GALACTICWARS.LienVaisseau.Coque'}}"><i class="fa-solid fa-heart-pulse"></i> {{vaisseau.coque}}</span>
+          {{#if vaisseau.bouclierActif}}
+          <span class="vaisseau-lien-stat mono" data-tooltip="{{localize 'GALACTICWARS.LienVaisseau.Bouclier'}}"><i class="fa-solid fa-shield-halved"></i> {{vaisseau.bouclier}}</span>
+          {{else}}
+          <span class="vaisseau-lien-stat inactif" data-tooltip="{{localize 'GALACTICWARS.LienVaisseau.BouclierInactif'}}"><i class="fa-solid fa-shield-halved"></i> —</span>
+          {{/if}}
+          {{else}}
+          <span class="valeur-secondaire">{{localize 'GALACTICWARS.LienVaisseau.SansAcces'}}</span>
+          {{/if}}
+          <i class="fa-solid fa-arrow-up-right-from-square vaisseau-lien-ouvrir"></i>
+        </button>
+        {{/if}}
+      {{else}}
+      <p class="inventaire-vide">{{localize 'GALACTICWARS.LienVaisseau.Vide'}}</p>
+      {{/if}}
+    </div>
+
     <div class="panel panel-armes">
       <div class="section-header">
         <h2 class="eyebrow">{{localize 'GALACTICWARS.Sheet.Armes'}}</h2>
