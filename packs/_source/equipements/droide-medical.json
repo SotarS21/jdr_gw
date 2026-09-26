@@ -7,7 +7,7 @@
   "system": {
     "quantite": 1,
     "prix": "30000c",
-    "description": "<p>Droïde assistant médical autonome.</p>"
+    "description": "<p>Droïde chirurgien capable de diagnostiquer, de soigner et d'opérer sur le terrain.</p><p>Droïde assistant médical autonome.</p>"
   },
   "folder": null,
   "sort": 100000,

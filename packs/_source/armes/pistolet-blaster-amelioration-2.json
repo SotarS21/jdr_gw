@@ -9,7 +9,7 @@
     "competence": "blaster",
     "instable": false,
     "prix": "1250c",
-    "description": "<p>Classeur « [GW] Science économique.xlsx », ligne 6. L'amélioration 1 (1d4+2, 250c) est l'objet « Blaster ».</p>",
+    "description": "<p>Petit pistolet blaster civil, facile à dissimuler, vendu dans toutes les boutiques d'armes. Version améliorée : plus puissante que le modèle de base.</p><p>Classeur « [GW] Science économique.xlsx », ligne 6. L'amélioration 1 (1d4+2, 250c) est l'objet « Blaster ».</p>",
     "quantite": 1,
     "porte": false,
     "tags": {

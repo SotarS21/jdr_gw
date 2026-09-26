@@ -7,7 +7,7 @@
   "system": {
     "quantite": 1,
     "prix": "7c",
-    "description": "<p>Ration de repas standard.</p>"
+    "description": "<p>Ration ou plat du jour servi dans les cantines et les mess des vaisseaux.</p><p>Ration de repas standard.</p>"
   },
   "folder": null,
   "sort": 100000,

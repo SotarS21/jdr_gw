@@ -3,7 +3,7 @@
   "_id": "HepX7iHCkL0JnMye",
   "name": "Cartouche de carbonite",
   "type": "equipement",
-  "img": "icons/svg/item-bag.svg",
+  "img": "systems/galactic-wars/asset_visuel/objets/equipements-cartouche-de-carbonite.jpg",
   "system": {
     "quantite": 1,
     "prix": "300c",

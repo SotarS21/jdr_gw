@@ -1,0 +1,25 @@
+{
+  "_key": "!items!euhmZ1mk1e7kaqce",
+  "_id": "euhmZ1mk1e7kaqce",
+  "name": "Tenue de contrebandier",
+  "type": "equipement",
+  "img": "systems/galactic-wars/asset_visuel/objets/vetements-tenue-de-contrebandier.jpg",
+  "system": {
+    "quantite": 1,
+    "prix": "120c",
+    "description": "<p>Veste de pilote, gilet et pantalon de toile solide aux nombreuses poches, ceinturon à holster : la tenue pratique des contrebandiers et des pilotes indépendants.</p><p><em>Prix estimé (absent du classeur).</em></p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.16.3"
+  }
+}

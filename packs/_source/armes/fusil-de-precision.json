@@ -8,7 +8,7 @@
     "degats": "2d10",
     "competence": "blaster",
     "instable": false,
-    "description": "",
+    "description": "<p>Fusil à lunette de longue portée, conçu pour neutraliser une cible avant même qu'elle ne sache d'où vient le tir.</p>",
     "prix": "1200c"
   },
   "folder": null,

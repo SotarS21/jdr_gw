@@ -215,5 +215,14 @@ export const RELEASE_NOTES = {
     html: `<ul>
       <li>Chaque compendium du système a sa bannière (mosaïque de ses visuels : ethnies, armes, armures, équipements, vaisseaux, armes sith).</li>
     </ul>`
+  },
+  "0.16.3": {
+    title: "v0.16.3",
+    html: `<ul>
+      <li>Toutes les armes, armures et équipements du compendium ont une description d'ambiance (les précisions de règle et références au classeur sont conservées).</li>
+      <li>Nouveaux objets avec visuel : Robe de jedi, Tenue d'apprenti jedi, Robe noire, Tenue de contrebandier (équipements), Armure de guerrier sith et Plastron blindé (armures, réduction estimée). Les tenues de départ des métiers (Jedi consulaire, Padawan, Guerrier sith) reprennent ces vêtements.</li>
+      <li>Visuels pour l'Accessoire silencieux et la Cartouche de carbonite.</li>
+      <li>Correctif proposé au MJ : met à jour les objets déjà présents dans le monde (image encore générique, description vide ou ancienne) sans toucher à ce que vous avez personnalisé.</li>
+    </ul>`
   }
 };

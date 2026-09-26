@@ -9,7 +9,7 @@
     "competence": "armeBlanche",
     "instable": false,
     "prix": "5000c",
-    "description": "<p>Classeur « [GW] Science économique.xlsx », ligne 63 (« bage taser », 1d4 t + 1c, 5000c), renommé « Taser » par l'auteur ; distinct du Taser à 25c de la ligne 62.</p>",
+    "description": "<p>Arme d'autodéfense électrique qui paralyse la cible au contact.</p><p>Classeur « [GW] Science économique.xlsx », ligne 63 (« bage taser », 1d4 t + 1c, 5000c), renommé « Taser » par l'auteur ; distinct du Taser à 25c de la ligne 62.</p>",
     "quantite": 1,
     "porte": false,
     "tags": {

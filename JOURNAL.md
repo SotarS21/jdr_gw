@@ -14,7 +14,8 @@
   2. ~~Bannière de chaque compendium~~ : faite (v0.16.2, commitée ; Foundry à redémarrer pour la voir).
   3. Acteur « Équipage » (PJ membres, crédits communs, réserve d'objets, vaisseau associé ; modèle : Party de PF2e).
      Le lien vers le vaisseau (v0.15.8) est individuel : l'Équipage pourra porter le vaisseau commun.
-  4. Synchroniser les images sur les objets anciens et nouveaux (ex. vêtements) ; créer les nouveaux avec une
+  4. ~~Synchroniser les images et descriptions des objets~~ : fait (v0.16.3, commitée ; à vérifier au redémarrage :
+     compendiums, correctif, tenues de départ). Ancien texte de la todo : créer les nouveaux avec une
      description sommaire ; en profiter pour enrichir les descriptions existantes. Source : `asset_visuel/item/`
      (69 images, non suivi), dont 7 vêtements (`vetement_apprentis_jedi`, `vetement_apprentis_sith`,
      `vetement_armure_guerrier_sith`, `vetement_armure_lourde`, `vetement_armure_plastron`, `vetement_de_contrebandier`,
@@ -27,6 +28,28 @@
 - **Rappels techniques** : scripts de patch écrits avec l'outil Write (ou heredoc `<<'EOF'`, en doublant les
   antislashs à vérifier) — jamais de backticks dans un `node -e` en bash ; `git checkout` remet les fichiers en CRLF
   (normaliser avant de chercher du texte) ; `prose-mirror` doit rester en `display: flex`.
+
+## Session du 2026-09-26 (suite 9) — Visuels et descriptions des objets (v0.16.2→v0.16.3)
+
+- **Todo** : « Synchroniser les images sur les objets, anciens et nouveaux (ex. des vêtements), avec une description
+  sommaire pour les nouveaux. S'en inspirer pour ajouter des descriptions supplémentaires aux objets existants. »
+- **Descriptions** : 68 armes sur 80 n'avaient que la référence au classeur (« ligne 15 »), les 3 armures rien,
+  9 équipements une demi-ligne. Une description d'ambiance par famille (40 familles d'armes ; les « (amélioration
+  N) » en héritent + « Version améliorée : plus puissante que le modèle de base »), placée **avant** le texte existant,
+  conservé tel quel (règles, références au classeur). 94 objets enrichis.
+- **Nouveaux objets** (images `asset_visuel/item/vetement_*`, réduites dans `asset_visuel/objets/`) : Robe de jedi
+  (150c), Tenue d'apprenti jedi (80c), Robe noire (150c), Tenue de contrebandier (120c) — équipements, **prix
+  estimés** ; Armure de guerrier sith (réduction 4) et Plastron blindé (réduction 2) — **réductions estimées**,
+  signalées dans la description. `vetement_armure_lourde` non utilisée (même visuel que l'Armure lourde existante).
+- **Visuels** ajoutés : Accessoire silencieux, Cartouche de carbonite. Restent sans visuel dédié : Canon à gaz (×2),
+  Chouchou étrangleur, Kit de réparation, Rayon tracteur (rien dans `asset_visuel/item/`).
+- **Tenues de départ** : « Robe traditionnelle de jedi » (Jedi consulaire) → Robe de jedi, « Robe traditionnelle »
+  (Padawan) → Tenue d'apprenti jedi, « Robe noire » (Guerrier sith) → Robe noire (`CORRESPONDANCES`).
+- **Correctif MJ** `0.16.3-visuels-descriptions-objets` : objets du monde / des personnages rattachés à un modèle
+  (lien compendium, même type + même nom, ou tenue de départ) ; image remplacée seulement si générique, description
+  seulement si vide ou contenue dans la nouvelle (= ancien texte du compendium) — jamais un texte personnalisé.
+- Déployé sans redémarrage (utilisateurs connectés ; l'auteur : « on redémarrera plus tard ») → compendiums et
+  correctif à vérifier au prochain redémarrage.
 
 ## Session du 2026-09-26 (suite 8) — Bannières des compendiums (v0.16.1→v0.16.2)
 

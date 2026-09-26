@@ -7,7 +7,7 @@
   "system": {
     "quantite": 1,
     "prix": "50c",
-    "description": "<p>Soigne 1d4 points de vie.</p>",
+    "description": "<p>Injecteur de kolto, liquide régénérant qui referme les plaies en quelques instants.</p><p>Soigne 1d4 points de vie.</p>",
     "soin": "4"
   },
   "folder": null,

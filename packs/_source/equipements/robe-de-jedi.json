@@ -1,0 +1,25 @@
+{
+  "_key": "!items!Zj9dKcchD7HVA9bz",
+  "_id": "Zj9dKcchD7HVA9bz",
+  "name": "Robe de jedi",
+  "type": "equipement",
+  "img": "systems/galactic-wars/asset_visuel/objets/vetements-robe-de-jedi.jpg",
+  "system": {
+    "quantite": 1,
+    "prix": "150c",
+    "description": "<p>Robe traditionnelle des chevaliers jedi : tunique claire, ceinture de cuir et grande cape à capuche de laine brune. Sobre, chaude et reconnaissable dans toute la galaxie.</p><p><em>Prix estimé (absent du classeur).</em></p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.16.3"
+  }
+}

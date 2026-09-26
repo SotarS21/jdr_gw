@@ -7,7 +7,7 @@
   "system": {
     "quantite": 1,
     "prix": "10000c",
-    "description": "<p>Outil (colonne « Outils » du classeur). Classeur « [GW] Science économique.xlsx », ligne 7.</p>",
+    "description": "<p>Gant à champ magnétique qui attire, maintient ou arrache les objets métalliques à courte distance — outil de mécanicien autant que de voleur.</p><p>Outil (colonne « Outils » du classeur). Classeur « [GW] Science économique.xlsx », ligne 7.</p>",
     "porte": false,
     "tags": {
       "cache": false

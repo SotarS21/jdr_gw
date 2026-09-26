@@ -8,7 +8,7 @@
     "degats": "1d6",
     "competence": "armeBlanche",
     "instable": false,
-    "description": "",
+    "description": "<p>Matraque, gourdin ou barre de métal : l'arme de fortune des bagarres de cantina et des ruelles mal famées.</p>",
     "prix": "522c"
   },
   "folder": null,

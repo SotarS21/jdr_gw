@@ -27,6 +27,24 @@ import { convertirArmement } from "./armement-vaisseau.mjs";
  */
 export const PACK_UPDATES = [
   {
+    id: "0.16.3-visuels-descriptions-objets",
+    cible: "acteurs",
+    version: "0.16.3",
+    label: "Visuels et descriptions des objets (armes, armures, équipements)",
+    description:
+      "Les armes, armures et équipements du compendium ont une description, et de nouveaux visuels (vêtements, " +
+      "accessoire silencieux, cartouche de carbonite…). Met à jour les objets du monde et des personnages qui en " +
+      "viennent (lien au compendium, nom identique ou tenue de départ d'un métier) : l'image seulement si elle est " +
+      "encore générique, la description seulement si elle est vide ou reprend l'ancien texte du compendium. Rien de " +
+      "ce que vous avez écrit ou choisi vous-même n'est remplacé.",
+    concernes: async () => (await objetsAEnrichir()).length,
+    apply: async () => {
+      const liste = await objetsAEnrichir();
+      for (const { objet, changements } of liste) await objet.update(changements);
+      return liste.length;
+    }
+  },
+  {
     id: "0.16.1-images-vaisseaux",
     cible: "vaisseaux",
     version: "0.16.1",
@@ -472,6 +490,45 @@ async function objetsAIllustrerParNom() {
   return objets
     .map((objet) => ({ objet, img: images.get(`${objet.type}|${objet.name.trim().toLowerCase()}`) }))
     .filter((o) => o.img);
+}
+
+/**
+ * Objets (monde, acteurs, tokens non liés) à compléter depuis leur modèle du compendium — lien compendiumSource,
+ * sinon même type et même nom, sinon tenue de départ reconnue (correspondanceDepart) : image générique → image du
+ * modèle ; description vide ou contenue dans celle du modèle (ancien texte du compendium) → description du modèle.
+ */
+async function objetsAEnrichir() {
+  const modeles = new Map();
+  const parUuid = new Map();
+  for (const nom of ["armes", "armures", "equipements"]) {
+    const pack = game.packs.get(`${game.system.id}.${nom}`);
+    for (const doc of (await pack?.getDocuments()) ?? []) {
+      modeles.set(`${doc.type}|${doc.name.trim().toLowerCase()}`, doc);
+      parUuid.set(doc.uuid, doc);
+    }
+  }
+  const texte = (html) => String(html ?? "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+  const liste = [];
+  const objets = [...game.items, ...tousLesActeurs().flatMap((a) => [...a.items])]
+    .filter((i) => ["arme", "armure", "equipement"].includes(i.type));
+  for (const objet of objets) {
+    const cle = (nom) => `${objet.type}|${String(nom).trim().toLowerCase()}`;
+    const depart = correspondanceDepart(objet.name);
+    const modele = parUuid.get(objet._stats?.compendiumSource) ?? modeles.get(cle(objet.name))
+      ?? (depart ? modeles.get(cle(depart.modele)) : null);
+    if (!modele || modele.type !== objet.type) continue;
+    const changements = {};
+    if (IMAGES_GENERIQUES.has(objet.img ?? "") && modele.img && !IMAGES_GENERIQUES.has(modele.img) && modele.img !== objet.img) {
+      changements.img = modele.img;
+    }
+    const actuelle = texte(objet.system.description);
+    const nouvelle = modele.system.description ?? "";
+    if (nouvelle && texte(nouvelle) !== actuelle && (!actuelle || texte(nouvelle).includes(actuelle))) {
+      changements["system.description"] = nouvelle;
+    }
+    if (Object.keys(changements).length) liste.push({ objet, changements });
+  }
+  return liste;
 }
 
 /** Acteurs du monde (avec portrait) dont portrait, image et image de token ne sont pas identiques. */

@@ -9,7 +9,7 @@
     "competence": "canonLourd",
     "instable": false,
     "prix": "1200c",
-    "description": "<p>Classeur « [GW] Science économique.xlsx », ligne 52. Consomme des cartouches de carbonite (voir l'équipement « Cartouche de carbonite »).</p>",
+    "description": "<p>Canon cryogénique qui projette un jet de carbonite liquide, figeant sa cible dans un bloc solide. Chaque tir consomme une cartouche de carbonite.</p><p>Classeur « [GW] Science économique.xlsx », ligne 52. Consomme des cartouches de carbonite (voir l'équipement « Cartouche de carbonite »).</p>",
     "quantite": 1,
     "porte": false,
     "tags": {

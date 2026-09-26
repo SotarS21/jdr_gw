@@ -24,7 +24,11 @@ const CORRESPONDANCES = [
   { motif: /^armure l[ée]g[èe]re/, pack: "armures", modele: "Armure légère" },
   { motif: /^armure interm[ée]diaire/, pack: "armures", modele: "Armure intermédiaire" },
   { motif: /^armure lourde/, pack: "armures", modele: "Armure lourde" },
-  { motif: /^blindage suppl[ée]mentaire/, pack: "armures", modele: "Armure lourde" }
+  { motif: /^blindage suppl[ée]mentaire/, pack: "armures", modele: "Armure lourde" },
+  // Tenues (v0.16.3) : Jedi consulaire, Padawan, Guerrier sith.
+  { motif: /^robe traditionnelle de jedi/, pack: "equipements", modele: "Robe de jedi" },
+  { motif: /^robe traditionnelle/, pack: "equipements", modele: "Tenue d'apprenti jedi" },
+  { motif: /^robe noire/, pack: "equipements", modele: "Robe noire" }
 ];
 
 /**

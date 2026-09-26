@@ -1,0 +1,25 @@
+{
+  "_key": "!items!TneXFMpJjPLS9WXh",
+  "_id": "TneXFMpJjPLS9WXh",
+  "name": "Armure de guerrier sith",
+  "type": "armure",
+  "img": "systems/galactic-wars/asset_visuel/objets/armures-armure-de-guerrier-sith.jpg",
+  "system": {
+    "reduction": 4,
+    "emplacement": "plastron",
+    "description": "<p>Armure sombre des guerriers sith, plaques noires et longue cape, heaume à visière rouge : elle protège autant qu'elle terrifie.</p><p><em>Réduction estimée (entre l'armure intermédiaire et l'armure lourde).</em></p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.16.3"
+  }
+}

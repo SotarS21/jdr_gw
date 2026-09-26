@@ -9,7 +9,7 @@
     "competence": "artifice",
     "instable": false,
     "prix": "100c",
-    "description": "<p>Classeur « [GW] Science économique.xlsx », ligne 5. Pas de dégâts dans le classeur (effet aveuglant).</p>",
+    "description": "<p>Grenade aveuglante : un éclair et une détonation assourdissante qui désorientent tous ceux qui la regardent.</p><p>Classeur « [GW] Science économique.xlsx », ligne 5. Pas de dégâts dans le classeur (effet aveuglant).</p>",
     "quantite": 1,
     "porte": false,
     "tags": {

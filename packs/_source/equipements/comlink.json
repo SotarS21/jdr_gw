@@ -7,7 +7,7 @@
   "system": {
     "quantite": 1,
     "prix": "150c",
-    "description": "<p>Communicateur portable.</p>",
+    "description": "<p>Petit communicateur portable, indispensable pour rester en contact avec son équipage ou son vaisseau.</p><p>Communicateur portable.</p>",
     "appareil": "comlink"
   },
   "folder": null,

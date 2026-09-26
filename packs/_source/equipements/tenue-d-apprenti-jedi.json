@@ -1,0 +1,25 @@
+{
+  "_key": "!items!SL2sO57w30ZPpjTC",
+  "_id": "SL2sO57w30ZPpjTC",
+  "name": "Tenue d'apprenti jedi",
+  "type": "equipement",
+  "img": "systems/galactic-wars/asset_visuel/objets/vetements-tenue-d-apprenti-jedi.jpg",
+  "system": {
+    "quantite": 1,
+    "prix": "80c",
+    "description": "<p>Tenue simple des padawans : tunique croisée, ceinture large et pantalon ample, pensée pour l'entraînement et les longs voyages.</p><p><em>Prix estimé (absent du classeur).</em></p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.16.3"
+  }
+}

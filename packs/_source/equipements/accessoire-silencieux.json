@@ -3,7 +3,7 @@
   "_id": "fYuuCIJvNB7F9tbr",
   "name": "Accessoire silencieux",
   "type": "equipement",
-  "img": "icons/svg/item-bag.svg",
+  "img": "systems/galactic-wars/asset_visuel/objets/equipements-accessoire-silencieux.jpg",
   "system": {
     "quantite": 1,
     "prix": "420c",

@@ -1,0 +1,25 @@
+{
+  "_key": "!items!ccbtBJOYjaYkbZwP",
+  "_id": "ccbtBJOYjaYkbZwP",
+  "name": "Robe noire",
+  "type": "equipement",
+  "img": "systems/galactic-wars/asset_visuel/objets/vetements-robe-noire.jpg",
+  "system": {
+    "quantite": 1,
+    "prix": "150c",
+    "description": "<p>Longue robe noire à capuche des disciples sith, qui dissimule le visage et le corps dans l'ombre.</p><p><em>Prix estimé (absent du classeur).</em></p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.16.3"
+  }
+}
