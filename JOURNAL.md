@@ -37,7 +37,7 @@
     17. ~~[Fonctionnalité] Dossier de musiques~~ : fait (playlist locale « Galactic Wars », hors système).
     18. ~~[Fonctionnalité] Animations (armes, déplacement des vaisseaux)~~ : fait et vérifié (v0.19.2-0.19.3).
     19. ~~[Fonctionnalité] Validateur de niveaux (12 au niveau 1, +3 par niveau)~~ : fait (v0.19.1).
-    20. [Bug] Médecine mal synchronisée avec les niveaux (55 en Dextérité, niveau 0 en Médecine → 75).
+    20. ~~[Bug] Médecine à 75 au niveau 0~~ : pas un bug — 55 (Dextérité) + 20 (bonus du métier Médecin), confirmé par l'auteur (« c'est normal, on garde »).
     21. [Bug] Onglet Combat : compétences pas dans l'ordre alphabétique.
     22. ~~[Fonctionnalité] État « Endommagé »~~ : fait (tag, v0.19.1).
     23. [Bug] Libellé : « Une compétence dépasserait le niveau 3 : choisissez-en une autre. »
@@ -67,7 +67,9 @@
   classe ». Même cause que n° 24 (métier appliqué sur l'acteur, joueur sur son token non lié). Vérifié : métier
   appliqué par le joueur (Contrebandier → 5 objets, vus par le MJ ; contact en PNJ) et par le MJ fiche du joueur
   ouverte (Médecin → 8 objets, tous affichés dans l'onglet Équipements du joueur). Aucune erreur.
-- Restent : n° 20 (réponse de l'auteur attendue), images de 5 vaisseaux.
+- **n° 20** : l'auteur confirme que 75 en Médecine au niveau 0 est normal (bonus de métier) → rien à changer.
+- **Suivi de 25 points entièrement traité.** Reste : images de 5 vaisseaux (Barloz, Barmaid Betty, Lantallian,
+  Dynamic 20, Land speeder), en attente des images de l'auteur.
 
 ## Session du 2026-09-27 (suite 3) — Animations vérifiées, musique du générique (v0.19.2→v0.19.3)
 
