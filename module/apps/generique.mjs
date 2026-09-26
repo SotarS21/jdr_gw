@@ -117,9 +117,8 @@ export function jouerGenerique(donnees, { apercu = false } = {}) {
   const surRedimension = () => { dimensionner(); dessiner(); };
   window.addEventListener("resize", surRedimension);
 
-  // Musique : jouée chez chaque client à l'apparition du logo « Galactic Wars » (bug remonté par l'auteur : elle
-  // démarrait dès l'ouverture), ou au début du défilement s'il n'y a pas de logo (mouvements réduits, « Passer »).
-  // Arrêtée à la fermeture.
+  // Musique : jouée chez chaque client à l'apparition de la phrase d'ouverture « Il y a longtemps… » (choix de
+  // l'auteur), ou au début du défilement si l'ouverture a été passée (« Passer »). Arrêtée à la fermeture.
   let son = null;
   let musiqueLancee = false;
   const lancerMusique = () => {
@@ -195,14 +194,15 @@ export function jouerGenerique(donnees, { apercu = false } = {}) {
       [{ opacity: 0 }, { opacity: 1, offset: 0.2 }, { opacity: 1, offset: 0.8 }, { opacity: 0 }],
       { duration: 4000, fill: "forwards" }
     ));
+    lancerMusique();
     minuteurs.push(setTimeout(lancerDefilement, 4200));
   } else {
     animations.push(ouverture.animate(
       [{ opacity: 0 }, { opacity: 1, offset: 0.2 }, { opacity: 1, offset: 0.8 }, { opacity: 0 }],
       { duration: 5000, fill: "forwards" }
     ));
+    lancerMusique();
     minuteurs.push(setTimeout(() => {
-      lancerMusique();
       animations.push(logo.animate([
         { opacity: 1, transform: "translate(-50%, -50%) scale(1.25)" },
         { opacity: 1, transform: "translate(-50%, -50%) scale(0.05)", offset: 0.92 },

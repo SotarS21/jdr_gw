@@ -12,7 +12,7 @@ const JB2A = "modules/JB2A_DnD5e/Library/Generic";
 const ANIMATIONS = {
   tir: { db: ["jb2a.lasershot.red"], fichier: `${JB2A}/Weapon_Attacks/Ranged/LaserShot_01_Regular_Red_30ft_1600x400.webm` },
   tirVaisseau: { db: ["jb2a.lasershot.green"], fichier: `${JB2A}/Weapon_Attacks/Ranged/LaserShot_01_Regular_Green_60ft_2800x400.webm` },
-  sabre: { db: ["jb2a.lasersword.melee.blue"], fichier: `${JB2A}/Weapon_Attacks/Melee/LaserSword01_01_Regular_Blue_15ft_1000x600.webm` },
+  sabre: { db: ["jb2a.lasersword.melee.blue"], fichier: `${JB2A}/Weapon_Attacks/Melee/LaserSword01_01_Regular_Blue_800x600.webm` },
   melee: { db: ["jb2a.club.melee.01.white"], fichier: `${JB2A}/Weapon_Attacks/Melee/Club01_01_Regular_White_800x600.webm` },
   explosion: { db: ["jb2a.explosion.01.orange"], fichier: `${JB2A}/Explosion/Explosion_01_Orange_400x400.webm` },
   fumee: { db: ["jb2a.fumes.steam.white"], fichier: `${JB2A}/Smoke/Fumes_02_Steam_White_400x400.webm` }

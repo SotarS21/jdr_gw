@@ -63,6 +63,13 @@
 - **Bug remonté par l'auteur** : « lance la musique au moment où Galactic Wars apparaît, pas avant » → `lancerMusique`
   appelé au début de l'animation du logo (5,6 s) et, à défaut, au début du défilement ; vérifié par un espion sur
   `AudioHelper.play` : aucun appel à 3 s, un appel à 6,07 s.
+- **Correction de l'auteur** : la musique doit partir avec la phrase « Il y a longtemps, dans une galaxie lointaine,
+  très lointaine… » → `lancerMusique` appelé au lancement de l'animation d'ouverture (les deux parcours), plus au logo.
+- **404 remonté par l'auteur** (console) : le fichier de secours du sabre laser pointait vers
+  `Melee/LaserSword01_01_Regular_Blue_15ft_1000x600.webm`, qui n'existe pas (cette série est dans `Ranged`) → corrigé en
+  `Melee/LaserSword01_01_Regular_Blue_800x600.webm` ; les autres fichiers de secours vérifiés présents. Le secours
+  sert quand la base de Sequencer n'est pas encore remplie (quelques secondes après le chargement) ou sur un client
+  resté sur l'ancien code (F5).
 
 ## Session du 2026-09-27 (suite 2) — Intro et compendium de musique (monde)
 

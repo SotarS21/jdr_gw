@@ -293,7 +293,7 @@ export const RELEASE_NOTES = {
   "0.19.3": {
     title: "v0.19.3",
     html: `<ul>
-      <li>Générique : la musique démarre à l'apparition du logo « Galactic Wars » (et non plus dès l'ouverture) ; sans logo (mouvements réduits, « Passer au texte »), au début du défilement.</li>
+      <li>Générique : la musique démarre avec la phrase d'ouverture « Il y a longtemps, dans une galaxie lointaine, très lointaine… » ; si l'ouverture est passée, au début du défilement.</li>
       <li>Animations : sabre laser et fumée des vaisseaux via la base de Sequencer (JB2A) ; coups de mêlée du tireur vers la cible.</li>
     </ul>`
   }
