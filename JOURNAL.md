@@ -15,6 +15,12 @@
   retiré (Kael restauré), aucune erreur de page.
 - **Retour de l'auteur** : onglet Équipements en grille 2 × 2 — Armes | Armures et boucliers, puis Équipement |
   Vaisseau (les armes ne prennent plus toute la largeur). Vérifié à l'écran (positions des 4 panneaux).
+- **Todo (ajout de l'auteur)** : bouton de suppression d'objet dans l'onglet Équipements en mode Édition, avec
+  confirmation. Corbeille rouge à droite du crayon sur chaque ligne (onglet Équipements seulement : le partiel
+  `gwLigneObjet` sert aussi à l'onglet Combat). Elle appelle `#supprimerObjet`, déjà utilisé par le « Supprimer » du
+  menu contextuel ; la fenêtre de confirmation a maintenant un titre, un bouton « Supprimer » et « Non » par défaut.
+  Vérifié : 0 bouton hors Édition et dans Combat, « Non » garde l'objet, « Supprimer » le retire (objets de test
+  supprimés, Kael inchangé).
 
 ## Session du 2026-09-26 (suite 4) — Kit de réparation (v0.15.6→v0.15.7)
 

@@ -296,6 +296,12 @@
       <button type="button" class="roll-btn editer-objet-btn" data-action="ouvrirObjet" data-tooltip="{{localize 'GALACTICWARS.Objet.Modifier'}}">
         <i class="fa-solid fa-pen-to-square"></i>
       </button>
+      {{!-- Suppression : onglet Équipements seulement (le partiel sert aussi à l'onglet Combat). --}}
+      {{#if (eq @root.ongletActif 'equipements')}}
+      <button type="button" class="roll-btn supprimer-objet-btn" data-action="supprimerObjet" data-tooltip="{{localize 'GALACTICWARS.Objet.SupprimerObjet'}}" aria-label="{{localize 'GALACTICWARS.Objet.SupprimerObjet'}}">
+        <i class="fa-solid fa-trash"></i>
+      </button>
+      {{/if}}
       {{/if}}
     </div>
   </div>

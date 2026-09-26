@@ -467,6 +467,13 @@
 .galactic-wars.personnage .editer-objet-btn:hover {
   background: rgba(232, 179, 77, 0.15);
 }
+.galactic-wars.personnage .supprimer-objet-btn {
+  color: var(--gw-coral);
+  border-color: color-mix(in srgb, var(--gw-coral) 45%, transparent);
+}
+.galactic-wars.personnage .supprimer-objet-btn:hover {
+  background: color-mix(in srgb, var(--gw-coral) 15%, transparent);
+}
 
 /* Datapad : accès direct à l'Holonet depuis l'inventaire. */
 .galactic-wars.personnage .holonet-btn {

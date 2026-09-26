@@ -47,7 +47,8 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       degatsObjet: PersonnageSheet.#onDegatsObjet,
       lancerInitiative: PersonnageSheet.#onLancerInitiative,
       ouvrirVaisseau: PersonnageSheet.#onOuvrirVaisseau,
-      retirerVaisseau: PersonnageSheet.#onRetirerVaisseau
+      retirerVaisseau: PersonnageSheet.#onRetirerVaisseau,
+      supprimerObjet: PersonnageSheet.#onSupprimerObjet
     }
   };
 
@@ -477,12 +478,14 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     ], { jQuery: false, fixed: true });
   }
 
-  /** Suppression d'un objet d'inventaire après confirmation (plus de corbeille sur la ligne). */
+  /** Suppression d'un objet d'inventaire après confirmation (menu contextuel, corbeille de la ligne en Édition). */
   async #supprimerObjet(item) {
     if (!item) return;
     const confirme = await foundry.applications.api.DialogV2.confirm({
-      window: { title: game.i18n.localize("GALACTICWARS.Objet.Supprimer") },
-      content: `<p>${game.i18n.format("GALACTICWARS.Objet.SupprimerConfirmation", { nom: foundry.utils.escapeHTML(item.name) })}</p>`
+      window: { title: game.i18n.localize("GALACTICWARS.Objet.SupprimerObjet"), icon: "fa-solid fa-trash" },
+      content: `<p>${game.i18n.format("GALACTICWARS.Objet.SupprimerConfirmation", { nom: foundry.utils.escapeHTML(item.name) })}</p>`,
+      yes: { label: game.i18n.localize("GALACTICWARS.Objet.Supprimer"), icon: "fa-solid fa-trash" },
+      no: { default: true }
     });
     if (confirme) await item.delete();
   }
@@ -803,6 +806,11 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 
   static async #onRetirerVaisseau() {
     await this.actor.update({ "system.vaisseau": { uuid: "", nom: "" } });
+  }
+
+  /** Onglet Équipements (mode Édition) : corbeille de la ligne — même suppression que le menu contextuel. */
+  static async #onSupprimerObjet(event, target) {
+    await this.#supprimerObjet(this.#objetDeLigne(target));
   }
 
   static async #onDeleteItem(event, target) {
