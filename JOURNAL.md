@@ -1,6 +1,25 @@
 # Journal de développement — Galactic Wars
 
-## Session du 2026-09-26 (suite 5) — Lien vers le vaisseau (v0.15.7→v0.15.8)
+## À faire à la reprise (état au 2026-09-26, fin de session)
+
+- **Tout est poussé** : v0.15.8 publiée (dernière release), `main` à jour. Seuls fichiers non suivis (voulu) :
+  `asset_visuel/{Personnage,item,lieux,vaiseau}`.
+- **Foundry local** : code v0.15.8 copié sans redémarrage (un utilisateur était connecté) ; le serveur annonce
+  encore 0.15.7 jusqu'au prochain redémarrage (demander avant, s'il y a des connectés). Aucun compendium modifié.
+- **Todo restante** (fichier de l'auteur sur le Bureau) :
+  1. Refonte de la fiche de vaisseau d'après le mockup `asset_fiche_perso/mokcup_exemple_fiche_vaiseau.jfif`
+     (proposée comme prochain lot) ;
+  2. Images des vaisseaux (token, acteur… : les 13 vaisseaux du compendium ont l'homme mystère ; images candidates
+     dans `asset_visuel/vaiseau/`, non suivi) — à grouper avec la refonte ;
+  3. Bannière de chaque compendium (`system.json` `packs[].banner`, aucune aujourd'hui) ;
+  4. Acteur « Équipage » (PJ membres, crédits communs, réserve d'objets, vaisseau associé ; modèle : Party de PF2e).
+     Le lien vers le vaisseau de la v0.15.8 est individuel : l'Équipage pourra porter le vaisseau commun.
+
+## Session du 2026-09-26 (suite 5) — Lien vers le vaisseau, grille, corbeille (v0.15.7→v0.15.8)
+
+- **Récapitulatif** : lien vers le vaisseau dans l'onglet Équipements ; grille 2 × 2 (Armes | Armures et boucliers,
+  Équipement | Vaisseau) ; corbeille en mode Édition avec confirmation. Validé par l'auteur, poussé et publié
+  (release v0.15.8).
 
 - **Todo** : « Onglet Équipements : un lien vers le vaisseau, pour que les joueurs aient accès au vaisseau sur lequel ils
   volent. » Panneau « Vaisseau » en tête de l'onglet (pleine largeur). On y **dépose un acteur vaisseau** depuis l'onglet
