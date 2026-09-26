@@ -51,6 +51,20 @@
   la diffusion de test est aussi arrivée chez les deux autres personnes connectées (Gamemaster, Latios) pendant
   ~10 s avant l'arrêt — signalé à l'auteur. Musique non testée (pas de fichier audio de test).
 
+- **Bug remonté par l'auteur** : « le générique s'affiche pour moi avec l'animation mais pas pour mes joueurs, ils ont un
+  freeze ». Pistes : (1) **mouvements réduits** — si Windows a les effets d'animation désactivés, le navigateur annonce
+  `prefers-reduced-motion: reduce` et le code affichait le texte **fixe**, sans défilement ni fermeture automatique
+  (écran qui paraît figé) ; (2) **performances** sans accélération matérielle (plateau PIXI rendu dessous, étoiles
+  redessinées à chaque image en plein écran à 2× la résolution, `mask-image` sur un calque 3D). Mesure sans GPU non
+  concluante (Foundry seul y tourne déjà à 4 images / s). Correctifs : en mouvements réduits, ouverture en fondu puis
+  **défilement quand même** (sans zoom du logo ni scintillement), fermeture automatique ; plateau de Foundry **mis en
+  pause** pendant le générique (`canvas.app.ticker`, repris à la fermeture) ; étoiles à résolution 1:1 redessinées
+  10 fois / s (carrés au lieu d'arcs) ; `mask-image` remplacé par un dégradé noir posé au-dessus ; `will-change`.
+  Vérifié (appels directs, aucune diffusion : d'autres utilisateurs connectés) : mouvements réduits → texte qui défile,
+  plateau en pause puis repris, fermeture ; mode normal inchangé. **À confirmer chez les joueurs.**
+- **Demande de l'auteur** : barre de défilement dans la fenêtre d'édition de la page Générique → `.window-content` en
+  `overflow-y: auto` (vérifié à 500 px de haut : 797 px de contenu, défile jusqu'au bouton Sauvegarder).
+
 ## Session du 2026-09-26 (suite 10) — Maquette du générique, acteur Équipage (v0.16.3→v0.17.0)
 
 - **Générique** : l'auteur a demandé la maquette de la proposition A. Page publiée (artifact) : champ d'étoiles en

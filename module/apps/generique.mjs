@@ -85,7 +85,7 @@ export function jouerGenerique(donnees, { apercu = false } = {}) {
   const minuteurs = [];
 
   const dimensionner = () => {
-    const dpr = Math.min(2, window.devicePixelRatio || 1);
+    const dpr = 1;
     canvas.width = Math.round(racine.clientWidth * dpr);
     canvas.height = Math.round(racine.clientHeight * dpr);
     const n = Math.round((racine.clientWidth * racine.clientHeight) / 1400);
@@ -95,22 +95,27 @@ export function jouerGenerique(donnees, { apercu = false } = {}) {
       a: Math.random() * 0.6 + 0.3, v: Math.random() * 0.0015 + 0.0004, p: Math.random() * Math.PI * 2
     }));
   };
-  const dessiner = (temps) => {
+  const dessiner = () => {
     if (!actif) return;
+    const temps = performance.now();
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "#fff";
     for (const e of etoiles) {
       ctx.globalAlpha = reduit ? e.a : e.a * (0.65 + 0.35 * Math.sin(temps * e.v + e.p));
-      ctx.fillStyle = "#fff";
-      ctx.beginPath();
-      ctx.arc(e.x, e.y, e.r, 0, Math.PI * 2);
-      ctx.fill();
+      ctx.fillRect(e.x, e.y, e.r * 1.6, e.r * 1.6);
     }
     ctx.globalAlpha = 1;
-    if (!reduit) requestAnimationFrame(dessiner);
   };
   dimensionner();
-  requestAnimationFrame(dessiner);
-  window.addEventListener("resize", dimensionner);
+  dessiner();
+  // Scintillement à 10 images par seconde : léger pour les machines sans accélération matérielle.
+  const scintillement = reduit ? null : setInterval(dessiner, 100);
+
+  // Le plateau de Foundry (PIXI) est mis en pause pendant le générique : il est masqué et consommerait le GPU / CPU.
+  const plateauEnPause = !!globalThis.canvas?.ready && !!globalThis.canvas?.app?.ticker?.started;
+  if (plateauEnPause) globalThis.canvas.app.ticker.stop();
+  const surRedimension = () => { dimensionner(); dessiner(); };
+  window.addEventListener("resize", surRedimension);
 
   // Musique : jouée chez chaque client, arrêtée à la fermeture.
   let son = null;
@@ -122,10 +127,6 @@ export function jouerGenerique(donnees, { apercu = false } = {}) {
 
   const lancerDefilement = () => {
     defilement.style.opacity = 1;
-    if (reduit) {
-      defilement.style.transform = "translateX(-50%) rotateX(24deg) translateY(0%)";
-      return;
-    }
     // Vitesse en pixels, proportionnelle à la taille du texte (même rythme de lecture quelle que soit la taille de
     // l'écran) ; le texte part déjà au bas de l'écran (80 %) pour ne pas laisser un long vide après le logo.
     const hauteur = defilement.offsetHeight || 600;
@@ -153,7 +154,9 @@ export function jouerGenerique(donnees, { apercu = false } = {}) {
     actif = false;
     arreterTout();
     son?.stop();
-    window.removeEventListener("resize", dimensionner);
+    if (scintillement) clearInterval(scintillement);
+    if (plateauEnPause) globalThis.canvas?.app?.ticker?.start();
+    window.removeEventListener("resize", surRedimension);
     document.removeEventListener("keydown", surTouche, true);
     racine.classList.add("gw-gen-sortie");
     setTimeout(() => racine.remove(), 600);
@@ -179,9 +182,14 @@ export function jouerGenerique(donnees, { apercu = false } = {}) {
     else if (action === "arreter") commander("arreter");
   });
 
-  // Séquence : ouverture (5 s) → logo (8,5 s) → défilement (démarré quand le logo est déjà loin).
+  // Séquence : ouverture (5 s) → logo (8,5 s) → défilement (démarré quand le logo est déjà loin). Mouvements réduits
+  // (réglage « effets d'animation » de Windows, par ex.) : ouverture en fondu puis défilement, sans le zoom du logo.
   if (reduit) {
-    lancerDefilement();
+    animations.push(ouverture.animate(
+      [{ opacity: 0 }, { opacity: 1, offset: 0.2 }, { opacity: 1, offset: 0.8 }, { opacity: 0 }],
+      { duration: 4000, fill: "forwards" }
+    ));
+    minuteurs.push(setTimeout(lancerDefilement, 4200));
   } else {
     animations.push(ouverture.animate(
       [{ opacity: 0 }, { opacity: 1, offset: 0.2 }, { opacity: 1, offset: 0.8 }, { opacity: 0 }],

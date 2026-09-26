@@ -60,9 +60,14 @@
   perspective: 360px;
   perspective-origin: 50% 20%;
   overflow: hidden;
-  -webkit-mask-image: linear-gradient(to top, #000 55%, transparent 95%);
-          mask-image: linear-gradient(to top, #000 55%, transparent 95%);
   pointer-events: none;
+}
+/* Fondu du texte au loin : un dégradé noir par-dessus (un mask-image coûte cher sans accélération matérielle). */
+.gw-generique .gw-gen-perspective::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 45% 0;
+  background: linear-gradient(to bottom, #000 12%, rgba(0, 0, 0, 0));
 }
 .gw-generique .gw-gen-defilement {
   position: absolute;
@@ -75,6 +80,7 @@
   hyphens: auto;
   font: 400 clamp(1.4rem, 3.4vw, 3.2rem)/1.32 "Pathway Gothic One", "Arial Narrow", sans-serif;
   opacity: 0;
+  will-change: transform;
 }
 .gw-generique .gw-gen-defilement p { margin: 0 0 1em; }
 .gw-generique .gw-gen-episode { text-align: center; margin-bottom: 0.2em !important; letter-spacing: 0.04em; }
@@ -122,6 +128,10 @@
 /* ==========================================================================
    Page de journal « Générique »
    ========================================================================== */
+/* Fenêtre d'édition : le formulaire défile quand il dépasse la hauteur de la fenêtre (demande de l'auteur). */
+.gw-page-generique .window-content {
+  overflow-y: auto;
+}
 .gw-page-generique .gw-generique-edition textarea { min-height: 14rem; font-family: "Saira", system-ui, sans-serif; }
 
 .gw-generique-lecture { display: flex; flex-direction: column; gap: 0.8rem; }
@@ -153,5 +163,5 @@
 .gw-generique-aide { margin: 0; font-size: 0.82rem; opacity: 0.75; }
 
 @media (prefers-reduced-motion: reduce) {
-  .gw-generique, .gw-generique.gw-gen-sortie { animation: none; }
+  .gw-generique { animation: none; }
 }
