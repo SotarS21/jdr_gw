@@ -84,6 +84,9 @@
     compendium (+1) et refus d'un équipement, 0 bouton en lecture / 8 en Édition, emplacement enregistré, aménagement
     ajouté avec description, Kael déposé sur la 2ᵉ place du poste Pilote (portrait + lien), tir refusé sans token puis
     « Tourelle lourde — Test armement (temp) » au taux Canon lourd de Kael (20 %), message au nom de Kael.
+  - **Retours de l'auteur** : jauge « Bouclier (réduction) » supprimée de la fiche (jugée inutile ; le champ
+    `bouclier.reduction` reste dans les données, plus affiché) ; **déplacement agrandi** (champ 5 rem, chiffre en
+    1,8 rem ambre, icône plus grande) dans la colonne libérée.
   - Piège : un heredoc bash entre apostrophes réduit `\\s` en `\s` dans un script généré → antislashs doublés à
     reprendre à l'outil d'édition.
 

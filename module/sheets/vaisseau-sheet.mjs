@@ -102,8 +102,7 @@ export class VaisseauSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const coque = jauge(system.pv.actuels, system.pv.max);
     context.jauges = {
       coque: { ...coque, etat: coque.ratio > 0.5 ? "ok" : coque.ratio >= 0.25 ? "blesse" : "critique" },
-      bouclier: jauge(system.bouclier.points, system.bouclier.max),
-      reduction: jauge(system.bouclier.reduction > 0 ? 1 : 0, 1)
+      bouclier: jauge(system.bouclier.points, system.bouclier.max)
     };
     context.bouclierInactif = !system.bouclier.actif;
     // Armes = objets « arme » du vaisseau ; tir au taux du token sélectionné (Item#attaquer).

@@ -23,7 +23,8 @@ export class VaisseauData extends foundry.abstract.TypeDataModel {
         points: new NumberField({ required: true, integer: true, initial: 0 }),
         // Points de bouclier à pleine charge (jauge de la fiche) ; repris des points actuels par migrateData.
         max: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
-        reduction: new NumberField({ required: true, integer: true, initial: 0 }) // ex. 2 = dégâts / 2 tant qu'actif
+        // Plus affichée (jugée inutile par l'auteur, 2026-09-26) ; conservée pour ne pas perdre les valeurs.
+        reduction: new NumberField({ required: true, integer: true, initial: 0 })
       }),
       moteur: new SchemaField({
         deplacement: new NumberField({ required: true, integer: true, initial: 0 }) // cases avant de tomber en rade

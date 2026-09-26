@@ -95,23 +95,6 @@
             </div>
           </div>
 
-          <div class="vs-jauge vs-jauge-reduction">
-            <span class="vs-label" data-tooltip="{{localize 'GALACTICWARS.Vaisseau.BouclierReductionHint'}}">{{localize 'GALACTICWARS.Vaisseau.BouclierReduction'}}</span>
-            <div class="vs-cadran">
-              <svg viewBox="0 0 100 100" aria-hidden="true">
-                <circle class="vs-piste" cx="50" cy="50" r="40" stroke-dasharray="{{jauges.reduction.arc}} {{jauges.reduction.circonference}}"/>
-                <circle class="vs-valeur {{#unless jauges.reduction.ratio}}vide{{/unless}}" cx="50" cy="50" r="40" stroke-dasharray="{{jauges.reduction.rempli}} {{jauges.reduction.circonference}}"/>
-              </svg>
-              <span class="vs-cadran-saisie">
-                {{#if modeEdition}}
-                <input type="number" name="system.bouclier.reduction" value="{{system.bouclier.reduction}}" class="vs-grand" aria-label="{{localize 'GALACTICWARS.Vaisseau.BouclierReduction'}}">
-                {{else}}
-                <span class="vs-grand mono">{{system.bouclier.reduction}}</span>
-                {{/if}}
-              </span>
-            </div>
-          </div>
-
           <div class="vs-jauge-colonne">
             <label class="vs-interrupteur">
               <span class="vs-label">{{localize 'GALACTICWARS.Sheet.BouclierActif'}}</span>

@@ -248,7 +248,7 @@
 
 .galactic-wars.vaisseau .vs-jauges {
   display: grid;
-  grid-template-columns: 1.35fr 1fr 1fr 1fr;
+  grid-template-columns: 1.35fr 1fr 1fr;
   gap: 0.4rem;
   align-items: start;
 }
@@ -313,15 +313,12 @@
 .galactic-wars.vaisseau .vs-jauge-coque.etat-blesse { --vs-jauge: var(--vs-orange); }
 .galactic-wars.vaisseau .vs-jauge-coque.etat-critique { --vs-jauge: var(--vs-rouge); }
 .galactic-wars.vaisseau .vs-jauge-bouclier { --vs-jauge: var(--vs-bouclier); }
-.galactic-wars.vaisseau .vs-jauge-reduction { --vs-jauge: #6f86a3; }
 
 /* Bouclier coupé : jauges de bouclier éteintes. */
-.galactic-wars.vaisseau .bouclier-inactif .vs-jauge-bouclier,
-.galactic-wars.vaisseau .bouclier-inactif .vs-jauge-reduction {
+.galactic-wars.vaisseau .bouclier-inactif .vs-jauge-bouclier {
   opacity: 0.4;
 }
-.galactic-wars.vaisseau .bouclier-inactif .vs-jauge-bouclier .vs-valeur,
-.galactic-wars.vaisseau .bouclier-inactif .vs-jauge-reduction .vs-valeur {
+.galactic-wars.vaisseau .bouclier-inactif .vs-jauge-bouclier .vs-valeur {
   filter: none;
   stroke: #4a5a70;
 }
@@ -454,17 +451,23 @@
 .galactic-wars.vaisseau .vs-deplacement-saisie {
   display: flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.6rem;
 }
 
 .galactic-wars.vaisseau .vs-deplacement-saisie i {
   color: var(--vs-ambre);
-  font-size: 1.1rem;
+  font-size: 1.9rem;
 }
 
+/* Déplacement agrandi (demande de l'auteur) : lisible d'un coup d'oeil en jeu. */
 .galactic-wars.vaisseau .vs-deplacement-saisie input {
-  width: 3.2rem;
+  width: 5rem;
+  height: 3.2rem;
   text-align: center;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--vs-ambre);
+  border-color: color-mix(in srgb, var(--vs-ambre) 45%, var(--vs-bord));
 }
 
 /* ---- Armement ---- */
