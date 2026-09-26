@@ -61,7 +61,8 @@
   pause** pendant le générique (`canvas.app.ticker`, repris à la fermeture) ; étoiles à résolution 1:1 redessinées
   10 fois / s (carrés au lieu d'arcs) ; `mask-image` remplacé par un dégradé noir posé au-dessus ; `will-change`.
   Vérifié (appels directs, aucune diffusion : d'autres utilisateurs connectés) : mouvements réduits → texte qui défile,
-  plateau en pause puis repris, fermeture ; mode normal inchangé. **À confirmer chez les joueurs.**
+  plateau en pause puis repris, fermeture ; mode normal inchangé. **Confirmé par l'auteur : « ça marche chez les
+  joueurs »** ; v0.18.0 poussée et publiée.
 - **Demande de l'auteur** : barre de défilement dans la fenêtre d'édition de la page Générique → `.window-content` en
   `overflow-y: auto` (vérifié à 500 px de haut : 797 px de contenu, défile jusqu'au bouton Sauvegarder).
 
