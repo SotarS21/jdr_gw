@@ -19,8 +19,7 @@
      `vetement_armure_guerrier_sith`, `vetement_armure_lourde`, `vetement_armure_plastron`, `vetement_de_contrebandier`,
      `vetement_robe_jedi`). Tri à faire (portes, astéroïdes, barges, textures n'en sont pas). Publication par
      `asset_visuel/objets/` (suivi) + correctif MJ pour les objets déjà dans les mondes (voir `0.14.1-visuels-par-nom`).
-  5. ~~Générique façon intro Star Wars~~ : proposition A codée comme la maquette (v0.18.0, commitée) ; écran testé,
-     **page de journal et diffusion aux joueurs à tester au redémarrage** (nouveau type de page).
+  5. ~~Générique façon intro Star Wars~~ : proposition A codée comme la maquette et vérifiée à deux clients (v0.18.0).
 - **Faits dans cette session** : lien vers le vaisseau, grille 2 × 2 et corbeille de l'onglet Équipements (v0.15.8) ;
   fiche de vaisseau d'après le mockup et tous les ajouts de l'auteur (v0.16.0) ; nouveaux vaisseaux et images (v0.16.1).
 - **Rappels techniques** : scripts de patch écrits avec l'outil Write (ou heredoc `<<'EOF'`, en doublant les
@@ -44,8 +43,13 @@
   (1,6 × taille / s × vitesse), départ à 80 % : titre à 524 px à 4 s, 271 px à 10 s (écran de 950 px), 41 s pour trois
   paragraphes en vitesse normale.
 - Testé sans redémarrage (2 utilisateurs connectés) en appelant `jouerGenerique` : ouverture visible, boutons du MJ,
-  « Passer », défilement lisible, Échap. Reste à tester au redémarrage : création de la page, diffusion à un second
-  client, « Arrêter pour tous », musique.
+  « Passer », défilement lisible, Échap.
+- **Après redémarrage** (accord de l'auteur), test à **deux navigateurs** : page « Générique » créée (type
+  `generique`, 2 paragraphes, vitesse rapide = 1,6), encart et boutons en lecture ; « Diffuser » → le second client
+  affiche le générique avec les commandes ; « Passer » (client A) → défilement chez B ; « Arrêter pour tous » → fermé
+  chez A et B ; édition : 7 champs, titre enregistré ; journaux de test supprimés ; aucune erreur. **Effet de bord** :
+  la diffusion de test est aussi arrivée chez les deux autres personnes connectées (Gamemaster, Latios) pendant
+  ~10 s avant l'arrêt — signalé à l'auteur. Musique non testée (pas de fichier audio de test).
 
 ## Session du 2026-09-26 (suite 10) — Maquette du générique, acteur Équipage (v0.16.3→v0.17.0)
 
