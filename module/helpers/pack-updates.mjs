@@ -100,9 +100,9 @@ export const PACK_UPDATES = [
     id: "0.19.4-images-vaisseaux",
     cible: "vaisseaux",
     version: "0.19.4",
-    label: "Images des vaisseaux (Barloz, Dynamic 20)",
+    label: "Images des vaisseaux (Barloz, Dynamic 20, Land speeder)",
     description:
-      "Le Barloz class médium Freighter et le Dynamic 20 modular transport ont maintenant une image (acteur, fiche et " +
+      "Le Barloz class médium Freighter, le Dynamic 20 modular transport et le Land speeder ont maintenant une image (acteur, fiche et " +
       "token). Met à jour les copies du monde de même nom qui ont encore l'image par défaut.",
     concernes: () => Promise.resolve(vaisseauxSansImage(IMAGES_VAISSEAUX_0194).length),
     apply: async () => {
@@ -800,7 +800,8 @@ const IMAGES_VAISSEAUX_0181 = {
 
 const IMAGES_VAISSEAUX_0194 = {
   "Barloz class médium Freighter": "systems/galactic-wars/asset_visuel/objets/vaisseaux-barloz.jpg",
-  "Dynamic 20 modular transport": "systems/galactic-wars/asset_visuel/objets/vaisseaux-dynamic-20.jpg"
+  "Dynamic 20 modular transport": "systems/galactic-wars/asset_visuel/objets/vaisseaux-dynamic-20.jpg",
+  "Land speeder": "systems/galactic-wars/asset_visuel/objets/vaisseaux-land-speeder.jpg"
 };
 
 /** Vaisseaux (monde et tokens non liés) nommés comme une entrée de `images`, avec encore l'image par défaut. */

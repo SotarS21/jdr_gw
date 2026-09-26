@@ -71,7 +71,8 @@
 - **Images déposées par l'auteur** dans `asset_visuel/vaiseau/` : Barloz (800 × 427) et Dynamic 20 (900 × 571), vrais
   JPEG → copiés en `asset_visuel/objets/vaisseaux-barloz.jpg` / `vaisseaux-dynamic-20.jpg` (servis, 200) ; compendium
   (acteur, portrait, token) et correctif MJ `0.19.4-images-vaisseaux` (3 copies du monde à l'image par défaut : 2 Barloz,
-  1 Dynamic 20). Restent sans image : Barmaid Betty, Lantallian, Land speeder.
+  1 Dynamic 20). Puis Land speeder (1130 × 931, `vaisseaux-land-speeder.jpg`, même correctif : 1 copie du monde).
+  Restent sans image : Barmaid Betty, Lantallian.
 
 ## Session du 2026-09-27 (suite 4) — Tests avec un compte joueur (v0.19.3)
 
@@ -92,8 +93,8 @@
   appliqué par le joueur (Contrebandier → 5 objets, vus par le MJ ; contact en PNJ) et par le MJ fiche du joueur
   ouverte (Médecin → 8 objets, tous affichés dans l'onglet Équipements du joueur). Aucune erreur.
 - **n° 20** : l'auteur confirme que 75 en Médecine au niveau 0 est normal (bonus de métier) → rien à changer.
-- **Suivi de 25 points entièrement traité.** Reste : images de vaisseaux en attente de l'auteur (Barloz et Dynamic 20
-  reçus en v0.19.4 ; restent Barmaid Betty, Lantallian, Land speeder).
+- **Suivi de 25 points entièrement traité.** Reste : images de vaisseaux en attente de l'auteur (Barloz, Dynamic 20 et
+  Land speeder reçus en v0.19.4 ; restent Barmaid Betty, Lantallian).
 
 ## Session du 2026-09-27 (suite 3) — Animations vérifiées, musique du générique (v0.19.2→v0.19.3)
 

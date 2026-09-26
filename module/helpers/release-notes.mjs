@@ -303,7 +303,7 @@ export const RELEASE_NOTES = {
       <li>Notes : barre de recherche dans les PNJ et les missions (nom, sous-titre, statut, texte ; sans tenir compte des accents).</li>
       <li>Informations : nouvelle section <strong>Métier</strong> sous l'ethnie — description, talent, compétences spéciales et équipement de départ du métier.</li>
       <li>Vaisseaux : le Dynamic 20 modular transport a deux postes (Pilote, Mécanicien), fait 100 m de long et peut avoir 10 modules (compendium, et correctif MJ pour celui du monde).</li>
-      <li>Images du Barloz class médium Freighter et du Dynamic 20 modular transport (compendium, et correctif MJ pour les copies du monde).</li>
+      <li>Images du Barloz class médium Freighter, du Dynamic 20 modular transport et du Land speeder (compendium, et correctif MJ pour les copies du monde).</li>
     </ul>`
   }
 };
