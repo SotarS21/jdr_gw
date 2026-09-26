@@ -50,6 +50,16 @@
   antislashs à vérifier) — jamais de backticks dans un `node -e` en bash ; `git checkout` remet les fichiers en CRLF
   (normaliser avant de chercher du texte) ; `prose-mirror` doit rester en `display: flex`.
 
+## Session du 2026-09-27 (suite 2) — Intro et compendium de musique (monde)
+
+- v0.19.2 poussée et publiée, Foundry redémarré (accord de l'auteur) : modules du compendium vérifiés (Poubelle 1 / 3,
+  Convergence 9 / 15…), correctif `0.19.1-modules-amenagements-origine` en attente pour 3 vaisseaux du monde.
+- **Demande de l'auteur** : ajouter « Star Wars Intro HD 1080p.mp3 » (nouveau dans `asset_son/`) à la playlist → copié en
+  `Data/galactic-wars-musiques/intro-star-wars.mp3`, piste « Intro Star Wars (générique) » (23 pistes).
+- **Compendium de musique** : créé comme compendium **du monde** (`world.musiques-galactic-wars`, « Musiques Galactic
+  Wars », type Playlist) et non du système — mêmes raisons de droits : il ne part jamais dans la release. Il contient une
+  copie de la playlist « Galactic Wars » (23 pistes, fichiers dans les données locales).
+
 ## Session du 2026-09-27 (suite) — Musiques et animations (v0.19.1→v0.19.2)
 
 - **Choix de l'auteur** : musiques en **playlist locale** (les 22 morceaux de `asset_son/` sont sous droits : jamais dans le
