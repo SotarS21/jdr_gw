@@ -2,15 +2,15 @@
 
 ## À faire à la reprise (état au 2026-09-26, fin de session)
 
-- **Tout est poussé** : v0.15.8 publiée (dernière release), `main` à jour. Seuls fichiers non suivis (voulu) :
-  `asset_visuel/{Personnage,item,lieux,vaiseau}`.
-- **Foundry local** : code v0.15.8 copié sans redémarrage (un utilisateur était connecté) ; le serveur annonce
-  encore 0.15.7 jusqu'au prochain redémarrage (demander avant, s'il y a des connectés). Aucun compendium modifié.
+- **État** : v0.16.0 (refonte de la fiche de vaisseau) commitée en local, déployée et vérifiée, **pas encore
+  poussée** (en attente de validation de l'auteur). v0.15.8 = dernière release publiée. Foundry redémarré en 0.16.0.
+  Seuls fichiers non suivis (voulu) : `asset_visuel/{Personnage,item,lieux,vaiseau}`.
 - **Todo restante** (fichier de l'auteur sur le Bureau) :
-  1. Refonte de la fiche de vaisseau d'après le mockup `asset_fiche_perso/mokcup_exemple_fiche_vaiseau.jfif`
-     (proposée comme prochain lot) ;
+  1. ~~Refonte de la fiche de vaisseau~~ : faite (v0.16.0).
   2. Images des vaisseaux (token, acteur… : les 13 vaisseaux du compendium ont l'homme mystère ; images candidates
-     dans `asset_visuel/vaiseau/`, non suivi) — à grouper avec la refonte ;
+     dans `asset_visuel/vaiseau/`, non suivi). Plusieurs images portent le nom d'autres vaisseaux (Pourparler,
+     Lance d'argent, La Brique, Lumière de l'aube) : association à valider avec l'auteur (proposition faite).
+     `front_speeder.jpg` n'est pas lisible par System.Drawing (format à vérifier).
   3. Bannière de chaque compendium (`system.json` `packs[].banner`, aucune aujourd'hui) ;
   4. Acteur « Équipage » (PJ membres, crédits communs, réserve d'objets, vaisseau associé ; modèle : Party de PF2e).
      Le lien vers le vaisseau de la v0.15.8 est individuel : l'Équipage pourra porter le vaisseau commun.
@@ -21,6 +21,33 @@
      `vetement_de_contrebandier`, `vetement_robe_jedi`). Tri à faire : l'item n'y contient pas que des objets (portes,
      astéroïdes, barges, textures). Les visuels publiés passent par `asset_visuel/objets/` (suivi) + un correctif MJ
      pour les objets déjà dans les mondes (voir v0.13.2 / `0.14.1-visuels-par-nom`).
+  6. **Ajout de l'auteur** : scène de générique qui défile sur un fond, à la façon de l'intro de Star Wars, avec
+     animation, à montrer aux PJ — **faire plusieurs propositions** quand on reprendra ce point.
+
+## Session du 2026-09-26 (suite 6) — Refonte de la fiche de vaisseau (v0.15.8→v0.16.0)
+
+- **Todo** : fiche de vaisseau d'après le mockup `asset_fiche_perso/mokcup_exemple_fiche_vaiseau.jfif`. Nouveau
+  template + `styles/vaisseau.css` (scopé `.galactic-wars.vaisseau`, palette acier / cyan, titres de panneau à onglet) :
+  - haut : grande image sur quadrillage « plan » (portrait, sinon image de l'acteur ; clic = changer), Nom / Classe /
+    Taille / Prix (pièces) ; **Ressources** : jauges SVG en arc de 270° — coque (vert → orange → rouge selon le %),
+    bouclier (bleu), réduction —, saisie dans le cadran, interrupteur « Bouclier actif » (jauges éteintes s'il est
+    coupé), Déplacement ;
+  - **Armement** : lignes (icône, nom, dégâts, quantité, emplacement sur plusieurs lignes), survol ambre, crayon =
+    fenêtre d'édition, corbeille avec confirmation, « Ajouter une arme » ;
+  - **Équipage** : tableau Poste | Nom — poste (« Pilote (2 positions) »), description, un champ de nom par place ;
+    crayon = fenêtre (poste, nombre de places, description) ;
+  - **Aménagements** : soute, équipements embarqués (texte libre) + pastilles avec une icône devinée du libellé
+    (sanitaire, navette, pods, quartiers, cuisine, infirmerie…) ; **Description** (éditeur repliable, `toggled`).
+- **Données** (`VaisseauData`) : `armement[].emplacement`, `equipage[].places` / `noms[]` (ancien `nom` conservé,
+  repris par `migrateData`), `bouclier.max` (repris des points actuels). Armement et postes ne passent plus par le
+  formulaire (tableau complet réécrit) ; les noms d'équipage oui — `_processFormData` les fusionne dans le tableau
+  complet (sinon rôle et description seraient perdus : un ArrayField est toujours remplacé en entier).
+- Corrigé au passage : titre de fenêtre « TYPES.Actor.vaisseau » (clé de traduction manquante) → « Vaisseau ».
+- Piège retrouvé : `prose-mirror` en `display: block` écrase l'éditeur à 0 px (déjà noté pour les Notes) → flex.
+- Vérifié (copie temporaire de « La poubelle géante », supprimée ensuite) : saisie d'un nom (rôle / description
+  intacts), ajout / modification / suppression d'arme (Non garde, Supprimer retire), places 2 → 3 (3 champs), bouclier
+  coupé, pastilles d'aménagements, description ; migration sur la Convergence du compendium (bouclier max 500, noms
+  repris) ; aucune erreur de page. Notes de version 0.15.8 (oubliées à la release) et 0.16.0 ajoutées.
 
 ## Session du 2026-09-26 (suite 5) — Lien vers le vaisseau, grille, corbeille (v0.15.7→v0.15.8)
 

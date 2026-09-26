@@ -1,67 +1,175 @@
 {{!-- <div>, pas <form> : DocumentSheetV2 rend déjà this.element comme un <form>
       (classes déjà appliquées) — un <form> imbriqué casserait FormDataExtended.
-      Un seul élément racine reste requis (PARTS). --}}
+      Un seul élément racine reste requis (PARTS).
+      Mise en page d'après asset_fiche_perso/mokcup_exemple_fiche_vaiseau.jfif. --}}
 <div class="galactic-wars-body">
-  <header class="sheet-header">
-    <img class="portrait" src="{{system.portrait}}" data-action="editImage" alt="{{actor.name}}">
-    <div class="header-fields">
-      <input type="text" name="name" value="{{actor.name}}" placeholder="{{localize 'GALACTICWARS.Sheet.Nom'}}">
-      <label>{{localize 'GALACTICWARS.Sheet.Classe'}} <input type="text" name="system.classe" value="{{system.classe}}"></label>
-      <label>{{localize 'GALACTICWARS.Sheet.Taille'}} <input type="text" name="system.taille" value="{{system.taille}}"></label>
-      <label>{{localize 'GALACTICWARS.Sheet.Prix'}} <input type="text" name="system.prix" value="{{system.prix}}"></label>
-    </div>
-  </header>
-
   <div class="sheet-body">
-  <section class="ressources">
-    <h2>{{localize 'GALACTICWARS.Sheet.Ressources'}}</h2>
-    <label>{{localize 'GALACTICWARS.Sheet.Coque'}}
-      <input type="number" name="system.pv.actuels" value="{{system.pv.actuels}}"> /
-      <input type="number" name="system.pv.max" value="{{system.pv.max}}">
+
+  <section class="vs-haut">
+    <button type="button" class="vs-plan" data-action="editImage" data-tooltip="{{localize 'GALACTICWARS.Vaisseau.ChangerImage'}}">
+      <img src="{{plan}}" alt="{{actor.name}}">
+    </button>
+
+    <div class="vs-identite">
+      <label class="vs-champ">
+        <span class="vs-label">{{localize 'GALACTICWARS.Sheet.Nom'}}</span>
+        <input type="text" name="name" value="{{actor.name}}" class="vs-nom">
+      </label>
+      <div class="vs-ligne-identite">
+        <label class="vs-champ vs-classe">
+          <span class="vs-label">{{localize 'GALACTICWARS.Sheet.Classe'}}</span>
+          <input type="text" name="system.classe" value="{{system.classe}}">
+        </label>
+        <label class="vs-champ vs-taille">
+          <span class="vs-label">{{localize 'GALACTICWARS.Sheet.Taille'}}</span>
+          <input type="text" name="system.taille" value="{{system.taille}}">
+        </label>
+        <label class="vs-champ vs-prix">
+          <span class="vs-label">{{localize 'GALACTICWARS.Sheet.Prix'}}</span>
+          <span class="vs-prix-saisie">
+            <input type="text" name="system.prix" value="{{system.prix}}">
+            <i class="fa-solid fa-coins"></i>
+          </span>
+        </label>
+      </div>
+
+      <div class="vs-panneau vs-ressources {{#if bouclierInactif}}bouclier-inactif{{/if}}">
+        <h2 class="vs-titre">{{localize 'GALACTICWARS.Sheet.Ressources'}}</h2>
+        <div class="vs-jauges">
+          <div class="vs-jauge vs-jauge-coque etat-{{jauges.coque.etat}}">
+            <span class="vs-label">{{localize 'GALACTICWARS.Vaisseau.Coque'}}</span>
+            <div class="vs-cadran">
+              <svg viewBox="0 0 100 100" aria-hidden="true">
+                <circle class="vs-piste" cx="50" cy="50" r="40" stroke-dasharray="{{jauges.coque.arc}} {{jauges.coque.circonference}}"/>
+                <circle class="vs-valeur {{#unless jauges.coque.ratio}}vide{{/unless}}" cx="50" cy="50" r="40" stroke-dasharray="{{jauges.coque.rempli}} {{jauges.coque.circonference}}"/>
+              </svg>
+              <span class="vs-cadran-saisie">
+                <input type="number" name="system.pv.actuels" value="{{system.pv.actuels}}" class="vs-grand" aria-label="{{localize 'GALACTICWARS.Vaisseau.CoqueActuelle'}}">
+                <input type="number" name="system.pv.max" value="{{system.pv.max}}" class="vs-petit" data-tooltip="{{localize 'GALACTICWARS.Vaisseau.Maximum'}}" aria-label="{{localize 'GALACTICWARS.Vaisseau.Maximum'}}">
+              </span>
+            </div>
+          </div>
+
+          <div class="vs-jauge vs-jauge-bouclier">
+            <span class="vs-label">{{localize 'GALACTICWARS.Vaisseau.BouclierPoints'}}</span>
+            <div class="vs-cadran">
+              <svg viewBox="0 0 100 100" aria-hidden="true">
+                <circle class="vs-piste" cx="50" cy="50" r="40" stroke-dasharray="{{jauges.bouclier.arc}} {{jauges.bouclier.circonference}}"/>
+                <circle class="vs-valeur {{#unless jauges.bouclier.ratio}}vide{{/unless}}" cx="50" cy="50" r="40" stroke-dasharray="{{jauges.bouclier.rempli}} {{jauges.bouclier.circonference}}"/>
+              </svg>
+              <span class="vs-cadran-saisie">
+                <input type="number" name="system.bouclier.points" value="{{system.bouclier.points}}" class="vs-grand" aria-label="{{localize 'GALACTICWARS.Vaisseau.BouclierPoints'}}">
+                <input type="number" name="system.bouclier.max" value="{{system.bouclier.max}}" class="vs-petit" data-tooltip="{{localize 'GALACTICWARS.Vaisseau.Maximum'}}" aria-label="{{localize 'GALACTICWARS.Vaisseau.Maximum'}}">
+              </span>
+            </div>
+          </div>
+
+          <div class="vs-jauge vs-jauge-reduction">
+            <span class="vs-label" data-tooltip="{{localize 'GALACTICWARS.Vaisseau.BouclierReductionHint'}}">{{localize 'GALACTICWARS.Vaisseau.BouclierReduction'}}</span>
+            <div class="vs-cadran">
+              <svg viewBox="0 0 100 100" aria-hidden="true">
+                <circle class="vs-piste" cx="50" cy="50" r="40" stroke-dasharray="{{jauges.reduction.arc}} {{jauges.reduction.circonference}}"/>
+                <circle class="vs-valeur {{#unless jauges.reduction.ratio}}vide{{/unless}}" cx="50" cy="50" r="40" stroke-dasharray="{{jauges.reduction.rempli}} {{jauges.reduction.circonference}}"/>
+              </svg>
+              <span class="vs-cadran-saisie">
+                <input type="number" name="system.bouclier.reduction" value="{{system.bouclier.reduction}}" class="vs-grand" aria-label="{{localize 'GALACTICWARS.Vaisseau.BouclierReduction'}}">
+              </span>
+            </div>
+          </div>
+
+          <div class="vs-jauge-colonne">
+            <label class="vs-interrupteur">
+              <span class="vs-label">{{localize 'GALACTICWARS.Sheet.BouclierActif'}}</span>
+              <input type="checkbox" name="system.bouclier.actif" {{#if system.bouclier.actif}}checked{{/if}}>
+              <span class="vs-interrupteur-piste"><i class="fa-solid fa-check"></i></span>
+            </label>
+            <label class="vs-deplacement">
+              <span class="vs-label" data-tooltip="{{localize 'GALACTICWARS.Sheet.Deplacement'}}">{{localize 'GALACTICWARS.Vaisseau.Deplacement'}}</span>
+              <span class="vs-deplacement-saisie">
+                <i class="fa-solid fa-person-running"></i>
+                <input type="number" name="system.moteur.deplacement" value="{{system.moteur.deplacement}}">
+              </span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="vs-panneau vs-armement">
+    <div class="vs-entete">
+      <h2 class="vs-titre">{{localize 'GALACTICWARS.Sheet.Armement'}}</h2>
+      <button type="button" class="vs-bouton" data-action="ajouterArme"><i class="fa-solid fa-plus"></i> {{localize 'GALACTICWARS.Vaisseau.AjouterArme'}}</button>
+    </div>
+    {{#each armement as |arme|}}
+    <div class="vs-arme" data-index="{{arme.index}}">
+      <span class="vs-arme-icone"><i class="fa-solid fa-crosshairs"></i></span>
+      <span class="vs-arme-nom">{{arme.nom}}</span>
+      <span class="vs-arme-stats mono">
+        {{#if arme.degats}}({{arme.degats}}) · {{/if}}{{localize 'GALACTICWARS.Vaisseau.QuantiteCourte'}} {{arme.quantite}}
+      </span>
+      <span class="vs-arme-emplacement">{{#each arme.emplacements as |e|}}<span>{{e}}</span>{{/each}}</span>
+      <button type="button" class="vs-icone-btn editer" data-action="editerArme" data-tooltip="{{localize 'GALACTICWARS.Vaisseau.EditerArme'}}" aria-label="{{localize 'GALACTICWARS.Vaisseau.EditerArme'}}"><i class="fa-solid fa-pen"></i></button>
+      <button type="button" class="vs-icone-btn supprimer" data-action="supprimerArme" data-tooltip="{{localize 'GALACTICWARS.Vaisseau.Supprimer'}}" aria-label="{{localize 'GALACTICWARS.Vaisseau.Supprimer'}}"><i class="fa-solid fa-trash"></i></button>
+    </div>
+    {{else}}
+    <p class="vs-vide">{{localize 'GALACTICWARS.Vaisseau.AucunArmement'}}</p>
+    {{/each}}
+  </section>
+
+  <section class="vs-panneau vs-equipage">
+    <div class="vs-entete">
+      <h2 class="vs-titre">{{localize 'GALACTICWARS.Sheet.Equipage'}}</h2>
+      <button type="button" class="vs-bouton" data-action="ajouterPoste"><i class="fa-solid fa-plus"></i> {{localize 'GALACTICWARS.Vaisseau.AjouterPoste'}}</button>
+    </div>
+    {{#if equipage.length}}
+    <div class="vs-equipage-tete">
+      <span>{{localize 'GALACTICWARS.Vaisseau.Poste'}}</span>
+      <span>{{localize 'GALACTICWARS.Sheet.Nom'}}</span>
+    </div>
+    {{/if}}
+    {{#each equipage as |poste|}}
+    <div class="vs-poste" data-index="{{poste.index}}">
+      <div class="vs-poste-infos">
+        <span class="vs-poste-role">{{poste.role}}{{#if (gt poste.places 1)}} <span class="vs-poste-places">({{poste.places}} {{localize 'GALACTICWARS.Vaisseau.Positions'}})</span>{{/if}}</span>
+        {{#if poste.description}}<span class="vs-poste-description">{{poste.description}}</span>{{/if}}
+      </div>
+      <div class="vs-poste-noms">
+        {{#each poste.sieges as |s|}}
+        <input type="text" name="system.equipage.{{poste.index}}.noms.{{s.siege}}" value="{{s.nom}}" placeholder="{{localize 'GALACTICWARS.Vaisseau.AjouterNom'}}">
+        {{/each}}
+      </div>
+      <div class="vs-poste-actions">
+        <button type="button" class="vs-icone-btn editer" data-action="editerPoste" data-tooltip="{{localize 'GALACTICWARS.Vaisseau.EditerPoste'}}" aria-label="{{localize 'GALACTICWARS.Vaisseau.EditerPoste'}}"><i class="fa-solid fa-pen"></i></button>
+        <button type="button" class="vs-icone-btn supprimer" data-action="supprimerPoste" data-tooltip="{{localize 'GALACTICWARS.Vaisseau.Supprimer'}}" aria-label="{{localize 'GALACTICWARS.Vaisseau.Supprimer'}}"><i class="fa-solid fa-trash"></i></button>
+      </div>
+    </div>
+    {{else}}
+    <p class="vs-vide">{{localize 'GALACTICWARS.Vaisseau.AucunPoste'}}</p>
+    {{/each}}
+  </section>
+
+  <section class="vs-panneau vs-amenagements">
+    <h2 class="vs-titre">{{localize 'GALACTICWARS.Vaisseau.Amenagements'}}</h2>
+    <label class="vs-ligne-champ">
+      <span class="vs-label">{{localize 'GALACTICWARS.Vaisseau.Soute'}}</span>
+      <input type="text" name="system.soute" value="{{system.soute}}">
     </label>
-    <label>{{localize 'GALACTICWARS.Sheet.BouclierPoints'}} <input type="number" name="system.bouclier.points" value="{{system.bouclier.points}}"></label>
-    <label>{{localize 'GALACTICWARS.Sheet.BouclierReduction'}} <input type="number" name="system.bouclier.reduction" value="{{system.bouclier.reduction}}"></label>
-    <label><input type="checkbox" name="system.bouclier.actif" {{#if system.bouclier.actif}}checked{{/if}}> {{localize 'GALACTICWARS.Sheet.BouclierActif'}}</label>
-    <label>{{localize 'GALACTICWARS.Sheet.Deplacement'}} <input type="number" name="system.moteur.deplacement" value="{{system.moteur.deplacement}}"></label>
-  </section>
-
-  <section class="armement">
-    <h2>{{localize 'GALACTICWARS.Sheet.Armement'}} <button type="button" data-action="addArmement">+</button></h2>
-    {{#each system.armement as |arme i|}}
-    <div class="vaisseau-row">
-      <input type="text" name="system.armement.{{i}}.nom" value="{{arme.nom}}" placeholder="{{localize 'GALACTICWARS.Sheet.ArmementNom'}}">
-      <input type="text" name="system.armement.{{i}}.degats" value="{{arme.degats}}" placeholder="{{localize 'GALACTICWARS.Item.Degats'}}">
-      <input type="number" name="system.armement.{{i}}.quantite" value="{{arme.quantite}}">
-      <button type="button" data-action="removeArmement" data-index="{{i}}">🗑</button>
+    <label class="vs-ligne-champ">
+      <span class="vs-label">{{localize 'GALACTICWARS.Sheet.EquipementsEmbarques'}}</span>
+      <input type="text" name="system.equipementsEmbarques" value="{{system.equipementsEmbarques}}" placeholder="{{localize 'GALACTICWARS.Vaisseau.EquipementsExemple'}}">
+    </label>
+    {{#if amenagements.length}}
+    <div class="vs-amenagements-liste">
+      {{#each amenagements as |a|}}<span class="vs-amenagement"><i class="fa-solid {{a.icone}}"></i> {{a.libelle}}</span>{{/each}}
     </div>
-    {{/each}}
+    {{/if}}
   </section>
 
-  <section class="equipage">
-    <h2>{{localize 'GALACTICWARS.Sheet.Equipage'}} <button type="button" data-action="addEquipage">+</button></h2>
-    {{#each system.equipage as |membre i|}}
-    <div class="vaisseau-row equipage-row">
-      <input type="text" name="system.equipage.{{i}}.role" value="{{membre.role}}" placeholder="{{localize 'GALACTICWARS.Sheet.Role'}}">
-      <input type="text" name="system.equipage.{{i}}.nom" value="{{membre.nom}}" placeholder="{{localize 'GALACTICWARS.Sheet.Nom'}}">
-      <button type="button" data-action="removeEquipage" data-index="{{i}}">🗑</button>
-      <textarea name="system.equipage.{{i}}.description">{{membre.description}}</textarea>
-    </div>
-    {{/each}}
+  <section class="vs-panneau vs-description">
+    <h2 class="vs-titre">{{localize 'GALACTICWARS.Vaisseau.Description'}}</h2>
+    <prose-mirror name="system.description" value="{{system.description}}" toggled>{{{descriptionEnrichie}}}</prose-mirror>
   </section>
 
-  <section class="soute">
-    <h2>{{localize 'GALACTICWARS.Sheet.Soute'}}</h2>
-    <textarea name="system.soute">{{system.soute}}</textarea>
-  </section>
-
-  <section class="equipements-embarques">
-    <h2>{{localize 'GALACTICWARS.Sheet.EquipementsEmbarques'}}</h2>
-    <textarea name="system.equipementsEmbarques">{{system.equipementsEmbarques}}</textarea>
-  </section>
-
-  <section class="description">
-    <h2>{{localize 'GALACTICWARS.Sheet.Biographie'}}</h2>
-    <prose-mirror name="system.description" value="{{system.description}}">{{{descriptionEnrichie}}}</prose-mirror>
-  </section>
   </div>
 </div>

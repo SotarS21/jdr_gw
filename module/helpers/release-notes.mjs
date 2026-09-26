@@ -184,5 +184,20 @@ export const RELEASE_NOTES = {
     html: `<ul>
       <li>Nouvel équipement « Kit de réparation » (200c) au compendium Équipements : outils pour réparer droïdes, véhicules, vaisseaux, armes et équipements avec la compétence Mécanique. Les kits de réparation déjà présents sont complétés (correctif proposé au MJ).</li>
     </ul>`
+  },
+  "0.15.8": {
+    title: "v0.15.8",
+    html: `<ul>
+      <li>Onglet Équipements : panneau « Vaisseau » — glissez-déposez un vaisseau depuis l'onglet Acteurs pour y accéder depuis la fiche (le joueur doit avoir au moins le droit Observateur sur le vaisseau).</li>
+      <li>Onglet Équipements en grille 2 × 2 : Armes, Armures et boucliers, Équipement, Vaisseau.</li>
+      <li>En mode Édition, bouton de suppression sur chaque objet de l'onglet Équipements, avec confirmation.</li>
+    </ul>`
+  },
+  "0.16.0": {
+    title: "v0.16.0",
+    html: `<ul>
+      <li>Nouvelle fiche de vaisseau : grande image, jauges de coque et de bouclier, interrupteur de bouclier, armement avec emplacement (fenêtre d'ajout / de modification), équipage par poste avec plusieurs places nommées, aménagements avec icônes.</li>
+      <li>Les vaisseaux existants sont repris tels quels (bouclier maximum = points actuels, nom d'équipage conservé).</li>
+    </ul>`
   }
 };
