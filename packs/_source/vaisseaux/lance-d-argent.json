@@ -1,0 +1,175 @@
+{
+  "_key": "!actors!wgvOkN7f0lMawRkv",
+  "_id": "wgvOkN7f0lMawRkv",
+  "name": "Lance d'argent",
+  "type": "vaisseau",
+  "img": "systems/galactic-wars/asset_visuel/objets/vaisseaux-lance-d-argent.jpg",
+  "prototypeToken": {
+    "name": "Lance d'argent",
+    "texture": {
+      "src": "systems/galactic-wars/asset_visuel/objets/vaisseaux-lance-d-argent.jpg"
+    },
+    "actorLink": true
+  },
+  "items": [
+    {
+      "_id": "9uStpLuvEJjI6HyJ",
+      "_key": "!actors.items!wgvOkN7f0lMawRkv.9uStpLuvEJjI6HyJ",
+      "name": "Canon lourd",
+      "type": "arme",
+      "img": "systems/galactic-wars/asset_visuel/objets/armes-tourelle-laser-lourde.jpg",
+      "system": {
+        "quantite": 2,
+        "prix": "",
+        "porte": true,
+        "description": "",
+        "notesMJ": "",
+        "degats": "4d6",
+        "competence": "canonLourd",
+        "instable": false,
+        "portee": ""
+      },
+      "effects": [],
+      "flags": {
+        "galactic-wars": {
+          "emplacement": "Proue"
+        }
+      },
+      "sort": 100000
+    },
+    {
+      "_id": "NDcOt0kNpxhKQhyz",
+      "_key": "!actors.items!wgvOkN7f0lMawRkv.NDcOt0kNpxhKQhyz",
+      "name": "Tourelle légère",
+      "type": "arme",
+      "img": "systems/galactic-wars/asset_visuel/objets/armes-tourelle-laser-lourde.jpg",
+      "system": {
+        "quantite": 4,
+        "prix": "",
+        "porte": true,
+        "description": "",
+        "notesMJ": "",
+        "degats": "2d6",
+        "competence": "canonLourd",
+        "instable": false,
+        "portee": ""
+      },
+      "effects": [],
+      "flags": {
+        "galactic-wars": {
+          "emplacement": "Ailes"
+        }
+      },
+      "sort": 200000
+    }
+  ],
+  "effects": [],
+  "system": {
+    "classe": "Frégate armée",
+    "taille": "60 m de long, 34 m de large",
+    "prix": "9000000c",
+    "pv": {
+      "actuels": 80,
+      "max": 80
+    },
+    "bouclier": {
+      "actif": true,
+      "points": 100,
+      "max": 100,
+      "reduction": 0
+    },
+    "moteur": {
+      "deplacement": 0
+    },
+    "armement": [],
+    "equipage": [
+      {
+        "role": "Capitaine",
+        "places": 1,
+        "noms": [],
+        "uuids": [],
+        "nom": "",
+        "description": ""
+      },
+      {
+        "role": "Pilote",
+        "places": 2,
+        "noms": [],
+        "uuids": [],
+        "nom": "",
+        "description": ""
+      },
+      {
+        "role": "Canonnier",
+        "places": 2,
+        "noms": [],
+        "uuids": [],
+        "nom": "",
+        "description": ""
+      },
+      {
+        "role": "Mécanicien",
+        "places": 1,
+        "noms": [],
+        "uuids": [],
+        "nom": "",
+        "description": ""
+      },
+      {
+        "role": "Équipage",
+        "places": 4,
+        "noms": [],
+        "uuids": [],
+        "nom": "",
+        "description": ""
+      }
+    ],
+    "soute": "Soute de 80 m².",
+    "amenagements": [
+      {
+        "nom": "Passerelle",
+        "description": ""
+      },
+      {
+        "nom": "Cabines",
+        "description": "Cabine du capitaine et quatre cabines doubles."
+      },
+      {
+        "nom": "Quartiers d'équipage",
+        "description": ""
+      },
+      {
+        "nom": "Mess",
+        "description": ""
+      },
+      {
+        "nom": "Infirmerie",
+        "description": ""
+      },
+      {
+        "nom": "Salle des machines",
+        "description": ""
+      },
+      {
+        "nom": "Pods de sauvetage",
+        "description": "Deux pods de 6 places."
+      }
+    ],
+    "equipementsEmbarques": "",
+    "portrait": "systems/galactic-wars/asset_visuel/objets/vaisseaux-lance-d-argent.jpg",
+    "description": "<p>Frégate armée de 60 m, sœur cadette du Pourparler (même chantier, même silhouette effilée). Rapide pour sa taille, elle frappe avec ses deux canons lourds de proue avant de se dégager sous le feu de ses tourelles d'ailes.</p><p><em>Caractéristiques estimées : ce vaisseau n'est pas détaillé dans le matériel source (valeurs calibrées sur les vaisseaux du compendium, à ajuster par le MJ).</em></p>"
+  },
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.16.1"
+  }
+}

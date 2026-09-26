@@ -202,5 +202,11 @@ export const RELEASE_NOTES = {
       <li>Équipage : glissez-déposez un personnage ou un PNJ sur un poste (même hors Édition) ; son portrait ouvre sa fiche.</li>
       <li>Les vaisseaux existants sont repris (bouclier maximum = points actuels, noms d'équipage, aménagements). Leur ancien armement texte se convertit en armes par un correctif proposé au MJ, ou par le bouton « Convertir » de la fiche.</li>
     </ul>`
+  },
+  "0.16.1": {
+    title: "v0.16.1",
+    html: `<ul>
+      <li>Quatre nouveaux vaisseaux au compendium Vaisseaux, avec leur image (acteur, fiche et token) : les frégates armées <strong>Pourparler</strong> et <strong>Lance d'argent</strong>, le transport <strong>La Brique</strong> et la grande frégate <strong>Lumière de l'aube</strong>. Leurs caractéristiques sont des estimations, à ajuster par le MJ.</li>
+    </ul>`
   }
 };

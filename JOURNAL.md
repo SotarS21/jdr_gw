@@ -13,7 +13,11 @@
      dans `asset_visuel/vaiseau/`, non suivi). Plusieurs images portent le nom d'autres vaisseaux (Pourparler,
      Lance d'argent, La Brique, Lumière de l'aube) : association à valider avec l'auteur (proposition faite).
      `front_speeder.jpg` n'est pas lisible par System.Drawing (format à vérifier). **Réponse de l'auteur** : oui, les
-     images nommées (Pourparler, Lance d'argent, La Brique, Lumière de l'aube) sont de **nouveaux vaisseaux** à créer.
+     images nommées (Pourparler, Lance d'argent, La Brique, Lumière de l'aube) sont de **nouveaux vaisseaux** à créer
+     → faits en v0.16.1. Reste à valider l'association des images aux 13 vaisseaux existants (proposition : Frelon ←
+     `front_vaiseau_petit_chasseur`, Convergence ← `front_vaiseau_croiseau_tres_grand`, Gunboat ←
+     `front_vaiseau_croiseur_très_grand_nom_gun` ?, Land speeder ← `front_speeder` illisible ; rien d'évident pour les
+     9 autres).
   3. Bannière de chaque compendium (`system.json` `packs[].banner`, aucune aujourd'hui) ;
   4. Acteur « Équipage » (PJ membres, crédits communs, réserve d'objets, vaisseau associé ; modèle : Party de PF2e).
      Le lien vers le vaisseau de la v0.15.8 est individuel : l'Équipage pourra porter le vaisseau commun.
@@ -28,6 +32,22 @@
      « arme » (tir au taux du token sélectionné)~~ : faits (v0.16.0, ajouts de l'auteur en cours de lot).
   7. **Ajout de l'auteur** : scène de générique qui défile sur un fond, à la façon de l'intro de Star Wars, avec
      animation, à montrer aux PJ — **faire plusieurs propositions** quand on reprendra ce point.
+
+## Session du 2026-09-26 (suite 7) — Nouveaux vaisseaux (v0.16.0→v0.16.1)
+
+- v0.16.0 validée par l'auteur (« je valide la première version de la fiche vaisseau »), Foundry redémarré avec son
+  accord, 13 vaisseaux du compendium vérifiés, poussée et publiée.
+- **Réponse de l'auteur** : les images nommées de `asset_visuel/vaiseau/` sont de nouveaux vaisseaux ; **choix de
+  l'auteur** : caractéristiques estimées. Quatre vaisseaux ajoutés au compendium : **Pourparler** (grande frégate
+  armée, 80 m, coque 120, bouclier 150, 4 canons lourds + 6 tourelles, 20 000 000c), **Lance d'argent** (frégate
+  armée, 60 m, 80 / 100, 9 000 000c — même illustration que le Pourparler, sur fond noir), **La Brique** (transport
+  moyen blindé, 40 m, 45 / 25, 350 000c), **Lumière de l'aube** (grande frégate de dignitaires, 90 m, 110 / 180,
+  25 000 000c). Calibrage : Arcadia (40 / 60, 200 000c), Gunboat (60 / 70), Barmaid Betty (100 / 120,
+  17 500 000c). Armes en objets (Canon lourd, emplacements), postes à plusieurs places, aménagements décrits,
+  mention « Caractéristiques estimées » dans chaque description.
+- Images réduites (PowerShell / System.Drawing) dans `asset_visuel/objets/vaisseaux-*` (dossier embarqué par la
+  release) : PNG transparent gardé pour le Pourparler et La Brique (bons tokens vus de dessus), JPEG 85 % pour les
+  deux autres ; même image pour l'acteur, le portrait de la fiche et le token.
 
 ## Session du 2026-09-26 (suite 6) — Refonte de la fiche de vaisseau (v0.15.8→v0.16.0)
 

@@ -1,0 +1,191 @@
+{
+  "_key": "!actors!1dJIKPImHcqOn0Zw",
+  "_id": "1dJIKPImHcqOn0Zw",
+  "name": "Pourparler",
+  "type": "vaisseau",
+  "img": "systems/galactic-wars/asset_visuel/objets/vaisseaux-pourparler.png",
+  "prototypeToken": {
+    "name": "Pourparler",
+    "texture": {
+      "src": "systems/galactic-wars/asset_visuel/objets/vaisseaux-pourparler.png"
+    },
+    "actorLink": true
+  },
+  "items": [
+    {
+      "_id": "JV7Of9cbmA4A4yJx",
+      "_key": "!actors.items!1dJIKPImHcqOn0Zw.JV7Of9cbmA4A4yJx",
+      "name": "Batterie de canons lourds",
+      "type": "arme",
+      "img": "systems/galactic-wars/asset_visuel/objets/armes-tourelle-laser-lourde.jpg",
+      "system": {
+        "quantite": 4,
+        "prix": "",
+        "porte": true,
+        "description": "",
+        "notesMJ": "",
+        "degats": "4d6",
+        "competence": "canonLourd",
+        "instable": false,
+        "portee": ""
+      },
+      "effects": [],
+      "flags": {
+        "galactic-wars": {
+          "emplacement": "Flanc gauche, Flanc droit"
+        }
+      },
+      "sort": 100000
+    },
+    {
+      "_id": "RjlAxCbRjCjuIS0d",
+      "_key": "!actors.items!1dJIKPImHcqOn0Zw.RjlAxCbRjCjuIS0d",
+      "name": "Tourelle légère",
+      "type": "arme",
+      "img": "systems/galactic-wars/asset_visuel/objets/armes-tourelle-laser-lourde.jpg",
+      "system": {
+        "quantite": 6,
+        "prix": "",
+        "porte": true,
+        "description": "",
+        "notesMJ": "",
+        "degats": "2d6",
+        "competence": "canonLourd",
+        "instable": false,
+        "portee": ""
+      },
+      "effects": [],
+      "flags": {
+        "galactic-wars": {
+          "emplacement": "Proue, Ailes"
+        }
+      },
+      "sort": 200000
+    }
+  ],
+  "effects": [],
+  "system": {
+    "classe": "Grande frégate armée",
+    "taille": "80 m de long, 45 m de large",
+    "prix": "20000000c",
+    "pv": {
+      "actuels": 120,
+      "max": 120
+    },
+    "bouclier": {
+      "actif": true,
+      "points": 150,
+      "max": 150,
+      "reduction": 0
+    },
+    "moteur": {
+      "deplacement": 0
+    },
+    "armement": [],
+    "equipage": [
+      {
+        "role": "Capitaine",
+        "places": 1,
+        "noms": [],
+        "uuids": [],
+        "nom": "",
+        "description": ""
+      },
+      {
+        "role": "Pilote",
+        "places": 2,
+        "noms": [],
+        "uuids": [],
+        "nom": "",
+        "description": ""
+      },
+      {
+        "role": "Canonnier",
+        "places": 4,
+        "noms": [],
+        "uuids": [],
+        "nom": "",
+        "description": "Un par batterie de canons lourds ; les tourelles légères se commandent depuis la passerelle."
+      },
+      {
+        "role": "Mécanicien",
+        "places": 2,
+        "noms": [],
+        "uuids": [],
+        "nom": "",
+        "description": ""
+      },
+      {
+        "role": "Médecin de bord",
+        "places": 1,
+        "noms": [],
+        "uuids": [],
+        "nom": "",
+        "description": ""
+      },
+      {
+        "role": "Équipage",
+        "places": 4,
+        "noms": [],
+        "uuids": [],
+        "nom": "",
+        "description": "Une dizaine de membres d'équipage au total (répartition libre)."
+      }
+    ],
+    "soute": "Soute de 200 m² et armurerie.",
+    "amenagements": [
+      {
+        "nom": "Passerelle",
+        "description": "Poste de commandement, pilotage et commande des tourelles."
+      },
+      {
+        "nom": "Salle de négociation",
+        "description": "Salle de réunion blindée, où la frégate tient les « pourparlers » qui lui donnent son nom."
+      },
+      {
+        "nom": "Cabines d'officiers",
+        "description": "Quatre cabines individuelles."
+      },
+      {
+        "nom": "Quartiers d'équipage",
+        "description": "Dortoirs pour une dizaine de personnes."
+      },
+      {
+        "nom": "Mess",
+        "description": ""
+      },
+      {
+        "nom": "Infirmerie",
+        "description": ""
+      },
+      {
+        "nom": "Salle des machines",
+        "description": ""
+      },
+      {
+        "nom": "Hangar à navette",
+        "description": "Une navette de 8 places."
+      },
+      {
+        "nom": "Pods de sauvetage",
+        "description": "Trois pods de 6 places."
+      }
+    ],
+    "equipementsEmbarques": "",
+    "portrait": "systems/galactic-wars/asset_visuel/objets/vaisseaux-pourparler.png",
+    "description": "<p>Grande frégate armée de 80 m, aux lignes effilées et à la coque blanche. Deux batteries de canons lourds sur les flancs et six tourelles légères en font un vaisseau d'escorte redouté ; son nom, Pourparler, sonne comme une ironie pour ceux qui l'ont vu ouvrir le feu.</p><p><em>Caractéristiques estimées : ce vaisseau n'est pas détaillé dans le matériel source (valeurs calibrées sur les vaisseaux du compendium, à ajuster par le MJ).</em></p>"
+  },
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.16.1"
+  }
+}

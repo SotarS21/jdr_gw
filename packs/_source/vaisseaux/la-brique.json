@@ -1,0 +1,118 @@
+{
+  "_key": "!actors!fbISXf7FfxIdQ0Oi",
+  "_id": "fbISXf7FfxIdQ0Oi",
+  "name": "La Brique",
+  "type": "vaisseau",
+  "img": "systems/galactic-wars/asset_visuel/objets/vaisseaux-la-brique.png",
+  "prototypeToken": {
+    "name": "La Brique",
+    "texture": {
+      "src": "systems/galactic-wars/asset_visuel/objets/vaisseaux-la-brique.png"
+    },
+    "actorLink": true
+  },
+  "items": [
+    {
+      "_id": "KcoRFWGJ1U6EwaNF",
+      "_key": "!actors.items!fbISXf7FfxIdQ0Oi.KcoRFWGJ1U6EwaNF",
+      "name": "Tourelle légère",
+      "type": "arme",
+      "img": "systems/galactic-wars/asset_visuel/objets/armes-tourelle-laser-lourde.jpg",
+      "system": {
+        "quantite": 1,
+        "prix": "",
+        "porte": true,
+        "description": "",
+        "notesMJ": "",
+        "degats": "2d6",
+        "competence": "canonLourd",
+        "instable": false,
+        "portee": ""
+      },
+      "effects": [],
+      "flags": {
+        "galactic-wars": {
+          "emplacement": "Dorsale"
+        }
+      },
+      "sort": 100000
+    }
+  ],
+  "effects": [],
+  "system": {
+    "classe": "Transport moyen (cargo)",
+    "taille": "40 m de long, 22 m de large",
+    "prix": "350000c",
+    "pv": {
+      "actuels": 45,
+      "max": 45
+    },
+    "bouclier": {
+      "actif": true,
+      "points": 25,
+      "max": 25,
+      "reduction": 0
+    },
+    "moteur": {
+      "deplacement": 0
+    },
+    "armement": [],
+    "equipage": [
+      {
+        "role": "Pilote",
+        "places": 2,
+        "noms": [],
+        "uuids": [],
+        "nom": "",
+        "description": ""
+      },
+      {
+        "role": "Équipage",
+        "places": 2,
+        "noms": [],
+        "uuids": [],
+        "nom": "",
+        "description": "Manutention et entretien."
+      }
+    ],
+    "soute": "Grande soute blindée de 150 m², bras de chargement.",
+    "amenagements": [
+      {
+        "nom": "Poste de pilotage",
+        "description": ""
+      },
+      {
+        "nom": "Cabines",
+        "description": "Quatre couchettes."
+      },
+      {
+        "nom": "Sanitaire",
+        "description": ""
+      },
+      {
+        "nom": "Salle des machines",
+        "description": ""
+      },
+      {
+        "nom": "Sas de chargement",
+        "description": "Rampe arrière et sas latéral pour les conteneurs."
+      }
+    ],
+    "equipementsEmbarques": "",
+    "portrait": "systems/galactic-wars/asset_visuel/objets/vaisseaux-la-brique.png",
+    "description": "<p>Transport moyen massif et anguleux, blindé comme un coffre-fort : lent et peu armé, mais sa coque encaisse bien plus qu'un cargo de sa taille — d'où son surnom, La Brique.</p><p><em>Caractéristiques estimées : ce vaisseau n'est pas détaillé dans le matériel source (valeurs calibrées sur les vaisseaux du compendium, à ajuster par le MJ).</em></p>"
+  },
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.16.1"
+  }
+}
