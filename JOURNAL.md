@@ -11,11 +11,9 @@
 - **Todo restante** (fichier de l'auteur sur le Bureau) :
   1. Images des 10 autres vaisseaux du compendium (rien d'évident dans `asset_visuel/vaiseau/` ; `front_speeder.jpg`
      illisible par System.Drawing — format à vérifier, candidat pour le Land speeder).
-  2. ~~Bannière de chaque compendium~~ : faite (v0.16.2, commitée ; Foundry à redémarrer pour la voir).
-  3. ~~Acteur « Équipage »~~ : fait (v0.17.0, commitée ; **non testé en jeu** : le nouveau type n'existe qu'après le
-     redémarrage de Foundry).
-  4. ~~Synchroniser les images et descriptions des objets~~ : fait (v0.16.3, commitée ; à vérifier au redémarrage :
-     compendiums, correctif, tenues de départ). Ancien texte de la todo : créer les nouveaux avec une
+  2. ~~Bannière de chaque compendium~~ : faite et vérifiée (v0.16.2).
+  3. ~~Acteur « Équipage »~~ : fait et vérifié en jeu (v0.17.0).
+  4. ~~Synchroniser les images et descriptions des objets~~ : fait et vérifié (v0.16.3). Ancien texte de la todo : créer les nouveaux avec une
      description sommaire ; en profiter pour enrichir les descriptions existantes. Source : `asset_visuel/item/`
      (69 images, non suivi), dont 7 vêtements (`vetement_apprentis_jedi`, `vetement_apprentis_sith`,
      `vetement_armure_guerrier_sith`, `vetement_armure_lourde`, `vetement_armure_plastron`, `vetement_de_contrebandier`,
@@ -50,8 +48,14 @@
     personnage n'en a pas (« Vaisseau de l'équipage … », pas de bouton de retrait).
   - `GalacticWarsActor#_preCreate` : un nouvel équipage prend l'image de groupe de Foundry et le droit Propriétaire
     par défaut (réserve et caisse partagées par les joueurs) — choix par défaut, à confirmer par l'auteur.
-- Non déployé en jeu : 2 utilisateurs connectés et `system.json` modifié (nouveau type, nouvelle feuille de style) →
-  à tester au redémarrage (création, dépôts, transferts d'objets et de crédits, fiche classique).
+- **Vérifié après redémarrage** (accord de l'auteur) — v0.16.2 : 10 bannières servies ; v0.16.3 : 6 nouveaux objets
+  (type, prix, réduction, visuel), descriptions en place, tenues de départ → Robe de jedi / Tenue d'apprenti jedi /
+  Robe noire (lien compendium), correctif `0.16.3-visuels-descriptions-objets` déjà appliqué dans le monde de test
+  (objets de Kael décrits, « ComLink » par correspondance de nom) ; v0.17.0 sur un équipage temporaire (supprimé, ainsi
+  que ses 2 messages) : image de groupe + Propriétaire par défaut, Kael et Alek membres (doublon refusé), Barloz
+  vaisseau d'équipage et affiché chez Kael (« Vaisseau de l'équipage … »), Kit de réparation Kael → réserve (retiré
+  de Kael), réserve → Alek par le hook (`false`, déplacé), Alek → réserve → Kael par « Donner » (jamais dupliqué),
+  crédits 850 → 750 / caisse 100 puis retour, prise de 500 refusée ; Kael restauré (850 c, 9 objets). Aucune erreur.
 
 ## Session du 2026-09-26 (suite 9) — Visuels et descriptions des objets (v0.16.2→v0.16.3)
 
