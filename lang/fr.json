@@ -558,6 +558,7 @@
       "AvantageDisponible": "Disponible",
       "AvantageAucun": "Aucun",
       "AvantageAideActif": "L'équipage a un avantage : cliquez pour l'utiliser. Tous les membres réussissent l'action d'équipe, puis l'avantage disparaît.",
+      "AvantageAideNonMembre": "Seuls les membres de l'équipage peuvent utiliser son avantage.",
       "AvantageAideInactif": "Pas d'avantage d'équipage pour l'instant. Seul le MJ peut en accorder un.",
       "AvantageAideMJ": "Cliquez pour accorder un avantage d'équipage (non cumulable). Un membre pourra l'utiliser pour que tous réussissent une action d'équipe.",
       "AvantageAideMJActif": "L'équipage a un avantage : cliquez pour l'utiliser ou le retirer.",

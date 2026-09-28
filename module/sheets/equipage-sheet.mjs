@@ -78,10 +78,13 @@ export class EquipageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     });
     context.nombreMembres = context.membres.filter((m) => !m.manquant).length;
     // Bouton « Avantage d'équipage » : le MJ l'accorde (ou l'utilise / le retire) ; un membre l'utilise s'il est actif.
+    const membre = peutUtiliserAvantage(this.actor);
     context.avantage = {
       actif: system.avantage,
-      cliquable: game.user.isGM || (system.avantage && peutUtiliserAvantage(this.actor)),
-      aide: t(system.avantage ? (game.user.isGM ? "AvantageAideMJActif" : "AvantageAideActif") : (game.user.isGM ? "AvantageAideMJ" : "AvantageAideInactif"))
+      cliquable: game.user.isGM || (system.avantage && membre),
+      aide: t(game.user.isGM ? (system.avantage ? "AvantageAideMJActif" : "AvantageAideMJ")
+        : !membre ? "AvantageAideNonMembre"
+        : system.avantage ? "AvantageAideActif" : "AvantageAideInactif")
     };
 
     const vaisseau = system.vaisseau?.uuid ? fromUuidSync(system.vaisseau.uuid) : null;
@@ -116,6 +119,10 @@ export class EquipageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   /** @override */
   async _onRender(context, options) {
     await super._onRender(context, options);
+    // Fiche seulement observée : Foundry désactive tous les boutons, mais un membre doit pouvoir utiliser l'avantage
+    // (relayé au MJ, voir utiliserAvantage).
+    const avantage = this.element.querySelector("button.eq-avantage");
+    if (avantage) avantage.disabled = !context.avantage.cliquable;
     // Liste « Donner à » : ni clic (carte dans le tchat) ni changement (formulaire) ne remontent à la ligne.
     for (const select of this.element.querySelectorAll("select[data-destinataire]")) {
       for (const type of ["click", "change", "keydown"]) select.addEventListener(type, (e) => e.stopPropagation());
