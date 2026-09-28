@@ -1,6 +1,10 @@
 # Journal de développement — Galactic Wars
 
-## À faire à la reprise (état au 2026-09-27, fin de session — « on en a fini pour aujourd'hui »)
+## À faire à la reprise (état au 2026-09-29, fin de session — « on en a fini pour aujourd'hui »)
+
+- **Point ouvert** : cartes payantes « HWSS Empress … $1 Rewards » versionnées dans le dépôt GitHub public
+  (`asset_visuel/vaiseau/`) — l'auteur n'a pas encore tranché (les retirer ou non).
+- Tableur de suivi : n° 1 à 28 traités ; plus de todo technique en attente.
 
 - **État** : tout est poussé ; **v0.19.4 = dernière release** (recherche PNJ / missions, section Métier, Dynamic 20,
   images Barloz / Dynamic 20 / Land speeder). Foundry local redémarré, tourne en 0.19.4 (monde `galacit-wars-v-final`).
