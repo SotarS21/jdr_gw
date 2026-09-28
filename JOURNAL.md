@@ -12,7 +12,7 @@
 - **v0.19.7 = dernière release** (poussée, taguée) ; Foundry local redémarré en 0.19.7, compendium vérifié (L'Empresse,
   8 places, 18 vaisseaux).
 - **Monde de l'auteur** : correctif `0.19.7-empresse` appliqué par l'auteur, fiche vide « L'Empresse » supprimée ; sa
-  L'Empresse a 7 occupants et pas de poste Capitaine (retiré avant le correctif, à confirmer avec lui).
+  L'Empresse a 7 occupants et pas de poste Capitaine (voulu par l'auteur : « pas de capitaine dans l'Empresse »).
 - **Todo restante** :
   - ~~Images des vaisseaux~~ : Barmaid Betty et Lantallian faits (v0.19.6) — tous les vaisseaux ont une image.
   - **Fiche de personnage WOLF** (tableur de l'auteur, https://docs.google.com/spreadsheets/d/1w5r84L8HT_6WWQ2diVqvG5HM5YRCGroU24iRukmWinI/) :
