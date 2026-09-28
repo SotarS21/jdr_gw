@@ -97,6 +97,26 @@ export const PACK_UPDATES = [
     apply: async () => lierTokens()
   },
   {
+    id: "0.19.6-images-vaisseaux",
+    cible: "vaisseaux",
+    version: "0.19.6",
+    label: "Images des vaisseaux (Barmaid Betty, Lantallian)",
+    description:
+      "Le Barmaid Betty et le Lantallian GX-class Executive transport ont maintenant une image (acteur, fiche et token). " +
+      "Met à jour les copies du monde de même nom qui ont encore l'image par défaut.",
+    concernes: () => Promise.resolve(vaisseauxSansImage(IMAGES_VAISSEAUX_0196).length),
+    apply: async () => {
+      const liste = vaisseauxSansImage(IMAGES_VAISSEAUX_0196);
+      for (const { vaisseau, image } of liste) {
+        const changements = { img: image, "system.portrait": image };
+        if (vaisseau.isToken) await vaisseau.token.update({ "texture.src": image });
+        else changements["prototypeToken.texture.src"] = image;
+        await vaisseau.update(changements);
+      }
+      return liste.length;
+    }
+  },
+  {
     id: "0.19.4-images-vaisseaux",
     cible: "vaisseaux",
     version: "0.19.4",
@@ -802,6 +822,11 @@ const IMAGES_VAISSEAUX_0194 = {
   "Barloz class médium Freighter": "systems/galactic-wars/asset_visuel/objets/vaisseaux-barloz.jpg",
   "Dynamic 20 modular transport": "systems/galactic-wars/asset_visuel/objets/vaisseaux-dynamic-20.jpg",
   "Land speeder": "systems/galactic-wars/asset_visuel/objets/vaisseaux-land-speeder.jpg"
+};
+
+const IMAGES_VAISSEAUX_0196 = {
+  "Le Barmaid Betty": "systems/galactic-wars/asset_visuel/objets/vaisseaux-barmaid-betty.jpg",
+  "Lantallian GX-class Executive transport": "systems/galactic-wars/asset_visuel/objets/vaisseaux-lantallian.jpg"
 };
 
 /** Vaisseaux (monde et tokens non liés) nommés comme une entrée de `images`, avec encore l'image par défaut. */

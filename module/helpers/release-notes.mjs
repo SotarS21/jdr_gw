@@ -311,5 +311,13 @@ export const RELEASE_NOTES = {
     html: `<ul>
       <li>Fiche d'équipage : bouton <strong>Avantage d'équipage</strong> dans l'en-tête (non cumulable). Le MJ l'accorde d'un clic ; il s'allume, et un membre peut alors l'utiliser : tous les membres réussissent l'action d'équipe, l'avantage disparaît et le tchat l'annonce. Le MJ peut aussi l'utiliser ou le retirer.</li>
     </ul>`
+  },
+  "0.19.6": {
+    title: "v0.19.6",
+    html: `<ul>
+      <li>Nouveau vaisseau au compendium : <strong>HWSS Empress</strong>, frégate d'artillerie de 6 places bâtie autour du canon Sovereign (caractéristiques estimées, à ajuster par le MJ).</li>
+      <li>Images du Barmaid Betty et du Lantallian GX-class Executive transport (compendium, et correctif MJ pour les copies du monde).</li>
+      <li>Avantage d'équipage : utilisable aussi par un membre qui ne fait qu'observer la fiche d'équipage (le MJ connecté l'enregistre).</li>
+    </ul>`
   }
 };

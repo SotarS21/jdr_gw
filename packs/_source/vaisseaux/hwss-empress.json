@@ -1,0 +1,250 @@
+{
+  "_key": "!actors!fOVbEsNigFb03Gpl",
+  "_id": "fOVbEsNigFb03Gpl",
+  "name": "HWSS Empress",
+  "type": "vaisseau",
+  "img": "systems/galactic-wars/asset_visuel/objets/vaisseaux-empress.png",
+  "prototypeToken": {
+    "name": "HWSS Empress",
+    "texture": {
+      "src": "systems/galactic-wars/asset_visuel/objets/vaisseaux-empress.png"
+    },
+    "actorLink": true
+  },
+  "items": [
+    {
+      "_id": "C7jMxGI8vPTbNJ5q",
+      "_key": "!actors.items!fOVbEsNigFb03Gpl.C7jMxGI8vPTbNJ5q",
+      "effects": [],
+      "flags": {
+        "galactic-wars": {
+          "emplacement": "Proue"
+        }
+      },
+      "sort": 100000,
+      "name": "Canon Sovereign",
+      "type": "arme",
+      "img": "systems/galactic-wars/asset_visuel/objets/armes-tourelle-laser-lourde.jpg",
+      "system": {
+        "quantite": 1,
+        "prix": "",
+        "porte": true,
+        "description": "<p>Canon à haute énergie qui court sur toute la proue : l'arme d'artillerie qui fait de l'Empress un « sniper » spatial. Servi par deux canonniers depuis sa baie.</p>",
+        "notesMJ": "",
+        "degats": "8d6",
+        "competence": "canonLourd",
+        "instable": false,
+        "portee": "Très longue"
+      }
+    },
+    {
+      "_id": "3lu8ve1wWXudtvEg",
+      "_key": "!actors.items!fOVbEsNigFb03Gpl.3lu8ve1wWXudtvEg",
+      "effects": [],
+      "flags": {},
+      "sort": 200000,
+      "name": "Baie du canon Sovereign",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 1,
+        "description": "<p>Longue baie de proue : culasse du canon, deux postes de tir et leurs consoles.</p>",
+        "notesMJ": ""
+      }
+    },
+    {
+      "_id": "eP0LD1LnLBxAZlew",
+      "_key": "!actors.items!fOVbEsNigFb03Gpl.eP0LD1LnLBxAZlew",
+      "effects": [],
+      "flags": {},
+      "sort": 300000,
+      "name": "Salle de contrôle",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 1,
+        "description": "<p>Passerelle au cœur du vaisseau : fauteuil du capitaine au centre, postes de pilotage et de navigation autour.</p>",
+        "notesMJ": ""
+      }
+    },
+    {
+      "_id": "19a1gtX2qHmHkBOd",
+      "_key": "!actors.items!fOVbEsNigFb03Gpl.19a1gtX2qHmHkBOd",
+      "effects": [],
+      "flags": {},
+      "sort": 400000,
+      "name": "Infirmerie",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 1,
+        "description": "<p>Couchettes médicales et poste de soins, à tribord de la salle de contrôle.</p>",
+        "notesMJ": ""
+      }
+    },
+    {
+      "_id": "8RzxYWISoU3aNo8L",
+      "_key": "!actors.items!fOVbEsNigFb03Gpl.8RzxYWISoU3aNo8L",
+      "effects": [],
+      "flags": {},
+      "sort": 500000,
+      "name": "Quartiers d'équipage",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 1,
+        "description": "<p>Couchettes et sanitaires pour les 6 membres d'équipage.</p>",
+        "notesMJ": ""
+      }
+    },
+    {
+      "_id": "jVFxDPw0d8uQHTiv",
+      "_key": "!actors.items!fOVbEsNigFb03Gpl.jVFxDPw0d8uQHTiv",
+      "effects": [],
+      "flags": {},
+      "sort": 600000,
+      "name": "Sas d'arrimage",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 1,
+        "description": "<p>Deux sas latéraux, à bâbord et à tribord du couloir transversal.</p>",
+        "notesMJ": ""
+      }
+    },
+    {
+      "_id": "JkkdxV72cJ0PJiE6",
+      "_key": "!actors.items!fOVbEsNigFb03Gpl.JkkdxV72cJ0PJiE6",
+      "effects": [],
+      "flags": {},
+      "sort": 700000,
+      "name": "Ateliers",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 1,
+        "description": "<p>Deux ateliers de maintenance à l'arrière, de part et d'autre de la salle des machines.</p>",
+        "notesMJ": ""
+      }
+    },
+    {
+      "_id": "yUulTa9p2ZRo82M7",
+      "_key": "!actors.items!fOVbEsNigFb03Gpl.yUulTa9p2ZRo82M7",
+      "effects": [],
+      "flags": {},
+      "sort": 800000,
+      "name": "Salle des machines",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 1,
+        "description": "<p>Réacteur et triple propulseur (« triple thrust engines »).</p>",
+        "notesMJ": ""
+      }
+    },
+    {
+      "_id": "VcdbIm1WCOorkZXJ",
+      "_key": "!actors.items!fOVbEsNigFb03Gpl.VcdbIm1WCOorkZXJ",
+      "effects": [],
+      "flags": {},
+      "sort": 900000,
+      "name": "Propulseurs de manœuvre",
+      "type": "amenagement",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "prix": "",
+        "modules": 1,
+        "description": "<p>Haute manœuvrabilité : l'Empress pivote vite pour garder sa cible dans l'axe du canon.</p>",
+        "notesMJ": ""
+      }
+    }
+  ],
+  "effects": [],
+  "system": {
+    "classe": "Frégate d'artillerie",
+    "taille": "54 m de long, 38 m de large",
+    "prix": "8000000c",
+    "pv": {
+      "actuels": 70,
+      "max": 70
+    },
+    "bouclier": {
+      "actif": true,
+      "points": 90,
+      "max": 90,
+      "reduction": 0
+    },
+    "moteur": {
+      "deplacement": 0
+    },
+    "armement": [],
+    "equipage": [
+      {
+        "role": "Capitaine",
+        "places": 1,
+        "noms": [],
+        "uuids": [],
+        "nom": "",
+        "description": ""
+      },
+      {
+        "role": "Pilote",
+        "places": 1,
+        "noms": [],
+        "uuids": [],
+        "nom": "",
+        "description": ""
+      },
+      {
+        "role": "Canonnier",
+        "places": 2,
+        "noms": [],
+        "uuids": [],
+        "nom": "",
+        "description": "Les deux postes de tir de la baie du canon Sovereign."
+      },
+      {
+        "role": "Mécanicien",
+        "places": 1,
+        "noms": [],
+        "uuids": [],
+        "nom": "",
+        "description": ""
+      },
+      {
+        "role": "Médecin de bord",
+        "places": 1,
+        "noms": [],
+        "uuids": [],
+        "nom": "",
+        "description": ""
+      }
+    ],
+    "soute": "Entrepôt à bâbord, 12 tonnes de charge.",
+    "amenagements": [],
+    "equipementsEmbarques": "",
+    "portrait": "systems/galactic-wars/asset_visuel/objets/vaisseaux-empress.png",
+    "description": "<p>HWSS Empress (« Heavy Weight Spaceship ») : frégate d'artillerie à la coque blanche et orange, bâtie autour d'un seul canon à haute énergie, le Sovereign, qui court sur toute la proue. Triple propulseur et haute manœuvrabilité : elle frappe de très loin, en « sniper » spatial, puis se repositionne. Équipage de 6, aucun passager, 12 tonnes de charge, 90 h-nœuds.</p><p><em>Caractéristiques estimées : PV, bouclier, prix, dégâts du canon et modules calibrés sur les frégates du compendium (Lance d'argent : 80 / 100, 9 000 000c) ; plans et fiche technique d'origine dans asset_visuel/vaiseau/HWSS Empress. À ajuster par le MJ.</em></p>",
+    "modules": 9
+  },
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.19.6"
+  }
+}

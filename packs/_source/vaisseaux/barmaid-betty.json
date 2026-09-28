@@ -3,11 +3,11 @@
   "_id": "YXik8AR9uAhIhTLJ",
   "name": "Le Barmaid Betty",
   "type": "vaisseau",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/galactic-wars/asset_visuel/objets/vaisseaux-barmaid-betty.jpg",
   "prototypeToken": {
     "name": "Le Barmaid Betty",
     "texture": {
-      "src": "icons/svg/mystery-man.svg"
+      "src": "systems/galactic-wars/asset_visuel/objets/vaisseaux-barmaid-betty.jpg"
     },
     "actorLink": true
   },
@@ -165,7 +165,7 @@
     ],
     "soute": "Cales et entrepôts pour le matériel des troupes transportées.",
     "equipementsEmbarques": "Large infirmerie ; plusieurs dortoirs de soldats ; mess commun ; salle des machines ; poste de pilotage/passerelle ; plusieurs sas de débarquement.",
-    "portrait": "icons/svg/mystery-man.svg",
+    "portrait": "systems/galactic-wars/asset_visuel/objets/vaisseaux-barmaid-betty.jpg",
     "description": "<p>Transport de troupes et de combat, 18 à 26 personnes, 100 m de long sur 70 m de large. Dispose d'une large infirmerie et de plusieurs dortoirs de soldats.</p><p>Note MJ : les points de vie (100), le bouclier (120, réduction 0), l'armement (4 canons lourds 4d6) ainsi que le mess commun, la salle des machines, le poste de pilotage/passerelle et les sas de débarquement sont des valeurs/salles estimées par cohérence avec les vaisseaux comparables du même classeur (Barloz, La poubelle géante, Le Arcadia), pas des données du matériel source. À ajuster librement.</p>",
     "amenagements": [],
     "modules": 10
