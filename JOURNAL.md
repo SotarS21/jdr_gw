@@ -9,10 +9,11 @@
   `0.18.2-tokens-lies` a été appliqué par l'auteur (tokens des personnages liés, sauvegardes « (sauvegarde) »).
   Modules d'animation (Sequencer, socketlib, JB2A, Automated Animations) activés ; playlist et compendium de musiques
   du monde (hors système).
-- **v0.19.6** : commitée, déployée (Foundry redémarré en 0.19.6), **pas encore poussée** au moment d'écrire.
-  L'auteur a déjà appliqué le correctif `0.19.6-images-vaisseaux` et importé la HWSS Empress dans son monde. Il a
-  aussi une fiche vide « L'Empresse » (créée par lui le 2026-09-26) : lui demander s'il faut renommer le vaisseau du
-  compendium en « L'Empresse » ou supprimer sa fiche vide.
+- **v0.19.7 = dernière release** (poussée, taguée). Foundry local tourne encore en **0.19.6** : pas redémarré (un
+  utilisateur connecté). Code copié sans redémarrage ; le compendium (nom L'Empresse, 8 postes) ne sera lu qu'au
+  prochain redémarrage (`deploy-local.ps1 -Force` quand c'est libre, puis revérifier).
+- **Monde de l'auteur** : correctif MJ `0.19.7-empresse` à accepter (sa copie « HWSS Empress » → « L'Empresse »,
+  + Navigateur et Communicateur). Il garde aussi une fiche vide « L'Empresse » (créée le 2026-09-26) à supprimer lui-même.
 - **Todo restante** :
   - ~~Images des vaisseaux~~ : Barmaid Betty et Lantallian faits (v0.19.6) — tous les vaisseaux ont une image.
   - **Fiche de personnage WOLF** (tableur de l'auteur, https://docs.google.com/spreadsheets/d/1w5r84L8HT_6WWQ2diVqvG5HM5YRCGroU24iRukmWinI/) :
@@ -55,6 +56,17 @@
 - **Rappels techniques** : scripts de patch écrits avec l'outil Write (ou heredoc `<<'EOF'`, en doublant les
   antislashs à vérifier) — jamais de backticks dans un `node -e` en bash ; `git checkout` remet les fichiers en CRLF
   (normaliser avant de chercher du texte) ; `prose-mirror` doit rester en `display: flex`.
+
+## Session du 2026-09-29 — L'Empresse (v0.19.6→v0.19.7)
+
+- v0.19.6 publiée après renommage du vaisseau en **L'Empresse** (demande de l'auteur ; même `_id`
+  `fOVbEsNigFb03Gpl`, fichier `packs/_source/vaisseaux/l-empresse.json`).
+- v0.19.7 : postes **Navigateur** et **Communicateur** après le Pilote (8 places, comme la fiche console d'origine) ;
+  compétences déduites du nom (Informatique / piratage, Social). Correctif MJ `0.19.7-empresse` : copies du monde
+  repérées par `_stats.compendiumSource`, postes manquants insérés (occupants conservés), nom « HWSS Empress » →
+  « L'Empresse ». Vérifié sur une copie de test importée du compendium en place (6 postes, « HWSS Empress ») : 2 copies
+  concernées (dont celle de l'auteur), résultat correct, copie supprimée. `changementsEmpresse` exportée pour le test.
+  Compendium compilé vérifié hors ligne (`extractPack`) faute de redémarrage.
 
 ## Session du 2026-09-28 (suite) — Relais de l'avantage, HWSS Empress, dernières images (v0.19.5→v0.19.6)
 
