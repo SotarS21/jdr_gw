@@ -1,4 +1,7 @@
-import { TYPES_MEMBRES, TYPES_OBJETS_RESERVE, deplacerObjet, pvDe, transfererCredits } from "../helpers/equipage.mjs";
+import {
+  TYPES_MEMBRES, TYPES_OBJETS_RESERVE, ajusterPointsEquipe, deplacerObjet, depenserPointEquipe, peutDepenserPointEquipe,
+  pvDe, transfererCredits
+} from "../helpers/equipage.mjs";
 
 const { HandlebarsApplicationMixin, DialogV2 } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
@@ -28,7 +31,10 @@ export class EquipageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       ouvrirObjet: EquipageSheet.#onOuvrirObjet,
       afficherObjet: EquipageSheet.#onAfficherObjet,
       donnerObjet: EquipageSheet.#onDonnerObjet,
-      supprimerObjet: EquipageSheet.#onSupprimerObjet
+      supprimerObjet: EquipageSheet.#onSupprimerObjet,
+      pointEquipePlus: EquipageSheet.#onPointEquipePlus,
+      pointEquipeMoins: EquipageSheet.#onPointEquipeMoins,
+      depenserPointEquipe: EquipageSheet.#onDepenserPointEquipe
     }
   };
 
@@ -73,6 +79,8 @@ export class EquipageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       };
     });
     context.nombreMembres = context.membres.filter((m) => !m.manquant).length;
+    context.estMJ = game.user.isGM;
+    context.peutDepenser = peutDepenserPointEquipe(this.actor);
 
     const vaisseau = system.vaisseau?.uuid ? fromUuidSync(system.vaisseau.uuid) : null;
     context.vaisseau = system.vaisseau?.uuid
@@ -228,6 +236,25 @@ export class EquipageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     });
     if (!choix?.montant || choix.montant < 1) return;
     await transfererCredits(this.actor, membre, choix.sens * choix.montant);
+  }
+
+  static async #onPointEquipePlus() {
+    await ajusterPointsEquipe(this.actor, 1);
+  }
+
+  static async #onPointEquipeMoins() {
+    await ajusterPointsEquipe(this.actor, -1);
+  }
+
+  /** Dépense d'un point d'équipe, après confirmation. */
+  static async #onDepenserPointEquipe() {
+    const confirme = await DialogV2.confirm({
+      window: { title: t("DepenserPointEquipe"), icon: "fa-solid fa-handshake" },
+      content: `<p>${t("DepenserPointEquipeConfirmation", { equipage: foundry.utils.escapeHTML(this.actor.name), points: this.actor.system.pointsEquipe ?? 0 })}</p>`,
+      yes: { label: t("Depenser"), icon: "fa-solid fa-handshake" },
+      no: { default: true }
+    });
+    if (confirme) await depenserPointEquipe(this.actor);
   }
 
   static async #onRetirerVaisseau() {

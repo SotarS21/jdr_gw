@@ -15,6 +15,8 @@ export class EquipageData extends foundry.abstract.TypeDataModel {
         nom: new StringField({ initial: "" })
       }),
       credits: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
+      // Points d'équipe (suivi n° 28) : donnés par le MJ seul, dépensés par les membres (1 = une action d'équipe réussie).
+      pointsEquipe: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
       portrait: new FilePathField({ categories: ["IMAGE"], initial: "icons/svg/mystery-man.svg" }),
       description: new HTMLField({ initial: "" })
     };

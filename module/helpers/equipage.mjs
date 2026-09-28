@@ -84,3 +84,73 @@ export async function transfererCredits(equipage, membre, montant) {
   });
   return true;
 }
+
+/* ---------------------------------------------------------------- */
+/* Point d'équipe (suivi n° 28)                                     */
+/* ---------------------------------------------------------------- */
+
+const CANAL = "system.galactic-wars";
+
+/** Membres (acteurs) de l'équipage dont `user` est propriétaire, son personnage attitré en premier. */
+export function membresDeLUtilisateur(equipage, user = game.user) {
+  const membres = equipage.system.membres.map((uuid) => fromUuidSync(uuid)).filter((a) => a?.testUserPermission?.(user, "OWNER"));
+  return membres.sort((a, b) => (b === user.character) - (a === user.character));
+}
+
+/** Vrai si `user` peut dépenser un point d'équipe : MJ, ou propriétaire d'au moins un membre. */
+export function peutDepenserPointEquipe(equipage, user = game.user) {
+  return user.isGM || membresDeLUtilisateur(equipage, user).length > 0;
+}
+
+/** Le MJ ajoute (delta > 0) ou retire des points d'équipe. Seul le MJ peut en donner. */
+export async function ajusterPointsEquipe(equipage, delta) {
+  if (!game.user.isGM) return notifier("PointsEquipeReserveMJ", {}, "warn");
+  const points = Math.max(0, (equipage.system.pointsEquipe ?? 0) + Math.trunc(delta));
+  await equipage.update({ "system.pointsEquipe": points });
+}
+
+/**
+ * Un membre dépense un point d'équipe : −1 et message « tous les membres réussissent l'action d'équipe ». Si
+ * l'utilisateur ne peut pas modifier l'équipage (simple observateur), la dépense est relayée au MJ connecté.
+ * @returns {Promise<boolean>}
+ */
+export async function depenserPointEquipe(equipage, user = game.user) {
+  if (!peutDepenserPointEquipe(equipage, user)) {
+    if (user === game.user) notifier("PointsEquipeNonMembre", {}, "warn");
+    return false;
+  }
+  const points = equipage.system.pointsEquipe ?? 0;
+  if (points <= 0) {
+    if (user === game.user) notifier("AucunPointEquipe", {}, "warn");
+    return false;
+  }
+  if (!equipage.isOwner) {
+    if (!game.users.activeGM) {
+      notifier("PointsEquipeSansMJ", {}, "warn");
+      return false;
+    }
+    game.socket.emit(CANAL, { type: "equipage", action: "depenserPoint", equipage: equipage.uuid, user: user.id });
+    return true;
+  }
+  await equipage.update({ "system.pointsEquipe": points - 1 });
+  const membre = membresDeLUtilisateur(equipage, user)[0];
+  const echapper = foundry.utils.escapeHTML;
+  await ChatMessage.create({
+    speaker: ChatMessage.getSpeaker({ actor: membre ?? equipage }),
+    content: `<div class="gw-point-equipe"><i class="fa-solid fa-handshake"></i> ${game.i18n.format("GALACTICWARS.Equipage.MessagePointEquipe", {
+      nom: echapper(membre?.name ?? user.name), equipage: echapper(equipage.name), reste: points - 1
+    })}</div>`
+  });
+  return true;
+}
+
+/** À appeler au hook "ready" : le MJ actif exécute les dépenses relayées par les joueurs. */
+export function enregistrerSocketEquipage() {
+  game.socket.on(CANAL, async (message) => {
+    if (message?.type !== "equipage" || message.action !== "depenserPoint") return;
+    if (game.users.activeGM !== game.user) return;
+    const equipage = await fromUuid(message.equipage);
+    const user = game.users.get(message.user);
+    if (equipage?.type === "equipage" && user) await depenserPointEquipe(equipage, user);
+  });
+}

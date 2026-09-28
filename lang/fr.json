@@ -553,7 +553,19 @@
       "ChoisirDestinataire": "Choisissez un membre à qui donner l'objet.",
       "ObjetDonne": "{objet} est passé dans l'inventaire de {nom}.",
       "AccesRefuse": "Vous n'avez pas accès à la fiche de « {nom} ».",
-      "ViaEquipage": "Vaisseau de l'équipage {equipage}"
+      "ViaEquipage": "Vaisseau de l'équipage {equipage}",
+      "PointsEquipe": "Points d'équipe",
+      "PointsEquipeHint": "Un point d'équipe permet à tous les membres de réussir une action d'équipe. Seul le MJ en donne ; chaque membre peut en dépenser un, qui disparaît une fois utilisé.",
+      "AjouterPointEquipe": "Donner un point d'équipe",
+      "RetirerPointEquipe": "Retirer un point d'équipe",
+      "Depenser": "Dépenser",
+      "DepenserPointEquipe": "Dépenser un point d'équipe",
+      "DepenserPointEquipeConfirmation": "Dépenser un point d'équipe de {equipage} ({points} disponible(s)) ? Tous les membres réussissent l'action d'équipe ; le point disparaît.",
+      "MessagePointEquipe": "{nom} dépense un point d'équipe de {equipage} : <strong>tous les membres réussissent l'action d'équipe.</strong> Points restants : {reste}.",
+      "AucunPointEquipe": "L'équipage n'a aucun point d'équipe.",
+      "PointsEquipeReserveMJ": "Seul le MJ peut donner des points d'équipe.",
+      "PointsEquipeNonMembre": "Seuls les membres de l'équipage peuvent dépenser un point d'équipe.",
+      "PointsEquipeSansMJ": "Aucun MJ connecté pour enregistrer la dépense du point d'équipe."
     },
     "Generique": {
       "Fiche": "Générique (intro spatiale)",

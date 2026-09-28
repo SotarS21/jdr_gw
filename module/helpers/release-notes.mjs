@@ -305,5 +305,11 @@ export const RELEASE_NOTES = {
       <li>Vaisseaux : le Dynamic 20 modular transport a deux postes (Pilote, Mécanicien), fait 100 m de long et peut avoir 10 modules (compendium, et correctif MJ pour celui du monde).</li>
       <li>Images du Barloz class médium Freighter, du Dynamic 20 modular transport et du Land speeder (compendium, et correctif MJ pour les copies du monde).</li>
     </ul>`
+  },
+  "0.19.5": {
+    title: "v0.19.5",
+    html: `<ul>
+      <li>Fiche d'équipage : <strong>points d'équipe</strong> dans l'en-tête. Le MJ en donne ou en retire (+ / −) ; chaque membre peut en dépenser un (« Dépenser ») : tous les membres réussissent l'action d'équipe, le point disparaît et un message l'annonce dans le tchat.</li>
+    </ul>`
   }
 };

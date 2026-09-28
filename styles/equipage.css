@@ -40,7 +40,7 @@
 /* ---- En-tête ---- */
 .galactic-wars.equipage .eq-entete {
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto minmax(0, 1.1fr);
+  grid-template-columns: auto minmax(0, 1fr) auto auto minmax(0, 1.1fr);
   align-items: center;
   gap: 0.9rem;
   padding: 0.8rem 0.9rem;
@@ -96,6 +96,30 @@
   color: var(--eq-ambre);
   text-align: right;
 }
+
+/* Points d'équipe (suivi n° 28) : valeur, +/− du MJ, « Dépenser » des membres. */
+.galactic-wars.equipage .eq-points {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.45rem 0.7rem;
+  border: 1px solid color-mix(in srgb, var(--eq-cyan) 45%, var(--eq-bord));
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--eq-cyan) 8%, var(--eq-panneau));
+}
+.galactic-wars.equipage .eq-points .eq-etiquette i { color: var(--eq-cyan); }
+.galactic-wars.equipage .eq-points-ligne { display: flex; align-items: center; gap: 0.4rem; }
+.galactic-wars.equipage .eq-points-valeur {
+  min-width: 2ch;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--eq-cyan);
+  text-align: center;
+}
+.galactic-wars.equipage .eq-points .eq-bouton[disabled],
+.galactic-wars.equipage .eq-points .eq-icone[disabled] { opacity: 0.45; cursor: not-allowed; }
 
 .galactic-wars.equipage .eq-vaisseau { display: flex; flex-direction: column; gap: 0.25rem; min-width: 0; }
 .galactic-wars.equipage .eq-vaisseau-carte { display: flex; align-items: center; gap: 0.35rem; }
@@ -319,11 +343,14 @@
 .gw-equipage-dialogue { display: flex; flex-direction: column; gap: 0.5rem; }
 .gw-equipage-dialogue label { display: flex; flex-direction: column; gap: 0.2rem; font-weight: 600; }
 .gw-equipage-credits i { color: #e2a84a; margin-right: 0.3rem; }
+.gw-point-equipe { padding: 0.3rem 0.5rem; border-left: 3px solid #22b8cf; border-radius: 4px; }
+.gw-point-equipe i { color: #22b8cf; margin-right: 0.3rem; }
 
 /* ---- Fenêtre étroite ---- */
 @container galactic-wars-sheet (max-width: 640px) {
   .galactic-wars.equipage .eq-entete { grid-template-columns: auto minmax(0, 1fr); }
   .galactic-wars.equipage .eq-caisse,
+  .galactic-wars.equipage .eq-points,
   .galactic-wars.equipage .eq-vaisseau { grid-column: 1 / -1; }
   .galactic-wars.equipage .eq-objet { flex-wrap: wrap; }
 }

@@ -9,6 +9,7 @@ import { EquipageData } from "./data/actor-equipage.mjs";
 import { GeneriqueData } from "./data/page-generique.mjs";
 import { PageGeneriqueSheet } from "./sheets/page-generique-sheet.mjs";
 import { enregistrerSocketGenerique } from "./apps/generique.mjs";
+import { enregistrerSocketEquipage } from "./helpers/equipage.mjs";
 import { GalacticWarsActorDirectory } from "./apps/actor-directory.mjs";
 import { RaceData } from "./data/item-race.mjs";
 import { MetierData } from "./data/item-metier.mjs";
@@ -140,6 +141,7 @@ Hooks.once("init", () => {
 
 Hooks.once("ready", async () => {
   enregistrerSocketGenerique();
+  enregistrerSocketEquipage();
   if (!game.user.isGM) return;
   await runMigrations();
   await checkSystemVersionUpdate();
