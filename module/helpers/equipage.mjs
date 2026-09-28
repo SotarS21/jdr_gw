@@ -86,7 +86,7 @@ export async function transfererCredits(equipage, membre, montant) {
 }
 
 /* ---------------------------------------------------------------- */
-/* Point d'équipe (suivi n° 28)                                     */
+/* Avantage d'équipage (suivi n° 28)                                */
 /* ---------------------------------------------------------------- */
 
 const CANAL = "system.galactic-wars";
@@ -97,60 +97,59 @@ export function membresDeLUtilisateur(equipage, user = game.user) {
   return membres.sort((a, b) => (b === user.character) - (a === user.character));
 }
 
-/** Vrai si `user` peut dépenser un point d'équipe : MJ, ou propriétaire d'au moins un membre. */
-export function peutDepenserPointEquipe(equipage, user = game.user) {
+/** Vrai si `user` peut utiliser l'avantage d'équipage : MJ, ou propriétaire d'au moins un membre. */
+export function peutUtiliserAvantage(equipage, user = game.user) {
   return user.isGM || membresDeLUtilisateur(equipage, user).length > 0;
 }
 
-/** Le MJ ajoute (delta > 0) ou retire des points d'équipe. Seul le MJ peut en donner. */
-export async function ajusterPointsEquipe(equipage, delta) {
-  if (!game.user.isGM) return notifier("PointsEquipeReserveMJ", {}, "warn");
-  const points = Math.max(0, (equipage.system.pointsEquipe ?? 0) + Math.trunc(delta));
-  await equipage.update({ "system.pointsEquipe": points });
+/** Le MJ accorde (vrai) ou retire (faux) l'avantage d'équipage. Il ne se cumule pas. */
+export async function accorderAvantage(equipage, actif = true) {
+  if (!game.user.isGM) return notifier("AvantageReserveMJ", {}, "warn");
+  await equipage.update({ "system.avantage": actif });
+  notifier(actif ? "AvantageAccorde" : "AvantageRetire", { equipage: equipage.name });
 }
 
 /**
- * Un membre dépense un point d'équipe : −1 et message « tous les membres réussissent l'action d'équipe ». Si
- * l'utilisateur ne peut pas modifier l'équipage (simple observateur), la dépense est relayée au MJ connecté.
+ * Un membre utilise l'avantage d'équipage : il disparaît et le tchat annonce que tous les membres réussissent
+ * l'action d'équipe. Si l'utilisateur ne peut pas modifier l'équipage (simple observateur), c'est relayé au MJ connecté.
  * @returns {Promise<boolean>}
  */
-export async function depenserPointEquipe(equipage, user = game.user) {
-  if (!peutDepenserPointEquipe(equipage, user)) {
-    if (user === game.user) notifier("PointsEquipeNonMembre", {}, "warn");
+export async function utiliserAvantage(equipage, user = game.user) {
+  if (!peutUtiliserAvantage(equipage, user)) {
+    if (user === game.user) notifier("AvantageNonMembre", {}, "warn");
     return false;
   }
-  const points = equipage.system.pointsEquipe ?? 0;
-  if (points <= 0) {
-    if (user === game.user) notifier("AucunPointEquipe", {}, "warn");
+  if (!equipage.system.avantage) {
+    if (user === game.user) notifier("AucunAvantage", {}, "warn");
     return false;
   }
   if (!equipage.isOwner) {
     if (!game.users.activeGM) {
-      notifier("PointsEquipeSansMJ", {}, "warn");
+      notifier("AvantageSansMJ", {}, "warn");
       return false;
     }
-    game.socket.emit(CANAL, { type: "equipage", action: "depenserPoint", equipage: equipage.uuid, user: user.id });
+    game.socket.emit(CANAL, { type: "equipage", action: "utiliserAvantage", equipage: equipage.uuid, user: user.id });
     return true;
   }
-  await equipage.update({ "system.pointsEquipe": points - 1 });
+  await equipage.update({ "system.avantage": false });
   const membre = membresDeLUtilisateur(equipage, user)[0];
   const echapper = foundry.utils.escapeHTML;
   await ChatMessage.create({
     speaker: ChatMessage.getSpeaker({ actor: membre ?? equipage }),
-    content: `<div class="gw-point-equipe"><i class="fa-solid fa-handshake"></i> ${game.i18n.format("GALACTICWARS.Equipage.MessagePointEquipe", {
-      nom: echapper(membre?.name ?? user.name), equipage: echapper(equipage.name), reste: points - 1
+    content: `<div class="gw-avantage-equipage"><i class="fa-solid fa-handshake-angle"></i> ${game.i18n.format("GALACTICWARS.Equipage.MessageAvantage", {
+      nom: echapper(membre?.name ?? user.name), equipage: echapper(equipage.name)
     })}</div>`
   });
   return true;
 }
 
-/** À appeler au hook "ready" : le MJ actif exécute les dépenses relayées par les joueurs. */
+/** À appeler au hook "ready" : le MJ actif exécute les utilisations relayées par les joueurs. */
 export function enregistrerSocketEquipage() {
   game.socket.on(CANAL, async (message) => {
-    if (message?.type !== "equipage" || message.action !== "depenserPoint") return;
+    if (message?.type !== "equipage" || message.action !== "utiliserAvantage") return;
     if (game.users.activeGM !== game.user) return;
     const equipage = await fromUuid(message.equipage);
     const user = game.users.get(message.user);
-    if (equipage?.type === "equipage" && user) await depenserPointEquipe(equipage, user);
+    if (equipage?.type === "equipage" && user) await utiliserAvantage(equipage, user);
   });
 }

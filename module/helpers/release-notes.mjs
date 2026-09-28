@@ -309,7 +309,7 @@ export const RELEASE_NOTES = {
   "0.19.5": {
     title: "v0.19.5",
     html: `<ul>
-      <li>Fiche d'équipage : <strong>points d'équipe</strong> dans l'en-tête. Le MJ en donne ou en retire (+ / −) ; chaque membre peut en dépenser un (« Dépenser ») : tous les membres réussissent l'action d'équipe, le point disparaît et un message l'annonce dans le tchat.</li>
+      <li>Fiche d'équipage : bouton <strong>Avantage d'équipage</strong> dans l'en-tête (non cumulable). Le MJ l'accorde d'un clic ; il s'allume, et un membre peut alors l'utiliser : tous les membres réussissent l'action d'équipe, l'avantage disparaît et le tchat l'annonce. Le MJ peut aussi l'utiliser ou le retirer.</li>
     </ul>`
   }
 };

@@ -1,6 +1,6 @@
 import {
-  TYPES_MEMBRES, TYPES_OBJETS_RESERVE, ajusterPointsEquipe, deplacerObjet, depenserPointEquipe, peutDepenserPointEquipe,
-  pvDe, transfererCredits
+  TYPES_MEMBRES, TYPES_OBJETS_RESERVE, accorderAvantage, deplacerObjet, peutUtiliserAvantage, pvDe, transfererCredits,
+  utiliserAvantage
 } from "../helpers/equipage.mjs";
 
 const { HandlebarsApplicationMixin, DialogV2 } = foundry.applications.api;
@@ -32,9 +32,7 @@ export class EquipageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       afficherObjet: EquipageSheet.#onAfficherObjet,
       donnerObjet: EquipageSheet.#onDonnerObjet,
       supprimerObjet: EquipageSheet.#onSupprimerObjet,
-      pointEquipePlus: EquipageSheet.#onPointEquipePlus,
-      pointEquipeMoins: EquipageSheet.#onPointEquipeMoins,
-      depenserPointEquipe: EquipageSheet.#onDepenserPointEquipe
+      avantage: EquipageSheet.#onAvantage
     }
   };
 
@@ -79,8 +77,12 @@ export class EquipageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       };
     });
     context.nombreMembres = context.membres.filter((m) => !m.manquant).length;
-    context.estMJ = game.user.isGM;
-    context.peutDepenser = peutDepenserPointEquipe(this.actor);
+    // Bouton « Avantage d'équipage » : le MJ l'accorde (ou l'utilise / le retire) ; un membre l'utilise s'il est actif.
+    context.avantage = {
+      actif: system.avantage,
+      cliquable: game.user.isGM || (system.avantage && peutUtiliserAvantage(this.actor)),
+      aide: t(system.avantage ? (game.user.isGM ? "AvantageAideMJActif" : "AvantageAideActif") : (game.user.isGM ? "AvantageAideMJ" : "AvantageAideInactif"))
+    };
 
     const vaisseau = system.vaisseau?.uuid ? fromUuidSync(system.vaisseau.uuid) : null;
     context.vaisseau = system.vaisseau?.uuid
@@ -238,23 +240,35 @@ export class EquipageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     await transfererCredits(this.actor, membre, choix.sens * choix.montant);
   }
 
-  static async #onPointEquipePlus() {
-    await ajusterPointsEquipe(this.actor, 1);
-  }
-
-  static async #onPointEquipeMoins() {
-    await ajusterPointsEquipe(this.actor, -1);
-  }
-
-  /** Dépense d'un point d'équipe, après confirmation. */
-  static async #onDepenserPointEquipe() {
+  /**
+   * Avantage d'équipage. MJ : l'accorde s'il est inactif, sinon choix Utiliser / Retirer. Membre : l'utilise après
+   * confirmation.
+   */
+  static async #onAvantage() {
+    const equipage = this.actor;
+    const nom = foundry.utils.escapeHTML(equipage.name);
+    if (game.user.isGM && !equipage.system.avantage) return accorderAvantage(equipage, true);
+    if (game.user.isGM) {
+      const choix = await DialogV2.wait({
+        window: { title: t("Avantage"), icon: "fa-solid fa-handshake-angle" },
+        content: `<p>${t("AvantageChoixMJ", { equipage: nom })}</p>`,
+        buttons: [
+          { action: "utiliser", label: t("Utiliser"), icon: "fa-solid fa-handshake-angle", default: true },
+          { action: "retirer", label: t("RetirerAvantage"), icon: "fa-solid fa-xmark" }
+        ],
+        rejectClose: false
+      });
+      if (choix === "utiliser") return utiliserAvantage(equipage);
+      if (choix === "retirer") return accorderAvantage(equipage, false);
+      return;
+    }
     const confirme = await DialogV2.confirm({
-      window: { title: t("DepenserPointEquipe"), icon: "fa-solid fa-handshake" },
-      content: `<p>${t("DepenserPointEquipeConfirmation", { equipage: foundry.utils.escapeHTML(this.actor.name), points: this.actor.system.pointsEquipe ?? 0 })}</p>`,
-      yes: { label: t("Depenser"), icon: "fa-solid fa-handshake" },
+      window: { title: t("Avantage"), icon: "fa-solid fa-handshake-angle" },
+      content: `<p>${t("AvantageConfirmation", { equipage: nom })}</p>`,
+      yes: { label: t("Utiliser"), icon: "fa-solid fa-handshake-angle" },
       no: { default: true }
     });
-    if (confirme) await depenserPointEquipe(this.actor);
+    if (confirme) await utiliserAvantage(equipage);
   }
 
   static async #onRetirerVaisseau() {

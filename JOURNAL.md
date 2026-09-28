@@ -9,10 +9,8 @@
   `0.18.2-tokens-lies` a été appliqué par l'auteur (tokens des personnages liés, sauvegardes « (sauvegarde) »).
   Modules d'animation (Sequencer, socketlib, JB2A, Automated Animations) activés ; playlist et compendium de musiques
   du monde (hors système).
-- **v0.19.5 (suivi n° 28, point d'équipe)** : commitée en local, **pas poussée**. Déployée en local **sans
-  redémarrage** (l'auteur était connecté) : Foundry annonce encore 0.19.4 tant qu'il n'est pas relancé. À faire :
-  redémarrer (`deploy-local.ps1 -Force` quand personne n'est connecté), revérifier, puis push + tag avec l'accord.
-  Relais MJ par socket (joueur simple observateur de l'équipage) non testé avec un vrai compte joueur.
+- **v0.19.5 (suivi n° 28, avantage d'équipage)** : poussée et publiée ; Foundry local redémarré en 0.19.5. Relais
+  MJ par socket (joueur simple observateur de l'équipage) non testé avec un vrai compte joueur.
 - **Todo restante** :
   - Images des vaisseaux : restent sans image Barmaid Betty et Lantallian (attendre des images de l'auteur).
   - **Fiche de personnage WOLF** (tableur de l'auteur, https://docs.google.com/spreadsheets/d/1w5r84L8HT_6WWQ2diVqvG5HM5YRCGroU24iRukmWinI/) :
@@ -49,25 +47,27 @@
     25. ~~[Bug] Glisser-déposer des acteurs observés / possédés par les PJ~~ : vérifié avec un compte joueur.
     26. ~~[Fonctionnalité] Barre de recherche dans les PNJ et les missions~~ : fait (v0.19.4).
     27. ~~[Fonctionnalité] Métier dans l'onglet Informations (nom, description, équipement, compétences spéciales)~~ : fait (v0.19.4).
-    28. ~~[Fonctionnalité] Point d'équipe~~ : fait (v0.19.5) — donné par le MJ (+ / −), dépensé par les membres.
+    28. ~~[Fonctionnalité] Point d'équipe~~ : fait (v0.19.5) — « Avantage d'équipage » non cumulable (choix de l'auteur).
 - **Faits dans cette session** : lien vers le vaisseau, grille 2 × 2 et corbeille de l'onglet Équipements (v0.15.8) ;
   fiche de vaisseau d'après le mockup et tous les ajouts de l'auteur (v0.16.0) ; nouveaux vaisseaux et images (v0.16.1).
 - **Rappels techniques** : scripts de patch écrits avec l'outil Write (ou heredoc `<<'EOF'`, en doublant les
   antislashs à vérifier) — jamais de backticks dans un `node -e` en bash ; `git checkout` remet les fichiers en CRLF
   (normaliser avant de chercher du texte) ; `prose-mirror` doit rester en `display: flex`.
 
-## Session du 2026-09-28 — Suivi n° 28, point d'équipe (v0.19.4→v0.19.5)
+## Session du 2026-09-28 — Suivi n° 28, avantage d'équipage (v0.19.4→v0.19.5)
 
-- `EquipageData.pointsEquipe` (entier ≥ 0, 0 par défaut). En-tête de la fiche d'équipage, entre la caisse et le
-  vaisseau : valeur en cyan, boutons − / + **réservés au MJ** (`ajusterPointsEquipe`), bouton « Dépenser » pour le MJ
-  et tout propriétaire d'un membre (`peutDepenserPointEquipe`), grisé à 0. Dépense : confirmation, −1, message
-  `gw-point-equipe` « <membre> dépense un point d'équipe de <équipage> : tous les membres réussissent l'action
-  d'équipe. Points restants : N » (orateur = personnage attitré du joueur s'il est membre, sinon son premier membre).
-- Garde `GalacticWarsActor#_preUpdate` : un non-MJ qui tente d'augmenter les points voit le changement retiré
-  (avertissement). Si le joueur n'est pas propriétaire de l'équipage, la dépense est relayée au MJ actif
-  (`game.socket`, canal `system.galactic-wars`, `{ type: "equipage", action: "depenserPoint" }`).
-- Vérifié en local (acteur de test créé puis supprimé, message de test supprimé) : +2 → 2, DOM « Points d'équipe 2
-  Dépenser », dépense → 1 et message, garde : hausse joueur retirée, baisse joueur et hausse MJ conservées.
+- Première version en compteur (`pointsEquipe`, + / − du MJ, « Dépenser »), remplacée avant publication à la
+  demande de l'auteur : **les points ne se cumulent pas** → un simple bouton « Avantage d'équipage » avec icône.
+- `EquipageData.avantage` (booléen). Bouton `eq-avantage` dans l'en-tête, entre la caisse et le vaisseau (icône
+  `fa-handshake-angle`, « Aucun » éteint / « Disponible » allumé avec lueur cyan). MJ : clic = accorder ; actif, clic =
+  choix Utiliser / Retirer. Membre (propriétaire d'un membre) : clic sur l'avantage actif = confirmation puis
+  utilisation ; bouton désactivé sinon. Utilisation : `avantage` → faux, message `gw-avantage-equipage` « <membre>
+  utilise l'avantage d'équipage de <équipage> : tous les membres réussissent l'action d'équipe ».
+- Garde `GalacticWarsActor#_preUpdate` : un non-MJ ne peut pas rendre l'avantage actif. Joueur non propriétaire de
+  l'équipage : relais au MJ actif (`game.socket`, canal `system.galactic-wars`, `{ type: "equipage", action:
+  "utiliserAvantage" }`).
+- Vérifié en local (acteur et message de test supprimés) : clic MJ → actif, bouton allumé, garde (activation joueur
+  retirée, utilisation joueur conservée), utilisation → message, seconde utilisation refusée.
 
 ## Session du 2026-09-27 — Bilan de la journée
 

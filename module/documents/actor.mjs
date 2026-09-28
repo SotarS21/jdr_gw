@@ -136,11 +136,10 @@ export class GalacticWarsActor extends Actor {
   /** @override */
   async _preUpdate(changes, options, user) {
     if ((await super._preUpdate(changes, options, user)) === false) return false;
-    // Points d'équipe : seul le MJ peut en donner ; un joueur ne peut que les dépenser (diminuer).
-    const pointsEquipe = foundry.utils.getProperty(changes, "system.pointsEquipe");
-    if (this.type === "equipage" && !user.isGM && pointsEquipe > (this.system.pointsEquipe ?? 0)) {
-      delete changes.system.pointsEquipe;
-      if (user.isSelf) ui.notifications.warn(game.i18n.localize("GALACTICWARS.Equipage.PointsEquipeReserveMJ"));
+    // Avantage d'équipage : seul le MJ l'accorde ; un joueur ne peut que l'utiliser (vrai → faux).
+    if (this.type === "equipage" && !user.isGM && foundry.utils.getProperty(changes, "system.avantage") === true && !this.system.avantage) {
+      delete changes.system.avantage;
+      if (user.isSelf) ui.notifications.warn(game.i18n.localize("GALACTICWARS.Equipage.AvantageReserveMJ"));
     }
     if (!this.aUnPortrait) return;
     const portrait = foundry.utils.getProperty(changes, "system.portrait");

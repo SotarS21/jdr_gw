@@ -19,15 +19,11 @@
       {{else}}<span class="eq-caisse-valeur">{{system.credits}}</span>{{/if}}
     </label>
 
-    <div class="eq-points" data-tooltip="{{localize 'GALACTICWARS.Equipage.PointsEquipeHint'}}">
-      <span class="eq-etiquette"><i class="fa-solid fa-handshake"></i> {{localize 'GALACTICWARS.Equipage.PointsEquipe'}}</span>
-      <span class="eq-points-ligne">
-        {{#if estMJ}}<button type="button" class="eq-icone" data-action="pointEquipeMoins" data-tooltip="{{localize 'GALACTICWARS.Equipage.RetirerPointEquipe'}}" aria-label="{{localize 'GALACTICWARS.Equipage.RetirerPointEquipe'}}" {{#unless system.pointsEquipe}}disabled{{/unless}}><i class="fa-solid fa-minus"></i></button>{{/if}}
-        <span class="eq-points-valeur">{{system.pointsEquipe}}</span>
-        {{#if estMJ}}<button type="button" class="eq-icone" data-action="pointEquipePlus" data-tooltip="{{localize 'GALACTICWARS.Equipage.AjouterPointEquipe'}}" aria-label="{{localize 'GALACTICWARS.Equipage.AjouterPointEquipe'}}"><i class="fa-solid fa-plus"></i></button>{{/if}}
-      </span>
-      {{#if peutDepenser}}<button type="button" class="eq-bouton" data-action="depenserPointEquipe" {{#unless system.pointsEquipe}}disabled{{/unless}}><i class="fa-solid fa-handshake"></i> {{localize 'GALACTICWARS.Equipage.Depenser'}}</button>{{/if}}
-    </div>
+    <button type="button" class="eq-avantage{{#if avantage.actif}} actif{{/if}}" data-action="avantage" data-tooltip="{{avantage.aide}}" aria-pressed="{{#if avantage.actif}}true{{else}}false{{/if}}" {{#unless avantage.cliquable}}disabled{{/unless}}>
+      <i class="fa-solid fa-handshake-angle"></i>
+      <span>{{localize 'GALACTICWARS.Equipage.Avantage'}}</span>
+      <small>{{#if avantage.actif}}{{localize 'GALACTICWARS.Equipage.AvantageDisponible'}}{{else}}{{localize 'GALACTICWARS.Equipage.AvantageAucun'}}{{/if}}</small>
+    </button>
 
     <div class="eq-vaisseau">
       <span class="eq-etiquette"><i class="fa-solid fa-shuttle-space"></i> {{localize 'GALACTICWARS.Equipage.Vaisseau'}}</span>

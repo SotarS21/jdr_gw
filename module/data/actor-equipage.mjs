@@ -1,4 +1,4 @@
-const { SchemaField, ArrayField, NumberField, StringField, HTMLField, FilePathField } = foundry.data.fields;
+const { SchemaField, ArrayField, BooleanField, NumberField, StringField, HTMLField, FilePathField } = foundry.data.fields;
 
 /**
  * Équipage (v0.17.0, sur le modèle de l'acteur « Groupe » de Pathfinder 2) : les personnages qui voyagent ensemble,
@@ -15,8 +15,9 @@ export class EquipageData extends foundry.abstract.TypeDataModel {
         nom: new StringField({ initial: "" })
       }),
       credits: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
-      // Points d'équipe (suivi n° 28) : donnés par le MJ seul, dépensés par les membres (1 = une action d'équipe réussie).
-      pointsEquipe: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
+      // Avantage d'équipage (suivi n° 28, non cumulable) : accordé par le MJ seul, utilisé par un membre (action
+      // d'équipe réussie pour tous), puis perdu.
+      avantage: new BooleanField({ initial: false }),
       portrait: new FilePathField({ categories: ["IMAGE"], initial: "icons/svg/mystery-man.svg" }),
       description: new HTMLField({ initial: "" })
     };
