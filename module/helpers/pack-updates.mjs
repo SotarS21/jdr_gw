@@ -28,6 +28,22 @@ import { convertirAmenagements, modulesOrigine } from "./amenagements-vaisseau.m
  */
 export const PACK_UPDATES = [
   {
+    id: "0.19.7-empresse",
+    cible: "acteurs",
+    version: "0.19.7",
+    label: "L'Empresse : nom, postes Navigateur et Communicateur",
+    description:
+      "Le vaisseau HWSS Empress s'appelle désormais « L'Empresse » et a deux postes de plus, Navigateur et " +
+      "Communicateur (8 places). Met à jour les copies du monde importées du compendium : postes ajoutés après le " +
+      "Pilote s'ils manquent (occupants actuels conservés), nom remplacé s'il est encore « HWSS Empress ».",
+    concernes: async () => empresseAMettreAJour().length,
+    apply: async () => {
+      const liste = empresseAMettreAJour();
+      for (const vaisseau of liste) await vaisseau.update(changementsEmpresse(vaisseau));
+      return liste.length;
+    }
+  },
+  {
     id: "0.19.4-dynamic-20",
     cible: "acteurs",
     version: "0.19.4",
@@ -873,6 +889,32 @@ function vaisseauxAConvertir() {
 }
 
 /** Personnages du monde + acteurs synthétiques des tokens non liés (qui ont leurs propres données). */
+const ID_EMPRESSE = "fOVbEsNigFb03Gpl";
+const POSTES_EMPRESSE = ["Navigateur", "Communicateur"];
+
+/** Copies de L'Empresse (importées du compendium) sans les postes Navigateur / Communicateur ou encore nommées « HWSS Empress ». */
+function empresseAMettreAJour() {
+  return tousLesActeurs().filter((a) => {
+    if (a.type !== "vaisseau" || !(a._stats?.compendiumSource ?? "").endsWith(ID_EMPRESSE)) return false;
+    const roles = a.system.equipage.map((p) => p.role);
+    return a.name === "HWSS Empress" || POSTES_EMPRESSE.some((r) => !roles.includes(r));
+  });
+}
+
+function changementsEmpresse(vaisseau) {
+  const equipage = vaisseau.system.toObject().equipage;
+  const manquants = POSTES_EMPRESSE.filter((r) => !equipage.some((p) => p.role === r))
+    .map((role) => ({ role, places: 1, noms: [], uuids: [], nom: "", description: "" }));
+  const i = equipage.findIndex((p) => p.role === "Pilote");
+  equipage.splice(i < 0 ? equipage.length : i + 1, 0, ...manquants);
+  const changements = { "system.equipage": equipage };
+  if (vaisseau.name === "HWSS Empress") {
+    changements.name = "L'Empresse";
+    if (!vaisseau.isToken) changements["prototypeToken.name"] = "L'Empresse";
+  }
+  return changements;
+}
+
 export function tousLesActeurs() {
   const acteurs = [...game.actors];
   for (const scene of game.scenes) {

@@ -319,5 +319,11 @@ export const RELEASE_NOTES = {
       <li>Images du Barmaid Betty et du Lantallian GX-class Executive transport (compendium, et correctif MJ pour les copies du monde).</li>
       <li>Avantage d'équipage : utilisable aussi par un membre qui ne fait qu'observer la fiche d'équipage (le MJ connecté l'enregistre).</li>
     </ul>`
+  },
+  "0.19.7": {
+    title: "v0.19.7",
+    html: `<ul>
+      <li>L'Empresse : postes <strong>Navigateur</strong> et <strong>Communicateur</strong> (8 places) ; correctif MJ pour la copie du monde (postes ajoutés, nom « HWSS Empress » remplacé par « L'Empresse »).</li>
+    </ul>`
   }
 };

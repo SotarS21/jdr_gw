@@ -203,6 +203,22 @@
         "description": ""
       },
       {
+        "role": "Navigateur",
+        "places": 1,
+        "noms": [],
+        "uuids": [],
+        "nom": "",
+        "description": ""
+      },
+      {
+        "role": "Communicateur",
+        "places": 1,
+        "noms": [],
+        "uuids": [],
+        "nom": "",
+        "description": ""
+      },
+      {
         "role": "Canonnier",
         "places": 2,
         "noms": [],
@@ -231,7 +247,7 @@
     "amenagements": [],
     "equipementsEmbarques": "",
     "portrait": "systems/galactic-wars/asset_visuel/objets/vaisseaux-empress.png",
-    "description": "<p>L'Empresse (HWSS Empress, « Heavy Weight Spaceship ») : frégate d'artillerie à la coque blanche et orange, bâtie autour d'un seul canon à haute énergie, le Sovereign, qui court sur toute la proue. Triple propulseur et haute manœuvrabilité : elle frappe de très loin, en « sniper » spatial, puis se repositionne. Équipage de 6, aucun passager, 12 tonnes de charge, 90 h-nœuds.</p><p><em>Caractéristiques estimées : PV, bouclier, prix, dégâts du canon et modules calibrés sur les frégates du compendium (Lance d'argent : 80 / 100, 9 000 000c) ; plans et fiche technique d'origine dans asset_visuel/vaiseau/HWSS Empress. À ajuster par le MJ.</em></p>",
+    "description": "<p>L'Empresse (HWSS Empress, « Heavy Weight Spaceship ») : frégate d'artillerie à la coque blanche et orange, bâtie autour d'un seul canon à haute énergie, le Sovereign, qui court sur toute la proue. Triple propulseur et haute manœuvrabilité : elle frappe de très loin, en « sniper » spatial, puis se repositionne. Équipage de 8, aucun passager, 12 tonnes de charge, 90 h-nœuds.</p><p><em>Caractéristiques estimées : PV, bouclier, prix, dégâts du canon et modules calibrés sur les frégates du compendium (Lance d'argent : 80 / 100, 9 000 000c) ; plans et fiche technique d'origine dans asset_visuel/vaiseau/HWSS Empress. À ajuster par le MJ.</em></p>",
     "modules": 9
   },
   "folder": null,
