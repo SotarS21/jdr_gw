@@ -9,9 +9,8 @@
   `0.18.2-tokens-lies` a été appliqué par l'auteur (tokens des personnages liés, sauvegardes « (sauvegarde) »).
   Modules d'animation (Sequencer, socketlib, JB2A, Automated Animations) activés ; playlist et compendium de musiques
   du monde (hors système).
-- **v0.19.7 = dernière release** (poussée, taguée). Foundry local tourne encore en **0.19.6** : pas redémarré (un
-  utilisateur connecté). Code copié sans redémarrage ; le compendium (nom L'Empresse, 8 postes) ne sera lu qu'au
-  prochain redémarrage (`deploy-local.ps1 -Force` quand c'est libre, puis revérifier).
+- **v0.19.7 = dernière release** (poussée, taguée) ; Foundry local redémarré en 0.19.7, compendium vérifié (L'Empresse,
+  8 places, 18 vaisseaux).
 - **Monde de l'auteur** : correctif MJ `0.19.7-empresse` à accepter (sa copie « HWSS Empress » → « L'Empresse »,
   + Navigateur et Communicateur). Il garde aussi une fiche vide « L'Empresse » (créée le 2026-09-26) à supprimer lui-même.
 - **Todo restante** :
