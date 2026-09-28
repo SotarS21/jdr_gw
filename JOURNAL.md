@@ -9,10 +9,12 @@
   `0.18.2-tokens-lies` a été appliqué par l'auteur (tokens des personnages liés, sauvegardes « (sauvegarde) »).
   Modules d'animation (Sequencer, socketlib, JB2A, Automated Animations) activés ; playlist et compendium de musiques
   du monde (hors système).
-- **v0.19.5 (suivi n° 28, avantage d'équipage)** : poussée et publiée ; Foundry local redémarré en 0.19.5. Relais
-  MJ par socket (joueur simple observateur de l'équipage) non testé avec un vrai compte joueur.
+- **v0.19.6** : commitée, déployée (Foundry redémarré en 0.19.6), **pas encore poussée** au moment d'écrire.
+  L'auteur a déjà appliqué le correctif `0.19.6-images-vaisseaux` et importé la HWSS Empress dans son monde. Il a
+  aussi une fiche vide « L'Empresse » (créée par lui le 2026-09-26) : lui demander s'il faut renommer le vaisseau du
+  compendium en « L'Empresse » ou supprimer sa fiche vide.
 - **Todo restante** :
-  - Images des vaisseaux : restent sans image Barmaid Betty et Lantallian (attendre des images de l'auteur).
+  - ~~Images des vaisseaux~~ : Barmaid Betty et Lantallian faits (v0.19.6) — tous les vaisseaux ont une image.
   - **Fiche de personnage WOLF** (tableur de l'auteur, https://docs.google.com/spreadsheets/d/1w5r84L8HT_6WWQ2diVqvG5HM5YRCGroU24iRukmWinI/) :
     robot « I.A.F PTR-85j / WOLF », niveau 7, caractéristiques, compétences, passifs / actifs, équipement, 8 714 c,
     notes sur ses PNJ. **Choix de l'auteur : juste noter** pour l'instant (rien à faire).
@@ -53,6 +55,28 @@
 - **Rappels techniques** : scripts de patch écrits avec l'outil Write (ou heredoc `<<'EOF'`, en doublant les
   antislashs à vérifier) — jamais de backticks dans un `node -e` en bash ; `git checkout` remet les fichiers en CRLF
   (normaliser avant de chercher du texte) ; `prose-mirror` doit rester en `display: flex`.
+
+## Session du 2026-09-28 (suite) — Relais de l'avantage, HWSS Empress, dernières images (v0.19.5→v0.19.6)
+
+- **Test à deux navigateurs** (MJ + compte joueur temporaire, supprimé à la fin) de l'avantage d'équipage. Bug trouvé :
+  sur une fiche d'équipage seulement **observée**, Foundry désactive tous les boutons, donc le membre ne pouvait pas
+  utiliser l'avantage et le relais ne partait jamais. Correctif : `EquipageSheet#_onRender` réactive le bouton selon
+  `context.avantage.cliquable` ; infobulle dédiée au non-membre. Revérifié : relais exécuté par le MJ actif
+  (« Gamemaster », le client de l'auteur), avantage éteint des deux côtés, message au nom du personnage ; chemin
+  direct, garde et non-membre OK.
+- **HWSS Empress** (demande de l'auteur : « frégate de 6 places », photos dans `asset_visuel/vaiseau/HWSS Empress…`).
+  Analyse : fiche console = « Heavy Weight Spaceship Artillery », 90 h-nœuds, 12 t, 0 passager, équipage 8 (l'auteur
+  en veut 6), triple propulseur, canon Sovereign, haute manœuvrabilité, « sniper » ; plan = baie du canon à la proue,
+  salle de contrôle centrale, infirmerie à tribord, sanitaires, couloir transversal à 2 sas, 2 ateliers et salle des
+  machines à l'arrière ; carte de 25 × 36 cases → 54 × 38 m. Fiche : frégate d'artillerie, capitaine / pilote /
+  2 canonniers / mécanicien / médecin, canon Sovereign 8d6 portée très longue (proue), 8 aménagements sur 9 modules,
+  70 PV / 90 bouclier / 8 000 000c (estimés sur la Lance d'argent). Image : vue extérieure de dessus (Gridless)
+  réduite à 833 × 1200 → `asset_visuel/objets/vaisseaux-empress.png`.
+- **Images Barmaid Betty / Lantallian** (déjà présentes dans `asset_visuel/vaiseau/`) : copiées dans `objets/`,
+  compendium, correctif MJ `0.19.6-images-vaisseaux`.
+- Attention : le dossier HWSS Empress (cartes « $1 Rewards », contenu payant d'un créateur) est versionné depuis la
+  v0.19.3 dans le dépôt GitHub **public** (`asset_visuel/vaiseau/`, hors release) ; l'image réduite part dans le
+  zip de la release. Signalé à l'auteur.
 
 ## Session du 2026-09-28 — Suivi n° 28, avantage d'équipage (v0.19.4→v0.19.5)
 
