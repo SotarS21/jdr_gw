@@ -901,7 +901,7 @@ function empresseAMettreAJour() {
   });
 }
 
-function changementsEmpresse(vaisseau) {
+export function changementsEmpresse(vaisseau) {
   const equipage = vaisseau.system.toObject().equipage;
   const manquants = POSTES_EMPRESSE.filter((r) => !equipage.some((p) => p.role === r))
     .map((role) => ({ role, places: 1, noms: [], uuids: [], nom: "", description: "" }));
