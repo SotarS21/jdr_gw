@@ -9,7 +9,7 @@
   `asset_fiche_perso/fiche_classique/Metier.docx` (dossier source, hors système).
 - **Audit complet des fonctionnalités : EN PAUSE** (demande de l'auteur, 2026-09-29). Relecture du code lancée ;
   tests en direct (rendu de toutes les fiches, puis parcours fonctionnels sur des fiches « [AUDIT] ») pas encore
-  exécutés jusqu'au bout. Scripts de test dans le scratchpad de la session (run.mjs, t1-rendu.js, t2-parcours.js).
+  exécutés jusqu'au bout. Scripts de test copiés dans `../audit/` (hors dépôt) : `node run.mjs t1-rendu.js`, puis `t2-parcours.js`. Constats de la relecture : section « Audit du 2026-09-29 » plus bas.
 
 - **État** : tout est poussé ; **v0.19.4 = dernière release** (recherche PNJ / missions, section Métier, Dynamic 20,
   images Barloz / Dynamic 20 / Land speeder). Foundry local redémarré, tourne en 0.19.4 (monde `galacit-wars-v-final`).
@@ -64,6 +64,53 @@
 - **Rappels techniques** : scripts de patch écrits avec l'outil Write (ou heredoc `<<'EOF'`, en doublant les
   antislashs à vérifier) — jamais de backticks dans un `node -e` en bash ; `git checkout` remet les fichiers en CRLF
   (normaliser avant de chercher du texte) ; `prose-mirror` doit rester en `display: flex`.
+
+## Audit du 2026-09-29 — relecture du code (tests en direct EN PAUSE)
+
+Relecture en lecture seule par trois agents (personnages / objets ; vaisseaux / équipage ; socle / compendiums).
+**Constats non encore revérifiés un par un ni corrigés.** Conformes : actions ↔ `data-action`, clés de
+localisation, aucun `update()` d'un index isolé d'ArrayField, validateur 12 + 3 / niveau, plafond niveau 3, tri de
+l'onglet Combat, tag Endommagé, JSON et `_id` des packs, images et liens `Compendium.galactic-wars.*`, packs
+compilés à jour par rapport à `_source`, fichiers JB2A cités présents.
+
+- **Bloquant**
+  - Fiche de vaisseau **observée** par un joueur : Foundry désactive les boutons ; `VaisseauSheet#_onRender` ne
+    réactive ni le jet de poste (`.vs-membre-jet`) ni l'ouverture de fiche (`.vs-membre-lien`) — même cause que
+    l'avantage d'équipage corrigé en v0.19.5.
+  - Armement du vaisseau : un joueur non propriétaire du vaisseau n'a pas les boutons Attaquer / Dégâts sur la carte
+    (`chat-objet.mjs`, `peutUtiliser` = MJ ou propriétaire de l'arme).
+  - `migration.mjs:56-62` : complétion des compétences — un token non lié hérite de l'acteur de base déjà complété,
+    `completerCompetences` renvoie `null` → `update(null)` puis TypeError ; au `ready`, les notes de version et la
+    fenêtre des correctifs ne s'affichent plus (conditionnel : fiche incomplète + token non lié).
+- **Gênant**
+  - Fiche d'équipage observée : onglets Réserve / Notes et liens inactifs (seul le bouton Avantage est réactivé).
+  - Objets donnés depuis la réserve / la soute à un PJ rapide, sith ou PNJ, et équipement de départ du métier sur
+    la fiche rapide : Items créés mais affichés nulle part.
+  - Packs vaisseaux : Barloz, Barmaid Betty, CEC XS-122, Corellian Dawn, Gunboat, Lantallian, Land speeder n'ont
+    qu'un poste « Équipage » à 1 place (pas de jet, 2e PJ refusé) ; postes « Équipage » sans compétence dans
+    Convergence, Lance d'argent, Arcadia, Lumière de l'aube, Poubelle géante, Pourparler ; La Brique : « Équipage »
+    décrit « Manutention et entretien » sans compétence (la compétence ne se déduit que du nom du poste).
+  - Gain d'expérience : +5 dans `ajustement` absorbé par `max(0, …)` au niveau 0 hors métier — le tchat annonce
+    +5 % sans effet.
+  - Pouvoirs de Force : pas d'ouverture de la fiche depuis la ligne (ni renommer ni modifier).
+  - Notes / Holonet (deux fenêtres ouvertes) et Comlink (message reçu pendant « Modifier le canal ») : la copie du
+    tableau est prise avant la fenêtre → la dernière sauvegarde écrase l'autre.
+  - `ready` du MJ sans try/catch et sur `isGM` (pas `activeGM`) ; bouton « Appliquer » des correctifs non verrouillé
+    (double clic ou deux MJ → correctif appliqué deux fois).
+- **Mineur** : message d'avantage du MJ attribué à un membre au hasard ; avantage consommable deux fois en cas de
+  relais simultanés ; sockets (générique, avantage) sans contrôle de l'expéditeur ; siège glissé vers un autre
+  vaisseau copié au lieu de déplacé ; poste acceptant un acteur de compendium ou un Équipage ; bouton de jet affiché
+  pour une compétence bloquée ; seul `JB2A_DnD5e` détecté (pas `jb2a_patreon`) ; Observateur pouvant ouvrir
+  l'édition d'une note / du portrait (échec à l'enregistrement) ; Défense rejouable après rechargement ; soin non
+  numérique (« 4 PV ») qui plante sans message ; avantage / inconvénient des talents non modifiables ; noms non
+  échappés dans `compendium-picker.mjs` ; apostrophe dans le nom du fond de générique (`encodeURI`) ; correctif sans
+  objet marqué appliqué pour toujours ; code mort (`metierActuel`, option `pool`, `GW.malusCompetenceNonAcquise`,
+  sections arme / armure de `item-sheet.hbs`…).
+- **Questions de règle pour l'auteur** : le compteur de niveaux doit-il compter les compétences bloquées ? Au gain de
+  niveau, peut-on choisir plusieurs fois la même compétence (la config parle de « compétences différentes ») ?
+- **Constat en jeu** : dans le monde, `autoanimations` et `socketlib` sont désactivés (seuls Sequencer et JB2A actifs).
+- **Reste à faire** : tests en direct (rendu de toutes les fiches et onglets, parcours fonctionnels sur des fiches
+  « [AUDIT] » supprimées ensuite), puis revérifier et corriger les constats.
 
 ## Session du 2026-09-29 — L'Empresse (v0.19.6→v0.19.7)
 
