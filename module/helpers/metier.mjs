@@ -8,9 +8,8 @@ import { GW } from "../config.mjs";
  * précédemment créés par un métier sont marqués du flag `startingGear` pour pouvoir être
  * proprement remplacés si le joueur change de métier.
  *
- * Aucun prérequis n'est vérifié (ex. "Padawan niveau 4" pour Jedi consulaire) : tout métier
- * est accessible directement, à la demande de l'auteur (2026-09-23). Les prérequis restent
- * renseignés sur l'Item métier à titre informatif.
+ * Aucun prérequis : tout métier est accessible directement, à la demande de l'auteur (2026-09-23) ;
+ * niveau minimum et métier requis supprimés des Items métier en v0.19.9.
  * @param {Actor} actor
  * @param {Item} metierItem
  */

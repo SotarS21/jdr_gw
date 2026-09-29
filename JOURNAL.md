@@ -8,7 +8,8 @@
 - ~~Todo : description pour chaque métier d'après `Metier.docx`~~ : fait (v0.19.9, 10 textes rédigés — à relire par l'auteur) ;
   niveau minimum des prérequis supprimé (v0.19.9).
 - **v0.19.9 commitée en local, déployée et vérifiée en jeu (Foundry redémarré avec l'accord de l'auteur), NON poussée** :
-  descriptions des 21 métiers (10 rédigées, à relire), niveau minimum supprimé.
+  descriptions des 21 métiers (10 rédigées, à relire), niveau minimum supprimé. Métier requis supprimé ensuite
+  (commité, pas encore déployé : redémarrage nécessaire).
 - **v0.19.8 = dernière release** (poussée, taguée à la demande de l'auteur) : images des 21 métiers, Foundry local
   redémarré en 0.19.8 et vérifié ; archive de release corrigée (compendium des aménagements de nouveau inclus).
 - **Audit complet des fonctionnalités : EN PAUSE** (demande de l'auteur, 2026-09-29). Relecture du code lancée ;
@@ -80,6 +81,9 @@
 - `prerequis.niveauMinimum` supprimé : schéma `MetierData`, champ de la fiche d'objet, clé `Item.NiveauMinimum` ;
   valeur 4 retirée d'Agent secret, Guerrier jedi, Guerrier sith et Jedi consulaire. Métier requis et texte libre
   conservés (Jedi Noire garde « Sith ou jedi Niv 10 » en texte libre). Rien n'était vérifié à l'application.
+- Puis « supprime les métiers requis » : `prerequis.metier` supprimé de même (schéma, champ de la fiche d'objet, clé
+  `Item.MetierRequis`) ; retiré d'Agent secret (Soldat), Guerrier jedi et Jedi consulaire (Padawan), Guerrier sith
+  (Apprenti sith). Reste `prerequis.texteLibre` (affiliation), non affiché sur la fiche. Script `../audit/maj-metiers-requis.cjs`.
 
 ## Audit du 2026-09-29 — workflow de contre-vérification (84 agents, lecture seule)
 

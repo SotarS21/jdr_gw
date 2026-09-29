@@ -6,7 +6,6 @@
   "img": "systems/galactic-wars/asset_visuel/objets/metiers-mandalorien-soldat.jpg",
   "system": {
     "prerequis": {
-      "metier": "",
       "texteLibre": "affiliation mandalore /!\\ détesté par l'empire et par la république"
     },
     "competences": [

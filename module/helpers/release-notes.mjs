@@ -337,7 +337,7 @@ export const RELEASE_NOTES = {
     title: "v0.19.9",
     html: `<ul>
       <li>Tous les métiers ont désormais une description (d'après le document des métiers).</li>
-      <li>Métiers : le « niveau minimum » des prérequis est supprimé.</li>
+      <li>Métiers : le « niveau minimum » et le « métier requis » des prérequis sont supprimés.</li>
     </ul>`
   }
 };

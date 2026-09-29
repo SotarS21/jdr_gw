@@ -6,7 +6,6 @@
   "img": "systems/galactic-wars/asset_visuel/objets/metiers-robot-droide.jpg",
   "system": {
     "prerequis": {
-      "metier": "",
       "texteLibre": "Affiliation empire / république / privé"
     },
     "competences": [

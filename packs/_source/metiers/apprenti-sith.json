@@ -6,7 +6,6 @@
   "img": "systems/galactic-wars/asset_visuel/objets/metiers-apprenti-sith.jpg",
   "system": {
     "prerequis": {
-      "metier": "",
       "texteLibre": ""
     },
     "competences": [

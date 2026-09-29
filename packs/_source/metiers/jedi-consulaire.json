@@ -6,7 +6,6 @@
   "img": "systems/galactic-wars/asset_visuel/objets/metiers-jedi-consulaire.jpg",
   "system": {
     "prerequis": {
-      "metier": "Padawan",
       "texteLibre": ""
     },
     "competences": [

@@ -6,7 +6,6 @@
   "img": "systems/galactic-wars/asset_visuel/objets/metiers-soldat-medecin.jpg",
   "system": {
     "prerequis": {
-      "metier": "",
       "texteLibre": "affiliation => empire / république / privé"
     },
     "competences": [
