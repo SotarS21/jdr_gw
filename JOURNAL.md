@@ -5,6 +5,11 @@
 - **Cartes « HWSS Empress … $1 Rewards »** (`asset_visuel/vaiseau/`, dépôt public) : on les garde telles quelles —
   décision de l'auteur du 2026-09-29 (« ne touche pas aux cartes, ce n'est pas pour les monétiser »).
 - Tableur de suivi : n° 1 à 28 traités ; plus de todo technique en attente.
+- **Todo (demande du 2026-09-29)** : rédiger une description pour chaque métier (compendium `metiers`) à partir de
+  `asset_fiche_perso/fiche_classique/Metier.docx` (dossier source, hors système).
+- **Audit complet des fonctionnalités : EN PAUSE** (demande de l'auteur, 2026-09-29). Relecture du code lancée ;
+  tests en direct (rendu de toutes les fiches, puis parcours fonctionnels sur des fiches « [AUDIT] ») pas encore
+  exécutés jusqu'au bout. Scripts de test dans le scratchpad de la session (run.mjs, t1-rendu.js, t2-parcours.js).
 
 - **État** : tout est poussé ; **v0.19.4 = dernière release** (recherche PNJ / missions, section Métier, Dynamic 20,
   images Barloz / Dynamic 20 / Land speeder). Foundry local redémarré, tourne en 0.19.4 (monde `galacit-wars-v-final`).
