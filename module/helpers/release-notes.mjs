@@ -330,6 +330,7 @@ export const RELEASE_NOTES = {
     title: "v0.19.8",
     html: `<ul>
       <li>Images pour les 21 métiers du compendium (visibles aussi dans la section Métier de l'onglet Informations).</li>
+      <li>Installation par manifeste : le compendium « Aménagements de vaisseau » est de nouveau inclus dans l'archive (il manquait depuis la v0.19.0).</li>
     </ul>`
   }
 };

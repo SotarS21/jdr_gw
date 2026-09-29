@@ -7,8 +7,8 @@
 - Tableur de suivi : n° 1 à 28 traités ; plus de todo technique en attente.
 - **Todo (demande du 2026-09-29)** : rédiger une description pour chaque métier (compendium `metiers`) à partir de
   `asset_fiche_perso/fiche_classique/Metier.docx` (dossier source, hors système).
-- **v0.19.8 commitée en local, déployée (Foundry redémarré avec l'accord de l'auteur, 21 images vérifiées en jeu), NON poussée** : images des 21 métiers
-  — attribution des images à valider par l'auteur avant publication.
+- **v0.19.8 = dernière release** (poussée, taguée à la demande de l'auteur) : images des 21 métiers, Foundry local
+  redémarré en 0.19.8 et vérifié ; archive de release corrigée (compendium des aménagements de nouveau inclus).
 - **Audit complet des fonctionnalités : EN PAUSE** (demande de l'auteur, 2026-09-29). Relecture du code lancée ;
   tests en direct (rendu de toutes les fiches, puis parcours fonctionnels sur des fiches « [AUDIT] ») pas encore
   exécutés jusqu'au bout. Scripts de test copiés dans `../audit/` (hors dépôt) : `node run.mjs t1-rendu.js`, puis `t2-parcours.js`. Constats de la relecture : section « Audit du 2026-09-29 » plus bas.
@@ -78,6 +78,9 @@
   Robot / droïde ← droïde, Robot quadrupède ← DMGM4, Soldat d'élite ← soldat impérial armé, Soldat lourd ← canon
   rotatif, Soldat médecin ← garde A24, Voleur ← bandit. **À valider par l'auteur** (planche envoyée).
 - Pas de correctif MJ : aucune copie de métier dans le monde ; la section Métier lit l'image via `system.metier.uuid`.
+- **Bug de release trouvé à la publication** : la liste des packs de `release.yml` avait oublié `packs/amenagements`
+  (archives v0.19.0 à v0.19.7 sans ce compendium ; le Foundry local, déployé par `deploy-local.ps1`, n'était pas
+  touché). Le zip embarque désormais `packs` entier sauf `packs/_source`.
 
 ## Audit du 2026-09-29 — relecture du code (tests en direct EN PAUSE)
 

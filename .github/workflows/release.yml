@@ -48,13 +48,13 @@ jobs:
           '
 
       - name: Build package archive
+        # Tous les packs compilés (packs/<nom>/), sans les sources JSON : un pack ajouté à system.json
+        # ne peut plus être oublié ici (packs/amenagements manquait dans les zips v0.19.0 à v0.19.7).
         run: |
           zip -r system.zip \
             system.json module lang styles templates \
             asset_visuel/Ethnie asset_visuel/objets \
-            packs/races packs/metiers packs/talents packs/armes packs/armures \
-            packs/ecoles packs/pregens-sith packs/vaisseaux packs/equipements \
-            packs/codex-especes
+            packs -x "packs/_source/*"
 
       - name: Create GitHub release
         uses: softprops/action-gh-release@v2
