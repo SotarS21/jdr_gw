@@ -7,6 +7,8 @@
 - Tableur de suivi : n° 1 à 28 traités ; plus de todo technique en attente.
 - ~~Todo : description pour chaque métier d'après `Metier.docx`~~ : fait (v0.19.9, 10 textes rédigés — à relire par l'auteur) ;
   niveau minimum des prérequis supprimé (v0.19.9).
+- **v0.19.9 commitée en local, déployée et vérifiée en jeu (Foundry redémarré avec l'accord de l'auteur), NON poussée** :
+  descriptions des 21 métiers (10 rédigées, à relire), niveau minimum supprimé.
 - **v0.19.8 = dernière release** (poussée, taguée à la demande de l'auteur) : images des 21 métiers, Foundry local
   redémarré en 0.19.8 et vérifié ; archive de release corrigée (compendium des aménagements de nouveau inclus).
 - **Audit complet des fonctionnalités : EN PAUSE** (demande de l'auteur, 2026-09-29). Relecture du code lancée ;
