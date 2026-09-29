@@ -3,7 +3,7 @@
   "_id": "tPCyoGnJHPZ7I3pj",
   "name": "Jedi consulaire",
   "type": "metier",
-  "img": "icons/svg/upgrade.svg",
+  "img": "systems/galactic-wars/asset_visuel/objets/metiers-jedi-consulaire.jpg",
   "system": {
     "prerequis": {
       "metier": "Padawan",

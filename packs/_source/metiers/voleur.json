@@ -3,7 +3,7 @@
   "_id": "F35qs4Inm3LzZaDb",
   "name": "Voleur",
   "type": "metier",
-  "img": "icons/svg/upgrade.svg",
+  "img": "systems/galactic-wars/asset_visuel/objets/metiers-voleur.jpg",
   "system": {
     "prerequis": {
       "metier": "",

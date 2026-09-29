@@ -325,5 +325,11 @@ export const RELEASE_NOTES = {
     html: `<ul>
       <li>L'Empresse : postes <strong>Navigateur</strong> et <strong>Communicateur</strong> (8 places) ; correctif MJ pour la copie du monde (postes ajoutés, nom « HWSS Empress » remplacé par « L'Empresse »).</li>
     </ul>`
+  },
+  "0.19.8": {
+    title: "v0.19.8",
+    html: `<ul>
+      <li>Images pour les 21 métiers du compendium (visibles aussi dans la section Métier de l'onglet Informations).</li>
+    </ul>`
   }
 };

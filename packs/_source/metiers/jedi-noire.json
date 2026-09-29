@@ -3,7 +3,7 @@
   "_id": "1T2a9UT8vE4aYGyW",
   "name": "Jedi Noire",
   "type": "metier",
-  "img": "icons/svg/upgrade.svg",
+  "img": "systems/galactic-wars/asset_visuel/objets/metiers-jedi-noire.jpg",
   "system": {
     "prerequis": {
       "metier": "",

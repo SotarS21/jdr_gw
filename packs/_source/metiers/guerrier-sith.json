@@ -3,7 +3,7 @@
   "_id": "UO0bTqaQaZfxis01",
   "name": "Guerrier sith",
   "type": "metier",
-  "img": "icons/svg/upgrade.svg",
+  "img": "systems/galactic-wars/asset_visuel/objets/metiers-guerrier-sith.jpg",
   "system": {
     "prerequis": {
       "metier": "Apprenti sith",

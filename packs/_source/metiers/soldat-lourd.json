@@ -3,7 +3,7 @@
   "_id": "DaoLLhbdH0nFLWu9",
   "name": "Soldat lourd",
   "type": "metier",
-  "img": "icons/svg/upgrade.svg",
+  "img": "systems/galactic-wars/asset_visuel/objets/metiers-soldat-lourd.jpg",
   "system": {
     "prerequis": {
       "metier": "",

@@ -3,7 +3,7 @@
   "_id": "9BC8y9FxmawTewdq",
   "name": "Padawan",
   "type": "metier",
-  "img": "icons/svg/upgrade.svg",
+  "img": "systems/galactic-wars/asset_visuel/objets/metiers-padawan.jpg",
   "system": {
     "prerequis": {
       "metier": "",

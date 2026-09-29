@@ -3,7 +3,7 @@
   "_id": "V8ncUgq5wWE2Zc3b",
   "name": "Soldat médecin",
   "type": "metier",
-  "img": "icons/svg/upgrade.svg",
+  "img": "systems/galactic-wars/asset_visuel/objets/metiers-soldat-medecin.jpg",
   "system": {
     "prerequis": {
       "metier": "",

@@ -3,7 +3,7 @@
   "_id": "yVuShJi8aSqyPnRr",
   "name": "Soldat d’élite",
   "type": "metier",
-  "img": "icons/svg/upgrade.svg",
+  "img": "systems/galactic-wars/asset_visuel/objets/metiers-soldat-elite.jpg",
   "system": {
     "prerequis": {
       "metier": "",

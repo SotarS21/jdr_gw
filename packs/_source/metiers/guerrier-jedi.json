@@ -3,7 +3,7 @@
   "_id": "FefnzykiE01dovlH",
   "name": "Guerrier jedi",
   "type": "metier",
-  "img": "icons/svg/upgrade.svg",
+  "img": "systems/galactic-wars/asset_visuel/objets/metiers-guerrier-jedi.jpg",
   "system": {
     "prerequis": {
       "metier": "Padawan",

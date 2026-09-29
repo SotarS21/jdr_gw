@@ -3,7 +3,7 @@
   "_id": "m2Pm1jVHnnHPqS87",
   "name": "Robot / droïde",
   "type": "metier",
-  "img": "icons/svg/upgrade.svg",
+  "img": "systems/galactic-wars/asset_visuel/objets/metiers-robot-droide.jpg",
   "system": {
     "prerequis": {
       "metier": "",

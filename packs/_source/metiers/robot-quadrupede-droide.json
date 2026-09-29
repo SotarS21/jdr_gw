@@ -3,7 +3,7 @@
   "_id": "w8hGBYBKPgT9hnw9",
   "name": "Robot quadrupède / droïde",
   "type": "metier",
-  "img": "icons/svg/upgrade.svg",
+  "img": "systems/galactic-wars/asset_visuel/objets/metiers-robot-quadrupede-droide.jpg",
   "system": {
     "prerequis": {
       "metier": "",

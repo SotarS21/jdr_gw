@@ -3,7 +3,7 @@
   "_id": "7Rdj9ImsDsaalt5u",
   "name": "Contrebandier",
   "type": "metier",
-  "img": "icons/svg/upgrade.svg",
+  "img": "systems/galactic-wars/asset_visuel/objets/metiers-contrebandier.jpg",
   "system": {
     "prerequis": {
       "metier": "",

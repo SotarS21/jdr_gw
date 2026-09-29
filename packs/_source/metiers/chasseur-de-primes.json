@@ -3,7 +3,7 @@
   "_id": "EXt6ePhfkfcD6goX",
   "name": "Chasseur de primes",
   "type": "metier",
-  "img": "icons/svg/upgrade.svg",
+  "img": "systems/galactic-wars/asset_visuel/objets/metiers-chasseur-de-primes.jpg",
   "system": {
     "prerequis": {
       "metier": "",
