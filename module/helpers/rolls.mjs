@@ -119,7 +119,8 @@ export async function rollCaracteristiqueD20(actor, cle) {
   if (actor.type !== "personnage-rapide") {
     throw new Error("rollCaracteristiqueD20 attend un Actor de type personnage-rapide");
   }
-  const valeur = actor.system.caracteristiques?.[cle];
+  // Valeur jouée : saisie + effets actifs (traits, talents).
+  const valeur = actor.system.caracteristiquesTotales?.[cle] ?? actor.system.caracteristiques?.[cle];
   if (valeur === undefined) {
     ui.notifications.warn(game.i18n.format("GALACTICWARS.Avertissement.CaracteristiqueInconnue", { cle }));
     return null;
@@ -159,7 +160,8 @@ export async function rollCaracteristiquePourcentage(actor, cle) {
   if (actor.type !== "pnj") {
     throw new Error("rollCaracteristiquePourcentage attend un Actor de type pnj");
   }
-  const valeur = actor.system.caracteristiques?.[cle];
+  // Valeur jouée : saisie + effets actifs (bonus d20 × 5, voir PersonnageRapideData).
+  const valeur = actor.system.caracteristiquesTotales?.[cle] ?? actor.system.caracteristiques?.[cle];
   if (valeur === undefined) {
     ui.notifications.warn(game.i18n.format("GALACTICWARS.Avertissement.CaracteristiqueInconnue", { cle }));
     return null;

@@ -5,6 +5,7 @@ import { applyMetier } from "../helpers/metier.mjs";
 import { choisirItemCompendium } from "../helpers/compendium-picker.mjs";
 import { editerEntreeNote, supprimerEntreeNote, pnjDepuisActeur, ajouterEntreeNote, montrerEntreeNote, entreeDepuisGlisser } from "../helpers/notes.mjs";
 import { vaisseauDEquipage } from "../helpers/equipage.mjs";
+import { basculerCouvert, couvertActif, resumeEffets } from "../helpers/effets.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
@@ -40,6 +41,7 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       montrerEntreeNote: PersonnageSheet.#onMontrerEntreeNote,
       ouvrirActeurPnj: PersonnageSheet.#onOuvrirActeurPnj,
       ajouterTrait: PersonnageSheet.#onAjouterTrait,
+      basculerCouvert: PersonnageSheet.#onBasculerCouvert,
       basculerFavori: PersonnageSheet.#onBasculerFavori,
       gainExperience: PersonnageSheet.#onGainExperience,
       gainNiveau: PersonnageSheet.#onGainNiveau,
@@ -138,7 +140,9 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     Object.assign(context, this.#preparerInventaire());
     if (this.#ongletActif === "equipements") context.vaisseau = this.#preparerVaisseau(system);
     context.pouvoirs = this.actor.items.filter((i) => i.type === "pouvoir");
-    context.traits = this.actor.items.filter((i) => i.type === "talent").sort((a, b) => a.name.localeCompare(b.name));
+    // Traits : effets actifs résumés (« Furtivité +20 % ») ; une variante « fiche rapide » n'a aucun effet ici.
+    context.traits = this.actor.items.filter((i) => i.type === "talent").sort((a, b) => a.name.localeCompare(b.name))
+      .map((i) => ({ id: i.id, img: i.img, name: i.name, system: i.system, effets: resumeEffets(i), autreFiche: i.system.fiche === "rapide" }));
     context.afficherTraits = context.traits.length > 0 || context.modeEdition;
     if (this.#ongletActif === "notes") Object.assign(context, await this.#preparerNotes(system));
     if (this.#ongletActif === "combat") context.combat = await this.#preparerCombat(competencesIndexees, context);
@@ -400,6 +404,8 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
         .map((l) => ({ ...l, degatsRapide: true, libelleValeur: "GALACTICWARS.Objet.Degats" })),
       armures: context.armures.filter((l) => l.porte),
       reduction,
+      // Couverts (traits actifs) : boutons exclusifs, armure temporaire.
+      couverts: Object.entries(GW.couverts).map(([cle, c]) => ({ cle, label: c.label, armure: c.armure, actif: couvertActif(this.actor) === cle })),
       // Ordre alphabétique (suivi de l'auteur, n° 21), comme les autres listes de compétences.
       competences: GW.competencesCombat
         .map((cle) => accessibles.find((c) => c.cle === cle))
@@ -878,9 +884,19 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   }
 
   /** Ajout d'un trait depuis le compendium Talents (un glisser-déposer d'Item talent marche aussi). */
+  static async #onBasculerCouvert(event, target) {
+    if (!this.isEditable) return;
+    await basculerCouvert(this.actor, target.dataset.couvert);
+  }
+
   static async #onAjouterTrait() {
     if (!this.modeEdition) return;
-    const talent = await choisirItemCompendium("talents", { title: game.i18n.localize("GALACTICWARS.Traits.Ajouter") });
+    // Traits de métier et talents ; la variante « fiche rapide » (d20) n'est pas proposée ici.
+    const talent = await choisirItemCompendium(["traits", "talents"], {
+      title: game.i18n.localize("GALACTICWARS.Traits.Ajouter"),
+      champs: ["system.fiche"],
+      filtre: (entree) => entree.system?.fiche !== "rapide"
+    });
     if (!talent) return;
     if (this.actor.items.some((i) => i.type === "talent" && i.name === talent.name)) {
       return ui.notifications.warn(game.i18n.format("GALACTICWARS.Traits.DejaPresent", { nom: talent.name }));

@@ -148,8 +148,8 @@ GW.malusCompetenceNonAcquise = {
 /** Barème niveau (0-3) -> % de base, avant modificateurs raciaux/métier. */
 GW.baremeNiveauCompetence = { 0: 0, 1: 5, 2: 10, 3: 20 };
 
-/** Plafond d'une compétence : 90 %, dépassable seulement par l'ethnie (bonus racial) — et plus tard
- *  par des effets. Gain d'expérience : +5 % sur une compétence, dans la limite du plafond. */
+/** Plafond d'une compétence : 90 %, dépassable seulement par l'ethnie (bonus racial) et par les effets actifs
+ *  positifs (traits, talents). Gain d'expérience : +5 % sur une compétence, dans la limite du plafond. */
 GW.plafondCompetence = 90;
 
 /** Niveaux de compétences à répartir (suivi de l'auteur n° 19) : 12 au niveau 1 du personnage, puis +3 par niveau. */
@@ -270,3 +270,26 @@ GW.alignements = {
 /** Bonus fixe accordé quand un point de Lumière ou d'Obscurité est dépensé sur un jet (voir rollCompetence). */
 GW.bonusAlignement = 15;
 
+
+/**
+ * Effets actifs (v0.20.0) : les traits, talents et couverts ajoutent leur valeur à `system.effets` (champs jamais
+ * saisis, toujours à 0 en base), lu au calcul des totaux — les compétences étant un tableau, elles ne sont pas
+ * adressables par un effet autrement que par cette clé stable.
+ *  - fiche classique : `system.effets.competences.<clé de GW.competences>` (en %), `system.effets.armure` ;
+ *  - fiche rapide / PNJ : `system.effets.caracteristiques.<clé de GW.caracteristiquesRapides>` (en points de d20 ;
+ *    un PNJ, qui jette ses caractéristiques en %, les compte × GW.facteurD20VersPourcentage), `system.effets.armure`.
+ */
+GW.facteurD20VersPourcentage = 5;
+
+/** Fiche visée par un trait / talent : ses effets ne portent que sur ce type de fiche. */
+GW.fichesTrait = {
+  toutes: "GALACTICWARS.Traits.Fiche.Toutes",
+  classique: "GALACTICWARS.Traits.Fiche.Classique",
+  rapide: "GALACTICWARS.Traits.Fiche.Rapide"
+};
+
+/** Couverts (traits actifs, demande de l'auteur) : états de token exclusifs, armure temporaire (réduction des dégâts). */
+GW.couverts = {
+  demiCouvert: { label: "GALACTICWARS.Couvert.Demi", img: "icons/svg/shield.svg", armure: 4 },
+  couvertTotal: { label: "GALACTICWARS.Couvert.Total", img: "icons/svg/castle.svg", armure: 8 }
+};

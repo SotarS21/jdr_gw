@@ -46,6 +46,7 @@
         <button type="button" data-action="rollCaracteristique" data-cle="{{car.cle}}">🎲</button>
         <label>{{localize car.label}}</label>
         <input type="number" name="system.caracteristiques.{{car.cle}}" value="{{car.valeur}}">
+        {{#if car.bonus}}<span class="bonus-effet mono" data-tooltip="{{localize 'GALACTICWARS.Effets.BonusCaracteristique' total=car.total}}">{{#if (gt car.bonus 0)}}+{{/if}}{{car.bonus}}</span>{{/if}}
       </li>
       {{/each}}
     </ul>
@@ -59,6 +60,28 @@
     <label>{{localize 'GALACTICWARS.Sheet.Racial'}} <input type="number" name="system.survie.racial" value="{{system.survie.racial}}"></label>
     <span class="total">{{system.survie.total}}%</span>
     <label>{{localize 'GALACTICWARS.Sheet.Credits'}} <input type="number" name="system.credits" value="{{system.credits}}" min="0"></label>
+  </section>
+
+  <section class="traits-rapides">
+    <h2>{{localize 'GALACTICWARS.Traits.Titre'}}
+      {{#if editable}}<button type="button" data-action="ajouterTrait" data-tooltip="{{localize 'GALACTICWARS.Traits.Ajouter'}}" aria-label="{{localize 'GALACTICWARS.Traits.Ajouter'}}">+</button>{{/if}}
+    </h2>
+    {{#each traits as |trait|}}
+    <div class="trait-rapide" data-item-id="{{trait.id}}">
+      <a class="trait-nom" data-action="ouvrirTrait"><img src="{{trait.img}}" alt=""> {{trait.name}}</a>
+      {{#if trait.autreFiche}}<span class="hint" data-tooltip="{{localize 'GALACTICWARS.Traits.AutreFiche'}}"><i class="fa-solid fa-triangle-exclamation"></i> {{localize 'GALACTICWARS.Traits.Fiche.Classique'}}</span>
+      {{else if trait.effets}}<span class="trait-effets mono">{{trait.effets}}</span>{{/if}}
+      {{#if @root.editable}}<button type="button" class="del-btn" data-action="supprimerTrait" data-tooltip="{{localize 'GALACTICWARS.Traits.Retirer'}}" aria-label="{{localize 'GALACTICWARS.Traits.Retirer'}}">🗑</button>{{/if}}
+      {{#if trait.system.avantage}}<p class="trait-detail">{{trait.system.avantage}}{{#if trait.system.inconvenient}} — {{trait.system.inconvenient}}{{/if}}</p>{{/if}}
+    </div>
+    {{else}}
+    <p class="hint">{{localize 'GALACTICWARS.Traits.Aucun'}}</p>
+    {{/each}}
+    <p class="reduction-rapide"><i class="fa-solid fa-shield-halved"></i> {{localize 'GALACTICWARS.Combat.Protection'}} : <span class="mono">{{reduction.total}}</span></p>
+    <div class="gw-couverts">
+          <span class="gw-couverts-titre"><i class="fa-solid fa-person-shelter"></i> {{localize 'GALACTICWARS.Couvert.Titre'}}{{#if reduction.temporaire}} <span class="mono">+{{reduction.temporaire}}</span>{{/if}}</span>
+          {{#each couverts as |c|}}<button type="button" class="gw-couvert{{#if c.actif}} actif{{/if}}" data-action="basculerCouvert" data-couvert="{{c.cle}}" aria-pressed="{{#if c.actif}}true{{else}}false{{/if}}" data-tooltip="{{localize 'GALACTICWARS.Couvert.Hint' armure=c.armure}}"{{#unless @root.editable}} disabled{{/unless}}>{{localize c.label}} <span class="mono">+{{c.armure}}</span></button>{{/each}}
+        </div>
   </section>
 
   <section class="equipement">

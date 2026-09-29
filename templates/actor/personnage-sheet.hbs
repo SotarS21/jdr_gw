@@ -226,7 +226,7 @@
             {{else}}
             <input type="hidden" name="system.competences.{{cpt.index}}.ajustement" value="{{cpt.ajustement}}" data-dtype="Number">
             {{/if}}
-            <span class="total mono" data-tooltip="{{localize 'GALACTICWARS.Sheet.Total'}}" data-tooltip-direction="UP">{{cpt.total}}%</span>
+            <span class="total mono{{#if cpt.bonusEffets}} avec-effet{{/if}}" data-tooltip="{{#if cpt.bonusEffets}}{{localize 'GALACTICWARS.Effets.BonusCompetence' bonus=cpt.bonusEffets}}{{else}}{{localize 'GALACTICWARS.Sheet.Total'}}{{/if}}" data-tooltip-direction="UP">{{cpt.total}}%</span>
           </li>
           {{/each}}
         </ul>
@@ -352,6 +352,10 @@
         {{#if combat.reduction.naturelle}}
         <p class="armure-naturelle"><i class="fa-solid fa-dna"></i> {{localize 'GALACTICWARS.Combat.ArmureNaturelle'}} <span class="mono">+{{combat.reduction.naturelle}}</span></p>
         {{/if}}
+        <div class="gw-couverts">
+          <span class="gw-couverts-titre"><i class="fa-solid fa-person-shelter"></i> {{localize 'GALACTICWARS.Couvert.Titre'}}{{#if combat.reduction.temporaire}} <span class="mono">+{{combat.reduction.temporaire}}</span>{{/if}}</span>
+          {{#each combat.couverts as |c|}}<button type="button" class="gw-couvert{{#if c.actif}} actif{{/if}}" data-action="basculerCouvert" data-couvert="{{c.cle}}" aria-pressed="{{#if c.actif}}true{{else}}false{{/if}}" data-tooltip="{{localize 'GALACTICWARS.Couvert.Hint' armure=c.armure}}"{{#unless @root.editable}} disabled{{/unless}}>{{localize c.label}} <span class="mono">+{{c.armure}}</span></button>{{/each}}
+        </div>
       </div>
     </div>
 
@@ -502,6 +506,7 @@
           <th>{{localize 'GALACTICWARS.Traits.Nom'}}</th>
           <th>{{localize 'GALACTICWARS.Traits.Avantage'}}</th>
           <th>{{localize 'GALACTICWARS.Traits.Inconvenient'}}</th>
+          <th>{{localize 'GALACTICWARS.Traits.Effets'}}</th>
           {{#if modeEdition}}<th></th>{{/if}}
         </tr>
       </thead>
@@ -511,6 +516,7 @@
           <td class="trait-nom"><a data-action="ouvrirObjet"><img src="{{trait.img}}" alt="">{{trait.name}}</a></td>
           <td class="trait-avantage">{{trait.system.avantage}}</td>
           <td class="trait-inconvenient">{{trait.system.inconvenient}}</td>
+          <td class="trait-effets">{{#if trait.autreFiche}}<span class="hint" data-tooltip="{{localize 'GALACTICWARS.Traits.AutreFiche'}}"><i class="fa-solid fa-triangle-exclamation"></i> {{localize 'GALACTICWARS.Traits.Fiche.Rapide'}}</span>{{else}}{{trait.effets}}{{/if}}</td>
           {{#if @root.modeEdition}}<td class="trait-actions"><button type="button" class="del-btn" data-action="deleteItem" data-tooltip="{{localize 'GALACTICWARS.Traits.Retirer'}}">🗑</button></td>{{/if}}
         </tr>
         {{/each}}

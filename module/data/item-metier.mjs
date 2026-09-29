@@ -23,6 +23,12 @@ export class MetierData extends foundry.abstract.TypeDataModel {
           quantite: new NumberField({ required: true, integer: true, min: 1, initial: 1 })
         })
       ),
+      // Trait du métier (v0.20.0) : Item « talent » du compendium Traits, posé sur la fiche à l'application —
+      // variante % pour la fiche classique, d20 pour la fiche rapide / PNJ (la même quand le trait n'est pas chiffré).
+      traits: new SchemaField({
+        classique: new StringField({ required: false, blank: true, initial: "" }),
+        rapide: new StringField({ required: false, blank: true, initial: "" })
+      }),
       talent: new SchemaField({
         nom: new StringField({ initial: "" }),
         description: new StringField({ initial: "" })

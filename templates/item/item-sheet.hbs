@@ -40,6 +40,38 @@
   </section>
   {{/if}}
 
+  {{#if (eq item.type "talent")}}
+  <section class="talent-fields">
+    <label>{{localize 'GALACTICWARS.Traits.Avantage'}} <input type="text" name="system.avantage" value="{{system.avantage}}"></label>
+    <label>{{localize 'GALACTICWARS.Traits.Inconvenient'}} <input type="text" name="system.inconvenient" value="{{system.inconvenient}}"></label>
+    <label>{{localize 'GALACTICWARS.Traits.FicheVisee'}}
+      <select name="system.fiche">
+        {{#each fiches as |f|}}<option value="{{f.cle}}" {{#if f.choisi}}selected{{/if}}>{{localize f.label}}</option>{{/each}}
+      </select>
+    </label>
+  </section>
+  <section class="talent-effets">
+    <h2>{{localize 'GALACTICWARS.Effets.Titre'}}
+      {{#if editable}}<button type="button" data-action="effetCreer" data-tooltip="{{localize 'GALACTICWARS.Effets.Creer'}}" aria-label="{{localize 'GALACTICWARS.Effets.Creer'}}"><i class="fa-solid fa-plus"></i></button>{{/if}}
+    </h2>
+    {{#each effets as |e|}}
+    <div class="talent-effet{{#if e.disabled}} desactive{{/if}}" data-effet-id="{{e.id}}">
+      <img src="{{e.img}}" alt="">
+      <span class="talent-effet-nom">{{e.name}}</span>
+      <span class="talent-effet-resume mono">{{e.resume}}</span>
+      <button type="button" data-action="effetEditer" data-tooltip="{{localize 'GALACTICWARS.Effets.Editer'}}" aria-label="{{localize 'GALACTICWARS.Effets.Editer'}}"><i class="fa-solid fa-pen"></i></button>
+      {{#if @root.editable}}
+      <button type="button" data-action="effetBasculer" data-tooltip="{{localize 'GALACTICWARS.Effets.Basculer'}}" aria-label="{{localize 'GALACTICWARS.Effets.Basculer'}}"><i class="fa-solid {{#if e.disabled}}fa-toggle-off{{else}}fa-toggle-on{{/if}}"></i></button>
+      <button type="button" data-action="effetSupprimer" data-tooltip="{{localize 'GALACTICWARS.Effets.Supprimer'}}" aria-label="{{localize 'GALACTICWARS.Effets.Supprimer'}}"><i class="fa-solid fa-trash"></i></button>
+      {{/if}}
+    </div>
+    {{else}}
+    <p class="hint">{{localize 'GALACTICWARS.Effets.Aucun'}}</p>
+    {{/each}}
+    <p class="hint">{{localize 'GALACTICWARS.Effets.AideCles'}}</p>
+  </section>
+  {{/if}}
+
   {{#if (eq item.type "pouvoir")}}
   <section class="pouvoir-fields">
     <label>{{localize 'GALACTICWARS.Item.CoutPointsDeForce'}} <input type="number" name="system.coutPointsDeForce" value="{{system.coutPointsDeForce}}"></label>

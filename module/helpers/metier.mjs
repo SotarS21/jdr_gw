@@ -1,5 +1,26 @@
 import { objetDeDepart, estContactDeDepart, pnjDeDepart } from "./objets-depart.mjs";
 import { GW } from "../config.mjs";
+import { ficheDeLActeur } from "./effets.mjs";
+
+/** Types d'acteur qui reçoivent le trait du métier (fiche classique, fiche rapide, PNJ). */
+const TYPES_AVEC_TRAIT = ["personnage", "personnage-rapide", "pnj"];
+
+/**
+ * Données de création du trait du métier adapté à l'acteur (variante de GW.fichesTrait), ou null.
+ * @param {Actor} actor
+ * @param {Item} metierItem
+ */
+export async function traitDuMetier(actor, metierItem) {
+  if (!TYPES_AVEC_TRAIT.includes(actor.type)) return null;
+  const uuid = metierItem.system.traits?.[ficheDeLActeur(actor)];
+  const trait = uuid ? await fromUuid(uuid).catch(() => null) : null;
+  if (trait?.type !== "talent") return null;
+  const donnees = trait.toObject();
+  delete donnees._id;
+  foundry.utils.setProperty(donnees, "flags.galactic-wars.traitMetier", true);
+  foundry.utils.setProperty(donnees, "_stats.compendiumSource", trait.uuid);
+  return donnees;
+}
 
 /**
  * Applique un métier (Item type "metier") sur un Actor : équipement de départ, référence
@@ -16,7 +37,7 @@ import { GW } from "../config.mjs";
 export async function applyMetier(actor, metierItem) {
   if (metierItem.type !== "metier") throw new Error("applyMetier attend un Item de type metier");
 
-  const ancienEquipement = actor.items.filter((i) => i.getFlag("galactic-wars", "startingGear"));
+  const ancienEquipement = actor.items.filter((i) => i.getFlag("galactic-wars", "startingGear") || i.getFlag("galactic-wars", "traitMetier"));
   if (ancienEquipement.length) {
     await actor.deleteEmbeddedDocuments(
       "Item",
@@ -30,6 +51,8 @@ export async function applyMetier(actor, metierItem) {
   const lignes = metierItem.system.equipement;
   const contacts = avecNotes ? lignes.filter((e) => estContactDeDepart(e.nom)) : [];
   const nouveauxObjets = await Promise.all(lignes.filter((e) => !contacts.includes(e)).map((e) => objetDeDepart(e)));
+  const trait = await traitDuMetier(actor, metierItem);
+  if (trait) nouveauxObjets.push(trait);
   if (nouveauxObjets.length) await actor.createEmbeddedDocuments("Item", nouveauxObjets);
 
   const updates = {

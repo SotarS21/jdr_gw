@@ -1,6 +1,7 @@
 import { GW } from "../config.mjs";
 import { editerEntreeNote, supprimerEntreeNote } from "../helpers/notes.mjs";
 import * as Comlink from "../helpers/comlink.mjs";
+import { libelleChangement } from "../helpers/effets.mjs";
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ItemSheetV2 } = foundry.applications.sheets;
 
@@ -59,7 +60,11 @@ export class GalacticWarsItemSheet extends HandlebarsApplicationMixin(ItemSheetV
       comlinkRetour: GalacticWarsItemSheet.#onComlinkRetour,
       comlinkEnvoyer: GalacticWarsItemSheet.#onComlinkEnvoyer,
       comlinkVu: GalacticWarsItemSheet.#onComlinkVu,
-      comlinkMontrer: GalacticWarsItemSheet.#onComlinkMontrer
+      comlinkMontrer: GalacticWarsItemSheet.#onComlinkMontrer,
+      effetCreer: GalacticWarsItemSheet.#onEffetCreer,
+      effetEditer: GalacticWarsItemSheet.#onEffetEditer,
+      effetBasculer: GalacticWarsItemSheet.#onEffetBasculer,
+      effetSupprimer: GalacticWarsItemSheet.#onEffetSupprimer
     }
   };
 
@@ -171,6 +176,14 @@ export class GalacticWarsItemSheet extends HandlebarsApplicationMixin(ItemSheetV
       this.item.system.description ?? "",
       { relativeTo: this.item }
     );
+    // Talents / traits (v0.20.0) : fiche visée et effets actifs transférés à l'acteur qui porte l'objet.
+    if (this.item.type === "talent") {
+      context.fiches = Object.entries(GW.fichesTrait).map(([cle, label]) => ({ cle, label, choisi: this.item.system.fiche === cle }));
+      context.effets = this.item.effects.map((e) => ({
+        id: e.id, name: e.name, img: e.img, disabled: e.disabled,
+        resume: e.changes.map(libelleChangement).filter(Boolean).join(", ") || game.i18n.localize("GALACTICWARS.Effets.AucunChangement")
+      }));
+    }
     if (this.estObjet) {
       await GalacticWarsItemSheet.#chargerPartiels();
       Object.assign(context, await this.#preparerObjet());
@@ -457,6 +470,34 @@ export class GalacticWarsItemSheet extends HandlebarsApplicationMixin(ItemSheetV
       callback: (path) => this.item.update({ img: path })
     });
     return picker.browse();
+  }
+
+  /** Effet actif de la ligne cliquée (fiche de talent). */
+  #effetDeLigne(target) {
+    return this.item.effects.get(target.closest("[data-effet-id]")?.dataset.effetId);
+  }
+
+  static async #onEffetCreer() {
+    if (!this.isEditable) return;
+    const [effet] = await this.item.createEmbeddedDocuments("ActiveEffect", [{
+      name: this.item.name, img: this.item.img, type: "base", transfer: true, disabled: false, system: { changes: [] }
+    }]);
+    effet?.sheet.render({ force: true });
+  }
+
+  static #onEffetEditer(event, target) {
+    this.#effetDeLigne(target)?.sheet.render({ force: true });
+  }
+
+  static async #onEffetBasculer(event, target) {
+    if (!this.isEditable) return;
+    const effet = this.#effetDeLigne(target);
+    if (effet) await effet.update({ disabled: !effet.disabled });
+  }
+
+  static async #onEffetSupprimer(event, target) {
+    if (!this.isEditable) return;
+    await this.#effetDeLigne(target)?.delete();
   }
 
   static async #onChangerOnglet(event, target) {

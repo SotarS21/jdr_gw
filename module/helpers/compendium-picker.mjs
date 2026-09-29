@@ -8,25 +8,32 @@
  * @param {{title?: string}} [options]
  * @returns {Promise<Item|null>}
  */
-export async function choisirItemCompendium(packName, { title } = {}) {
-  const pack = game.packs.get(`galactic-wars.${packName}`);
-  if (!pack) {
-    ui.notifications.error(`Galactic Wars | Compendium introuvable : ${packName}`);
+export async function choisirItemCompendium(packName, { title, filtre, champs = [] } = {}) {
+  // Plusieurs compendiums possibles (ex. traits + talents, v0.20.0) : entrées fusionnées, repérées par leur uuid.
+  const noms = Array.isArray(packName) ? packName : [packName];
+  const packs = noms.map((nom) => game.packs.get(`galactic-wars.${nom}`)).filter(Boolean);
+  if (!packs.length) {
+    ui.notifications.error(`Galactic Wars | Compendium introuvable : ${noms.join(", ")}`);
     return null;
   }
 
-  const index = Array.from(await pack.getIndex()).sort((a, b) => a.name.localeCompare(b.name));
+  const index = (await Promise.all(packs.map(async (pack) => Array.from(await pack.getIndex({ fields: champs })))))
+    .flat()
+    .filter((entree) => !filtre || filtre(entree))
+    .sort((a, b) => a.name.localeCompare(b.name));
   if (!index.length) {
-    ui.notifications.warn(game.i18n.format("GALACTICWARS.Avertissement.CompendiumVide", { compendium: pack.metadata.label }));
+    ui.notifications.warn(game.i18n.format("GALACTICWARS.Avertissement.CompendiumVide", { compendium: packs.map((p) => p.metadata.label).join(", ") }));
     return null;
   }
 
-  const options = index.map((entree) => `<option value="${entree._id}">${entree.name}</option>`).join("");
+  const echapper = foundry.utils.escapeHTML;
+  const options = index.map((entree) => `<option value="${echapper(entree.uuid)}">${echapper(entree.name)}</option>`).join("");
   const content = `<div class="form-group"><label>${game.i18n.localize("GALACTICWARS.Sheet.Choisir")}</label>
     <select name="choix" autofocus>${options}</select></div>`;
 
   const choixId = await foundry.applications.api.DialogV2.wait({
-    window: { title: title ?? pack.metadata.label },
+    window: { title: title ?? packs[0].metadata.label },
+    rejectClose: false,
     content,
     buttons: [
       {
@@ -45,5 +52,5 @@ export async function choisirItemCompendium(packName, { title } = {}) {
   });
 
   if (!choixId) return null;
-  return pack.getDocument(choixId);
+  return fromUuid(choixId);
 }

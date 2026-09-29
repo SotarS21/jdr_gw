@@ -53,8 +53,8 @@ export class GalacticWarsActor extends Actor {
 
   /**
    * Réduction des dégâts subis : armures et boucliers portés + armure naturelle de l'ethnie liée
-   * (valeur positive seulement).
-   * @returns {Promise<{armures: number, naturelle: number, total: number}>}
+   * (valeur positive seulement) + armure temporaire des effets actifs (couverts, v0.20.0).
+   * @returns {Promise<{armures: number, naturelle: number, temporaire: number, total: number}>}
    */
   async reductionDegats() {
     const armures = this.items
@@ -66,7 +66,8 @@ export class GalacticWarsActor extends Actor {
       const race = await fromUuid(uuid).catch(() => null);
       if (race?.type === "race") naturelle = Math.max(0, race.system.armureNaturelle ?? 0);
     }
-    return { armures, naturelle, total: armures + naturelle };
+    const temporaire = Math.max(0, this.system?.effets?.armure ?? 0);
+    return { armures, naturelle, temporaire, total: armures + naturelle + temporaire };
   }
 
   /**

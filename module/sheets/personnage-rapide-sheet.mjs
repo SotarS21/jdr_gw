@@ -3,6 +3,7 @@ import { rollCaracteristiqueD20, rollCaracteristiquePourcentage, rollSurvie } fr
 import { applyRace } from "../helpers/race.mjs";
 import { applyMetier } from "../helpers/metier.mjs";
 import { choisirItemCompendium } from "../helpers/compendium-picker.mjs";
+import { basculerCouvert, couvertActif, resumeEffets } from "../helpers/effets.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
@@ -21,7 +22,11 @@ export class PersonnageRapideSheet extends HandlebarsApplicationMixin(ActorSheet
       rollSurvie: PersonnageRapideSheet.#onRollSurvie,
       applyRace: PersonnageRapideSheet.#onApplyRace,
       applyMetier: PersonnageRapideSheet.#onApplyMetier,
-      editImage: PersonnageRapideSheet.#onEditImage
+      editImage: PersonnageRapideSheet.#onEditImage,
+      ajouterTrait: PersonnageRapideSheet.#onAjouterTrait,
+      ouvrirTrait: PersonnageRapideSheet.#onOuvrirTrait,
+      supprimerTrait: PersonnageRapideSheet.#onSupprimerTrait,
+      basculerCouvert: PersonnageRapideSheet.#onBasculerCouvert
     }
   };
 
@@ -39,8 +44,18 @@ export class PersonnageRapideSheet extends HandlebarsApplicationMixin(ActorSheet
     context.caracteristiques = Object.entries(GW.caracteristiquesRapides).map(([cle, label]) => ({
       cle,
       label,
-      valeur: system.caracteristiques[cle]
+      valeur: system.caracteristiques[cle],
+      // Effets actifs (traits, talents) : bonus affiché à côté de la saisie, valeur jouée = saisie + bonus.
+      bonus: system.bonusCaracteristiques?.[cle] ?? 0,
+      total: system.caracteristiquesTotales?.[cle] ?? system.caracteristiques[cle]
     }));
+    // Traits portés (v0.20.0) : la fiche rapide n'affichait aucun objet ; une variante « classique » (%) n'a aucun
+    // effet ici.
+    context.traits = this.actor.items.filter((i) => i.type === "talent").sort((a, b) => a.name.localeCompare(b.name))
+      .map((i) => ({ id: i.id, img: i.img, name: i.name, system: i.system, effets: resumeEffets(i), autreFiche: i.system.fiche === "classique" }));
+    const reduction = await this.actor.reductionDegats();
+    context.reduction = reduction;
+    context.couverts = Object.entries(GW.couverts).map(([cle, c]) => ({ cle, label: c.label, armure: c.armure, actif: couvertActif(this.actor) === cle }));
     context.limites = GW.limitesCaracteristiquesRapides;
     context.estPnj = this.actor.type === "pnj";
     context.descriptionEnrichie = await foundry.applications.ux.TextEditor.implementation.enrichHTML(
@@ -69,6 +84,37 @@ export class PersonnageRapideSheet extends HandlebarsApplicationMixin(ActorSheet
   static async #onApplyMetier() {
     const metier = await choisirItemCompendium("metiers", { title: game.i18n.localize("GALACTICWARS.Sheet.Metier") });
     if (metier) await applyMetier(this.actor, metier);
+  }
+
+  static async #onAjouterTrait() {
+    if (!this.isEditable) return;
+    const talent = await choisirItemCompendium(["traits", "talents"], {
+      title: game.i18n.localize("GALACTICWARS.Traits.Ajouter"),
+      champs: ["system.fiche"],
+      filtre: (entree) => entree.system?.fiche !== "classique"
+    });
+    if (!talent) return;
+    if (this.actor.items.some((i) => i.type === "talent" && i.name === talent.name)) {
+      return ui.notifications.warn(game.i18n.format("GALACTICWARS.Traits.DejaPresent", { nom: talent.name }));
+    }
+    const data = talent.toObject();
+    delete data._id;
+    foundry.utils.setProperty(data, "_stats.compendiumSource", talent.uuid);
+    await this.actor.createEmbeddedDocuments("Item", [data]);
+  }
+
+  static #onOuvrirTrait(event, target) {
+    this.actor.items.get(target.closest("[data-item-id]")?.dataset.itemId)?.sheet.render({ force: true });
+  }
+
+  static async #onSupprimerTrait(event, target) {
+    if (!this.isEditable) return;
+    await this.actor.items.get(target.closest("[data-item-id]")?.dataset.itemId)?.delete();
+  }
+
+  static async #onBasculerCouvert(event, target) {
+    if (!this.isEditable) return;
+    await basculerCouvert(this.actor, target.dataset.couvert);
   }
 
   static async #onEditImage() {
