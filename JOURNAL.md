@@ -1,6 +1,43 @@
 # Journal de développement — Galactic Wars
 
-## À faire à la reprise (état au 2026-09-29, fin de session — « on en a fini pour aujourd'hui »)
+## À faire à la reprise (état au 2026-09-29 soir — « note ce qu'on a fait, on s'arrête là pour ce soir »)
+
+- **Publié** : **v0.19.8 = dernière release** (images des 21 métiers ; archive de release corrigée : le compendium
+  des aménagements manquait dans les zips v0.19.0 à v0.19.7).
+- **v0.19.9 commitée sur `main`, NON poussée ni taguée** : descriptions des 21 métiers (10 rédigées par Claude, à
+  relire par l'auteur), niveau minimum et métier requis supprimés des prérequis. Foundry local tourne en 0.19.9
+  **sans** la suppression du métier requis (commit `91242fe` pas encore déployé : redémarrage nécessaire).
+- **EN COURS — v0.20.0, branche `wip/traits-0.20.0` (commit `3158651`, inachevé, NE PAS déployer tel quel)** :
+  compendium de traits à effets actifs (demande de l'auteur, inspiré d'Antique). Décisions de l'auteur :
+  - deux variantes par trait chiffré : **% pour la fiche classique** (+4 d20 → +20 %), **d20 pour la fiche rapide**
+    (un PNJ, qui jette en %, compte les bonus d20 × 5) ; un trait sans chiffre = une seule variante (`fiche: toutes`) ;
+  - Médecin : bonus de métier Médecine 20 → 0, porté par le trait Chirurgien (+20 %) ;
+  - traits proposés par Claude (à valider) pour les 7 métiers sans trait dans les documents ;
+  - effets actifs aussi sur les talents chiffrés (Brutale, Charismatique, Stresser…) ;
+  - **traits actifs** Demi-couvert (+4 d'armure temporaire) et Couvert total (+8) : états de token exclusifs.
+  - **Fait sur la branche** : `system.effets` (classique : `competences.<clé>` + `armure` ; rapide : `caracteristiques.<clé>`
+    + `armure`), totaux (plafond relevé par un effet positif), jets de la fiche rapide / PNJ sur la valeur avec effets,
+    armure temporaire dans `reductionDegats`, `helpers/effets.mjs` (couverts en `CONFIG.statusEffects`, exclusifs,
+    résumé des effets), trait du métier posé par `applyMetier` (drapeau `traitMetier`, variante selon la fiche),
+    `MetierData.traits.{classique, rapide}`, `TalentData.fiche`, sélecteur de compendium multi-packs filtré (noms
+    échappés, `rejectClose: false`), fiche classique (colonne Effets, bonus sur le total, couverts dans l'onglet
+    Combat), fiche rapide (section Traits, bonus à côté des caractéristiques, couverts), fiche d'objet du talent
+    (avantage, inconvénient, fiche visée, liste des effets : créer / éditer / activer / supprimer).
+  - **Reste** : clés `fr.json` (Traits.Effets / AutreFiche / FicheVisee / Fiche.*, Effets.*, Couvert.*), CSS (couverts,
+    traits rapides, effets de talent), compendium `traits` (system.json + `packs/_source/traits`, ~21 traits dont
+    Fantôme, Chirurgien et les 7 proposés en 2 variantes), effets sur les talents chiffrés, liens
+    `metier.system.traits` + Médecin à 0, correctif MJ (poser le trait sur les personnages déjà dotés d'un métier ;
+    recalcul du bonus de Médecine des Médecins), notes de version / CDC, tests en jeu (effet transféré, totaux, jets,
+    couverts depuis le HUD et la fiche, changement de métier). Vérifié par un test préalable dans Foundry 14.368 :
+    effet transféré (`system.changes`, type `add`) et état de token porteur de changements fonctionnent.
+- **Audit** : tous les constats confirmés sont dans la section « Audit du 2026-09-29 » ci-dessous — **aucun corrigé**
+  (sauf `compendium-picker` sur la branche). Tests en direct (`../audit/run.mjs t1-rendu.js`, `t2-parcours.js`) toujours
+  à relancer jusqu'au bout.
+- Questions de règle ouvertes : compteur de niveaux et compétences bloquées ; même compétence plusieurs fois au gain de
+  niveau ; texte libre d'affiliation des métiers (garder ou supprimer).
+- Scripts de la session dans `../audit/` (hors dépôt) : patchs v0.19.9 / v0.20.0, test des effets, planches d'images.
+
+## État précédent (2026-09-29, avant la session du soir)
 
 - **Cartes « HWSS Empress … $1 Rewards »** (`asset_visuel/vaiseau/`, dépôt public) : on les garde telles quelles —
   décision de l'auteur du 2026-09-29 (« ne touche pas aux cartes, ce n'est pas pour les monétiser »).
