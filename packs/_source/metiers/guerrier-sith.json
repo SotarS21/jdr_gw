@@ -7,7 +7,6 @@
   "system": {
     "prerequis": {
       "metier": "Apprenti sith",
-      "niveauMinimum": 4,
       "texteLibre": ""
     },
     "competences": [
@@ -85,7 +84,7 @@
       "nom": "",
       "description": ""
     },
-    "description": "<p></p>"
+    "description": "<p>Apprenti sith devenu guerrier : il a gagné sa place par la violence et sert l'Empire en première ligne. Maître du sabre laser, souvent double, il domine ses ennemis par l'intimidation et le contrôle de la Force.</p>"
   },
   "folder": null,
   "sort": 100000,

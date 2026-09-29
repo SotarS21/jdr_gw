@@ -7,7 +7,6 @@
   "system": {
     "prerequis": {
       "metier": "Padawan",
-      "niveauMinimum": 4,
       "texteLibre": ""
     },
     "competences": [

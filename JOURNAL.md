@@ -5,8 +5,8 @@
 - **Cartes « HWSS Empress … $1 Rewards »** (`asset_visuel/vaiseau/`, dépôt public) : on les garde telles quelles —
   décision de l'auteur du 2026-09-29 (« ne touche pas aux cartes, ce n'est pas pour les monétiser »).
 - Tableur de suivi : n° 1 à 28 traités ; plus de todo technique en attente.
-- **Todo (demande du 2026-09-29)** : rédiger une description pour chaque métier (compendium `metiers`) à partir de
-  `asset_fiche_perso/fiche_classique/Metier.docx` (dossier source, hors système).
+- ~~Todo : description pour chaque métier d'après `Metier.docx`~~ : fait (v0.19.9, 10 textes rédigés — à relire par l'auteur) ;
+  niveau minimum des prérequis supprimé (v0.19.9).
 - **v0.19.8 = dernière release** (poussée, taguée à la demande de l'auteur) : images des 21 métiers, Foundry local
   redémarré en 0.19.8 et vérifié ; archive de release corrigée (compendium des aménagements de nouveau inclus).
 - **Audit complet des fonctionnalités : EN PAUSE** (demande de l'auteur, 2026-09-29). Relecture du code lancée ;
@@ -66,6 +66,38 @@
 - **Rappels techniques** : scripts de patch écrits avec l'outil Write (ou heredoc `<<'EOF'`, en doublant les
   antislashs à vérifier) — jamais de backticks dans un `node -e` en bash ; `git checkout` remet les fichiers en CRLF
   (normaliser avant de chercher du texte) ; `prose-mirror` doit rester en `display: flex`.
+
+## Session du 2026-09-29 (suite) — Descriptions des métiers, niveau minimum (v0.19.9)
+
+- Demandes de l'auteur : « trouve une description pour l'agent secret, l'apprentis sith… et les autres », puis
+  « supprime le niveau minimum ». `Metier.docx` ne contient un paragraphe de description que pour Jedi consulaire,
+  Padawan et Apprenti sith (repris, orthographe corrigée) ; pour les 10 autres métiers sans description (Agent
+  secret, Chasseur de primes, Guerrier sith, Jedi Noire, Pilote, Robot / droïde, Robot quadrupède, Soldat d'élite,
+  Soldat lourd, Soldat médecin, Voleur), texte rédigé d'après leurs compétences et leur équipement dans le document.
+  Les 8 descriptions existantes sont conservées. Script : `../audit/maj-metiers-0199.cjs`.
+- `prerequis.niveauMinimum` supprimé : schéma `MetierData`, champ de la fiche d'objet, clé `Item.NiveauMinimum` ;
+  valeur 4 retirée d'Agent secret, Guerrier jedi, Guerrier sith et Jedi consulaire. Métier requis et texte libre
+  conservés (Jedi Noire garde « Sith ou jedi Niv 10 » en texte libre). Rien n'était vérifié à l'application.
+
+## Audit du 2026-09-29 — workflow de contre-vérification (84 agents, lecture seule)
+
+Chaque constat de la relecture relu par 2 sceptiques (angle exécution, angle Foundry / utilisateur) ; 4 chercheurs
+sur les zones peu couvertes, leurs constats vérifiés de même. Résultats bruts : `../audit/wf-verdicts.json` (hors dépôt).
+- **Confirmés (2/2)** : V1-V11, M1-M4, P1-P9 (voir la section de relecture plus bas). Gravité revue : V1, V2, M1
+  « gênant » plutôt que bloquant (le joueur peut jeter depuis sa propre fiche ; M1 conditionnel).
+- **Partagé** : M5 (correctif sans objet marqué appliqué) — choix de conception plus que défaut.
+- **Réfuté** : P10 (compendium-picker).
+- **Nouveaux, confirmés** :
+  - Z1-1 Holonet : l'historique garde des index de `system.notes` décalés par une suppression. Z1-2 : fiche d'objet
+    observée, mêmes boutons désactivés que V1 / V3. Z1-3 : changer le numéro du canal ouvert (conversation perdue).
+  - Z2-1 « Utiliser un point de Lumière / d'Obscurité » : double clic = deux messages, un seul point retiré.
+    Z2-2 étoile Favori qui annule une saisie en cours (mode Édition). Z2-3 +/− Lumière / Obscurité : clics rapides
+    perdus. Z2-4 bloc Vaisseau de l'onglet Équipements non rafraîchi. Z2-5 Initiative sans effet ni message si
+    déjà lancée.
+  - Z3-1 fiche sith : PV actuels libres (13 initial) au-delà du max de corpulence. Z3-2 cinq prétirés sith sans
+    `race.uuid`. Z3-3 capacités d'école / description de race non éditables malgré le commentaire du schéma.
+  - Z4-1 générique : le MJ perd « Passer » / « Arrêter pour tous » s'il ferme son écran ou lance un aperçu.
+    Z4-2 « Passer » relance le défilement depuis le bas. Z4-3 les commandes du socket s'appliquent aussi à un aperçu.
 
 ## Session du 2026-09-29 (suite) — Images des métiers (v0.19.8)
 

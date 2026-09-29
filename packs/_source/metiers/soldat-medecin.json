@@ -7,7 +7,6 @@
   "system": {
     "prerequis": {
       "metier": "",
-      "niveauMinimum": 0,
       "texteLibre": "affiliation => empire / république / privé"
     },
     "competences": [
@@ -59,7 +58,7 @@
       "nom": "Ne meure pas !",
       "description": "Donne à un allié la possibilité de relancer un test de survie raté."
     },
-    "description": "<p></p>"
+    "description": "<p>Infirmier de combat de l'Empire, de la République ou d'une armée privée. Il soigne sous le feu, blaster au poing et protégé par une armure légère, et garde son sang-froid là où les autres paniquent.</p>"
   },
   "folder": null,
   "sort": 100000,

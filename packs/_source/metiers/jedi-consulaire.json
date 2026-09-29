@@ -7,7 +7,6 @@
   "system": {
     "prerequis": {
       "metier": "Padawan",
-      "niveauMinimum": 4,
       "texteLibre": ""
     },
     "competences": [
@@ -74,7 +73,7 @@
       "nom": "",
       "description": ""
     },
-    "description": ""
+    "description": "<p>Les Jedi consulaires sont des membres de l'Ordre Jedi qui se consacrent à la diplomatie ou aux sciences, sans forcément prendre part aux conflits. Ils sont généralement plus aptes à la discussion, à la philosophie et au savoir que les guerriers Jedi.</p>"
   },
   "folder": null,
   "sort": 100000,

@@ -7,7 +7,6 @@
   "system": {
     "prerequis": {
       "metier": "",
-      "niveauMinimum": 0,
       "texteLibre": "un maître"
     },
     "competences": [
@@ -74,7 +73,7 @@
       "nom": "Manipulation de la force",
       "description": "Permet d'utiliser la télékinésie."
     },
-    "description": ""
+    "description": "<p>Au sein de l'Ordre Jedi, un padawan est un jeune sensible à la Force. Supérieurs aux jeunes — les enfants sensibles à qui plusieurs maîtres apprennent en classe les rudiments de la vie de Jedi —, les padawans suivent généralement un maître après avoir passé une épreuve censée déterminer leur valeur. Dans de rares cas, un padawan peut avoir plusieurs maîtres, mais la plupart du temps il développe un lien extrêmement fort avec le sien, lien que son maître doit lui apprendre à maîtriser.</p><p>C'est dans ces années-là que le padawan est le plus influençable. Il est entraîné pour devenir chevalier Jedi, après des épreuves qui peuvent durer de très nombreuses années mais qui s'achèvent généralement lorsqu'il atteint la maturité de son espèce. Parmi ces épreuves : la fabrication d'un sabre laser.</p>"
   },
   "folder": null,
   "sort": 100000,

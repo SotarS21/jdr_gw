@@ -7,7 +7,6 @@
   "system": {
     "prerequis": {
       "metier": "",
-      "niveauMinimum": 0,
       "texteLibre": ""
     },
     "competences": [
@@ -81,7 +80,7 @@
       "nom": "Capture",
       "description": "À tout moment, tentative de capture de la cible : test de Cap. Tir contré par un test de force de la cible."
     },
-    "description": ""
+    "description": "<p>Traqueur indépendant qui vit des contrats posés sur la tête des fugitifs. Aussi à l'aise pour négocier qu'au blaster ou à la vibrolame, il connaît la pègre, pilote son propre vaisseau et ramène sa cible vivante — au filet ou au canon à carbonite — quand la prime l'exige.</p>"
   },
   "folder": null,
   "sort": 100000,

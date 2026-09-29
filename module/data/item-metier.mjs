@@ -5,7 +5,6 @@ export class MetierData extends foundry.abstract.TypeDataModel {
     return {
       prerequis: new SchemaField({
         metier: new StringField({ initial: "" }), // nom du métier requis, ex. "Padawan"
-        niveauMinimum: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
         texteLibre: new StringField({ initial: "" }) // ex. "affiliation => empire / république / privé"
       }),
       // Compétences accordées par le métier : { cle, bonus, obligatoire }.

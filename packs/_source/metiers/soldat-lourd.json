@@ -7,7 +7,6 @@
   "system": {
     "prerequis": {
       "metier": "",
-      "niveauMinimum": 0,
       "texteLibre": "affiliation => empire / république / privé"
     },
     "competences": [
@@ -50,7 +49,7 @@
       "nom": "Tank",
       "description": "Prend une posture particulière qui permet de ne prendre aucun dégât de 15 en une seule fois. Par contre le soldat ne peut plus bouger. Prend 1 tour à retirer."
     },
-    "description": ""
+    "description": "<p>Soldat d'appui lourd de l'Empire, de la République ou d'une armée privée. Il porte l'armure lourde et l'arme lourde du groupe — fusil lourd, lance-flammes ou fusil à plasma — et sait aussi manier les explosifs et entretenir son matériel.</p>"
   },
   "folder": null,
   "sort": 100000,

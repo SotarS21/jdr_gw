@@ -7,7 +7,6 @@
   "system": {
     "prerequis": {
       "metier": "",
-      "niveauMinimum": 0,
       "texteLibre": "affiliation => empire / république / privé"
     },
     "competences": [
@@ -63,7 +62,7 @@
       "nom": "Pistolero",
       "description": "Permet de lancer des tests d’esquive et/ou de blocage quand il tire."
     },
-    "description": "<p></p>"
+    "description": "<p>Combattant d'élite de l'Empire, de la République ou d'une armée privée, formé à la reconnaissance et à l'infiltration. Fusil à longue portée, radio à ondes courtes cryptée, jumelles de vision nocturne et balise fumigène : il frappe de loin et disparaît.</p>"
   },
   "folder": null,
   "sort": 100000,

@@ -7,7 +7,6 @@
   "system": {
     "prerequis": {
       "metier": "",
-      "niveauMinimum": 0,
       "texteLibre": ""
     },
     "competences": [
@@ -59,7 +58,7 @@
       "nom": "Pickpocket",
       "description": "Laisse traîner ses mains : si la cible est distraite, le vol est gratuit et permet de récupérer un petit objet. Sinon, test de dextérité obligatoire."
     },
-    "description": ""
+    "description": "<p>Spécialiste des poches des autres et des portes verrouillées. Furtif, habile avec les systèmes de sécurité et le piratage, il connaît la pègre locale et s'échappe grâce à ses gants à griffe et à sa ceinture antigravité.</p>"
   },
   "folder": null,
   "sort": 100000,

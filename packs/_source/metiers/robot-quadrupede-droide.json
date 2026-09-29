@@ -7,7 +7,6 @@
   "system": {
     "prerequis": {
       "metier": "",
-      "niveauMinimum": 0,
       "texteLibre": "Affiliation jedi"
     },
     "competences": [
@@ -77,7 +76,7 @@
       "nom": "",
       "description": ""
     },
-    "description": "<p></p>"
+    "description": "<p>Droïde de combat quadrupède au service de l'Ordre jedi. Son blindage renforcé, ses griffes en duracier et ses crocs en font un redoutable protecteur au corps à corps ; il sait aussi pirater, réparer et renseigner le groupe grâce à ses capteurs et à sa base de données planétaire.</p>"
   },
   "folder": null,
   "sort": 100000,

@@ -7,7 +7,6 @@
   "system": {
     "prerequis": {
       "metier": "",
-      "niveauMinimum": 0,
       "texteLibre": ""
     },
     "competences": [
@@ -64,7 +63,7 @@
       "nom": "Mental ultime",
       "description": "Permet de se détacher complètement d'une situation de stress ou de survie. 1 fois par jour."
     },
-    "description": ""
+    "description": "<p>Pilote diplômé, capable de faire décoller à peu près tout ce qui possède un moteur. Il s'y connaît en mécanique et en informatique de bord, garde l'œil ouvert en toute circonstance et vole accompagné de son droïde astromécano.</p>"
   },
   "folder": null,
   "sort": 100000,
