@@ -2,8 +2,8 @@
 
 ## À faire à la reprise (état au 2026-09-29, fin de session — « on en a fini pour aujourd'hui »)
 
-- **Point ouvert** : cartes payantes « HWSS Empress … $1 Rewards » versionnées dans le dépôt GitHub public
-  (`asset_visuel/vaiseau/`) — l'auteur n'a pas encore tranché (les retirer ou non).
+- **Cartes « HWSS Empress … $1 Rewards »** (`asset_visuel/vaiseau/`, dépôt public) : on les garde telles quelles —
+  décision de l'auteur du 2026-09-29 (« ne touche pas aux cartes, ce n'est pas pour les monétiser »).
 - Tableur de suivi : n° 1 à 28 traités ; plus de todo technique en attente.
 
 - **État** : tout est poussé ; **v0.19.4 = dernière release** (recherche PNJ / missions, section Métier, Dynamic 20,
