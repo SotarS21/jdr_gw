@@ -109,6 +109,7 @@ compilés à jour par rapport à `_source`, fichiers JB2A cités présents.
 - **Questions de règle pour l'auteur** : le compteur de niveaux doit-il compter les compétences bloquées ? Au gain de
   niveau, peut-on choisir plusieurs fois la même compétence (la config parle de « compétences différentes ») ?
 - **Constat en jeu** : dans le monde, `autoanimations` et `socketlib` sont désactivés (seuls Sequencer et JB2A actifs).
+- **Revérifiés dans le code (2026-09-29)** : vaisseau / équipage observés (boutons désactivés, seul l'avantage réactivé), complétion des compétences (`null` non filtré), postes « Équipage » des 7 vaisseaux (1 place, pas de compétence) — confirmés.
 - **Reste à faire** : tests en direct (rendu de toutes les fiches et onglets, parcours fonctionnels sur des fiches
   « [AUDIT] » supprimées ensuite), puis revérifier et corriger les constats.
 
