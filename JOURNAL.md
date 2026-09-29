@@ -7,8 +7,8 @@
 - Tableur de suivi : n° 1 à 28 traités ; plus de todo technique en attente.
 - **Todo (demande du 2026-09-29)** : rédiger une description pour chaque métier (compendium `metiers`) à partir de
   `asset_fiche_perso/fiche_classique/Metier.docx` (dossier source, hors système).
-- **v0.19.8 commitée en local, NON déployée ni poussée** : images des 21 métiers — déploiement = redémarrage de Foundry
-  (compendium modifié), à faire avec l'accord de l'auteur, puis vérification et validation de l'attribution des images.
+- **v0.19.8 commitée en local, déployée (Foundry redémarré avec l'accord de l'auteur, 21 images vérifiées en jeu), NON poussée** : images des 21 métiers
+  — attribution des images à valider par l'auteur avant publication.
 - **Audit complet des fonctionnalités : EN PAUSE** (demande de l'auteur, 2026-09-29). Relecture du code lancée ;
   tests en direct (rendu de toutes les fiches, puis parcours fonctionnels sur des fiches « [AUDIT] ») pas encore
   exécutés jusqu'au bout. Scripts de test copiés dans `../audit/` (hors dépôt) : `node run.mjs t1-rendu.js`, puis `t2-parcours.js`. Constats de la relecture : section « Audit du 2026-09-29 » plus bas.
