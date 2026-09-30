@@ -2190,3 +2190,42 @@
   font-style: italic;
   opacity: 0.6;
 }
+
+/* Bonus d'effet sur une compétence (v0.20.2) : pastille verte (bonus) / rouge (malus) collée au total. */
+.galactic-wars .pastille-effet {
+  display: inline-block;
+  margin-left: 0.25rem;
+  padding: 0 0.25rem;
+  border-radius: 4px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  line-height: 1.2;
+  vertical-align: middle;
+  color: #3ddc84;
+  border: 1px solid color-mix(in srgb, #3ddc84 55%, transparent);
+  background: color-mix(in srgb, #3ddc84 12%, transparent);
+  text-decoration: none;
+}
+.galactic-wars .pastille-effet.malus,
+.galactic-wars .bonus-effet.malus {
+  color: #ff5c6c;
+  border-color: color-mix(in srgb, #ff5c6c 55%, transparent);
+  background: color-mix(in srgb, #ff5c6c 12%, transparent);
+}
+.galactic-wars.personnage .competence-row .total.avec-effet {
+  text-decoration: none;
+}
+/* Liste des compétences : colonne du total étroite → pastille en exposant, sans élargir ni agrandir la ligne. */
+.galactic-wars.personnage .competence-row .total {
+  position: relative;
+}
+.galactic-wars.personnage .competence-row .total .pastille-effet {
+  position: absolute;
+  top: -0.55rem;
+  right: -0.35rem;
+  margin: 0;
+  padding: 0 0.15rem;
+  font-size: 0.55rem;
+  line-height: 1.1;
+  pointer-events: none;
+}

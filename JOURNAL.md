@@ -107,6 +107,19 @@
   antislashs à vérifier) — jamais de backticks dans un `node -e` en bash ; `git checkout` remet les fichiers en CRLF
   (normaliser avant de chercher du texte) ; `prose-mirror` doit rester en `display: flex`.
 
+## Session du 2026-09-30 (suite 2) — Bonus des traits visibles (v0.20.2)
+
+- **Signalement de l'auteur** : « si j'ajoute le trait Fureur obscure sur Alek, je n'ai pas de modification
+  d'intimidation sur la compétence liée » ; demande de reprendre la logique des effets actifs d'Antique.
+- **Diagnostic** : le calcul était juste (Alek : Intimidation 25 % hors effets, 45 % avec Fureur obscure ; même résultat
+  par glisser-déposer du compendium sur une copie d'Alek), mais le bonus n'était signalé que par un soulignement en
+  pointillé. Antique n'affiche pas davantage (effets résumés dans la ligne du trait, total seul sur la compétence) ;
+  sa logique (effet ajouté au champ, total calculé) est celle déjà en place ici via `system.effets.*`.
+- **Correctif** : `helpers/effets.mjs#sourcesEffets` (effets appliqués à l'acteur visant une clé, via
+  `actor.appliedEffects`) ; pastille `.pastille-effet` (+20 vert, malus rouge) collée au total des compétences, des
+  favoris et de l'onglet Combat ; info-bulle « Total, dont … » + une source par ligne ; fiche rapide / PNJ : sources dans
+  l'info-bulle de la pastille existante (× 5 en % pour un PNJ), pastille rouge pour un malus.
+
 ## Session du 2026-09-30 (suite) — Traits de WOLF, traits actifs (v0.20.1)
 
 - **Demande de l'auteur** : « regarde la fiche de wolf, c'est une classique, les compétences passifs et actifs sont des
@@ -185,6 +198,7 @@
 | v0.19.9 | Descriptions des 21 métiers ; niveau minimum et métier requis supprimés (commitée sur `main`, non poussée) |
 | v0.20.0 | Traits à effets actifs (compendium Traits, variantes % / d20, PNJ × 5), trait posé avec le métier, talents Brutale / Charismatique / Stresser chiffrés, couverts +4 / +8 d'armure temporaire (HUD et fiche), Médecine du Médecin portée par Chirurgien, correctif MJ `0.20.0-traits-metier` (testée en jeu, publiée) |
 | v0.20.1 | 10 traits tirés de la fiche de WOLF (passifs / actifs, dossier « Traits robot », sans référence à WOLF), traits actifs à allumer depuis la fiche (Protection rapprochée +10 d'armure), dossiers du compendium Traits |
+| v0.20.2 | Bonus d'effet visible sur les compétences (pastille verte / rouge, favoris, Combat) et info-bulle des traits sources (fiches classique, rapide, PNJ) |
 
 ## Session du 2026-09-29 (suite) — Descriptions des métiers, niveau minimum (v0.19.9)
 

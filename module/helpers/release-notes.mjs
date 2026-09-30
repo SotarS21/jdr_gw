@@ -359,5 +359,12 @@ export const RELEASE_NOTES = {
       <li>Compendium <strong>Traits</strong> : 10 nouveaux traits, dans le dossier « Traits robot » — passifs (Le Gardien, Diagnostique, Peau de nanite, Cryptographie, Invisibilité, Tentative de confusion) et actifs (Protection rapprochée, Charge, Support de combat, Attaque !). Les traits des métiers sont rangés dans le dossier « Traits de métier ».</li>
       <li><strong>Traits actifs</strong> : un trait actif porteur d'effets a un bouton sur la fiche (classique et rapide) pour allumer ou éteindre ses effets — Protection rapprochée : +10 d'armure tant qu'elle est active. Case « Trait actif » sur la fiche du talent.</li>
     </ul>`
+  },
+  "0.20.2": {
+    title: "v0.20.2 — Bonus des traits visibles sur les compétences",
+    html: `<ul>
+      <li>Une compétence modifiée par un trait ou un talent affiche son bonus à côté du total (pastille verte, rouge pour un malus : « 45% +20 »), dans la liste des compétences, les favoris et l'onglet Combat.</li>
+      <li>Au survol, l'info-bulle liste les traits et talents à l'origine du bonus (ex. « Fureur obscure +20 % ») ; même chose pour les bonus de caractéristiques de la fiche rapide et des PNJ.</li>
+    </ul>`
   }
 };

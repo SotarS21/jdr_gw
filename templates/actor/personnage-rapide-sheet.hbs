@@ -46,7 +46,7 @@
         <button type="button" data-action="rollCaracteristique" data-cle="{{car.cle}}">🎲</button>
         <label>{{localize car.label}}</label>
         <input type="number" name="system.caracteristiques.{{car.cle}}" value="{{car.valeur}}">
-        {{#if car.bonus}}<span class="bonus-effet mono" data-tooltip="{{localize 'GALACTICWARS.Effets.BonusCaracteristique' total=car.total}}">{{#if (gt car.bonus 0)}}+{{/if}}{{car.bonus}}</span>{{/if}}
+        {{#if car.bonus}}<span class="bonus-effet mono{{#if (lt car.bonus 0)}} malus{{/if}}" data-tooltip="{{localize 'GALACTICWARS.Effets.BonusCaracteristique' total=car.total}}<br>{{car.sources}}">{{#if (gt car.bonus 0)}}+{{/if}}{{car.bonus}}</span>{{/if}}
       </li>
       {{/each}}
     </ul>

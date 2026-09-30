@@ -99,6 +99,26 @@ export async function basculerTraitActif(item) {
   await item.updateEmbeddedDocuments("ActiveEffect", item.effects.map((e) => ({ _id: e.id, disabled: !allumer })));
 }
 
+/**
+ * Sources d'un bonus d'effet : effets appliqués à l'acteur (transférés par ses traits / talents, états de token) qui
+ * visent `cle`, ex. « Fureur obscure +20 % ». Pour l'info-bulle de la pastille de bonus des fiches.
+ * @param {Actor} acteur
+ * @param {string} cle chemin visé (ex. "system.effets.competences.intimidation")
+ * @param {{unite?: string, facteur?: number}} [options] unité affichée, facteur (PNJ : bonus d20 × 5)
+ * @returns {string} une source par ligne
+ */
+export function sourcesEffets(acteur, cle, { unite = "", facteur = 1 } = {}) {
+  const lignes = [];
+  for (const effet of acteur.appliedEffects ?? []) {
+    for (const change of effet.changes ?? []) {
+      const valeur = Number(change.value) * facteur;
+      if (change.key !== cle || !Number.isFinite(valeur) || !valeur) continue;
+      lignes.push(`${effet.name} ${valeur > 0 ? "+" : ""}${valeur}${unite}`);
+    }
+  }
+  return lignes.join("<br>");
+}
+
 /** Variante de trait adaptée à l'acteur : "classique" (fiche classique) ou "rapide" (fiche rapide, PNJ). */
 export function ficheDeLActeur(acteur) {
   return acteur.type === "personnage" ? "classique" : "rapide";

@@ -140,7 +140,7 @@
       <button type="button" class="favori-carte car-{{cpt.caracteristique}} {{#if cpt.estCompetenceForce}}force{{/if}}"
               {{#if cpt.bloquee}}disabled data-tooltip="{{localize 'GALACTICWARS.Sheet.CompetenceBloquee'}}"{{else}}data-action="rollCompetence" data-cle="{{cpt.cle}}"{{/if}}>
         <span class="favori-nom">{{localize cpt.label}}</span>
-        <span class="favori-total mono">{{cpt.total}}%</span>
+        <span class="favori-total mono" {{#if cpt.bonusEffets}}data-tooltip="{{localize 'GALACTICWARS.Effets.BonusCompetence' bonus=cpt.bonusEffets}}<br>{{cpt.sourcesEffets}}"{{/if}}>{{cpt.total}}%{{#if cpt.bonusEffets}} <span class="pastille-effet{{#if (lt cpt.bonusEffets 0)}} malus{{/if}}">{{#if (gt cpt.bonusEffets 0)}}+{{/if}}{{cpt.bonusEffets}}</span>{{/if}}</span>
       </button>
       {{/each}}
     </div>
@@ -226,7 +226,7 @@
             {{else}}
             <input type="hidden" name="system.competences.{{cpt.index}}.ajustement" value="{{cpt.ajustement}}" data-dtype="Number">
             {{/if}}
-            <span class="total mono{{#if cpt.bonusEffets}} avec-effet{{/if}}" data-tooltip="{{#if cpt.bonusEffets}}{{localize 'GALACTICWARS.Effets.BonusCompetence' bonus=cpt.bonusEffets}}{{else}}{{localize 'GALACTICWARS.Sheet.Total'}}{{/if}}" data-tooltip-direction="UP">{{cpt.total}}%</span>
+            <span class="total mono{{#if cpt.bonusEffets}} avec-effet{{/if}}" data-tooltip="{{#if cpt.bonusEffets}}{{localize 'GALACTICWARS.Effets.BonusCompetence' bonus=cpt.bonusEffets}}<br>{{cpt.sourcesEffets}}{{else}}{{localize 'GALACTICWARS.Sheet.Total'}}{{/if}}" data-tooltip-direction="UP">{{cpt.total}}%{{#if cpt.bonusEffets}} <span class="pastille-effet{{#if (lt cpt.bonusEffets 0)}} malus{{/if}}">{{#if (gt cpt.bonusEffets 0)}}+{{/if}}{{cpt.bonusEffets}}</span>{{/if}}</span>
           </li>
           {{/each}}
         </ul>
@@ -368,7 +368,7 @@
           {{#each combat.competences as |cpt|}}
           <button type="button" class="favori-carte car-{{cpt.caracteristique}}" data-action="rollCompetence" data-cle="{{cpt.cle}}">
             <span class="favori-nom">{{localize cpt.label}}</span>
-            <span class="favori-total mono">{{cpt.total}}%</span>
+            <span class="favori-total mono" {{#if cpt.bonusEffets}}data-tooltip="{{localize 'GALACTICWARS.Effets.BonusCompetence' bonus=cpt.bonusEffets}}<br>{{cpt.sourcesEffets}}"{{/if}}>{{cpt.total}}%{{#if cpt.bonusEffets}} <span class="pastille-effet{{#if (lt cpt.bonusEffets 0)}} malus{{/if}}">{{#if (gt cpt.bonusEffets 0)}}+{{/if}}{{cpt.bonusEffets}}</span>{{/if}}</span>
           </button>
           {{/each}}
         </div>
@@ -383,7 +383,7 @@
           {{#each combat.competencesForce as |cpt|}}
           <button type="button" class="favori-carte force car-{{cpt.caracteristique}}" data-action="rollCompetence" data-cle="{{cpt.cle}}">
             <span class="favori-nom">{{localize cpt.label}}</span>
-            <span class="favori-total mono">{{cpt.total}}%</span>
+            <span class="favori-total mono" {{#if cpt.bonusEffets}}data-tooltip="{{localize 'GALACTICWARS.Effets.BonusCompetence' bonus=cpt.bonusEffets}}<br>{{cpt.sourcesEffets}}"{{/if}}>{{cpt.total}}%{{#if cpt.bonusEffets}} <span class="pastille-effet{{#if (lt cpt.bonusEffets 0)}} malus{{/if}}">{{#if (gt cpt.bonusEffets 0)}}+{{/if}}{{cpt.bonusEffets}}</span>{{/if}}</span>
           </button>
           {{/each}}
         </div>
