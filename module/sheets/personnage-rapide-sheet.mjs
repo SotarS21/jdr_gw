@@ -3,7 +3,7 @@ import { rollCaracteristiqueD20, rollCaracteristiquePourcentage, rollSurvie } fr
 import { applyRace } from "../helpers/race.mjs";
 import { applyMetier } from "../helpers/metier.mjs";
 import { choisirItemCompendium } from "../helpers/compendium-picker.mjs";
-import { basculerCouvert, couvertActif, resumeEffets } from "../helpers/effets.mjs";
+import { basculerCouvert, couvertActif, ligneTrait, basculerTraitActif } from "../helpers/effets.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
@@ -26,6 +26,7 @@ export class PersonnageRapideSheet extends HandlebarsApplicationMixin(ActorSheet
       ajouterTrait: PersonnageRapideSheet.#onAjouterTrait,
       ouvrirTrait: PersonnageRapideSheet.#onOuvrirTrait,
       supprimerTrait: PersonnageRapideSheet.#onSupprimerTrait,
+      basculerTraitActif: PersonnageRapideSheet.#onBasculerTraitActif,
       basculerCouvert: PersonnageRapideSheet.#onBasculerCouvert
     }
   };
@@ -54,7 +55,7 @@ export class PersonnageRapideSheet extends HandlebarsApplicationMixin(ActorSheet
     // (en %), comme la pastille à côté de la caractéristique.
     const facteur = this.actor.type === "pnj" ? GW.facteurD20VersPourcentage : 1;
     context.traits = this.actor.items.filter((i) => i.type === "talent").sort((a, b) => a.name.localeCompare(b.name))
-      .map((i) => ({ id: i.id, img: i.img, name: i.name, system: i.system, effets: resumeEffets(i, { facteur }), autreFiche: i.system.fiche === "classique" }));
+      .map((i) => ligneTrait(i, "classique", { facteur }));
     const reduction = await this.actor.reductionDegats();
     context.reduction = reduction;
     context.couverts = Object.entries(GW.couverts).map(([cle, c]) => ({ cle, label: c.label, armure: c.armure, actif: couvertActif(this.actor) === cle }));
@@ -112,6 +113,12 @@ export class PersonnageRapideSheet extends HandlebarsApplicationMixin(ActorSheet
   static async #onSupprimerTrait(event, target) {
     if (!this.isEditable) return;
     await this.actor.items.get(target.closest("[data-item-id]")?.dataset.itemId)?.delete();
+  }
+
+  /** Allume ou éteint un trait actif (ses effets). */
+  static async #onBasculerTraitActif(event, target) {
+    if (!this.isEditable) return;
+    await basculerTraitActif(this.actor.items.get(target.closest("[data-item-id]")?.dataset.itemId));
   }
 
   static async #onBasculerCouvert(event, target) {

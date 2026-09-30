@@ -650,6 +650,11 @@
       "Effets": "Effets",
       "FicheVisee": "Fiche visée",
       "AutreFiche": "Variante prévue pour l'autre type de fiche : ses effets ne s'appliquent pas ici.",
+      "Actif": "Trait actif",
+      "ActifHint": "Trait à déclencher en jeu : ses effets, désactivés par défaut, s'allument depuis la fiche du personnage.",
+      "EnCours": "Activé",
+      "Activer": "Activer le trait (ses effets s'appliquent)",
+      "Desactiver": "Désactiver le trait",
       "Fiche": {
         "Toutes": "Toutes les fiches",
         "Classique": "Fiche classique",

@@ -61,14 +61,42 @@ export function libelleChangement(change, options) {
 /**
  * Résumé des effets actifs d'un objet (effets non désactivés), ex. « Social +20 %, Furtivité −15 % ».
  * @param {Item} item
- * @param {object} [options] transmis à libelleChangement (facteur des caractéristiques rapides d'un PNJ)
+ * @param {object} [options] transmis à libelleChangement (facteur des caractéristiques rapides d'un PNJ) ;
+ *   `tous: true` résume aussi les effets désactivés (ce qu'apporte un trait actif éteint)
  */
 export function resumeEffets(item, options = {}) {
   return item.effects
-    .filter((e) => !e.disabled)
+    .filter((e) => options.tous || !e.disabled)
     .flatMap((e) => e.changes.map((change) => libelleChangement(change, options)))
     .filter(Boolean)
     .join(", ");
+}
+
+/**
+ * Ligne d'un trait porté, pour les fiches classique et rapide : résumé des effets appliqués ; un trait actif
+ * (`system.actif`, v0.20.1) porteur d'effets reçoit un interrupteur (`activable`, `enCours`) et, éteint, le résumé de
+ * ce qu'il apporterait.
+ * @param {Item} item talent porté
+ * @param {string} autreFiche variante sans effet sur cette fiche ("classique" ou "rapide")
+ * @param {object} [options] transmis à resumeEffets
+ */
+export function ligneTrait(item, autreFiche, options = {}) {
+  const activable = !!item.system.actif && item.effects.size > 0;
+  const enCours = item.effects.some((e) => !e.disabled);
+  return {
+    id: item.id, img: item.img, name: item.name, system: item.system,
+    effets: resumeEffets(item, options),
+    activable, enCours,
+    effetsPossibles: activable && !enCours ? resumeEffets(item, { ...options, tous: true }) : "",
+    autreFiche: item.system.fiche === autreFiche
+  };
+}
+
+/** Allume (ou éteint) tous les effets d'un trait actif. */
+export async function basculerTraitActif(item) {
+  if (!item?.effects.size) return;
+  const allumer = !item.effects.some((e) => !e.disabled);
+  await item.updateEmbeddedDocuments("ActiveEffect", item.effects.map((e) => ({ _id: e.id, disabled: !allumer })));
 }
 
 /** Variante de trait adaptée à l'acteur : "classique" (fiche classique) ou "rapide" (fiche rapide, PNJ). */

@@ -1,35 +1,37 @@
 {
-  "_key": "!items!UwQScs8We0cQcemg",
-  "_id": "UwQScs8We0cQcemg",
-  "name": "Beskar",
+  "_key": "!items!guHGNXylBeeKqD7l",
+  "_id": "guHGNXylBeeKqD7l",
+  "name": "Protection rapprochée",
   "type": "talent",
   "img": "icons/svg/shield.svg",
   "system": {
-    "avantage": "+2 d'armure : pièces d'armure en beskar héritées du clan.",
+    "avantage": "Active les boucliers : +10 points d'armure et protection d'un allié.",
     "inconvenient": "",
     "fiche": "toutes",
-    "description": "<p>Trait du métier Mandalorien soldat. +2 d'armure : pièces d'armure en beskar héritées du clan.</p>"
+    "actif": true,
+    "description": "<p>Trait actif.</p><p>Active les boucliers : +10 points d'armure et protection d'un allié.</p><p><em>Trait actif : l'armure +10 s'allume avec le bouton du trait sur la fiche.</em></p>"
   },
   "effects": [
     {
-      "_key": "!items.effects!UwQScs8We0cQcemg.Sl7jXrXA6Bki6R8N",
-      "_id": "Sl7jXrXA6Bki6R8N",
-      "name": "Beskar",
+      "_key": "!items.effects!guHGNXylBeeKqD7l.hNXQW7w61faf50jh",
+      "_id": "hNXQW7w61faf50jh",
+      "name": "Protection rapprochée",
       "img": "icons/svg/shield.svg",
       "type": "base",
+      "transfer": true,
+      "disabled": true,
       "system": {
         "changes": [
           {
             "key": "system.effets.armure",
             "type": "add",
-            "value": "2"
+            "value": "10"
           }
         ]
       },
-      "disabled": false,
-      "transfer": true,
       "description": "",
       "origin": null,
+      "tint": "#ffffff",
       "statuses": [],
       "sort": 0,
       "flags": {},
@@ -38,12 +40,12 @@
         "duplicateSource": null,
         "coreVersion": "14",
         "systemId": "galactic-wars",
-        "systemVersion": "0.20.0"
+        "systemVersion": "0.20.1"
       }
     }
   ],
-  "folder": "kW2zdGKIlGpk0feB",
-  "sort": 2500000,
+  "folder": "2Flh7oUfTPi5JubP",
+  "sort": 700000,
   "ownership": {
     "default": 0
   },
@@ -53,6 +55,6 @@
     "duplicateSource": null,
     "coreVersion": "14",
     "systemId": "galactic-wars",
-    "systemVersion": "0.20.0"
+    "systemVersion": "0.20.1"
   }
 }

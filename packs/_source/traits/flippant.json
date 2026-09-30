@@ -11,7 +11,7 @@
     "description": "<p>Trait du métier Pirate. Compétence active qui oblige une cible à lancer un test de stress avec -2 ; en cas d'échec, la personne ciblée est déstabilisée.</p>"
   },
   "effects": [],
-  "folder": null,
+  "folder": "kW2zdGKIlGpk0feB",
   "sort": 1200000,
   "ownership": {
     "default": 0

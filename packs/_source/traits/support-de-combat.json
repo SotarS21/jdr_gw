@@ -1,0 +1,28 @@
+{
+  "_key": "!items!paERJ8O8Zi2ciT9X",
+  "_id": "paERJ8O8Zi2ciT9X",
+  "name": "Support de combat",
+  "type": "talent",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "avantage": "En combat, +20 % sur un jet de Médecine ou une action combinée avec des alliés : 1d8.",
+    "inconvenient": "",
+    "fiche": "classique",
+    "actif": true,
+    "description": "<p>Trait actif.</p><p>En combat, +20 % sur un jet de Médecine ou une action combinée avec des alliés : 1d8.</p><p><em>Bonus de situation, appliqué par le MJ.</em></p>"
+  },
+  "effects": [],
+  "folder": "2Flh7oUfTPi5JubP",
+  "sort": 900000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.20.1"
+  }
+}

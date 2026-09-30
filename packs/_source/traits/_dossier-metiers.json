@@ -1,0 +1,19 @@
+{
+  "_key": "!folders!kW2zdGKIlGpk0feB",
+  "_id": "kW2zdGKIlGpk0feB",
+  "name": "Traits de métier",
+  "type": "Item",
+  "folder": null,
+  "sorting": "a",
+  "sort": 100000,
+  "color": null,
+  "description": "",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.20.1"
+  }
+}
