@@ -1877,3 +1877,294 @@
   list-style: none;
   margin-left: -1.1rem;
 }
+
+/* ==========================================================================
+   Effets actifs (v0.20.0) : traits / talents, couverts. Règles communes aux
+   fiches classique et rapide / PNJ (variables de chaque thème, avec repli pour
+   le thème ambre qui n'a ni --gw-card ni --gw-muted), puis retouches propres
+   à la fiche classique (« datapad ») et à la fiche de talent.
+   ========================================================================== */
+
+/* ---- Couverts : boutons exclusifs (un seul actif à la fois) ---- */
+.galactic-wars .gw-couverts {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.5rem;
+}
+.galactic-wars .gw-couverts-titre {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-right: auto;
+  font-size: 0.85rem;
+  color: var(--gw-muted, var(--gw-text));
+}
+.galactic-wars .gw-couverts-titre .mono {
+  color: var(--gw-accent);
+  font-weight: 700;
+}
+.galactic-wars .gw-couvert {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  width: auto;
+  flex: 0 0 auto;
+  padding: 0.1rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid var(--gw-border);
+  background: var(--gw-card, var(--gw-panel));
+  color: var(--gw-text);
+  font-size: 0.75rem;
+  line-height: 1.5;
+  cursor: pointer;
+}
+.galactic-wars .gw-couvert .mono {
+  opacity: 0.75;
+}
+.galactic-wars .gw-couvert:hover:not(:disabled) {
+  border-color: var(--gw-accent);
+}
+.galactic-wars .gw-couvert.actif {
+  border-color: var(--gw-accent);
+  background: color-mix(in srgb, var(--gw-accent) 18%, transparent);
+  color: var(--gw-accent);
+  font-weight: 700;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--gw-accent) 35%, transparent);
+}
+.galactic-wars .gw-couvert.actif .mono {
+  opacity: 1;
+}
+.galactic-wars .gw-couvert:disabled {
+  cursor: default;
+  opacity: 0.55;
+}
+.galactic-wars .gw-couvert.actif:disabled {
+  opacity: 0.85;
+}
+
+/* ---- Fiche rapide / PNJ : bonus d'effet à côté de la caractéristique ---- */
+.galactic-wars .caracteristiques-rapides-list li {
+  grid-template-columns: 2rem 1fr 3.5rem 2.2rem;
+}
+.galactic-wars .bonus-effet {
+  justify-self: start;
+  padding: 0 0.3rem;
+  border-radius: 4px;
+  border: 1px solid color-mix(in srgb, var(--gw-accent) 50%, transparent);
+  color: var(--gw-accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: help;
+}
+
+/* ---- Fiche rapide / PNJ : section Traits ---- */
+.galactic-wars .traits-rapides h2 button,
+.galactic-wars .talent-effets h2 button {
+  width: auto;
+  line-height: 1;
+  margin-left: 0.3rem;
+  padding: 0.1rem 0.4rem;
+  background: none;
+  border: 1px solid var(--gw-border);
+  border-radius: 3px;
+  color: var(--gw-text);
+  cursor: pointer;
+}
+.galactic-wars .traits-rapides h2 button:hover,
+.galactic-wars .talent-effets h2 button:hover {
+  border-color: var(--gw-accent);
+  color: var(--gw-accent);
+}
+.galactic-wars .trait-rapide {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.2rem 0.5rem;
+  padding: 0.25rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+.galactic-wars .trait-rapide .trait-nom {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+.galactic-wars .trait-rapide .trait-nom:hover {
+  color: var(--gw-accent);
+}
+.galactic-wars .trait-rapide .trait-nom img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  border: none;
+  flex-shrink: 0;
+}
+.galactic-wars .trait-rapide .trait-effets {
+  font-size: 0.78rem;
+  color: var(--gw-accent);
+}
+.galactic-wars .trait-rapide .del-btn {
+  margin-left: auto;
+  width: auto;
+  flex: 0 0 auto;
+  padding: 0 0.25rem;
+  background: none;
+  border: none;
+  opacity: 0.6;
+  cursor: pointer;
+}
+.galactic-wars .trait-rapide .del-btn:hover {
+  opacity: 1;
+}
+.galactic-wars .trait-rapide .trait-detail {
+  flex-basis: 100%;
+  margin: 0;
+  font-size: 0.78rem;
+  opacity: 0.8;
+}
+.galactic-wars .reduction-rapide {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0.5rem 0 0;
+  font-size: 0.85rem;
+}
+.galactic-wars .reduction-rapide .mono {
+  color: var(--gw-accent);
+  font-weight: 700;
+}
+
+/* Variante prévue pour l'autre type de fiche : mention atténuée, sans effet ici. */
+.galactic-wars .trait-rapide .hint,
+.galactic-wars .trait-effets .hint {
+  font-style: italic;
+  opacity: 0.55;
+  cursor: help;
+}
+
+/* ---- Fiche classique : total de compétence modifié par un effet, colonne Effets ---- */
+.galactic-wars.personnage .competence-row .total.avec-effet {
+  text-decoration: underline dotted;
+  text-underline-offset: 3px;
+  cursor: help;
+}
+.galactic-wars.personnage .traits-table .trait-effets {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.75rem;
+  color: var(--gw-accent-soft);
+}
+.galactic-wars.personnage .traits-table .trait-effets .hint {
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  color: var(--gw-dim);
+  opacity: 1;
+}
+
+/* ---- Fiche de talent / trait : fiche visée et liste des effets actifs ---- */
+.galactic-wars .talent-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.galactic-wars .talent-effet {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+.galactic-wars .talent-effet img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  border: none;
+  flex-shrink: 0;
+}
+.galactic-wars .talent-effet-nom {
+  flex: 0 1 auto;
+  font-weight: 700;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.galactic-wars .talent-effet-resume {
+  flex: 1 1 auto;
+  font-size: 0.8rem;
+  color: var(--gw-accent);
+}
+.galactic-wars .talent-effet button {
+  width: auto;
+  flex: 0 0 auto;
+  padding: 0.1rem 0.3rem;
+  background: none;
+  border: none;
+  color: var(--gw-text);
+  opacity: 0.7;
+  cursor: pointer;
+}
+.galactic-wars .talent-effet button:hover {
+  opacity: 1;
+  color: var(--gw-accent);
+}
+/* Effet désactivé : conservé sur l'objet mais non transféré à l'acteur. */
+.galactic-wars .talent-effet.desactive img,
+.galactic-wars .talent-effet.desactive .talent-effet-nom,
+.galactic-wars .talent-effet.desactive .talent-effet-resume {
+  opacity: 0.45;
+}
+.galactic-wars .talent-effet.desactive .talent-effet-resume {
+  text-decoration: line-through;
+}
+.galactic-wars .talent-effets > .hint:last-child {
+  margin: 0.4rem 0 0;
+  word-break: break-word;
+}
+
+/* ---- Fiche de métier : trait posé à l'application (une variante par type de fiche) ---- */
+.galactic-wars .metier-trait {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.2rem 0.4rem;
+  padding: 0.25rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+.galactic-wars .metier-trait-fiche {
+  flex: 0 0 8rem;
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+.galactic-wars .metier-trait-nom {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-weight: 700;
+}
+.galactic-wars .metier-trait-nom.hint {
+  font-weight: 400;
+  font-style: italic;
+  opacity: 0.6;
+}
+.galactic-wars .metier-trait button {
+  width: auto;
+  flex: 0 0 auto;
+  padding: 0.1rem 0.3rem;
+  background: none;
+  border: none;
+  color: var(--gw-text);
+  opacity: 0.7;
+  cursor: pointer;
+}
+.galactic-wars .metier-trait button:hover {
+  opacity: 1;
+  color: var(--gw-accent);
+}
+.galactic-wars .metier-trait-uuid {
+  flex-basis: 100%;
+  font-size: 0.75rem;
+}
+.galactic-wars .metier-traits > .hint:last-child {
+  margin: 0.4rem 0 0;
+}

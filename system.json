@@ -2,7 +2,7 @@
   "id": "galactic-wars",
   "title": "Galactic Wars",
   "description": "Système de jeu de rôle Star Wars maison : compétences en pourcentage, races, métiers, force, alignement Lumière/Obscurité.",
-  "version": "0.19.9",
+  "version": "0.20.0",
   "socket": true,
   "compatibility": {
     "minimum": "13",
@@ -46,6 +46,7 @@
     { "name": "races", "label": "Races", "path": "packs/races", "type": "Item", "banner": "systems/galactic-wars/asset_visuel/objets/banniere-races.jpg" },
     { "name": "metiers", "label": "Métiers", "path": "packs/metiers", "type": "Item", "banner": "systems/galactic-wars/asset_visuel/objets/banniere-metiers.jpg" },
     { "name": "talents", "label": "Talents", "path": "packs/talents", "type": "Item", "banner": "systems/galactic-wars/asset_visuel/objets/banniere-talents.jpg" },
+    { "name": "traits", "label": "Traits", "path": "packs/traits", "type": "Item", "banner": "systems/galactic-wars/asset_visuel/objets/banniere-talents.jpg" },
     { "name": "armes", "label": "Armes", "path": "packs/armes", "type": "Item", "banner": "systems/galactic-wars/asset_visuel/objets/banniere-armes.jpg" },
     { "name": "armures", "label": "Armures", "path": "packs/armures", "type": "Item", "banner": "systems/galactic-wars/asset_visuel/objets/banniere-armures.jpg" },
     { "name": "ecoles", "label": "Écoles sith", "path": "packs/ecoles", "type": "Item", "banner": "systems/galactic-wars/asset_visuel/objets/banniere-ecoles.jpg" },

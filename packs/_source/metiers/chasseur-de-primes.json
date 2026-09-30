@@ -75,6 +75,10 @@
         "quantite": 1
       }
     ],
+    "traits": {
+      "classique": "Compendium.galactic-wars.traits.Item.imKQoSyeoAYuscwa",
+      "rapide": "Compendium.galactic-wars.traits.Item.imKQoSyeoAYuscwa"
+    },
     "talent": {
       "nom": "Capture",
       "description": "À tout moment, tentative de capture de la cible : test de Cap. Tir contré par un test de force de la cible."

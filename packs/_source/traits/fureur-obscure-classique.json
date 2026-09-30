@@ -1,0 +1,58 @@
+{
+  "_key": "!items!mQCwcqWKmm28QO8a",
+  "_id": "mQCwcqWKmm28QO8a",
+  "name": "Fureur obscure",
+  "type": "talent",
+  "img": "icons/svg/fire.svg",
+  "system": {
+    "avantage": "+4 en intimidation : la colère du côté obscur fait plier les esprits faibles.",
+    "inconvenient": "",
+    "fiche": "classique",
+    "description": "<p>Trait du métier Guerrier sith. +4 en intimidation : la colère du côté obscur fait plier les esprits faibles.</p><p>Variante de la fiche classique (bonus en %).</p>"
+  },
+  "effects": [
+    {
+      "_key": "!items.effects!mQCwcqWKmm28QO8a.zfssBSmILz98pWJj",
+      "_id": "zfssBSmILz98pWJj",
+      "name": "Fureur obscure",
+      "img": "icons/svg/fire.svg",
+      "type": "base",
+      "system": {
+        "changes": [
+          {
+            "key": "system.effets.competences.intimidation",
+            "type": "add",
+            "value": "20"
+          }
+        ]
+      },
+      "disabled": false,
+      "transfer": true,
+      "description": "",
+      "origin": null,
+      "statuses": [],
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.0"
+      }
+    }
+  ],
+  "folder": null,
+  "sort": 1900000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.20.0"
+  }
+}

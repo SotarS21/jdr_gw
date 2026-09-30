@@ -1,0 +1,27 @@
+{
+  "_key": "!items!6SkmM6sm2aEoMia4",
+  "_id": "6SkmM6sm2aEoMia4",
+  "name": "Réparation",
+  "type": "talent",
+  "img": "icons/svg/clockwork.svg",
+  "system": {
+    "avantage": "Peut réparer presque tout ce qui n'est pas trop gros (comme un vaisseau interstellaire), tant qu'il a le matériel.",
+    "inconvenient": "",
+    "fiche": "toutes",
+    "description": "<p>Trait du métier Mécanicien. Peut réparer presque tout ce qui n'est pas trop gros (comme un vaisseau interstellaire), tant qu'il a le matériel.</p>"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 900000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.20.0"
+  }
+}

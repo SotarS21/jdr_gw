@@ -79,9 +79,13 @@
         "quantite": 1
       }
     ],
+    "traits": {
+      "classique": "Compendium.galactic-wars.traits.Item.mQCwcqWKmm28QO8a",
+      "rapide": "Compendium.galactic-wars.traits.Item.Cy6uKaKcSoYqWmOW"
+    },
     "talent": {
-      "nom": "",
-      "description": ""
+      "nom": "Fureur obscure",
+      "description": "+4 en intimidation : la colère du côté obscur fait plier les esprits faibles."
     },
     "description": "<p>Apprenti sith devenu guerrier : il a gagné sa place par la violence et sert l'Empire en première ligne. Maître du sabre laser, souvent double, il domine ses ennemis par l'intimidation et le contrôle de la Force.</p>"
   },

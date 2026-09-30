@@ -240,6 +240,13 @@
       "ArmureNaturelle": "Armure naturelle",
       "TalentNom": "Nom du talent",
       "TalentDescription": "Description du talent",
+      "TraitsMetier": "Trait du métier",
+      "TraitsMetierHint": "Posé sur la fiche à l'application du métier : la variante classique (%) sur une fiche classique, la variante rapide (d20) sur une fiche rapide ou un PNJ. Un trait non chiffré (« toutes les fiches ») peut servir aux deux.",
+      "TraitAucun": "Aucun trait",
+      "TraitIntrouvable": "Trait introuvable (uuid invalide)",
+      "TraitChoisir": "Choisir le trait",
+      "TraitRetirer": "Retirer le trait",
+      "ChoisirTraitMetier": "Trait du métier — {fiche}",
       "Degats": "Dégâts",
       "CompetenceLiee": "Compétence liée",
       "Reduction": "Réduction",
@@ -359,6 +366,9 @@
     "Migration": {
       "DossierSauvegardes": "Sauvegardes avant liaison des tokens",
       "TokensLies": "Tokens liés à leur fiche (correctif 0.18.2) :",
+      "EffetsAVerifier": "Effets ajoutés par le correctif 0.20.0 à vérifier (le talent ou le trait était peut-être déjà reporté à la main) :",
+      "EffetCompetenceAjustee": "{acteur} : {objet} → {competence} {effet} %, ajustement actuel {ajustement}",
+      "EffetCaracteristiqueSaisie": "{acteur} : {objet} → {caracteristique} {effet}, valeur saisie {valeur} (à baisser si elle comptait déjà le talent)",
       "ReserveMJ": "Seul le MJ peut mettre à jour les fiches du monde.",
       "Bilan": "Galactic Wars — {competences} compétence(s) ajoutée(s) sur {fiches} fiche(s).",
       "RienAFaire": "Galactic Wars — toutes les fiches ont déjà toutes leurs compétences."
@@ -635,8 +645,35 @@
       "Inconvenient": "Inconvénient",
       "Ajouter": "Ajouter un trait",
       "Retirer": "Retirer ce trait",
-      "Aucun": "Aucun trait. Ajoutez-en depuis le compendium Talents (+) ou par glisser-déposer.",
-      "DejaPresent": "{nom} est déjà dans les traits du personnage."
+      "Aucun": "Aucun trait. Ajoutez-en depuis les compendiums Traits et Talents (+) ou par glisser-déposer.",
+      "DejaPresent": "{nom} est déjà dans les traits du personnage.",
+      "Effets": "Effets",
+      "FicheVisee": "Fiche visée",
+      "AutreFiche": "Variante prévue pour l'autre type de fiche : ses effets ne s'appliquent pas ici.",
+      "Fiche": {
+        "Toutes": "Toutes les fiches",
+        "Classique": "Fiche classique",
+        "Rapide": "Fiche rapide"
+      }
+    },
+    "Effets": {
+      "Titre": "Effets actifs",
+      "Creer": "Ajouter un effet",
+      "Editer": "Modifier l'effet",
+      "Basculer": "Activer / désactiver l'effet",
+      "Supprimer": "Supprimer l'effet",
+      "Aucun": "Aucun effet actif.",
+      "AucunChangement": "Aucune modification",
+      "Armure": "Armure",
+      "BonusCompetence": "Total, dont {bonus} % d'effets actifs (traits, talents)",
+      "BonusCaracteristique": "Bonus des effets actifs (traits, talents) : valeur jouée {total}",
+      "AideCles": "Clés : system.effets.competences.<compétence> (en %, fiche classique), system.effets.caracteristiques.<caractéristique> (en points de d20, fiche rapide / PNJ), system.effets.armure. Type « Ajouter », valeur numérique."
+    },
+    "Couvert": {
+      "Titre": "Couvert",
+      "Demi": "Demi-couvert",
+      "Total": "Couvert total",
+      "Hint": "+{armure} d'armure temporaire tant que le couvert est pris (un seul à la fois ; recliquer pour le quitter)."
     },
     "Notes": {
       "ContactDeDepart": "Contact de départ — {metier}",

@@ -2,6 +2,7 @@ import { GW } from "../config.mjs";
 import { editerEntreeNote, supprimerEntreeNote } from "../helpers/notes.mjs";
 import * as Comlink from "../helpers/comlink.mjs";
 import { libelleChangement } from "../helpers/effets.mjs";
+import { choisirItemCompendium } from "../helpers/compendium-picker.mjs";
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ItemSheetV2 } = foundry.applications.sheets;
 
@@ -64,7 +65,9 @@ export class GalacticWarsItemSheet extends HandlebarsApplicationMixin(ItemSheetV
       effetCreer: GalacticWarsItemSheet.#onEffetCreer,
       effetEditer: GalacticWarsItemSheet.#onEffetEditer,
       effetBasculer: GalacticWarsItemSheet.#onEffetBasculer,
-      effetSupprimer: GalacticWarsItemSheet.#onEffetSupprimer
+      effetSupprimer: GalacticWarsItemSheet.#onEffetSupprimer,
+      choisirTraitMetier: GalacticWarsItemSheet.#onChoisirTraitMetier,
+      retirerTraitMetier: GalacticWarsItemSheet.#onRetirerTraitMetier
     }
   };
 
@@ -183,6 +186,20 @@ export class GalacticWarsItemSheet extends HandlebarsApplicationMixin(ItemSheetV
         id: e.id, name: e.name, img: e.img, disabled: e.disabled,
         resume: e.changes.map(libelleChangement).filter(Boolean).join(", ") || game.i18n.localize("GALACTICWARS.Effets.AucunChangement")
       }));
+    }
+    // Métier (v0.20.0) : trait posé à l'application, une variante par type de fiche (nom retrouvé depuis l'uuid).
+    if (this.item.type === "metier") {
+      context.traitsMetier = ["classique", "rapide"].map((cle) => {
+        const uuid = this.item.system.traits?.[cle] ?? "";
+        const trait = uuid ? fromUuidSync(uuid, { strict: false }) : null;
+        return {
+          cle,
+          uuid,
+          label: GW.fichesTrait[cle],
+          nom: trait?.name ?? "",
+          introuvable: !!uuid && !trait
+        };
+      });
     }
     if (this.estObjet) {
       await GalacticWarsItemSheet.#chargerPartiels();
@@ -498,6 +515,28 @@ export class GalacticWarsItemSheet extends HandlebarsApplicationMixin(ItemSheetV
   static async #onEffetSupprimer(event, target) {
     if (!this.isEditable) return;
     await this.#effetDeLigne(target)?.delete();
+  }
+
+  /** Métier : choisit le trait d'une variante de fiche (compendiums Traits et Talents, variante adaptée ou « toutes »). */
+  static async #onChoisirTraitMetier(event, target) {
+    if (!this.isEditable || this.item.type !== "metier") return;
+    const fiche = target.dataset.fiche;
+    if (!["classique", "rapide"].includes(fiche)) return;
+    const exclue = fiche === "classique" ? "rapide" : "classique";
+    const trait = await choisirItemCompendium(["traits", "talents"], {
+      title: game.i18n.format("GALACTICWARS.Item.ChoisirTraitMetier", { fiche: game.i18n.localize(GW.fichesTrait[fiche]) }),
+      champs: ["system.fiche"],
+      filtre: (entree) => entree.type === "talent" && entree.system?.fiche !== exclue
+    });
+    if (trait) await this.item.update({ [`system.traits.${fiche}`]: trait.uuid });
+  }
+
+  /** Métier : retire le trait d'une variante de fiche. */
+  static async #onRetirerTraitMetier(event, target) {
+    if (!this.isEditable || this.item.type !== "metier") return;
+    const fiche = target.dataset.fiche;
+    if (!["classique", "rapide"].includes(fiche)) return;
+    await this.item.update({ [`system.traits.${fiche}`]: "" });
   }
 
   static async #onChangerOnglet(event, target) {

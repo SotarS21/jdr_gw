@@ -339,5 +339,18 @@ export const RELEASE_NOTES = {
       <li>Tous les métiers ont désormais une description (d'après le document des métiers).</li>
       <li>Métiers : le « niveau minimum » et le « métier requis » des prérequis sont supprimés.</li>
     </ul>`
+  },
+  "0.20.0": {
+    title: "v0.20.0 — Traits à effets actifs",
+    html: `<ul>
+      <li>Nouveau compendium <strong>Traits</strong> : un trait par métier (21 métiers), avec des effets actifs appliqués automatiquement. Un trait chiffré existe en deux variantes : en <strong>%</strong> pour la fiche classique (+4 → +20 %), en <strong>d20</strong> pour la fiche rapide ; un PNJ, qui jette en %, compte ses bonus × 5.</li>
+      <li>Le trait du métier est posé automatiquement sur la fiche quand on choisit un métier (variante adaptée à la fiche) et remplacé au changement de métier.</li>
+      <li>Talents chiffrés : <strong>Brutale</strong> (Social −10 %), <strong>Charismatique</strong> (Social +20 %, Furtivité −15 %) et <strong>Stresser</strong> (Sang-froid −20 %) appliquent leurs effets, avec leur variante pour la fiche rapide.</li>
+      <li>Les effets s'ajoutent au total des compétences (fiche classique) ou des caractéristiques (fiche rapide / PNJ) et sont affichés à côté ; un bonus d'effet relève le plafond de 90 %. Le plafond porte sur la valeur hors effets : un bonus n'empêche pas de progresser par l'expérience, un malus ne s'efface pas avec elle.</li>
+      <li><strong>Couverts</strong> : Demi-couvert (+4) et Couvert total (+8) d'armure temporaire, exclusifs, à prendre depuis le HUD du token ou depuis la fiche (onglet Combat) ; l'armure temporaire réduit les dégâts subis.</li>
+      <li>Médecin : le bonus de Médecine est désormais porté par le trait <strong>Chirurgien</strong> (+20 %) et non plus par le métier.</li>
+      <li>Fiche de talent : fiche visée (toutes, classique, rapide) et liste des effets (créer, modifier, activer, supprimer). Fiche de métier : choix du trait posé (variante classique et variante rapide).</li>
+      <li>Correctif MJ <code>0.20.0-traits-metier</code> : pose le trait du métier sur les personnages déjà dotés d'un métier et recalcule le bonus de Médecine des Médecins ; un message chuchoté au MJ liste les fiches où un talent ou un trait avait peut-être déjà été reporté à la main.</li>
+    </ul>`
   }
 };

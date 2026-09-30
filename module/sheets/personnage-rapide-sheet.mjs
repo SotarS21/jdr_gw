@@ -50,9 +50,11 @@ export class PersonnageRapideSheet extends HandlebarsApplicationMixin(ActorSheet
       total: system.caracteristiquesTotales?.[cle] ?? system.caracteristiques[cle]
     }));
     // Traits portés (v0.20.0) : la fiche rapide n'affichait aucun objet ; une variante « classique » (%) n'a aucun
-    // effet ici.
+    // effet ici. Un PNJ compte les bonus d20 × GW.facteurD20VersPourcentage : le résumé affiche la valeur appliquée
+    // (en %), comme la pastille à côté de la caractéristique.
+    const facteur = this.actor.type === "pnj" ? GW.facteurD20VersPourcentage : 1;
     context.traits = this.actor.items.filter((i) => i.type === "talent").sort((a, b) => a.name.localeCompare(b.name))
-      .map((i) => ({ id: i.id, img: i.img, name: i.name, system: i.system, effets: resumeEffets(i), autreFiche: i.system.fiche === "classique" }));
+      .map((i) => ({ id: i.id, img: i.img, name: i.name, system: i.system, effets: resumeEffets(i, { facteur }), autreFiche: i.system.fiche === "classique" }));
     const reduction = await this.actor.reductionDegats();
     context.reduction = reduction;
     context.couverts = Object.entries(GW.couverts).map(([cle, c]) => ({ cle, label: c.label, armure: c.armure, actif: couvertActif(this.actor) === cle }));

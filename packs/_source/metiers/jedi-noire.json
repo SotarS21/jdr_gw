@@ -104,9 +104,13 @@
         "quantite": 1
       }
     ],
+    "traits": {
+      "classique": "Compendium.galactic-wars.traits.Item.CmqmGOscuuuI0geu",
+      "rapide": "Compendium.galactic-wars.traits.Item.ub4Mq6G2u804OCEe"
+    },
     "talent": {
-      "nom": "",
-      "description": ""
+      "nom": "Entre deux voies",
+      "description": "+4 en perception : ni Lumière ni Obscurité, elle voit ce que les autres ignorent."
     },
     "description": "<p>Utilisateur de la Force affranchi à la fois du Code jedi et de l'Ordre sith, qui suit sa propre voie. Discret et imprévisible, il mêle persuasion par la Force, sabre laser et blaster, et voyage en vêtements discrets, loin des temples.</p>"
   },

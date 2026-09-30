@@ -1,0 +1,63 @@
+{
+  "_key": "!items!CMoA0QCAqgYYGcQa",
+  "_id": "CMoA0QCAqgYYGcQa",
+  "name": "Charismatique",
+  "type": "talent",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "avantage": "+4 de sociale",
+    "inconvenient": "-3 de furtivité",
+    "fiche": "rapide",
+    "description": ""
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.20.0"
+  },
+  "effects": [
+    {
+      "_key": "!items.effects!CMoA0QCAqgYYGcQa.o3MHxrXY3VEEeQEE",
+      "_id": "o3MHxrXY3VEEeQEE",
+      "name": "Charismatique",
+      "img": "icons/svg/upgrade.svg",
+      "type": "base",
+      "system": {
+        "changes": [
+          {
+            "key": "system.effets.caracteristiques.mentale",
+            "type": "add",
+            "value": "4"
+          },
+          {
+            "key": "system.effets.caracteristiques.dexterite",
+            "type": "add",
+            "value": "-3"
+          }
+        ]
+      },
+      "disabled": false,
+      "transfer": true,
+      "description": "",
+      "origin": null,
+      "statuses": [],
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.0"
+      }
+    }
+  ]
+}

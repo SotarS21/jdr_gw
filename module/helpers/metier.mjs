@@ -23,6 +23,29 @@ export async function traitDuMetier(actor, metierItem) {
 }
 
 /**
+ * Pose du trait du métier face aux talents déjà portés par l'acteur (les objets à drapeau traitMetier, retirés au
+ * changement de métier, sont ignorés) — évite un doublon dont les effets se cumuleraient :
+ * - talent venu du même trait (même lien compendium, ex. ajouté à la main par le bouton +) : il reçoit le drapeau
+ *   traitMetier (remplacé normalement au prochain changement de métier), rien n'est créé ;
+ * - autre variante du même trait (compendium Traits, même nom) : remplacée par la variante adaptée à la fiche ;
+ * - talent homonyme d'une autre origine (maison, compendium Talents) : gardé tel quel, le trait n'est pas posé.
+ * @param {Actor} actor
+ * @param {object} trait données de création (traitDuMetier)
+ * @returns {{ creer: object|null, marquer: Item|null, supprimer: Item|null }}
+ */
+export function planPoseTrait(actor, trait) {
+  const talents = actor.items.filter((i) => i.type === "talent" && !i.getFlag("galactic-wars", "traitMetier"));
+  const source = trait._stats?.compendiumSource;
+  const meme = source ? talents.find((i) => i._stats?.compendiumSource === source) : null;
+  if (meme) return { creer: null, marquer: meme, supprimer: null };
+  const homonyme = talents.find((i) => i.name === trait.name);
+  if (!homonyme) return { creer: trait, marquer: null, supprimer: null };
+  const duCompendiumTraits = String(homonyme._stats?.compendiumSource ?? "").startsWith(`Compendium.${game.system.id}.traits.`);
+  if (duCompendiumTraits) return { creer: trait, marquer: null, supprimer: homonyme };
+  return { creer: null, marquer: null, supprimer: null };
+}
+
+/**
  * Applique un métier (Item type "metier") sur un Actor : équipement de départ, référence
  * au métier, et — uniquement pour les Actor qui ont un tableau `system.competences` (la
  * fiche classique ; pas la fiche rapide) — les bonus de compétence accordés. Les objets
@@ -37,7 +60,11 @@ export async function traitDuMetier(actor, metierItem) {
 export async function applyMetier(actor, metierItem) {
   if (metierItem.type !== "metier") throw new Error("applyMetier attend un Item de type metier");
 
+  const trait = await traitDuMetier(actor, metierItem);
+  const pose = trait ? planPoseTrait(actor, trait) : { creer: null, marquer: null, supprimer: null };
   const ancienEquipement = actor.items.filter((i) => i.getFlag("galactic-wars", "startingGear") || i.getFlag("galactic-wars", "traitMetier"));
+  if (pose.supprimer) ancienEquipement.push(pose.supprimer);
+  if (pose.marquer) await pose.marquer.setFlag("galactic-wars", "traitMetier", true);
   if (ancienEquipement.length) {
     await actor.deleteEmbeddedDocuments(
       "Item",
@@ -51,8 +78,7 @@ export async function applyMetier(actor, metierItem) {
   const lignes = metierItem.system.equipement;
   const contacts = avecNotes ? lignes.filter((e) => estContactDeDepart(e.nom)) : [];
   const nouveauxObjets = await Promise.all(lignes.filter((e) => !contacts.includes(e)).map((e) => objetDeDepart(e)));
-  const trait = await traitDuMetier(actor, metierItem);
-  if (trait) nouveauxObjets.push(trait);
+  if (pose.creer) nouveauxObjets.push(pose.creer);
   if (nouveauxObjets.length) await actor.createEmbeddedDocuments("Item", nouveauxObjets);
 
   const updates = {

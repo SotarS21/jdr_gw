@@ -1,5 +1,6 @@
 import { GW } from "../config.mjs";
 import { completerCompetences } from "../helpers/migration.mjs";
+import { tauxCompetence } from "../helpers/competences.mjs";
 
 const { SchemaField, NumberField, StringField, HTMLField, ArrayField, BooleanField, FilePathField } = foundry.data.fields;
 
@@ -193,11 +194,13 @@ export class PersonnageData extends foundry.abstract.TypeDataModel {
       // Effets actifs (traits, talents) : ajoutés tels quels, même au niveau 0 ou sous la caractéristique.
       const effet = this.effets?.competences?.[competence.cle] ?? 0;
       competence.bonusEffets = effet;
-      // Plafond à 90 % (GW.plafondCompetence), relevé des bonus racial et d'effets positifs : « à part avec des
-      // effets ou une ethnie, une compétence ne peut pas dépasser 90 % » (règle de l'auteur, 2026-09-24).
-      const plafond = GW.plafondCompetence + Math.max(0, competence.racial) + Math.max(0, effet);
-      competence.total = Math.min(plafond, Math.max(0, bonusCaracteristique + modulation + effet));
-      competence.atteintPlafond = competence.total >= GW.plafondCompetence;
+      // Plafond à 90 % (GW.plafondCompetence) sur la valeur hors effet, relevé du bonus racial ; l'effet s'ajoute
+      // ensuite (voir tauxCompetence) : « à part avec des effets ou une ethnie, une compétence ne peut pas dépasser
+      // 90 % » (règle de l'auteur, 2026-09-24).
+      const taux = tauxCompetence({ caracteristique: bonusCaracteristique, modulation, racial: competence.racial, effet });
+      competence.totalHorsEffets = taux.horsEffets;
+      competence.total = taux.total;
+      competence.atteintPlafond = taux.atteintPlafond;
       competence.label = def?.label ?? competence.cle;
       competence.caracteristique = def?.caracteristique;
       competence.estCompetenceMetier = def?.metier ?? false;

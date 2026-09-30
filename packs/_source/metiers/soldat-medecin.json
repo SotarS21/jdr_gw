@@ -53,6 +53,10 @@
         "quantite": 1
       }
     ],
+    "traits": {
+      "classique": "Compendium.galactic-wars.traits.Item.Wi2Mq6GmiwOMYEmK",
+      "rapide": "Compendium.galactic-wars.traits.Item.Wi2Mq6GmiwOMYEmK"
+    },
     "talent": {
       "nom": "Ne meure pas !",
       "description": "Donne à un allié la possibilité de relancer un test de survie raté."

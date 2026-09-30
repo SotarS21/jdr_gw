@@ -29,8 +29,16 @@ export async function basculerCouvert(acteur, cle) {
   if (cle && cle !== actuel) await acteur.toggleStatusEffect(idCouvert(cle), { active: true });
 }
 
-/** Libellé lisible d'une modification d'effet (ex. « Furtivité +20 % », « Dextérité +4 », « Armure +4 »). */
-export function libelleChangement(change) {
+/**
+ * Libellé lisible d'une modification d'effet (ex. « Furtivité +20 % », « Dextérité +4 », « Armure +4 »).
+ * @param {object} change modification (key, value)
+ * @param {object} [options]
+ * @param {number} [options.facteur=1] facteur appliqué aux caractéristiques rapides : un PNJ les compte
+ *   × GW.facteurD20VersPourcentage (valeur affichée en %). Toute autre valeur (ex. l'index passé par
+ *   Array#map) est ignorée.
+ */
+export function libelleChangement(change, options) {
+  const facteur = Number(options?.facteur) || 1;
   const valeur = Number(change.value);
   if (!Number.isFinite(valeur)) return "";
   const signe = valeur > 0 ? `+${valeur}` : `${valeur}`;
@@ -41,17 +49,24 @@ export function libelleChangement(change) {
   }
   if (groupe === "caracteristiques") {
     const label = GW.caracteristiquesRapides[cle];
-    return label ? `${game.i18n.localize(label)} ${signe}` : "";
+    if (!label) return "";
+    if (facteur === 1) return `${game.i18n.localize(label)} ${signe}`;
+    const applique = valeur * facteur;
+    return `${game.i18n.localize(label)} ${applique > 0 ? `+${applique}` : applique} %`;
   }
   if (change.key === "system.effets.armure") return `${game.i18n.localize("GALACTICWARS.Effets.Armure")} ${signe}`;
   return "";
 }
 
-/** Résumé des effets actifs d'un objet (effets non désactivés), ex. « Social +20 %, Furtivité −15 % ». */
-export function resumeEffets(item) {
+/**
+ * Résumé des effets actifs d'un objet (effets non désactivés), ex. « Social +20 %, Furtivité −15 % ».
+ * @param {Item} item
+ * @param {object} [options] transmis à libelleChangement (facteur des caractéristiques rapides d'un PNJ)
+ */
+export function resumeEffets(item, options = {}) {
   return item.effects
     .filter((e) => !e.disabled)
-    .flatMap((e) => e.changes.map(libelleChangement))
+    .flatMap((e) => e.changes.map((change) => libelleChangement(change, options)))
     .filter(Boolean)
     .join(", ");
 }

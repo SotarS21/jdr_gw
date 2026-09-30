@@ -71,6 +71,10 @@
         "quantite": 1
       }
     ],
+    "traits": {
+      "classique": "Compendium.galactic-wars.traits.Item.UgmuSGAsSuU2SuU8",
+      "rapide": "Compendium.galactic-wars.traits.Item.UgmuSGAsSuU2SuU8"
+    },
     "talent": {
       "nom": "Bluff",
       "description": "Un charisme particulier permet de se faire écouter même dans les situations critiques."

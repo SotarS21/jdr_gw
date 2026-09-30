@@ -11,7 +11,7 @@
     "competences": [
       {
         "cle": "medecine",
-        "bonus": 20,
+        "bonus": 0,
         "obligatoire": true
       },
       {
@@ -64,11 +64,15 @@
         "quantite": 1
       }
     ],
+    "traits": {
+      "classique": "Compendium.galactic-wars.traits.Item.40gG4iwmk8iU2kqY",
+      "rapide": "Compendium.galactic-wars.traits.Item.M4yUGAEym6e7uMo2"
+    },
     "talent": {
       "nom": "Chirurgien",
       "description": "+4 en médecine et permet d'opérer sur le terrain."
     },
-    "description": "<p>Praticien soignant sur le terrain comme en infirmerie ; sa maîtrise de la chirurgie lui confère un bonus contextuel de +20% en Médecine lors d'une opération.</p>"
+    "description": "<p>Praticien soignant sur le terrain comme en infirmerie ; sa maîtrise de la chirurgie (trait Chirurgien : +20 % en Médecine sur la fiche classique, +4 en Mentale sur la fiche rapide) lui permet d'opérer même en pleine mission.</p>"
   },
   "folder": null,
   "sort": 100000,

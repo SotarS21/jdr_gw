@@ -7,6 +7,7 @@
   "system": {
     "avantage": "Peut enchaîner jusqu'à 3 attaques avec un bonus de +1 à chacune",
     "inconvenient": "prend une pose badass après le combo qui l'empêche de jouer pendant 1 tour",
+    "fiche": "toutes",
     "description": ""
   },
   "folder": null,

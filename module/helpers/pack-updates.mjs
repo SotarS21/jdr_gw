@@ -2,7 +2,8 @@ import { GW } from "../config.mjs";
 import { appareilSelonNom, IMAGES_APPAREILS, IMAGES_GENERIQUES } from "./appareils.mjs";
 import { fichesIncompletes, completerToutesLesFiches } from "./migration.mjs";
 import { GalacticWarsActor } from "../documents/actor.mjs";
-import { competencesSelonMetier } from "./metier.mjs";
+import { competencesSelonMetier, traitDuMetier, planPoseTrait } from "./metier.mjs";
+import { ficheDeLActeur } from "./effets.mjs";
 import { correspondanceDepart, objetDeDepart, estContactDeDepart, pnjDeDepart } from "./objets-depart.mjs";
 import { convertirArmement } from "./armement-vaisseau.mjs";
 import { convertirAmenagements, modulesOrigine } from "./amenagements-vaisseau.mjs";
@@ -27,6 +28,26 @@ import { convertirAmenagements, modulesOrigine } from "./amenagements-vaisseau.m
  * - `apply()`     → applique le correctif, renvoie le nombre de documents modifiés.
  */
 export const PACK_UPDATES = [
+  {
+    id: "0.20.0-traits-metier",
+    cible: "acteurs",
+    version: "0.20.0",
+    label: "Traits des métiers et effets actifs des talents",
+    description:
+      "Chaque métier donne désormais son trait (compendium Traits, à effets actifs : +20 % sur la fiche classique, +4 sur " +
+      "la fiche rapide / PNJ pour un trait chiffré), et les talents chiffrés (Brutale, Charismatique, Stresser) portent " +
+      "leurs effets. Met à jour les copies du monde des métiers (lien vers leurs traits ; talent affiché, s'il est encore " +
+      "vide ; Médecin : bonus de Médecine 20 → 0, porté désormais par le trait Chirurgien, et description d'origine " +
+      "réécrite) et des talents (fiche visée ; effets, seulement s'ils n'en ont " +
+      "encore aucun — variante d20 pour un talent porté par une fiche rapide ou un PNJ). Pose le trait de son métier sur " +
+      "chaque personnage, fiche rapide et PNJ (monde et tokens non liés) qui ne l'a pas encore, et ramène à 0 le bonus de " +
+      "métier en Médecine des Médecins de la fiche classique qui portent bien le trait Chirurgien (+20 %). Niveaux, " +
+      "ajustements, autres compétences et équipement ne sont pas touchés : si un joueur avait déjà reporté un talent ou un " +
+      "trait à la main (ajustement de compétence, caractéristique de la fiche rapide), l'effet s'y ajoute — un message " +
+      "chuchoté au MJ liste les fiches à vérifier.",
+    concernes: async () => (await documentsTraitsMetier()).size,
+    apply: async () => appliquerTraitsMetier()
+  },
   {
     id: "0.19.7-empresse",
     cible: "acteurs",
@@ -1001,6 +1022,307 @@ export function changementsDynamic20(vaisseau) {
 function dynamic20AMettreAJour() {
   return game.actors.filter((a) => a.type === "vaisseau" && a.name === NOM_DYNAMIC_20
     && Object.keys(changementsDynamic20(a)).length);
+}
+
+/* -------------------------------------------------------------------------------------------- */
+/* Traits des métiers et effets actifs des talents (v0.20.0).                                   */
+/* -------------------------------------------------------------------------------------------- */
+
+/** Médecin du compendium Métiers : son bonus de Médecine (20 → 0) est porté par le trait Chirurgien (+20 %). */
+const ID_MEDECIN = "pi8JBmXDArhj5ybA";
+const ANCIEN_BONUS_MEDECINE = 20;
+const ANCIENNE_PHRASE_MEDECIN = "bonus contextuel de +20% en Médecine lors d'une opération";
+const TYPES_AVEC_TRAIT = ["personnage", "personnage-rapide", "pnj"]; // comme helpers/metier.mjs
+
+/** Bonus de Médecine accordé par un métier (undefined s'il ne l'accorde pas). */
+function bonusMedecine(metier) {
+  return metier?.system?.competences?.find((c) => c.cle === "medecine")?.bonus;
+}
+
+/** Le métier est-il le Médecin (compendium, copie du monde qui en vient, ou même nom) ? */
+function estMedecin(metier) {
+  if (metier?.type !== "metier") return false;
+  const liens = [metier.uuid, metier._stats?.compendiumSource ?? ""];
+  return liens.some((u) => u.endsWith(`.${ID_MEDECIN}`)) || metier.name === "Médecin";
+}
+
+/**
+ * Document tel qu'il est maintenant : un token non lié hérite des objets et des données de son acteur de base, déjà
+ * mis à jour plus tôt dans la même passe ; on relit donc l'acteur synthétique (et son objet) avant d'écrire.
+ */
+function acteurVivant(actor) {
+  return actor.isToken ? (actor.token?.actor ?? actor) : actor;
+}
+
+function objetVivant(objet) {
+  const acteur = objet.parent;
+  if (!(acteur instanceof Actor) || !acteur.isToken) return objet;
+  return acteurVivant(acteur).items.get(objet.id) ?? objet;
+}
+
+/** Métier du compendium Métiers de ce nom, ou null. */
+async function metierDuCompendiumParNom(nom) {
+  if (!nom) return null;
+  const pack = game.packs.get(`${game.system.id}.metiers`);
+  const entree = pack?.index.find((e) => e.name === nom);
+  const metier = entree ? await pack.getDocument(entree._id).catch(() => null) : null;
+  return metier?.type === "metier" ? metier : null;
+}
+
+/**
+ * Métier appliqué à l'acteur (system.metier.uuid, sinon métier du compendium de même nom), ou null.
+ * `pourTrait` : un métier du monde sans aucun trait lié (copie sans lien compendium, que changementsMetier ne peut pas
+ * mettre à jour) cède la place au métier du compendium de même nom, pour retrouver le trait. Le Médecin (estMedecin)
+ * garde l'objet d'origine.
+ */
+async function metierDeLActeur(actor, { pourTrait = false } = {}) {
+  const { uuid, nom } = actor.system.metier ?? {};
+  let metier = uuid ? await fromUuid(uuid).catch(() => null) : null;
+  if (metier?.type !== "metier") metier = await metierDuCompendiumParNom(nom);
+  if (pourTrait && metier && !metier.system.traits?.classique && !metier.system.traits?.rapide) {
+    metier = (await metierDuCompendiumParNom(metier.name || nom)) ?? metier;
+  }
+  return metier;
+}
+
+/**
+ * Changements d'une copie de métier : lien vers ses traits, talent affiché (nom et description, seulement s'ils sont
+ * encore vides), bonus de Médecine du Médecin (tableau complet).
+ */
+async function changementsMetier(copie) {
+  if (copie.type !== "metier") return {};
+  const source = await fromUuid(copie._stats?.compendiumSource).catch(() => null);
+  if (source?.type !== "metier") return {};
+  const changements = {};
+  const traits = source.system.toObject().traits ?? {};
+  if (!foundry.utils.objectsEqual({ t: copie.system.toObject().traits ?? {} }, { t: traits })) changements["system.traits"] = traits;
+  const talent = source.system.toObject().talent ?? {};
+  if (talent.nom && !copie.system.talent?.nom && !copie.system.talent?.description) changements["system.talent"] = talent;
+  // Médecin : l'ancienne description (« bonus contextuel de +20% ») contredit le trait Chirurgien, permanent ; remplacée
+  // seulement si elle contient encore cette phrase d'origine.
+  if (estMedecin(source) && String(copie.system.description ?? "").includes(ANCIENNE_PHRASE_MEDECIN)
+    && source.system.description !== copie.system.description) {
+    changements["system.description"] = source.system.description;
+  }
+  if (estMedecin(source) && bonusMedecine(source) === 0) {
+    const competences = copie.system.toObject().competences;
+    if (competences.some((c) => c.cle === "medecine" && c.bonus === ANCIEN_BONUS_MEDECINE)) {
+      changements["system.competences"] = competences.map((c) => (c.cle === "medecine" ? { ...c, bonus: 0 } : c));
+    }
+  }
+  return changements;
+}
+
+/** Talents du compendium, par uuid, et variante d20 (fiche rapide) d'un talent classique, par nom. */
+async function modelesTalents() {
+  const pack = game.packs.get(`${game.system.id}.talents`);
+  const documents = ((await pack?.getDocuments()) ?? []).filter((d) => d.type === "talent");
+  return {
+    parUuid: new Map(documents.map((d) => [d.uuid, d])),
+    rapides: new Map(documents.filter((d) => d.system.fiche === "rapide").map((d) => [d.name, d]))
+  };
+}
+
+/** Modifications (key, value) d'un effet, document ou données (toObject : system.changes au format v14). */
+function changesDeLEffet(effet) {
+  return effet.changes ?? effet.system?.changes ?? [];
+}
+
+/** Signature comparable d'un ensemble d'effets : modifications (clé = valeur), triées. */
+function signatureEffets(effets) {
+  return JSON.stringify(effets.flatMap((e) => changesDeLEffet(e).map((c) => `${c.key}=${Number(c.value)}`)).sort());
+}
+
+/**
+ * Mise à jour d'une copie de talent : fiche visée, et effets du modèle si la copie n'en a encore aucun (un effet
+ * ajouté ou modifié à la main n'est jamais remplacé). Un talent porté par une fiche rapide ou un PNJ suit la variante
+ * d20 de même nom quand elle existe : ses effets classiques d'origine, intacts, sont remplacés par ceux de la variante ;
+ * modifiés à la main, rien n'est touché, fiche comprise (la mention « autre fiche » continue d'avertir).
+ * Renvoie null si rien à faire, sinon { changements, effets (à créer), supprimer (ids d'effets) }.
+ */
+function planTalent(copie, { parUuid, rapides }) {
+  if (copie.type !== "talent") return null;
+  const origine = parUuid.get(copie._stats?.compendiumSource);
+  if (!origine) return null;
+  const acteur = copie.parent;
+  const surFicheRapide = acteur instanceof Actor && TYPES_AVEC_TRAIT.includes(acteur.type) && ficheDeLActeur(acteur) === "rapide";
+  const variante = surFicheRapide && origine.system.fiche === "classique" ? (rapides.get(origine.name) ?? null) : null;
+  const modele = variante ?? origine;
+  const copier = () => modele.effects.map((e) => {
+    const donnees = e.toObject();
+    delete donnees._id;
+    return donnees;
+  });
+  let effets = [];
+  let supprimer = [];
+  if (!copie.effects.size) effets = copier();
+  else if (variante) {
+    const actuels = signatureEffets(copie.effects.contents);
+    if (actuels === signatureEffets(origine.effects.contents)) {
+      supprimer = copie.effects.map((e) => e.id);
+      effets = copier();
+    } else if (actuels !== signatureEffets(variante.effects.contents)) return null;
+  }
+  const changements = {};
+  if (copie.system.fiche !== modele.system.fiche) changements["system.fiche"] = modele.system.fiche;
+  if (!Object.keys(changements).length && !effets.length && !supprimer.length) return null;
+  return { changements, effets, supprimer };
+}
+
+/**
+ * Pose du trait du métier sur l'acteur (aucun objet drapeau traitMetier ; talent homonyme traité par planPoseTrait :
+ * même trait → drapeau posé, autre variante → remplacée, homonyme maison → rien), ou null si rien à faire.
+ * @returns {Promise<{creer: object|null, marquer: Item|null, supprimer: Item|null}|null>}
+ */
+async function planTraitMetier(actor) {
+  if (!TYPES_AVEC_TRAIT.includes(actor.type) || !(actor.system.metier?.uuid || actor.system.metier?.nom)) return null;
+  if (actor.items.some((i) => i.getFlag("galactic-wars", "traitMetier"))) return null;
+  const metier = await metierDeLActeur(actor, { pourTrait: true });
+  const trait = metier ? await traitDuMetier(actor, metier) : null;
+  if (!trait) return null;
+  const pose = planPoseTrait(actor, trait);
+  return pose.creer || pose.marquer ? pose : null;
+}
+
+/** Clé d'effet de la Médecine (trait Chirurgien, fiche classique). */
+const CLE_EFFET_MEDECINE = "system.effets.competences.medecine";
+
+/** Un effet actif (non désactivé) de ces effets vise-t-il la Médecine ? (documents ou données) */
+function viseMedecine(effets) {
+  return (effets ?? []).some((e) => !e.disabled && changesDeLEffet(e).some((c) => c.key === CLE_EFFET_MEDECINE && Number(c.value) > 0));
+}
+
+/**
+ * Compétences d'un Médecin de la fiche classique, bonus de métier en Médecine ramené de 20 à 0 (tableau complet,
+ * jamais un index d'ArrayField ; les autres compétences inchangées), ou null. Seulement si le Médecin du compendium
+ * est déjà à 0 et que l'acteur porte bien un talent dont un effet actif vise la Médecine (le trait Chirurgien prend
+ * le relais) — ou va le recevoir (`poseTrait`, plan de planTraitMetier) : sinon le Médecin perdrait 20 % sans
+ * compensation (trait introuvable, copie de métier sans trait, Chirurgien maison sans effet…).
+ */
+async function planMedecin(actor, medecinAJour, poseTrait = null) {
+  if (!medecinAJour || actor.type !== "personnage" || !(actor.system.metier?.uuid || actor.system.metier?.nom)) return null;
+  const source = actor.system.toObject().competences ?? [];
+  if (!source.some((c) => c.cle === "medecine" && c.metier === ANCIEN_BONUS_MEDECINE)) return null;
+  if (!estMedecin(await metierDeLActeur(actor))) return null;
+  const porte = actor.items.some((i) => i.type === "talent" && viseMedecine(i.effects.contents));
+  if (!porte && !viseMedecine(poseTrait?.creer?.effects)) return null;
+  return source.map((c) => (c.cle === "medecine" ? { ...c, metier: 0 } : c));
+}
+
+/**
+ * Lignes du message au MJ : effets que le correctif vient d'ajouter à un acteur alors qu'un report manuel du talent
+ * ou du trait est possible — ajustement non nul de la compétence visée (fiche classique), caractéristique visée
+ * (fiche rapide / PNJ, dont la valeur saisie a pu déjà compter le talent).
+ * @param {Actor} acteur
+ * @param {string} nomObjet
+ * @param {object[]} effets données ou documents d'effets créés
+ */
+function effetsAVerifier(acteur, nomObjet, effets) {
+  if (!(acteur instanceof Actor)) return [];
+  const lignes = [];
+  for (const change of effets.filter((e) => !e.disabled).flatMap(changesDeLEffet)) {
+    const [, groupe, cle] = String(change.key).match(/^system\.effets\.(competences|caracteristiques)\.(\w+)$/) ?? [];
+    const valeur = Number(change.value);
+    if (!groupe || !Number.isFinite(valeur) || !valeur) continue;
+    const effet = valeur > 0 ? `+${valeur}` : `${valeur}`;
+    if (groupe === "competences" && Array.isArray(acteur.system.competences)) {
+      const competence = acteur.system.competences.find((c) => c.cle === cle);
+      if (!competence?.ajustement) continue;
+      lignes.push(game.i18n.format("GALACTICWARS.Migration.EffetCompetenceAjustee", {
+        acteur: acteur.name, objet: nomObjet, competence: game.i18n.localize(GW.competences[cle]?.label ?? cle),
+        effet, ajustement: competence.ajustement
+      }));
+    } else if (groupe === "caracteristiques" && typeof acteur.system.caracteristiques?.[cle] === "number" && GW.caracteristiquesRapides[cle]) {
+      lignes.push(game.i18n.format("GALACTICWARS.Migration.EffetCaracteristiqueSaisie", {
+        acteur: acteur.name, objet: nomObjet, caracteristique: game.i18n.localize(GW.caracteristiquesRapides[cle]),
+        effet, valeur: acteur.system.caracteristiques[cle]
+      }));
+    }
+  }
+  return lignes;
+}
+
+/** Le Médecin du compendium a-t-il déjà son bonus de Médecine à 0 ? */
+async function medecinDuCompendiumAJour() {
+  const pack = game.packs.get(`${game.system.id}.metiers`);
+  const medecin = pack ? await pack.getDocument(ID_MEDECIN).catch(() => null) : null;
+  return bonusMedecine(medecin) === 0;
+}
+
+/** Documents concernés (copies de métiers et de talents, acteurs) : ensemble vide = correctif sans objet. */
+async function documentsTraitsMetier() {
+  const documents = new Set();
+  for (const copie of copiesDepuis("metiers")) {
+    if (Object.keys(await changementsMetier(copie)).length) documents.add(copie);
+  }
+  const modeles = await modelesTalents();
+  for (const copie of copiesDepuis("talents")) if (planTalent(copie, modeles)) documents.add(copie);
+  const medecinAJour = await medecinDuCompendiumAJour();
+  for (const actor of tousLesActeurs()) {
+    const pose = await planTraitMetier(actor);
+    if (pose || await planMedecin(actor, medecinAJour, pose)) documents.add(actor);
+  }
+  return documents;
+}
+
+/**
+ * Applique le correctif dans l'ordre : copies de métiers (pour que le trait se retrouve depuis une copie du monde),
+ * copies de talents, traits posés, puis bonus de Médecine. Chaque document est relu juste avant d'être écrit.
+ * @returns {Promise<number>} nombre de documents modifiés
+ */
+async function appliquerTraitsMetier() {
+  const modifies = new Set();
+  for (const copie of copiesDepuis("metiers")) {
+    const vivant = objetVivant(copie);
+    const changements = await changementsMetier(vivant);
+    if (!Object.keys(changements).length) continue;
+    await vivant.update(changements);
+    modifies.add(vivant.uuid);
+  }
+  const aVerifier = [];
+  const modeles = await modelesTalents();
+  for (const copie of copiesDepuis("talents")) {
+    const vivant = objetVivant(copie);
+    const plan = planTalent(vivant, modeles);
+    if (!plan) continue;
+    if (plan.supprimer.length) await vivant.deleteEmbeddedDocuments("ActiveEffect", plan.supprimer);
+    if (Object.keys(plan.changements).length) await vivant.update(plan.changements);
+    if (plan.effets.length) {
+      await vivant.createEmbeddedDocuments("ActiveEffect", plan.effets);
+      aVerifier.push(...effetsAVerifier(vivant.parent, vivant.name, plan.effets));
+    }
+    modifies.add(vivant.uuid);
+  }
+  const acteurs = tousLesActeurs();
+  for (const actor of acteurs) {
+    const vivant = acteurVivant(actor);
+    const pose = await planTraitMetier(vivant);
+    if (!pose) continue;
+    if (pose.supprimer) await vivant.deleteEmbeddedDocuments("Item", [pose.supprimer.id]);
+    if (pose.marquer) await pose.marquer.setFlag("galactic-wars", "traitMetier", true);
+    if (pose.creer) {
+      await vivant.createEmbeddedDocuments("Item", [pose.creer]);
+      aVerifier.push(...effetsAVerifier(vivant, pose.creer.name, pose.creer.effects ?? []));
+    }
+    modifies.add(vivant.uuid);
+  }
+  if (aVerifier.length) {
+    await ChatMessage.create({
+      whisper: ChatMessage.getWhisperRecipients("GM").map((u) => u.id),
+      content: `<p><strong>${game.i18n.localize("GALACTICWARS.Migration.EffetsAVerifier")}</strong></p>`
+        + `<ul>${aVerifier.map((l) => `<li>${foundry.utils.escapeHTML(l)}</li>`).join("")}</ul>`
+    });
+  }
+  const medecinAJour = await medecinDuCompendiumAJour();
+  for (const actor of acteurs) {
+    const vivant = acteurVivant(actor);
+    // Après la pose des traits : l'acteur relu porte déjà son Chirurgien (sinon, rien n'est retiré).
+    const competences = await planMedecin(vivant, medecinAJour);
+    if (!competences) continue;
+    await vivant.update({ "system.competences": competences });
+    modifies.add(vivant.uuid);
+  }
+  return modifies.size;
 }
 
 /* -------------------------------------------------------------------------------------------- */

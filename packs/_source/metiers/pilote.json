@@ -58,6 +58,10 @@
         "quantite": 1
       }
     ],
+    "traits": {
+      "classique": "Compendium.galactic-wars.traits.Item.gESWOe8E6OI40sCc",
+      "rapide": "Compendium.galactic-wars.traits.Item.gESWOe8E6OI40sCc"
+    },
     "talent": {
       "nom": "Mental ultime",
       "description": "Permet de se détacher complètement d'une situation de stress ou de survie. 1 fois par jour."

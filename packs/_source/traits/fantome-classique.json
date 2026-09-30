@@ -1,0 +1,58 @@
+{
+  "_key": "!items!qMWmwoACgeYWgIE8",
+  "_id": "qMWmwoACgeYWgIE8",
+  "name": "Fantôme",
+  "type": "talent",
+  "img": "icons/svg/invisible.svg",
+  "system": {
+    "avantage": "+4 en furtivité ; se camoufle facilement tant qu'il n'attire pas l'attention.",
+    "inconvenient": "",
+    "fiche": "classique",
+    "description": "<p>Trait du métier Agent secret. +4 en furtivité ; se camoufle facilement tant qu'il n'attire pas l'attention.</p><p>Variante de la fiche classique (bonus en %).</p>"
+  },
+  "effects": [
+    {
+      "_key": "!items.effects!qMWmwoACgeYWgIE8.zHFkay0UzxxiQMWr",
+      "_id": "zHFkay0UzxxiQMWr",
+      "name": "Fantôme",
+      "img": "icons/svg/invisible.svg",
+      "type": "base",
+      "system": {
+        "changes": [
+          {
+            "key": "system.effets.competences.furtivite",
+            "type": "add",
+            "value": "20"
+          }
+        ]
+      },
+      "disabled": false,
+      "transfer": true,
+      "description": "",
+      "origin": null,
+      "statuses": [],
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.0"
+      }
+    }
+  ],
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.20.0"
+  }
+}

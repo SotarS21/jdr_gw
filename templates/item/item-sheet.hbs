@@ -22,6 +22,22 @@
     <label>{{localize 'GALACTICWARS.Item.TalentNom'}} <input type="text" name="system.talent.nom" value="{{system.talent.nom}}"></label>
     <label>{{localize 'GALACTICWARS.Item.TalentDescription'}} <textarea name="system.talent.description">{{system.talent.description}}</textarea></label>
   </section>
+  {{!-- Trait posé à l'application du métier (v0.20.0) : une variante par type de fiche, uuid modifiable à la main. --}}
+  <section class="metier-traits">
+    <h2>{{localize 'GALACTICWARS.Item.TraitsMetier'}}</h2>
+    {{#each traitsMetier as |t|}}
+    <div class="metier-trait">
+      <span class="metier-trait-fiche">{{localize t.label}}</span>
+      <span class="metier-trait-nom{{#unless t.nom}} hint{{/unless}}">{{#if t.nom}}{{t.nom}}{{else if t.introuvable}}{{localize 'GALACTICWARS.Item.TraitIntrouvable'}}{{else}}{{localize 'GALACTICWARS.Item.TraitAucun'}}{{/if}}</span>
+      {{#if @root.editable}}
+      <button type="button" data-action="choisirTraitMetier" data-fiche="{{t.cle}}" data-tooltip="{{localize 'GALACTICWARS.Item.TraitChoisir'}}" aria-label="{{localize 'GALACTICWARS.Item.TraitChoisir'}}"><i class="fa-solid fa-list"></i></button>
+      {{#if t.uuid}}<button type="button" data-action="retirerTraitMetier" data-fiche="{{t.cle}}" data-tooltip="{{localize 'GALACTICWARS.Item.TraitRetirer'}}" aria-label="{{localize 'GALACTICWARS.Item.TraitRetirer'}}"><i class="fa-solid fa-xmark"></i></button>{{/if}}
+      {{/if}}
+      <input type="text" class="metier-trait-uuid mono" name="system.traits.{{t.cle}}" value="{{t.uuid}}" placeholder="Compendium.galactic-wars.traits.Item.…" {{#unless @root.editable}}disabled{{/unless}}>
+    </div>
+    {{/each}}
+    <p class="hint">{{localize 'GALACTICWARS.Item.TraitsMetierHint'}}</p>
+  </section>
   {{/if}}
 
   {{#if (eq item.type "arme")}}

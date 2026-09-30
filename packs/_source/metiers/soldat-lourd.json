@@ -44,6 +44,10 @@
         "quantite": 1
       }
     ],
+    "traits": {
+      "classique": "Compendium.galactic-wars.traits.Item.w2s2KKcwwa8YISuK",
+      "rapide": "Compendium.galactic-wars.traits.Item.w2s2KKcwwa8YISuK"
+    },
     "talent": {
       "nom": "Tank",
       "description": "Prend une posture particulière qui permet de ne prendre aucun dégât de 15 en une seule fois. Par contre le soldat ne peut plus bouger. Prend 1 tour à retirer."

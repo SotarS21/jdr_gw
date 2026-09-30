@@ -1,0 +1,58 @@
+{
+  "_key": "!items!E6GaCqMeOIiC02sQ",
+  "_id": "E6GaCqMeOIiC02sQ",
+  "name": "Stresser",
+  "type": "talent",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "avantage": "Permet de relancer jusqu'à 3 jets de survie en un scénario",
+    "inconvenient": "-4 stress",
+    "fiche": "rapide",
+    "description": ""
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.20.0"
+  },
+  "effects": [
+    {
+      "_key": "!items.effects!E6GaCqMeOIiC02sQ.kt975DBEGHyMDzsm",
+      "_id": "kt975DBEGHyMDzsm",
+      "name": "Stresser",
+      "img": "icons/svg/upgrade.svg",
+      "type": "base",
+      "system": {
+        "changes": [
+          {
+            "key": "system.effets.caracteristiques.stress",
+            "type": "add",
+            "value": "-4"
+          }
+        ]
+      },
+      "disabled": false,
+      "transfer": true,
+      "description": "",
+      "origin": null,
+      "statuses": [],
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.0"
+      }
+    }
+  ]
+}
