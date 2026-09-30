@@ -66,6 +66,10 @@
         "quantite": 1
       }
     ],
+    "traits": {
+      "classique": "Compendium.galactic-wars.traits.Item.6SkmM6sm2aEoMia4",
+      "rapide": "Compendium.galactic-wars.traits.Item.6SkmM6sm2aEoMia4"
+    },
     "talent": {
       "nom": "Réparation",
       "description": "Peut réparer presque tout ce qui n'est pas trop gros (comme un vaisseau interstellaire), tant qu'il a le matériel."

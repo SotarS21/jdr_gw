@@ -1,0 +1,27 @@
+{
+  "_key": "!items!gESWOe8E6OI40sCc",
+  "_id": "gESWOe8E6OI40sCc",
+  "name": "Mental ultime",
+  "type": "talent",
+  "img": "icons/svg/sun.svg",
+  "system": {
+    "avantage": "Permet de se détacher complètement d'une situation de stress ou de survie. 1 fois par jour.",
+    "inconvenient": "",
+    "fiche": "toutes",
+    "description": "<p>Trait du métier Pilote. Permet de se détacher complètement d'une situation de stress ou de survie. 1 fois par jour.</p>"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 1100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.20.0"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "_key": "!items!w2s2KKcwwa8YISuK",
+  "_id": "w2s2KKcwwa8YISuK",
+  "name": "Tank",
+  "type": "talent",
+  "img": "icons/svg/castle.svg",
+  "system": {
+    "avantage": "Prend une posture particulière qui permet de ne prendre aucun dégât de 15 en une seule fois. Par contre le soldat ne peut plus bouger. Prend 1 tour à retirer.",
+    "inconvenient": "",
+    "fiche": "toutes",
+    "description": "<p>Trait du métier Soldat lourd. Prend une posture particulière qui permet de ne prendre aucun dégât de 15 en une seule fois. Par contre le soldat ne peut plus bouger. Prend 1 tour à retirer.</p>"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 1400000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.20.0"
+  }
+}

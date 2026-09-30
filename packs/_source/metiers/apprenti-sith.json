@@ -74,9 +74,13 @@
         "quantite": 1
       }
     ],
+    "traits": {
+      "classique": "Compendium.galactic-wars.traits.Item.26ceKU2i2IGksUuM",
+      "rapide": "Compendium.galactic-wars.traits.Item.26ceKU2i2IGksUuM"
+    },
     "talent": {
       "nom": "Appelle à la rage",
-      "description": "Concentration extrême, +4 dans une compétence par jour."
+      "description": "Concentration extrême, une fois par jour : en cas de réussite, gain temporaire d'un point dans une compétence liée à la Force, décrit par le MJ."
     },
     "description": "<p>Adepte de l'Empire ayant une aptitude pour la Force. Ces étudiants n'ont pas de limite d'âge, mais ils ont la plupart du temps une prédisposition à la violence et sont entraînés le plus tôt possible à écraser leurs ennemis pour la gloire de l'Empire, en puisant dans leurs émotions les plus fortes.</p><p>Pour qu'un maître Sith daigne entraîner un apprenti, il faut d'abord que l'apprenti ait tué sa première victime. Les maîtres confient parfois à leurs apprentis des tâches « spéciales » ; il faut s'en méfier, car les apprentis sont des ressources sacrifiables : il est déjà arrivé qu'un élève prometteur soit envoyé comme chair à canon dans le temple d'un Sith fou et que son esprit n'en revienne jamais. S'il veut devenir puissant, l'apprenti doit pourtant apprendre de toute situation, de son maître comme de ses professeurs de l'académie. Il cesse d'être un apprenti lorsqu'il tue son maître et prend sa place.</p>"
   },

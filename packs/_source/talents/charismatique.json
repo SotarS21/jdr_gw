@@ -7,6 +7,7 @@
   "system": {
     "avantage": "+4 de sociale",
     "inconvenient": "-3 de furtivité",
+    "fiche": "classique",
     "description": ""
   },
   "folder": null,
@@ -20,6 +21,43 @@
     "duplicateSource": null,
     "coreVersion": "14",
     "systemId": "galactic-wars",
-    "systemVersion": "0.1.0"
-  }
+    "systemVersion": "0.20.0"
+  },
+  "effects": [
+    {
+      "_key": "!items.effects!F6XADrvf4zsRKg2T.ttakhNugyAwV7uV9",
+      "_id": "ttakhNugyAwV7uV9",
+      "name": "Charismatique",
+      "img": "icons/svg/upgrade.svg",
+      "type": "base",
+      "system": {
+        "changes": [
+          {
+            "key": "system.effets.competences.social",
+            "type": "add",
+            "value": "20"
+          },
+          {
+            "key": "system.effets.competences.furtivite",
+            "type": "add",
+            "value": "-15"
+          }
+        ]
+      },
+      "disabled": false,
+      "transfer": true,
+      "description": "",
+      "origin": null,
+      "statuses": [],
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.0"
+      }
+    }
+  ]
 }

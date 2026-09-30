@@ -68,6 +68,10 @@
         "quantite": 1
       }
     ],
+    "traits": {
+      "classique": "Compendium.galactic-wars.traits.Item.qGO648wMmkKQiqG2",
+      "rapide": "Compendium.galactic-wars.traits.Item.qGO648wMmkKQiqG2"
+    },
     "talent": {
       "nom": "Manipulation de la force",
       "description": "Permet d'utiliser la télékinésie."

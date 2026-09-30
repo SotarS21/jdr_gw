@@ -1,0 +1,58 @@
+{
+  "_key": "!items!Y2Euqq6GGUS46ME0",
+  "_id": "Y2Euqq6GGUS46ME0",
+  "name": "Garde du sabre",
+  "type": "talent",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "avantage": "+4 en parade / esquive : le sabre laser dévie les tirs et les coups.",
+    "inconvenient": "",
+    "fiche": "rapide",
+    "description": "<p>Trait du métier Guerrier jedi. +4 en parade / esquive : le sabre laser dévie les tirs et les coups.</p><p>Variante de la fiche rapide / PNJ (bonus d20).</p>"
+  },
+  "effects": [
+    {
+      "_key": "!items.effects!Y2Euqq6GGUS46ME0.yu2VBFOorqEduF7c",
+      "_id": "yu2VBFOorqEduF7c",
+      "name": "Garde du sabre",
+      "img": "icons/svg/sword.svg",
+      "type": "base",
+      "system": {
+        "changes": [
+          {
+            "key": "system.effets.caracteristiques.capCombat",
+            "type": "add",
+            "value": "4"
+          }
+        ]
+      },
+      "disabled": false,
+      "transfer": true,
+      "description": "",
+      "origin": null,
+      "statuses": [],
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.0"
+      }
+    }
+  ],
+  "folder": null,
+  "sort": 1800000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.20.0"
+  }
+}

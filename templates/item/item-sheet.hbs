@@ -22,6 +22,22 @@
     <label>{{localize 'GALACTICWARS.Item.TalentNom'}} <input type="text" name="system.talent.nom" value="{{system.talent.nom}}"></label>
     <label>{{localize 'GALACTICWARS.Item.TalentDescription'}} <textarea name="system.talent.description">{{system.talent.description}}</textarea></label>
   </section>
+  {{!-- Trait posé à l'application du métier (v0.20.0) : une variante par type de fiche, uuid modifiable à la main. --}}
+  <section class="metier-traits">
+    <h2>{{localize 'GALACTICWARS.Item.TraitsMetier'}}</h2>
+    {{#each traitsMetier as |t|}}
+    <div class="metier-trait">
+      <span class="metier-trait-fiche">{{localize t.label}}</span>
+      <span class="metier-trait-nom{{#unless t.nom}} hint{{/unless}}">{{#if t.nom}}{{t.nom}}{{else if t.introuvable}}{{localize 'GALACTICWARS.Item.TraitIntrouvable'}}{{else}}{{localize 'GALACTICWARS.Item.TraitAucun'}}{{/if}}</span>
+      {{#if @root.editable}}
+      <button type="button" data-action="choisirTraitMetier" data-fiche="{{t.cle}}" data-tooltip="{{localize 'GALACTICWARS.Item.TraitChoisir'}}" aria-label="{{localize 'GALACTICWARS.Item.TraitChoisir'}}"><i class="fa-solid fa-list"></i></button>
+      {{#if t.uuid}}<button type="button" data-action="retirerTraitMetier" data-fiche="{{t.cle}}" data-tooltip="{{localize 'GALACTICWARS.Item.TraitRetirer'}}" aria-label="{{localize 'GALACTICWARS.Item.TraitRetirer'}}"><i class="fa-solid fa-xmark"></i></button>{{/if}}
+      {{/if}}
+      <input type="text" class="metier-trait-uuid mono" name="system.traits.{{t.cle}}" value="{{t.uuid}}" placeholder="Compendium.galactic-wars.traits.Item.…" {{#unless @root.editable}}disabled{{/unless}}>
+    </div>
+    {{/each}}
+    <p class="hint">{{localize 'GALACTICWARS.Item.TraitsMetierHint'}}</p>
+  </section>
   {{/if}}
 
   {{#if (eq item.type "arme")}}
@@ -37,6 +53,38 @@
     <label>{{localize 'GALACTICWARS.Item.Reduction'}} <input type="number" name="system.reduction" value="{{system.reduction}}"></label>
     <label>{{localize 'GALACTICWARS.Item.Emplacement'}} <input type="text" name="system.emplacement" value="{{system.emplacement}}"></label>
     <label>{{localize 'GALACTICWARS.Sheet.Prix'}} <input type="text" name="system.prix" value="{{system.prix}}"></label>
+  </section>
+  {{/if}}
+
+  {{#if (eq item.type "talent")}}
+  <section class="talent-fields">
+    <label>{{localize 'GALACTICWARS.Traits.Avantage'}} <input type="text" name="system.avantage" value="{{system.avantage}}"></label>
+    <label>{{localize 'GALACTICWARS.Traits.Inconvenient'}} <input type="text" name="system.inconvenient" value="{{system.inconvenient}}"></label>
+    <label>{{localize 'GALACTICWARS.Traits.FicheVisee'}}
+      <select name="system.fiche">
+        {{#each fiches as |f|}}<option value="{{f.cle}}" {{#if f.choisi}}selected{{/if}}>{{localize f.label}}</option>{{/each}}
+      </select>
+    </label>
+  </section>
+  <section class="talent-effets">
+    <h2>{{localize 'GALACTICWARS.Effets.Titre'}}
+      {{#if editable}}<button type="button" data-action="effetCreer" data-tooltip="{{localize 'GALACTICWARS.Effets.Creer'}}" aria-label="{{localize 'GALACTICWARS.Effets.Creer'}}"><i class="fa-solid fa-plus"></i></button>{{/if}}
+    </h2>
+    {{#each effets as |e|}}
+    <div class="talent-effet{{#if e.disabled}} desactive{{/if}}" data-effet-id="{{e.id}}">
+      <img src="{{e.img}}" alt="">
+      <span class="talent-effet-nom">{{e.name}}</span>
+      <span class="talent-effet-resume mono">{{e.resume}}</span>
+      <button type="button" data-action="effetEditer" data-tooltip="{{localize 'GALACTICWARS.Effets.Editer'}}" aria-label="{{localize 'GALACTICWARS.Effets.Editer'}}"><i class="fa-solid fa-pen"></i></button>
+      {{#if @root.editable}}
+      <button type="button" data-action="effetBasculer" data-tooltip="{{localize 'GALACTICWARS.Effets.Basculer'}}" aria-label="{{localize 'GALACTICWARS.Effets.Basculer'}}"><i class="fa-solid {{#if e.disabled}}fa-toggle-off{{else}}fa-toggle-on{{/if}}"></i></button>
+      <button type="button" data-action="effetSupprimer" data-tooltip="{{localize 'GALACTICWARS.Effets.Supprimer'}}" aria-label="{{localize 'GALACTICWARS.Effets.Supprimer'}}"><i class="fa-solid fa-trash"></i></button>
+      {{/if}}
+    </div>
+    {{else}}
+    <p class="hint">{{localize 'GALACTICWARS.Effets.Aucun'}}</p>
+    {{/each}}
+    <p class="hint">{{localize 'GALACTICWARS.Effets.AideCles'}}</p>
   </section>
   {{/if}}
 

@@ -53,6 +53,10 @@
         "quantite": 1
       }
     ],
+    "traits": {
+      "classique": "Compendium.galactic-wars.traits.Item.OuQ6IooemcSYOAEA",
+      "rapide": "Compendium.galactic-wars.traits.Item.OuQ6IooemcSYOAEA"
+    },
     "talent": {
       "nom": "Pickpocket",
       "description": "Laisse traîner ses mains : si la cible est distraite, le vol est gratuit et permet de récupérer un petit objet. Sinon, test de dextérité obligatoire."

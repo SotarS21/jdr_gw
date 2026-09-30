@@ -71,6 +71,10 @@
         "quantite": 1
       }
     ],
+    "traits": {
+      "classique": "Compendium.galactic-wars.traits.Item.eI8YG62kGGGO8kwI",
+      "rapide": "Compendium.galactic-wars.traits.Item.eI8YG62kGGGO8kwI"
+    },
     "talent": {
       "nom": "Flippant",
       "description": "Compétence active qui oblige une cible à lancer un test de stress avec -2 ; en cas d'échec, la personne ciblée est déstabilisée."

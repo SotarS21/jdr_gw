@@ -84,9 +84,13 @@
         "quantite": 1
       }
     ],
+    "traits": {
+      "classique": "Compendium.galactic-wars.traits.Item.UwQScs8We0cQcemg",
+      "rapide": "Compendium.galactic-wars.traits.Item.UwQScs8We0cQcemg"
+    },
     "talent": {
-      "nom": "",
-      "description": ""
+      "nom": "Beskar",
+      "description": "+2 d'armure : pièces d'armure en beskar héritées du clan."
     },
     "description": "<p>Guerrier affilié à Mandalore, détesté aussi bien par l'Empire que par la République ; formé au tir de précision et au maniement des armes contondantes.</p>"
   },

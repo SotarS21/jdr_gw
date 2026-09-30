@@ -1,0 +1,58 @@
+{
+  "_key": "!items!CmqmGOscuuuI0geu",
+  "_id": "CmqmGOscuuuI0geu",
+  "name": "Entre deux voies",
+  "type": "talent",
+  "img": "icons/svg/eye.svg",
+  "system": {
+    "avantage": "+4 en perception : ni Lumière ni Obscurité, elle voit ce que les autres ignorent.",
+    "inconvenient": "",
+    "fiche": "classique",
+    "description": "<p>Trait du métier Jedi Noire. +4 en perception : ni Lumière ni Obscurité, elle voit ce que les autres ignorent.</p><p>Variante de la fiche classique (bonus en %).</p>"
+  },
+  "effects": [
+    {
+      "_key": "!items.effects!CmqmGOscuuuI0geu.2ZNz1gCw3z0Cejut",
+      "_id": "2ZNz1gCw3z0Cejut",
+      "name": "Entre deux voies",
+      "img": "icons/svg/eye.svg",
+      "type": "base",
+      "system": {
+        "changes": [
+          {
+            "key": "system.effets.competences.perception",
+            "type": "add",
+            "value": "20"
+          }
+        ]
+      },
+      "disabled": false,
+      "transfer": true,
+      "description": "",
+      "origin": null,
+      "statuses": [],
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.0"
+      }
+    }
+  ],
+  "folder": null,
+  "sort": 2300000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.20.0"
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "_key": "!items!cSYucmAo8u4I4GI2",
+  "_id": "cSYucmAo8u4I4GI2",
+  "name": "Processeur tactique",
+  "type": "talent",
+  "img": "icons/svg/lightning.svg",
+  "system": {
+    "avantage": "+4 en informatique / piratage : interface directe avec les systèmes.",
+    "inconvenient": "",
+    "fiche": "rapide",
+    "description": "<p>Trait du métier Robot / droïde. +4 en informatique / piratage : interface directe avec les systèmes.</p><p>Variante de la fiche rapide / PNJ (bonus d20).</p>"
+  },
+  "effects": [
+    {
+      "_key": "!items.effects!cSYucmAo8u4I4GI2.ZjuWmXNkLnB9XFoR",
+      "_id": "ZjuWmXNkLnB9XFoR",
+      "name": "Processeur tactique",
+      "img": "icons/svg/lightning.svg",
+      "type": "base",
+      "system": {
+        "changes": [
+          {
+            "key": "system.effets.caracteristiques.mentale",
+            "type": "add",
+            "value": "4"
+          }
+        ]
+      },
+      "disabled": false,
+      "transfer": true,
+      "description": "",
+      "origin": null,
+      "statuses": [],
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.0"
+      }
+    }
+  ],
+  "folder": null,
+  "sort": 2700000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.20.0"
+  }
+}

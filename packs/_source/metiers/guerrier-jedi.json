@@ -78,9 +78,13 @@
         "quantite": 1
       }
     ],
+    "traits": {
+      "classique": "Compendium.galactic-wars.traits.Item.YeUwuIkmg0SAik0s",
+      "rapide": "Compendium.galactic-wars.traits.Item.Y2Euqq6GGUS46ME0"
+    },
     "talent": {
-      "nom": "",
-      "description": ""
+      "nom": "Garde du sabre",
+      "description": "+4 en parade / esquive : le sabre laser dévie les tirs et les coups."
     },
     "description": "<p>Chevalier jedi formé au combat : gardien de la République en première ligne, maître du sabre laser et des formes de combat, il protège ses alliés par la Force autant que par la lame.</p>"
   },

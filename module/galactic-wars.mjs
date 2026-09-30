@@ -35,6 +35,7 @@ import { enregistrerHooksJets } from "./helpers/rolls.mjs";
 import { enregistrerHooksNotes } from "./helpers/notes.mjs";
 import { enregistrerReglageAnimations, enregistrerHooksAnimations } from "./helpers/animations.mjs";
 import { enregistrerHooksComlink } from "./helpers/comlink.mjs";
+import { enregistrerCouverts } from "./helpers/effets.mjs";
 
 enregistrerHooksChatObjet();
 enregistrerHooksCombat();
@@ -119,6 +120,7 @@ Hooks.once("init", () => {
   });
   enregistrerHooksEquipage();
   enregistrerHooksJets();
+  enregistrerCouverts();
   enregistrerHooksNotes();
   enregistrerReglageAnimations();
   enregistrerHooksAnimations();

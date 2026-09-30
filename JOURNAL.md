@@ -1,35 +1,35 @@
 # Journal de développement — Galactic Wars
 
-## À faire à la reprise (état au 2026-09-29 soir — « note ce qu'on a fait, on s'arrête là pour ce soir »)
+## À faire à la reprise (état au 2026-09-30 — v0.20.0 codée sur `wip/traits-0.20.0`, à déployer et tester en local)
 
 - **Publié** : **v0.19.8 = dernière release** (images des 21 métiers ; archive de release corrigée : le compendium
   des aménagements manquait dans les zips v0.19.0 à v0.19.7).
 - **v0.19.9 commitée sur `main`, NON poussée ni taguée** : descriptions des 21 métiers (10 rédigées par Claude, à
   relire par l'auteur), niveau minimum et métier requis supprimés des prérequis. Foundry local tourne en 0.19.9
   **sans** la suppression du métier requis (commit `91242fe` pas encore déployé : redémarrage nécessaire).
-- **EN COURS — v0.20.0, branche `wip/traits-0.20.0` (commit `3158651`, inachevé, NE PAS déployer tel quel)** :
-  compendium de traits à effets actifs (demande de l'auteur, inspiré d'Antique). Décisions de l'auteur :
-  - deux variantes par trait chiffré : **% pour la fiche classique** (+4 d20 → +20 %), **d20 pour la fiche rapide**
-    (un PNJ, qui jette en %, compte les bonus d20 × 5) ; un trait sans chiffre = une seule variante (`fiche: toutes`) ;
-  - Médecin : bonus de métier Médecine 20 → 0, porté par le trait Chirurgien (+20 %) ;
-  - traits proposés par Claude (à valider) pour les 7 métiers sans trait dans les documents ;
-  - effets actifs aussi sur les talents chiffrés (Brutale, Charismatique, Stresser…) ;
-  - **traits actifs** Demi-couvert (+4 d'armure temporaire) et Couvert total (+8) : états de token exclusifs.
-  - **Fait sur la branche** : `system.effets` (classique : `competences.<clé>` + `armure` ; rapide : `caracteristiques.<clé>`
-    + `armure`), totaux (plafond relevé par un effet positif), jets de la fiche rapide / PNJ sur la valeur avec effets,
-    armure temporaire dans `reductionDegats`, `helpers/effets.mjs` (couverts en `CONFIG.statusEffects`, exclusifs,
-    résumé des effets), trait du métier posé par `applyMetier` (drapeau `traitMetier`, variante selon la fiche),
-    `MetierData.traits.{classique, rapide}`, `TalentData.fiche`, sélecteur de compendium multi-packs filtré (noms
-    échappés, `rejectClose: false`), fiche classique (colonne Effets, bonus sur le total, couverts dans l'onglet
-    Combat), fiche rapide (section Traits, bonus à côté des caractéristiques, couverts), fiche d'objet du talent
-    (avantage, inconvénient, fiche visée, liste des effets : créer / éditer / activer / supprimer).
-  - **Reste** : clés `fr.json` (Traits.Effets / AutreFiche / FicheVisee / Fiche.*, Effets.*, Couvert.*), CSS (couverts,
-    traits rapides, effets de talent), compendium `traits` (system.json + `packs/_source/traits`, ~21 traits dont
-    Fantôme, Chirurgien et les 7 proposés en 2 variantes), effets sur les talents chiffrés, liens
-    `metier.system.traits` + Médecin à 0, correctif MJ (poser le trait sur les personnages déjà dotés d'un métier ;
-    recalcul du bonus de Médecine des Médecins), notes de version / CDC, tests en jeu (effet transféré, totaux, jets,
-    couverts depuis le HUD et la fiche, changement de métier). Vérifié par un test préalable dans Foundry 14.368 :
-    effet transféré (`system.changes`, type `add`) et état de token porteur de changements fonctionnent.
+- **v0.20.0 — code terminé, branche `wip/traits-0.20.0`, fin du travail non commitée, NON déployée, NON testée en jeu** :
+  traits à effets actifs (détail : session du 2026-09-30 ci-dessous). **Prochaine étape** : `scripts/deploy-local.ps1`
+  puis `verify-local.mjs` (redémarrage de Foundry nécessaire : nouveau compendium `traits` dans system.json), puis tests
+  en jeu : effet transféré au dépôt d'un trait / talent, totaux et plafond relevé (fiche classique), bonus à côté des
+  caractéristiques et jets (fiche rapide, PNJ × 5), couverts depuis le HUD du token et depuis la fiche (exclusifs,
+  armure temporaire dans la réduction des dégâts), trait posé / remplacé au changement de métier, correctif MJ
+  `0.20.0-traits-metier` (trait posé sur les personnages existants, Médecine des Médecins recalculée, message au MJ),
+  section « Trait du métier » de la fiche d'objet, gain d'expérience avec un effet (+20 % / −20 %). Ne rien pousser
+  ni taguer avant les tests et l'accord de l'auteur.
+  - **Validé par l'auteur le 2026-09-30** (document « traits v0.20.0 à valider ») : les 7 traits proposés par Claude (Garde du sabre — Guerrier jedi, Fureur obscure —
+    Guerrier sith, Diplomate de l'Ordre — Jedi consulaire, Entre deux voies — Jedi Noire, Beskar — Mandalorien soldat,
+    Processeur tactique — Robot / droïde, Châssis blindé — Robot quadrupède / droïde) et les **correspondances
+    compétence → caractéristique rapide** des variantes d20 : furtivité → dextérité, médecine → mentale, parade/esquive
+    → cap. combat, intimidation / persuasion / social / informatique → mentale, perception → perception, sang-froid →
+    stress (conversion : +4 d20 = +20 %). Appelle à la rage : texte seul — en cas de réussite, gain temporaire d'un point dans une compétence liée à la Force, décrit par le MJ. **Reste à relire** : la description du Médecin réécrite (trait Chirurgien permanent).
+  - Rappel des décisions de l'auteur : deux variantes par trait chiffré (% pour la fiche classique, d20 pour la fiche
+    rapide ; un PNJ compte les bonus d20 × 5) ; un trait sans chiffre = une seule variante (`fiche: toutes`) ; Médecin :
+    bonus de métier Médecine 20 → 0, porté par Chirurgien (+20 %) ; effets actifs sur les talents chiffrés (Brutale,
+    Charismatique, Stresser) ; couverts Demi-couvert (+4) / Couvert total (+8) d'armure temporaire, états de token exclusifs.
+  - Historique : état du 2026-09-29 soir (`3158651`, inachevé) — le « Reste » d'alors (clés `fr.json`, CSS, compendium
+    `traits`, effets des talents, liens `metier.system.traits` + Médecin à 0, correctif MJ, notes de version / CDC) est
+    fait ; seuls les tests en jeu restent. Test préalable dans Foundry 14.368 : effet transféré (`system.changes`, type
+    `add`) et état de token porteur de changements fonctionnent.
 - **Audit** : tous les constats confirmés sont dans la section « Audit du 2026-09-29 » ci-dessous — **aucun corrigé**
   (sauf `compendium-picker` sur la branche). Tests en direct (`../audit/run.mjs t1-rendu.js`, `t2-parcours.js`) toujours
   à relancer jusqu'au bout.
@@ -106,6 +106,68 @@
 - **Rappels techniques** : scripts de patch écrits avec l'outil Write (ou heredoc `<<'EOF'`, en doublant les
   antislashs à vérifier) — jamais de backticks dans un `node -e` en bash ; `git checkout` remet les fichiers en CRLF
   (normaliser avant de chercher du texte) ; `prose-mirror` doit rester en `display: flex`.
+
+## Session du 2026-09-30 — Traits à effets actifs (v0.20.0)
+
+- Demande de l'auteur (2026-09-29) : un compendium de traits à effets actifs, sur le modèle d'Antique, un trait par
+  métier, et des effets sur les talents chiffrés ; couverts en traits actifs. Travail repris sur la branche
+  `wip/traits-0.20.0` (base `91242fe` = v0.19.9), achevé par un workflow multi-agents sur une spécification commune.
+- **Mécanique** : effets actifs au format v14 (`type: "base"`, `transfer: true`, `system.changes[] { key, type: "add",
+  value }` — valeur en texte), portés par les Items `talent` et transférés à l'acteur. Ils visent `system.effets.*`,
+  jamais saisi (0 en base) : fiche classique `effets.competences.<clé>` (en %) + `effets.armure` ; fiche rapide / PNJ
+  `effets.caracteristiques.<clé>` (en points de d20, × `GW.facteurD20VersPourcentage` = 5 pour un PNJ qui jette en %)
+  + `effets.armure`. Totaux : bonus ajouté au taux **après** le plafond de 90 % (appliqué à la valeur hors effets) ;
+  jets de la fiche rapide / PNJ sur la valeur avec effets ; armure temporaire comptée dans `reductionDegats`.
+- **Compendium `traits`** (28 entrées, 21 métiers : 21 traits, dont 7 en deux variantes) : Fantôme (Agent secret) et Chirurgien (Médecin) en deux variantes
+  (classique +20 % en Furtivité / Médecine ; rapide +4 en Dextérité / Mentale) ; 12 traits non chiffrés des documents
+  (Appelle à la rage, Tueur, Capture, Bluff, Réparation, Manipulation de la force, Mental ultime, Flippant, Pistolero,
+  Tank, Ne meure pas !, Pickpocket), `fiche: toutes`, sans effet (appliqués par le MJ) ; 7 traits **proposés par
+  Claude** pour les métiers sans trait dans les documents : Garde du sabre, Fureur obscure, Diplomate de l'Ordre,
+  Entre deux voies, Processeur tactique (deux variantes, +20 % / +4), Beskar et Châssis blindé (+2 d'armure, `toutes`).
+- **Métiers** : `MetierData.traits.{classique, rapide}` renseignés pour les 21 métiers (UUID de la variante, la même
+  pour un trait `toutes`) ; `applyMetier` pose la variante adaptée à la fiche (drapeau `traitMetier`) et la retire au
+  changement de métier. Médecin : bonus de métier Médecine 20 → 0, porté par Chirurgien. Correctif MJ
+  `0.20.0-traits-metier` : trait posé sur les personnages déjà dotés d'un métier, Médecine des Médecins recalculée.
+- **Talents chiffrés** : Brutale (Social −10 % ; rapide Mentale −2), Charismatique (Social +20 %, Furtivité −15 % ;
+  rapide Mentale +4, Dextérité −3), Stresser (Sang-froid −20 % ; rapide Stress −4) — variante classique = fichier
+  existant, variante rapide ajoutée au compendium. Les 5 talents conditionnels (Entraînement au tir, Fine lame, Lâche,
+  Mental d'acier, Téméraire) restent `toutes`, sans effet.
+- **Couverts** (`GW.couverts`, `helpers/effets.mjs`) : Demi-couvert +4 et Couvert total +8 d'armure temporaire, états de
+  token exclusifs (`CONFIG.statusEffects`, hook `createActiveEffect`), proposés par le HUD du token et par la fiche
+  (onglet Combat ; section Combat de la fiche rapide) ; pas d'item de compendium.
+- **Fiches** : colonne Effets et bonus sur le total (classique), section Traits et bonus à côté des caractéristiques
+  (rapide), fiche d'objet du talent (avantage, inconvénient, fiche visée, liste des effets). Notes de version 0.20.0 et
+  CDC (§5.1octodecies v0.20.0, §7.1 : compendium Traits) mis à jour.
+- **Correspondances compétence → caractéristique rapide** retenues pour les variantes d20 (validées par l'auteur le 2026-09-30) :
+  furtivité → dextérité, médecine → mentale, parade/esquive → cap. combat, intimidation / persuasion / social /
+  informatique → mentale, perception → perception, sang-froid → stress ; conversion +4 d20 = +20 %.
+- **Revue adversariale (même session)** — constats confirmés, tous corrigés :
+  - Plafond et effets : `helpers/competences.mjs#tauxCompetence` (nouveau, partagé par `PersonnageData` et
+    `#tauxPourNiveau`) plafonne la valeur hors effets puis ajoute l'effet ; `competence.totalHorsEffets` ;
+    `atteintPlafond` et « Gain d'expérience » regardent la valeur hors effets (un +20 % ne bloque plus à 70 %, un
+    malus ne s'efface plus avec l'expérience) ; l'aperçu du gain de niveau compte les effets.
+  - Fiche PNJ : le résumé des effets d'un trait affiche la valeur appliquée (× 5, en %), comme la pastille.
+  - Fiche de métier : section « Trait du métier » (variantes classique et rapide, choix dans les compendiums Traits
+    et Talents, uuid modifiable, bouton retirer) — un métier maison peut enfin recevoir un trait.
+  - Les 7 métiers à trait proposé ont leur `system.talent` (nom et description du trait) ; description du Médecin
+    réécrite (le +20 % est permanent, porté par Chirurgien — à relire par l'auteur).
+  - `applyMetier` et le correctif (`planPoseTrait`, `helpers/metier.mjs`) : un talent venu du même trait reçoit le
+    drapeau `traitMetier` au lieu d'un doublon (effets cumulés) ; l'autre variante du même trait est remplacée ; un
+    homonyme maison est gardé, sans pose.
+  - Correctif `0.20.0-traits-metier` : Médecine du Médecin ramenée à 0 seulement si l'acteur porte (ou reçoit) un effet
+    actif sur la Médecine ; métier du monde sans trait lié → trait cherché sur le métier du compendium de même nom ;
+    talent classique aux effets d'origine intacts sur une fiche rapide → effets remplacés par la variante d20 (modifiés
+    à la main : fiche laissée telle quelle) ; copies de métiers : talent affiché recopié s'il est vide, description du
+    Médecin réécrite si elle contient encore la phrase d'origine ; message chuchoté au MJ listant les effets ajoutés
+    sur une compétence déjà ajustée ou une caractéristique de fiche rapide (report manuel possible, double compte).
+  - Compendium Traits : 28 entrées (et non 27) — CDC §7.1 et ce journal corrigés.
+- **État** : code terminé, **pas encore déployé ni testé en jeu** (voir « À faire à la reprise »).
+
+| Version | Contenu principal |
+|---|---|
+| v0.19.8 | Images des 21 métiers ; archive de release corrigée (compendium des aménagements) — dernière release |
+| v0.19.9 | Descriptions des 21 métiers ; niveau minimum et métier requis supprimés (commitée sur `main`, non poussée) |
+| v0.20.0 | Traits à effets actifs (compendium Traits, variantes % / d20, PNJ × 5), trait posé avec le métier, talents Brutale / Charismatique / Stresser chiffrés, couverts +4 / +8 d'armure temporaire (HUD et fiche), Médecine du Médecin portée par Chirurgien, correctif MJ `0.20.0-traits-metier` (branche `wip/traits-0.20.0`, à tester) |
 
 ## Session du 2026-09-29 (suite) — Descriptions des métiers, niveau minimum (v0.19.9)
 

@@ -1,0 +1,27 @@
+{
+  "_key": "!items!26ceKU2i2IGksUuM",
+  "_id": "26ceKU2i2IGksUuM",
+  "name": "Appelle à la rage",
+  "type": "talent",
+  "img": "icons/svg/blood.svg",
+  "system": {
+    "avantage": "Concentration extrême, une fois par jour : en cas de réussite, gain temporaire d'un point dans une compétence liée à la Force, décrit par le MJ.",
+    "inconvenient": "",
+    "fiche": "toutes",
+    "description": "<p>Trait du métier Apprenti sith. Concentration extrême, une fois par jour : en cas de réussite, gain temporaire d'un point dans une compétence liée à la Force, décrit par le MJ.</p>"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 500000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.20.0"
+  }
+}

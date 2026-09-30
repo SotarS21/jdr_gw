@@ -65,6 +65,10 @@
         "quantite": 1
       }
     ],
+    "traits": {
+      "classique": "Compendium.galactic-wars.traits.Item.wqGwQmgo8eEUeG84",
+      "rapide": "Compendium.galactic-wars.traits.Item.wqGwQmgo8eEUeG84"
+    },
     "talent": {
       "nom": "Tueur",
       "description": "Bonus de dégât (+1 dé) pour tuer un ennemi à 50% de ses points de vie."

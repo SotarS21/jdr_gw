@@ -71,9 +71,13 @@
         "quantite": 1
       }
     ],
+    "traits": {
+      "classique": "Compendium.galactic-wars.traits.Item.ck0iuuSAAEQEqme8",
+      "rapide": "Compendium.galactic-wars.traits.Item.ck0iuuSAAEQEqme8"
+    },
     "talent": {
-      "nom": "",
-      "description": ""
+      "nom": "Châssis blindé",
+      "description": "+2 d'armure : carcasse renforcée d'un droïde de combat quadrupède."
     },
     "description": "<p>Droïde de combat quadrupède au service de l'Ordre jedi. Son blindage renforcé, ses griffes en duracier et ses crocs en font un redoutable protecteur au corps à corps ; il sait aussi pirater, réparer et renseigner le groupe grâce à ses capteurs et à sa base de données planétaire.</p>"
   },

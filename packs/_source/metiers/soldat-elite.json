@@ -57,6 +57,10 @@
         "quantite": 1
       }
     ],
+    "traits": {
+      "classique": "Compendium.galactic-wars.traits.Item.aAiQOkOsyYymISMS",
+      "rapide": "Compendium.galactic-wars.traits.Item.aAiQOkOsyYymISMS"
+    },
     "talent": {
       "nom": "Pistolero",
       "description": "Permet de lancer des tests d’esquive et/ou de blocage quand il tire."

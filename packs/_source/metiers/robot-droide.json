@@ -71,9 +71,13 @@
         "quantite": 1
       }
     ],
+    "traits": {
+      "classique": "Compendium.galactic-wars.traits.Item.OmMGq8UUGMMqS6Eu",
+      "rapide": "Compendium.galactic-wars.traits.Item.cSYucmAo8u4I4GI2"
+    },
     "talent": {
-      "nom": "",
-      "description": ""
+      "nom": "Processeur tactique",
+      "description": "+4 en informatique / piratage : interface directe avec les systèmes."
     },
     "description": "<p>Droïde conscient au service de l'Empire, de la République ou d'un particulier. Armé d'un blaster lourd ou d'un canon à plasma, doté d'un bras explosif blindé et d'un bras outils, il embarque un comlink intégré et une base de données sur les planètes connues, leurs habitants et leurs langues.</p>"
   },

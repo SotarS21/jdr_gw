@@ -5,6 +5,8 @@ import { applyMetier } from "../helpers/metier.mjs";
 import { choisirItemCompendium } from "../helpers/compendium-picker.mjs";
 import { editerEntreeNote, supprimerEntreeNote, pnjDepuisActeur, ajouterEntreeNote, montrerEntreeNote, entreeDepuisGlisser } from "../helpers/notes.mjs";
 import { vaisseauDEquipage } from "../helpers/equipage.mjs";
+import { basculerCouvert, couvertActif, resumeEffets } from "../helpers/effets.mjs";
+import { tauxCompetence } from "../helpers/competences.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
@@ -40,6 +42,7 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       montrerEntreeNote: PersonnageSheet.#onMontrerEntreeNote,
       ouvrirActeurPnj: PersonnageSheet.#onOuvrirActeurPnj,
       ajouterTrait: PersonnageSheet.#onAjouterTrait,
+      basculerCouvert: PersonnageSheet.#onBasculerCouvert,
       basculerFavori: PersonnageSheet.#onBasculerFavori,
       gainExperience: PersonnageSheet.#onGainExperience,
       gainNiveau: PersonnageSheet.#onGainNiveau,
@@ -138,7 +141,9 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     Object.assign(context, this.#preparerInventaire());
     if (this.#ongletActif === "equipements") context.vaisseau = this.#preparerVaisseau(system);
     context.pouvoirs = this.actor.items.filter((i) => i.type === "pouvoir");
-    context.traits = this.actor.items.filter((i) => i.type === "talent").sort((a, b) => a.name.localeCompare(b.name));
+    // Traits : effets actifs résumés (« Furtivité +20 % ») ; une variante « fiche rapide » n'a aucun effet ici.
+    context.traits = this.actor.items.filter((i) => i.type === "talent").sort((a, b) => a.name.localeCompare(b.name))
+      .map((i) => ({ id: i.id, img: i.img, name: i.name, system: i.system, effets: resumeEffets(i), autreFiche: i.system.fiche === "rapide" }));
     context.afficherTraits = context.traits.length > 0 || context.modeEdition;
     if (this.#ongletActif === "notes") Object.assign(context, await this.#preparerNotes(system));
     if (this.#ongletActif === "combat") context.combat = await this.#preparerCombat(competencesIndexees, context);
@@ -400,6 +405,8 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
         .map((l) => ({ ...l, degatsRapide: true, libelleValeur: "GALACTICWARS.Objet.Degats" })),
       armures: context.armures.filter((l) => l.porte),
       reduction,
+      // Couverts (traits actifs) : boutons exclusifs, armure temporaire.
+      couverts: Object.entries(GW.couverts).map(([cle, c]) => ({ cle, label: c.label, armure: c.armure, actif: couvertActif(this.actor) === cle })),
       // Ordre alphabétique (suivi de l'auteur, n° 21), comme les autres listes de compétences.
       competences: GW.competencesCombat
         .map((cle) => accessibles.find((c) => c.cle === cle))
@@ -656,8 +663,9 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 
   /**
    * Gain d'expérience : passe la fiche en édition, puis propose +GW.gainExperience % sur une compétence
-   * (ajouté à son ajustement), sans dépasser GW.plafondCompetence. Compétences bloquées ou déjà au
-   * plafond exclues. Un message dans le tchat garde la trace du gain pour le MJ.
+   * (ajouté à son ajustement), sans que la valeur hors effet (totalHorsEffets) dépasse GW.plafondCompetence :
+   * un bonus d'effet ne bloque pas la progression, un malus d'effet ne s'efface pas. Compétences bloquées ou déjà
+   * au plafond exclues. Un message dans le tchat garde la trace du gain pour le MJ.
    */
   static async #onGainExperience() {
     if (!this.actor.isOwner) return;
@@ -668,10 +676,12 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const plafond = GW.plafondCompetence;
     const eligibles = this.actor.system.competences
       .map((c, index) => ({ c, index }))
-      .filter(({ c }) => !c.bloquee && c.total < plafond)
+      .filter(({ c }) => !c.bloquee && c.totalHorsEffets < plafond)
       .map(({ c, index }) => {
-        const gain = Math.min(GW.gainExperience, plafond - c.total);
-        return { index, gain, label: game.i18n.localize(c.label), avant: c.total, apres: c.total + gain };
+        const gain = Math.min(GW.gainExperience, plafond - c.totalHorsEffets);
+        // Taux affichés effets compris ; le plancher à 0 s'applique à la valeur finale.
+        const apres = Math.max(0, c.totalHorsEffets + gain + (c.bonusEffets ?? 0));
+        return { index, gain, label: game.i18n.localize(c.label), avant: c.total, apres };
       })
       .sort((a, b) => a.label.localeCompare(b.label, game.i18n.lang));
     if (!eligibles.length) return ui.notifications.info(game.i18n.localize("GALACTICWARS.Experience.AucuneEligible"));
@@ -714,7 +724,8 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 
   /**
    * Taux d'une compétence pour un niveau donné, avec la même règle que PersonnageData#prepareDerivedData
-   * (caractéristique liée = plancher, malus hors métier, plafond) — aperçu du gain de niveau.
+   * (caractéristique liée = plancher, malus hors métier, plafond, effets actifs : tauxCompetence partagé) —
+   * aperçu du gain de niveau.
    */
   #tauxPourNiveau(competence, niveau) {
     const def = GW.competences[competence.cle];
@@ -723,8 +734,8 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const malus = def && !competence.acquiseParMetier ? (def.metier ? -30 : -10) : 0;
     const horsMetier = niveau === 0 ? malus : 0;
     const modulation = base + competence.racial + Math.max(0, competence.metier + competence.ajustement + horsMetier);
-    const plafond = GW.plafondCompetence + Math.max(0, competence.racial);
-    return Math.min(plafond, Math.max(0, carac + modulation));
+    const effet = this.actor.system.effets?.competences?.[competence.cle] ?? 0;
+    return tauxCompetence({ caracteristique: carac, modulation, racial: competence.racial, effet }).total;
   }
 
   /**
@@ -877,10 +888,21 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     ]);
   }
 
-  /** Ajout d'un trait depuis le compendium Talents (un glisser-déposer d'Item talent marche aussi). */
+  /** Prend ou quitte un couvert (onglet Combat) : exclusifs, l'autre couvert est retiré. */
+  static async #onBasculerCouvert(event, target) {
+    if (!this.isEditable) return;
+    await basculerCouvert(this.actor, target.dataset.couvert);
+  }
+
+  /** Ajout d'un trait depuis les compendiums Traits et Talents (un glisser-déposer d'Item talent marche aussi). */
   static async #onAjouterTrait() {
     if (!this.modeEdition) return;
-    const talent = await choisirItemCompendium("talents", { title: game.i18n.localize("GALACTICWARS.Traits.Ajouter") });
+    // Traits de métier et talents ; la variante « fiche rapide » (d20) n'est pas proposée ici.
+    const talent = await choisirItemCompendium(["traits", "talents"], {
+      title: game.i18n.localize("GALACTICWARS.Traits.Ajouter"),
+      champs: ["system.fiche"],
+      filtre: (entree) => entree.system?.fiche !== "rapide"
+    });
     if (!talent) return;
     if (this.actor.items.some((i) => i.type === "talent" && i.name === talent.name)) {
       return ui.notifications.warn(game.i18n.format("GALACTICWARS.Traits.DejaPresent", { nom: talent.name }));
