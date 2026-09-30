@@ -1,17 +1,17 @@
 {
-  "_key": "!items!qGO648wMmkKQiqG2",
-  "_id": "qGO648wMmkKQiqG2",
+  "_key": "!items!v3RfcefbfvxuozL4",
+  "_id": "v3RfcefbfvxuozL4",
   "name": "Manipulation de la force",
   "type": "talent",
   "img": "icons/svg/aura.svg",
   "system": {
     "avantage": "Permet d'utiliser la télékinésie.",
     "inconvenient": "",
-    "fiche": "toutes",
-    "description": "<p>Trait du métier Padawan. Permet d'utiliser la télékinésie.</p>"
+    "fiche": "rapide",
+    "description": "<p>Trait du métier Padawan. Permet d'utiliser la télékinésie. — variante fiche rapide / PNJ.</p>"
   },
   "effects": [],
-  "folder": "kW2zdGKIlGpk0feB",
+  "folder": "hQ0pLTdDjNk7CFye",
   "sort": 1000000,
   "ownership": {
     "default": 0
@@ -22,6 +22,6 @@
     "duplicateSource": null,
     "coreVersion": "14",
     "systemId": "galactic-wars",
-    "systemVersion": "0.20.0"
+    "systemVersion": "0.20.3"
   }
 }

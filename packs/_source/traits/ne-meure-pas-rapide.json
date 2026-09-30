@@ -1,17 +1,17 @@
 {
-  "_key": "!items!Wi2Mq6GmiwOMYEmK",
-  "_id": "Wi2Mq6GmiwOMYEmK",
+  "_key": "!items!CeJZMwoxjaP0oEzo",
+  "_id": "CeJZMwoxjaP0oEzo",
   "name": "Ne meure pas !",
   "type": "talent",
   "img": "icons/svg/regen.svg",
   "system": {
     "avantage": "Donne à un allié la possibilité de relancer un test de survie raté.",
     "inconvenient": "",
-    "fiche": "toutes",
-    "description": "<p>Trait du métier Soldat médecin. Donne à un allié la possibilité de relancer un test de survie raté.</p>"
+    "fiche": "rapide",
+    "description": "<p>Trait du métier Soldat médecin. Donne à un allié la possibilité de relancer un test de survie raté. — variante fiche rapide / PNJ.</p>"
   },
   "effects": [],
-  "folder": "kW2zdGKIlGpk0feB",
+  "folder": "hQ0pLTdDjNk7CFye",
   "sort": 1500000,
   "ownership": {
     "default": 0
@@ -22,6 +22,6 @@
     "duplicateSource": null,
     "coreVersion": "14",
     "systemId": "galactic-wars",
-    "systemVersion": "0.20.0"
+    "systemVersion": "0.20.3"
   }
 }

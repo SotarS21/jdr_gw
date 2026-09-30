@@ -1,17 +1,17 @@
 {
-  "_key": "!items!UgmuSGAsSuU2SuU8",
-  "_id": "UgmuSGAsSuU2SuU8",
+  "_key": "!items!G74gabhGrvdZ1UwE",
+  "_id": "G74gabhGrvdZ1UwE",
   "name": "Bluff",
   "type": "talent",
   "img": "icons/svg/card-joker.svg",
   "system": {
     "avantage": "Un charisme particulier permet de se faire écouter même dans les situations critiques.",
     "inconvenient": "",
-    "fiche": "toutes",
-    "description": "<p>Trait du métier Contrebandier. Un charisme particulier permet de se faire écouter même dans les situations critiques.</p>"
+    "fiche": "rapide",
+    "description": "<p>Trait du métier Contrebandier. Un charisme particulier permet de se faire écouter même dans les situations critiques. — variante fiche rapide / PNJ.</p>"
   },
   "effects": [],
-  "folder": "kW2zdGKIlGpk0feB",
+  "folder": "hQ0pLTdDjNk7CFye",
   "sort": 800000,
   "ownership": {
     "default": 0
@@ -22,6 +22,6 @@
     "duplicateSource": null,
     "coreVersion": "14",
     "systemId": "galactic-wars",
-    "systemVersion": "0.20.0"
+    "systemVersion": "0.20.3"
   }
 }

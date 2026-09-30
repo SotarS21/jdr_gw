@@ -7,7 +7,7 @@
   "system": {
     "avantage": "Prend une posture particulière qui permet de ne prendre aucun dégât de 15 en une seule fois. Par contre le soldat ne peut plus bouger. Prend 1 tour à retirer.",
     "inconvenient": "",
-    "fiche": "toutes",
+    "fiche": "classique",
     "description": "<p>Trait du métier Soldat lourd. Prend une posture particulière qui permet de ne prendre aucun dégât de 15 en une seule fois. Par contre le soldat ne peut plus bouger. Prend 1 tour à retirer.</p>"
   },
   "effects": [],

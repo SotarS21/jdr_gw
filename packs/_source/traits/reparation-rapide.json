@@ -1,17 +1,17 @@
 {
-  "_key": "!items!6SkmM6sm2aEoMia4",
-  "_id": "6SkmM6sm2aEoMia4",
+  "_key": "!items!tbDsDyeNSLPQLfYv",
+  "_id": "tbDsDyeNSLPQLfYv",
   "name": "Réparation",
   "type": "talent",
   "img": "icons/svg/clockwork.svg",
   "system": {
     "avantage": "Peut réparer presque tout ce qui n'est pas trop gros (comme un vaisseau interstellaire), tant qu'il a le matériel.",
     "inconvenient": "",
-    "fiche": "toutes",
-    "description": "<p>Trait du métier Mécanicien. Peut réparer presque tout ce qui n'est pas trop gros (comme un vaisseau interstellaire), tant qu'il a le matériel.</p>"
+    "fiche": "rapide",
+    "description": "<p>Trait du métier Mécanicien. Peut réparer presque tout ce qui n'est pas trop gros (comme un vaisseau interstellaire), tant qu'il a le matériel. — variante fiche rapide / PNJ.</p>"
   },
   "effects": [],
-  "folder": "kW2zdGKIlGpk0feB",
+  "folder": "hQ0pLTdDjNk7CFye",
   "sort": 900000,
   "ownership": {
     "default": 0
@@ -22,6 +22,6 @@
     "duplicateSource": null,
     "coreVersion": "14",
     "systemId": "galactic-wars",
-    "systemVersion": "0.20.0"
+    "systemVersion": "0.20.3"
   }
 }

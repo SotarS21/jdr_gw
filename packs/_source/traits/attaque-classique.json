@@ -7,7 +7,7 @@
   "system": {
     "avantage": "Sur un jet de Bagarre : 1d8 de dégâts.",
     "inconvenient": "Nécessite Protection rapprochée désactivée.",
-    "fiche": "toutes",
+    "fiche": "classique",
     "actif": true,
     "description": "<p>Trait actif.</p><p>Sur un jet de Bagarre : 1d8 de dégâts.</p><p><strong>Inconvénient :</strong> Nécessite Protection rapprochée désactivée.</p>"
   },

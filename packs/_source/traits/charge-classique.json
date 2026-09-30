@@ -7,7 +7,7 @@
   "system": {
     "avantage": "Fonce vers l'avant pour frapper et/ou renverser un ennemi : 1d4 de dégâts (1d6 si Protection rapprochée est active), +2 par charge de booster utilisée.",
     "inconvenient": "",
-    "fiche": "toutes",
+    "fiche": "classique",
     "actif": true,
     "description": "<p>Trait actif (niveau 2).</p><p>Fonce vers l'avant pour frapper et/ou renverser un ennemi : 1d4 de dégâts (1d6 si Protection rapprochée est active), +2 par charge de booster utilisée.</p>"
   },

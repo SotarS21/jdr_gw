@@ -1,0 +1,60 @@
+{
+  "_key": "!items!guHGNXylBeeKqD7l",
+  "_id": "guHGNXylBeeKqD7l",
+  "name": "Protection rapprochée",
+  "type": "talent",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "avantage": "Active les boucliers : +10 points d'armure et protection d'un allié.",
+    "inconvenient": "",
+    "fiche": "classique",
+    "actif": true,
+    "description": "<p>Trait actif.</p><p>Active les boucliers : +10 points d'armure et protection d'un allié.</p><p><em>Trait actif : l'armure +10 s'allume avec le bouton du trait sur la fiche.</em></p>"
+  },
+  "effects": [
+    {
+      "_key": "!items.effects!guHGNXylBeeKqD7l.hNXQW7w61faf50jh",
+      "_id": "hNXQW7w61faf50jh",
+      "name": "Protection rapprochée",
+      "img": "icons/svg/shield.svg",
+      "type": "base",
+      "transfer": true,
+      "disabled": true,
+      "system": {
+        "changes": [
+          {
+            "key": "system.effets.armure",
+            "type": "add",
+            "value": "10"
+          }
+        ]
+      },
+      "description": "",
+      "origin": null,
+      "tint": "#ffffff",
+      "statuses": [],
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.1"
+      }
+    }
+  ],
+  "folder": "2Flh7oUfTPi5JubP",
+  "sort": 700000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.20.1"
+  }
+}

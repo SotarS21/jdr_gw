@@ -1,0 +1,28 @@
+{
+  "_key": "!items!annFVHZRwVhEhCmB",
+  "_id": "annFVHZRwVhEhCmB",
+  "name": "Peau de nanite",
+  "type": "talent",
+  "img": "icons/svg/regen.svg",
+  "system": {
+    "avantage": "Amélioration des nano-technologies : au repos, améliore la régénération de l'armure et des points de vie.",
+    "inconvenient": "",
+    "fiche": "rapide",
+    "actif": false,
+    "description": "<p>Trait passif. — variante fiche rapide / PNJ.</p><p>Amélioration des nano-technologies : au repos, améliore la régénération de l'armure et des points de vie.</p>"
+  },
+  "effects": [],
+  "folder": "iLkBv4A4JBr2vegg",
+  "sort": 300000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.20.3"
+  }
+}

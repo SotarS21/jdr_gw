@@ -1,0 +1,28 @@
+{
+  "_key": "!items!pGRsDM9Y3Gc6AXP3",
+  "_id": "pGRsDM9Y3Gc6AXP3",
+  "name": "Charge",
+  "type": "talent",
+  "img": "icons/svg/thrust.svg",
+  "system": {
+    "avantage": "Fonce vers l'avant pour frapper et/ou renverser un ennemi : 1d4 de dégâts (1d6 si Protection rapprochée est active), +2 par charge de booster utilisée.",
+    "inconvenient": "",
+    "fiche": "rapide",
+    "actif": true,
+    "description": "<p>Trait actif (niveau 2). — variante fiche rapide / PNJ.</p><p>Fonce vers l'avant pour frapper et/ou renverser un ennemi : 1d4 de dégâts (1d6 si Protection rapprochée est active), +2 par charge de booster utilisée.</p>"
+  },
+  "effects": [],
+  "folder": "iLkBv4A4JBr2vegg",
+  "sort": 800000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.20.3"
+  }
+}

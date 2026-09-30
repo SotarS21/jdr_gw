@@ -1,0 +1,28 @@
+{
+  "_key": "!items!GFNe3OXmcuZc7zom",
+  "_id": "GFNe3OXmcuZc7zom",
+  "name": "Support de combat",
+  "type": "talent",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "avantage": "En combat, +4 sur un jet de soin (Mentale) ou une action combinée avec des alliés : 1d8.",
+    "inconvenient": "",
+    "fiche": "rapide",
+    "actif": true,
+    "description": "<p>Trait actif. — variante fiche rapide / PNJ (d20).</p><p>En combat, +4 sur un jet de soin (Mentale) ou une action combinée avec des alliés : 1d8.</p><p><em>Bonus de situation, appliqué par le MJ.</em></p>"
+  },
+  "effects": [],
+  "folder": "iLkBv4A4JBr2vegg",
+  "sort": 900000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.20.3"
+  }
+}

@@ -7,7 +7,7 @@
   "system": {
     "avantage": "Analyse et détermine les pathologies, selon le niveau en Médecine.",
     "inconvenient": "",
-    "fiche": "toutes",
+    "fiche": "classique",
     "actif": false,
     "description": "<p>Trait passif.</p><p>Analyse et détermine les pathologies, selon le niveau en Médecine.</p>"
   },

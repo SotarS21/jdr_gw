@@ -1,0 +1,27 @@
+{
+  "_key": "!items!0ZaNVh0eSzRhYbBf",
+  "_id": "0ZaNVh0eSzRhYbBf",
+  "name": "Flippant",
+  "type": "talent",
+  "img": "icons/svg/terror.svg",
+  "system": {
+    "avantage": "Compétence active qui oblige une cible à lancer un test de stress avec -2 ; en cas d'échec, la personne ciblée est déstabilisée.",
+    "inconvenient": "",
+    "fiche": "rapide",
+    "description": "<p>Trait du métier Pirate. Compétence active qui oblige une cible à lancer un test de stress avec -2 ; en cas d'échec, la personne ciblée est déstabilisée. — variante fiche rapide / PNJ.</p>"
+  },
+  "effects": [],
+  "folder": "hQ0pLTdDjNk7CFye",
+  "sort": 1200000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.20.3"
+  }
+}

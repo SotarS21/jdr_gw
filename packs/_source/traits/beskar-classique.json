@@ -1,21 +1,21 @@
 {
-  "_key": "!items!ck0iuuSAAEQEqme8",
-  "_id": "ck0iuuSAAEQEqme8",
-  "name": "Châssis blindé",
+  "_key": "!items!UwQScs8We0cQcemg",
+  "_id": "UwQScs8We0cQcemg",
+  "name": "Beskar",
   "type": "talent",
-  "img": "icons/svg/door-steel.svg",
+  "img": "icons/svg/shield.svg",
   "system": {
-    "avantage": "+2 d'armure : carcasse renforcée d'un droïde de combat quadrupède.",
+    "avantage": "+2 d'armure : pièces d'armure en beskar héritées du clan.",
     "inconvenient": "",
-    "fiche": "toutes",
-    "description": "<p>Trait du métier Robot quadrupède / droïde. +2 d'armure : carcasse renforcée d'un droïde de combat quadrupède.</p>"
+    "fiche": "classique",
+    "description": "<p>Trait du métier Mandalorien soldat. +2 d'armure : pièces d'armure en beskar héritées du clan.</p>"
   },
   "effects": [
     {
-      "_key": "!items.effects!ck0iuuSAAEQEqme8.HCzFRZONu11Wbnjz",
-      "_id": "HCzFRZONu11Wbnjz",
-      "name": "Châssis blindé",
-      "img": "icons/svg/door-steel.svg",
+      "_key": "!items.effects!UwQScs8We0cQcemg.Sl7jXrXA6Bki6R8N",
+      "_id": "Sl7jXrXA6Bki6R8N",
+      "name": "Beskar",
+      "img": "icons/svg/shield.svg",
       "type": "base",
       "system": {
         "changes": [
@@ -43,7 +43,7 @@
     }
   ],
   "folder": "kW2zdGKIlGpk0feB",
-  "sort": 2800000,
+  "sort": 2500000,
   "ownership": {
     "default": 0
   },

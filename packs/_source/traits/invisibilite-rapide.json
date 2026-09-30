@@ -1,0 +1,28 @@
+{
+  "_key": "!items!3yoeedlG2rJguKem",
+  "_id": "3yoeedlG2rJguKem",
+  "name": "Invisibilité",
+  "type": "talent",
+  "img": "icons/svg/invisible.svg",
+  "system": {
+    "avantage": "Devient transparent : totalement invisible immobile, partiellement en mouvement. S'active hors ou en combat (jet de Furtivité nécessaire), durée illimitée.",
+    "inconvenient": "Visible sous lumière infrarouge.",
+    "fiche": "rapide",
+    "actif": false,
+    "description": "<p>Trait passif. — variante fiche rapide / PNJ.</p><p>Devient transparent : totalement invisible immobile, partiellement en mouvement. S'active hors ou en combat (jet de Furtivité nécessaire), durée illimitée.</p><p><strong>Inconvénient :</strong> Visible sous lumière infrarouge.</p>"
+  },
+  "effects": [],
+  "folder": "iLkBv4A4JBr2vegg",
+  "sort": 500000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.20.3"
+  }
+}

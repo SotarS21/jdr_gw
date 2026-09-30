@@ -1,0 +1,28 @@
+{
+  "_key": "!items!VYMlUOzwKeccQcep",
+  "_id": "VYMlUOzwKeccQcep",
+  "name": "Attaque !",
+  "type": "talent",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "avantage": "Sur un jet de Bagarre : 1d8 de dégâts.",
+    "inconvenient": "Nécessite Protection rapprochée désactivée.",
+    "fiche": "rapide",
+    "actif": true,
+    "description": "<p>Trait actif. — variante fiche rapide / PNJ.</p><p>Sur un jet de Bagarre : 1d8 de dégâts.</p><p><strong>Inconvénient :</strong> Nécessite Protection rapprochée désactivée.</p>"
+  },
+  "effects": [],
+  "folder": "iLkBv4A4JBr2vegg",
+  "sort": 1000000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.20.3"
+  }
+}
