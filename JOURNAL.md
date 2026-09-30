@@ -18,9 +18,14 @@
     Protection rapprochée +10 d'armure).
   - v0.20.2 — bonus des traits visibles : pastille +N / −N sur les compétences (favoris, Combat) et info-bulle des
     traits sources (signalement de l'auteur sur Alek : le calcul était juste, le bonus invisible).
+  - v0.20.3 — compendium Traits rangé par fiche : « Traits fiche classique » / « Traits fiche rapide », chacun avec
+    « Traits de métier » (21) et « Traits robot » (10) ; traits communs dupliqués ; variantes d20 de Le Gardien,
+    Cryptographie, Tentative de confusion, Support de combat (+5 % = +1, à valider par l'auteur).
 - **À relire par l'auteur** : la description du Médecin réécrite (trait Chirurgien permanent) ; les 10 descriptions
   de métiers rédigées par Claude (v0.19.9).
 - **Points ouverts** :
+  - Variantes d20 des 4 traits robot chiffrés (Le Gardien +1, Cryptographie +2, Tentative de confusion +2, Support de
+    combat +4) : valeurs proposées par Claude, à confirmer.
   - Tentative de confusion : bonus de situation en texte (+10 %) — à passer en effet permanent si l'auteur le souhaite.
   - Aucun acteur WOLF dans le monde : traits du compendium à poser à la main si la fiche est créée.
   - Audit du 2026-09-29 : constats confirmés **non corrigés** (section « Audit du 2026-09-29 ») ; tests en direct
