@@ -2,12 +2,10 @@
 
 ## À faire à la reprise (état au 2026-09-30 soir — « note ce qu'on a fait, on s'arrête là pour ce soir »)
 
-- **v0.20.3 (compendium Traits rangé par fiche)** : voir la session « suite 3 » ci-dessous.
-- **Publié** : **v0.20.2 = dernière release** (poussée, taguée, archive construite). Dans la journée : v0.20.0, v0.20.1,
-  v0.20.2 (la v0.19.9 n'a pas de tag : elle est incluse dans la 0.20.0). `main` à jour avec GitHub, plus aucune
-  branche de travail (`wip/traits-0.20.0`, `feat/traits-wolf`, `fix/bonus-effets-visibles` fusionnées puis supprimées).
-- **Foundry local** : monde `galacit-wars-v-final`, compendiums en 0.20.1 ; code et CSS de la 0.20.2 copiés sans
-  redémarrage (`deploy-local.ps1 -NoRestart`) : le serveur annonce 0.20.1 jusqu'au prochain redémarrage.
+- **Publié** : **v0.20.3 = dernière release** (compendium Traits rangé par fiche ; poussée, taguée, archive construite). Dans la journée : v0.20.0, v0.20.1,
+  v0.20.2, v0.20.3 (la v0.19.9 n'a pas de tag : elle est incluse dans la 0.20.0). `main` à jour avec GitHub, plus aucune
+  branche de travail (`wip/traits-0.20.0`, `feat/traits-wolf`, `fix/bonus-effets-visibles`, `feat/traits-par-fiche` fusionnées puis supprimées).
+- **Foundry local** : monde `galacit-wars-v-final`, redémarré en 0.20.3 (compendium Traits : 62 traits en 2 dossiers par fiche).
 - **Monde de l'auteur** : correctif MJ `0.20.0-traits-metier` appliqué par l'auteur (traits posés sur les 7 personnages
   dotés d'un métier : Alek — Fureur obscure, Test_robin — Chirurgien, Neili Sombra — Diplomate de l'Ordre, etc.).
 - **Fait aujourd'hui** (détail dans les sessions du 2026-09-30 ci-dessous) :
