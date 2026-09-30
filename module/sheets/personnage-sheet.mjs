@@ -5,7 +5,7 @@ import { applyMetier } from "../helpers/metier.mjs";
 import { choisirItemCompendium } from "../helpers/compendium-picker.mjs";
 import { editerEntreeNote, supprimerEntreeNote, pnjDepuisActeur, ajouterEntreeNote, montrerEntreeNote, entreeDepuisGlisser } from "../helpers/notes.mjs";
 import { vaisseauDEquipage } from "../helpers/equipage.mjs";
-import { basculerCouvert, couvertActif, ligneTrait, basculerTraitActif } from "../helpers/effets.mjs";
+import { basculerCouvert, couvertActif, ligneTrait, basculerTraitActif, sourcesEffets } from "../helpers/effets.mjs";
 import { tauxCompetence } from "../helpers/competences.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
@@ -127,7 +127,11 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     // `index` conserve la position réelle dans system.competences (pas celle, différente,
     // dans la sous-liste triée/filtrée par caractéristique ci-dessous) pour que les inputs
     // du template continuent de cibler la bonne entrée du tableau.
-    const competencesIndexees = system.competences.map((c, index) => ({ ...c, index }));
+    // Bonus d'effet (v0.20.2) : pastille sur le total, info-bulle listant les traits / talents sources.
+    const competencesIndexees = system.competences.map((c, index) => ({
+      ...c, index,
+      sourcesEffets: c.bonusEffets ? sourcesEffets(this.actor, `system.effets.competences.${c.cle}`, { unite: " %" }) : ""
+    }));
     context.caracteristiques = Object.entries(GW.caracteristiques).map(([cle, label]) => ({
       cle,
       label,

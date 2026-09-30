@@ -3,7 +3,7 @@ import { rollCaracteristiqueD20, rollCaracteristiquePourcentage, rollSurvie } fr
 import { applyRace } from "../helpers/race.mjs";
 import { applyMetier } from "../helpers/metier.mjs";
 import { choisirItemCompendium } from "../helpers/compendium-picker.mjs";
-import { basculerCouvert, couvertActif, ligneTrait, basculerTraitActif } from "../helpers/effets.mjs";
+import { basculerCouvert, couvertActif, ligneTrait, basculerTraitActif, sourcesEffets } from "../helpers/effets.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
@@ -48,7 +48,10 @@ export class PersonnageRapideSheet extends HandlebarsApplicationMixin(ActorSheet
       valeur: system.caracteristiques[cle],
       // Effets actifs (traits, talents) : bonus affiché à côté de la saisie, valeur jouée = saisie + bonus.
       bonus: system.bonusCaracteristiques?.[cle] ?? 0,
-      total: system.caracteristiquesTotales?.[cle] ?? system.caracteristiques[cle]
+      total: system.caracteristiquesTotales?.[cle] ?? system.caracteristiques[cle],
+      // Traits / talents sources du bonus (v0.20.2) ; un PNJ les compte × 5, en %.
+      sources: sourcesEffets(this.actor, `system.effets.caracteristiques.${cle}`, this.actor.type === "pnj"
+        ? { facteur: GW.facteurD20VersPourcentage, unite: " %" } : {})
     }));
     // Traits portés (v0.20.0) : la fiche rapide n'affichait aucun objet ; une variante « classique » (%) n'a aucun
     // effet ici. Un PNJ compte les bonus d20 × GW.facteurD20VersPourcentage : le résumé affiche la valeur appliquée
