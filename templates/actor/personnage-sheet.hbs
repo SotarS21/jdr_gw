@@ -513,10 +513,10 @@
       <tbody>
         {{#each traits as |trait|}}
         <tr data-item-id="{{trait.id}}">
-          <td class="trait-nom"><a data-action="ouvrirObjet"><img src="{{trait.img}}" alt="">{{trait.name}}</a></td>
+          <td class="trait-nom"><a data-action="ouvrirObjet"><img src="{{trait.img}}" alt="">{{trait.name}}</a>{{#if trait.activable}}<button type="button" class="trait-actif-btn{{#if trait.enCours}} actif{{/if}}" data-action="basculerTraitActif" {{#unless @root.editable}}disabled{{/unless}} data-tooltip="{{#if trait.enCours}}{{localize 'GALACTICWARS.Traits.Desactiver'}}{{else}}{{localize 'GALACTICWARS.Traits.Activer'}}{{/if}}" aria-pressed="{{#if trait.enCours}}true{{else}}false{{/if}}"><i class="fa-solid fa-power-off"></i> {{#if trait.enCours}}{{localize 'GALACTICWARS.Traits.EnCours'}}{{else}}{{localize 'GALACTICWARS.Traits.Actif'}}{{/if}}</button>{{/if}}</td>
           <td class="trait-avantage">{{trait.system.avantage}}</td>
           <td class="trait-inconvenient">{{trait.system.inconvenient}}</td>
-          <td class="trait-effets">{{#if trait.autreFiche}}<span class="hint" data-tooltip="{{localize 'GALACTICWARS.Traits.AutreFiche'}}"><i class="fa-solid fa-triangle-exclamation"></i> {{localize 'GALACTICWARS.Traits.Fiche.Rapide'}}</span>{{else}}{{trait.effets}}{{/if}}</td>
+          <td class="trait-effets">{{#if trait.autreFiche}}<span class="hint" data-tooltip="{{localize 'GALACTICWARS.Traits.AutreFiche'}}"><i class="fa-solid fa-triangle-exclamation"></i> {{localize 'GALACTICWARS.Traits.Fiche.Rapide'}}</span>{{else}}{{trait.effets}}{{#if trait.effetsPossibles}}<span class="trait-effets-possibles">{{trait.effetsPossibles}}</span>{{/if}}{{/if}}</td>
           {{#if @root.modeEdition}}<td class="trait-actions"><button type="button" class="del-btn" data-action="deleteItem" data-tooltip="{{localize 'GALACTICWARS.Traits.Retirer'}}">🗑</button></td>{{/if}}
         </tr>
         {{/each}}

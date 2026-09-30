@@ -65,6 +65,7 @@
         {{#each fiches as |f|}}<option value="{{f.cle}}" {{#if f.choisi}}selected{{/if}}>{{localize f.label}}</option>{{/each}}
       </select>
     </label>
+    <label class="checkbox" data-tooltip="{{localize 'GALACTICWARS.Traits.ActifHint'}}"><input type="checkbox" name="system.actif" {{checked system.actif}}> {{localize 'GALACTICWARS.Traits.Actif'}}</label>
   </section>
   <section class="talent-effets">
     <h2>{{localize 'GALACTICWARS.Effets.Titre'}}

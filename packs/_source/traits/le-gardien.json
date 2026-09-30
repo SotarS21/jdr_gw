@@ -1,0 +1,28 @@
+{
+  "_key": "!items!psrecy17sQTI2LZn",
+  "_id": "psrecy17sQTI2LZn",
+  "name": "Le Gardien",
+  "type": "talent",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "avantage": "+5 % sur toute action visant à protéger autrui ; bonus en action combinée avec un allié proche.",
+    "inconvenient": "",
+    "fiche": "classique",
+    "actif": false,
+    "description": "<p>Trait passif.</p><p>+5 % sur toute action visant à protéger autrui ; bonus en action combinée avec un allié proche.</p><p><em>Bonus de situation, appliqué par le MJ.</em></p>"
+  },
+  "effects": [],
+  "folder": "2Flh7oUfTPi5JubP",
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.20.1"
+  }
+}

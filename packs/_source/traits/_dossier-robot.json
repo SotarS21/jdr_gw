@@ -1,0 +1,19 @@
+{
+  "_key": "!folders!2Flh7oUfTPi5JubP",
+  "_id": "2Flh7oUfTPi5JubP",
+  "name": "Traits robot",
+  "type": "Item",
+  "folder": null,
+  "sorting": "a",
+  "sort": 200000,
+  "color": null,
+  "description": "",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.20.1"
+  }
+}

@@ -2168,3 +2168,25 @@
 .galactic-wars .metier-traits > .hint:last-child {
   margin: 0.4rem 0 0;
 }
+
+/* Traits actifs (v0.20.1) : interrupteur à côté du nom ; éteint, le résumé de ce qu'apporterait le trait. */
+.galactic-wars .trait-actif-btn {
+  margin-left: 0.4rem;
+  padding: 0 0.45rem;
+  font-size: 0.75rem;
+  line-height: 1.4rem;
+  border-radius: 999px;
+  width: auto;
+  flex: 0 0 auto;
+  opacity: 0.75;
+}
+.galactic-wars .trait-actif-btn.actif {
+  opacity: 1;
+  font-weight: bold;
+  border-color: var(--gw-accent, currentColor);
+  color: var(--gw-accent, inherit);
+}
+.galactic-wars .trait-effets-possibles {
+  font-style: italic;
+  opacity: 0.6;
+}

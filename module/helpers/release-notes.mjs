@@ -352,5 +352,12 @@ export const RELEASE_NOTES = {
       <li>Fiche de talent : fiche visée (toutes, classique, rapide) et liste des effets (créer, modifier, activer, supprimer). Fiche de métier : choix du trait posé (variante classique et variante rapide).</li>
       <li>Correctif MJ <code>0.20.0-traits-metier</code> : pose le trait du métier sur les personnages déjà dotés d'un métier et recalcule le bonus de Médecine des Médecins ; un message chuchoté au MJ liste les fiches où un talent ou un trait avait peut-être déjà été reporté à la main.</li>
     </ul>`
+  },
+  "0.20.1": {
+    title: "v0.20.1 — Nouveaux traits, traits actifs",
+    html: `<ul>
+      <li>Compendium <strong>Traits</strong> : 10 nouveaux traits, dans le dossier « Traits robot » — passifs (Le Gardien, Diagnostique, Peau de nanite, Cryptographie, Invisibilité, Tentative de confusion) et actifs (Protection rapprochée, Charge, Support de combat, Attaque !). Les traits des métiers sont rangés dans le dossier « Traits de métier ».</li>
+      <li><strong>Traits actifs</strong> : un trait actif porteur d'effets a un bouton sur la fiche (classique et rapide) pour allumer ou éteindre ses effets — Protection rapprochée : +10 d'armure tant qu'elle est active. Case « Trait actif » sur la fiche du talent.</li>
+    </ul>`
   }
 };

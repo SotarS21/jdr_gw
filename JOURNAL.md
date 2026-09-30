@@ -107,6 +107,22 @@
   antislashs à vérifier) — jamais de backticks dans un `node -e` en bash ; `git checkout` remet les fichiers en CRLF
   (normaliser avant de chercher du texte) ; `prose-mirror` doit rester en `display: flex`.
 
+## Session du 2026-09-30 (suite) — Traits de WOLF, traits actifs (v0.20.1)
+
+- **Demande de l'auteur** : « regarde la fiche de wolf, c'est une classique, les compétences passifs et actifs sont des
+  traits que tu pourrais ajouter » (tableur Google de WOLF, lu en CSV). Aucun acteur WOLF dans le monde : traits ajoutés
+  au compendium seulement.
+- **10 traits** (`packs/_source/traits/`, dossier « Traits robot ») — passifs : Le Gardien,
+  Diagnostique, Peau de nanite, Cryptographie, Invisibilité (« Promenons-nous dans le vaisseau… » sur la fiche de WOLF), Tentative de confusion ; actifs :
+  Protection rapprochée (effet armure +10, éteint par défaut), Charge, Support de combat, Attaque !. Les bonus de
+  situation (+5 %, +10 %, +20 %) restent en texte (appliqués par le MJ) : fiche classique pour ceux chiffrés en %.
+  Traits des métiers rangés dans le dossier « Traits de métier ». Non repris (objets, pas des traits) : blindage +4,
+  sphère gravitationnelle, kit de soins.
+- **Sans référence à WOLF** (demande de l'auteur) : noms et descriptions génériques, dossier « Traits robot ».
+- **Traits actifs** : `TalentData.actif` ; `helpers/effets.mjs` : `ligneTrait` (ligne commune aux deux fiches :
+  interrupteur, résumé de ce qu'apporte un trait éteint) et `basculerTraitActif` (allume / éteint tous ses effets) ;
+  bouton sur les fiches classique (tableau des traits) et rapide ; case « Trait actif » sur la fiche du talent.
+
 ## Session du 2026-09-30 — Traits à effets actifs (v0.20.0)
 
 - Demande de l'auteur (2026-09-29) : un compendium de traits à effets actifs, sur le modèle d'Antique, un trait par
@@ -167,7 +183,8 @@
 |---|---|
 | v0.19.8 | Images des 21 métiers ; archive de release corrigée (compendium des aménagements) — dernière release |
 | v0.19.9 | Descriptions des 21 métiers ; niveau minimum et métier requis supprimés (commitée sur `main`, non poussée) |
-| v0.20.0 | Traits à effets actifs (compendium Traits, variantes % / d20, PNJ × 5), trait posé avec le métier, talents Brutale / Charismatique / Stresser chiffrés, couverts +4 / +8 d'armure temporaire (HUD et fiche), Médecine du Médecin portée par Chirurgien, correctif MJ `0.20.0-traits-metier` (branche `wip/traits-0.20.0`, à tester) |
+| v0.20.0 | Traits à effets actifs (compendium Traits, variantes % / d20, PNJ × 5), trait posé avec le métier, talents Brutale / Charismatique / Stresser chiffrés, couverts +4 / +8 d'armure temporaire (HUD et fiche), Médecine du Médecin portée par Chirurgien, correctif MJ `0.20.0-traits-metier` (testée en jeu, publiée) |
+| v0.20.1 | 10 traits tirés de la fiche de WOLF (passifs / actifs, dossier « Traits robot », sans référence à WOLF), traits actifs à allumer depuis la fiche (Protection rapprochée +10 d'armure), dossiers du compendium Traits |
 
 ## Session du 2026-09-29 (suite) — Descriptions des métiers, niveau minimum (v0.19.9)
 

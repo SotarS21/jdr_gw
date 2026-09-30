@@ -69,8 +69,9 @@
     {{#each traits as |trait|}}
     <div class="trait-rapide" data-item-id="{{trait.id}}">
       <a class="trait-nom" data-action="ouvrirTrait"><img src="{{trait.img}}" alt=""> {{trait.name}}</a>
+      {{#if trait.activable}}<button type="button" class="trait-actif-btn{{#if trait.enCours}} actif{{/if}}" data-action="basculerTraitActif" {{#unless @root.editable}}disabled{{/unless}} data-tooltip="{{#if trait.enCours}}{{localize 'GALACTICWARS.Traits.Desactiver'}}{{else}}{{localize 'GALACTICWARS.Traits.Activer'}}{{/if}}" aria-pressed="{{#if trait.enCours}}true{{else}}false{{/if}}"><i class="fa-solid fa-power-off"></i> {{#if trait.enCours}}{{localize 'GALACTICWARS.Traits.EnCours'}}{{else}}{{localize 'GALACTICWARS.Traits.Actif'}}{{/if}}</button>{{/if}}
       {{#if trait.autreFiche}}<span class="hint" data-tooltip="{{localize 'GALACTICWARS.Traits.AutreFiche'}}"><i class="fa-solid fa-triangle-exclamation"></i> {{localize 'GALACTICWARS.Traits.Fiche.Classique'}}</span>
-      {{else if trait.effets}}<span class="trait-effets mono">{{trait.effets}}</span>{{/if}}
+      {{else if trait.effets}}<span class="trait-effets mono">{{trait.effets}}</span>{{else if trait.effetsPossibles}}<span class="trait-effets mono">{{#if trait.effetsPossibles}}<span class="trait-effets-possibles">{{trait.effetsPossibles}}</span>{{/if}}</span>{{/if}}
       {{#if @root.editable}}<button type="button" class="del-btn" data-action="supprimerTrait" data-tooltip="{{localize 'GALACTICWARS.Traits.Retirer'}}" aria-label="{{localize 'GALACTICWARS.Traits.Retirer'}}">🗑</button>{{/if}}
       {{#if trait.system.avantage}}<p class="trait-detail">{{trait.system.avantage}}{{#if trait.system.inconvenient}} — {{trait.system.inconvenient}}{{/if}}</p>{{/if}}
     </div>

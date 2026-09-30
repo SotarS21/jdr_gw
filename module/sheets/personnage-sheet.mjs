@@ -5,7 +5,7 @@ import { applyMetier } from "../helpers/metier.mjs";
 import { choisirItemCompendium } from "../helpers/compendium-picker.mjs";
 import { editerEntreeNote, supprimerEntreeNote, pnjDepuisActeur, ajouterEntreeNote, montrerEntreeNote, entreeDepuisGlisser } from "../helpers/notes.mjs";
 import { vaisseauDEquipage } from "../helpers/equipage.mjs";
-import { basculerCouvert, couvertActif, resumeEffets } from "../helpers/effets.mjs";
+import { basculerCouvert, couvertActif, ligneTrait, basculerTraitActif } from "../helpers/effets.mjs";
 import { tauxCompetence } from "../helpers/competences.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
@@ -43,6 +43,7 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       ouvrirActeurPnj: PersonnageSheet.#onOuvrirActeurPnj,
       ajouterTrait: PersonnageSheet.#onAjouterTrait,
       basculerCouvert: PersonnageSheet.#onBasculerCouvert,
+      basculerTraitActif: PersonnageSheet.#onBasculerTraitActif,
       basculerFavori: PersonnageSheet.#onBasculerFavori,
       gainExperience: PersonnageSheet.#onGainExperience,
       gainNiveau: PersonnageSheet.#onGainNiveau,
@@ -143,7 +144,7 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     context.pouvoirs = this.actor.items.filter((i) => i.type === "pouvoir");
     // Traits : effets actifs résumés (« Furtivité +20 % ») ; une variante « fiche rapide » n'a aucun effet ici.
     context.traits = this.actor.items.filter((i) => i.type === "talent").sort((a, b) => a.name.localeCompare(b.name))
-      .map((i) => ({ id: i.id, img: i.img, name: i.name, system: i.system, effets: resumeEffets(i), autreFiche: i.system.fiche === "rapide" }));
+      .map((i) => ligneTrait(i, "rapide"));
     context.afficherTraits = context.traits.length > 0 || context.modeEdition;
     if (this.#ongletActif === "notes") Object.assign(context, await this.#preparerNotes(system));
     if (this.#ongletActif === "combat") context.combat = await this.#preparerCombat(competencesIndexees, context);
@@ -892,6 +893,12 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   static async #onBasculerCouvert(event, target) {
     if (!this.isEditable) return;
     await basculerCouvert(this.actor, target.dataset.couvert);
+  }
+
+  /** Allume ou éteint un trait actif (ses effets) depuis le tableau des traits. */
+  static async #onBasculerTraitActif(event, target) {
+    if (!this.isEditable) return;
+    await basculerTraitActif(this.actor.items.get(target.closest("[data-item-id]")?.dataset.itemId));
   }
 
   /** Ajout d'un trait depuis les compendiums Traits et Talents (un glisser-déposer d'Item talent marche aussi). */
