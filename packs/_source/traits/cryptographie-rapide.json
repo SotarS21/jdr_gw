@@ -1,0 +1,28 @@
+{
+  "_key": "!items!WHcBvRtSbMY0UMVT",
+  "_id": "WHcBvRtSbMY0UMVT",
+  "name": "Cryptographie",
+  "type": "talent",
+  "img": "icons/svg/padlock.svg",
+  "system": {
+    "avantage": "+2 en Mentale pour une action de communication (holotransmetteur ou autre) : informatique / piratage.",
+    "inconvenient": "",
+    "fiche": "rapide",
+    "actif": false,
+    "description": "<p>Trait passif. — variante fiche rapide / PNJ (d20).</p><p>+2 en Mentale pour une action de communication (holotransmetteur ou autre) : informatique / piratage.</p><p><em>Bonus de situation, appliqué par le MJ.</em></p>"
+  },
+  "effects": [],
+  "folder": "iLkBv4A4JBr2vegg",
+  "sort": 400000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.20.3"
+  }
+}

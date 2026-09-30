@@ -366,5 +366,13 @@ export const RELEASE_NOTES = {
       <li>Une compétence modifiée par un trait ou un talent affiche son bonus à côté du total (pastille verte, rouge pour un malus : « 45% +20 »), dans la liste des compétences, les favoris et l'onglet Combat.</li>
       <li>Au survol, l'info-bulle liste les traits et talents à l'origine du bonus (ex. « Fureur obscure +20 % ») ; même chose pour les bonus de caractéristiques de la fiche rapide et des PNJ.</li>
     </ul>`
+  },
+  "0.20.3": {
+    title: "v0.20.3 — Compendium Traits rangé par fiche",
+    html: `<ul>
+      <li>Compendium <strong>Traits</strong> rangé en deux dossiers, <strong>Traits fiche classique</strong> et <strong>Traits fiche rapide</strong>, chacun avec ses sous-dossiers « Traits de métier » et « Traits robot » (31 traits par fiche).</li>
+      <li>Les traits communs aux deux fiches existent désormais en deux exemplaires, un par dossier ; chaque métier pose celui de la fiche du personnage. Les traits déjà posés sur les fiches ne changent pas.</li>
+      <li>Le Gardien, Cryptographie, Tentative de confusion et Support de combat ont une variante d20 pour la fiche rapide (+5 % = +1).</li>
+    </ul>`
   }
 };

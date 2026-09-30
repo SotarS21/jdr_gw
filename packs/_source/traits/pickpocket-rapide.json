@@ -1,17 +1,17 @@
 {
-  "_key": "!items!OuQ6IooemcSYOAEA",
-  "_id": "OuQ6IooemcSYOAEA",
+  "_key": "!items!XD26EHmcegAvexXV",
+  "_id": "XD26EHmcegAvexXV",
   "name": "Pickpocket",
   "type": "talent",
   "img": "icons/svg/coins.svg",
   "system": {
     "avantage": "Laisse traîner ses mains : si la cible est distraite, le vol est gratuit et permet de récupérer un petit objet. Sinon, test de dextérité obligatoire.",
     "inconvenient": "",
-    "fiche": "toutes",
-    "description": "<p>Trait du métier Voleur. Laisse traîner ses mains : si la cible est distraite, le vol est gratuit et permet de récupérer un petit objet. Sinon, test de dextérité obligatoire.</p>"
+    "fiche": "rapide",
+    "description": "<p>Trait du métier Voleur. Laisse traîner ses mains : si la cible est distraite, le vol est gratuit et permet de récupérer un petit objet. Sinon, test de dextérité obligatoire. — variante fiche rapide / PNJ.</p>"
   },
   "effects": [],
-  "folder": "kW2zdGKIlGpk0feB",
+  "folder": "hQ0pLTdDjNk7CFye",
   "sort": 1600000,
   "ownership": {
     "default": 0
@@ -22,6 +22,6 @@
     "duplicateSource": null,
     "coreVersion": "14",
     "systemId": "galactic-wars",
-    "systemVersion": "0.20.0"
+    "systemVersion": "0.20.3"
   }
 }

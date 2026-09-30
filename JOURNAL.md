@@ -2,6 +2,7 @@
 
 ## À faire à la reprise (état au 2026-09-30 soir — « note ce qu'on a fait, on s'arrête là pour ce soir »)
 
+- **v0.20.3 (compendium Traits rangé par fiche)** : voir la session « suite 3 » ci-dessous.
 - **Publié** : **v0.20.2 = dernière release** (poussée, taguée, archive construite). Dans la journée : v0.20.0, v0.20.1,
   v0.20.2 (la v0.19.9 n'a pas de tag : elle est incluse dans la 0.20.0). `main` à jour avec GitHub, plus aucune
   branche de travail (`wip/traits-0.20.0`, `feat/traits-wolf`, `fix/bonus-effets-visibles` fusionnées puis supprimées).
@@ -101,6 +102,21 @@
   antislashs à vérifier) — jamais de backticks dans un `node -e` en bash ; `git checkout` remet les fichiers en CRLF
   (normaliser avant de chercher du texte) ; `prose-mirror` doit rester en `display: flex`.
 
+## Session du 2026-09-30 (suite 3) — Compendium Traits rangé par fiche (v0.20.3)
+
+- **Demande de l'auteur** : « modifie les sous-dossiers du compendium Traits pour avoir les traits fiche classique et
+  les traits fiche rapide ». Choix de l'auteur : **dupliquer** les traits communs (un exemplaire par dossier) et
+  **garder les sous-dossiers** « Traits de métier » / « Traits robot » dans chaque dossier.
+- **Rangement** : « Traits fiche classique » > Traits de métier (21) / Traits robot (10) ; « Traits fiche rapide » >
+  Traits de métier (21) / Traits robot (10) — 62 traits. Les 20 traits « toutes » passent en `fiche: classique`
+  (fichiers `*-classique.json`, ids inchangés) et reçoivent une copie `fiche: rapide` (`*-rapide.json`, nouveaux ids,
+  effets repris : Beskar, Châssis blindé, Protection rapprochée) ; les 14 métiers concernés pointent leur variante rapide
+  vers la copie. Les 42 liens métier → trait vérifiés (bonne fiche).
+- **Variantes d20** (conversion de l'auteur, +5 % = +1) des 4 traits robot chiffrés en % : Le Gardien (+1),
+  Cryptographie (+2 en Mentale), Tentative de confusion (+2), Support de combat (+4) — textes, sans effet actif.
+- Traits déjà posés sur les fiches : inchangés (copies `fiche: toutes`, valables partout) ; pas de correctif MJ (aucun
+  métier copié dans le monde). Réappliquer un métier sur une fiche rapide remplace le trait par la copie rapide.
+
 ## Session du 2026-09-30 (suite 2) — Bonus des traits visibles (v0.20.2)
 
 - **Signalement de l'auteur** : « si j'ajoute le trait Fureur obscure sur Alek, je n'ai pas de modification
@@ -193,6 +209,7 @@
 | v0.20.0 | Traits à effets actifs (compendium Traits, variantes % / d20, PNJ × 5), trait posé avec le métier, talents Brutale / Charismatique / Stresser chiffrés, couverts +4 / +8 d'armure temporaire (HUD et fiche), Médecine du Médecin portée par Chirurgien, correctif MJ `0.20.0-traits-metier` (testée en jeu, publiée) |
 | v0.20.1 | 10 traits tirés de la fiche de WOLF (passifs / actifs, dossier « Traits robot », sans référence à WOLF), traits actifs à allumer depuis la fiche (Protection rapprochée +10 d'armure), dossiers du compendium Traits |
 | v0.20.2 | Bonus d'effet visible sur les compétences (pastille verte / rouge, favoris, Combat) et info-bulle des traits sources (fiches classique, rapide, PNJ) |
+| v0.20.3 | Compendium Traits rangé par fiche (dossiers « Traits fiche classique » / « Traits fiche rapide », sous-dossiers métier / robot), traits communs dupliqués, variantes d20 de 4 traits robot |
 
 ## Session du 2026-09-29 (suite) — Descriptions des métiers, niveau minimum (v0.19.9)
 

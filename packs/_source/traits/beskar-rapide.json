@@ -1,28 +1,28 @@
 {
-  "_key": "!items!M4yUGAEym6e7uMo2",
-  "_id": "M4yUGAEym6e7uMo2",
-  "name": "Chirurgien",
+  "_key": "!items!cfuUX9MXmxlsqMyO",
+  "_id": "cfuUX9MXmxlsqMyO",
+  "name": "Beskar",
   "type": "talent",
-  "img": "icons/svg/heal.svg",
+  "img": "icons/svg/shield.svg",
   "system": {
-    "avantage": "+4 en médecine et permet d'opérer sur le terrain.",
+    "avantage": "+2 d'armure : pièces d'armure en beskar héritées du clan.",
     "inconvenient": "",
     "fiche": "rapide",
-    "description": "<p>Trait du métier Médecin. +4 en médecine et permet d'opérer sur le terrain.</p><p>Variante de la fiche rapide / PNJ (bonus d20).</p>"
+    "description": "<p>Trait du métier Mandalorien soldat. +2 d'armure : pièces d'armure en beskar héritées du clan. — variante fiche rapide / PNJ.</p>"
   },
   "effects": [
     {
-      "_key": "!items.effects!M4yUGAEym6e7uMo2.k0VkPpbsB78BSR0X",
-      "_id": "k0VkPpbsB78BSR0X",
-      "name": "Chirurgien",
-      "img": "icons/svg/heal.svg",
+      "_key": "!items.effects!cfuUX9MXmxlsqMyO.LYcqG9PobRJO6lZQ",
+      "_id": "LYcqG9PobRJO6lZQ",
+      "name": "Beskar",
+      "img": "icons/svg/shield.svg",
       "type": "base",
       "system": {
         "changes": [
           {
-            "key": "system.effets.caracteristiques.mentale",
+            "key": "system.effets.armure",
             "type": "add",
-            "value": "4"
+            "value": "2"
           }
         ]
       },
@@ -43,7 +43,7 @@
     }
   ],
   "folder": "hQ0pLTdDjNk7CFye",
-  "sort": 400000,
+  "sort": 2500000,
   "ownership": {
     "default": 0
   },
@@ -53,6 +53,6 @@
     "duplicateSource": null,
     "coreVersion": "14",
     "systemId": "galactic-wars",
-    "systemVersion": "0.20.0"
+    "systemVersion": "0.20.3"
   }
 }

@@ -7,7 +7,7 @@
   "system": {
     "avantage": "Amélioration des nano-technologies : au repos, améliore la régénération de l'armure et des points de vie.",
     "inconvenient": "",
-    "fiche": "toutes",
+    "fiche": "classique",
     "actif": false,
     "description": "<p>Trait passif.</p><p>Amélioration des nano-technologies : au repos, améliore la régénération de l'armure et des points de vie.</p>"
   },

@@ -7,7 +7,7 @@
   "system": {
     "avantage": "Compétence active qui oblige une cible à lancer un test de stress avec -2 ; en cas d'échec, la personne ciblée est déstabilisée.",
     "inconvenient": "",
-    "fiche": "toutes",
+    "fiche": "classique",
     "description": "<p>Trait du métier Pirate. Compétence active qui oblige une cible à lancer un test de stress avec -2 ; en cas d'échec, la personne ciblée est déstabilisée.</p>"
   },
   "effects": [],

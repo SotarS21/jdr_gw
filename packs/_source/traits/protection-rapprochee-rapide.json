@@ -1,20 +1,20 @@
 {
-  "_key": "!items!guHGNXylBeeKqD7l",
-  "_id": "guHGNXylBeeKqD7l",
+  "_key": "!items!APyFJH7I44D6VaPL",
+  "_id": "APyFJH7I44D6VaPL",
   "name": "Protection rapprochée",
   "type": "talent",
   "img": "icons/svg/shield.svg",
   "system": {
     "avantage": "Active les boucliers : +10 points d'armure et protection d'un allié.",
     "inconvenient": "",
-    "fiche": "toutes",
+    "fiche": "rapide",
     "actif": true,
-    "description": "<p>Trait actif.</p><p>Active les boucliers : +10 points d'armure et protection d'un allié.</p><p><em>Trait actif : l'armure +10 s'allume avec le bouton du trait sur la fiche.</em></p>"
+    "description": "<p>Trait actif. — variante fiche rapide / PNJ.</p><p>Active les boucliers : +10 points d'armure et protection d'un allié.</p><p><em>Trait actif : l'armure +10 s'allume avec le bouton du trait sur la fiche.</em></p>"
   },
   "effects": [
     {
-      "_key": "!items.effects!guHGNXylBeeKqD7l.hNXQW7w61faf50jh",
-      "_id": "hNXQW7w61faf50jh",
+      "_key": "!items.effects!APyFJH7I44D6VaPL.Vxb2nhdDYrRBoypO",
+      "_id": "Vxb2nhdDYrRBoypO",
       "name": "Protection rapprochée",
       "img": "icons/svg/shield.svg",
       "type": "base",
@@ -44,7 +44,7 @@
       }
     }
   ],
-  "folder": "2Flh7oUfTPi5JubP",
+  "folder": "iLkBv4A4JBr2vegg",
   "sort": 700000,
   "ownership": {
     "default": 0
@@ -55,6 +55,6 @@
     "duplicateSource": null,
     "coreVersion": "14",
     "systemId": "galactic-wars",
-    "systemVersion": "0.20.1"
+    "systemVersion": "0.20.3"
   }
 }

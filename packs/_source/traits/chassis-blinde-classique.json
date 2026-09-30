@@ -1,28 +1,28 @@
 {
-  "_key": "!items!M4yUGAEym6e7uMo2",
-  "_id": "M4yUGAEym6e7uMo2",
-  "name": "Chirurgien",
+  "_key": "!items!ck0iuuSAAEQEqme8",
+  "_id": "ck0iuuSAAEQEqme8",
+  "name": "Châssis blindé",
   "type": "talent",
-  "img": "icons/svg/heal.svg",
+  "img": "icons/svg/door-steel.svg",
   "system": {
-    "avantage": "+4 en médecine et permet d'opérer sur le terrain.",
+    "avantage": "+2 d'armure : carcasse renforcée d'un droïde de combat quadrupède.",
     "inconvenient": "",
-    "fiche": "rapide",
-    "description": "<p>Trait du métier Médecin. +4 en médecine et permet d'opérer sur le terrain.</p><p>Variante de la fiche rapide / PNJ (bonus d20).</p>"
+    "fiche": "classique",
+    "description": "<p>Trait du métier Robot quadrupède / droïde. +2 d'armure : carcasse renforcée d'un droïde de combat quadrupède.</p>"
   },
   "effects": [
     {
-      "_key": "!items.effects!M4yUGAEym6e7uMo2.k0VkPpbsB78BSR0X",
-      "_id": "k0VkPpbsB78BSR0X",
-      "name": "Chirurgien",
-      "img": "icons/svg/heal.svg",
+      "_key": "!items.effects!ck0iuuSAAEQEqme8.HCzFRZONu11Wbnjz",
+      "_id": "HCzFRZONu11Wbnjz",
+      "name": "Châssis blindé",
+      "img": "icons/svg/door-steel.svg",
       "type": "base",
       "system": {
         "changes": [
           {
-            "key": "system.effets.caracteristiques.mentale",
+            "key": "system.effets.armure",
             "type": "add",
-            "value": "4"
+            "value": "2"
           }
         ]
       },
@@ -42,8 +42,8 @@
       }
     }
   ],
-  "folder": "hQ0pLTdDjNk7CFye",
-  "sort": 400000,
+  "folder": "kW2zdGKIlGpk0feB",
+  "sort": 2800000,
   "ownership": {
     "default": 0
   },

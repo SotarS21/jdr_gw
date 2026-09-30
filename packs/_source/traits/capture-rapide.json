@@ -1,0 +1,27 @@
+{
+  "_key": "!items!cX7X8pr0GNmVd90I",
+  "_id": "cX7X8pr0GNmVd90I",
+  "name": "Capture",
+  "type": "talent",
+  "img": "icons/svg/net.svg",
+  "system": {
+    "avantage": "À tout moment, tentative de capture de la cible : test de Cap. Tir contré par un test de force de la cible.",
+    "inconvenient": "",
+    "fiche": "rapide",
+    "description": "<p>Trait du métier Chasseur de primes. À tout moment, tentative de capture de la cible : test de Cap. Tir contré par un test de force de la cible. — variante fiche rapide / PNJ.</p>"
+  },
+  "effects": [],
+  "folder": "hQ0pLTdDjNk7CFye",
+  "sort": 700000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.20.3"
+  }
+}

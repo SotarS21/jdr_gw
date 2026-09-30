@@ -7,7 +7,7 @@
   "system": {
     "avantage": "Devient transparent : totalement invisible immobile, partiellement en mouvement. S'active hors ou en combat (jet de Furtivité nécessaire), durée illimitée.",
     "inconvenient": "Visible sous lumière infrarouge.",
-    "fiche": "toutes",
+    "fiche": "classique",
     "actif": false,
     "description": "<p>Trait passif.</p><p>Devient transparent : totalement invisible immobile, partiellement en mouvement. S'active hors ou en combat (jet de Furtivité nécessaire), durée illimitée.</p><p><strong>Inconvénient :</strong> Visible sous lumière infrarouge.</p>"
   },

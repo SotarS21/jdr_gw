@@ -7,7 +7,7 @@
   "system": {
     "avantage": "Permet de lancer des tests d’esquive et/ou de blocage quand il tire.",
     "inconvenient": "",
-    "fiche": "toutes",
+    "fiche": "classique",
     "description": "<p>Trait du métier Soldat d’élite. Permet de lancer des tests d’esquive et/ou de blocage quand il tire.</p>"
   },
   "effects": [],

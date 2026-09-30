@@ -1,17 +1,17 @@
 {
-  "_key": "!items!wqGwQmgo8eEUeG84",
-  "_id": "wqGwQmgo8eEUeG84",
+  "_key": "!items!qlzDgK8z9zhZd2l1",
+  "_id": "qlzDgK8z9zhZd2l1",
   "name": "Tueur",
   "type": "talent",
   "img": "icons/svg/skull.svg",
   "system": {
     "avantage": "Bonus de dégât (+1 dé) pour tuer un ennemi à 50% de ses points de vie.",
     "inconvenient": "",
-    "fiche": "toutes",
-    "description": "<p>Trait du métier Assassin. Bonus de dégât (+1 dé) pour tuer un ennemi à 50% de ses points de vie.</p>"
+    "fiche": "rapide",
+    "description": "<p>Trait du métier Assassin. Bonus de dégât (+1 dé) pour tuer un ennemi à 50% de ses points de vie. — variante fiche rapide / PNJ.</p>"
   },
   "effects": [],
-  "folder": "kW2zdGKIlGpk0feB",
+  "folder": "hQ0pLTdDjNk7CFye",
   "sort": 600000,
   "ownership": {
     "default": 0
@@ -22,6 +22,6 @@
     "duplicateSource": null,
     "coreVersion": "14",
     "systemId": "galactic-wars",
-    "systemVersion": "0.20.0"
+    "systemVersion": "0.20.3"
   }
 }

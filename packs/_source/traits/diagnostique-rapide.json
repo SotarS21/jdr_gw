@@ -1,0 +1,28 @@
+{
+  "_key": "!items!L0ucDmbNXtru2wUX",
+  "_id": "L0ucDmbNXtru2wUX",
+  "name": "Diagnostique",
+  "type": "talent",
+  "img": "icons/svg/heal.svg",
+  "system": {
+    "avantage": "Analyse et détermine les pathologies, selon le niveau en Médecine.",
+    "inconvenient": "",
+    "fiche": "rapide",
+    "actif": false,
+    "description": "<p>Trait passif. — variante fiche rapide / PNJ.</p><p>Analyse et détermine les pathologies, selon le niveau en Médecine.</p>"
+  },
+  "effects": [],
+  "folder": "iLkBv4A4JBr2vegg",
+  "sort": 200000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.20.3"
+  }
+}
