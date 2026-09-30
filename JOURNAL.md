@@ -1,41 +1,35 @@
 # Journal de développement — Galactic Wars
 
-## À faire à la reprise (état au 2026-09-30 — v0.20.0 codée sur `wip/traits-0.20.0`, à déployer et tester en local)
+## À faire à la reprise (état au 2026-09-30 soir — « note ce qu'on a fait, on s'arrête là pour ce soir »)
 
-- **Publié** : **v0.19.8 = dernière release** (images des 21 métiers ; archive de release corrigée : le compendium
-  des aménagements manquait dans les zips v0.19.0 à v0.19.7).
-- **v0.19.9 commitée sur `main`, NON poussée ni taguée** : descriptions des 21 métiers (10 rédigées par Claude, à
-  relire par l'auteur), niveau minimum et métier requis supprimés des prérequis. Foundry local tourne en 0.19.9
-  **sans** la suppression du métier requis (commit `91242fe` pas encore déployé : redémarrage nécessaire).
-- **v0.20.0 — code terminé, branche `wip/traits-0.20.0`, fin du travail non commitée, NON déployée, NON testée en jeu** :
-  traits à effets actifs (détail : session du 2026-09-30 ci-dessous). **Prochaine étape** : `scripts/deploy-local.ps1`
-  puis `verify-local.mjs` (redémarrage de Foundry nécessaire : nouveau compendium `traits` dans system.json), puis tests
-  en jeu : effet transféré au dépôt d'un trait / talent, totaux et plafond relevé (fiche classique), bonus à côté des
-  caractéristiques et jets (fiche rapide, PNJ × 5), couverts depuis le HUD du token et depuis la fiche (exclusifs,
-  armure temporaire dans la réduction des dégâts), trait posé / remplacé au changement de métier, correctif MJ
-  `0.20.0-traits-metier` (trait posé sur les personnages existants, Médecine des Médecins recalculée, message au MJ),
-  section « Trait du métier » de la fiche d'objet, gain d'expérience avec un effet (+20 % / −20 %). Ne rien pousser
-  ni taguer avant les tests et l'accord de l'auteur.
-  - **Validé par l'auteur le 2026-09-30** (document « traits v0.20.0 à valider ») : les 7 traits proposés par Claude (Garde du sabre — Guerrier jedi, Fureur obscure —
-    Guerrier sith, Diplomate de l'Ordre — Jedi consulaire, Entre deux voies — Jedi Noire, Beskar — Mandalorien soldat,
-    Processeur tactique — Robot / droïde, Châssis blindé — Robot quadrupède / droïde) et les **correspondances
-    compétence → caractéristique rapide** des variantes d20 : furtivité → dextérité, médecine → mentale, parade/esquive
-    → cap. combat, intimidation / persuasion / social / informatique → mentale, perception → perception, sang-froid →
-    stress (conversion : +4 d20 = +20 %). Appelle à la rage : texte seul — en cas de réussite, gain temporaire d'un point dans une compétence liée à la Force, décrit par le MJ. **Reste à relire** : la description du Médecin réécrite (trait Chirurgien permanent).
-  - Rappel des décisions de l'auteur : deux variantes par trait chiffré (% pour la fiche classique, d20 pour la fiche
-    rapide ; un PNJ compte les bonus d20 × 5) ; un trait sans chiffre = une seule variante (`fiche: toutes`) ; Médecin :
-    bonus de métier Médecine 20 → 0, porté par Chirurgien (+20 %) ; effets actifs sur les talents chiffrés (Brutale,
-    Charismatique, Stresser) ; couverts Demi-couvert (+4) / Couvert total (+8) d'armure temporaire, états de token exclusifs.
-  - Historique : état du 2026-09-29 soir (`3158651`, inachevé) — le « Reste » d'alors (clés `fr.json`, CSS, compendium
-    `traits`, effets des talents, liens `metier.system.traits` + Médecin à 0, correctif MJ, notes de version / CDC) est
-    fait ; seuls les tests en jeu restent. Test préalable dans Foundry 14.368 : effet transféré (`system.changes`, type
-    `add`) et état de token porteur de changements fonctionnent.
-- **Audit** : tous les constats confirmés sont dans la section « Audit du 2026-09-29 » ci-dessous — **aucun corrigé**
-  (sauf `compendium-picker` sur la branche). Tests en direct (`../audit/run.mjs t1-rendu.js`, `t2-parcours.js`) toujours
-  à relancer jusqu'au bout.
-- Questions de règle ouvertes : compteur de niveaux et compétences bloquées ; même compétence plusieurs fois au gain de
-  niveau ; texte libre d'affiliation des métiers (garder ou supprimer).
-- Scripts de la session dans `../audit/` (hors dépôt) : patchs v0.19.9 / v0.20.0, test des effets, planches d'images.
+- **Publié** : **v0.20.2 = dernière release** (poussée, taguée, archive construite). Dans la journée : v0.20.0, v0.20.1,
+  v0.20.2 (la v0.19.9 n'a pas de tag : elle est incluse dans la 0.20.0). `main` à jour avec GitHub, plus aucune
+  branche de travail (`wip/traits-0.20.0`, `feat/traits-wolf`, `fix/bonus-effets-visibles` fusionnées puis supprimées).
+- **Foundry local** : monde `galacit-wars-v-final`, compendiums en 0.20.1 ; code et CSS de la 0.20.2 copiés sans
+  redémarrage (`deploy-local.ps1 -NoRestart`) : le serveur annonce 0.20.1 jusqu'au prochain redémarrage.
+- **Monde de l'auteur** : correctif MJ `0.20.0-traits-metier` appliqué par l'auteur (traits posés sur les 7 personnages
+  dotés d'un métier : Alek — Fureur obscure, Test_robin — Chirurgien, Neili Sombra — Diplomate de l'Ordre, etc.).
+- **Fait aujourd'hui** (détail dans les sessions du 2026-09-30 ci-dessous) :
+  - v0.20.0 — traits à effets actifs : compendium Traits (un trait par métier, variantes % / d20, PNJ × 5), 7 traits
+    proposés et correspondances fiche rapide **validés par l'auteur** (document Claude « traits v0.20.0 à valider »),
+    talents Brutale / Charismatique / Stresser chiffrés, couverts +4 / +8, Médecine portée par Chirurgien, correctif MJ ;
+    revue adversariale (14 constats corrigés, dont le plafond appliqué hors effets).
+  - v0.20.1 — 10 traits tirés de la fiche de WOLF, **sans référence à WOLF** (dossier « Traits robot » ; Invisibilité),
+    traits des métiers dans le dossier « Traits de métier » ; traits actifs (`TalentData.actif`, bouton sur les fiches :
+    Protection rapprochée +10 d'armure).
+  - v0.20.2 — bonus des traits visibles : pastille +N / −N sur les compétences (favoris, Combat) et info-bulle des
+    traits sources (signalement de l'auteur sur Alek : le calcul était juste, le bonus invisible).
+- **À relire par l'auteur** : la description du Médecin réécrite (trait Chirurgien permanent) ; les 10 descriptions
+  de métiers rédigées par Claude (v0.19.9).
+- **Points ouverts** :
+  - Tentative de confusion : bonus de situation en texte (+10 %) — à passer en effet permanent si l'auteur le souhaite.
+  - Aucun acteur WOLF dans le monde : traits du compendium à poser à la main si la fiche est créée.
+  - Audit du 2026-09-29 : constats confirmés **non corrigés** (section « Audit du 2026-09-29 ») ; tests en direct
+    (`../audit/run.mjs t1-rendu.js`, `t2-parcours.js`) à relancer jusqu'au bout.
+  - Questions de règle : compteur de niveaux et compétences bloquées ; même compétence plusieurs fois au gain de
+    niveau ; texte libre d'affiliation des métiers (garder ou supprimer).
+- **Scripts de test** (hors dépôt, `../audit/`) : `t3-traits.js` (traits, couverts, fiches), `t8-wolf.js` (traits
+  actifs), `t11-drop.js` (glisser-déposer d'un trait sur une copie d'Alek), `t12-pastille.js` (pastille sur Alek).
 
 ## État précédent (2026-09-29, avant la session du soir)
 
