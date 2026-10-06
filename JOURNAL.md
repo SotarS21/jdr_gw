@@ -1,13 +1,14 @@
 # Journal de développement — Galactic Wars
 
-## À faire à la reprise (état au 2026-10-06)
+## À faire à la reprise (état au 2026-10-06, soir)
 
-- **Publié** : **v0.20.4 = dernière release** (3 constats bloquants de l'audit corrigés, testés en direct 12/12 ;
-  fusionnée dans `main`, poussée, taguée, archive construite par la CI). Plus aucune branche de travail.
-- **Foundry local** : monde `galacit-wars-v-final`, code en 0.20.4 (copie `-NoRestart` : le serveur annonce 0.20.3
-  jusqu'au prochain redémarrage).
-- **Suite proposée** : constats **gênants** de l'audit du 2026-09-29, puis les mineurs ; le reste de la liste
-  ci-dessous (état au 2026-09-30) est inchangé.
+- **Publié** : **v0.20.5 = dernière release** (gênants de l'audit + postes d'équipage de 7 vaisseaux ; fusionnée, poussée,
+  taguée, archive construite par la CI). v0.20.4 publiée le même jour (bloquants). Plus aucune branche de travail.
+- **Foundry local** : monde `galacit-wars-v-final`, redémarré en 0.20.5 (accord de l'auteur).
+- **Monde de l'auteur** : correctif MJ `0.20.5-postes-vaisseaux` **en attente**, à accepter par l'auteur (Lantallian,
+  Le Barmaid Betty).
+- **Suite proposée** : constats **mineurs** de l'audit du 2026-09-29 ; le reste de la liste ci-dessous (état au
+  2026-09-30) est inchangé.
 
 ### État au 2026-09-30 soir — « note ce qu'on a fait, on s'arrête là pour ce soir »
 
