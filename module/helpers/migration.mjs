@@ -54,8 +54,11 @@ export async function completerToutesLesFiches({ notifier = true } = {}) {
   }
   const bilan = { fiches: 0, competences: 0, noms: [] };
   for (const actor of await fichesIncompletes()) {
+    // Recalculé ici et pas repris de la liste : compléter un acteur de base complète aussi les tokens
+    // non liés qui en héritent (sans données propres), déjà présents dans la liste → rien à écrire.
     const source = actor.system.toObject().competences;
     const completees = completerCompetences(source);
+    if (!completees) continue;
     // Tableau complet réécrit (jamais un seul index d'ArrayField).
     await actor.update({ "system.competences": completees });
     bilan.fiches++;

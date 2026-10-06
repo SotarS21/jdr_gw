@@ -223,6 +223,15 @@ export class VaisseauSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
         });
       }
     }
+    // Fiche seulement observée : Foundry désactive tous les boutons, mais un joueur doit pouvoir ouvrir la fiche
+    // d'un membre et lancer le jet de poste de SON personnage (même principe que l'avantage d'équipage, v0.19.5).
+    if (!this.isEditable) {
+      for (const lien of this.element.querySelectorAll("button.vs-membre-lien")) lien.disabled = false;
+      for (const jet of this.element.querySelectorAll("button.vs-membre-jet")) {
+        const acteur = fromUuidSync(jet.closest("[data-uuid]")?.dataset.uuid ?? "");
+        jet.disabled = !acteur?.isOwner;
+      }
+    }
     // Surbrillance du poste survolé pendant le glisser-déposer d'un acteur.
     for (const poste of this.element.querySelectorAll(".vs-poste[data-index]")) {
       poste.addEventListener("dragover", () => poste.classList.add("survol-depot"));

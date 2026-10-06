@@ -4,9 +4,14 @@
  * flags["galactic-wars"].itemUuid du message.
  */
 
-/** Droit d'utiliser les boutons : MJ, ou propriétaire de l'objet (item.isOwner). */
+/**
+ * Droit d'utiliser les boutons : MJ, ou propriétaire de l'objet (item.isOwner). Arme de vaisseau :
+ * il suffit de voir le vaisseau (Observateur) — le tireur est le token sélectionné du joueur
+ * (tireurSelectionne) et ni l'attaque ni les dégâts ne modifient l'objet.
+ */
 function peutUtiliser(item) {
-  return game.user.isGM || !!item?.isOwner;
+  if (game.user.isGM || item?.isOwner) return true;
+  return !!item?.estArmeDeVaisseau && !!item.actor?.testUserPermission(game.user, "OBSERVER");
 }
 
 /**

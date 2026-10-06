@@ -3,7 +3,7 @@
 **Référence :** GW-CDC-v0.1
 **Version :** 0.1
 **Date de création :** 2026-09-09
-**Dernière mise à jour :** 2026-09-30 (v0.20.0, traits à effets actifs)
+**Dernière mise à jour :** 2026-10-06 (v0.20.4, corrections de l'audit — bloquants)
 **État :** En cours de développement (Version système : 0.1.0)
 **Responsables :** Mr Banane
 
@@ -229,6 +229,7 @@ Voir l'arborescence commentée dans `README.md` (module/config, module/data, mod
   - **Talents chiffrés** : Brutale (Social −10 % / Mentale −2), Charismatique (Social +20 %, Furtivité −15 % / Mentale +4, Dextérité −3), Stresser (Sang-froid −20 % / Stress −4), chacun avec sa variante rapide au compendium ; les 5 talents conditionnels (Entraînement au tir, Fine lame, Lâche, Mental d'acier, Téméraire) restent `toutes`, sans effet.
   - **Couverts** (traits actifs, `GW.couverts`) : Demi-couvert +4 et Couvert total +8 d'**armure temporaire** (réduction des dégâts), états de token enregistrés dans `CONFIG.statusEffects` (`helpers/effets.mjs` : `enregistrerCouverts`, identifiants `gw-demiCouvert` / `gw-couvertTotal`), **exclusifs** (hook `createActiveEffect`, `basculerCouvert`) ; proposés par le HUD du token et par la fiche (onglet Combat de la fiche classique, section Combat de la fiche rapide) ; pas d'item de compendium.
   - **Fiches** : classique — colonne Effets et bonus sur le total des compétences, couverts dans l'onglet Combat ; rapide — section Traits, bonus à côté des caractéristiques, couverts ; fiche d'objet du talent — avantage, inconvénient, fiche visée, liste des effets (créer / éditer / activer / supprimer, `resumeEffets`). Sélecteur de compendium multi-packs filtré (noms échappés, `rejectClose: false`).
+- **v0.20.4 — corrections de l'audit du 2026-09-29 (bloquants)** : `VaisseauSheet#_onRender` réactive, sur une fiche seulement observée, `.vs-membre-lien` et `.vs-membre-jet` (ce dernier si l'utilisateur possède l'acteur assis, `fromUuidSync`) ; `peutUtiliser` (`helpers/chat-objet.mjs`) autorise Attaquer / Dégâts d'une arme de vaisseau à tout Observateur du vaisseau ; `completerToutesLesFiches` recalcule la complétion par acteur et saute un token non lié déjà complété par son acteur de base ; `runMigrations` sous try/catch au `ready` du MJ.
 
 ### 5.2 Roadmap
 Voir §10.

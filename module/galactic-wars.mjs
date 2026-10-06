@@ -145,7 +145,12 @@ Hooks.once("ready", async () => {
   enregistrerSocketGenerique();
   enregistrerSocketEquipage();
   if (!game.user.isGM) return;
-  await runMigrations();
+  // Une migration qui échoue ne doit pas empêcher les notes de version et les correctifs de s'afficher.
+  try {
+    await runMigrations();
+  } catch (err) {
+    console.error("Galactic Wars | Échec de la migration", err);
+  }
   await checkSystemVersionUpdate();
   await checkPendingPackUpdates();
 });
