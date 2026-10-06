@@ -668,7 +668,7 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 
   /**
    * Gain d'expérience : passe la fiche en édition, puis propose +GW.gainExperience % sur une compétence
-   * (ajouté à son ajustement), sans que la valeur hors effet (totalHorsEffets) dépasse GW.plafondCompetence :
+   * (ajouté à son compteur d'expérience, compté après le plancher du malus hors métier), sans que la valeur hors effet (totalHorsEffets) dépasse GW.plafondCompetence :
    * un bonus d'effet ne bloque pas la progression, un malus d'effet ne s'efface pas. Compétences bloquées ou déjà
    * au plafond exclues. Un message dans le tchat garde la trace du gain pour le MJ.
    */
@@ -716,7 +716,7 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 
     // Tableau complet réécrit (jamais un seul index d'ArrayField).
     const competences = this.actor.system.toObject().competences;
-    competences[retenue.index].ajustement += retenue.gain;
+    competences[retenue.index].experience = (competences[retenue.index].experience ?? 0) + retenue.gain;
     await this.actor.update({ "system.competences": competences });
     await ChatMessage.create({
       speaker: ChatMessage.getSpeaker({ actor: this.actor }),
@@ -738,7 +738,8 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const carac = this.actor.system.caracteristiques[def?.caracteristique]?.total ?? 0;
     const malus = def && !competence.acquiseParMetier ? (def.metier ? -30 : -10) : 0;
     const horsMetier = niveau === 0 ? malus : 0;
-    const modulation = base + competence.racial + Math.max(0, competence.metier + competence.ajustement + horsMetier);
+    const modulation = base + competence.racial + Math.max(0, competence.metier + competence.ajustement + horsMetier)
+      + (competence.experience ?? 0);
     const effet = this.actor.system.effets?.competences?.[competence.cle] ?? 0;
     return tauxCompetence({ caracteristique: carac, modulation, racial: competence.racial, effet }).total;
   }

@@ -82,8 +82,14 @@ export async function modifierCanal(item, index) {
     ]
   });
   if (!resultat || typeof resultat !== "object") return;
-  Object.assign(canal, resultat);
-  await enregistrer(item, canaux);
+  // Canaux relus APRÈS la fenêtre : un message reçu (ou une autre modification) pendant qu'elle était ouverte
+  // serait sinon écrasé. Le canal est retrouvé par son numéro d'origine (unique).
+  const actuels = canauxSource(item);
+  const position = actuels.findIndex((c) => c.numero === canal.numero);
+  if (position < 0) return ui.notifications.warn(t("CanalIntrouvable"));
+  if (!numeroLibre(actuels, resultat.numero, position)) return ui.notifications.warn(t("NumeroPris", { numero: resultat.numero }));
+  Object.assign(actuels[position], resultat);
+  await enregistrer(item, actuels);
 }
 
 /** Archive / désarchive un canal. */

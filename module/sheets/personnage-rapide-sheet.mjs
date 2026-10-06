@@ -1,4 +1,5 @@
 import { GW } from "../config.mjs";
+import { objetsPossedes, ACTIONS_OBJETS_POSSEDES, reactiverObjetsPossedes } from "../helpers/objets-possedes.mjs";
 import { rollCaracteristiqueD20, rollCaracteristiquePourcentage, rollSurvie } from "../helpers/rolls.mjs";
 import { applyRace } from "../helpers/race.mjs";
 import { applyMetier } from "../helpers/metier.mjs";
@@ -27,7 +28,10 @@ export class PersonnageRapideSheet extends HandlebarsApplicationMixin(ActorSheet
       ouvrirTrait: PersonnageRapideSheet.#onOuvrirTrait,
       supprimerTrait: PersonnageRapideSheet.#onSupprimerTrait,
       basculerTraitActif: PersonnageRapideSheet.#onBasculerTraitActif,
-      basculerCouvert: PersonnageRapideSheet.#onBasculerCouvert
+      basculerCouvert: PersonnageRapideSheet.#onBasculerCouvert,
+      afficherObjet: ACTIONS_OBJETS_POSSEDES.afficherObjet,
+      ouvrirObjet: ACTIONS_OBJETS_POSSEDES.ouvrirObjet,
+      supprimerObjet: ACTIONS_OBJETS_POSSEDES.supprimerObjet
     }
   };
 
@@ -64,12 +68,19 @@ export class PersonnageRapideSheet extends HandlebarsApplicationMixin(ActorSheet
     context.couverts = Object.entries(GW.couverts).map(([cle, c]) => ({ cle, label: c.label, armure: c.armure, actif: couvertActif(this.actor) === cle }));
     context.limites = GW.limitesCaracteristiquesRapides;
     context.estPnj = this.actor.type === "pnj";
+    context.objets = objetsPossedes(this.actor);
     context.descriptionEnrichie = await foundry.applications.ux.TextEditor.implementation.enrichHTML(
       system.description,
       { relativeTo: this.actor }
     );
 
     return context;
+  }
+
+/** @override */
+  async _onRender(context, options) {
+    await super._onRender(context, options);
+    reactiverObjetsPossedes(this);
   }
 
   static async #onRollCaracteristique(event, target) {
