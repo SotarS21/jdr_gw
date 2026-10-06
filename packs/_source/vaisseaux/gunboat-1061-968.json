@@ -24,12 +24,36 @@
     "armement": [],
     "equipage": [
       {
-        "role": "Équipage",
-        "nom": "",
-        "description": "5 à 6 personnes (répartition non précisée).",
+        "role": "Capitaine",
         "places": 1,
         "noms": [],
-        "uuids": []
+        "uuids": [],
+        "nom": "",
+        "description": ""
+      },
+      {
+        "role": "Pilote",
+        "places": 1,
+        "noms": [],
+        "uuids": [],
+        "nom": "",
+        "description": ""
+      },
+      {
+        "role": "Canonnier",
+        "places": 3,
+        "noms": [],
+        "uuids": [],
+        "nom": "",
+        "description": ""
+      },
+      {
+        "role": "Mécanicien",
+        "places": 1,
+        "noms": [],
+        "uuids": [],
+        "nom": "",
+        "description": ""
       }
     ],
     "soute": "3 entrepôts (donné par le matériel source).",

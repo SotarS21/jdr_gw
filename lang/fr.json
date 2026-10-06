@@ -330,6 +330,7 @@
       "Message": "{nom} gagne un niveau (niveau {niveau}) :"
     },
     "Experience": {
+      "DontXP": "dont expérience +{xp} %",
       "Bouton": "Gain d'XP",
       "BoutonHint": "Gain d'expérience : +5 % sur une compétence (maximum 90 %)",
       "Titre": "Gain d'expérience",
@@ -429,6 +430,7 @@
       "Inactif": "Inactif",
       "NumeroInvalide": "Numéro de canal invalide : un entier à partir de 1.",
       "NumeroPris": "Le canal #{numero} existe déjà (archives comprises).",
+      "CanalIntrouvable": "Ce canal a été modifié ou supprimé entre-temps : rien n'a été enregistré.",
       "Enregistrer": "Enregistrer",
       "Annuler": "Annuler",
       "ConfigTitre": "Configuration du comlink",
@@ -728,6 +730,7 @@
       "Ajouter": "Ajouter",
       "Supprimer": "Supprimer",
       "SupprimerConfirmation": "Supprimer définitivement cette entrée ?",
+      "EntreeModifieeEntreTemps": "Cette entrée a été modifiée ou supprimée entre-temps : vos changements sont ajoutés comme nouvelle entrée.",
       "Enregistrer": "Enregistrer",
       "NouvelleEntree": "Nouvelle entrée : {type}",
       "ModifierEntree": "Modifier : {type}",

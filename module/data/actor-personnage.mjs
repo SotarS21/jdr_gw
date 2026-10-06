@@ -73,6 +73,9 @@ export class PersonnageData extends foundry.abstract.TypeDataModel {
           // Bonus manuel additionnel, réglable directement par le joueur (ex. lors d'un
           // level up) sans écraser le calcul automatique niveau + caractéristique.
           ajustement: new NumberField({ required: true, integer: true, initial: 0 }),
+          // Gains d'expérience (bouton « Gain d'XP », v0.20.5) : comptés APRÈS le plancher du malus hors métier,
+          // pour que +5 % se voie toujours (règle de l'auteur, 2026-10-06). Les gains antérieurs restent dans ajustement.
+          experience: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
           acquiseParMetier: new BooleanField({ initial: false }),
           // Recommandée par le métier actuel selon les documents sources (métier.competences[].obligatoire).
           recommandee: new BooleanField({ initial: false }),
@@ -188,9 +191,11 @@ export class PersonnageData extends foundry.abstract.TypeDataModel {
       }
       // Règle de l'auteur (2026-09-26) : le bonus de niveau s'ajoute toujours ; le bonus / malus racial s'applique
       // toujours (même sous la caractéristique) ; le malus hors métier ne s'applique qu'au niveau 0 et, avec le bonus
-      // de métier et l'ajustement, ne fait jamais descendre sous la caractéristique.
+      // de métier et l'ajustement, ne fait jamais descendre sous la caractéristique. L'expérience s'ajoute après ce
+      // plancher (un gain d'XP compte toujours, même au niveau 0 hors métier).
       const horsMetier = niveauEffectif === 0 ? malus : 0;
-      const modulation = base + competence.racial + Math.max(0, competence.metier + competence.ajustement + horsMetier);
+      const modulation = base + competence.racial + Math.max(0, competence.metier + competence.ajustement + horsMetier)
+        + (competence.experience ?? 0);
       // Effets actifs (traits, talents) : ajoutés tels quels, même au niveau 0 ou sous la caractéristique.
       const effet = this.effets?.competences?.[competence.cle] ?? 0;
       competence.bonusEffets = effet;

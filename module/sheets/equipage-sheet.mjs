@@ -123,6 +123,13 @@ export class EquipageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     // (relayé au MJ, voir utiliserAvantage).
     const avantage = this.element.querySelector("button.eq-avantage");
     if (avantage) avantage.disabled = !context.avantage.cliquable;
+    // Même chose pour la navigation (onglets Réserve / Notes) et l'ouverture des fiches (membres, vaisseau) : lecture
+    // seule, #onOuvrirActeur vérifie déjà la permission de l'acteur visé.
+    if (!this.isEditable) {
+      for (const bouton of this.element.querySelectorAll('button[data-action="changerOnglet"], button[data-action="ouvrirActeur"]')) {
+        bouton.disabled = false;
+      }
+    }
     // Liste « Donner à » : ni clic (carte dans le tchat) ni changement (formulaire) ne remontent à la ligne.
     for (const select of this.element.querySelectorAll("select[data-destinataire]")) {
       for (const type of ["click", "change", "keydown"]) select.addEventListener(type, (e) => e.stopPropagation());

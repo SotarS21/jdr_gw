@@ -132,10 +132,23 @@ export async function editerEntreeNote(actor, type, index) {
   const entree = normaliser(type, donnees);
   // Lien vers l'acteur d'un PNJ déposé : conservé à la modification (la fenêtre ne l'affiche pas).
   if (type === "pnj" && existante?.acteurUuid) entree.acteurUuid = existante.acteurUuid;
-  const nouvelleListe = [...liste];
-  if (existante) nouvelleListe[index] = entree;
-  else nouvelleListe.push(entree);
+  // Liste relue APRÈS la fenêtre : une autre fenêtre (fiche, Holonet) a pu enregistrer entre-temps — on ne
+  // remplace que l'entrée éditée, retrouvée telle qu'elle était à l'ouverture.
+  const nouvelleListe = actor.system.toObject()[champ] ?? [];
+  if (existante) {
+    const position = positionEntree(nouvelleListe, existante, index);
+    if (position < 0) {
+      ui.notifications.warn(game.i18n.localize("GALACTICWARS.Notes.EntreeModifieeEntreTemps"));
+      nouvelleListe.push(entree);
+    } else nouvelleListe[position] = entree;
+  } else nouvelleListe.push(entree);
   await actor.update({ [`system.${champ}`]: nouvelleListe });
+}
+
+/** Position actuelle d'une entrée lue plus tôt (même contenu) : son ancien index d'abord, sinon recherche. -1 si disparue. */
+function positionEntree(liste, entree, indexInitial) {
+  if (foundry.utils.objectsEqual(liste[indexInitial] ?? {}, entree)) return indexInitial;
+  return liste.findIndex((e) => foundry.utils.objectsEqual(e, entree));
 }
 
 /**
@@ -153,7 +166,11 @@ export async function supprimerEntreeNote(actor, type, index) {
     content: `<p>${game.i18n.localize("GALACTICWARS.Notes.SupprimerConfirmation")}</p>`
   });
   if (!confirme) return;
-  await actor.update({ [`system.${champ}`]: liste.filter((_, i) => i !== index) });
+  // Relue après la confirmation (même raison que editerEntreeNote) : on retire l'entrée confirmée, pas un index décalé.
+  const actuelle = actor.system.toObject()[champ] ?? [];
+  const position = positionEntree(actuelle, liste[index], index);
+  if (position < 0) return;
+  await actor.update({ [`system.${champ}`]: actuelle.filter((_, i) => i !== position) });
 }
 
 /* ------------------------------------------------------------------------------------------ */

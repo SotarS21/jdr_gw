@@ -145,12 +145,16 @@ Hooks.once("ready", async () => {
   enregistrerSocketGenerique();
   enregistrerSocketEquipage();
   if (!game.user.isGM) return;
+  // Migrations et correctifs : un seul MJ (le MJ actif), sinon deux MJ connectés écriraient deux fois.
+  const mjActif = game.user === game.users.activeGM;
   // Une migration qui échoue ne doit pas empêcher les notes de version et les correctifs de s'afficher.
-  try {
-    await runMigrations();
-  } catch (err) {
-    console.error("Galactic Wars | Échec de la migration", err);
+  if (mjActif) {
+    try {
+      await runMigrations();
+    } catch (err) {
+      console.error("Galactic Wars | Échec de la migration", err);
+    }
   }
   await checkSystemVersionUpdate();
-  await checkPendingPackUpdates();
+  if (mjActif) await checkPendingPackUpdates();
 });

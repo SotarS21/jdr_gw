@@ -44,6 +44,44 @@
 - **Scripts de test** (hors dépôt, `../audit/`) : `t3-traits.js` (traits, couverts, fiches), `t8-wolf.js` (traits
   actifs), `t11-drop.js` (glisser-déposer d'un trait sur une copie d'Alek), `t12-pastille.js` (pastille sur Alek).
 
+## Session du 2026-10-06 (suite) — Corrections de l'audit : gênants (v0.20.4→v0.20.5)
+
+- **Décisions de l'auteur** : objets des fiches rapide / sith / PNJ → **liste d'objets** ; gain d'XP → **+5 % toujours**
+  (fiche classique uniquement — la fiche rapide n'a pas de compétences) ; postes « Équipage » → **Claude propose, l'auteur
+  valide** (document Claude « Postes des vaisseaux — proposition v0.20.5 »,
+  https://claude.ai/code/artifact/91239884-1b6e-466f-958b-e6a5d3e47535 — **validée par l'auteur** telle quelle).
+- **G1 — fiche d'équipage observée** : `EquipageSheet#_onRender` réactive les onglets (`changerOnglet`) et l'ouverture des
+  fiches (`ouvrirActeur`, qui vérifiait déjà la permission).
+- **G2 — objets des fiches rapide / PNJ / sith** : `helpers/objets-possedes.mjs` (lignes, actions afficher / ouvrir /
+  supprimer avec confirmation, réactivation en Observateur) ; liste au-dessus du texte libre « Équipement », qui reste.
+- **G4 — gain d'XP** : champ `competences[].experience` (entier ≥ 0) compté **après** le plancher
+  `max(0, métier + ajustement + malus hors métier)` (fiche et aperçu du gain de niveau) ; le bouton « Gain d'XP » y écrit au
+  lieu de l'ajustement ; champ caché dans la ligne (ArrayField : tout champ soumis) ; info-bulle du total « dont
+  expérience +N % ». Gains antérieurs : restent dans l'ajustement.
+- **G5 — pouvoirs de Force** : le nom est un bouton qui ouvre la fiche (`ouvrirObjet`).
+- **G6 — fenêtres concurrentes** : `editerEntreeNote` / `supprimerEntreeNote` (notes et Holonet) relisent la liste après la
+  fenêtre et ne remplacent / retirent que l'entrée d'origine (retrouvée par contenu, `objectsEqual`) — disparue : ajoutée
+  comme nouvelle entrée avec un avertissement ; `modifierCanal` (Comlink) relit les canaux et retrouve le canal par son
+  numéro d'origine (messages reçus entre-temps conservés).
+- **G7 — démarrage** : migrations et fenêtre des correctifs par le seul **MJ actif** (`game.users.activeGM`) ; bouton
+  « Appliquer » verrouillé pendant l'application et limité aux correctifs encore en attente. Vérifié à la lecture seulement
+  (deux MJ nécessaires pour le reproduire).
+- **Testé en direct** (`-NoRestart`) : `../audit/t15-genants.mjs`, joueur temporaire + documents « [TEST] » supprimés ensuite —
+  **13/13 OK** (liste d'objets sur les 3 fiches ; XP Commander/guider niveau 0 hors métier 35 → 40 %, conservée après une
+  sauvegarde du formulaire, info-bulle ; pouvoir ouvert ; note éditée pendant qu'une autre fenêtre supprimait A et ajoutait
+  C → [B modifiée, C] ; équipage observé : onglets, réserve, fiche d'un membre).
+- **G3 — postes des vaisseaux** : Barloz (Capitaine, Pilote, Canonnier ×2, Mécanicien, Médecin de bord), Barmaid Betty
+  (Capitaine, Pilote ×2, Navigateur, Communicateur, Canonnier ×4, Mécanicien ×2, Médecin de bord ×2, Équipage ×12), CEC XS-122
+  (Pilote, Mécanicien, Canonnier, Équipage), Corellian Dawn (Capitaine, Pilote, Canonnier ×2, Mécanicien, Équipage), Gunboat
+  (Capitaine, Pilote, Canonnier ×3, Mécanicien), Lantallian (Pilote, Communicateur, Canonnier, Mécanicien, Équipage ×3), Land
+  speeder (Pilote, Équipage ×3) ; « Équipage » reste sans jet. Correctif MJ `0.20.5-postes-vaisseaux`
+  (`changementsPostesVaisseau` : copies du monde qui ont encore l'unique poste « Équipage », occupants replacés dans l'ordre
+  des postes).
+- **Déployé avec redémarrage** (accord de l'auteur, connecté) : Foundry en 0.20.5, compendium vérifié (7 vaisseaux) ;
+  correctif en attente pour l'auteur — **2 vaisseaux du monde concernés** (Lantallian, Le Barmaid Betty, sans occupant) ;
+  testé sur une copie temporaire de Corellian Dawn occupée par Alek → Capitaine [Alek], Pilote, Canonnier ×2, Mécanicien,
+  Équipage ; second passage sans effet ; copie supprimée.
+
 ## Session du 2026-10-06 — Corrections de l'audit : bloquants (v0.20.3→v0.20.4)
 
 - **Demande de l'auteur** : reprendre la todo Galactic Wars ; la todo du Bureau étant entièrement traitée, l'auteur a

@@ -155,12 +155,68 @@
     "armement": [],
     "equipage": [
       {
-        "role": "Équipage",
-        "nom": "",
-        "description": "18 à 26 personnes (répartition non précisée dans le matériel source).",
+        "role": "Capitaine",
         "places": 1,
         "noms": [],
-        "uuids": []
+        "uuids": [],
+        "nom": "",
+        "description": ""
+      },
+      {
+        "role": "Pilote",
+        "places": 2,
+        "noms": [],
+        "uuids": [],
+        "nom": "",
+        "description": ""
+      },
+      {
+        "role": "Navigateur",
+        "places": 1,
+        "noms": [],
+        "uuids": [],
+        "nom": "",
+        "description": ""
+      },
+      {
+        "role": "Communicateur",
+        "places": 1,
+        "noms": [],
+        "uuids": [],
+        "nom": "",
+        "description": ""
+      },
+      {
+        "role": "Canonnier",
+        "places": 4,
+        "noms": [],
+        "uuids": [],
+        "nom": "",
+        "description": ""
+      },
+      {
+        "role": "Mécanicien",
+        "places": 2,
+        "noms": [],
+        "uuids": [],
+        "nom": "",
+        "description": ""
+      },
+      {
+        "role": "Médecin de bord",
+        "places": 2,
+        "noms": [],
+        "uuids": [],
+        "nom": "",
+        "description": ""
+      },
+      {
+        "role": "Équipage",
+        "places": 12,
+        "noms": [],
+        "uuids": [],
+        "nom": "",
+        "description": ""
       }
     ],
     "soute": "Cales et entrepôts pour le matériel des troupes transportées.",

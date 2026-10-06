@@ -50,12 +50,20 @@
     "armement": [],
     "equipage": [
       {
-        "role": "Équipage",
-        "nom": "",
-        "description": "4 places.",
+        "role": "Pilote",
         "places": 1,
         "noms": [],
-        "uuids": []
+        "uuids": [],
+        "nom": "",
+        "description": ""
+      },
+      {
+        "role": "Équipage",
+        "places": 3,
+        "noms": [],
+        "uuids": [],
+        "nom": "",
+        "description": ""
       }
     ],
     "soute": "",

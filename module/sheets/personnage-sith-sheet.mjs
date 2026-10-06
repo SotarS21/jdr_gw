@@ -1,4 +1,5 @@
 import { GW } from "../config.mjs";
+import { objetsPossedes, ACTIONS_OBJETS_POSSEDES, reactiverObjetsPossedes } from "../helpers/objets-possedes.mjs";
 import { rollD20Plus } from "../helpers/rolls.mjs";
 import { applyRace } from "../helpers/race.mjs";
 import { applyEcole } from "../helpers/ecole.mjs";
@@ -21,7 +22,10 @@ export class PersonnageSithSheet extends HandlebarsApplicationMixin(ActorSheetV2
       rollCompetenceForce: PersonnageSithSheet.#onRollCompetenceForce,
       applyRace: PersonnageSithSheet.#onApplyRace,
       applyEcole: PersonnageSithSheet.#onApplyEcole,
-      editImage: PersonnageSithSheet.#onEditImage
+      editImage: PersonnageSithSheet.#onEditImage,
+      afficherObjet: ACTIONS_OBJETS_POSSEDES.afficherObjet,
+      ouvrirObjet: ACTIONS_OBJETS_POSSEDES.ouvrirObjet,
+      supprimerObjet: ACTIONS_OBJETS_POSSEDES.supprimerObjet
     }
   };
 
@@ -47,12 +51,20 @@ export class PersonnageSithSheet extends HandlebarsApplicationMixin(ActorSheetV2
       label,
       valeur: system.competencesForce[cle]
     }));
+    context.objets = objetsPossedes(this.actor);
     context.descriptionEnrichie = await foundry.applications.ux.TextEditor.implementation.enrichHTML(
       system.description,
       { relativeTo: this.actor }
     );
 
     return context;
+  }
+
+
+  /** @override */
+  async _onRender(context, options) {
+    await super._onRender(context, options);
+    reactiverObjetsPossedes(this);
   }
 
   static async #onRollCaracteristique(event, target) {

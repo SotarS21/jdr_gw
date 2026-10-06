@@ -64,9 +64,27 @@ export class PackUpdatePicker extends HandlebarsApplicationMixin(ApplicationV2) 
     else this.close();
   }
 
-  static async #onAppliquer() {
+  /** Application en cours : un double clic (ou un second clic pendant l'application) ne relance rien. */
+  static #enCours = false;
+
+  static async #onAppliquer(event, target) {
+    if (PackUpdatePicker.#enCours) return;
     const ids = this.#idsCoches();
     if (!ids.length) return ui.notifications.warn("Galactic Wars — aucun correctif coché.");
+    PackUpdatePicker.#enCours = true;
+    if (target) target.disabled = true;
+    try {
+      await this.#appliquer(ids);
+    } finally {
+      PackUpdatePicker.#enCours = false;
+      if (target?.isConnected) target.disabled = false;
+    }
+  }
+
+  async #appliquer(idsCoches) {
+    // Seulement ceux encore en attente : un autre MJ a pu les appliquer depuis l'ouverture de la fenêtre.
+    const enAttente = new Set((await getPendingPackUpdates()).map((u) => u.id));
+    const ids = idsCoches.filter((id) => enAttente.has(id));
     const { PACK_UPDATES } = await import("../helpers/pack-updates.mjs");
     let modifies = 0, echecs = 0;
     const appliques = [];

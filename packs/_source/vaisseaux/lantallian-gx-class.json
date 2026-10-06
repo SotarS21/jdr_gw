@@ -24,12 +24,44 @@
     "armement": [],
     "equipage": [
       {
-        "role": "Équipage",
-        "nom": "",
-        "description": "4 membres d'équipage et 3 passagers (répartition non précisée).",
+        "role": "Pilote",
         "places": 1,
         "noms": [],
-        "uuids": []
+        "uuids": [],
+        "nom": "",
+        "description": ""
+      },
+      {
+        "role": "Communicateur",
+        "places": 1,
+        "noms": [],
+        "uuids": [],
+        "nom": "",
+        "description": ""
+      },
+      {
+        "role": "Canonnier",
+        "places": 1,
+        "noms": [],
+        "uuids": [],
+        "nom": "",
+        "description": ""
+      },
+      {
+        "role": "Mécanicien",
+        "places": 1,
+        "noms": [],
+        "uuids": [],
+        "nom": "",
+        "description": ""
+      },
+      {
+        "role": "Équipage",
+        "places": 3,
+        "noms": [],
+        "uuids": [],
+        "nom": "",
+        "description": ""
       }
     ],
     "soute": "(inventé, non précisé dans le matériel source) Petite soute pour bagages VIP.",

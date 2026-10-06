@@ -87,6 +87,18 @@
 
   <section class="equipement">
     <h2>{{localize 'GALACTICWARS.Sheet.Equipement'}}</h2>
+    {{#if objets.length}}
+    <ul class="objets-possedes">
+      {{#each objets as |o|}}
+      <li class="trait-rapide objet-possede" data-item-id="{{o.id}}">
+        <button type="button" class="trait-nom" data-action="afficherObjet" data-tooltip="{{localize 'GALACTICWARS.Objet.EnvoyerTchat'}}"><img src="{{o.img}}" alt=""> {{o.nom}}</button>
+        {{#if (gt o.quantite 1)}}<span class="mono">×{{o.quantite}}</span>{{/if}}
+        <button type="button" class="objet-ouvrir" data-action="ouvrirObjet" data-tooltip="{{localize 'GALACTICWARS.Objet.Ouvrir'}}" aria-label="{{localize 'GALACTICWARS.Objet.Ouvrir'}}"><i class="fa-solid fa-up-right-from-square"></i></button>
+        {{#if @root.editable}}<button type="button" class="del-btn" data-action="supprimerObjet" data-tooltip="{{localize 'GALACTICWARS.Objet.SupprimerObjet'}}" aria-label="{{localize 'GALACTICWARS.Objet.SupprimerObjet'}}">🗑</button>{{/if}}
+      </li>
+      {{/each}}
+    </ul>
+    {{/if}}
     <textarea name="system.equipement">{{system.equipement}}</textarea>
   </section>
 

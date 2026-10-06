@@ -1113,6 +1113,17 @@
   font-size: 0.8rem;
 }
 
+/* Nom d'un pouvoir de Force : bouton (ouvre sa fiche) habillé comme le texte de la ligne. */
+.galactic-wars.personnage button.pouvoir-lien {
+  all: unset;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+.galactic-wars.personnage button.pouvoir-lien:hover,
+.galactic-wars.personnage button.pouvoir-lien:focus-visible {
+  text-decoration: underline;
+}
+
 .galactic-wars.personnage .objet-meta {
   display: flex;
   align-items: center;
@@ -2228,4 +2239,32 @@
   font-size: 0.55rem;
   line-height: 1.1;
   pointer-events: none;
+}
+
+/* Objets possédés des fiches rapide / PNJ / sith (liste au-dessus du texte libre « Équipement »). */
+.galactic-wars .objets-possedes {
+  list-style: none;
+  margin: 0 0 0.4rem;
+  padding: 0;
+}
+.galactic-wars .objet-possede button.trait-nom,
+.galactic-wars .objet-possede button.objet-ouvrir {
+  all: unset;
+  cursor: pointer;
+}
+.galactic-wars .objet-possede button.trait-nom {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-weight: 700;
+}
+.galactic-wars .objet-possede button.trait-nom:hover,
+.galactic-wars .objet-possede button.objet-ouvrir:hover,
+.galactic-wars .objet-possede button:focus-visible {
+  color: var(--gw-accent);
+}
+.galactic-wars .objet-possede button.objet-ouvrir {
+  margin-left: auto;
+  font-size: 0.8rem;
+  opacity: 0.8;
 }

@@ -211,6 +211,7 @@
             <input type="hidden" name="system.competences.{{cpt.index}}.recommandee" value="{{cpt.recommandee}}" data-dtype="Boolean">
             <input type="hidden" name="system.competences.{{cpt.index}}.debloquee" value="{{cpt.debloquee}}" data-dtype="Boolean">
             <input type="hidden" name="system.competences.{{cpt.index}}.favori" value="{{cpt.favori}}" data-dtype="Boolean">
+            <input type="hidden" name="system.competences.{{cpt.index}}.experience" value="{{cpt.experience}}" data-dtype="Number">
             {{#if (and @root.modeEdition (not cpt.bloquee))}}
             <input type="number" class="niveau mono" name="system.competences.{{cpt.index}}.niveau" value="{{cpt.niveau}}" min="0" max="3" data-tooltip="{{localize 'GALACTICWARS.Sheet.Niveau'}}">
             {{else}}
@@ -226,7 +227,7 @@
             {{else}}
             <input type="hidden" name="system.competences.{{cpt.index}}.ajustement" value="{{cpt.ajustement}}" data-dtype="Number">
             {{/if}}
-            <span class="total mono{{#if cpt.bonusEffets}} avec-effet{{/if}}" data-tooltip="{{#if cpt.bonusEffets}}{{localize 'GALACTICWARS.Effets.BonusCompetence' bonus=cpt.bonusEffets}}<br>{{cpt.sourcesEffets}}{{else}}{{localize 'GALACTICWARS.Sheet.Total'}}{{/if}}" data-tooltip-direction="UP">{{cpt.total}}%{{#if cpt.bonusEffets}} <span class="pastille-effet{{#if (lt cpt.bonusEffets 0)}} malus{{/if}}">{{#if (gt cpt.bonusEffets 0)}}+{{/if}}{{cpt.bonusEffets}}</span>{{/if}}</span>
+            <span class="total mono{{#if cpt.bonusEffets}} avec-effet{{/if}}" data-tooltip="{{#if cpt.bonusEffets}}{{localize 'GALACTICWARS.Effets.BonusCompetence' bonus=cpt.bonusEffets}}<br>{{cpt.sourcesEffets}}{{else}}{{localize 'GALACTICWARS.Sheet.Total'}}{{/if}}{{#if cpt.experience}}<br>{{localize 'GALACTICWARS.Experience.DontXP' xp=cpt.experience}}{{/if}}" data-tooltip-direction="UP">{{cpt.total}}%{{#if cpt.bonusEffets}} <span class="pastille-effet{{#if (lt cpt.bonusEffets 0)}} malus{{/if}}">{{#if (gt cpt.bonusEffets 0)}}+{{/if}}{{cpt.bonusEffets}}</span>{{/if}}</span>
           </li>
           {{/each}}
         </ul>
@@ -254,7 +255,7 @@
     <div class="objet-liste">
       {{#each pouvoirs as |pouvoir|}}
       <div class="objet-row" data-item-id="{{pouvoir.id}}">
-        <span class="objet-nom">{{pouvoir.name}}</span>
+        <button type="button" class="objet-nom pouvoir-lien" data-action="ouvrirObjet" data-tooltip="{{localize 'GALACTICWARS.Objet.Ouvrir'}}">{{pouvoir.name}}</button>
         <div class="objet-meta">
           <span class="mono valeur-secondaire">{{pouvoir.system.coutPointsDeForce}} PF</span>
           <button type="button" class="del-btn" data-action="deleteItem">🗑</button>
