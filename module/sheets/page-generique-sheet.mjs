@@ -1,4 +1,4 @@
-import { apercuGenerique, diffuserGenerique } from "../apps/generique.mjs";
+import { apercuGenerique, arreterGeneriquePourTous, diffuserGenerique } from "../apps/generique.mjs";
 
 const { JournalEntryPageHandlebarsSheet } = foundry.applications.sheets.journal;
 
@@ -12,7 +12,8 @@ export class PageGeneriqueSheet extends JournalEntryPageHandlebarsSheet {
     window: { icon: "fa-solid fa-film" },
     actions: {
       diffuser: PageGeneriqueSheet.#onDiffuser,
-      apercu: PageGeneriqueSheet.#onApercu
+      apercu: PageGeneriqueSheet.#onApercu,
+      arreterTous: PageGeneriqueSheet.#onArreterTous
     }
   };
 
@@ -47,5 +48,9 @@ export class PageGeneriqueSheet extends JournalEntryPageHandlebarsSheet {
 
   static #onApercu() {
     apercuGenerique(this.page);
+  }
+
+  static #onArreterTous() {
+    arreterGeneriquePourTous();
   }
 }

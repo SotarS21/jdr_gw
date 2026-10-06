@@ -25,6 +25,16 @@ export function apercuGenerique(page) {
   jouerGenerique(page.system.diffusion, { apercu: true });
 }
 
+/**
+ * « Arrêter pour tous » depuis la page de journal : le MJ garde la main même s'il a fermé le générique chez lui
+ * (Échap, croix) ou lancé un aperçu — ces boutons n'existaient que sur l'écran du générique.
+ */
+export function arreterGeneriquePourTous() {
+  if (!game.user.isGM) return ui.notifications.warn(t("ReserveMJ"));
+  game.socket.emit(CANAL, { type: "generique", action: "arreter" });
+  if (!courant?.apercu) courant?.fermer();
+}
+
 function commander(action) {
   game.socket.emit(CANAL, { type: "generique", action });
   if (action === "passer") courant?.passer();
@@ -36,8 +46,9 @@ export function enregistrerSocketGenerique() {
   game.socket.on(CANAL, (message) => {
     if (message?.type !== "generique") return;
     if (message.action === "lancer") jouerGenerique(message.donnees);
-    else if (message.action === "passer") courant?.passer();
-    else if (message.action === "arreter") courant?.fermer();
+    // Un aperçu local n'est pas concerné par les commandes de la diffusion.
+    else if (message.action === "passer" && !courant?.apercu) courant?.passer();
+    else if (message.action === "arreter" && !courant?.apercu) courant?.fermer();
   });
 }
 
@@ -57,7 +68,7 @@ export function jouerGenerique(donnees, { apercu = false } = {}) {
   racine.setAttribute("role", "dialog");
   racine.setAttribute("aria-label", t("Titre"));
   racine.innerHTML = `
-    ${donnees.fond ? `<div class="gw-gen-fond" style="background-image: url('${encodeURI(donnees.fond)}')"></div>` : ""}
+    ${donnees.fond ? `<div class="gw-gen-fond"></div>` : ""}
     <canvas class="gw-gen-etoiles" aria-hidden="true"></canvas>
     <div class="gw-gen-ouverture">${echapper(donnees.ouverture ?? "")}</div>
     <div class="gw-gen-logo" aria-hidden="true">Galactic<br>Wars</div>
@@ -72,6 +83,9 @@ export function jouerGenerique(donnees, { apercu = false } = {}) {
       <button type="button" data-gen="arreter"><i class="fa-solid fa-stop"></i> ${t("ArreterTous")}</button>` : ""}
       <button type="button" data-gen="fermer" data-tooltip="${t("FermerHint")}"><i class="fa-solid fa-xmark"></i> ${t("Fermer")}</button>
     </div>`;
+  // Fond : chaîne CSS protégée par JSON.stringify (apostrophe, espace, parenthèse dans le nom de fichier).
+  const fond = racine.querySelector(".gw-gen-fond");
+  if (fond) fond.style.backgroundImage = `url(${JSON.stringify(donnees.fond)})`;
   document.body.append(racine);
 
   const canvas = racine.querySelector(".gw-gen-etoiles");
@@ -129,7 +143,11 @@ export function jouerGenerique(donnees, { apercu = false } = {}) {
       .catch(() => null);
   };
 
+  // Le défilement ne démarre qu'une fois : « Passer » une fois le texte lancé ne le fait plus repartir du bas.
+  let defilementLance = false;
   const lancerDefilement = () => {
+    if (defilementLance) return;
+    defilementLance = true;
     lancerMusique();
     defilement.style.opacity = 1;
     // Vitesse en pixels, proportionnelle à la taille du texte (même rythme de lecture quelle que soit la taille de
@@ -168,7 +186,7 @@ export function jouerGenerique(donnees, { apercu = false } = {}) {
     if (courant?.racine === racine) courant = null;
   }
   function passer() {
-    if (!actif) return;
+    if (!actif || defilementLance) return;
     arreterTout();
     lancerDefilement();
   }
@@ -212,6 +230,6 @@ export function jouerGenerique(donnees, { apercu = false } = {}) {
     minuteurs.push(setTimeout(lancerDefilement, 10200));
   }
 
-  courant = { racine, fermer, passer };
+  courant = { racine, fermer, passer, apercu };
   return courant;
 }

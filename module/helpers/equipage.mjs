@@ -114,6 +114,9 @@ export async function accorderAvantage(equipage, actif = true) {
  * l'action d'équipe. Si l'utilisateur ne peut pas modifier l'équipage (simple observateur), c'est relayé au MJ connecté.
  * @returns {Promise<boolean>}
  */
+/** Équipages dont l'avantage est en train d'être consommé (voir utiliserAvantage). */
+const avantagesEnCours = new Set();
+
 export async function utiliserAvantage(equipage, user = game.user) {
   if (!peutUtiliserAvantage(equipage, user)) {
     if (user === game.user) notifier("AvantageNonMembre", {}, "warn");
@@ -131,8 +134,18 @@ export async function utiliserAvantage(equipage, user = game.user) {
     game.socket.emit(CANAL, { type: "equipage", action: "utiliserAvantage", equipage: equipage.uuid, user: user.id });
     return true;
   }
-  await equipage.update({ "system.avantage": false });
-  const membre = membresDeLUtilisateur(equipage, user)[0];
+  // Verrou par équipage : deux demandes arrivées ensemble (relais simultanés) passaient toutes deux le test ci-dessus
+  // avant la mise à jour — un seul avantage consommé, deux messages.
+  if (avantagesEnCours.has(equipage.uuid)) return false;
+  avantagesEnCours.add(equipage.uuid);
+  try {
+    if (!equipage.system.avantage) return false;
+    await equipage.update({ "system.avantage": false });
+  } finally {
+    avantagesEnCours.delete(equipage.uuid);
+  }
+  // Un MJ sans personnage agit en son nom propre : pas de membre choisi au hasard comme orateur.
+  const membre = user.isGM && !user.character ? null : membresDeLUtilisateur(equipage, user)[0];
   const echapper = foundry.utils.escapeHTML;
   await ChatMessage.create({
     speaker: ChatMessage.getSpeaker({ actor: membre ?? equipage }),
