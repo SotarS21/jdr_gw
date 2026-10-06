@@ -41,6 +41,7 @@ export async function ajouterCanal(item) {
 /**
  * Fenêtre de modification d'un canal : numéro (unique), nom du contact, communication active.
  * Un numéro déjà pris (ou invalide) est refusé : avertissement, rien n'est modifié.
+ * @returns {Promise<number|undefined>} numéro du canal après modification (undefined si rien n'a été enregistré)
  */
 export async function modifierCanal(item, index) {
   const canaux = canauxSource(item);
@@ -86,10 +87,17 @@ export async function modifierCanal(item, index) {
   // serait sinon écrasé. Le canal est retrouvé par son numéro d'origine (unique).
   const actuels = canauxSource(item);
   const position = actuels.findIndex((c) => c.numero === canal.numero);
-  if (position < 0) return ui.notifications.warn(t("CanalIntrouvable"));
-  if (!numeroLibre(actuels, resultat.numero, position)) return ui.notifications.warn(t("NumeroPris", { numero: resultat.numero }));
+  if (position < 0) {
+    ui.notifications.warn(t("CanalIntrouvable"));
+    return undefined;
+  }
+  if (!numeroLibre(actuels, resultat.numero, position)) {
+    ui.notifications.warn(t("NumeroPris", { numero: resultat.numero }));
+    return undefined;
+  }
   Object.assign(actuels[position], resultat);
   await enregistrer(item, actuels);
+  return resultat.numero;
 }
 
 /** Archive / désarchive un canal. */

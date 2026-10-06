@@ -1,14 +1,16 @@
 # Journal de développement — Galactic Wars
 
-## À faire à la reprise (état au 2026-10-06, soir)
+## À faire à la reprise (état au 2026-10-06, nuit)
 
-- **Publié** : **v0.20.5 = dernière release** (gênants de l'audit + postes d'équipage de 7 vaisseaux ; fusionnée, poussée,
-  taguée, archive construite par la CI). v0.20.4 publiée le même jour (bloquants). Plus aucune branche de travail.
-- **Foundry local** : monde `galacit-wars-v-final`, redémarré en 0.20.5 (accord de l'auteur).
-- **Monde de l'auteur** : correctif MJ `0.20.5-postes-vaisseaux` **en attente**, à accepter par l'auteur (Lantallian,
+- **Publié** : **v0.20.6 = dernière release** (mineurs de l'audit). Le même jour : v0.20.4 (bloquants) et v0.20.5 (gênants
+  + postes des vaisseaux). Plus aucune branche de travail. **Audit du 2026-09-29 : traité**, sauf V8 (expéditeur des
+  sockets) et M5 (choix de conception).
+- **Foundry local** : monde `galacit-wars-v-final`, redémarré en 0.20.6.
+- **Monde de l'auteur** : correctif MJ `0.20.5-postes-vaisseaux` en attente s'il n'a pas encore été accepté (Lantallian,
   Le Barmaid Betty).
-- **Suite proposée** : constats **mineurs** de l'audit du 2026-09-29 ; le reste de la liste ci-dessous (état au
-  2026-09-30) est inchangé.
+- **À vérifier en jeu à l'occasion** : défense non rejouable après rechargement, message d'initiative déjà lancée, bloc
+  Vaisseau rafraîchi, avantage d'équipage (relais simultanés, MJ sans personnage), jet de poste d'une compétence bloquée.
+- Le reste de la liste ci-dessous (état au 2026-09-30) est inchangé.
 
 ### État au 2026-09-30 soir — « note ce qu'on a fait, on s'arrête là pour ce soir »
 
@@ -44,6 +46,40 @@
     niveau ; texte libre d'affiliation des métiers (garder ou supprimer).
 - **Scripts de test** (hors dépôt, `../audit/`) : `t3-traits.js` (traits, couverts, fiches), `t8-wolf.js` (traits
   actifs), `t11-drop.js` (glisser-déposer d'un trait sur une copie d'Alek), `t12-pastille.js` (pastille sur Alek).
+
+## Session du 2026-10-06 (suite 2) — Corrections de l'audit : mineurs (v0.20.5→v0.20.6)
+
+- **Demande de l'auteur** : « passe aux bugs mineurs de l'audit ». Branche `fix/audit-mineurs`. Repris : les mineurs de la
+  relecture et les constats Z1 à Z4 de la contre-vérification (dont ceux classés « gênants » par les sceptiques).
+- **Fiche personnage** : Z2-1 « utiliser » Lumière / Obscurité verrouillé (`#reserveEnCours`) ; Z2-3 clics + / − cumulés
+  pendant une écriture ; Z2-2 étoile Favori = bascule du champ caché + `this.submit()` (saisie en cours conservée) ; Z2-5
+  Initiative déjà lancée → message ; Z2-4 hook `updateActor` du vaisseau affiché (posé au premier rendu, retiré à la
+  fermeture) ; P6 gardes `isEditable` (notes, portrait ; race / métier / école des fiches rapide et sith).
+- **Fiche d'objet** : Z1-2 actions de lecture réactivées sur une fiche observée (`#ACTIONS_LECTURE`) — **`_onRender` doit
+  attendre `super._onRender`** (sans `await`, Foundry redésactivait les boutons après la réactivation) ; Z1-1
+  `#recalerHistorique` (index de l'historique Holonet suivis par contenu quand le nombre d'infos change) ; Z1-3 canal
+  ouvert renuméroté suivi (`modifierCanal` renvoie le numéro ; l'état « ouvert » est noté AVANT la mise à jour, qui
+  redessine la fiche et la ramène à la liste).
+- **Équipage / vaisseau** : V7 verrou par équipage sur l'avantage ; V6 MJ sans personnage = orateur lui-même ; V10 pas de
+  jet pour une compétence bloquée ; poste refusant un acteur de compendium ou un équipage ; V9 siège libéré sur l'autre
+  vaisseau (`#libererSiege`, si modifiable, sinon avertissement).
+- **Générique** : Z4-1 « Arrêter pour tous » sur la page (`arreterGeneriquePourTous`) ; Z4-2 défilement lancé une seule
+  fois ; Z4-3 aperçu ignoré par les commandes du socket ; M4 fond posé par `style.backgroundImage` + `JSON.stringify`.
+- **Divers** : P7 trace `defenseDe` sur le verdict (défense non rejouable) ; P8 `Roll.validate` du soin (`false` + message) ;
+  Z3-1 un soin ne baisse jamais les PV ; Z3-3 capacités d'école en `textarea` ; Z3-2 `race.uuid` des 5 prétirés sith
+  (compendium) ; V11 `jb2a_patreon` ; code mort retiré (`metierActuel`, `GW.malusCompetenceNonAcquise`, option `pool` de
+  `rollCompetence`, sections arme / armure / équipement d'`item-sheet.hbs`). Déjà corrigés avant : P9 (champs du talent),
+  noms échappés du sélecteur de compendium.
+- **Non traités** : V8 (expéditeur des sockets — Foundry ne transmet pas l'expéditeur d'un message système ; abus seulement
+  par la console d'un joueur) ; M5 (correctifs sans objet marqués appliqués — choix de conception).
+- **Testé en direct** (`-NoRestart`) : `../audit/t16-mineurs.mjs`, joueur temporaire + documents « [TEST] » supprimés —
+  **15/15 OK** sur deux exécutions consécutives (Lumière 3 → 8 en 5 clics, double clic = 1 message ; niveau saisi + favori ;
+  soin « 4 PV » refusé, sith au-dessus du max inchangé ; capacités d'école ; poste : compendium refusé, membre déplacé de A
+  vers B ; Holonet recalé ; canal 1 → 7 resté ouvert ; générique en aperçu : fond avec apostrophe, 2e « Passer » sans
+  relance ; observateur : pas d'édition de note, onglets de la fiche d'objet actifs). Deux exécutions précédentes avaient
+  échoué sur Z1-1 / Z1-3 parce que la fiche d'objet ne s'était pas ouverte sur l'onglet de l'appareil (préparation du test,
+  non reproduit ensuite). **Non testés en direct** : P7, Z2-4, Z2-5, V6, V7, V10, V11. **Redémarrage** (accord de l'auteur) : Foundry en 0.20.6, les 6
+  prétirés sith liés à leur race (Cathar, Chagrian, Devaronian, Kiffar, Humain, Trandoshan), aucune erreur au chargement.
 
 ## Session du 2026-10-06 (suite) — Corrections de l'audit : gênants (v0.20.4→v0.20.5)
 

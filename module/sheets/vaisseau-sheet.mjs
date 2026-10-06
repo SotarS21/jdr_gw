@@ -148,7 +148,8 @@ export class VaisseauSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
           const uuid = poste.uuids[siege] || "";
           const membre = uuid ? fromUuidSync(uuid) : null;
           // Jet possible : place occupée par un acteur à compétences que l'utilisateur peut faire agir.
-          const jet = !!cle && !!membre?.system?.competences?.length && (membre.isOwner || game.user.isGM);
+          const competence = cle ? membre?.system?.competences?.find?.((c) => c.cle === cle) : null;
+          const jet = !!competence && !competence.bloquee && (membre.isOwner || game.user.isGM);
           return { siege, nom: poste.noms[siege] ?? "", uuid, img: membre?.img ?? null, lie: !!uuid, jet };
         })
       };
@@ -303,6 +304,10 @@ export class VaisseauSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     if (!actor || !this.isEditable) return null;
     const t = (cle, donnees) => game.i18n.format(`GALACTICWARS.Vaisseau.${cle}`, donnees);
     if (actor.type === "vaisseau") return null;
+    if (actor.type === "equipage" || actor.pack) {
+      ui.notifications.warn(t(actor.pack ? "PosteActeurCompendium" : "PosteEquipage", { nom: actor.name }));
+      return null;
+    }
     const posteEl = event.target.closest?.(".vs-poste[data-index]");
     if (!posteEl) {
       ui.notifications.warn(t("DeposerSurPoste"));
@@ -322,9 +327,11 @@ export class VaisseauSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     for (const p of equipage) for (let i = 0; i < p.places; i++) { p.noms[i] ??= ""; p.uuids[i] ??= ""; }
     // Place d'origine : celle d'où la carte a été glissée sur cette fiche, sinon la place où l'acteur est déjà assis.
     let origine = null;
+    let origineAilleurs = null;
     try {
       const donnees = foundry.applications.ux.TextEditor.implementation.getDragEventData(event);
       if (donnees?.gwSiege?.vaisseau === this.actor.uuid) origine = donnees.gwSiege;
+      else if (donnees?.gwSiege?.vaisseau) origineAilleurs = donnees.gwSiege;
     } catch { /* dépôt simulé ou sans données */ }
     if (!origine) {
       equipage.forEach((p, i) => p.uuids.forEach((u, s) => { if (u === actor.uuid && !origine) origine = { index: i, siege: s }; }));
@@ -340,7 +347,26 @@ export class VaisseauSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     poste.noms[siege] = actor.name;
     poste.uuids[siege] = actor.uuid;
     await this.actor.update({ "system.equipage": equipage });
+    if (origineAilleurs) await this.#libererSiege(origineAilleurs, actor);
     return actor;
+  }
+
+  /**
+   * Siège quitté sur un autre vaisseau (glisser-déposer d'une fiche à l'autre) : vidé, tableau complet réécrit, si
+   * l'utilisateur peut modifier ce vaisseau et que le siège porte toujours cet acteur ; sinon un avertissement.
+   */
+  async #libererSiege({ vaisseau: uuid, index, siege }, actor) {
+    const source = await fromUuid(uuid);
+    if (!source || source.type !== "vaisseau") return;
+    const equipage = source.system.toObject().equipage;
+    if (equipage[index]?.uuids?.[siege] !== actor.uuid) return;
+    if (!source.isOwner) {
+      ui.notifications.warn(game.i18n.format("GALACTICWARS.Vaisseau.SiegeNonLibere", { nom: actor.name, vaisseau: source.name }));
+      return;
+    }
+    equipage[index].uuids[siege] = "";
+    equipage[index].noms[siege] = "";
+    await source.update({ "system.equipage": equipage });
   }
 
   /** Jet de la compétence du poste par l'acteur assis à cette place (sa propre compétence et son taux). */

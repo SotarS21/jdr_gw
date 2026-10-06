@@ -40,22 +40,6 @@
   </section>
   {{/if}}
 
-  {{#if (eq item.type "arme")}}
-  <section class="arme-fields">
-    <label>{{localize 'GALACTICWARS.Item.Degats'}} <input type="text" name="system.degats" value="{{system.degats}}"></label>
-    <label>{{localize 'GALACTICWARS.Item.CompetenceLiee'}} <input type="text" name="system.competence" value="{{system.competence}}"></label>
-    <label>{{localize 'GALACTICWARS.Sheet.Prix'}} <input type="text" name="system.prix" value="{{system.prix}}"></label>
-  </section>
-  {{/if}}
-
-  {{#if (eq item.type "armure")}}
-  <section class="armure-fields">
-    <label>{{localize 'GALACTICWARS.Item.Reduction'}} <input type="number" name="system.reduction" value="{{system.reduction}}"></label>
-    <label>{{localize 'GALACTICWARS.Item.Emplacement'}} <input type="text" name="system.emplacement" value="{{system.emplacement}}"></label>
-    <label>{{localize 'GALACTICWARS.Sheet.Prix'}} <input type="text" name="system.prix" value="{{system.prix}}"></label>
-  </section>
-  {{/if}}
-
   {{#if (eq item.type "talent")}}
   <section class="talent-fields">
     <label>{{localize 'GALACTICWARS.Traits.Avantage'}} <input type="text" name="system.avantage" value="{{system.avantage}}"></label>
@@ -92,13 +76,6 @@
   {{#if (eq item.type "pouvoir")}}
   <section class="pouvoir-fields">
     <label>{{localize 'GALACTICWARS.Item.CoutPointsDeForce'}} <input type="number" name="system.coutPointsDeForce" value="{{system.coutPointsDeForce}}"></label>
-  </section>
-  {{/if}}
-
-  {{#if (eq item.type "equipement")}}
-  <section class="equipement-fields">
-    <label>{{localize 'GALACTICWARS.Item.Quantite'}} <input type="number" name="system.quantite" value="{{system.quantite}}"></label>
-    <label>{{localize 'GALACTICWARS.Sheet.Prix'}} <input type="text" name="system.prix" value="{{system.prix}}"></label>
   </section>
   {{/if}}
 

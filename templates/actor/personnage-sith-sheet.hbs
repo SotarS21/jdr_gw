@@ -24,10 +24,14 @@
   </header>
 
   <div class="sheet-body">
-  {{#if system.ecole.capacitesSpeciales}}
+  {{#if (or system.ecole.capacitesSpeciales editable)}}
   <section class="capacites-speciales">
     <h2>{{localize 'GALACTICWARS.Sheet.CapacitesSpeciales'}}</h2>
+    {{#if editable}}
+    <textarea name="system.ecole.capacitesSpeciales">{{system.ecole.capacitesSpeciales}}</textarea>
+    {{else}}
     <p>{{system.ecole.capacitesSpeciales}}</p>
+    {{/if}}
   </section>
   {{/if}}
 

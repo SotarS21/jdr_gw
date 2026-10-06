@@ -174,8 +174,6 @@ export class PersonnageData extends foundry.abstract.TypeDataModel {
       car.total = car.base + car.racial;
     }
 
-    const metierActuel = this.metier?.uuid ? fromUuidSync(this.metier.uuid) : null;
-
     for (const competence of this.competences) {
       const def = GW.competences[competence.cle];
       // Compétence réservée à d'autres métiers : niveau compté 0 et jet impossible, sans
@@ -212,6 +210,5 @@ export class PersonnageData extends foundry.abstract.TypeDataModel {
       competence.estCompetenceForce = def?.force ?? false;
     }
 
-    void metierActuel;
   }
 }

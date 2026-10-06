@@ -6,7 +6,7 @@
   "img": "icons/svg/mystery-man.svg",
   "system": {
     "infos": { "nom": "Nagani", "nomSith": "Seigneure Mer Naga" },
-    "race": { "uuid": "", "nom": "Chagrian" },
+    "race": { "uuid": "Compendium.galactic-wars.races.Item.wxVVS1x0Pc6fdwjy", "nom": "Chagrian" },
     "ecole": {
       "uuid": "Compendium.galactic-wars.ecoles.Item.PYAEP26rHiihS3ON",
       "nom": "Sorcière sith",

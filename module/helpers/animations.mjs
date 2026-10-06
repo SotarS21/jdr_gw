@@ -34,10 +34,11 @@ export function enregistrerReglageAnimations() {
   });
 }
 
-/** Sequencer et JB2A actifs, et réglage activé. */
+/** Sequencer et JB2A (version gratuite ou Patreon) actifs, et réglage activé. */
 export function animationsDisponibles() {
+  const jb2a = !!game.modules.get("JB2A_DnD5e")?.active || !!game.modules.get("jb2a_patreon")?.active;
   return !!game.settings.get("galactic-wars", "animations")
-    && !!game.modules.get("sequencer")?.active && !!game.modules.get("JB2A_DnD5e")?.active
+    && !!game.modules.get("sequencer")?.active && jb2a
     && typeof globalThis.Sequence === "function";
 }
 

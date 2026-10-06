@@ -141,6 +141,7 @@ export class GalacticWarsItem extends Item {
       return null;
     }
     const resultat = await actor.soigner(this.system.soin);
+    if (resultat === false) return null; // formule invalide, déjà signalée
     if (!resultat) {
       ui.notifications.warn(game.i18n.format("GALACTICWARS.Combat.SansPV", { nom: actor.name }));
       return null;

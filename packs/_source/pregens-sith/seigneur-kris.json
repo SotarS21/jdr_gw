@@ -6,7 +6,7 @@
   "img": "icons/svg/mystery-man.svg",
   "system": {
     "infos": { "nom": "Oro Thif", "nomSith": "Seigneur Kris" },
-    "race": { "uuid": "", "nom": "Trandoshan" },
+    "race": { "uuid": "Compendium.galactic-wars.races.Item.utYV1PNFGRBwoKqx", "nom": "Trandoshan" },
     "ecole": {
       "uuid": "Compendium.galactic-wars.ecoles.Item.1VwNrBb9x9j7U4Y0",
       "nom": "Magicien",

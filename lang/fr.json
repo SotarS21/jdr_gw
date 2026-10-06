@@ -385,6 +385,7 @@
       "CompetencesForce": "Compétences liées à la Force",
       "Initiative": "Initiative",
       "InitiativeHint": "Lance l'initiative (1d20) dans le combat en cours",
+      "InitiativeDejaLancee": "{nom} a déjà son initiative dans ce combat ({valeur}).",
       "AucunCombat": "Aucun combat en cours : le MJ doit d'abord créer une rencontre.",
       "Appliquer": "Appliquer les dégâts",
       "AppliquerCibles": "Aux tokens sélectionnés (sinon aux {nombre} cible(s) de l'attaquant)",
@@ -394,6 +395,7 @@
       "Defense": "Défense",
       "DefenseConsigne": "Attaque réussie : chaque cible tente une défense.",
       "DefenseContre": "Défense contre {arme}",
+      "DefenseJouee": "Défense déjà jouée.",
       "DefenseIndisponible": "Compétence non accessible à ce personnage",
       "DefenseManuelle": "Défense à résoudre par le MJ",
       "Melee": "mêlée",
@@ -404,6 +406,7 @@
       "Bilan": "{nom} : {brut} − {reduction} (armure) = <strong>{subis}</strong> dégât(s), PV {avant} → {apres}"
     },
     "Soin": {
+      "Invalide": "Soin « {soin} » invalide : une formule de dés (ex. 2d6+1) ou « max ».",
       "Label": "Soin (PV)",
       "Aide": "PV rendus par le bouton de la carte de tchat : un nombre (4), une formule (1d4) ou max (tous les PV). Vide = pas un objet de soin.",
       "Montant": "Utiliser : regagne {soin} PV",
@@ -500,6 +503,9 @@
       "RetirerMembre": "Libérer la place",
       "MembreIntrouvable": "Cet acteur n'existe plus.",
       "DeposerSurPoste": "Déposez l'acteur sur un poste de la partie Équipage.",
+      "PosteActeurCompendium": "« {nom} » vient d'un compendium : importez-le d'abord dans le monde.",
+      "PosteEquipage": "Un équipage ne peut pas tenir un poste : déposez ses membres.",
+      "SiegeNonLibere": "{nom} est toujours inscrit sur {vaisseau} : vous ne pouvez pas modifier ce vaisseau (au MJ de libérer la place).",
       "PosteComplet": "Le poste « {poste} » est complet : déposez l'acteur sur une place précise pour la remplacer.",
       "AucunPoste": "Aucun poste d'équipage.",
       "Amenagements": "Aménagements",

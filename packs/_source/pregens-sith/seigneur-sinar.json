@@ -6,7 +6,7 @@
   "img": "icons/svg/mystery-man.svg",
   "system": {
     "infos": { "nom": "Tania Leviz", "nomSith": "Seigneur Sinar" },
-    "race": { "uuid": "", "nom": "Kiffar" },
+    "race": { "uuid": "Compendium.galactic-wars.races.Item.kE25604LBS1sNo7V", "nom": "Kiffar" },
     "ecole": {
       "uuid": "Compendium.galactic-wars.ecoles.Item.CJR9nxTwHjrlk44I",
       "nom": "Inquisiteur sith",

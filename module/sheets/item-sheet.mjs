@@ -8,7 +8,7 @@ const { ItemSheetV2 } = foundry.applications.sheets;
 
 /** Objets d'inventaire (arme, armure/bouclier, équipement) : fiche « datapad » dédiée, un
  *  template par type. Les autres types (race, métier, talent, pouvoir, école) gardent
- *  templates/item/item-sheet.hbs, inchangé. */
+ *  templates/item/item-sheet.hbs (qui n'a donc plus de section arme / armure / équipement). */
 const TEMPLATES_OBJET = {
   arme: "systems/galactic-wars/templates/item/arme-sheet.hbs",
   armure: "systems/galactic-wars/templates/item/armure-sheet.hbs",
@@ -87,6 +87,12 @@ export class GalacticWarsItemSheet extends HandlebarsApplicationMixin(ItemSheetV
    *  gardé sur l'instance comme #ongletActif dans personnage-sheet.mjs. */
   #ongletActif = "details";
 
+  /** Actions sans écriture, réactivées sur une fiche seulement observée (voir _onRender). */
+  static #ACTIONS_LECTURE = new Set([
+    "changerOnglet", "afficherDansTchat", "holonetAccueil", "holonetPrecedent", "holonetSuivant", "holonetOuvrir",
+    "holonetMotCle", "comlinkVoirArchives", "comlinkOuvrirCanal", "comlinkRetour"
+  ]);
+
   /** Onglet choisi explicitement : sinon un datapad porté par un personnage s'ouvre sur l'Holonet. */
   #ongletChoisi = false;
 
@@ -94,7 +100,7 @@ export class GalacticWarsItemSheet extends HandlebarsApplicationMixin(ItemSheetV
    * Navigation de l'Holonet (datapad) : historique de pages, null = accueil, sinon index dans
    * system.notes du porteur ; recherche et mot-clé filtrent l'accueil. État d'affichage pur.
    */
-  #holonet = { historique: [null], position: 0, recherche: "", motCle: "" };
+  #holonet = { historique: [null], position: 0, recherche: "", motCle: "", notes: null };
 
   /** Comlink : canal ouvert (numéro, null = liste), archives affichées, brouillon du message. */
   #comlink = { canal: null, voirArchives: false, brouillon: "" };
@@ -301,6 +307,7 @@ export class GalacticWarsItemSheet extends HandlebarsApplicationMixin(ItemSheetV
     const h = this.#holonet;
     if (!actor || !Array.isArray(actor.system.notes)) return { connecte: false };
     const infos = actor.system.notes;
+    h.notes = actor.system.toObject().notes;
     let page = h.historique[h.position];
     // Info supprimée entre-temps : retour à l'accueil.
     if (page !== null && !infos[page]) {
@@ -393,6 +400,35 @@ export class GalacticWarsItemSheet extends HandlebarsApplicationMixin(ItemSheetV
     };
   }
 
+  /**
+   * Les pages de l'historique sont des index dans system.notes : une info supprimée ou ajoutée ailleurs (onglet Notes,
+   * autre fenêtre) les décale. Même nombre d'infos = modification sur place (index inchangés) ; sinon chaque ancienne
+   * info est retrouvée par son contenu, et les pages dont l'info a disparu sont retirées de l'historique.
+   */
+  #recalerHistorique(nouvelles) {
+    const h = this.#holonet;
+    const anciennes = h.notes;
+    h.notes = nouvelles;
+    if (!anciennes || anciennes.length === nouvelles.length) return;
+    const libres = new Set(nouvelles.keys());
+    const correspondance = anciennes.map((info) => {
+      for (const j of libres) {
+        if (foundry.utils.objectsEqual(nouvelles[j], info)) { libres.delete(j); return j; }
+      }
+      return null;
+    });
+    const historique = [];
+    let position = 0;
+    h.historique.forEach((page, i) => {
+      const nouvelle = page === null ? null : correspondance[page] ?? undefined;
+      if (nouvelle === undefined) return;
+      historique.push(nouvelle);
+      if (i <= h.position) position = historique.length - 1;
+    });
+    h.historique = historique.length ? historique : [null];
+    h.position = Math.min(position, h.historique.length - 1);
+  }
+
   /** Navigue vers une page (null = accueil) en tronquant l'historique « suivant ». */
   #naviguer(page) {
     const h = this.#holonet;
@@ -404,9 +440,19 @@ export class GalacticWarsItemSheet extends HandlebarsApplicationMixin(ItemSheetV
     return this.render();
   }
 
-  /** @override */
-  _onRender(context, options) {
-    super._onRender(context, options);
+  /** @override — attend le rendu parent : sur une fiche observée, Foundry désactive les champs dans super._onRender,
+   *  la réactivation ci-dessous doit passer après. */
+  async _onRender(context, options) {
+    await super._onRender(context, options);
+    // Fiche seulement observée : Foundry désactive tous les boutons ; ceux de pure navigation (et l'envoi dans le
+    // tchat) restent permis — même principe que les fiches d'équipage et de vaisseau.
+    if (!this.isEditable) {
+      for (const bouton of this.element.querySelectorAll("button[data-action]")) {
+        if (GalacticWarsItemSheet.#ACTIONS_LECTURE.has(bouton.dataset.action)) bouton.disabled = false;
+      }
+      const recherche = this.element.querySelector(".holonet-recherche");
+      if (recherche) recherche.disabled = false;
+    }
     this.#activerComlink();
     // Recherche de l'accueil : filtrage direct dans le DOM (pas de re-rendu : le focus reste dans le champ).
     const champ = this.element.querySelector(".holonet-recherche");
@@ -462,6 +508,7 @@ export class GalacticWarsItemSheet extends HandlebarsApplicationMixin(ItemSheetV
     super._onFirstRender(context, options);
     this.#hookActeur = Hooks.on("updateActor", (actor, changes) => {
       if (actor !== this.item.actor || !this.estDatapad || this.#ongletActif !== "holonet") return;
+      if (foundry.utils.hasProperty(changes, "system.notes")) this.#recalerHistorique(actor.system.toObject().notes);
       if (foundry.utils.hasProperty(changes, "system.notes") || "name" in changes) this.render();
     });
   }
@@ -633,7 +680,18 @@ export class GalacticWarsItemSheet extends HandlebarsApplicationMixin(ItemSheetV
 
   static async #onComlinkModifier(event, target) {
     event.stopPropagation();
-    if (this.item.isOwner) await Comlink.modifierCanal(this.item, GalacticWarsItemSheet.#indexCanal(target));
+    if (!this.item.isOwner) return;
+    const index = GalacticWarsItemSheet.#indexCanal(target);
+    const ancien = this.item.system.comlink?.canaux?.[index]?.numero;
+    // Noté AVANT la modification : la mise à jour redessine la fiche, qui ne trouve plus l'ancien numéro et revient à
+    // la liste avant que la suite ne s'exécute.
+    const etaitOuvert = ancien !== undefined && this.#comlink.canal === ancien;
+    const nouveau = await Comlink.modifierCanal(this.item, index);
+    // Canal ouvert renuméroté : la fiche l'identifie par son numéro, on le suit au lieu de revenir à la liste.
+    if (nouveau !== undefined && ancien !== nouveau && etaitOuvert) {
+      this.#comlink.canal = nouveau;
+      this.render();
+    }
   }
 
   static async #onComlinkArchiver(event, target) {

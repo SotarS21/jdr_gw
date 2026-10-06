@@ -67,7 +67,7 @@ export async function proposerDefense(arme, resultat, tokens) {
 }
 
 /** Défense choisie par la cible : jet, puis verdict posté dans le tchat. */
-async function defendre(actor, nomCible, cle, defense) {
+async function defendre(actor, nomCible, cle, defense, trace) {
   const titre = game.i18n.format("GALACTICWARS.Combat.DefenseContre", { arme: defense.armeNom });
   const resultat = await rollCompetence(actor, cle, { titre });
   if (!resultat) return;
@@ -83,7 +83,9 @@ async function defendre(actor, nomCible, cle, defense) {
       <span class="gw-verdict-marges">${game.i18n.format("GALACTICWARS.Combat.Marges", {
         attaque: defense.attaque.marge, defense: resultat.cible - resultat.roll.total
       })}</span>
-    </div>`
+    </div>`,
+    // Trace du verdict : la carte « Défense » ne propose plus de défendre cette cible, même après un rechargement.
+    flags: { "galactic-wars": { defenseDe: trace } }
   });
 }
 
@@ -99,6 +101,14 @@ function brancherDefense(message, html) {
     } catch {}
     const actor = token?.actor;
     if (!zone || zone.childElementCount || !actor?.isOwner) continue;
+    const dejaJouee = game.messages.some((m) => {
+      const trace = m.getFlag("galactic-wars", "defenseDe");
+      return trace?.message === message.id && trace?.token === ligne.dataset.tokenUuid;
+    });
+    if (dejaJouee) {
+      zone.innerHTML = `<em>${game.i18n.localize("GALACTICWARS.Combat.DefenseJouee")}</em>`;
+      continue;
+    }
     if (!actor.system.competences) {
       // PNJ sans compétences en % : défense résolue à la main par le MJ.
       zone.innerHTML = `<em>${game.i18n.localize("GALACTICWARS.Combat.DefenseManuelle")}</em>`;
@@ -117,7 +127,7 @@ function brancherDefense(message, html) {
       bouton.addEventListener("click", async (event) => {
         event.preventDefault();
         for (const b of zone.querySelectorAll("button")) b.disabled = true;
-        await defendre(actor, token.name, cle, defense);
+        await defendre(actor, token.name, cle, defense, { message: message.id, token: ligne.dataset.tokenUuid });
       });
       zone.append(bouton);
     }
