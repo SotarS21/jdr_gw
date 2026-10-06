@@ -139,12 +139,6 @@ GW.competences = {
   natation: { label: "GALACTICWARS.Competence.Natation", metier: false, force: false, caracteristique: "corps" }
 };
 
-/** Malus appliqué au total% quand la compétence n'est pas acquise via le métier du personnage. */
-GW.malusCompetenceNonAcquise = {
-  normale: -10,
-  metier: -30
-};
-
 /** Barème niveau (0-3) -> % de base, avant modificateurs raciaux/métier. */
 GW.baremeNiveauCompetence = { 0: 0, 1: 5, 2: 10, 3: 20 };
 

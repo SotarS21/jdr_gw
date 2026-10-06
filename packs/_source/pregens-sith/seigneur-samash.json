@@ -6,7 +6,7 @@
   "img": "icons/svg/mystery-man.svg",
   "system": {
     "infos": { "nom": "Daminen Shi", "nomSith": "Seigneur Samash" },
-    "race": { "uuid": "", "nom": "Devaronian (mâle) / Devaron (femelle)" },
+    "race": { "uuid": "Compendium.galactic-wars.races.Item.BVy1lDOgDv1VOGGh", "nom": "Devaronian (mâle) / Devaron (femelle)" },
     "ecole": {
       "uuid": "Compendium.galactic-wars.ecoles.Item.aFhsQelT0u3TGdn0",
       "nom": "Guerrier sith",

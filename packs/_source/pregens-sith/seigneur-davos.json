@@ -6,7 +6,7 @@
   "img": "icons/svg/mystery-man.svg",
   "system": {
     "infos": { "nom": "Repto Davius", "nomSith": "Seigneur Davos" },
-    "race": { "uuid": "", "nom": "Cathar" },
+    "race": { "uuid": "Compendium.galactic-wars.races.Item.VKtVDblkDP3RR8XR", "nom": "Cathar" },
     "ecole": {
       "uuid": "Compendium.galactic-wars.ecoles.Item.t1Z3D6XFvFEU9VXa",
       "nom": "Héraut sith",

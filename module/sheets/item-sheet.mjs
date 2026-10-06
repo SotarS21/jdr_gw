@@ -8,7 +8,7 @@ const { ItemSheetV2 } = foundry.applications.sheets;
 
 /** Objets d'inventaire (arme, armure/bouclier, équipement) : fiche « datapad » dédiée, un
  *  template par type. Les autres types (race, métier, talent, pouvoir, école) gardent
- *  templates/item/item-sheet.hbs, inchangé. */
+ *  templates/item/item-sheet.hbs (qui n'a donc plus de section arme / armure / équipement). */
 const TEMPLATES_OBJET = {
   arme: "systems/galactic-wars/templates/item/arme-sheet.hbs",
   armure: "systems/galactic-wars/templates/item/armure-sheet.hbs",

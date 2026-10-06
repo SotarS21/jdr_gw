@@ -104,10 +104,16 @@ export class GalacticWarsActor extends Actor {
     let roll = null;
     if (String(soin).trim().toLowerCase() === "max") montant = max;
     else {
+      // Formule invalide (ex. « 4 PV ») : message clair au lieu d'une erreur de Roll.
+      if (!Roll.validate(String(soin))) {
+        ui.notifications.warn(game.i18n.format("GALACTICWARS.Soin.Invalide", { soin: String(soin) }));
+        return false;
+      }
       roll = await new Roll(String(soin)).evaluate();
       montant = Math.max(0, roll.total);
     }
-    const apres = Math.min(max, avant + montant);
+    // Un soin ne fait jamais baisser les PV (PV actuels au-dessus du max, ex. fiche sith après changement de corpulence).
+    const apres = Math.max(avant, Math.min(max, avant + montant));
     if (apres !== avant) await this.update({ [chemin]: apres });
     return { gain: apres - avant, avant, apres, max, roll };
   }

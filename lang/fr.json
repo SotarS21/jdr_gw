@@ -395,6 +395,7 @@
       "Defense": "Défense",
       "DefenseConsigne": "Attaque réussie : chaque cible tente une défense.",
       "DefenseContre": "Défense contre {arme}",
+      "DefenseJouee": "Défense déjà jouée.",
       "DefenseIndisponible": "Compétence non accessible à ce personnage",
       "DefenseManuelle": "Défense à résoudre par le MJ",
       "Melee": "mêlée",
@@ -405,6 +406,7 @@
       "Bilan": "{nom} : {brut} − {reduction} (armure) = <strong>{subis}</strong> dégât(s), PV {avant} → {apres}"
     },
     "Soin": {
+      "Invalide": "Soin « {soin} » invalide : une formule de dés (ex. 2d6+1) ou « max ».",
       "Label": "Soin (PV)",
       "Aide": "PV rendus par le bouton de la carte de tchat : un nombre (4), une formule (1d4) ou max (tous les PV). Vide = pas un objet de soin.",
       "Montant": "Utiliser : regagne {soin} PV",

@@ -44,12 +44,10 @@ function flavorResultatCle({ critique, echecCritique, reussite }) {
  * @param {Actor} actor
  * @param {string} cle clé de GW.competences
  * @param {object} [options]
- * @param {"lumiere"|"obscurite"} [options.pool] réserve dont dépenser 1 point pour +GW.bonusAlignement%
- *   sur ce jet (voir personnage-sheet.mjs, qui décrémente la réserve une fois le jet lancé).
  * @param {string} [options.titre] en-tête affiché au-dessus du jet (ex. nom de l'arme utilisée,
  *   voir GalacticWarsItem#attaquer) — texte brut, échappé ici.
  */
-export async function rollCompetence(actor, cle, { pool, titre } = {}) {
+export async function rollCompetence(actor, cle, { titre } = {}) {
   const competence = actor.system.competences?.find((c) => c.cle === cle);
   if (!competence) {
     ui.notifications.warn(game.i18n.format("GALACTICWARS.Avertissement.CompetenceInconnue", { cle }));
@@ -60,25 +58,18 @@ export async function rollCompetence(actor, cle, { pool, titre } = {}) {
     return null;
   }
 
-  const bonus = pool ? GW.bonusAlignement : 0;
-  const cible = Math.min(100, competence.total + bonus);
+  const cible = Math.min(100, competence.total);
 
   const resultat = await resoudrePourcentage(cible);
   const flavor = game.i18n.format("GALACTICWARS.Jet.Flavor", {
     competence: game.i18n.localize(competence.label),
     cible
   });
-  const flavorBonus = pool
-    ? `<br>${game.i18n.format("GALACTICWARS.Alignement.FlavorBonus", {
-        bonus,
-        reserve: game.i18n.localize(GW.alignements[pool])
-      })}`
-    : "";
   const flavorTitre = titre ? `<strong class="gw-jet-titre">${foundry.utils.escapeHTML(titre)}</strong><br>` : "";
 
   await resultat.roll.toMessage({
     speaker: ChatMessage.getSpeaker({ actor }),
-    flavor: `${flavorTitre}${flavor}<br>${libelleResultat(resultat)}${flavorBonus}`,
+    flavor: `${flavorTitre}${flavor}<br>${libelleResultat(resultat)}`,
     flags: drapeauResultat(resultat)
   });
 

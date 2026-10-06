@@ -392,5 +392,17 @@ export const RELEASE_NOTES = {
       <li>Fiche d'équipage consultée par un joueur : onglets et fiches des membres accessibles. Pouvoirs de Force : le nom ouvre la fiche.</li>
       <li>Notes, Holonet et Comlink : deux fenêtres ouvertes en même temps ne s'écrasent plus. Correctifs : un seul MJ les applique, et une seule fois.</li>
     </ul>`
+  },
+  "0.20.6": {
+    title: "v0.20.6 — Petites corrections",
+    html: `<ul>
+      <li><strong>Lumière / Obscurité</strong> : un double clic sur « utiliser » ne compte qu'une fois ; les clics rapides sur + / − ne se perdent plus.</li>
+      <li>Fiche personnage : l'étoile Favori ne fait plus perdre une saisie en cours ; Initiative déjà lancée = un message ; le bloc Vaisseau de l'onglet Équipements se met à jour.</li>
+      <li><strong>Défense</strong> : une défense déjà jouée ne se rejoue plus après un rechargement. Soin mal écrit (« 4 PV ») : message clair ; un soin ne fait jamais baisser les PV.</li>
+      <li>Vaisseau : pas de bouton de jet pour une compétence bloquée ; un acteur de compendium ou un équipage ne peut pas occuper un poste ; un membre glissé d'un vaisseau à l'autre quitte l'ancien.</li>
+      <li>Holonet et Comlink : l'historique suit les infos ajoutées ou supprimées ; le canal ouvert suit son nouveau numéro ; la navigation fonctionne sur une fiche seulement consultée.</li>
+      <li>Générique : « Arrêter pour tous » sur la page du journal ; « Passer » ne relance plus le texte ; l'aperçu n'est plus interrompu par une diffusion ; image de fond avec apostrophe.</li>
+      <li>Fiche sith : capacités spéciales d'école modifiables ; prétirés sith liés à leur race. Animations : JB2A Patreon reconnu.</li>
+    </ul>`
   }
 };
