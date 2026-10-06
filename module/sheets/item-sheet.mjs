@@ -440,9 +440,10 @@ export class GalacticWarsItemSheet extends HandlebarsApplicationMixin(ItemSheetV
     return this.render();
   }
 
-  /** @override */
-  _onRender(context, options) {
-    super._onRender(context, options);
+  /** @override — attend le rendu parent : sur une fiche observée, Foundry désactive les champs dans super._onRender,
+   *  la réactivation ci-dessous doit passer après. */
+  async _onRender(context, options) {
+    await super._onRender(context, options);
     // Fiche seulement observée : Foundry désactive tous les boutons ; ceux de pure navigation (et l'envoi dans le
     // tchat) restent permis — même principe que les fiches d'équipage et de vaisseau.
     if (!this.isEditable) {
@@ -682,9 +683,12 @@ export class GalacticWarsItemSheet extends HandlebarsApplicationMixin(ItemSheetV
     if (!this.item.isOwner) return;
     const index = GalacticWarsItemSheet.#indexCanal(target);
     const ancien = this.item.system.comlink?.canaux?.[index]?.numero;
+    // Noté AVANT la modification : la mise à jour redessine la fiche, qui ne trouve plus l'ancien numéro et revient à
+    // la liste avant que la suite ne s'exécute.
+    const etaitOuvert = ancien !== undefined && this.#comlink.canal === ancien;
     const nouveau = await Comlink.modifierCanal(this.item, index);
     // Canal ouvert renuméroté : la fiche l'identifie par son numéro, on le suit au lieu de revenir à la liste.
-    if (nouveau !== undefined && ancien !== nouveau && this.#comlink.canal === ancien) {
+    if (nouveau !== undefined && ancien !== nouveau && etaitOuvert) {
       this.#comlink.canal = nouveau;
       this.render();
     }
