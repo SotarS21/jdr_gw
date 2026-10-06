@@ -1,6 +1,15 @@
 # Journal de développement — Galactic Wars
 
-## À faire à la reprise (état au 2026-09-30 soir — « note ce qu'on a fait, on s'arrête là pour ce soir »)
+## À faire à la reprise (état au 2026-10-06)
+
+- **Publié** : **v0.20.4 = dernière release** (3 constats bloquants de l'audit corrigés, testés en direct 12/12 ;
+  fusionnée dans `main`, poussée, taguée, archive construite par la CI). Plus aucune branche de travail.
+- **Foundry local** : monde `galacit-wars-v-final`, code en 0.20.4 (copie `-NoRestart` : le serveur annonce 0.20.3
+  jusqu'au prochain redémarrage).
+- **Suite proposée** : constats **gênants** de l'audit du 2026-09-29, puis les mineurs ; le reste de la liste
+  ci-dessous (état au 2026-09-30) est inchangé.
+
+### État au 2026-09-30 soir — « note ce qu'on a fait, on s'arrête là pour ce soir »
 
 - **Publié** : **v0.20.3 = dernière release** (compendium Traits rangé par fiche ; poussée, taguée, archive construite). Dans la journée : v0.20.0, v0.20.1,
   v0.20.2, v0.20.3 (la v0.19.9 n'a pas de tag : elle est incluse dans la 0.20.0). `main` à jour avec GitHub, plus aucune
