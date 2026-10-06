@@ -1,14 +1,16 @@
 # Journal de développement — Galactic Wars
 
-## À faire à la reprise (état au 2026-10-06, soir)
+## À faire à la reprise (état au 2026-10-06, nuit)
 
-- **Publié** : **v0.20.5 = dernière release** (gênants de l'audit + postes d'équipage de 7 vaisseaux ; fusionnée, poussée,
-  taguée, archive construite par la CI). v0.20.4 publiée le même jour (bloquants). Plus aucune branche de travail.
-- **Foundry local** : monde `galacit-wars-v-final`, redémarré en 0.20.5 (accord de l'auteur).
-- **Monde de l'auteur** : correctif MJ `0.20.5-postes-vaisseaux` **en attente**, à accepter par l'auteur (Lantallian,
+- **Publié** : **v0.20.6 = dernière release** (mineurs de l'audit). Le même jour : v0.20.4 (bloquants) et v0.20.5 (gênants
+  + postes des vaisseaux). Plus aucune branche de travail. **Audit du 2026-09-29 : traité**, sauf V8 (expéditeur des
+  sockets) et M5 (choix de conception).
+- **Foundry local** : monde `galacit-wars-v-final`, redémarré en 0.20.6.
+- **Monde de l'auteur** : correctif MJ `0.20.5-postes-vaisseaux` en attente s'il n'a pas encore été accepté (Lantallian,
   Le Barmaid Betty).
-- **Suite proposée** : constats **mineurs** de l'audit du 2026-09-29 ; le reste de la liste ci-dessous (état au
-  2026-09-30) est inchangé.
+- **À vérifier en jeu à l'occasion** : défense non rejouable après rechargement, message d'initiative déjà lancée, bloc
+  Vaisseau rafraîchi, avantage d'équipage (relais simultanés, MJ sans personnage), jet de poste d'une compétence bloquée.
+- Le reste de la liste ci-dessous (état au 2026-09-30) est inchangé.
 
 ### État au 2026-09-30 soir — « note ce qu'on a fait, on s'arrête là pour ce soir »
 
@@ -76,7 +78,8 @@
   vers B ; Holonet recalé ; canal 1 → 7 resté ouvert ; générique en aperçu : fond avec apostrophe, 2e « Passer » sans
   relance ; observateur : pas d'édition de note, onglets de la fiche d'objet actifs). Deux exécutions précédentes avaient
   échoué sur Z1-1 / Z1-3 parce que la fiche d'objet ne s'était pas ouverte sur l'onglet de l'appareil (préparation du test,
-  non reproduit ensuite). **Non testés en direct** : P7, Z2-4, Z2-5, V6, V7, V10, V11 ; Z3-2 après redémarrage.
+  non reproduit ensuite). **Non testés en direct** : P7, Z2-4, Z2-5, V6, V7, V10, V11. **Redémarrage** (accord de l'auteur) : Foundry en 0.20.6, les 6
+  prétirés sith liés à leur race (Cathar, Chagrian, Devaronian, Kiffar, Humain, Trandoshan), aucune erreur au chargement.
 
 ## Session du 2026-10-06 (suite) — Corrections de l'audit : gênants (v0.20.4→v0.20.5)
 
