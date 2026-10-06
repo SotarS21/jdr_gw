@@ -50,6 +50,17 @@
   d'`update(null)` ni de TypeError) ; `runMigrations` est sous try/catch, pour que les notes de version et la
   fenêtre des correctifs s'affichent même si une migration échoue.
 - Pas de correctif MJ (aucune donnée à changer). Restent de l'audit : gênants et mineurs.
+- **Testé en direct** (monde `galacit-wars-v-final` lancé par l'auteur, déploiement `-NoRestart`, client en 0.20.4) :
+  script `../audit/t14-bloquants-0204.mjs` — MJ de test `claude` + joueur temporaire « [TEST] joueur », copie
+  « [TEST] » de L'Empresse (Observateur), pilote « [TEST] » possédé, fiche et scène « [TEST] », **tout supprimé ensuite**
+  (3 acteurs, 1 scène, 3 messages, 1 utilisateur). **12/12 OK** : fiche observée non modifiable ; ouverture de la fiche
+  d'un membre et jet de poste de son personnage actifs et fonctionnels (jet posté, fiche ouverte) ; jet de poste actif
+  seulement pour les personnages possédés (Alek et « Alek (sauvegarde) » sont propriété par défaut de tous les joueurs
+  dans ce monde → actifs, à juste titre ; Jean louis, robo_medecin → désactivés) ; carte du Canon Sovereign avec
+  Attaquer / Dégâts pour le joueur, attaque postée avec son pilote ; fiche réduite à 37/38 compétences + token non lié
+  → complétion sans erreur (1 fiche complétée, le token sauté), acteur de base et token à 38/38.
+  Note : `_preCreate` de `PersonnageData` complète déjà les compétences à la création — pour reproduire le cas, retirer
+  la compétence APRÈS la création (tableau entier).
 
 ## État précédent (2026-09-29, avant la session du soir)
 
