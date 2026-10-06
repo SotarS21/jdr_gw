@@ -148,12 +148,44 @@
     "armement": [],
     "equipage": [
       {
-        "role": "Équipage",
-        "nom": "",
-        "description": "6 personnes dont le capitaine (répartition non précisée).",
+        "role": "Capitaine",
         "places": 1,
         "noms": [],
-        "uuids": []
+        "uuids": [],
+        "nom": "",
+        "description": ""
+      },
+      {
+        "role": "Pilote",
+        "places": 1,
+        "noms": [],
+        "uuids": [],
+        "nom": "",
+        "description": ""
+      },
+      {
+        "role": "Canonnier",
+        "places": 2,
+        "noms": [],
+        "uuids": [],
+        "nom": "",
+        "description": ""
+      },
+      {
+        "role": "Mécanicien",
+        "places": 1,
+        "noms": [],
+        "uuids": [],
+        "nom": "",
+        "description": ""
+      },
+      {
+        "role": "Médecin de bord",
+        "places": 1,
+        "noms": [],
+        "uuids": [],
+        "nom": "",
+        "description": ""
       }
     ],
     "soute": "1 entrepôt.",

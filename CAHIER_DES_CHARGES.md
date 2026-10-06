@@ -3,7 +3,7 @@
 **Référence :** GW-CDC-v0.1
 **Version :** 0.1
 **Date de création :** 2026-09-09
-**Dernière mise à jour :** 2026-10-06 (v0.20.4, corrections de l'audit — bloquants)
+**Dernière mise à jour :** 2026-10-06 (v0.20.5, corrections de l'audit — gênants)
 **État :** En cours de développement (Version système : 0.1.0)
 **Responsables :** Mr Banane
 
@@ -230,6 +230,7 @@ Voir l'arborescence commentée dans `README.md` (module/config, module/data, mod
   - **Couverts** (traits actifs, `GW.couverts`) : Demi-couvert +4 et Couvert total +8 d'**armure temporaire** (réduction des dégâts), états de token enregistrés dans `CONFIG.statusEffects` (`helpers/effets.mjs` : `enregistrerCouverts`, identifiants `gw-demiCouvert` / `gw-couvertTotal`), **exclusifs** (hook `createActiveEffect`, `basculerCouvert`) ; proposés par le HUD du token et par la fiche (onglet Combat de la fiche classique, section Combat de la fiche rapide) ; pas d'item de compendium.
   - **Fiches** : classique — colonne Effets et bonus sur le total des compétences, couverts dans l'onglet Combat ; rapide — section Traits, bonus à côté des caractéristiques, couverts ; fiche d'objet du talent — avantage, inconvénient, fiche visée, liste des effets (créer / éditer / activer / supprimer, `resumeEffets`). Sélecteur de compendium multi-packs filtré (noms échappés, `rejectClose: false`).
 - **v0.20.4 — corrections de l'audit du 2026-09-29 (bloquants)** : `VaisseauSheet#_onRender` réactive, sur une fiche seulement observée, `.vs-membre-lien` et `.vs-membre-jet` (ce dernier si l'utilisateur possède l'acteur assis, `fromUuidSync`) ; `peutUtiliser` (`helpers/chat-objet.mjs`) autorise Attaquer / Dégâts d'une arme de vaisseau à tout Observateur du vaisseau ; `completerToutesLesFiches` recalcule la complétion par acteur et saute un token non lié déjà complété par son acteur de base ; `runMigrations` sous try/catch au `ready` du MJ.
+- **v0.20.5 — corrections de l'audit du 2026-09-29 (gênants)** : fiche d'équipage observée (onglets, `ouvrirActeur` réactivés) ; objets possédés des fiches rapide / PNJ / sith (`helpers/objets-possedes.mjs`) ; `competences[].experience` (gain d'XP compté après le plancher du malus hors métier, règle de l'auteur) ; nom d'un pouvoir de Force = ouverture de sa fiche ; notes / Holonet / Comlink relus à l'enregistrement ; migrations et correctifs par `game.users.activeGM`, « Appliquer » verrouillé ; postes d'équipage de 7 vaisseaux (Barloz, Barmaid Betty, CEC XS-122, Corellian Dawn, Gunboat, Lantallian, Land speeder ; proposition validée par l'auteur), correctif MJ `0.20.5-postes-vaisseaux` (copies ayant encore l'unique poste « Équipage » ; occupant replacé au premier poste).
 
 ### 5.2 Roadmap
 Voir §10.

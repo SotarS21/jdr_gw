@@ -382,5 +382,15 @@ export const RELEASE_NOTES = {
       <li>Armement du vaisseau : un joueur qui voit le vaisseau a les boutons <strong>Attaquer</strong> et <strong>Dégâts</strong> sur la carte de l'arme dans le tchat (le tireur reste son token sélectionné).</li>
       <li>Démarrage du MJ : la complétion des compétences ne plante plus avec un token non lié, et une erreur de migration n'empêche plus l'affichage des notes de version et des correctifs.</li>
     </ul>`
+  },
+  "0.20.5": {
+    title: "v0.20.5 — Postes des vaisseaux, objets des fiches rapides, gain d'XP",
+    html: `<ul>
+      <li><strong>Vaisseaux</strong> : Barloz, Barmaid Betty, CEC XS-122, Corellian Dawn, Gunboat, Lantallian et Land speeder ont de vrais postes (Capitaine, Pilote, Canonnier, Mécanicien…) au lieu d'un unique poste « Équipage » à 1 place. « Équipage » reste un poste de passagers, sans jet. Correctif proposé au MJ pour les copies du monde.</li>
+      <li>Fiches <strong>rapide, PNJ et sith</strong> : liste des objets possédés au-dessus du texte « Équipement » (clic = tchat, ouvrir la fiche, supprimer) — les objets reçus de la réserve, de la soute ou du métier y apparaissent enfin.</li>
+      <li><strong>Gain d'XP</strong> (fiche classique) : +5 % compte toujours, même au niveau 0 sur une compétence hors métier ; l'info-bulle du total indique la part d'expérience.</li>
+      <li>Fiche d'équipage consultée par un joueur : onglets et fiches des membres accessibles. Pouvoirs de Force : le nom ouvre la fiche.</li>
+      <li>Notes, Holonet et Comlink : deux fenêtres ouvertes en même temps ne s'écrasent plus. Correctifs : un seul MJ les applique, et une seule fois.</li>
+    </ul>`
   }
 };

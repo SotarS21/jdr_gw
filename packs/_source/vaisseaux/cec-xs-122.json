@@ -123,12 +123,36 @@
     "armement": [],
     "equipage": [
       {
-        "role": "Équipage",
-        "nom": "",
-        "description": "3 à 4 personnes (répartition non précisée dans le matériel source).",
+        "role": "Pilote",
         "places": 1,
         "noms": [],
-        "uuids": []
+        "uuids": [],
+        "nom": "",
+        "description": ""
+      },
+      {
+        "role": "Mécanicien",
+        "places": 1,
+        "noms": [],
+        "uuids": [],
+        "nom": "",
+        "description": ""
+      },
+      {
+        "role": "Canonnier",
+        "places": 1,
+        "noms": [],
+        "uuids": [],
+        "nom": "",
+        "description": ""
+      },
+      {
+        "role": "Équipage",
+        "places": 1,
+        "noms": [],
+        "uuids": [],
+        "nom": "",
+        "description": ""
       }
     ],
     "soute": "Petite soute cargo (inventée, non précisée dans le matériel source).",

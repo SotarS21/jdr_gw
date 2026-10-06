@@ -29,6 +29,23 @@ import { convertirAmenagements, modulesOrigine } from "./amenagements-vaisseau.m
  */
 export const PACK_UPDATES = [
   {
+    id: "0.20.5-postes-vaisseaux",
+    cible: "acteurs",
+    version: "0.20.5",
+    label: "Postes d'équipage de 7 vaisseaux",
+    description:
+      "Barloz, Barmaid Betty, CEC XS-122, Corellian Dawn, Gunboat, Lantallian et Land speeder n'avaient qu'un poste " +
+      "« Équipage » à 1 place, sans jet. Ils reçoivent de vrais postes (Capitaine, Pilote, Canonnier, Mécanicien… selon " +
+      "l'effectif de leur description ; « Équipage » reste un poste de passagers sans jet). Met à jour les copies du monde " +
+      "qui ont encore ce poste unique d'origine ; son occupant passe au premier poste (Capitaine, sinon Pilote).",
+    concernes: async () => vaisseauxPostesAMettreAJour().length,
+    apply: async () => {
+      const liste = vaisseauxPostesAMettreAJour();
+      for (const vaisseau of liste) await vaisseau.update(changementsPostesVaisseau(vaisseau));
+      return liste.length;
+    }
+  },
+  {
     id: "0.20.0-traits-metier",
     cible: "acteurs",
     version: "0.20.0",
@@ -1017,6 +1034,42 @@ export function changementsDynamic20(vaisseau) {
     changements["system.equipage"] = equipage;
   }
   return changements;
+}
+
+/* -------------------------------------------------------------------------------------------- */
+/* Postes d'équipage de 7 vaisseaux (v0.20.5, proposition validée par l'auteur).                */
+/* -------------------------------------------------------------------------------------------- */
+
+/** Postes par nom de vaisseau : [rôle, places] ; la compétence du jet se déduit du rôle (competencePoste). */
+const POSTES_0_20_5 = {
+  "Barloz class médium Freighter": [["Capitaine", 1], ["Pilote", 1], ["Canonnier", 2], ["Mécanicien", 1], ["Médecin de bord", 1]],
+  "Le Barmaid Betty": [["Capitaine", 1], ["Pilote", 2], ["Navigateur", 1], ["Communicateur", 1], ["Canonnier", 4], ["Mécanicien", 2], ["Médecin de bord", 2], ["Équipage", 12]],
+  "CEC XS-122 Freighter": [["Pilote", 1], ["Mécanicien", 1], ["Canonnier", 1], ["Équipage", 1]],
+  "Corellian Dawn": [["Capitaine", 1], ["Pilote", 1], ["Canonnier", 2], ["Mécanicien", 1], ["Équipage", 1]],
+  "Gunboat 1061-968": [["Capitaine", 1], ["Pilote", 1], ["Canonnier", 3], ["Mécanicien", 1]],
+  "Lantallian GX-class Executive transport": [["Pilote", 1], ["Communicateur", 1], ["Canonnier", 1], ["Mécanicien", 1], ["Équipage", 3]],
+  "Land speeder": [["Pilote", 1], ["Équipage", 3]]
+};
+
+/**
+ * Changements à écrire (tableau d'équipage complet, jamais un index) ; objet vide si le vaisseau n'a plus son unique
+ * poste « Équipage » d'origine (déjà corrigé ou modifié à la main). Occupants replacés dans l'ordre des postes.
+ */
+export function changementsPostesVaisseau(vaisseau) {
+  const postes = POSTES_0_20_5[vaisseau.name];
+  const s = vaisseau.system.toObject();
+  if (!postes || s.equipage?.length !== 1 || s.equipage[0].role !== "Équipage") return {};
+  const ancien = s.equipage[0];
+  const occupants = (ancien.uuids ?? []).map((uuid, i) => ({ uuid, nom: ancien.noms?.[i] ?? "" })).filter((o) => o.uuid);
+  const equipage = postes.map(([role, places]) => {
+    const assis = occupants.splice(0, places);
+    return { role, places, nom: "", description: "", competence: "", noms: assis.map((o) => o.nom), uuids: assis.map((o) => o.uuid) };
+  });
+  return { "system.equipage": equipage };
+}
+
+function vaisseauxPostesAMettreAJour() {
+  return game.actors.filter((a) => a.type === "vaisseau" && Object.keys(changementsPostesVaisseau(a)).length);
 }
 
 function dynamic20AMettreAJour() {
