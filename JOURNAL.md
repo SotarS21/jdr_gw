@@ -28,12 +28,28 @@
     combat +4) : valeurs proposées par Claude, à confirmer.
   - Tentative de confusion : bonus de situation en texte (+10 %) — à passer en effet permanent si l'auteur le souhaite.
   - Aucun acteur WOLF dans le monde : traits du compendium à poser à la main si la fiche est créée.
-  - Audit du 2026-09-29 : constats confirmés **non corrigés** (section « Audit du 2026-09-29 ») ; tests en direct
+  - Audit du 2026-09-29 : **les 3 bloquants corrigés en v0.20.4** (2026-10-06) ; gênants et mineurs **non corrigés** (section « Audit du 2026-09-29 ») ; tests en direct
     (`../audit/run.mjs t1-rendu.js`, `t2-parcours.js`) à relancer jusqu'au bout.
   - Questions de règle : compteur de niveaux et compétences bloquées ; même compétence plusieurs fois au gain de
     niveau ; texte libre d'affiliation des métiers (garder ou supprimer).
 - **Scripts de test** (hors dépôt, `../audit/`) : `t3-traits.js` (traits, couverts, fiches), `t8-wolf.js` (traits
   actifs), `t11-drop.js` (glisser-déposer d'un trait sur une copie d'Alek), `t12-pastille.js` (pastille sur Alek).
+
+## Session du 2026-10-06 — Corrections de l'audit : bloquants (v0.20.3→v0.20.4)
+
+- **Demande de l'auteur** : reprendre la todo Galactic Wars ; la todo du Bureau étant entièrement traitée, l'auteur a
+  choisi de commencer par les **3 constats bloquants** de l'audit du 2026-09-29. Branche `fix/audit-bloquants`.
+- **Fiche de vaisseau observée** : `VaisseauSheet#_onRender` réactive le bouton d'ouverture de la fiche d'un membre
+  (`.vs-membre-lien`, toujours) et le jet de poste (`.vs-membre-jet`, si le joueur possède l'acteur assis — le
+  handler refusait déjà les autres) ; même principe que l'avantage d'équipage (v0.19.5).
+- **Armement du vaisseau** : `peutUtiliser` (`helpers/chat-objet.mjs`) accepte aussi un Observateur du vaisseau pour
+  une arme de vaisseau — le tireur est son token sélectionné (`tireurSelectionne`), et ni `attaquer` ni
+  `lancerDegats` n'écrivent sur l'objet.
+- **Migration au `ready`** : `completerToutesLesFiches` recalcule la complétion pour chaque acteur au lieu de reprendre
+  la liste initiale — un token non lié sans données propres, déjà complété via son acteur de base, est sauté (plus
+  d'`update(null)` ni de TypeError) ; `runMigrations` est sous try/catch, pour que les notes de version et la
+  fenêtre des correctifs s'affichent même si une migration échoue.
+- Pas de correctif MJ (aucune donnée à changer). Restent de l'audit : gênants et mineurs.
 
 ## État précédent (2026-09-29, avant la session du soir)
 

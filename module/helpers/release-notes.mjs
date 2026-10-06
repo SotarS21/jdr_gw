@@ -374,5 +374,13 @@ export const RELEASE_NOTES = {
       <li>Les traits communs aux deux fiches existent désormais en deux exemplaires, un par dossier ; chaque métier pose celui de la fiche du personnage. Les traits déjà posés sur les fiches ne changent pas.</li>
       <li>Le Gardien, Cryptographie, Tentative de confusion et Support de combat ont une variante d20 pour la fiche rapide (+5 % = +1).</li>
     </ul>`
+  },
+  "0.20.4": {
+    title: "v0.20.4 — Corrections : vaisseau pour les joueurs, démarrage du MJ",
+    html: `<ul>
+      <li>Fiche de vaisseau seulement <strong>observée</strong> par un joueur : le bouton d'ouverture de la fiche d'un membre d'équipage et le <strong>jet de poste</strong> de son propre personnage fonctionnent de nouveau.</li>
+      <li>Armement du vaisseau : un joueur qui voit le vaisseau a les boutons <strong>Attaquer</strong> et <strong>Dégâts</strong> sur la carte de l'arme dans le tchat (le tireur reste son token sélectionné).</li>
+      <li>Démarrage du MJ : la complétion des compétences ne plante plus avec un token non lié, et une erreur de migration n'empêche plus l'affichage des notes de version et des correctifs.</li>
+    </ul>`
   }
 };
