@@ -2,6 +2,9 @@
 
 ## À faire à la reprise (état au 2026-10-06, nuit)
 
+- **Session terminée le 2026-10-07** (« on s'arrête là pour ce soir ») : tout est commité, poussé et publié (v0.20.6),
+  aucune branche de travail. Rien d'autre en cours sur Galactic Wars.
+
 - **Publié** : **v0.20.6 = dernière release** (mineurs de l'audit). Le même jour : v0.20.4 (bloquants) et v0.20.5 (gênants
   + postes des vaisseaux). Plus aucune branche de travail. **Audit du 2026-09-29 : traité**, sauf V8 (expéditeur des
   sockets) et M5 (choix de conception).
