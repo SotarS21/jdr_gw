@@ -73,6 +73,15 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   /** Recherche dans les PNJ et les missions (suivi de l'auteur, n° 26) — même principe : gardée entre deux rendus. */
   #recherche = { pnj: "", missions: "" };
 
+  /** Lumière / Obscurité : usage en cours (Z2-1), clics + / − en attente et écritures en cours (Z2-3). */
+  #reserveEnCours = false;
+  #deltasReserve = {};
+  #ajustementsEnCours = new Set();
+
+  /** Vaisseau affiché dans l'onglet Équipements (Z2-4) : la fiche se redessine quand il change. */
+  #uuidVaisseau = null;
+  #hookVaisseau = null;
+
   /** Mode édition des caractéristiques, de la race et du métier — même principe que l'onglet
    *  actif (état d'affichage de l'instance, rien n'est écrit sur l'Actor). null = pas encore
    *  choisi : ouvert d'office sur un personnage vierge, verrouillé sinon. */
@@ -258,6 +267,7 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     if (!uuid && !viaEquipage) return null;
     const vaisseau = viaEquipage?.vaisseau ?? fromUuidSync(uuid);
     if (!vaisseau) return { manquant: true, nom: system.vaisseau.nom };
+    this.#uuidVaisseau = vaisseau.uuid;
     const s = vaisseau.system;
     const portraitParDefaut = !s.portrait || s.portrait === "icons/svg/mystery-man.svg";
     return {
@@ -499,16 +509,19 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   }
 
   static async #onAjouterEntreeNote(event, target) {
+    if (!this.isEditable) return;
     await editerEntreeNote(this.actor, target.dataset.type);
   }
 
   static async #onEditerEntreeNote(event, target) {
+    if (!this.isEditable) return;
     const carte = target.closest("[data-index]");
     await editerEntreeNote(this.actor, carte.dataset.type, Number(carte.dataset.index));
   }
 
   static async #onSupprimerEntreeNote(event, target) {
     event.stopPropagation();
+    if (!this.isEditable) return;
     const carte = target.closest("[data-index]");
     await supprimerEntreeNote(this.actor, carte.dataset.type, Number(carte.dataset.index));
   }
@@ -525,6 +538,9 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
    */
   _onFirstRender(context, options) {
     super._onFirstRender(context, options);
+    this.#hookVaisseau = Hooks.on("updateActor", (acteur) => {
+      if (this.rendered && acteur.type === "vaisseau" && acteur.uuid === this.#uuidVaisseau) this.render();
+    });
     const competence = (li) => this.actor.system.competences[Number(li.dataset.index)];
     new foundry.applications.ux.ContextMenu.implementation(this.element, ".competence-row.reservee", [
       {
@@ -645,7 +661,20 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       ui.notifications.warn(game.i18n.localize("GALACTICWARS.Combat.AucunCombat"));
       return;
     }
+    const combattants = game.combat.combatants.filter((c) => c.actor === this.actor || c.actorId === this.actor.id);
+    if (combattants.length && combattants.every((c) => c.initiative !== null)) {
+      return ui.notifications.info(game.i18n.format("GALACTICWARS.Combat.InitiativeDejaLancee", {
+        nom: this.actor.name, valeur: combattants.map((c) => c.initiative).join(", ")
+      }));
+    }
     await this.actor.rollInitiative({ createCombatants: true });
+  }
+
+  /** @override */
+  _onClose(options) {
+    super._onClose(options);
+    if (this.#hookVaisseau !== null) Hooks.off("updateActor", this.#hookVaisseau);
+    this.#hookVaisseau = null;
   }
 
   /** Mise à jour du tableau complet (jamais d'update sur un seul index d'ArrayField). */
@@ -660,6 +689,13 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   static async #onBasculerFavori(event, target) {
     event.stopPropagation();
     const index = Number(target.dataset.index);
+    // Fiche modifiable : on bascule le champ caché et on soumet tout le formulaire — une saisie qui vient d'être tapée
+    // (niveau, ajustement) n'est pas écrasée par l'ancienne valeur de l'acteur.
+    const champ = this.isEditable ? this.form?.querySelector(`input[name="system.competences.${index}.favori"]`) : null;
+    if (champ) {
+      champ.value = champ.value === "true" ? "false" : "true";
+      return this.submit();
+    }
     const competences = this.actor.system.toObject().competences;
     if (!competences[index]) return;
     competences[index].favori = !competences[index].favori;
@@ -849,7 +885,16 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 
   /** Bouton « Utiliser un point de Lumière / d'Obscurité » (avant l'action). */
   static async #onUtiliserReserve(event, target) {
-    await this.actor.utiliserReserve(target.dataset.reserve);
+    // Double clic : un seul usage (le second clic arrivait avant la mise à jour → deux messages, un point retiré).
+    if (this.#reserveEnCours) return;
+    this.#reserveEnCours = true;
+    target.disabled = true;
+    try {
+      await this.actor.utiliserReserve(target.dataset.reserve);
+    } finally {
+      this.#reserveEnCours = false;
+      if (target.isConnected) target.disabled = false;
+    }
   }
 
   static async #onAjusterLumiere(event, target) {
@@ -861,8 +906,21 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   }
 
   async #ajusterReserve(cle, delta) {
-    const valeur = Math.min(10, Math.max(0, this.actor.system[cle] + delta));
-    await this.actor.update({ [`system.${cle}`]: valeur });
+    // Clics rapides : la valeur locale n'est à jour qu'au retour du serveur ; on cumule les clics reçus pendant une
+    // écriture et on les envoie ensuite, au lieu de recalculer chaque clic sur une valeur périmée.
+    this.#deltasReserve[cle] = (this.#deltasReserve[cle] ?? 0) + delta;
+    if (this.#ajustementsEnCours.has(cle)) return;
+    this.#ajustementsEnCours.add(cle);
+    try {
+      while (this.#deltasReserve[cle]) {
+        const cumul = this.#deltasReserve[cle];
+        this.#deltasReserve[cle] = 0;
+        const valeur = Math.min(10, Math.max(0, this.actor.system[cle] + cumul));
+        await this.actor.update({ [`system.${cle}`]: valeur });
+      }
+    } finally {
+      this.#ajustementsEnCours.delete(cle);
+    }
   }
 
   static async #onApplyRace(event, target) {
@@ -878,6 +936,7 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   }
 
   static async #onEditImage(event, target) {
+    if (!this.isEditable) return;
     const current = this.actor.system.portrait;
     const picker = new foundry.applications.apps.FilePicker.implementation({
       current,

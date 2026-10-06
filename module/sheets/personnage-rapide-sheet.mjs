@@ -94,11 +94,13 @@ export class PersonnageRapideSheet extends HandlebarsApplicationMixin(ActorSheet
   }
 
   static async #onApplyRace() {
+    if (!this.isEditable) return;
     const race = await choisirItemCompendium("races", { title: game.i18n.localize("GALACTICWARS.Sheet.Race") });
     if (race) await applyRace(this.actor, race);
   }
 
   static async #onApplyMetier() {
+    if (!this.isEditable) return;
     const metier = await choisirItemCompendium("metiers", { title: game.i18n.localize("GALACTICWARS.Sheet.Metier") });
     if (metier) await applyMetier(this.actor, metier);
   }
@@ -141,6 +143,7 @@ export class PersonnageRapideSheet extends HandlebarsApplicationMixin(ActorSheet
   }
 
   static async #onEditImage() {
+    if (!this.isEditable) return;
     const picker = new foundry.applications.apps.FilePicker.implementation({
       current: this.actor.system.portrait,
       type: "image",

@@ -385,6 +385,7 @@
       "CompetencesForce": "Compétences liées à la Force",
       "Initiative": "Initiative",
       "InitiativeHint": "Lance l'initiative (1d20) dans le combat en cours",
+      "InitiativeDejaLancee": "{nom} a déjà son initiative dans ce combat ({valeur}).",
       "AucunCombat": "Aucun combat en cours : le MJ doit d'abord créer une rencontre.",
       "Appliquer": "Appliquer les dégâts",
       "AppliquerCibles": "Aux tokens sélectionnés (sinon aux {nombre} cible(s) de l'attaquant)",

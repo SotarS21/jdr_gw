@@ -78,16 +78,19 @@ export class PersonnageSithSheet extends HandlebarsApplicationMixin(ActorSheetV2
   }
 
   static async #onApplyRace() {
+    if (!this.isEditable) return;
     const race = await choisirItemCompendium("races", { title: game.i18n.localize("GALACTICWARS.Sheet.Race") });
     if (race) await applyRace(this.actor, race);
   }
 
   static async #onApplyEcole() {
+    if (!this.isEditable) return;
     const ecole = await choisirItemCompendium("ecoles", { title: game.i18n.localize("GALACTICWARS.Sheet.Ecole") });
     if (ecole) await applyEcole(this.actor, ecole);
   }
 
   static async #onEditImage() {
+    if (!this.isEditable) return;
     const picker = new foundry.applications.apps.FilePicker.implementation({
       current: this.actor.system.portrait,
       type: "image",
