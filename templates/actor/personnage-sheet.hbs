@@ -88,31 +88,61 @@
   <section class="ressources">
     <h2 class="eyebrow">{{localize 'GALACTICWARS.Sheet.Ressources'}}</h2>
     <div class="stat-grid">
-      {{!-- Teinte de la carte : --rouge = part d'Obscurité (0-100), --intensite = réserve la plus haute / 10. --}}
-      <div class="stat-card stat-alignement cote-{{equilibre.cote}}" style="--rouge: {{equilibre.rouge}}%; --intensite: {{equilibre.intensite}};">
+      {{!-- Sabre (maquette « sabre laser ») : couleur = équilibre, puissance = réserve la plus haute ; variables
+            --sabre-* posées et animées par #animerSabre à partir de data-sabre (voir #preparerEquilibre). --}}
+      <div class="stat-card stat-alignement cote-{{equilibre.cote}}" data-sabre="{{equilibre.sabre}}">
         <div class="alignement-entete">
           <span class="eyebrow">{{localize 'GALACTICWARS.Alignement.Titre'}}</span>
           <span class="tendance">{{localize equilibre.tendance}}</span>
         </div>
-        <div class="jauge-equilibre" role="meter" aria-valuemin="0" aria-valuemax="100"
-             aria-valuenow="{{equilibre.curseur}}" data-tooltip="{{system.lumiere}} / {{system.obscurite}}">
-          <span class="jauge-valeur valeur-lumiere mono">{{system.lumiere}}</span>
-          <span class="jauge-piste"><span class="jauge-curseur" style="left: {{equilibre.curseur}}%"></span></span>
-          <span class="jauge-valeur valeur-obscurite mono">{{system.obscurite}}</span>
-        </div>
-        <div class="pool pool-lumiere">
-          <button type="button" class="pip-btn" data-action="ajusterLumiere" data-delta="-1">-</button>
-          <span class="pips">
-            {{#each pipsLumiere as |rempli|}}<span class="dot {{#if rempli}}dot-lumiere{{else}}dot-vide{{/if}}"></span>{{/each}}
-          </span>
-          <button type="button" class="pip-btn" data-action="ajusterLumiere" data-delta="1">+</button>
-        </div>
-        <div class="pool pool-obscurite">
-          <button type="button" class="pip-btn" data-action="ajusterObscurite" data-delta="-1">-</button>
-          <span class="pips">
-            {{#each pipsObscurite as |rempli|}}<span class="dot {{#if rempli}}dot-obscurite{{else}}dot-vide{{/if}}"></span>{{/each}}
-          </span>
-          <button type="button" class="pip-btn" data-action="ajusterObscurite" data-delta="1">+</button>
+        <div class="alignement-corps">
+          <div class="sabre-scene" aria-hidden="true">
+            <div class="sabre">
+              <span class="sabre-eclat"></span>
+              <span class="sabre-garde sabre-garde-gauche"></span>
+              <span class="sabre-garde sabre-garde-droite"></span>
+              <span class="sabre-lame">
+                <span class="sabre-halo"></span>
+                <span class="sabre-crepitement"></span>
+                <span class="sabre-coeur"></span>
+                <span class="sabre-etincelles">
+                  <i style="--p:.15; --dx:-3em; --dy:-1em; --dur:.9s; --delay:0s"></i>
+                  <i style="--p:.28; --dx:3.4em; --dy:.6em; --dur:1.1s; --delay:-.3s"></i>
+                  <i style="--p:.41; --dx:-2.6em; --dy:1.4em; --dur:.8s; --delay:-.6s"></i>
+                  <i style="--p:.55; --dx:2.8em; --dy:-1.6em; --dur:1s; --delay:-.15s"></i>
+                  <i style="--p:.68; --dx:-3.6em; --dy:.4em; --dur:1.2s; --delay:-.8s"></i>
+                  <i style="--p:.82; --dx:3em; --dy:1.2em; --dur:.9s; --delay:-.45s"></i>
+                </span>
+              </span>
+              <span class="sabre-poignee">
+                <span class="sabre-emetteur"></span>
+                <span class="sabre-col"></span>
+                <span class="sabre-interrupteur"></span>
+                <span class="sabre-grip"></span>
+                <span class="sabre-pommeau"></span>
+              </span>
+            </div>
+          </div>
+          <div class="alignement-reserves">
+            <div class="reserve reserve-lumiere">
+              <div class="reserve-lecture">
+                <span class="reserve-nom">{{localize 'GALACTICWARS.Alignement.Lumiere'}}</span>
+                <span class="reserve-valeur mono">{{system.lumiere}}<small> / 10</small></span>
+              </div>
+              <div class="reserve-barres" role="group" aria-label="{{localize 'GALACTICWARS.Alignement.Lumiere'}}">
+                {{#each barresLumiere as |b|}}<button type="button" class="reserve-barre{{#if b.allumee}} allumee{{/if}}" style="--i: {{b.valeur}}" data-action="fixerReserve" data-reserve="lumiere" data-valeur="{{b.valeur}}" data-tooltip="{{b.valeur}}" aria-label="{{b.valeur}}" aria-pressed="{{#if b.allumee}}true{{else}}false{{/if}}"></button>{{/each}}
+              </div>
+            </div>
+            <div class="reserve reserve-obscurite">
+              <div class="reserve-lecture">
+                <span class="reserve-nom">{{localize 'GALACTICWARS.Alignement.Obscurite'}}</span>
+                <span class="reserve-valeur mono">{{system.obscurite}}<small> / 10</small></span>
+              </div>
+              <div class="reserve-barres" role="group" aria-label="{{localize 'GALACTICWARS.Alignement.Obscurite'}}">
+                {{#each barresObscurite as |b|}}<button type="button" class="reserve-barre{{#if b.allumee}} allumee{{/if}}" style="--i: {{b.valeur}}" data-action="fixerReserve" data-reserve="obscurite" data-valeur="{{b.valeur}}" data-tooltip="{{b.valeur}}" aria-label="{{b.valeur}}" aria-pressed="{{#if b.allumee}}true{{else}}false{{/if}}"></button>{{/each}}
+              </div>
+            </div>
+          </div>
         </div>
         {{!-- Utiliser un point (règle de l'auteur) : dépensé AVANT l'action, le MJ le convertit en niveau virtuel sur la
               compétence le temps de l'action — aucun effet automatique, juste le point retiré et un message dans le tchat. --}}

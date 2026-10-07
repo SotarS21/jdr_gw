@@ -121,6 +121,7 @@
       "MessageLumiere": "{nom} a utilisé un point de Lumière.",
       "MessageObscurite": "{nom} a utilisé un point d'Obscurité.",
       "Tendance": {
+        "vide": "Aucun point",
         "neutre": "Équilibre",
         "penche-lumiere": "Penche vers la Lumière",
         "lumiere-dominante": "Lumière dominante",

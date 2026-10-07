@@ -1,0 +1,340 @@
+/* Lumière / Obscurité de la fiche de personnage : sabre laser (maquette « jdrjojo » choisie par l'auteur, 2026-10-08).
+   Variables posées par PersonnageSheet#animerSabre (nombres, enregistrés ci-dessous pour que les transitions jouent) :
+   --sabre-on (0 / 1, lame allumée s'il y a au moins un point), --sabre-ecart (-1 tout Lumière … 1 tout Obscurité),
+   --sabre-t (réserve la plus haute / 10), --sabre-instable (Obscurité 6 → 10), --sabre-garde (Obscurité 9 → 10).
+   Couleur : bleu si plus de Lumière, gris à égalité, rouge si plus d'Obscurité (saturation selon l'écart). */
+@property --sabre-on { syntax: "<number>"; inherits: true; initial-value: 0; }
+@property --sabre-ecart { syntax: "<number>"; inherits: true; initial-value: 0; }
+@property --sabre-t { syntax: "<number>"; inherits: true; initial-value: 0; }
+@property --sabre-instable { syntax: "<number>"; inherits: true; initial-value: 0; }
+@property --sabre-garde { syntax: "<number>"; inherits: true; initial-value: 0; }
+
+.galactic-wars.personnage .stat-alignement {
+  /* côté : 0 = Lumière ou égalité, 1 = Obscurité ; |écart| sans abs() */
+  --sabre-cote: clamp(0, calc(var(--sabre-ecart) * 1000), 1);
+  --sabre-force: min(1, calc(max(var(--sabre-ecart), calc(var(--sabre-ecart) * -1)) * 3));
+  --sabre-h: calc(255 - var(--sabre-cote) * 230);
+  --sabre-c: calc(var(--sabre-force) * 0.24);
+  --sabre-lame: oklch(calc(0.62 + var(--sabre-force) * 0.05) var(--sabre-c) var(--sabre-h));
+  --sabre-coeur: oklch(0.97 calc(var(--sabre-c) * 0.15) var(--sabre-h));
+  --sabre-chaud: oklch(0.84 calc(var(--sabre-c) * 0.8) calc(var(--sabre-h) + 15));
+  --gw-lumiere: oklch(0.66 0.2 255);
+  --gw-obscurite: oklch(0.64 0.22 25);
+  border-color: color-mix(in oklch, var(--sabre-lame) calc(var(--sabre-on) * (25% + var(--sabre-t) * 50%)), var(--gw-border));
+  box-shadow: 0 0 calc(var(--sabre-on) * var(--sabre-t) * 18px) color-mix(in oklch, var(--sabre-lame) 45%, transparent);
+  transition:
+    --sabre-on 450ms cubic-bezier(.2, .9, .3, 1),
+    --sabre-ecart 900ms cubic-bezier(.3, .7, .2, 1),
+    --sabre-t 900ms cubic-bezier(.3, .7, .2, 1),
+    --sabre-instable 900ms ease,
+    --sabre-garde 900ms ease;
+}
+
+.galactic-wars.personnage .alignement-entete {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+/* Pastille de tendance à la couleur de la lame (gris à l'équilibre ou sans point). */
+.galactic-wars.personnage .alignement-entete .tendance {
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 2px 10px;
+  border-radius: 99px;
+  color: oklch(0.98 0 0);
+  background: color-mix(in oklch, var(--sabre-lame) calc(35% + var(--sabre-on) * 45%), var(--gw-panel));
+  box-shadow: 0 0 calc(var(--sabre-on) * 12px) color-mix(in oklch, var(--sabre-lame) 50%, transparent);
+}
+
+.galactic-wars.personnage .alignement-corps {
+  display: grid;
+  grid-template-columns: minmax(120px, 170px) 1fr;
+  gap: 0.9rem;
+  align-items: center;
+  margin: 0.4rem 0 0.2rem;
+}
+
+/* ── Scène : la lame éclaire l'espace autour d'elle ── */
+.galactic-wars.personnage .sabre-scene {
+  container-type: inline-size;
+  aspect-ratio: 1;
+  min-width: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(ellipse 55% 65% at 50% 46%,
+      oklch(0.5 var(--sabre-c) var(--sabre-h) / calc((0.2 + var(--sabre-t) * 0.35) * var(--sabre-on))), transparent 72%),
+    radial-gradient(circle at 50% 45%, oklch(0.22 0.02 var(--sabre-h)) 0%, oklch(0.12 0.01 var(--sabre-h)) 100%);
+  box-shadow: inset 0 0 0 1px oklch(1 0 0 / .08);
+}
+
+/* Le sabre entier : 1em = 1/34e de sa longueur, tout suit la largeur de la scène. */
+.galactic-wars.personnage .sabre {
+  position: relative;
+  width: 2.2em;
+  height: 34em;
+  font-size: clamp(3px, 3.1cqi, 9px);
+  rotate: 38deg;
+  animation: gw-sabre-flotte 6s ease-in-out infinite, gw-sabre-tremble .1s linear infinite;
+}
+.galactic-wars.personnage .sabre > * { position: absolute; pointer-events: none; }
+
+.galactic-wars.personnage .sabre-lame {
+  left: 50%;
+  bottom: 9.3em;
+  width: calc(1em + var(--sabre-t) * 0.3em);
+  height: calc(24em * var(--sabre-on));
+  translate: -50% 0;
+  border-radius: 50% 50% .2em .2em / .7em .7em .2em .2em;
+}
+.galactic-wars.personnage .sabre-lame > * { position: absolute; border-radius: inherit; }
+
+.galactic-wars.personnage .sabre-halo {
+  inset: 0;
+  box-shadow:
+    0 0 calc(.4em * (1 + var(--sabre-t))) .15em var(--sabre-lame),
+    0 0 calc(1.2em * (1 + var(--sabre-t))) calc(.4em * (1 + var(--sabre-t))) var(--sabre-lame),
+    0 0 calc(3em * (1 + var(--sabre-t))) calc(.9em * (1 + var(--sabre-t))) color-mix(in oklch, var(--sabre-lame) 50%, transparent);
+  animation: gw-sabre-scintille .09s steps(2) infinite;
+}
+
+/* Bords crépitants : l'Obscurité rend la lame instable. */
+.galactic-wars.personnage .sabre-crepitement {
+  inset: -.32em -.42em;
+  background: linear-gradient(to right, var(--sabre-lame) 0%, var(--sabre-chaud) 40%, var(--sabre-chaud) 60%, var(--sabre-lame) 100%);
+  mix-blend-mode: screen;
+  filter: blur(.14em) drop-shadow(0 0 .35em var(--sabre-lame));
+  opacity: calc(var(--sabre-instable) * var(--sabre-on) * .8);
+  clip-path: polygon(30% 100%, 8% 92%, 34% 85%, 2% 77%, 28% 69%, 12% 61%, 36% 54%, 0% 46%, 26% 38%, 10% 30%, 32% 22%, 6% 14%, 30% 6%, 50% 0%, 70% 6%, 94% 13%, 66% 21%, 98% 29%, 72% 37%, 90% 45%, 64% 53%, 100% 61%, 70% 69%, 92% 77%, 68% 85%, 96% 92%, 70% 100%);
+  animation: gw-sabre-crepite .18s steps(1) infinite;
+}
+
+.galactic-wars.personnage .sabre-coeur {
+  inset: 0;
+  background: linear-gradient(to right, var(--sabre-lame) 0%, var(--sabre-coeur) 28%, oklch(1 0 0) 50%, var(--sabre-coeur) 72%, var(--sabre-lame) 100%);
+  animation: gw-sabre-vibre 2.2s ease-in-out infinite;
+}
+
+.galactic-wars.personnage .sabre-etincelles {
+  inset: 0;
+  border-radius: 0;
+  opacity: calc(var(--sabre-instable) * var(--sabre-on));
+}
+.galactic-wars.personnage .sabre-etincelles i {
+  position: absolute;
+  left: 50%;
+  bottom: calc(var(--p) * 100%);
+  width: .32em;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--sabre-coeur);
+  box-shadow: 0 0 .4em .15em var(--sabre-lame);
+  opacity: 0;
+  animation: gw-sabre-etincelle var(--dur, 1s) ease-out var(--delay, 0s) infinite;
+}
+
+.galactic-wars.personnage .sabre-eclat {
+  left: 50%;
+  bottom: 8.9em;
+  width: 3.4em;
+  height: 1.6em;
+  translate: -50% 0;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, var(--sabre-coeur), color-mix(in oklch, var(--sabre-lame) 60%, transparent) 55%, transparent);
+  filter: blur(.25em);
+  opacity: var(--sabre-on);
+}
+
+/* Garde croisée : Obscurité à 9 et 10. */
+.galactic-wars.personnage .sabre-garde {
+  bottom: 8.35em;
+  height: .55em;
+  width: calc(3.2em * var(--sabre-on) * var(--sabre-garde));
+  border-radius: .3em;
+  background: linear-gradient(to bottom, var(--sabre-lame) 0%, var(--sabre-coeur) 45%, var(--sabre-coeur) 55%, var(--sabre-lame) 100%);
+  box-shadow: 0 0 .6em .2em var(--sabre-lame), 0 0 1.6em .4em color-mix(in oklch, var(--sabre-lame) 45%, transparent);
+  opacity: var(--sabre-garde);
+  animation: gw-sabre-scintille .09s steps(2) infinite;
+}
+.galactic-wars.personnage .sabre-garde-gauche { right: calc(50% + .95em); }
+.galactic-wars.personnage .sabre-garde-droite { left: calc(50% + .95em); }
+
+/* ── Poignée métallique ── */
+.galactic-wars.personnage .sabre-poignee {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 9.6em;
+}
+.galactic-wars.personnage .sabre-poignee > * {
+  position: absolute;
+  left: 50%;
+  translate: -50% 0;
+  --cyl: linear-gradient(to right, oklch(0 0 0 / .55), transparent 32%, oklch(1 0 0 / .38) 48%, transparent 62%, oklch(0 0 0 / .6));
+}
+.galactic-wars.personnage .sabre-emetteur {
+  top: 0;
+  width: 2.3em;
+  height: 1.9em;
+  clip-path: polygon(0 0, 100% 0, 88% 100%, 12% 100%);
+  background: var(--cyl), linear-gradient(to bottom, oklch(0.8 0 0), oklch(0.55 0 0));
+}
+.galactic-wars.personnage .sabre-emetteur::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 60% 0;
+  background: linear-gradient(to bottom, var(--sabre-lame), transparent);
+  opacity: calc(var(--sabre-on) * .75);
+  mix-blend-mode: screen;
+}
+.galactic-wars.personnage .sabre-col {
+  top: 1.9em;
+  width: 1.55em;
+  height: .55em;
+  background: var(--cyl), oklch(0.3 0 0);
+}
+.galactic-wars.personnage .sabre-interrupteur {
+  top: 2.45em;
+  width: 1.9em;
+  height: 2em;
+  border-radius: .15em;
+  background: var(--cyl), linear-gradient(to bottom, oklch(0.72 0 0), oklch(0.58 0 0));
+}
+.galactic-wars.personnage .sabre-interrupteur::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: .5em;
+  width: .55em;
+  height: .9em;
+  translate: -50% 0;
+  border-radius: .15em;
+  background: color-mix(in oklch, var(--sabre-lame) calc(var(--sabre-on) * 100%), oklch(0.28 0 0));
+  box-shadow: 0 0 calc(var(--sabre-on) * .5em) var(--sabre-lame);
+}
+.galactic-wars.personnage .sabre-grip {
+  top: 4.45em;
+  width: 1.75em;
+  height: 3.9em;
+  background: var(--cyl), repeating-linear-gradient(to bottom, oklch(0.2 0 0) 0 .32em, oklch(0.45 0 0) .32em .46em);
+}
+.galactic-wars.personnage .sabre-pommeau {
+  top: 8.35em;
+  width: 2em;
+  height: 1.25em;
+  border-radius: .2em .2em .6em .6em;
+  background: var(--cyl), linear-gradient(to bottom, oklch(0.74 0 0), oklch(0.45 0 0));
+}
+
+/* ── Réserves : 10 barres cliquables de hauteur croissante ── */
+.galactic-wars.personnage .alignement-reserves {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  min-width: 0;
+}
+.galactic-wars.personnage .reserve-lecture {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.25rem;
+}
+.galactic-wars.personnage .reserve-nom {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gw-muted);
+}
+.galactic-wars.personnage .reserve-valeur {
+  font-size: 1.35rem;
+  font-weight: 800;
+  line-height: 1;
+}
+.galactic-wars.personnage .reserve-valeur small {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--gw-dim);
+}
+.galactic-wars.personnage .reserve-lumiere { --reserve-h: 255; --reserve: var(--gw-lumiere); }
+.galactic-wars.personnage .reserve-obscurite { --reserve-h: 25; --reserve: var(--gw-obscurite); }
+.galactic-wars.personnage .reserve .reserve-valeur {
+  color: oklch(from var(--reserve) calc(l + 0.1) c h);
+  text-shadow: 0 0 8px color-mix(in oklch, var(--reserve) 60%, transparent);
+}
+.galactic-wars.personnage .reserve-barres {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  height: 40px;
+}
+.galactic-wars.personnage .reserve-barre {
+  flex: 1;
+  min-width: 0;
+  height: calc(22% + var(--i) * 7.8%);
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 5px 5px 2px 2px;
+  cursor: pointer;
+  background: linear-gradient(to top,
+    oklch(0.4 0.16 var(--reserve-h)),
+    oklch(calc(0.58 + var(--i) * 0.015) 0.2 var(--reserve-h)));
+  opacity: 0.2;
+  transition: opacity .25s, box-shadow .25s, translate .15s;
+}
+.galactic-wars.personnage .reserve-barre.allumee {
+  opacity: 1;
+  box-shadow: 0 0 10px oklch(0.7 0.22 var(--reserve-h) / .6);
+}
+.galactic-wars.personnage .reserve-barre:hover {
+  translate: 0 -3px;
+  opacity: 1;
+}
+.galactic-wars.personnage .reserve-barre:focus-visible {
+  outline: 2px solid var(--gw-accent);
+  outline-offset: 2px;
+}
+
+@container galactic-wars-sheet (max-width: 480px) {
+  .galactic-wars.personnage .alignement-corps {
+    grid-template-columns: 1fr;
+  }
+  .galactic-wars.personnage .sabre-scene {
+    width: 100%;
+    max-width: 170px;
+    justify-self: center;
+  }
+}
+
+@keyframes gw-sabre-flotte { 50% { translate: 0 -.6em; } }
+@keyframes gw-sabre-tremble {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(calc(var(--sabre-instable) * .25em), calc(var(--sabre-instable) * -.15em)); }
+  50% { transform: translate(calc(var(--sabre-instable) * -.15em), calc(var(--sabre-instable) * .25em)); }
+  75% { transform: translate(calc(var(--sabre-instable) * .15em), calc(var(--sabre-instable) * .08em)); }
+}
+@keyframes gw-sabre-scintille { 50% { opacity: calc(1 - .1 - var(--sabre-t) * .3); } }
+@keyframes gw-sabre-vibre { 50% { scale: 1.06 1; } }
+@keyframes gw-sabre-crepite {
+  33% { clip-path: polygon(30% 100%, 4% 93%, 30% 86%, 10% 78%, 34% 70%, 0% 62%, 24% 55%, 8% 47%, 34% 39%, 2% 31%, 28% 23%, 12% 15%, 34% 7%, 50% 0%, 66% 7%, 98% 15%, 70% 22%, 90% 30%, 62% 38%, 100% 46%, 74% 54%, 92% 62%, 66% 70%, 98% 78%, 72% 85%, 92% 93%, 70% 100%); }
+  66% { clip-path: polygon(30% 100%, 12% 91%, 36% 84%, 6% 76%, 22% 68%, 4% 60%, 32% 52%, 14% 44%, 30% 36%, 0% 28%, 36% 20%, 2% 12%, 26% 5%, 50% 0%, 74% 5%, 90% 12%, 64% 20%, 96% 28%, 68% 36%, 94% 44%, 70% 52%, 98% 60%, 64% 68%, 94% 76%, 70% 84%, 90% 91%, 70% 100%); }
+}
+@keyframes gw-sabre-etincelle {
+  0% { opacity: 0; transform: translate(-50%, 50%) scale(1); }
+  10% { opacity: 1; }
+  100% { opacity: 0; transform: translate(calc(-50% + var(--dx) * (0.6 + var(--sabre-t) * 0.8)), calc(50% + var(--dy))) scale(.15); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .galactic-wars.personnage .sabre,
+  .galactic-wars.personnage .sabre *,
+  .galactic-wars.personnage .sabre *::after { animation: none !important; }
+  .galactic-wars.personnage .stat-alignement { transition-duration: 1ms; }
+}

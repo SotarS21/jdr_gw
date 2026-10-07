@@ -1,5 +1,20 @@
 # Journal de développement — Galactic Wars
 
+## Session du 2026-10-08 (suite) — Todo : sabre Lumière / Obscurité (v0.21.0→v0.22.0)
+
+- **Choix de l'auteur** (question posée avec captures des 3 maquettes de `../jdrjojo.7z`) : maquette **sabre laser** ;
+  une seule lame pour les deux réserves, « équilibre + intensité : bleu plus de lumière, gris pour le neutre et rouge
+  pour l'obscurité ». Choix de Claude : instabilité (crépitement, étincelles, tremblement) liée à l'Obscurité de 6 à
+  10, garde croisée à 9-10 ; éclat et halo = réserve la plus haute ; lame éteinte à 0 / 0 ; échelles de 10 barres
+  cliquables à la place des pips et des boutons − / + ; jauge d'équilibre supprimée (la lame la remplace).
+- **Pas de redémarrage nécessaire** : `alignement.css` est importé en tête de `galactic-wars.css` (la liste
+  `styles` de system.json n'est relue qu'au démarrage du serveur ; 1 utilisateur était connecté).
+- **Test en direct** (`../audit/t20-sabre.mjs`, 15/15) : 5 états (0/0, 7/1, 3/3, 2/6, 0/10) — barres allumées,
+  lame allumée / éteinte, tendance ; clics (barre 4 → 4, reclic → 3, barre 1 deux fois → 0, Obscurité 2) ; « Utiliser
+  un point » ; fiche étroite (sabre au-dessus) ; aucune erreur console. Captures `../audit/t20-*.png` vérifiées.
+  `t20b-transition.mjs` : allumage animé (`--sabre-on` 0,16 à 150 ms) et passage rouge → bleu animé (écart −0,67 à
+  300 ms). `../audit/t16-mineurs.mjs` (ancien test des boutons − / +) est périmé sur ce point.
+
 ## Session du 2026-10-08 (suite) — Todo : journaux du catalogue (v0.20.7→v0.21.0)
 
 - **Todo de l'auteur** (fichier du Bureau `todo_foundry_galactic_wars.txt`) : tous les points anciens étaient déjà traités ;
