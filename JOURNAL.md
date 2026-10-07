@@ -1,5 +1,23 @@
 # Journal de développement — Galactic Wars
 
+## État au 2026-10-08, soir — fin de session
+
+- **Session terminée** (« on s'arrête là pour ce soir ») : tout est commité et poussé, **v0.22.0 = dernière release**,
+  aucune branche de travail, aucun test en cours. Foundry : monde `galacit-wars-v-final`, fichiers 0.22.0 copiés sans
+  redémarrage (le serveur annonce encore 0.21.0 jusqu'au prochain redémarrage ; le sabre s'affiche après F5).
+- **Fait aujourd'hui** (détail dans les sessions ci-dessous) : t2-parcours terminé (131 OK, attentes du test corrigées) ;
+  v0.21.0 journaux du catalogue (objets, armes, armures, métiers) ; v0.22.0 sabre Lumière / Obscurité ; ajouts aux
+  todo-lists Mer des pirates (Bureau, `todo_foundry.txt`, section « BUG pirate ») et Antique (point 81 de
+  `TODO_BUG_ANTIQUE.md`, commité dans ce dépôt-là sans push).
+- **Todo Galactic Wars** (`todo_foundry_galactic_wars.txt`, Bureau) : tous les points traités. **À confirmer par
+  l'auteur** : un seul compendium pour les 4 journaux, pages par ordre alphabétique, journaux générés
+  (`npm run journaux` après toute modification des armes / armures / équipements / métiers) ; sabre — instabilité liée
+  à l'Obscurité (6 → 10), garde croisée à 9-10, jauge d'équilibre supprimée.
+- **Points ouverts** : G7 (deux MJ) vérifié à la lecture seulement ; V8 (expéditeur des sockets) non traité ; traits
+  robot à poser à la main si une fiche WOLF est créée ; correctif MJ `0.20.5-postes-vaisseaux` peut-être en attente
+  dans le monde de l'auteur ; test t2 « compétences alphabétiques » sans sélecteur valide ; `t16-mineurs.mjs` périmé
+  (boutons − / + retirés).
+
 ## Session du 2026-10-08 (suite) — Todo : sabre Lumière / Obscurité (v0.21.0→v0.22.0)
 
 - **Choix de l'auteur** (question posée avec captures des 3 maquettes de `../jdrjojo.7z`) : maquette **sabre laser** ;
