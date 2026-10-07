@@ -1,6 +1,23 @@
 # Journal de développement — Galactic Wars
 
-## À faire à la reprise (état au 2026-10-06, nuit)
+## À faire à la reprise (état au 2026-10-07, 20 h)
+
+- **Fait le 2026-10-07** (détail dans les sessions ci-dessous) :
+  - tests en direct des corrections restées non testées (P7, Z2-4, Z2-5, V6, V7, V10) : 12/12 OK, sans changement de code ;
+  - questions de règle tranchées par l'auteur → **v0.20.7 = dernière release** (compteur sans compétences bloquées,
+    même compétence permise au gain de niveau, affiliation des métiers affichée) ; Foundry local redémarré en 0.20.7 ;
+  - points à valider : tous validés par l'auteur (traits robot d20, Tentative de confusion en bonus de situation,
+    12 descriptions de métiers), sans changement de code.
+- **EN PAUSE (demande de l'auteur : « à la fin de t1, mets en pause »)** : `../audit/t1-rendu.js` relancé à 19 h 56
+  (`node run.mjs t1-rendu.js > t1-res.json`, ~360 fiches : 25 acteurs du monde, 293 documents de compendium, ~41 objets
+  embarqués) ; à 20 h 12, toujours en cours, `t1-res.json` encore vide. **À la reprise** : lire `../audit/t1-res.json`
+  (s'il est vide ou si le script a bloqué, relancer avec un suivi de progression et un délai par fiche), puis
+  `t2-parcours.js` **après** t1 (même monde : les acteurs « [AUDIT] » de t2 fausseraient le parcours de t1). Attentes
+  périmées connues de `t2` : Médecin « bonus métier Médecine = 20 » (0 depuis v0.20.0, porté par le trait Chirurgien) ;
+  postes « Équipage » sans compétence (voulu). Ensuite, prévu en mode **ultracode** (opt-in de l'auteur) : workflow de
+  vérification adversariale de chaque constat (vrai bug / attente périmée), corrections, nouveau test en direct.
+
+## État au 2026-10-06, nuit
 
 - **Session terminée le 2026-10-07** (« on s'arrête là pour ce soir ») : tout est commité, poussé et publié (v0.20.6),
   aucune branche de travail. Rien d'autre en cours sur Galactic Wars.
