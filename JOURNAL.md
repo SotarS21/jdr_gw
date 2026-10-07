@@ -15,8 +15,8 @@
   (20 / 80 / 5 / 21), tous les liens `@UUID` résolus, toutes les images chargées, aucun texte suspect ; fiche rendue
   avec image à droite et tableau (captures `../audit/t19-metier.png`, `t19-arme.png` vérifiées). Foundry redémarré en
   0.21.0 avec l'accord de l'auteur (1 connecté).
-- Branche `feat/journaux-catalogue` fusionnée dans main ; **release v0.21.0 non publiée** (pas de tag) — à faire si
-  l'auteur le demande.
+- Branche `feat/journaux-catalogue` fusionnée dans main ; **release v0.21.0 publiée** à la demande de l'auteur (tag
+  `v0.21.0`, workflow vert, manifeste `latest` en 0.21.0, pack `journaux` présent dans `system.zip`).
 
 ## État au 2026-10-08 — tests t1 et t2 terminés
 
