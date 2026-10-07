@@ -958,3 +958,35 @@
   padding: 0 0.6rem;
   line-height: 1.6;
 }
+
+/* Journaux du catalogue (packs/journaux, générés par scripts/generer-journaux.mjs) : image à droite, tableau compact. */
+.gw-catalogue::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.gw-catalogue .gw-catalogue-image {
+  float: right;
+  width: 180px;
+  margin: 0 0 0.5rem 1rem;
+}
+.gw-catalogue .gw-catalogue-image img {
+  width: 100%;
+  height: auto;
+  border: none;
+  border-radius: 6px;
+}
+.gw-catalogue .gw-catalogue-carac {
+  width: auto;
+  margin: 0 0 0.75rem;
+}
+.gw-catalogue .gw-catalogue-carac th {
+  text-align: left;
+  white-space: nowrap;
+  padding-right: 1rem;
+  vertical-align: top;
+}
+.gw-catalogue .gw-catalogue-lien {
+  font-size: 0.9em;
+  opacity: 0.85;
+}

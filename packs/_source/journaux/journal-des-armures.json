@@ -1,0 +1,185 @@
+{
+  "_key": "!journal!gwJournalArmures",
+  "_id": "gwJournalArmures",
+  "name": "Journal des armures",
+  "folder": null,
+  "sort": 300000,
+  "pages": [
+    {
+      "_id": "TneXFMpJjPLS9WXh",
+      "name": "Armure de guerrier sith",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armures-armure-de-guerrier-sith.jpg\" alt=\"Armure de guerrier sith\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Réduction des dégâts</th><td>4</td></tr><tr><th>Emplacement</th><td>Plastron</td></tr></tbody></table><p>Armure sombre des guerriers sith, plaques noires et longue cape, heaume à visière rouge : elle protège autant qu'elle terrifie.</p><p><em>Réduction estimée (entre l'armure intermédiaire et l'armure lourde).</em></p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armures.Item.TneXFMpJjPLS9WXh]{Armure de guerrier sith} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmures.TneXFMpJjPLS9WXh"
+    },
+    {
+      "_id": "cnDpAqpqlN8IwgKo",
+      "name": "Armure intermédiaire",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armures-armure-intermediaire.jpg\" alt=\"Armure intermédiaire\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Réduction des dégâts</th><td>3</td></tr><tr><th>Emplacement</th><td>Plastron</td></tr></tbody></table><p>Armure de plaques et de mailles couvrant le torse, les bras et la tête : le compromis des mercenaires et des chasseurs de primes.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armures.Item.cnDpAqpqlN8IwgKo]{Armure intermédiaire} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 200000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmures.cnDpAqpqlN8IwgKo"
+    },
+    {
+      "_id": "W7pyBgHxuBkEV4yR",
+      "name": "Armure légère",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armures-armure-legere.jpg\" alt=\"Armure légère\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Réduction des dégâts</th><td>1</td></tr><tr><th>Emplacement</th><td>Plastron</td></tr></tbody></table><p>Protection légère — gilet renforcé, épaulières, jambières — qui ne gêne presque pas les mouvements.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armures.Item.W7pyBgHxuBkEV4yR]{Armure légère} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 300000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmures.W7pyBgHxuBkEV4yR"
+    },
+    {
+      "_id": "JwNUnlOOcpE4u1ag",
+      "name": "Armure lourde",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armures-armure-lourde.jpg\" alt=\"Armure lourde\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Réduction des dégâts</th><td>6</td></tr><tr><th>Emplacement</th><td>Plastron</td></tr></tbody></table><p>Armure intégrale de plaques épaisses, lourde et encombrante, conçue pour encaisser les tirs de blaster en première ligne.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armures.Item.JwNUnlOOcpE4u1ag]{Armure lourde} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 400000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmures.JwNUnlOOcpE4u1ag"
+    },
+    {
+      "_id": "3AilAqQcea8OVo8y",
+      "name": "Plastron blindé",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armures-plastron-blinde.jpg\" alt=\"Plastron blindé\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Réduction des dégâts</th><td>2</td></tr><tr><th>Emplacement</th><td>Plastron</td></tr></tbody></table><p>Gilet pare-blaster en plaques composites, porté sous une veste ou par-dessus une combinaison. Discret et léger.</p><p><em>Réduction estimée (entre l'armure légère et l'armure intermédiaire).</em></p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armures.Item.3AilAqQcea8OVo8y]{Plastron blindé} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 500000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmures.3AilAqQcea8OVo8y"
+    }
+  ],
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.20.7"
+  }
+}

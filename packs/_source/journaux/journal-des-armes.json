@@ -1,0 +1,2660 @@
+{
+  "_key": "!journal!gwJournalArmes00",
+  "_id": "gwJournalArmes00",
+  "name": "Journal des armes",
+  "folder": null,
+  "sort": 200000,
+  "pages": [
+    {
+      "_id": "sbQYqAFTfB5REoSr",
+      "name": "Arbalète blaster",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-arbalete-blaster.jpg\" alt=\"Arbalète blaster\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>2d6</td></tr><tr><th>Compétence</th><td>Blaster/Lancer</td></tr><tr><th>Prix</th><td>900c</td></tr></tbody></table><p>Arbalète à rail magnétique qui propulse des carreaux chargés d'énergie. Plus lente à recharger qu'un blaster, mais silencieuse et redoutablement précise.</p><p>Classeur « [GW] Science économique.xlsx », ligne 15.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.sbQYqAFTfB5REoSr]{Arbalète blaster} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.sbQYqAFTfB5REoSr"
+    },
+    {
+      "_id": "yisemX0BSlfF5ILj",
+      "name": "Arme contondante",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-arme-contondante.jpg\" alt=\"Arme contondante\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>1d6</td></tr><tr><th>Compétence</th><td>Arme contondante/blanche</td></tr><tr><th>Prix</th><td>522c</td></tr></tbody></table><p>Matraque, gourdin ou barre de métal : l'arme de fortune des bagarres de cantina et des ruelles mal famées.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.yisemX0BSlfF5ILj]{Arme contondante} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 200000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.yisemX0BSlfF5ILj"
+    },
+    {
+      "_id": "7GCDRf0zffBuUchJ",
+      "name": "Bâton de combat",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-arme-contondante.jpg\" alt=\"Bâton de combat\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>1d4+2</td></tr><tr><th>Compétence</th><td>Arme contondante/blanche</td></tr><tr><th>Prix</th><td>45c</td></tr></tbody></table><p>Long bâton renforcé de métal, arme d'entraînement des gardes et des moines, efficace pour tenir un adversaire à distance.</p><p>Classeur « [GW] Science économique.xlsx », ligne 23.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.7GCDRf0zffBuUchJ]{Bâton de combat} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 300000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.7GCDRf0zffBuUchJ"
+    },
+    {
+      "_id": "rVMBCO3Y39sftShP",
+      "name": "Bâton de combat (amélioration 1)",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-arme-contondante.jpg\" alt=\"Bâton de combat (amélioration 1)\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>1d6</td></tr><tr><th>Compétence</th><td>Arme contondante/blanche</td></tr><tr><th>Prix</th><td>250c</td></tr></tbody></table><p>Long bâton renforcé de métal, arme d'entraînement des gardes et des moines, efficace pour tenir un adversaire à distance. Version améliorée : plus puissante que le modèle de base.</p><p>Classeur « [GW] Science économique.xlsx », ligne 24.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.rVMBCO3Y39sftShP]{Bâton de combat (amélioration 1)} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 400000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.rVMBCO3Y39sftShP"
+    },
+    {
+      "_id": "gVHkk1mcFn4csrl5",
+      "name": "Bâton de combat (amélioration électrique)",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-arme-contondante.jpg\" alt=\"Bâton de combat (amélioration électrique)\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>1d6 étourdissant</td></tr><tr><th>Compétence</th><td>Arme contondante/blanche</td></tr><tr><th>Prix</th><td>1250c</td></tr></tbody></table><p>Long bâton renforcé de métal, arme d'entraînement des gardes et des moines, efficace pour tenir un adversaire à distance. Version améliorée : plus puissante que le modèle de base.</p><p>Classeur « [GW] Science économique.xlsx », ligne 25.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.gVHkk1mcFn4csrl5]{Bâton de combat (amélioration électrique)} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 500000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.gVHkk1mcFn4csrl5"
+    },
+    {
+      "_id": "b3DghgDl8JJaxS7G",
+      "name": "Bâton sith",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-arme-contondante.jpg\" alt=\"Bâton sith\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>1d6</td></tr><tr><th>Compétence</th><td>Arme contondante/blanche</td></tr><tr><th>Prix</th><td>Non achetable</td></tr></tbody></table><p>Bâton noir gravé de runes sith, forgé pour les disciples qui n'ont pas encore mérité leur sabre. Il n'est vendu nulle part.</p><p>Classeur « [GW] Science économique.xlsx », ligne 20.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.b3DghgDl8JJaxS7G]{Bâton sith} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 600000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.b3DghgDl8JJaxS7G"
+    },
+    {
+      "_id": "rSvlEh2uNscKQX9v",
+      "name": "Bâton sith (amélioration 1)",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-arme-contondante.jpg\" alt=\"Bâton sith (amélioration 1)\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>2d6</td></tr><tr><th>Compétence</th><td>Arme contondante/blanche</td></tr><tr><th>Prix</th><td>2000c</td></tr></tbody></table><p>Bâton noir gravé de runes sith, forgé pour les disciples qui n'ont pas encore mérité leur sabre. Il n'est vendu nulle part. Version améliorée : plus puissante que le modèle de base.</p><p>Classeur « [GW] Science économique.xlsx », ligne 21.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.rSvlEh2uNscKQX9v]{Bâton sith (amélioration 1)} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 700000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.rSvlEh2uNscKQX9v"
+    },
+    {
+      "_id": "jrPSAqcCbxCi0zuQ",
+      "name": "Blaster",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-blaster.jpg\" alt=\"Blaster\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>1d4+2</td></tr><tr><th>Compétence</th><td>Blaster/Lancer</td></tr><tr><th>Prix</th><td>250c</td></tr></tbody></table><p>Pistolet blaster standard, l'arme la plus répandue de la galaxie. Fiable, léger, facile à dissimuler sous une veste.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.jrPSAqcCbxCi0zuQ]{Blaster} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 800000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.jrPSAqcCbxCi0zuQ"
+    },
+    {
+      "_id": "l0SZAGljMJwSmF3U",
+      "name": "Blaster lourd",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-blaster-lourd.jpg\" alt=\"Blaster lourd\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>2d6+3</td></tr><tr><th>Compétence</th><td>Blaster/Lancer</td></tr><tr><th>Prix</th><td>400c</td></tr></tbody></table><p>Pistolet blaster à gros calibre, prisé des mercenaires et des chasseurs de primes : lourd, bruyant, et dévastateur à courte portée.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.l0SZAGljMJwSmF3U]{Blaster lourd} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 900000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.l0SZAGljMJwSmF3U"
+    },
+    {
+      "_id": "wsUZkPDglQaCKCe0",
+      "name": "Canon à carbonite",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-canon-a-carbonite.jpg\" alt=\"Canon à carbonite\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>1 cartouche</td></tr><tr><th>Compétence</th><td>Canon lourd</td></tr><tr><th>Prix</th><td>1200c</td></tr></tbody></table><p>Canon cryogénique qui projette un jet de carbonite liquide, figeant sa cible dans un bloc solide. Chaque tir consomme une cartouche de carbonite.</p><p>Classeur « [GW] Science économique.xlsx », ligne 52. Consomme des cartouches de carbonite (voir l'équipement « Cartouche de carbonite »).</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.wsUZkPDglQaCKCe0]{Canon à carbonite} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 1000000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.wsUZkPDglQaCKCe0"
+    },
+    {
+      "_id": "voNJT9EWZ549QNGM",
+      "name": "Canon à carbonite (amélioration 1)",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-canon-a-carbonite.jpg\" alt=\"Canon à carbonite (amélioration 1)\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>2 cartouches</td></tr><tr><th>Compétence</th><td>Canon lourd</td></tr><tr><th>Prix</th><td>1200c</td></tr></tbody></table><p>Canon cryogénique qui projette un jet de carbonite liquide, figeant sa cible dans un bloc solide. Chaque tir consomme une cartouche de carbonite. Version améliorée : plus puissante que le modèle de base.</p><p>Classeur « [GW] Science économique.xlsx », ligne 53.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.voNJT9EWZ549QNGM]{Canon à carbonite (amélioration 1)} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 1100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.voNJT9EWZ549QNGM"
+    },
+    {
+      "_id": "Y1OFzZ5FT27oA71c",
+      "name": "Canon à fléchettes",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-canon-a-flechettes.jpg\" alt=\"Canon à fléchettes\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>1 + fléchette</td></tr><tr><th>Compétence</th><td>Canon lourd</td></tr><tr><th>Prix</th><td>1000c</td></tr></tbody></table><p>Arme lourde qui tire des salves de fléchettes métalliques ; certaines munitions sont enduites de poison ou de sédatif.</p><p>Classeur « [GW] Science économique.xlsx », ligne 40.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.Y1OFzZ5FT27oA71c]{Canon à fléchettes} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 1200000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.Y1OFzZ5FT27oA71c"
+    },
+    {
+      "_id": "c58LvrJmngNU0DbA",
+      "name": "Canon à gaz",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"icons/svg/item-bag.svg\" alt=\"Canon à gaz\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>1d4 corrosif / tour</td></tr><tr><th>Compétence</th><td>Canon lourd</td></tr><tr><th>Prix</th><td>1000c</td></tr></tbody></table><p>Projecteur de gaz corrosif monté sur réservoir dorsal. Le nuage ronge armures et chairs tour après tour.</p><p>Classeur « [GW] Science économique.xlsx », ligne 42.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.c58LvrJmngNU0DbA]{Canon à gaz} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 1300000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.c58LvrJmngNU0DbA"
+    },
+    {
+      "_id": "iUylSMlBTEzrcLKZ",
+      "name": "Canon à gaz (dégâts +)",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"icons/svg/item-bag.svg\" alt=\"Canon à gaz (dégâts +)\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>2d4 corrosif / tour</td></tr><tr><th>Compétence</th><td>Canon lourd</td></tr><tr><th>Prix</th><td>1000c</td></tr></tbody></table><p>Projecteur de gaz corrosif monté sur réservoir dorsal. Le nuage ronge armures et chairs tour après tour. Version à mélange concentré : dégâts corrosifs accrus.</p><p>Classeur « [GW] Science économique.xlsx », ligne 44. Ligne « Dégât + » du classeur, rattachée au canon à gaz (dégâts corrosifs).</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.iUylSMlBTEzrcLKZ]{Canon à gaz (dégâts +)} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 1400000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.iUylSMlBTEzrcLKZ"
+    },
+    {
+      "_id": "Wb5i7FPnp9aM8kGk",
+      "name": "Canon jawa",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-canon-jawa.jpg\" alt=\"Canon jawa\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>1d4+2</td></tr><tr><th>Compétence</th><td>Canon lourd</td></tr><tr><th>Prix</th><td>Non achetable</td></tr></tbody></table><p>Arme bricolée par les jawas à partir de pièces de récupération : peu fiable à l'achat, mais chaque amélioration la rend plus redoutable.</p><p>Classeur « [GW] Science économique.xlsx », ligne 35.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.Wb5i7FPnp9aM8kGk]{Canon jawa} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 1500000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.Wb5i7FPnp9aM8kGk"
+    },
+    {
+      "_id": "jIDJ2uxyps0q7hnU",
+      "name": "Canon jawa (amélioration 1)",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-canon-jawa.jpg\" alt=\"Canon jawa (amélioration 1)\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>1d6</td></tr><tr><th>Compétence</th><td>Canon lourd</td></tr><tr><th>Prix</th><td>150c</td></tr></tbody></table><p>Arme bricolée par les jawas à partir de pièces de récupération : peu fiable à l'achat, mais chaque amélioration la rend plus redoutable. Version améliorée : plus puissante que le modèle de base.</p><p>Classeur « [GW] Science économique.xlsx », ligne 36.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.jIDJ2uxyps0q7hnU]{Canon jawa (amélioration 1)} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 1600000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.jIDJ2uxyps0q7hnU"
+    },
+    {
+      "_id": "NugwxdyAZeHqGMFd",
+      "name": "Canon jawa (amélioration 2)",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-canon-jawa.jpg\" alt=\"Canon jawa (amélioration 2)\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>1d6+3</td></tr><tr><th>Compétence</th><td>Canon lourd</td></tr><tr><th>Prix</th><td>200c</td></tr></tbody></table><p>Arme bricolée par les jawas à partir de pièces de récupération : peu fiable à l'achat, mais chaque amélioration la rend plus redoutable. Version améliorée : plus puissante que le modèle de base.</p><p>Classeur « [GW] Science économique.xlsx », ligne 37.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.NugwxdyAZeHqGMFd]{Canon jawa (amélioration 2)} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 1700000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.NugwxdyAZeHqGMFd"
+    },
+    {
+      "_id": "Zev3Q6tIWjgWgU3c",
+      "name": "Canon jawa (amélioration 3)",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-canon-jawa.jpg\" alt=\"Canon jawa (amélioration 3)\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>2d6</td></tr><tr><th>Compétence</th><td>Canon lourd</td></tr><tr><th>Prix</th><td>250c</td></tr></tbody></table><p>Arme bricolée par les jawas à partir de pièces de récupération : peu fiable à l'achat, mais chaque amélioration la rend plus redoutable. Version améliorée : plus puissante que le modèle de base.</p><p>Classeur « [GW] Science économique.xlsx », ligne 38.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.Zev3Q6tIWjgWgU3c]{Canon jawa (amélioration 3)} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 1800000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.Zev3Q6tIWjgWgU3c"
+    },
+    {
+      "_id": "6lFfuHYDHrGurXud",
+      "name": "Canon plasma",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-canon-plasma.jpg\" alt=\"Canon plasma\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>4d6 + brûlure</td></tr><tr><th>Compétence</th><td>Canon lourd</td></tr><tr><th>Prix</th><td>10000c</td></tr></tbody></table><p>Canon lourd à plasma surchauffé dont les tirs brûlent tout sur leur passage. Réservé aux professionnels… ou aux fous.</p><p>Classeur « [GW] Science économique.xlsx », ligne 32.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.6lFfuHYDHrGurXud]{Canon plasma} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 1900000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.6lFfuHYDHrGurXud"
+    },
+    {
+      "_id": "OVSodnkhva9XC2NW",
+      "name": "Canon plasma (amélioration 1)",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-canon-plasma.jpg\" alt=\"Canon plasma (amélioration 1)\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>1d20+10</td></tr><tr><th>Compétence</th><td>Canon lourd</td></tr><tr><th>Prix</th><td>4000c</td></tr></tbody></table><p>Canon lourd à plasma surchauffé dont les tirs brûlent tout sur leur passage. Réservé aux professionnels… ou aux fous. Version améliorée : plus puissante que le modèle de base.</p><p>Classeur « [GW] Science économique.xlsx », ligne 33.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.OVSodnkhva9XC2NW]{Canon plasma (amélioration 1)} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 2000000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.OVSodnkhva9XC2NW"
+    },
+    {
+      "_id": "vABCnzf8qunaytcp",
+      "name": "Charge thermique",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-grenade.jpg\" alt=\"Charge thermique\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>2d6 + brûlure</td></tr><tr><th>Compétence</th><td>Artifice</td></tr><tr><th>Prix</th><td>300c</td></tr></tbody></table><p>Explosif compact à minuterie ou à déclenchement manuel, dont la détonation embrase les environs.</p><p>Classeur « [GW] Science économique.xlsx », ligne 8.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.vABCnzf8qunaytcp]{Charge thermique} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 2100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.vABCnzf8qunaytcp"
+    },
+    {
+      "_id": "vJ0ZPcVTbwF3LAZ4",
+      "name": "Chouchou étrangleur",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"icons/svg/item-bag.svg\" alt=\"Chouchou étrangleur\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>1d4</td></tr><tr><th>Compétence</th><td>Arme contondante/blanche</td></tr><tr><th>Prix</th><td>2000c</td></tr></tbody></table><p>Fil monomoléculaire dissimulé dans un bijou ou un accessoire de coiffure : l'arme discrète des assassins.</p><p>Classeur « [GW] Science économique.xlsx », ligne 65.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.vJ0ZPcVTbwF3LAZ4]{Chouchou étrangleur} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 2200000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.vJ0ZPcVTbwF3LAZ4"
+    },
+    {
+      "_id": "UU6ksmAm72iznHQ8",
+      "name": "Extension griffe / crocs",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-extension-griffe-crocs.jpg\" alt=\"Extension griffe / crocs\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>1d4</td></tr><tr><th>Compétence</th><td>Bagarre</td></tr><tr><th>Prix</th><td>1200c</td></tr></tbody></table><p>Prothèse ou implant de combat — griffes rétractables, crocs métalliques — greffé au corps pour frapper au corps à corps.</p><p>Classeur « [GW] Science économique.xlsx », ligne 14.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.UU6ksmAm72iznHQ8]{Extension griffe / crocs} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 2300000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.UU6ksmAm72iznHQ8"
+    },
+    {
+      "_id": "zh5022w5tv9loFm9",
+      "name": "Extension griffe / crocs (amélioration 1)",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-extension-griffe-crocs.jpg\" alt=\"Extension griffe / crocs (amélioration 1)\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>1d4+2</td></tr><tr><th>Compétence</th><td>Bagarre</td></tr><tr><th>Prix</th><td>200c</td></tr></tbody></table><p>Prothèse ou implant de combat — griffes rétractables, crocs métalliques — greffé au corps pour frapper au corps à corps. Version améliorée : plus puissante que le modèle de base.</p><p>Classeur « [GW] Science économique.xlsx », ligne 15.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.zh5022w5tv9loFm9]{Extension griffe / crocs (amélioration 1)} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 2400000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.zh5022w5tv9loFm9"
+    },
+    {
+      "_id": "5Mt02PZKnhUKJ9RH",
+      "name": "Extension griffe / crocs (amélioration 2)",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-extension-griffe-crocs.jpg\" alt=\"Extension griffe / crocs (amélioration 2)\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>1d6+3</td></tr><tr><th>Compétence</th><td>Bagarre</td></tr><tr><th>Prix</th><td>2000c</td></tr></tbody></table><p>Prothèse ou implant de combat — griffes rétractables, crocs métalliques — greffé au corps pour frapper au corps à corps. Version améliorée : plus puissante que le modèle de base.</p><p>Classeur « [GW] Science économique.xlsx », ligne 16.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.5Mt02PZKnhUKJ9RH]{Extension griffe / crocs (amélioration 2)} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 2500000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.5Mt02PZKnhUKJ9RH"
+    },
+    {
+      "_id": "VtFCLdRDuetVea04",
+      "name": "Extension griffe / crocs (amélioration 3)",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-extension-griffe-crocs.jpg\" alt=\"Extension griffe / crocs (amélioration 3)\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>2d6</td></tr><tr><th>Compétence</th><td>Bagarre</td></tr><tr><th>Prix</th><td>4500c</td></tr></tbody></table><p>Prothèse ou implant de combat — griffes rétractables, crocs métalliques — greffé au corps pour frapper au corps à corps. Version améliorée : plus puissante que le modèle de base.</p><p>Classeur « [GW] Science économique.xlsx », ligne 17.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.VtFCLdRDuetVea04]{Extension griffe / crocs (amélioration 3)} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 2600000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.VtFCLdRDuetVea04"
+    },
+    {
+      "_id": "DKBOgtU6PxmigWjo",
+      "name": "Extension griffe / crocs (amélioration 4)",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-extension-griffe-crocs.jpg\" alt=\"Extension griffe / crocs (amélioration 4)\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>2d6+3</td></tr><tr><th>Compétence</th><td>Bagarre</td></tr><tr><th>Prix</th><td>2000c</td></tr></tbody></table><p>Prothèse ou implant de combat — griffes rétractables, crocs métalliques — greffé au corps pour frapper au corps à corps. Version améliorée : plus puissante que le modèle de base.</p><p>Classeur « [GW] Science économique.xlsx », ligne 18.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.DKBOgtU6PxmigWjo]{Extension griffe / crocs (amélioration 4)} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 2700000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.DKBOgtU6PxmigWjo"
+    },
+    {
+      "_id": "5GWAvHcsVZJn1iDG",
+      "name": "Fusil à plasma",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-fusil-a-plasma.jpg\" alt=\"Fusil à plasma\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>1d6 / tour</td></tr><tr><th>Compétence</th><td>Blaster/Lancer</td></tr><tr><th>Prix</th><td>1200c</td></tr></tbody></table><p>Fusil qui tire des globes de plasma collant ; la cible continue de brûler après l'impact.</p><p>Classeur « [GW] Science économique.xlsx », ligne 24.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.5GWAvHcsVZJn1iDG]{Fusil à plasma} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 2800000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.5GWAvHcsVZJn1iDG"
+    },
+    {
+      "_id": "Vmc6EGoQEG3cn7OC",
+      "name": "Fusil à plasma (amélioration 1)",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-fusil-a-plasma.jpg\" alt=\"Fusil à plasma (amélioration 1)\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>2d6 / tour</td></tr><tr><th>Compétence</th><td>Blaster/Lancer</td></tr><tr><th>Prix</th><td>1200c</td></tr></tbody></table><p>Fusil qui tire des globes de plasma collant ; la cible continue de brûler après l'impact. Version améliorée : plus puissante que le modèle de base.</p><p>Classeur « [GW] Science économique.xlsx », ligne 25.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.Vmc6EGoQEG3cn7OC]{Fusil à plasma (amélioration 1)} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 2900000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.Vmc6EGoQEG3cn7OC"
+    },
+    {
+      "_id": "4L8V0rfCZh8X1EgF",
+      "name": "Fusil bâton",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-fusil-baton.jpg\" alt=\"Fusil bâton\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>1d6</td></tr><tr><th>Compétence</th><td>Blaster/Lancer</td></tr><tr><th>Prix</th><td>400c</td></tr></tbody></table><p>Arme hybride : un bâton de marche qui dissimule un canon blaster, apprécié des voyageurs qui veulent paraître désarmés.</p><p>Classeur « [GW] Science économique.xlsx », ligne 22.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.4L8V0rfCZh8X1EgF]{Fusil bâton} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 3000000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.4L8V0rfCZh8X1EgF"
+    },
+    {
+      "_id": "IALJ6jFjUNxsiVUu",
+      "name": "Fusil blaster",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-fusil-blaster.jpg\" alt=\"Fusil blaster\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>2d6</td></tr><tr><th>Compétence</th><td>Blaster/Lancer</td></tr><tr><th>Prix</th><td>1000c</td></tr></tbody></table><p>Carabine blaster à longue portée, arme réglementaire des soldats et des milices planétaires.</p><p>Classeur « [GW] Science économique.xlsx », ligne 12.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.IALJ6jFjUNxsiVUu]{Fusil blaster} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 3100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.IALJ6jFjUNxsiVUu"
+    },
+    {
+      "_id": "JD65Dggas7KPAtGz",
+      "name": "Fusil blaster (amélioration 1)",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-fusil-blaster.jpg\" alt=\"Fusil blaster (amélioration 1)\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>2d6+6</td></tr><tr><th>Compétence</th><td>Blaster/Lancer</td></tr><tr><th>Prix</th><td>1000c</td></tr></tbody></table><p>Carabine blaster à longue portée, arme réglementaire des soldats et des milices planétaires. Version améliorée : plus puissante que le modèle de base.</p><p>Classeur « [GW] Science économique.xlsx », ligne 13.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.JD65Dggas7KPAtGz]{Fusil blaster (amélioration 1)} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 3200000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.JD65Dggas7KPAtGz"
+    },
+    {
+      "_id": "pqcIdcz1p8KiQUww",
+      "name": "Fusil de précision",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-fusil-de-precision.jpg\" alt=\"Fusil de précision\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>2d10</td></tr><tr><th>Compétence</th><td>Blaster/Lancer</td></tr><tr><th>Prix</th><td>1200c</td></tr></tbody></table><p>Fusil à lunette de longue portée, conçu pour neutraliser une cible avant même qu'elle ne sache d'où vient le tir.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.pqcIdcz1p8KiQUww]{Fusil de précision} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 3300000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.pqcIdcz1p8KiQUww"
+    },
+    {
+      "_id": "JPZVBGg5Lg1xqwGe",
+      "name": "Fusil sniper",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-fusil-de-precision.jpg\" alt=\"Fusil sniper\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>1d10</td></tr><tr><th>Compétence</th><td>Blaster/Lancer</td></tr><tr><th>Prix</th><td>1200c</td></tr></tbody></table><p>Fusil de tireur d'élite à lunette électronique, pour abattre une cible à grande distance.</p><p>Classeur « [GW] Science économique.xlsx », ligne 18. Proche du « Fusil de précision » (2d10) du compendium, qui reprend ce prix.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.JPZVBGg5Lg1xqwGe]{Fusil sniper} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 3400000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.JPZVBGg5Lg1xqwGe"
+    },
+    {
+      "_id": "w5RgdJGuUTz9GaBH",
+      "name": "Fusil sniper (amélioration 1)",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-fusil-de-precision.jpg\" alt=\"Fusil sniper (amélioration 1)\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>1d10+2</td></tr><tr><th>Compétence</th><td>Blaster/Lancer</td></tr><tr><th>Prix</th><td>1000c</td></tr></tbody></table><p>Fusil de tireur d'élite à lunette électronique, pour abattre une cible à grande distance. Version améliorée : plus puissante que le modèle de base.</p><p>Classeur « [GW] Science économique.xlsx », ligne 19.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.w5RgdJGuUTz9GaBH]{Fusil sniper (amélioration 1)} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 3500000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.w5RgdJGuUTz9GaBH"
+    },
+    {
+      "_id": "Xfh9gOpzjAoLe5j5",
+      "name": "Fusil sniper (amélioration 2)",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-fusil-de-precision.jpg\" alt=\"Fusil sniper (amélioration 2)\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>2d10+4</td></tr><tr><th>Compétence</th><td>Blaster/Lancer</td></tr><tr><th>Prix</th><td>3000c</td></tr></tbody></table><p>Fusil de tireur d'élite à lunette électronique, pour abattre une cible à grande distance. Version améliorée : plus puissante que le modèle de base.</p><p>Classeur « [GW] Science économique.xlsx », ligne 20.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.Xfh9gOpzjAoLe5j5]{Fusil sniper (amélioration 2)} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 3600000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.Xfh9gOpzjAoLe5j5"
+    },
+    {
+      "_id": "BegMMS41hKkeC81e",
+      "name": "Grenade",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-grenade.jpg\" alt=\"Grenade\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>2d6</td></tr><tr><th>Compétence</th><td>Artifice</td></tr><tr><th>Prix</th><td>150c</td></tr></tbody></table><p>Grenade explosive standard, vendue sous le manteau dans la plupart des spatioports.</p><p>Grenade standard, catalogue \"[GW] Science économique.xlsx\".</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.BegMMS41hKkeC81e]{Grenade} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 3700000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.BegMMS41hKkeC81e"
+    },
+    {
+      "_id": "sV0HJAxQ4KHSCQio",
+      "name": "Grenade flash",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-grenade-flash.jpg\" alt=\"Grenade flash\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Compétence</th><td>Artifice</td></tr><tr><th>Prix</th><td>100c</td></tr></tbody></table><p>Grenade aveuglante : un éclair et une détonation assourdissante qui désorientent tous ceux qui la regardent.</p><p>Classeur « [GW] Science économique.xlsx », ligne 5. Pas de dégâts dans le classeur (effet aveuglant).</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.sV0HJAxQ4KHSCQio]{Grenade flash} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 3800000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.sV0HJAxQ4KHSCQio"
+    },
+    {
+      "_id": "2lCRfSGAb52wuTav",
+      "name": "Grenade fumigène",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-grenade-fumigene.jpg\" alt=\"Grenade fumigène\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Compétence</th><td>Artifice</td></tr><tr><th>Prix</th><td>90c</td></tr></tbody></table><p>Grenade qui libère un épais nuage de fumée, parfaite pour couvrir une fuite ou un assaut.</p><p>Classeur « [GW] Science économique.xlsx », ligne 6. Pas de dégâts dans le classeur (écran de fumée).</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.2lCRfSGAb52wuTav]{Grenade fumigène} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 3900000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.2lCRfSGAb52wuTav"
+    },
+    {
+      "_id": "TbT0iw690ey8ZzHz",
+      "name": "Grenade militaire",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-grenade-militaire.jpg\" alt=\"Grenade militaire\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>3d6</td></tr><tr><th>Compétence</th><td>Artifice</td></tr><tr><th>Prix</th><td>1250c</td></tr></tbody></table><p>Grenade à fragmentation de dotation militaire, à forte charge explosive.</p><p>Version militaire, plus puissante que la grenade standard.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.TbT0iw690ey8ZzHz]{Grenade militaire} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 4000000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.TbT0iw690ey8ZzHz"
+    },
+    {
+      "_id": "wIQQfkykGng5e7HF",
+      "name": "Grenade sonique",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-grenade-sonique.jpg\" alt=\"Grenade sonique\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>2d6</td></tr><tr><th>Compétence</th><td>Artifice</td></tr><tr><th>Prix</th><td>300c</td></tr></tbody></table><p>Grenade à onde de choc sonore qui brise les tympans et renverse les adversaires proches.</p><p>Classeur « [GW] Science économique.xlsx », ligne 7.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.wIQQfkykGng5e7HF]{Grenade sonique} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 4100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.wIQQfkykGng5e7HF"
+    },
+    {
+      "_id": "Wawl0QI2HkNGqmOq",
+      "name": "Hache électrique",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-hache-electrique.jpg\" alt=\"Hache électrique\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>1d4+4</td></tr><tr><th>Compétence</th><td>Arme contondante/blanche</td></tr><tr><th>Prix</th><td>1200c</td></tr></tbody></table><p>Hache de combat dont le tranchant est parcouru d'un arc électrique crépitant.</p><p>Classeur « [GW] Science économique.xlsx », ligne 39. Le classeur la répète ligne 40 (mêmes valeurs) : transcrite une seule fois.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.Wawl0QI2HkNGqmOq]{Hache électrique} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 4200000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.Wawl0QI2HkNGqmOq"
+    },
+    {
+      "_id": "03d1FIQHHoG3kvrp",
+      "name": "Lame",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-lame.jpg\" alt=\"Lame\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>1d4</td></tr><tr><th>Compétence</th><td>Arme contondante/blanche</td></tr><tr><th>Prix</th><td>25c</td></tr></tbody></table><p>Couteau simple, outil du quotidien autant qu'arme de dernier recours.</p><p>Classeur « [GW] Science économique.xlsx », ligne 49.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.03d1FIQHHoG3kvrp]{Lame} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 4300000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.03d1FIQHHoG3kvrp"
+    },
+    {
+      "_id": "xkaOjHMr79TUwy9F",
+      "name": "Lame militaire",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-lame-militaire.jpg\" alt=\"Lame militaire\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>1d6</td></tr><tr><th>Compétence</th><td>Arme contondante/blanche</td></tr><tr><th>Prix</th><td>522c</td></tr></tbody></table><p>Couteau de combat de dotation militaire, équilibré pour le lancer comme pour le corps à corps.</p><p>Classeur « [GW] Science économique.xlsx », ligne 50.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.xkaOjHMr79TUwy9F]{Lame militaire} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 4400000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.xkaOjHMr79TUwy9F"
+    },
+    {
+      "_id": "usNZqvoVVeyWXq3y",
+      "name": "Lance-flamme",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-lance-flamme.jpg\" alt=\"Lance-flamme\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>1d6 / tour</td></tr><tr><th>Compétence</th><td>Canon lourd</td></tr><tr><th>Prix</th><td>1200c</td></tr></tbody></table><p>Projecteur de flammes à réservoir dorsal, qui transforme un couloir en brasier.</p><p>Classeur « [GW] Science économique.xlsx », ligne 46. Le classeur répète le bloc Lance-flamme (lignes 49-50, mêmes valeurs) : transcrit une seule fois.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.usNZqvoVVeyWXq3y]{Lance-flamme} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 4500000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.usNZqvoVVeyWXq3y"
+    },
+    {
+      "_id": "EVHTHemdKTEbEncV",
+      "name": "Lance-flamme (amélioration 1)",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-lance-flamme.jpg\" alt=\"Lance-flamme (amélioration 1)\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>2d6 / tour</td></tr><tr><th>Compétence</th><td>Canon lourd</td></tr><tr><th>Prix</th><td>1200c</td></tr></tbody></table><p>Projecteur de flammes à réservoir dorsal, qui transforme un couloir en brasier. Version améliorée : plus puissante que le modèle de base.</p><p>Classeur « [GW] Science économique.xlsx », ligne 47.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.EVHTHemdKTEbEncV]{Lance-flamme (amélioration 1)} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 4600000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.EVHTHemdKTEbEncV"
+    },
+    {
+      "_id": "BB6Zg4EqmQzT815p",
+      "name": "Lance-roquette",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-lance-roquette.jpg\" alt=\"Lance-roquette\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>3d6 + explosion</td></tr><tr><th>Compétence</th><td>Canon lourd</td></tr><tr><th>Instable</th><td>Oui</td></tr><tr><th>Prix</th><td>2000c</td></tr></tbody></table><p>Lance-roquette portatif, capable de percer un blindage léger ou de raser une barricade.</p><p>Arme lourde à explosif. Amélioration existante dans le classeur source (2d10 + explosion, 4000c) non transcrite ici (échantillon).</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.BB6Zg4EqmQzT815p]{Lance-roquette} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 4700000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.BB6Zg4EqmQzT815p"
+    },
+    {
+      "_id": "AeByjdBAnXxQmlGb",
+      "name": "Lance-roquette (amélioration 1)",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-lance-roquette.jpg\" alt=\"Lance-roquette (amélioration 1)\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>2d10 + explosion</td></tr><tr><th>Compétence</th><td>Canon lourd</td></tr><tr><th>Instable</th><td>Oui</td></tr><tr><th>Prix</th><td>4000c</td></tr></tbody></table><p>Lance-roquette portatif, capable de percer un blindage léger ou de raser une barricade. Version améliorée : plus puissante que le modèle de base.</p><p>Classeur « [GW] Science économique.xlsx », ligne 28.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.AeByjdBAnXxQmlGb]{Lance-roquette (amélioration 1)} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 4800000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.AeByjdBAnXxQmlGb"
+    },
+    {
+      "_id": "sizoAeZqGECvlRXC",
+      "name": "Pistolet blaster",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-blaster.jpg\" alt=\"Pistolet blaster\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>1d4</td></tr><tr><th>Compétence</th><td>Blaster/Lancer</td></tr><tr><th>Prix</th><td>250c</td></tr></tbody></table><p>Petit pistolet blaster civil, facile à dissimuler, vendu dans toutes les boutiques d'armes.</p><p>Classeur « [GW] Science économique.xlsx », ligne 4.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.sizoAeZqGECvlRXC]{Pistolet blaster} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 4900000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.sizoAeZqGECvlRXC"
+    },
+    {
+      "_id": "Rs0mdwdSY4rTfrYS",
+      "name": "Pistolet blaster (amélioration 2)",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-blaster.jpg\" alt=\"Pistolet blaster (amélioration 2)\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>1d6+2</td></tr><tr><th>Compétence</th><td>Blaster/Lancer</td></tr><tr><th>Prix</th><td>1250c</td></tr></tbody></table><p>Petit pistolet blaster civil, facile à dissimuler, vendu dans toutes les boutiques d'armes. Version améliorée : plus puissante que le modèle de base.</p><p>Classeur « [GW] Science économique.xlsx », ligne 6. L'amélioration 1 (1d4+2, 250c) est l'objet « Blaster ».</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.Rs0mdwdSY4rTfrYS]{Pistolet blaster (amélioration 2)} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 5000000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.Rs0mdwdSY4rTfrYS"
+    },
+    {
+      "_id": "VVVCXdIwvvjlE4nA",
+      "name": "Pistolet blaster militaire",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-blaster.jpg\" alt=\"Pistolet blaster militaire\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>1d6</td></tr><tr><th>Compétence</th><td>Blaster/Lancer</td></tr><tr><th>Prix</th><td>600c</td></tr></tbody></table><p>Pistolet blaster de dotation militaire, plus robuste et plus puissant que les modèles civils.</p><p>Classeur « [GW] Science économique.xlsx », ligne 8.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.VVVCXdIwvvjlE4nA]{Pistolet blaster militaire} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 5100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.VVVCXdIwvvjlE4nA"
+    },
+    {
+      "_id": "KFsPFYH5ZK435YYA",
+      "name": "Pistolet blaster militaire (amélioration 1)",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-blaster.jpg\" alt=\"Pistolet blaster militaire (amélioration 1)\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>1d6+3</td></tr><tr><th>Compétence</th><td>Blaster/Lancer</td></tr><tr><th>Prix</th><td>600c</td></tr></tbody></table><p>Pistolet blaster de dotation militaire, plus robuste et plus puissant que les modèles civils. Version améliorée : plus puissante que le modèle de base.</p><p>Classeur « [GW] Science économique.xlsx », ligne 9.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.KFsPFYH5ZK435YYA]{Pistolet blaster militaire (amélioration 1)} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 5200000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.KFsPFYH5ZK435YYA"
+    },
+    {
+      "_id": "TVFtKmqskiDeIIVc",
+      "name": "Pistolet blaster militaire (amélioration 2)",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-blaster.jpg\" alt=\"Pistolet blaster militaire (amélioration 2)\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>2d6</td></tr><tr><th>Compétence</th><td>Blaster/Lancer</td></tr><tr><th>Prix</th><td>2500c</td></tr></tbody></table><p>Pistolet blaster de dotation militaire, plus robuste et plus puissant que les modèles civils. Version améliorée : plus puissante que le modèle de base.</p><p>Classeur « [GW] Science économique.xlsx », ligne 10.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.TVFtKmqskiDeIIVc]{Pistolet blaster militaire (amélioration 2)} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 5300000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.TVFtKmqskiDeIIVc"
+    },
+    {
+      "_id": "4sd7r6FnTfRkQ2Vu",
+      "name": "Sabre d'entraînement jedi",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-sabre-laser.jpg\" alt=\"Sabre d'entraînement jedi\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>1d6</td></tr><tr><th>Compétence</th><td>Sabre laser</td></tr><tr><th>Prix</th><td>Non achetable</td></tr></tbody></table><p>Sabre laser à faible puissance utilisé par les padawans pour l'entraînement : il brûle et étourdit sans trancher.</p><p>Classeur « [GW] Science économique.xlsx », ligne 42.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.4sd7r6FnTfRkQ2Vu]{Sabre d'entraînement jedi} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 5400000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.4sd7r6FnTfRkQ2Vu"
+    },
+    {
+      "_id": "QAQdm7Dpa8JJCnR0",
+      "name": "Sabre laser",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-sabre-laser.jpg\" alt=\"Sabre laser\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>2d8</td></tr><tr><th>Compétence</th><td>Sabre laser</td></tr><tr><th>Prix</th><td>Non achetable</td></tr></tbody></table><p>Arme élégante des chevaliers jedi et des seigneurs sith : une lame d'énergie pure, alimentée par un cristal kyber. Introuvable dans le commerce.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.QAQdm7Dpa8JJCnR0]{Sabre laser} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 5500000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.QAQdm7Dpa8JJCnR0"
+    },
+    {
+      "_id": "vaEqzGn8CiEqZvsX",
+      "name": "Sabre laser (amélioration 1)",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-sabre-laser.jpg\" alt=\"Sabre laser (amélioration 1)\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>2d8+4</td></tr><tr><th>Compétence</th><td>Sabre laser</td></tr><tr><th>Prix</th><td>Non achetable</td></tr></tbody></table><p>Arme élégante des chevaliers jedi et des seigneurs sith : une lame d'énergie pure, alimentée par un cristal kyber. Introuvable dans le commerce. Version améliorée : plus puissante que le modèle de base.</p><p>Classeur « [GW] Science économique.xlsx », ligne 45.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.vaEqzGn8CiEqZvsX]{Sabre laser (amélioration 1)} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 5600000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.vaEqzGn8CiEqZvsX"
+    },
+    {
+      "_id": "drnmaObmDpcO6pMa",
+      "name": "Sabre laser (amélioration 2)",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-sabre-laser.jpg\" alt=\"Sabre laser (amélioration 2)\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>3d8</td></tr><tr><th>Compétence</th><td>Sabre laser</td></tr><tr><th>Prix</th><td>Non achetable</td></tr></tbody></table><p>Arme élégante des chevaliers jedi et des seigneurs sith : une lame d'énergie pure, alimentée par un cristal kyber. Introuvable dans le commerce. Version améliorée : plus puissante que le modèle de base.</p><p>Classeur « [GW] Science économique.xlsx », ligne 46.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.drnmaObmDpcO6pMa]{Sabre laser (amélioration 2)} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 5700000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.drnmaObmDpcO6pMa"
+    },
+    {
+      "_id": "MtDFCZRCtYlz7za7",
+      "name": "Sabre laser (amélioration 3)",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-sabre-laser.jpg\" alt=\"Sabre laser (amélioration 3)\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>4d8</td></tr><tr><th>Compétence</th><td>Sabre laser</td></tr><tr><th>Prix</th><td>Non achetable</td></tr></tbody></table><p>Arme élégante des chevaliers jedi et des seigneurs sith : une lame d'énergie pure, alimentée par un cristal kyber. Introuvable dans le commerce. Version améliorée : plus puissante que le modèle de base.</p><p>Classeur « [GW] Science économique.xlsx », ligne 47.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.MtDFCZRCtYlz7za7]{Sabre laser (amélioration 3)} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 5800000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.MtDFCZRCtYlz7za7"
+    },
+    {
+      "_id": "cGtVtxe3xJToFYX5",
+      "name": "Sabre laser double",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-sabre-laser-double.jpg\" alt=\"Sabre laser double\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>2d8</td></tr><tr><th>Compétence</th><td>Sabre laser</td></tr><tr><th>Prix</th><td>Non achetable</td></tr></tbody></table><p>Sabre laser à deux lames opposées, arme spectaculaire et exigeante qui demande une maîtrise parfaite pour ne pas se blesser.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.cGtVtxe3xJToFYX5]{Sabre laser double} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 5900000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.cGtVtxe3xJToFYX5"
+    },
+    {
+      "_id": "pWWI2XoCdWxgYYAO",
+      "name": "Taser",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-bage-taser.jpg\" alt=\"Taser\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>1 + étourdissement 1d4 tours</td></tr><tr><th>Compétence</th><td>Arme contondante/blanche</td></tr><tr><th>Prix</th><td>5000c</td></tr></tbody></table><p>Arme d'autodéfense électrique qui paralyse la cible au contact.</p><p>Classeur « [GW] Science économique.xlsx », ligne 63 (« bage taser », 1d4 t + 1c, 5000c), renommé « Taser » par l'auteur ; distinct du Taser à 25c de la ligne 62.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.pWWI2XoCdWxgYYAO]{Taser} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 6000000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.pWWI2XoCdWxgYYAO"
+    },
+    {
+      "_id": "OZlyAOFSiqEuY7Hs",
+      "name": "Taser",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-taser.jpg\" alt=\"Taser\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>1 + étourdissement 1d4 tours</td></tr><tr><th>Compétence</th><td>Arme contondante/blanche</td></tr><tr><th>Prix</th><td>25c</td></tr></tbody></table><p>Arme d'autodéfense électrique qui paralyse la cible au contact.</p><p>Classeur « [GW] Science économique.xlsx », ligne 62.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.OZlyAOFSiqEuY7Hs]{Taser} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 6100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.OZlyAOFSiqEuY7Hs"
+    },
+    {
+      "_id": "HpOXXEx8GHQBqb8d",
+      "name": "Tourelle laser lourde",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-tourelle-laser-lourde.jpg\" alt=\"Tourelle laser lourde\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>4d6</td></tr><tr><th>Compétence</th><td>Canon lourd</td></tr><tr><th>Prix</th><td>5000c</td></tr></tbody></table><p>Tourelle laser à monter sur un véhicule, un vaisseau ou une position défensive.</p><p>Classeur « [GW] Science économique.xlsx », ligne 30.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.HpOXXEx8GHQBqb8d]{Tourelle laser lourde} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 6200000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.HpOXXEx8GHQBqb8d"
+    },
+    {
+      "_id": "gDVtLwtkG98fti0K",
+      "name": "Trident électrique",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-trident-sith.jpg\" alt=\"Trident électrique\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>1d4+4</td></tr><tr><th>Compétence</th><td>Arme contondante/blanche</td></tr><tr><th>Prix</th><td>1200c</td></tr></tbody></table><p>Trident dont les pointes libèrent des décharges électriques, arme de prédilection des gardes de certaines planètes aquatiques.</p><p>Classeur « [GW] Science économique.xlsx », ligne 34.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.gDVtLwtkG98fti0K]{Trident électrique} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 6300000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.gDVtLwtkG98fti0K"
+    },
+    {
+      "_id": "66eYlUww0VMmet7Z",
+      "name": "Trident électrique (amélioration 1)",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-trident-sith.jpg\" alt=\"Trident électrique (amélioration 1)\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>1d8+2</td></tr><tr><th>Compétence</th><td>Arme contondante/blanche</td></tr><tr><th>Prix</th><td>1200c</td></tr></tbody></table><p>Trident dont les pointes libèrent des décharges électriques, arme de prédilection des gardes de certaines planètes aquatiques. Version améliorée : plus puissante que le modèle de base.</p><p>Classeur « [GW] Science économique.xlsx », ligne 35.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.66eYlUww0VMmet7Z]{Trident électrique (amélioration 1)} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 6400000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.66eYlUww0VMmet7Z"
+    },
+    {
+      "_id": "YV00GyYHaBGzr0ti",
+      "name": "Trident électrique (amélioration 2)",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-trident-sith.jpg\" alt=\"Trident électrique (amélioration 2)\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>1d8+6 étourdissant</td></tr><tr><th>Compétence</th><td>Arme contondante/blanche</td></tr><tr><th>Prix</th><td>2000c</td></tr></tbody></table><p>Trident dont les pointes libèrent des décharges électriques, arme de prédilection des gardes de certaines planètes aquatiques. Version améliorée : plus puissante que le modèle de base.</p><p>Classeur « [GW] Science économique.xlsx », ligne 36.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.YV00GyYHaBGzr0ti]{Trident électrique (amélioration 2)} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 6500000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.YV00GyYHaBGzr0ti"
+    },
+    {
+      "_id": "SADPGpCKvQIsHXfA",
+      "name": "Trident électrique (amélioration 3)",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-trident-sith.jpg\" alt=\"Trident électrique (amélioration 3)\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>2d8 + étourdissement 1d4 tours</td></tr><tr><th>Compétence</th><td>Arme contondante/blanche</td></tr><tr><th>Prix</th><td>2000c</td></tr></tbody></table><p>Trident dont les pointes libèrent des décharges électriques, arme de prédilection des gardes de certaines planètes aquatiques. Version améliorée : plus puissante que le modèle de base.</p><p>Classeur « [GW] Science économique.xlsx », ligne 37.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.SADPGpCKvQIsHXfA]{Trident électrique (amélioration 3)} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 6600000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.SADPGpCKvQIsHXfA"
+    },
+    {
+      "_id": "BmH226Wkuab5Ft0L",
+      "name": "Trident sith",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-trident-sith.jpg\" alt=\"Trident sith\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>1d4+4</td></tr><tr><th>Compétence</th><td>Arme contondante/blanche</td></tr><tr><th>Prix</th><td>Non achetable</td></tr></tbody></table><p>Trident rituel des sith, forgé et béni dans les temples obscurs.</p><p>Arme rituelle sith, non vendue en boutique (marquée \"NA\" dans le classeur source) — distincte du \"Trident électrique\" (1d4+4, 1200c, achetable, non transcrit ici).</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.BmH226Wkuab5Ft0L]{Trident sith} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 6700000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.BmH226Wkuab5Ft0L"
+    },
+    {
+      "_id": "vokMnBKHe1Rd1HxP",
+      "name": "Trident sith (amélioration 1)",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-trident-sith.jpg\" alt=\"Trident sith (amélioration 1)\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>1d8+2</td></tr><tr><th>Compétence</th><td>Arme contondante/blanche</td></tr><tr><th>Prix</th><td>1200c</td></tr></tbody></table><p>Trident rituel des sith, forgé et béni dans les temples obscurs. Version améliorée : plus puissante que le modèle de base.</p><p>Classeur « [GW] Science économique.xlsx », ligne 28.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.vokMnBKHe1Rd1HxP]{Trident sith (amélioration 1)} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 6800000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.vokMnBKHe1Rd1HxP"
+    },
+    {
+      "_id": "xDtDjWFe4fEdJhGB",
+      "name": "Trident sith (amélioration 2)",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-trident-sith.jpg\" alt=\"Trident sith (amélioration 2)\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>1d8+6</td></tr><tr><th>Compétence</th><td>Arme contondante/blanche</td></tr><tr><th>Prix</th><td>2000c</td></tr></tbody></table><p>Trident rituel des sith, forgé et béni dans les temples obscurs. Version améliorée : plus puissante que le modèle de base.</p><p>Classeur « [GW] Science économique.xlsx », ligne 29.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.xDtDjWFe4fEdJhGB]{Trident sith (amélioration 2)} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 6900000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.xDtDjWFe4fEdJhGB"
+    },
+    {
+      "_id": "I5Q0IkOCVB1pl7iO",
+      "name": "Trident sith (amélioration 3)",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-trident-sith.jpg\" alt=\"Trident sith (amélioration 3)\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>2d8+6</td></tr><tr><th>Compétence</th><td>Arme contondante/blanche</td></tr><tr><th>Prix</th><td>2000c</td></tr></tbody></table><p>Trident rituel des sith, forgé et béni dans les temples obscurs. Version améliorée : plus puissante que le modèle de base.</p><p>Classeur « [GW] Science économique.xlsx », ligne 30.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.I5Q0IkOCVB1pl7iO]{Trident sith (amélioration 3)} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 7000000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.I5Q0IkOCVB1pl7iO"
+    },
+    {
+      "_id": "hqCmRoX4q5pyJs8l",
+      "name": "Trident sith (amélioration 4)",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-trident-sith.jpg\" alt=\"Trident sith (amélioration 4)\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>3d8</td></tr><tr><th>Compétence</th><td>Arme contondante/blanche</td></tr><tr><th>Prix</th><td>4000c</td></tr></tbody></table><p>Trident rituel des sith, forgé et béni dans les temples obscurs. Version améliorée : plus puissante que le modèle de base.</p><p>Classeur « [GW] Science économique.xlsx », ligne 31.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.hqCmRoX4q5pyJs8l]{Trident sith (amélioration 4)} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 7100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.hqCmRoX4q5pyJs8l"
+    },
+    {
+      "_id": "HN8y5H7Cj9ZPfkET",
+      "name": "Trident sith (amélioration 5)",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-trident-sith.jpg\" alt=\"Trident sith (amélioration 5)\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>3d8 + brûlure obscure</td></tr><tr><th>Compétence</th><td>Arme contondante/blanche</td></tr><tr><th>Prix</th><td>Rituel</td></tr></tbody></table><p>Trident rituel des sith, forgé et béni dans les temples obscurs. Version améliorée : plus puissante que le modèle de base.</p><p>Classeur « [GW] Science économique.xlsx », ligne 32. Obtenue par un rituel, pas achetable.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.HN8y5H7Cj9ZPfkET]{Trident sith (amélioration 5)} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 7200000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.HN8y5H7Cj9ZPfkET"
+    },
+    {
+      "_id": "NHwQPFqdznFWnAtY",
+      "name": "Vibrolame à deux mains",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-vibrolame-a-deux-mains.jpg\" alt=\"Vibrolame à deux mains\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>1d6</td></tr><tr><th>Compétence</th><td>Arme contondante/blanche</td></tr><tr><th>Prix</th><td>Non achetable</td></tr></tbody></table><p>Grande épée dont la lame vibre à très haute fréquence, capable de trancher les armures légères.</p><p>Classeur « [GW] Science économique.xlsx », ligne 52.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.NHwQPFqdznFWnAtY]{Vibrolame à deux mains} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 7300000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.NHwQPFqdznFWnAtY"
+    },
+    {
+      "_id": "OYB2aRrXcaz9dGYT",
+      "name": "Vibrolame à deux mains (amélioration 1)",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-vibrolame-a-deux-mains.jpg\" alt=\"Vibrolame à deux mains (amélioration 1)\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>1d8</td></tr><tr><th>Compétence</th><td>Arme contondante/blanche</td></tr><tr><th>Prix</th><td>3000c</td></tr></tbody></table><p>Grande épée dont la lame vibre à très haute fréquence, capable de trancher les armures légères. Version améliorée : plus puissante que le modèle de base.</p><p>Classeur « [GW] Science économique.xlsx », ligne 53.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.OYB2aRrXcaz9dGYT]{Vibrolame à deux mains (amélioration 1)} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 7400000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.OYB2aRrXcaz9dGYT"
+    },
+    {
+      "_id": "iiATLkWIHimVSXF9",
+      "name": "Vibrolame à deux mains (amélioration 2)",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-vibrolame-a-deux-mains.jpg\" alt=\"Vibrolame à deux mains (amélioration 2)\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>2d6</td></tr><tr><th>Compétence</th><td>Arme contondante/blanche</td></tr><tr><th>Prix</th><td>2500c</td></tr></tbody></table><p>Grande épée dont la lame vibre à très haute fréquence, capable de trancher les armures légères. Version améliorée : plus puissante que le modèle de base.</p><p>Classeur « [GW] Science économique.xlsx », ligne 54.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.iiATLkWIHimVSXF9]{Vibrolame à deux mains (amélioration 2)} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 7500000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.iiATLkWIHimVSXF9"
+    },
+    {
+      "_id": "0phgFUaXLgeZyuYc",
+      "name": "Vibrolame à deux mains (amélioration 3)",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-vibrolame-a-deux-mains.jpg\" alt=\"Vibrolame à deux mains (amélioration 3)\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>2d8</td></tr><tr><th>Compétence</th><td>Arme contondante/blanche</td></tr><tr><th>Prix</th><td>3000c</td></tr></tbody></table><p>Grande épée dont la lame vibre à très haute fréquence, capable de trancher les armures légères. Version améliorée : plus puissante que le modèle de base.</p><p>Classeur « [GW] Science économique.xlsx », ligne 55.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.0phgFUaXLgeZyuYc]{Vibrolame à deux mains (amélioration 3)} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 7600000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.0phgFUaXLgeZyuYc"
+    },
+    {
+      "_id": "QXQTX9ScTvYZ70Lk",
+      "name": "Vibrolame à une main",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-vibrolame-a-une-main.jpg\" alt=\"Vibrolame à une main\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>1d4+2</td></tr><tr><th>Compétence</th><td>Arme contondante/blanche</td></tr><tr><th>Prix</th><td>Non achetable</td></tr></tbody></table><p>Lame vibrante à une main, arme de corps à corps favorite des mercenaires et des gardes du corps.</p><p>Classeur « [GW] Science économique.xlsx », ligne 57.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.QXQTX9ScTvYZ70Lk]{Vibrolame à une main} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 7700000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.QXQTX9ScTvYZ70Lk"
+    },
+    {
+      "_id": "PKeCUo4PKt0W6sqC",
+      "name": "Vibrolame à une main (amélioration 1)",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-vibrolame-a-une-main.jpg\" alt=\"Vibrolame à une main (amélioration 1)\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>1d6+2</td></tr><tr><th>Compétence</th><td>Arme contondante/blanche</td></tr><tr><th>Prix</th><td>2500c</td></tr></tbody></table><p>Lame vibrante à une main, arme de corps à corps favorite des mercenaires et des gardes du corps. Version améliorée : plus puissante que le modèle de base.</p><p>Classeur « [GW] Science économique.xlsx », ligne 58.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.PKeCUo4PKt0W6sqC]{Vibrolame à une main (amélioration 1)} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 7800000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.PKeCUo4PKt0W6sqC"
+    },
+    {
+      "_id": "hUO3G64ZtwPXu8CA",
+      "name": "Vibrolame à une main (amélioration 2)",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-vibrolame-a-une-main.jpg\" alt=\"Vibrolame à une main (amélioration 2)\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>1d8+2</td></tr><tr><th>Compétence</th><td>Arme contondante/blanche</td></tr><tr><th>Prix</th><td>3000c</td></tr></tbody></table><p>Lame vibrante à une main, arme de corps à corps favorite des mercenaires et des gardes du corps. Version améliorée : plus puissante que le modèle de base.</p><p>Classeur « [GW] Science économique.xlsx », ligne 59.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.hUO3G64ZtwPXu8CA]{Vibrolame à une main (amélioration 2)} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 7900000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.hUO3G64ZtwPXu8CA"
+    },
+    {
+      "_id": "RXBAjrWdnDGIW6Tu",
+      "name": "Vibrolame à une main (amélioration 3)",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/armes-vibrolame-a-une-main.jpg\" alt=\"Vibrolame à une main (amélioration 3)\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Dégâts</th><td>1d10+2</td></tr><tr><th>Compétence</th><td>Arme contondante/blanche</td></tr><tr><th>Prix</th><td>2000c</td></tr></tbody></table><p>Lame vibrante à une main, arme de corps à corps favorite des mercenaires et des gardes du corps. Version améliorée : plus puissante que le modèle de base.</p><p>Classeur « [GW] Science économique.xlsx », ligne 60.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.armes.Item.RXBAjrWdnDGIW6Tu]{Vibrolame à une main (amélioration 3)} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 8000000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalArmes00.RXBAjrWdnDGIW6Tu"
+    }
+  ],
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.20.7"
+  }
+}
