@@ -20,7 +20,9 @@
 - **Questions de règle : tranchées le 2026-10-07** — **v0.20.7 = dernière release** (fusionnée dans `main`, poussée,
   taguée, archive construite ; branche `feat/questions-regle` supprimée). Foundry local redémarré en 0.20.7 (accord de
   l'auteur), aucune erreur au chargement, 21 métiers dans le compendium.
-- Le reste de la liste ci-dessous (état au 2026-09-30) est inchangé, sauf les questions de règle.
+- **Points à valider par l'auteur : tous validés le 2026-10-07** (variantes d20 des traits robot, Tentative de confusion
+  en bonus de situation, 12 descriptions de métiers) — aucun changement de code.
+- Le reste de la liste ci-dessous (état au 2026-09-30) est à jour (points traités barrés).
 
 ## Session du 2026-10-07 — Questions de règle (v0.20.6→v0.20.7)
 
@@ -60,17 +62,18 @@
   - v0.20.3 — compendium Traits rangé par fiche : « Traits fiche classique » / « Traits fiche rapide », chacun avec
     « Traits de métier » (21) et « Traits robot » (10) ; traits communs dupliqués ; variantes d20 de Le Gardien,
     Cryptographie, Tentative de confusion, Support de combat (+5 % = +1, à valider par l'auteur).
-- **À relire par l'auteur** : la description du Médecin réécrite (trait Chirurgien permanent) ; les 10 descriptions
-  de métiers rédigées par Claude (v0.19.9).
+- ~~**À relire par l'auteur** : la description du Médecin réécrite ; les descriptions de métiers rédigées par Claude
+  (v0.19.9)~~ : **validées par l'auteur le 2026-10-07** (les 12 textes : Médecin + 11 métiers sans description dans
+  `Metier.docx`, et non 10).
 - **Points ouverts** :
-  - Variantes d20 des 4 traits robot chiffrés (Le Gardien +1, Cryptographie +2, Tentative de confusion +2, Support de
-    combat +4) : valeurs proposées par Claude, à confirmer.
-  - Tentative de confusion : bonus de situation en texte (+10 %) — à passer en effet permanent si l'auteur le souhaite.
+  - ~~Variantes d20 des 4 traits robot chiffrés~~ : **validées par l'auteur le 2026-10-07** (Le Gardien +1, Cryptographie +2,
+    Tentative de confusion +2, Support de combat +4).
+  - ~~Tentative de confusion en effet permanent ?~~ : **non, reste un bonus de situation** appliqué par le MJ (auteur,
+    2026-10-07).
   - Aucun acteur WOLF dans le monde : traits du compendium à poser à la main si la fiche est créée.
-  - Audit du 2026-09-29 : **les 3 bloquants corrigés en v0.20.4** (2026-10-06) ; gênants et mineurs **non corrigés** (section « Audit du 2026-09-29 ») ; tests en direct
-    (`../audit/run.mjs t1-rendu.js`, `t2-parcours.js`) à relancer jusqu'au bout.
-  - Questions de règle : compteur de niveaux et compétences bloquées ; même compétence plusieurs fois au gain de
-    niveau ; texte libre d'affiliation des métiers (garder ou supprimer).
+  - ~~Audit du 2026-09-29~~ : bloquants, gênants et mineurs corrigés (v0.20.4 à v0.20.6) et testés en direct, sauf G7
+    (deux MJ) ; restent `../audit/run.mjs t1-rendu.js`, `t2-parcours.js` à relancer jusqu'au bout.
+  - ~~Questions de règle~~ : tranchées en v0.20.7 (2026-10-07).
 - **Scripts de test** (hors dépôt, `../audit/`) : `t3-traits.js` (traits, couverts, fiches), `t8-wolf.js` (traits
   actifs), `t11-drop.js` (glisser-déposer d'un trait sur une copie d'Alek), `t12-pastille.js` (pastille sur Alek).
 
