@@ -10,8 +10,9 @@
     12 descriptions de métiers), sans changement de code.
 - **EN PAUSE (demande de l'auteur : « à la fin de t1, mets en pause »)** : `../audit/t1-rendu.js` relancé à 19 h 56
   (`node run.mjs t1-rendu.js > t1-res.json`, ~360 fiches : 25 acteurs du monde, 293 documents de compendium, ~41 objets
-  embarqués) ; à 20 h 12, toujours en cours, `t1-res.json` encore vide. **À la reprise** : lire `../audit/t1-res.json`
-  (s'il est vide ou si le script a bloqué, relancer avec un suivi de progression et un délai par fiche), puis
+  embarqués) ; **arrêté à la demande de l'auteur vers 20 h 15, sans résultat** (le script ne renvoie son rapport qu'à
+  la fin ; lecture seule, rien à nettoyer dans le monde). **À la reprise** : relancer t1 avec un suivi de progression,
+  un délai par fiche et des résultats écrits au fil de l'eau (ou découpé par compendium), puis
   `t2-parcours.js` **après** t1 (même monde : les acteurs « [AUDIT] » de t2 fausseraient le parcours de t1). Attentes
   périmées connues de `t2` : Médecin « bonus métier Médecine = 20 » (0 depuis v0.20.0, porté par le trait Chirurgien) ;
   postes « Équipage » sans compétence (voulu). Ensuite, prévu en mode **ultracode** (opt-in de l'auteur) : workflow de
