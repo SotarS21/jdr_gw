@@ -14,6 +14,8 @@
   un point » ; fiche étroite (sabre au-dessus) ; aucune erreur console. Captures `../audit/t20-*.png` vérifiées.
   `t20b-transition.mjs` : allumage animé (`--sabre-on` 0,16 à 150 ms) et passage rouge → bleu animé (écart −0,67 à
   300 ms). `../audit/t16-mineurs.mjs` (ancien test des boutons − / +) est périmé sur ce point.
+- **Release v0.22.0 publiée** à la demande de l'auteur (workflow vert, manifeste `latest` en 0.22.0,
+  `styles/alignement.css` présent dans `system.zip`).
 
 ## Session du 2026-10-08 (suite) — Todo : journaux du catalogue (v0.20.7→v0.21.0)
 
