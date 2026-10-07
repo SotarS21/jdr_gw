@@ -412,5 +412,13 @@ export const RELEASE_NOTES = {
       <li><strong>Gain de niveau</strong> : règle confirmée, la même compétence peut recevoir plusieurs des 3 points (niveau 3 au maximum).</li>
       <li><strong>Métiers</strong> : l'affiliation (« empire / république / privé », « un maître »…) s'affiche dans le choix du métier et se modifie dans la fiche du métier. Indicatif : rien n'est vérifié.</li>
     </ul>`
+  },
+  "0.21.0": {
+    title: "v0.21.0 — Journaux du catalogue",
+    html: `<ul>
+      <li>Nouveau compendium <strong>Journaux du catalogue</strong> : journal des objets (20), des armes (80), des armures (5) et des métiers (21).</li>
+      <li>Une page par entrée : image, caractéristiques (dégâts, compétence, réduction, prix…), description et lien vers la fiche du compendium, à glisser sur une fiche.</li>
+      <li>Métiers : affiliation, talent, compétences du métier et au choix, trait de chaque fiche, équipement de départ.</li>
+    </ul>`
   }
 };

@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "pack:build": "node scripts/build-packs.mjs",
-    "pack:unpack": "node scripts/unpack-packs.mjs"
+    "pack:unpack": "node scripts/unpack-packs.mjs",
+    "journaux": "node scripts/generer-journaux.mjs"
   },
   "devDependencies": {
     "@foundryvtt/foundryvtt-cli": "^1.0.3",

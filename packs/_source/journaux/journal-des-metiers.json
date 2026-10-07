@@ -1,0 +1,713 @@
+{
+  "_key": "!journal!gwJournalMetiers",
+  "_id": "gwJournalMetiers",
+  "name": "Journal des métiers",
+  "folder": null,
+  "sort": 400000,
+  "pages": [
+    {
+      "_id": "sJHBTn1PSP6gpIOP",
+      "name": "Agent secret",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/metiers-agent-secret.jpg\" alt=\"Agent secret\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Affiliation / prérequis</th><td>Affiliation empire / république</td></tr><tr><th>Talent</th><td><strong>Fantôme</strong> — +4 en furtivité ; se camoufle facilement tant qu'il n'attire pas l'attention.</td></tr><tr><th>Compétences du métier</th><td>Blaster/Lancer, Informatique/piratage, Furtivité, Sécurité, Persuasion</td></tr><tr><th>Trait du métier</th><td>Fiche classique : @UUID[Compendium.galactic-wars.traits.Item.qMWmwoACgeYWgIE8]{Fantôme}<br>Fiche rapide : @UUID[Compendium.galactic-wars.traits.Item.UY2iOCmSEsayE2oK]{Fantôme}</td></tr></tbody></table><h3>Équipement de départ</h3><ul><li>DataPad</li><li>Tatouage d'identification</li><li>Contact sur quasiment chaque planète</li><li>Clés de crochetage</li><li>Œil bionique</li><li>Vêtement discret</li></ul><p>Espion au service de l'Empire ou de la République, recruté parmi les soldats aguerris. Infiltration, piratage et persuasion sont ses armes : il a un contact sur presque chaque planète, un œil bionique, des clés de crochetage et un tatouage d'identification que seuls ses employeurs savent lire.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.metiers.Item.sJHBTn1PSP6gpIOP]{Agent secret} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalMetiers.sJHBTn1PSP6gpIOP"
+    },
+    {
+      "_id": "iNOMvdCi7ecB3moP",
+      "name": "Apprenti sith",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/metiers-apprenti-sith.jpg\" alt=\"Apprenti sith\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Talent</th><td><strong>Appelle à la rage</strong> — Concentration extrême, une fois par jour : en cas de réussite, gain temporaire d'un point dans une compétence liée à la Force, décrit par le MJ.</td></tr><tr><th>Compétences du métier</th><td>Intimidation, Appel à la rage, Commander/guider, Sabre laser, Arme contondante/blanche</td></tr><tr><th>Compétences au choix</th><td>Poussée de la force, Drain de force, Persuasion de la force, Contrôle par la force, Éclair de force</td></tr><tr><th>Trait du métier</th><td>Fiche classique : @UUID[Compendium.galactic-wars.traits.Item.26ceKU2i2IGksUuM]{Appelle à la rage}<br>Fiche rapide : @UUID[Compendium.galactic-wars.traits.Item.gEjmB7vhMuJpg0BT]{Appelle à la rage}</td></tr></tbody></table><h3>Équipement de départ</h3><ul><li>Arme contondante au choix (hache, bâton, sabre, trident, banane de l’enfer, etc.) 2d8</li><li>Vaisseau</li><li>Robot sbire (pilote ou communicateur ou sonde)</li></ul><p>Adepte de l'Empire ayant une aptitude pour la Force. Ces étudiants n'ont pas de limite d'âge, mais ils ont la plupart du temps une prédisposition à la violence et sont entraînés le plus tôt possible à écraser leurs ennemis pour la gloire de l'Empire, en puisant dans leurs émotions les plus fortes.</p><p>Pour qu'un maître Sith daigne entraîner un apprenti, il faut d'abord que l'apprenti ait tué sa première victime. Les maîtres confient parfois à leurs apprentis des tâches « spéciales » ; il faut s'en méfier, car les apprentis sont des ressources sacrifiables : il est déjà arrivé qu'un élève prometteur soit envoyé comme chair à canon dans le temple d'un Sith fou et que son esprit n'en revienne jamais. S'il veut devenir puissant, l'apprenti doit pourtant apprendre de toute situation, de son maître comme de ses professeurs de l'académie. Il cesse d'être un apprenti lorsqu'il tue son maître et prend sa place.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.metiers.Item.iNOMvdCi7ecB3moP]{Apprenti sith} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 200000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalMetiers.iNOMvdCi7ecB3moP"
+    },
+    {
+      "_id": "5yxBvcQbcVDqhL45",
+      "name": "Assassin",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/metiers-assassin.jpg\" alt=\"Assassin\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Talent</th><td><strong>Tueur</strong> — Bonus de dégât (+1 dé) pour tuer un ennemi à 50% de ses points de vie.</td></tr><tr><th>Compétences du métier</th><td>Escroquerie/mensonge, Intimidation, Sang froid, Blaster/Lancer, Arme contondante/blanche</td></tr><tr><th>Trait du métier</th><td>Fiche classique : @UUID[Compendium.galactic-wars.traits.Item.wqGwQmgo8eEUeG84]{Tueur}<br>Fiche rapide : @UUID[Compendium.galactic-wars.traits.Item.qlzDgK8z9zhZd2l1]{Tueur}</td></tr></tbody></table><h3>Équipement de départ</h3><ul><li>Blaster ou vibrolame</li><li>Couteau</li><li>Armure légère +1</li><li>Connaissance dans la pègre</li><li>Datapad</li><li>ComLink</li><li>Traducteur</li></ul><p>Tueur à gages discret, formé au maniement des armes contondantes et blanches.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.metiers.Item.5yxBvcQbcVDqhL45]{Assassin} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 300000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalMetiers.5yxBvcQbcVDqhL45"
+    },
+    {
+      "_id": "EXt6ePhfkfcD6goX",
+      "name": "Chasseur de primes",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/metiers-chasseur-de-primes.jpg\" alt=\"Chasseur de primes\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Talent</th><td><strong>Capture</strong> — À tout moment, tentative de capture de la cible : test de Cap. Tir contré par un test de force de la cible.</td></tr><tr><th>Compétences du métier</th><td>Escroquerie/mensonge, Social, Sang froid, Blaster/Lancer, Mécanique, Pilotage, Arme contondante/blanche</td></tr><tr><th>Trait du métier</th><td>Fiche classique : @UUID[Compendium.galactic-wars.traits.Item.imKQoSyeoAYuscwa]{Capture}<br>Fiche rapide : @UUID[Compendium.galactic-wars.traits.Item.cX7X8pr0GNmVd90I]{Capture}</td></tr></tbody></table><h3>Équipement de départ</h3><ul><li>Blaster ou vibrolame</li><li>Armure intermédiaire +3 (plastron +1, casque +1, avant-bras +1)</li><li>Connaissance dans la pègre</li><li>Datapad</li><li>ComLink</li><li>Traducteur</li><li>Traceur</li></ul><p>Traqueur indépendant qui vit des contrats posés sur la tête des fugitifs. Aussi à l'aise pour négocier qu'au blaster ou à la vibrolame, il connaît la pègre, pilote son propre vaisseau et ramène sa cible vivante — au filet ou au canon à carbonite — quand la prime l'exige.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.metiers.Item.EXt6ePhfkfcD6goX]{Chasseur de primes} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 400000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalMetiers.EXt6ePhfkfcD6goX"
+    },
+    {
+      "_id": "7Rdj9ImsDsaalt5u",
+      "name": "Contrebandier",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/metiers-contrebandier.jpg\" alt=\"Contrebandier\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Talent</th><td><strong>Bluff</strong> — Un charisme particulier permet de se faire écouter même dans les situations critiques.</td></tr><tr><th>Compétences du métier</th><td>Escroquerie/mensonge, Social, Sang froid, Blaster/Lancer, Mécanique, Pilotage, Arme contondante/blanche</td></tr><tr><th>Trait du métier</th><td>Fiche classique : @UUID[Compendium.galactic-wars.traits.Item.UgmuSGAsSuU2SuU8]{Bluff}<br>Fiche rapide : @UUID[Compendium.galactic-wars.traits.Item.G74gabhGrvdZ1UwE]{Bluff}</td></tr></tbody></table><h3>Équipement de départ</h3><ul><li>Arme blanche au choix ou blaster</li><li>Armure intermédiaire +2</li><li>Connaissance dans la pègre</li><li>Datapad</li><li>ComLink</li><li>Vaisseau amélioré</li></ul><p>Transporteur clandestin naviguant en marge de la loi, formé au maniement des armes contondantes ou blanches.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.metiers.Item.7Rdj9ImsDsaalt5u]{Contrebandier} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 500000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalMetiers.7Rdj9ImsDsaalt5u"
+    },
+    {
+      "_id": "FefnzykiE01dovlH",
+      "name": "Guerrier jedi",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/metiers-guerrier-jedi.jpg\" alt=\"Guerrier jedi\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Talent</th><td><strong>Garde du sabre</strong> — +4 en parade / esquive : le sabre laser dévie les tirs et les coups.</td></tr><tr><th>Compétences du métier</th><td>Sabre laser, Parade/esquive, Protection de la force, Poussée de la force, Contrôle télékinétique, Pilotage, Sang froid</td></tr><tr><th>Compétences au choix</th><td>Méditation de la force, Sagesse, Escalade/saut</td></tr><tr><th>Trait du métier</th><td>Fiche classique : @UUID[Compendium.galactic-wars.traits.Item.YeUwuIkmg0SAik0s]{Garde du sabre}<br>Fiche rapide : @UUID[Compendium.galactic-wars.traits.Item.Y2Euqq6GGUS46ME0]{Garde du sabre}</td></tr></tbody></table><h3>Équipement de départ</h3><ul><li>Robe traditionnelle de jedi</li><li>Sabre laser 2D8</li><li>ComLink</li><li>Kolto</li></ul><p>Chevalier jedi formé au combat : gardien de la République en première ligne, maître du sabre laser et des formes de combat, il protège ses alliés par la Force autant que par la lame.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.metiers.Item.FefnzykiE01dovlH]{Guerrier jedi} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 600000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalMetiers.FefnzykiE01dovlH"
+    },
+    {
+      "_id": "UO0bTqaQaZfxis01",
+      "name": "Guerrier sith",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/metiers-guerrier-sith.jpg\" alt=\"Guerrier sith\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Talent</th><td><strong>Fureur obscure</strong> — +4 en intimidation : la colère du côté obscur fait plier les esprits faibles.</td></tr><tr><th>Compétences du métier</th><td>Intimidation, Sabre laser, Persuasion, Contrôle par la force, Pilotage, Spiritisme</td></tr><tr><th>Compétences au choix</th><td>Drain de force, Éclair de force, Appel à la rage, Poussée de la force, Persuasion de la force</td></tr><tr><th>Trait du métier</th><td>Fiche classique : @UUID[Compendium.galactic-wars.traits.Item.mQCwcqWKmm28QO8a]{Fureur obscure}<br>Fiche rapide : @UUID[Compendium.galactic-wars.traits.Item.Cy6uKaKcSoYqWmOW]{Fureur obscure}</td></tr></tbody></table><h3>Équipement de départ</h3><ul><li>Sabre laser double ou double lame 2d8</li><li>Robe noire</li><li>Datapad</li></ul><p>Apprenti sith devenu guerrier : il a gagné sa place par la violence et sert l'Empire en première ligne. Maître du sabre laser, souvent double, il domine ses ennemis par l'intimidation et le contrôle de la Force.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.metiers.Item.UO0bTqaQaZfxis01]{Guerrier sith} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 700000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalMetiers.UO0bTqaQaZfxis01"
+    },
+    {
+      "_id": "tPCyoGnJHPZ7I3pj",
+      "name": "Jedi consulaire",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/metiers-jedi-consulaire.jpg\" alt=\"Jedi consulaire\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Talent</th><td><strong>Diplomate de l'Ordre</strong> — +4 en persuasion : la parole d'un consulaire apaise les conflits.</td></tr><tr><th>Compétences du métier</th><td>Poussée de la force, Sabre laser, Spiritisme, Persuasion de la force, Pilotage, Contrôle télékinétique, Sagesse</td></tr><tr><th>Compétences au choix</th><td>Méditation de la force</td></tr><tr><th>Trait du métier</th><td>Fiche classique : @UUID[Compendium.galactic-wars.traits.Item.iSI00OOIYoE8Q2Mm]{Diplomate de l'Ordre}<br>Fiche rapide : @UUID[Compendium.galactic-wars.traits.Item.6oOaW4824wmCMkCa]{Diplomate de l'Ordre}</td></tr></tbody></table><h3>Équipement de départ</h3><ul><li>Robe traditionnelle de jedi</li><li>Sabre laser 2D8</li><li>Laisser-passer pour la République</li><li>ComLink</li></ul><p>Les Jedi consulaires sont des membres de l'Ordre Jedi qui se consacrent à la diplomatie ou aux sciences, sans forcément prendre part aux conflits. Ils sont généralement plus aptes à la discussion, à la philosophie et au savoir que les guerriers Jedi.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.metiers.Item.tPCyoGnJHPZ7I3pj]{Jedi consulaire} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 800000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalMetiers.tPCyoGnJHPZ7I3pj"
+    },
+    {
+      "_id": "1T2a9UT8vE4aYGyW",
+      "name": "Jedi Noire",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/metiers-jedi-noire.jpg\" alt=\"Jedi Noire\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Affiliation / prérequis</th><td>Sith ou jedi Niv 10</td></tr><tr><th>Talent</th><td><strong>Entre deux voies</strong> — +4 en perception : ni Lumière ni Obscurité, elle voit ce que les autres ignorent.</td></tr><tr><th>Compétences du métier</th><td>Bagarre, Perception, Persuasion, Persuasion de la force, Contrôle télékinétique, Sabre laser, Blaster/Lancer, Social, Pilotage, Spiritisme</td></tr><tr><th>Compétences au choix</th><td>Drain de force, Éclair de force, Appel à la rage, Méditation de la force, Poussée de la force, Contrôle par la force</td></tr><tr><th>Trait du métier</th><td>Fiche classique : @UUID[Compendium.galactic-wars.traits.Item.CmqmGOscuuuI0geu]{Entre deux voies}<br>Fiche rapide : @UUID[Compendium.galactic-wars.traits.Item.ub4Mq6G2u804OCEe]{Entre deux voies}</td></tr></tbody></table><h3>Équipement de départ</h3><ul><li>Blaster 1D4 +2</li><li>ComLink</li><li>Vêtement discret</li></ul><p>Utilisateur de la Force affranchi à la fois du Code jedi et de l'Ordre sith, qui suit sa propre voie. Discret et imprévisible, il mêle persuasion par la Force, sabre laser et blaster, et voyage en vêtements discrets, loin des temples.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.metiers.Item.1T2a9UT8vE4aYGyW]{Jedi Noire} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 900000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalMetiers.1T2a9UT8vE4aYGyW"
+    },
+    {
+      "_id": "ChNf1eeT8pWrTLuD",
+      "name": "Mandalorien soldat",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/metiers-mandalorien-soldat.jpg\" alt=\"Mandalorien soldat\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Affiliation / prérequis</th><td>affiliation mandalore /!\\ détesté par l'empire et par la république</td></tr><tr><th>Talent</th><td><strong>Beskar</strong> — +2 d'armure : pièces d'armure en beskar héritées du clan.</td></tr><tr><th>Compétences du métier</th><td>Blaster/Lancer, Bagarre, Pilotage, Social, Sang froid, Escroquerie/mensonge, Intimidation, Arme contondante/blanche</td></tr><tr><th>Trait du métier</th><td>Fiche classique : @UUID[Compendium.galactic-wars.traits.Item.UwQScs8We0cQcemg]{Beskar}<br>Fiche rapide : @UUID[Compendium.galactic-wars.traits.Item.cfuUX9MXmxlsqMyO]{Beskar}</td></tr></tbody></table><h3>Équipement de départ</h3><ul><li>Blaster ou vibrolame</li><li>Armure intermédiaire +3 (plastron +1, casque +1, avant-bras +1)</li><li>Connaissance dans la pègre</li><li>Datapad</li><li>ComLink</li><li>Traducteur</li><li>Traceur</li><li>Jet pack</li></ul><p>Guerrier affilié à Mandalore, détesté aussi bien par l'Empire que par la République ; formé au tir de précision et au maniement des armes contondantes.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.metiers.Item.ChNf1eeT8pWrTLuD]{Mandalorien soldat} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 1000000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalMetiers.ChNf1eeT8pWrTLuD"
+    },
+    {
+      "_id": "RwKZrUKDtNwo0jzj",
+      "name": "Mécanicien",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/metiers-mecanicien.jpg\" alt=\"Mécanicien\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Talent</th><td><strong>Réparation</strong> — Peut réparer presque tout ce qui n'est pas trop gros (comme un vaisseau interstellaire), tant qu'il a le matériel.</td></tr><tr><th>Compétences du métier</th><td>Mécanique, Informatique/piratage, Escroquerie/mensonge, Persuasion, Escalade/saut, Arme contondante/blanche</td></tr><tr><th>Trait du métier</th><td>Fiche classique : @UUID[Compendium.galactic-wars.traits.Item.6SkmM6sm2aEoMia4]{Réparation}<br>Fiche rapide : @UUID[Compendium.galactic-wars.traits.Item.tbDsDyeNSLPQLfYv]{Réparation}</td></tr></tbody></table><h3>Équipement de départ</h3><ul><li>Trousse à outils</li><li>Clés de 809 (aussi grosse qu'un avant-bras)</li><li>PAD personnel (avant-bras)</li><li>Traducteur</li><li>Speeder</li><li>Vêtement de travail</li></ul><p>Spécialiste de la mécanique, y compris sur les grandes infrastructures comme les croiseurs, les stations ou les centrales de terraformation.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.metiers.Item.RwKZrUKDtNwo0jzj]{Mécanicien} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 1100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalMetiers.RwKZrUKDtNwo0jzj"
+    },
+    {
+      "_id": "pi8JBmXDArhj5ybA",
+      "name": "Médecin",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/metiers-medecin.jpg\" alt=\"Médecin\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Talent</th><td><strong>Chirurgien</strong> — +4 en médecine et permet d'opérer sur le terrain.</td></tr><tr><th>Compétences du métier</th><td>Médecine, Commander/guider, Social, Perception</td></tr><tr><th>Trait du métier</th><td>Fiche classique : @UUID[Compendium.galactic-wars.traits.Item.40gG4iwmk8iU2kqY]{Chirurgien}<br>Fiche rapide : @UUID[Compendium.galactic-wars.traits.Item.M4yUGAEym6e7uMo2]{Chirurgien}</td></tr></tbody></table><h3>Équipement de départ</h3><ul><li>Matériel médical</li><li>Scalpel laser</li><li>Infirmerie (soit dans un vaisseau, soit une enseigne)</li><li>5 × Trousse de chirurgie de terrain</li><li>Manuel de survie</li><li>Traducteur universel</li><li>Blouse de travail</li><li>Équipement anti-contamination</li></ul><p>Praticien soignant sur le terrain comme en infirmerie ; sa maîtrise de la chirurgie (trait Chirurgien : +20 % en Médecine sur la fiche classique, +4 en Mentale sur la fiche rapide) lui permet d'opérer même en pleine mission.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.metiers.Item.pi8JBmXDArhj5ybA]{Médecin} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 1200000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalMetiers.pi8JBmXDArhj5ybA"
+    },
+    {
+      "_id": "9BC8y9FxmawTewdq",
+      "name": "Padawan",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/metiers-padawan.jpg\" alt=\"Padawan\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Affiliation / prérequis</th><td>un maître</td></tr><tr><th>Talent</th><td><strong>Manipulation de la force</strong> — Permet d'utiliser la télékinésie.</td></tr><tr><th>Compétences du métier</th><td>Sang froid, Sagesse, Sabre laser, Contrôle télékinétique, Arme contondante/blanche</td></tr><tr><th>Compétences au choix</th><td>Méditation de la force, Poussée de la force, Persuasion de la force</td></tr><tr><th>Trait du métier</th><td>Fiche classique : @UUID[Compendium.galactic-wars.traits.Item.qGO648wMmkKQiqG2]{Manipulation de la force}<br>Fiche rapide : @UUID[Compendium.galactic-wars.traits.Item.v3RfcefbfvxuozL4]{Manipulation de la force}</td></tr></tbody></table><h3>Équipement de départ</h3><ul><li>Sabre d'entraînement 1d6</li><li>Robe traditionnelle</li><li>Coiffure traditionnelle</li><li>Comlink</li></ul><p>Au sein de l'Ordre Jedi, un padawan est un jeune sensible à la Force. Supérieurs aux jeunes — les enfants sensibles à qui plusieurs maîtres apprennent en classe les rudiments de la vie de Jedi —, les padawans suivent généralement un maître après avoir passé une épreuve censée déterminer leur valeur. Dans de rares cas, un padawan peut avoir plusieurs maîtres, mais la plupart du temps il développe un lien extrêmement fort avec le sien, lien que son maître doit lui apprendre à maîtriser.</p><p>C'est dans ces années-là que le padawan est le plus influençable. Il est entraîné pour devenir chevalier Jedi, après des épreuves qui peuvent durer de très nombreuses années mais qui s'achèvent généralement lorsqu'il atteint la maturité de son espèce. Parmi ces épreuves : la fabrication d'un sabre laser.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.metiers.Item.9BC8y9FxmawTewdq]{Padawan} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 1300000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalMetiers.9BC8y9FxmawTewdq"
+    },
+    {
+      "_id": "JXd5kpLmKGNkQdYf",
+      "name": "Pilote",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/metiers-pilote.jpg\" alt=\"Pilote\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Talent</th><td><strong>Mental ultime</strong> — Permet de se détacher complètement d'une situation de stress ou de survie. 1 fois par jour.</td></tr><tr><th>Compétences du métier</th><td>Pilotage, Blaster/Lancer, Mécanique, Informatique/piratage, Bagarre, Perception</td></tr><tr><th>Trait du métier</th><td>Fiche classique : @UUID[Compendium.galactic-wars.traits.Item.gESWOe8E6OI40sCc]{Mental ultime}<br>Fiche rapide : @UUID[Compendium.galactic-wars.traits.Item.NjYsMh5j5vlyRMZx]{Mental ultime}</td></tr></tbody></table><h3>Équipement de départ</h3><ul><li>Vaisseau 4-6 places (entrepôt, infirmerie, couchettes)</li><li>Diplôme de pilote</li><li>Droïde astromécano</li><li>Vêtement de pilote</li></ul><p>Pilote diplômé, capable de faire décoller à peu près tout ce qui possède un moteur. Il s'y connaît en mécanique et en informatique de bord, garde l'œil ouvert en toute circonstance et vole accompagné de son droïde astromécano.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.metiers.Item.JXd5kpLmKGNkQdYf]{Pilote} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 1400000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalMetiers.JXd5kpLmKGNkQdYf"
+    },
+    {
+      "_id": "BKQsd0pMug5KIppF",
+      "name": "Pirate",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/metiers-pirate.jpg\" alt=\"Pirate\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Talent</th><td><strong>Flippant</strong> — Compétence active qui oblige une cible à lancer un test de stress avec -2 ; en cas d'échec, la personne ciblée est déstabilisée.</td></tr><tr><th>Compétences du métier</th><td>Commander/guider, Escroquerie/mensonge, Intimidation, Social, Sang froid, Pilotage, Arme contondante/blanche</td></tr><tr><th>Trait du métier</th><td>Fiche classique : @UUID[Compendium.galactic-wars.traits.Item.eI8YG62kGGGO8kwI]{Flippant}<br>Fiche rapide : @UUID[Compendium.galactic-wars.traits.Item.0ZaNVh0eSzRhYbBf]{Flippant}</td></tr></tbody></table><h3>Équipement de départ</h3><ul><li>Arme blanche au choix</li><li>Armure intermédiaire +2</li><li>Connaissance dans la pègre</li><li>Datapad</li><li>ComLink</li><li>Vaisseau transporteur</li></ul><p>Écumeur des étoiles vivant de pillage et de pègre, formé au maniement des armes contondantes et blanches.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.metiers.Item.BKQsd0pMug5KIppF]{Pirate} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 1500000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalMetiers.BKQsd0pMug5KIppF"
+    },
+    {
+      "_id": "m2Pm1jVHnnHPqS87",
+      "name": "Robot / droïde",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/metiers-robot-droide.jpg\" alt=\"Robot / droïde\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Affiliation / prérequis</th><td>Affiliation empire / république / privé</td></tr><tr><th>Talent</th><td><strong>Processeur tactique</strong> — +4 en informatique / piratage : interface directe avec les systèmes.</td></tr><tr><th>Compétences du métier</th><td>Social, Blaster/Lancer, Canon lourd, Informatique/piratage, Artifice, Mécanique, Pilotage</td></tr><tr><th>Trait du métier</th><td>Fiche classique : @UUID[Compendium.galactic-wars.traits.Item.OmMGq8UUGMMqS6Eu]{Processeur tactique}<br>Fiche rapide : @UUID[Compendium.galactic-wars.traits.Item.cSYucmAo8u4I4GI2]{Processeur tactique}</td></tr></tbody></table><h3>Équipement de départ</h3><ul><li>Comlink intégré</li><li>Blaster lourd ou canon à plasma</li><li>Base de données sur la topographie des planètes connues de l'empire, avec informations sur les habitants et leurs langues</li><li>Bras explosif avec renfort de blindage</li><li>Bras outils (léger)</li><li>Capteurs environnementaux (yeux, oreilles)</li></ul><p>Droïde conscient au service de l'Empire, de la République ou d'un particulier. Armé d'un blaster lourd ou d'un canon à plasma, doté d'un bras explosif blindé et d'un bras outils, il embarque un comlink intégré et une base de données sur les planètes connues, leurs habitants et leurs langues.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.metiers.Item.m2Pm1jVHnnHPqS87]{Robot / droïde} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 1600000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalMetiers.m2Pm1jVHnnHPqS87"
+    },
+    {
+      "_id": "w8hGBYBKPgT9hnw9",
+      "name": "Robot quadrupède / droïde",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/metiers-robot-quadrupede-droide.jpg\" alt=\"Robot quadrupède / droïde\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Affiliation / prérequis</th><td>Affiliation jedi</td></tr><tr><th>Talent</th><td><strong>Châssis blindé</strong> — +2 d'armure : carcasse renforcée d'un droïde de combat quadrupède.</td></tr><tr><th>Compétences du métier</th><td>Bagarre, Blocage, Canon lourd, Intimidation, Informatique/piratage, Mécanique, Parade/esquive</td></tr><tr><th>Trait du métier</th><td>Fiche classique : @UUID[Compendium.galactic-wars.traits.Item.ck0iuuSAAEQEqme8]{Châssis blindé}<br>Fiche rapide : @UUID[Compendium.galactic-wars.traits.Item.arKavcZ1uRhjkOLm]{Châssis blindé}</td></tr></tbody></table><h3>Équipement de départ</h3><ul><li>Comlink intégré</li><li>Griffe en duracier + crocs</li><li>Base de données sur la topographie des planètes connues de l'empire, avec informations sur les habitants et leurs langues</li><li>Blindage supplémentaire +4 d'armure</li><li>Bras outils (léger)</li><li>Capteurs environnementaux (yeux, oreilles)</li></ul><p>Droïde de combat quadrupède au service de l'Ordre jedi. Son blindage renforcé, ses griffes en duracier et ses crocs en font un redoutable protecteur au corps à corps ; il sait aussi pirater, réparer et renseigner le groupe grâce à ses capteurs et à sa base de données planétaire.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.metiers.Item.w8hGBYBKPgT9hnw9]{Robot quadrupède / droïde} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 1700000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalMetiers.w8hGBYBKPgT9hnw9"
+    },
+    {
+      "_id": "yVuShJi8aSqyPnRr",
+      "name": "Soldat d’élite",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/metiers-soldat-elite.jpg\" alt=\"Soldat d’élite\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Affiliation / prérequis</th><td>affiliation =&gt; empire / république / privé</td></tr><tr><th>Talent</th><td><strong>Pistolero</strong> — Permet de lancer des tests d’esquive et/ou de blocage quand il tire.</td></tr><tr><th>Compétences du métier</th><td>Blaster/Lancer, Canon lourd, Survie, Furtivité, Escalade/saut</td></tr><tr><th>Trait du métier</th><td>Fiche classique : @UUID[Compendium.galactic-wars.traits.Item.aAiQOkOsyYymISMS]{Pistolero}<br>Fiche rapide : @UUID[Compendium.galactic-wars.traits.Item.t6ujWH5hZyZah3sT]{Pistolero}</td></tr></tbody></table><h3>Équipement de départ</h3><ul><li>Fusil long porté</li><li>Radio onde courte avec cryptage</li><li>Jumelle de vision (nocturne + infrarouge + électro-réactive)</li><li>Balise fumigène</li><li>Armure légère +1 (casque et plastron)</li></ul><p>Combattant d'élite de l'Empire, de la République ou d'une armée privée, formé à la reconnaissance et à l'infiltration. Fusil à longue portée, radio à ondes courtes cryptée, jumelles de vision nocturne et balise fumigène : il frappe de loin et disparaît.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.metiers.Item.yVuShJi8aSqyPnRr]{Soldat d’élite} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 1800000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalMetiers.yVuShJi8aSqyPnRr"
+    },
+    {
+      "_id": "DaoLLhbdH0nFLWu9",
+      "name": "Soldat lourd",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/metiers-soldat-lourd.jpg\" alt=\"Soldat lourd\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Affiliation / prérequis</th><td>affiliation =&gt; empire / république / privé</td></tr><tr><th>Talent</th><td><strong>Tank</strong> — Prend une posture particulière qui permet de ne prendre aucun dégât de 15 en une seule fois. Par contre le soldat ne peut plus bouger. Prend 1 tour à retirer.</td></tr><tr><th>Compétences du métier</th><td>Canon lourd, Artifice, Mécanique, Blaster/Lancer</td></tr><tr><th>Trait du métier</th><td>Fiche classique : @UUID[Compendium.galactic-wars.traits.Item.w2s2KKcwwa8YISuK]{Tank}<br>Fiche rapide : @UUID[Compendium.galactic-wars.traits.Item.lzRHv47oROnyqJgR]{Tank}</td></tr></tbody></table><h3>Équipement de départ</h3><ul><li>Arme lourde (fusil lourd, gatling laser ou cinétique, lance-flamme, lance-grenade) 5 chargeurs</li><li>ComLink</li><li>Armure lourde -2 blessure</li></ul><p>Soldat d'appui lourd de l'Empire, de la République ou d'une armée privée. Il porte l'armure lourde et l'arme lourde du groupe — fusil lourd, lance-flammes ou fusil à plasma — et sait aussi manier les explosifs et entretenir son matériel.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.metiers.Item.DaoLLhbdH0nFLWu9]{Soldat lourd} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 1900000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalMetiers.DaoLLhbdH0nFLWu9"
+    },
+    {
+      "_id": "V8ncUgq5wWE2Zc3b",
+      "name": "Soldat médecin",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/metiers-soldat-medecin.jpg\" alt=\"Soldat médecin\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Affiliation / prérequis</th><td>affiliation =&gt; empire / république / privé</td></tr><tr><th>Talent</th><td><strong>Ne meure pas !</strong> — Donne à un allié la possibilité de relancer un test de survie raté.</td></tr><tr><th>Compétences du métier</th><td>Blaster/Lancer, Médecine, Survie, Artisanat, Sang froid</td></tr><tr><th>Trait du métier</th><td>Fiche classique : @UUID[Compendium.galactic-wars.traits.Item.Wi2Mq6GmiwOMYEmK]{Ne meure pas !}<br>Fiche rapide : @UUID[Compendium.galactic-wars.traits.Item.CeJZMwoxjaP0oEzo]{Ne meure pas !}</td></tr></tbody></table><h3>Équipement de départ</h3><ul><li>Matériel médical (1 kit anti-fracture, kolto x10, 1 kit chirurgie basique)</li><li>Blaster 1d4</li><li>Armure légère +1</li><li>Comlink d’urgence</li></ul><p>Infirmier de combat de l'Empire, de la République ou d'une armée privée. Il soigne sous le feu, blaster au poing et protégé par une armure légère, et garde son sang-froid là où les autres paniquent.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.metiers.Item.V8ncUgq5wWE2Zc3b]{Soldat médecin} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 2000000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalMetiers.V8ncUgq5wWE2Zc3b"
+    },
+    {
+      "_id": "F35qs4Inm3LzZaDb",
+      "name": "Voleur",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/metiers-voleur.jpg\" alt=\"Voleur\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Talent</th><td><strong>Pickpocket</strong> — Laisse traîner ses mains : si la cible est distraite, le vol est gratuit et permet de récupérer un petit objet. Sinon, test de dextérité obligatoire.</td></tr><tr><th>Compétences du métier</th><td>Pickpocket, Informatique/piratage, Sang froid, Sécurité, Furtivité</td></tr><tr><th>Trait du métier</th><td>Fiche classique : @UUID[Compendium.galactic-wars.traits.Item.OuQ6IooemcSYOAEA]{Pickpocket}<br>Fiche rapide : @UUID[Compendium.galactic-wars.traits.Item.XD26EHmcegAvexXV]{Pickpocket}</td></tr></tbody></table><h3>Équipement de départ</h3><ul><li>Datapad</li><li>Trousse à outils</li><li>Connaissance dans la pègre locale</li><li>Vêtement discret</li></ul><p>Spécialiste des poches des autres et des portes verrouillées. Furtif, habile avec les systèmes de sécurité et le piratage, il connaît la pègre locale et s'échappe grâce à ses gants à griffe et à sa ceinture antigravité.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.metiers.Item.F35qs4Inm3LzZaDb]{Voleur} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 2100000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.7"
+      },
+      "_key": "!journal.pages!gwJournalMetiers.F35qs4Inm3LzZaDb"
+    }
+  ],
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.20.7"
+  }
+}

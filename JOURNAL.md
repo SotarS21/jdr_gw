@@ -1,5 +1,23 @@
 # Journal de développement — Galactic Wars
 
+## Session du 2026-10-08 (suite) — Todo : journaux du catalogue (v0.20.7→v0.21.0)
+
+- **Todo de l'auteur** (fichier du Bureau `todo_foundry_galactic_wars.txt`) : tous les points anciens étaient déjà traités ;
+  nouveaux points : « journal des objets, des armes, des armures » et « journal des métiers » (traités ici), « refonte
+  des ressources Lumière / Obscurité » d'après trois maquettes CSS (`../jdrjojo.7z` : orbe de puissance, orbe creuse en
+  rotation, sabre laser ; une variable `--power` 1-10 du bleu au rouge) — **non traité**, à reprendre.
+- **Choix faits sans demander** (à confirmer par l'auteur) : un seul compendium « Journaux du catalogue » qui contient
+  les 4 journaux (plutôt que 4 compendiums) ; bannière reprise de celle des équipements ; pages triées par ordre
+  alphabétique ; journaux **générés** depuis les sources des compendiums (`scripts/generer-journaux.mjs`,
+  `npm run journaux`) plutôt qu'écrits à la main → à relancer après toute modification d'une arme, armure, équipement
+  ou métier ; une modification faite à la main dans un journal serait écrasée.
+- **Test en direct** (`../audit/t19-journaux.js`, 20/20) : 4 journaux, une page par entrée de chaque compendium
+  (20 / 80 / 5 / 21), tous les liens `@UUID` résolus, toutes les images chargées, aucun texte suspect ; fiche rendue
+  avec image à droite et tableau (captures `../audit/t19-metier.png`, `t19-arme.png` vérifiées). Foundry redémarré en
+  0.21.0 avec l'accord de l'auteur (1 connecté).
+- Branche `feat/journaux-catalogue` fusionnée dans main ; **release v0.21.0 non publiée** (pas de tag) — à faire si
+  l'auteur le demande.
+
 ## État au 2026-10-08 — tests t1 et t2 terminés
 
 - **Campagne de tests terminée, aucun bug du système trouvé.** Plus rien en pause, aucune branche de travail.
