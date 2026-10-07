@@ -1,30 +1,37 @@
 # Journal de développement — Galactic Wars
 
-## À faire à la reprise (état au 2026-10-08)
+## État au 2026-10-08 — tests t1 et t2 terminés
 
-- **t1 (rendu de toutes les fiches) : TERMINÉ, aucun problème réel.** Nouvelle version `../audit/t1b-rendu.mjs` (une fiche
-  par appel, délai 30 s, résultats au fil de l'eau dans `t1b-res.jsonl`, reprise `--depuis N`) : **361/361 fiches en
-  605 s** (25 acteurs du monde, 293 documents de compendium, objets embarqués, pages de générique ; chaque onglet et le
-  mode Édition) — aucun texte non traduit, `undefined` / `NaN`, image cassée, exception, `console.error`, délai dépassé
-  ni action sans handler du système. Les 163 fiches signalées par le script ne portent que les boutons de la barre
-  d'outils de l'éditeur ProseMirror de Foundry (`headings`, `h1`, `bold`, `insert-table`…) : faux positif du test, à
-  ajouter à `coreActions`.
-- Foundry avait été basculé sur le monde « Mer des pirates » entre-temps : remis sur `galacit-wars-v-final` (0.20.7,
-  `deploy-local.ps1 -Force`, accord de l'auteur).
-- **EN PAUSE (demande de l'auteur : « après le t1, on met en pause et on reprend plus tard »)**. **Pour reprendre :**
-  1. vérifier le monde actif (`curl http://localhost:30000/api/status` → `galacit-wars-v-final`, système 0.20.7) ; si
-     Foundry est sur un autre monde (ex. « Mer des pirates »), demander l'accord de l'auteur avant
-     `scripts/deploy-local.ps1 -Force` (déconnecte les joueurs) ;
-  2. `cd ../audit && node run.mjs t2-parcours.js` — crée puis supprime des acteurs « [AUDIT] », messages chuchotés au
-     MJ de test puis supprimés. Attentes périmées connues : « Médecin : bonus métier Médecine = 20 » (0 depuis v0.20.0,
-     porté par le trait Chirurgien) et « postes sans compétence de jet » sur les postes « Équipage » (voulu) ; le script
-     renvoie tout à la fin (pas de progression) ;
-  3. workflow de vérification adversariale (mode **ultracode**, opt-in de l'auteur) de chaque constat restant : vrai bug
-     ou attente périmée → corrections sur une branche, nouveau test en direct, publication si l'auteur le demande ;
-  4. petit nettoyage du test t1 : ajouter les actions de l'éditeur ProseMirror à `coreActions` de `t1b-rendu.mjs`.
-- Points ouverts hors tests : G7 (deux MJ) vérifié à la lecture seulement ; V8 (expéditeur des sockets) non traité ;
-  traits robot à poser à la main si une fiche WOLF est créée ; correctif MJ `0.20.5-postes-vaisseaux` peut-être encore
-  en attente dans le monde de l'auteur.
+- **Campagne de tests terminée, aucun bug du système trouvé.** Plus rien en pause, aucune branche de travail.
+- **t1 (rendu des fiches)** : 361/361 fiches, aucun problème réel (voir ci-dessous). Faux positif de la barre d'outils
+  ProseMirror corrigé dans `../audit/t1b-rendu.mjs` : les boutons situés dans `prose-mirror` / `.editor-menu` sont
+  ignorés (non relancé : 605 s pour un changement du test seul).
+- **t2 (parcours)** : Foundry était de nouveau sur « Mer des pirates » (2 connectés) → basculé sur
+  `galacit-wars-v-final` 0.20.7 avec l'accord de l'auteur (`deploy-local.ps1 -Force`). Premier passage : 15 KO, tous
+  des attentes périmées du test, vérifiées dans le code :
+  - Médecin « bonus métier Médecine = 20 » → 0 depuis v0.20.0 (porté par le trait Chirurgien) ;
+  - 12 vaisseaux « postes sans compétence de jet » → postes « Équipage » sans jet, voulu ;
+  - « Équipage : vaisseau lié — undefined » → `vaisseauDEquipage()` renvoie `{ vaisseau, equipage }`, le test lisait
+    `.id` sur l'enveloppe ;
+  - « transfert de crédits — équipage 100, PJ 0 » → `transfererCredits(equipage, membre, montant)` : montant > 0 = le
+    membre verse ; le test versait 40 depuis un PJ à 0 crédit (refus normal). Test passé à -40 (le membre prend).
+  `../audit/t2-parcours.js` corrigé (sauvegarde `.bak`) → **131 OK, 0 KO, aucune erreur**, nettoyage complet (0 restant).
+  Seul point vide : « Combat : compétences alphabétiques — sélecteur non trouvé » (passe par défaut, le sélecteur du
+  test ne correspond plus à la fiche) — à reprendre si l'on veut vraiment vérifier l'ordre.
+- Workflow de vérification adversariale (étape 3 prévue) **sans objet** : aucun constat restant après correction des
+  attentes du test.
+- Points ouverts hors tests (inchangés) : G7 (deux MJ) vérifié à la lecture seulement ; V8 (expéditeur des sockets) non
+  traité ; traits robot à poser à la main si une fiche WOLF est créée ; correctif MJ `0.20.5-postes-vaisseaux`
+  peut-être encore en attente dans le monde de l'auteur.
+
+## État au 2026-10-08, matin (t1 terminé)
+
+- **t1 (rendu de toutes les fiches) : TERMINÉ, aucun problème réel.** `../audit/t1b-rendu.mjs` (une fiche par appel,
+  délai 30 s, résultats au fil de l'eau dans `t1b-res.jsonl`, reprise `--depuis N`) : **361/361 fiches en 605 s**
+  (25 acteurs du monde, 293 documents de compendium, objets embarqués, pages de générique ; chaque onglet et le mode
+  Édition) — aucun texte non traduit, `undefined` / `NaN`, image cassée, exception, `console.error`, délai dépassé ni
+  action sans handler du système. Les 163 fiches signalées ne portaient que les boutons de la barre d'outils de
+  l'éditeur ProseMirror de Foundry (faux positif du test).
 
 ## État au 2026-10-07, 20 h
 
