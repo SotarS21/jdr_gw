@@ -17,7 +17,9 @@
   bloquée sans bouton de jet, bouton présent une fois débloquée ; avantage : 2 utilisations simultanées du MJ ou 2 relais
   simultanés d'un joueur → 1 message ; MJ sans personnage = orateur l'équipage). Joueur, combat, scène et documents
   « [TEST] » supprimés ensuite. Toutes les corrections de l'audit sont désormais testées en direct, sauf G7 (deux MJ).
-- **Questions de règle : tranchées le 2026-10-07** (v0.20.7, branche `feat/questions-regle`, voir la session ci-dessous).
+- **Questions de règle : tranchées le 2026-10-07** — **v0.20.7 = dernière release** (fusionnée dans `main`, poussée,
+  taguée, archive construite ; branche `feat/questions-regle` supprimée). Foundry local redémarré en 0.20.7 (accord de
+  l'auteur), aucune erreur au chargement, 21 métiers dans le compendium.
 - Le reste de la liste ci-dessous (état au 2026-09-30) est inchangé, sauf les questions de règle.
 
 ## Session du 2026-10-07 — Questions de règle (v0.20.6→v0.20.7)
