@@ -2,7 +2,7 @@ import { GW } from "../config.mjs";
 import { objetsPossedes, ACTIONS_OBJETS_POSSEDES, reactiverObjetsPossedes } from "../helpers/objets-possedes.mjs";
 import { rollCaracteristiqueD20, rollCaracteristiquePourcentage, rollSurvie } from "../helpers/rolls.mjs";
 import { applyRace } from "../helpers/race.mjs";
-import { applyMetier } from "../helpers/metier.mjs";
+import { applyMetier, choisirMetier } from "../helpers/metier.mjs";
 import { choisirItemCompendium } from "../helpers/compendium-picker.mjs";
 import { basculerCouvert, couvertActif, ligneTrait, basculerTraitActif, sourcesEffets } from "../helpers/effets.mjs";
 
@@ -101,7 +101,7 @@ export class PersonnageRapideSheet extends HandlebarsApplicationMixin(ActorSheet
 
   static async #onApplyMetier() {
     if (!this.isEditable) return;
-    const metier = await choisirItemCompendium("metiers", { title: game.i18n.localize("GALACTICWARS.Sheet.Metier") });
+    const metier = await choisirMetier();
     if (metier) await applyMetier(this.actor, metier);
   }
 

@@ -17,7 +17,25 @@
   bloquée sans bouton de jet, bouton présent une fois débloquée ; avantage : 2 utilisations simultanées du MJ ou 2 relais
   simultanés d'un joueur → 1 message ; MJ sans personnage = orateur l'équipage). Joueur, combat, scène et documents
   « [TEST] » supprimés ensuite. Toutes les corrections de l'audit sont désormais testées en direct, sauf G7 (deux MJ).
-- Le reste de la liste ci-dessous (état au 2026-09-30) est inchangé.
+- **Questions de règle : tranchées le 2026-10-07** (v0.20.7, branche `feat/questions-regle`, voir la session ci-dessous).
+- Le reste de la liste ci-dessous (état au 2026-09-30) est inchangé, sauf les questions de règle.
+
+## Session du 2026-10-07 — Questions de règle (v0.20.6→v0.20.7)
+
+- **Décisions de l'auteur** (questions posées dans Claude Code) :
+  - **compteur de niveaux de compétences** : une compétence bloquée compte 0, comme elle s'affiche (ses points sont à
+    redistribuer) ; le niveau enregistré est conservé et compte de nouveau si le MJ débloque la compétence ;
+  - **gain de niveau** : la même compétence peut recevoir plusieurs des 3 points (comportement déjà en place) — seul le
+    commentaire de `GW.competencesParNiveau` parlait de « compétences différentes » ;
+  - **affiliation des métiers** (`prerequis.texteLibre`, 9 métiers renseignés) : affichée, à titre indicatif.
+- **Fait** : `PersonnageSheet` (compteur `c.bloquee ? 0 : niveau`, info-bulle « Une compétence bloquée compte 0 ») ;
+  `choisirMetier` (`helpers/metier.mjs`) = sélecteur de métier des fiches classique et rapide, « Nom — affiliation » ;
+  option `libelle` de `choisirItemCompendium` ; champ « Affiliation / prérequis » dans la fiche du métier ; notes de version
+  0.20.7, cahier des charges.
+- **Testé en direct** (`-NoRestart`, `../audit/t18-regles.mjs`) — **6/6 OK** : compteur 23 avec Contrôle télékinétique
+  bloquée au niveau 2, 25 une fois débloquée, info-bulle en mode Édition ; gain de niveau 2 points sur la même compétence
+  (0 → 2) + 1 ailleurs, personnage 3 → 4 ; sélecteur : 9 métiers avec leur affiliation, « Annuler » sans choix ; fiche du
+  Padawan : « un maître » (lecture seule, compendium verrouillé). Documents « [TEST] » supprimés.
 
 ### État au 2026-09-30 soir — « note ce qu'on a fait, on s'arrête là pour ce soir »
 

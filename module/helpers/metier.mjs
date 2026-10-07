@@ -1,6 +1,19 @@
 import { objetDeDepart, estContactDeDepart, pnjDeDepart } from "./objets-depart.mjs";
 import { GW } from "../config.mjs";
 import { ficheDeLActeur } from "./effets.mjs";
+import { choisirItemCompendium } from "./compendium-picker.mjs";
+
+/** Choix d'un métier dans le compendium ; l'affiliation (prérequis en texte libre, indicatif) suit le nom. */
+export function choisirMetier() {
+  return choisirItemCompendium("metiers", {
+    title: game.i18n.localize("GALACTICWARS.Sheet.Metier"),
+    champs: ["system.prerequis.texteLibre"],
+    libelle: (entree) => {
+      const affiliation = entree.system?.prerequis?.texteLibre?.trim();
+      return affiliation ? `${entree.name} — ${affiliation}` : entree.name;
+    }
+  });
+}
 
 /** Types d'acteur qui reçoivent le trait du métier (fiche classique, fiche rapide, PNJ). */
 const TYPES_AVEC_TRAIT = ["personnage", "personnage-rapide", "pnj"];
