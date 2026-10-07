@@ -1,6 +1,20 @@
 # Journal de développement — Galactic Wars
 
-## À faire à la reprise (état au 2026-10-07, 20 h)
+## À faire à la reprise (état au 2026-10-08)
+
+- **t1 (rendu de toutes les fiches) : TERMINÉ, aucun problème réel.** Nouvelle version `../audit/t1b-rendu.mjs` (une fiche
+  par appel, délai 30 s, résultats au fil de l'eau dans `t1b-res.jsonl`, reprise `--depuis N`) : **361/361 fiches en
+  605 s** (25 acteurs du monde, 293 documents de compendium, objets embarqués, pages de générique ; chaque onglet et le
+  mode Édition) — aucun texte non traduit, `undefined` / `NaN`, image cassée, exception, `console.error`, délai dépassé
+  ni action sans handler du système. Les 163 fiches signalées par le script ne portent que les boutons de la barre
+  d'outils de l'éditeur ProseMirror de Foundry (`headings`, `h1`, `bold`, `insert-table`…) : faux positif du test, à
+  ajouter à `coreActions`.
+- Foundry avait été basculé sur le monde « Mer des pirates » entre-temps : remis sur `galacit-wars-v-final` (0.20.7,
+  `deploy-local.ps1 -Force`, accord de l'auteur).
+- **EN PAUSE (demande de l'auteur : « après le t1, on met en pause et on reprend plus tard »)**. Prochaine étape :
+  `t2-parcours.js` (attentes périmées connues ci-dessous), puis workflow de vérification (ultracode) des constats.
+
+## État au 2026-10-07, 20 h
 
 - **Session terminée le 2026-10-07** (« on s'arrête là pour ce soir ») : tout est commité et poussé, v0.20.7 publiée,
   aucune branche de travail, aucun script de test en cours. Reprise : relancer t1 (voir ci-dessous).
