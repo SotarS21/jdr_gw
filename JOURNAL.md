@@ -2,6 +2,9 @@
 
 ## À faire à la reprise (état au 2026-10-07, 20 h)
 
+- **Session terminée le 2026-10-07** (« on s'arrête là pour ce soir ») : tout est commité et poussé, v0.20.7 publiée,
+  aucune branche de travail, aucun script de test en cours. Reprise : relancer t1 (voir ci-dessous).
+
 - **Fait le 2026-10-07** (détail dans les sessions ci-dessous) :
   - tests en direct des corrections restées non testées (P7, Z2-4, Z2-5, V6, V7, V10) : 12/12 OK, sans changement de code ;
   - questions de règle tranchées par l'auteur → **v0.20.7 = dernière release** (compteur sans compétences bloquées,
