@@ -420,5 +420,13 @@ export const RELEASE_NOTES = {
       <li>Une page par entrée : image, caractéristiques (dégâts, compétence, réduction, prix…), description et lien vers la fiche du compendium, à glisser sur une fiche.</li>
       <li>Métiers : affiliation, talent, compétences du métier et au choix, trait de chaque fiche, équipement de départ.</li>
     </ul>`
+  },
+  "0.22.0": {
+    title: "v0.22.0 — Sabre Lumière / Obscurité",
+    html: `<ul>
+      <li><strong>Lumière / Obscurité</strong> : la carte de la fiche devient un sabre laser. Sa couleur suit l'équilibre (bleu si plus de Lumière, gris à égalité, rouge si plus d'Obscurité), son éclat la réserve la plus haute ; avec beaucoup d'Obscurité, la lame devient instable, puis une garde croisée apparaît (9 et 10). Lame éteinte sans aucun point.</li>
+      <li>Chaque réserve a une échelle de 10 barres : cliquer la barre <em>n</em> met la réserve à <em>n</em>, recliquer la plus haute retire un point. Les changements s'animent (allumage, passage du bleu au rouge).</li>
+      <li>Boutons « Utiliser un point » inchangés.</li>
+    </ul>`
   }
 };

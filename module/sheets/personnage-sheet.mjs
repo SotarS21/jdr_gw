@@ -33,8 +33,7 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       changerOnglet: PersonnageSheet.#onChangerOnglet,
       basculerEdition: PersonnageSheet.#onBasculerEdition,
       repos: PersonnageSheet.#onRepos,
-      ajusterLumiere: PersonnageSheet.#onAjusterLumiere,
-      ajusterObscurite: PersonnageSheet.#onAjusterObscurite,
+      fixerReserve: PersonnageSheet.#onFixerReserve,
       changerSousOnglet: PersonnageSheet.#onChangerSousOnglet,
       ajouterEntreeNote: PersonnageSheet.#onAjouterEntreeNote,
       editerEntreeNote: PersonnageSheet.#onEditerEntreeNote,
@@ -173,10 +172,11 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
         cle, valeur: system.infos[cle], label: `GALACTICWARS.Notes.Identite.${cle}`
       }));
     }
-    // Pips d'affichage pour les jauges Lumière/Obscurité (voir styles/galactic-wars.css) —
-    // purement visuel, la valeur réelle reste system.lumiere/system.obscurite.
-    context.pipsLumiere = Array.from({ length: 10 }, (_, i) => i < system.lumiere);
-    context.pipsObscurite = Array.from({ length: 10 }, (_, i) => i < system.obscurite);
+    // Échelles de 10 barres cliquables des réserves Lumière / Obscurité (affichage ; la valeur reste system.lumiere /
+    // system.obscurite).
+    const barres = (valeur) => Array.from({ length: 10 }, (_, i) => ({ valeur: i + 1, allumee: i < valeur }));
+    context.barresLumiere = barres(system.lumiere ?? 0);
+    context.barresObscurite = barres(system.obscurite ?? 0);
     context.equilibre = this.#preparerEquilibre(system.lumiere ?? 0, system.obscurite ?? 0);
     // Espace fine (U+2009, sécable) tous les 3 chiffres : autorise le retour à la ligne entre
     // deux groupes, contrairement à toLocaleString("fr") qui insère une espace insécable.
@@ -207,6 +207,27 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     this.#activerCredits();
     this.#activerInventaire();
     this.#activerRecherche();
+    this.#animerSabre();
+  }
+
+  /** Dernier état du sabre affiché, pour animer d'un rendu à l'autre (le DOM est remplacé à chaque rendu). */
+  #sabre = null;
+
+  /**
+   * Sabre Lumière / Obscurité : pose les variables CSS (--sabre-*) d'abord à leur valeur précédente, puis à la
+   * nouvelle à l'image suivante, pour que la transition CSS joue (allumage au premier affichage).
+   */
+  #animerSabre() {
+    const carte = this.element.querySelector(".stat-alignement[data-sabre]");
+    if (!carte) return;
+    const cible = JSON.parse(carte.dataset.sabre);
+    const depart = this.#sabre ?? { ...cible, on: 0 };
+    this.#sabre = cible;
+    const poser = (etat) => { for (const [k, v] of Object.entries(etat)) carte.style.setProperty(`--sabre-${k}`, v); };
+    poser(depart);
+    if (foundry.utils.objectsEqual(depart, cible)) return;
+    carte.getBoundingClientRect(); // fige l'état de départ avant la transition
+    requestAnimationFrame(() => poser(cible));
   }
 
   /** Barres de recherche des PNJ et des missions : filtre les cartes à la frappe (nom, sous-titre, statut, texte),
@@ -348,20 +369,29 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     }
   }
 
-  /** Jauge Lumière/Obscurité : position du curseur (0 % = tout Lumière, 100 % = tout Obscurité),
-   *  part de rouge dans la teinte de la carte, intensité (réserve la plus haute / 10) et tendance. */
+  /**
+   * Sabre Lumière / Obscurité (maquette « sabre laser » choisie par l'auteur, 2026-10-08) : couleur = équilibre
+   * (bleu si plus de Lumière, gris à égalité, rouge si plus d'Obscurité), puissance = réserve la plus haute, lame
+   * instable puis garde croisée quand l'Obscurité monte, lame éteinte sans aucun point.
+   * `sabre` : variables CSS --sabre-* (nombres), animées par #animerSabre.
+   */
   #preparerEquilibre(lumiere, obscurite) {
     const total = lumiere + obscurite;
     const ecart = obscurite - lumiere;
-    const tendance = ecart === 0 ? "neutre"
+    const tendance = total === 0 ? "vide" : ecart === 0 ? "neutre"
       : Math.abs(ecart) >= 4 ? (ecart > 0 ? "obscurite-dominante" : "lumiere-dominante")
       : (ecart > 0 ? "penche-obscurite" : "penche-lumiere");
+    const borne = (x) => Math.min(1, Math.max(0, x));
     return {
-      curseur: 50 + ecart * 5,
-      rouge: total ? Math.round((obscurite / total) * 100) : 50,
-      intensite: total ? (Math.max(lumiere, obscurite) / 10).toFixed(2) : 0,
       cote: total === 0 ? "vide" : ecart > 0 ? "obscurite" : ecart < 0 ? "lumiere" : "neutre",
-      tendance: `GALACTICWARS.Alignement.Tendance.${tendance}`
+      tendance: `GALACTICWARS.Alignement.Tendance.${tendance}`,
+      sabre: JSON.stringify({
+        on: total ? 1 : 0,
+        ecart: ecart / 10,
+        t: Math.max(lumiere, obscurite) / 10,
+        instable: borne((obscurite - 6) / 4),
+        garde: borne((obscurite - 8) / 2)
+      })
     };
   }
 
@@ -899,12 +929,16 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     }
   }
 
-  static async #onAjusterLumiere(event, target) {
-    await this.#ajusterReserve("lumiere", Number(target.dataset.delta));
-  }
-
-  static async #onAjusterObscurite(event, target) {
-    await this.#ajusterReserve("obscurite", Number(target.dataset.delta));
+  /** Clic sur la barre n d'une réserve : la réserve passe à n ; sur la barre la plus haute allumée, elle redescend
+   *  d'un point (pour pouvoir revenir à 0). Valeur absolue : un clic reçu pendant l'écriture précédente est ignoré
+   *  (la valeur locale n'est pas encore à jour). */
+  static async #onFixerReserve(event, target) {
+    const cle = target.dataset.reserve;
+    if (!["lumiere", "obscurite"].includes(cle) || this.#ajustementsEnCours.has(cle)) return;
+    const actuelle = this.actor.system[cle] ?? 0;
+    const n = Number(target.dataset.valeur);
+    const cible = n === actuelle ? n - 1 : n;
+    if (cible !== actuelle) await this.#ajusterReserve(cle, cible - actuelle);
   }
 
   async #ajusterReserve(cle, delta) {
