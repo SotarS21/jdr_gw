@@ -155,8 +155,8 @@ GW.seuilReussiteCritique = 5;
 GW.seuilEchecCritique = 96;
 GW.gainExperience = 5;
 
-/** Gain de niveau (mode Édition) : +1 niveau sur ce nombre de compétences différentes, dans la limite du niveau
- *  maximal ; le niveau du personnage gagne aussi 1 (confirmé par l'auteur, 2026-09-26). */
+/** Gain de niveau (mode Édition) : ce nombre de points de +1 niveau, la même compétence pouvant en recevoir plusieurs
+ *  (confirmé par l'auteur, 2026-10-07), dans la limite du niveau maximal ; le niveau du personnage gagne aussi 1 (confirmé par l'auteur, 2026-09-26). */
 GW.competencesParNiveau = 3;
 GW.niveauMaxCompetence = 3;
 GW.gainNiveauPersonnage = true;

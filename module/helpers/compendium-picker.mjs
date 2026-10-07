@@ -5,10 +5,11 @@
  * aucun moyen de renseigner `system.race.uuid`/`system.metier.uuid`/`system.ecole.uuid`
  * (seul un glisser-déposer depuis la sidebar l'aurait permis, non implémenté).
  * @param {string} packName nom du compendium (ex. "races", "metiers"), sans le préfixe système.
- * @param {{title?: string}} [options]
+ * @param {{title?: string, filtre?: Function, champs?: string[], libelle?: Function}} [options] `libelle` : texte de
+ *   l'option pour une entrée de l'index (son nom par défaut).
  * @returns {Promise<Item|null>}
  */
-export async function choisirItemCompendium(packName, { title, filtre, champs = [] } = {}) {
+export async function choisirItemCompendium(packName, { title, filtre, champs = [], libelle = (entree) => entree.name } = {}) {
   // Plusieurs compendiums possibles (ex. traits + talents, v0.20.0) : entrées fusionnées, repérées par leur uuid.
   const noms = Array.isArray(packName) ? packName : [packName];
   const packs = noms.map((nom) => game.packs.get(`galactic-wars.${nom}`)).filter(Boolean);
@@ -27,7 +28,7 @@ export async function choisirItemCompendium(packName, { title, filtre, champs = 
   }
 
   const echapper = foundry.utils.escapeHTML;
-  const options = index.map((entree) => `<option value="${echapper(entree.uuid)}">${echapper(entree.name)}</option>`).join("");
+  const options = index.map((entree) => `<option value="${echapper(entree.uuid)}">${echapper(libelle(entree))}</option>`).join("");
   const content = `<div class="form-group"><label>${game.i18n.localize("GALACTICWARS.Sheet.Choisir")}</label>
     <select name="choix" autofocus>${options}</select></div>`;
 

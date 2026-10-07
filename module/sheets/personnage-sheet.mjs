@@ -1,7 +1,7 @@
 import { GW } from "../config.mjs";
 import { rollCompetence } from "../helpers/rolls.mjs";
 import { applyRace } from "../helpers/race.mjs";
-import { applyMetier } from "../helpers/metier.mjs";
+import { applyMetier, choisirMetier } from "../helpers/metier.mjs";
 import { choisirItemCompendium } from "../helpers/compendium-picker.mjs";
 import { editerEntreeNote, supprimerEntreeNote, pnjDepuisActeur, ajouterEntreeNote, montrerEntreeNote, entreeDepuisGlisser } from "../helpers/notes.mjs";
 import { vaisseauDEquipage } from "../helpers/equipage.mjs";
@@ -126,7 +126,9 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
         : pointsCaracteristiques < GW.pointsCaracteristiques ? "manque" : "exces"
     };
     // Niveaux de compétences répartis (somme des niveaux 0-3) comparés au nombre attendu pour le niveau du personnage.
-    const niveauxRepartis = system.competences.reduce((s, c) => s + (c.niveau ?? 0), 0);
+    // Une compétence bloquée compte 0, comme elle s'affiche (décision de l'auteur, 2026-10-07) : ses points sont à
+    // redistribuer ; son niveau enregistré revient si le MJ la débloque.
+    const niveauxRepartis = system.competences.reduce((s, c) => s + (c.bloquee ? 0 : c.niveau ?? 0), 0);
     const niveauxAttendus = GW.niveauxCompetencesDepart + GW.niveauxCompetencesParNiveau * Math.max(0, (system.niveau ?? 1) - 1);
     context.niveauxCompetences = {
       valeur: niveauxRepartis,
@@ -931,7 +933,7 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 
   static async #onApplyMetier(event, target) {
     if (!this.modeEdition) return;
-    const metier = await choisirItemCompendium("metiers", { title: game.i18n.localize("GALACTICWARS.Sheet.Metier") });
+    const metier = await choisirMetier();
     if (metier) await applyMetier(this.actor, metier);
   }
 

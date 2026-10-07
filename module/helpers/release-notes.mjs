@@ -404,5 +404,13 @@ export const RELEASE_NOTES = {
       <li>Générique : « Arrêter pour tous » sur la page du journal ; « Passer » ne relance plus le texte ; l'aperçu n'est plus interrompu par une diffusion ; image de fond avec apostrophe.</li>
       <li>Fiche sith : capacités spéciales d'école modifiables ; prétirés sith liés à leur race. Animations : JB2A Patreon reconnu.</li>
     </ul>`
+  },
+  "0.20.7": {
+    title: "v0.20.7 — Règles précisées",
+    html: `<ul>
+      <li><strong>Niveaux de compétences</strong> : une compétence bloquée (réservée à un autre métier) compte 0 dans le compteur, comme elle s'affiche — ses points sont à redistribuer. Si le MJ la débloque, son niveau revient.</li>
+      <li><strong>Gain de niveau</strong> : règle confirmée, la même compétence peut recevoir plusieurs des 3 points (niveau 3 au maximum).</li>
+      <li><strong>Métiers</strong> : l'affiliation (« empire / république / privé », « un maître »…) s'affiche dans le choix du métier et se modifie dans la fiche du métier. Indicatif : rien n'est vérifié.</li>
+    </ul>`
   }
 };
