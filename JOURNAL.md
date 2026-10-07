@@ -11,8 +11,12 @@
 - **Foundry local** : monde `galacit-wars-v-final`, redémarré en 0.20.6.
 - **Monde de l'auteur** : correctif MJ `0.20.5-postes-vaisseaux` en attente s'il n'a pas encore été accepté (Lantallian,
   Le Barmaid Betty).
-- **À vérifier en jeu à l'occasion** : défense non rejouable après rechargement, message d'initiative déjà lancée, bloc
-  Vaisseau rafraîchi, avantage d'équipage (relais simultanés, MJ sans personnage), jet de poste d'une compétence bloquée.
+- **Testé en direct le 2026-10-07** (`../audit/t17-non-testes.mjs`, `-NoRestart` inutile : aucun changement de code) :
+  P7, Z2-4, Z2-5, V6, V7, V10 — **12/12 OK** (défense « déjà jouée » après rechargement ; bloc Vaisseau 30 → 23 / 30 en
+  direct, hook retiré à la fermeture ; 2e clic d'initiative → message, initiative inchangée ; poste lié à une compétence
+  bloquée sans bouton de jet, bouton présent une fois débloquée ; avantage : 2 utilisations simultanées du MJ ou 2 relais
+  simultanés d'un joueur → 1 message ; MJ sans personnage = orateur l'équipage). Joueur, combat, scène et documents
+  « [TEST] » supprimés ensuite. Toutes les corrections de l'audit sont désormais testées en direct, sauf G7 (deux MJ).
 - Le reste de la liste ci-dessous (état au 2026-09-30) est inchangé.
 
 ### État au 2026-09-30 soir — « note ce qu'on a fait, on s'arrête là pour ce soir »
