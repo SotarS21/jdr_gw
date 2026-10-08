@@ -1,5 +1,25 @@
 # Journal de développement — Galactic Wars
 
+## État au 2026-10-09, nuit — fin de session
+
+- **Session terminée** (« on s'arrête là pour ce soir »). Galactic Wars : **v0.22.0 = dernière release**, Foundry redémarré
+  en 0.22.0 le 2026-10-08 (vérifié), tout commité et poussé, aucune branche. Le reste de la session a porté sur les deux
+  autres projets (voir leurs `JOURNAL.md`) :
+  - **Mer des Pirates** : 5 points « BUG pirate » (marqués DONE dans `todo_foundry.txt`), onglet Notes, traits classiques
+    + panneau d'effets, tous les tokens de pirates liés — **à vérifier en jeu par l'auteur**. Pas de git : choix de l'auteur.
+  - **Antique** : v0.6.151 (point 80 : statuts classiques, compétences des PNJ), dépôt **public** (historique réécrit avec
+    l'e-mail noreply), v0.6.152 (effets sans action réparés) ; releases publiées, manifest partageable
+    `https://github.com/SotarS21/jdr_antik/releases/latest/download/system.json`.
+- **Foundry** : monde `testantique` actif (l'auteur y était connecté).
+- **Reste à faire** :
+  - Antique : F5, puis cocher dans l'écran des correctifs « 12 statuts classiques » et les 2 correctifs « Effets
+    invalides de Xeno / Eosyne » ; revérifier point par point la section « BUG Antique » de `todo_foundry.txt`.
+  - Mer des Pirates : vérification en jeu par l'auteur ; sauvegarde d'avant les modifications du 8 octobre seulement dans
+    le dossier temporaire de session (copie à côté du projet proposée, pas faite).
+  - Galactic Wars : confirmer les choix (un seul compendium pour les 4 journaux ; sabre : instabilité 6-10, garde croisée
+    9-10, jauge supprimée) ; points ouverts G7 (deux MJ, lu seulement), V8 (expéditeur des sockets), test t2 « compétences
+    alphabétiques » sans sélecteur valide, `t16-mineurs.mjs` périmé ; deux tableurs Google de la todo au statut inconnu.
+
 ## Session du 2026-10-08 — Foundry redémarré en 0.22.0
 
 - À la demande de l'auteur : `deploy-local.ps1` (aucun utilisateur connecté, pas besoin de `-Force`), Foundry relancé
