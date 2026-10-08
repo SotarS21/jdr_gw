@@ -1,5 +1,11 @@
 # Journal de développement — Galactic Wars
 
+## Session du 2026-10-08 — Foundry redémarré en 0.22.0
+
+- À la demande de l'auteur : `deploy-local.ps1` (aucun utilisateur connecté, pas besoin de `-Force`), Foundry relancé
+  sur `galacit-wars-v-final`, `/api/status` annonce **0.22.0**. `verify-local.mjs` : version 0.22.0, compendium
+  `journaux` = 4 journaux, `styles/alignement.css` servi (200) et importé par `galactic-wars.css`, aucune erreur de page.
+
 ## État au 2026-10-08, soir — fin de session
 
 - **Session terminée** (« on s'arrête là pour ce soir ») : tout est commité et poussé, **v0.22.0 = dernière release**,
