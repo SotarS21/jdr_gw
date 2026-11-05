@@ -1,0 +1,26 @@
+{
+  "_key": "!items!jqYd931T0zWl6E6Y",
+  "_id": "jqYd931T0zWl6E6Y",
+  "name": "Tricheur",
+  "type": "talent",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "avantage": "Trois fois par jour, permet de relancer un dé, quel que soit le résultat.",
+    "inconvenient": "",
+    "fiche": "toutes",
+    "description": ""
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.25.0"
+  }
+}
