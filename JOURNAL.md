@@ -10,6 +10,7 @@
   fiche rapide, acteurs de test supprimés. Foundry relancé deux fois (Tricheur, puis Rancunier reçu en cours de route).
 - Rappel : `creer-talents.mjs` réécrit tous les talents en LF ; seules les différences de fin de ligne apparaissent sur
   les autres fichiers (aucun changement de contenu) — ne pas les commiter.
+- **Release v0.25.2 publiée** à la demande de l'auteur (fusion dans main, tag, workflow vert, manifeste `latest` en 0.25.2). **Plus aucun point ouvert** sur Galactic Wars.
 
 ## Session du 2026-11-05 (suite) — Points ouverts (v0.25.0→v0.25.1, branche `fix/barres-reserve-clics-rapides`)
 
