@@ -1,5 +1,19 @@
 # Journal de développement — Galactic Wars
 
+## Session du 2026-11-05 (suite) — Choix confirmés, fiche de WOLF
+
+- **Confirmés par l'auteur** : un seul compendium pour les 4 journaux du catalogue (pages alphabétiques, générés) ;
+  sabre Lumière / Obscurité (instabilité 6-10, garde croisée 9-10, jauge d'équilibre supprimée).
+- **WOLF** (tableur Google public, exporté en xlsx) : fiche **classique** dans le monde de campagne, livrée en **macro**
+  (`../audit/macro-wolf.js`, à lancer par l'auteur, préférence « données du monde par macro »). Race Robot, métier
+  Robot quadrupède / droïde (son équipement de départ = celui de WOLF, porté ; griffes et crocs en arme de Bagarre 1d8),
+  niveau 7, Corps 45 / Mental 35 / Dextérité 40, 24 niveaux de compétence (Médecine débloquée), points ajoutés à la main
+  sur le tableur repris en expérience (Blocage +10, Mécanique +15, Survie +20, Commander +10, Sagesse +5, Artisanat +5),
+  10 traits robot + Châssis blindé, 13 objets d'inventaire (dont la réserve du vaisseau), 8 714 c, 16 PV ; onglet Notes :
+  25 PNJ, 4 infos, 2 missions. **Non repris** : « Charge » niveau 2 (pas une compétence : trait Charge), alignement
+  « Lumière 1150 » (ancienne échelle, à reporter par le MJ). Totaux plus élevés que sur le tableur : le système ajoute la
+  caractéristique, pas le tableur. Testée sous « [TEST] WOLF » (`../audit/t23-wolf.js`, 17/17 deux fois, supprimé).
+
 ## Session du 2026-11-05 (suite) — Races et métiers manquants (v0.23.0→v0.24.0, branche `feat/races-metiers-rapides`)
 
 - **Sources** : aucune pour les races (Besalisk, Pantoran absents du PDF ; Evocci, Ewok, Klatooinian = noms seuls p. 52-53) ;
