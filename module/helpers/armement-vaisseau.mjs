@@ -43,12 +43,13 @@ export async function convertirArmement(vaisseau) {
 }
 
 /**
- * Tireur d'une arme de vaisseau : acteur du token sélectionné qui a des compétences (fiche classique), sinon le
- * personnage de l'utilisateur. null si aucun.
+ * Tireur d'une arme de vaisseau : acteur du token sélectionné qui peut tirer — fiche classique (compétences), fiche
+ * rapide ou PNJ (Cap. Tir, choix de l'auteur 2026-11-05) —, sinon le personnage de l'utilisateur. null si aucun.
  */
 export function tireurSelectionne() {
-  const aDesCompetences = (acteur) => Array.isArray(acteur?.system?.competences) && acteur.system.competences.length > 0;
-  const token = canvas?.tokens?.controlled?.find((t) => aDesCompetences(t.actor));
+  const peutTirer = (acteur) => ["personnage-rapide", "pnj"].includes(acteur?.type)
+    || (Array.isArray(acteur?.system?.competences) && acteur.system.competences.length > 0);
+  const token = canvas?.tokens?.controlled?.find((t) => peutTirer(t.actor));
   if (token) return token.actor;
-  return aDesCompetences(game.user.character) ? game.user.character : null;
+  return peutTirer(game.user.character) ? game.user.character : null;
 }

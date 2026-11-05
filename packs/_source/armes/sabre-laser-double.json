@@ -9,7 +9,8 @@
     "competence": "sabreLaser",
     "instable": false,
     "description": "<p>Sabre laser à deux lames opposées, arme spectaculaire et exigeante qui demande une maîtrise parfaite pour ne pas se blesser.</p>",
-    "prix": "NA"
+    "prix": "NA",
+    "caracteristique": "capCombat"
   },
   "folder": null,
   "sort": 100000,

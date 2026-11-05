@@ -11,6 +11,9 @@ export class ArmeData extends foundry.abstract.TypeDataModel {
       degats: new StringField({ required: true, initial: "1d6" }),
       // Clé GW.competences utilisée pour l'attaque ("" = aucune, attaque impossible).
       competence: new StringField({ initial: "blaster", blank: true }),
+      // Clé GW.caracteristiquesRapides jouée par une fiche rapide / un PNJ (v0.26.0) ; "" = déduite de la compétence
+      // (GW.caracteristiqueRapideParCompetence, voir GalacticWarsItem#caracteristiqueArme).
+      caracteristique: new StringField({ initial: "", blank: true }),
       instable: new BooleanField({ initial: false }),
       portee: new StringField({ initial: "" }) // texte libre (ex. "courte", "20 m")
     };

@@ -9,7 +9,8 @@
     "competence": "armeBlanche",
     "instable": false,
     "description": "<p>Matraque, gourdin ou barre de métal : l'arme de fortune des bagarres de cantina et des ruelles mal famées.</p>",
-    "prix": "522c"
+    "prix": "522c",
+    "caracteristique": "capCombat"
   },
   "folder": null,
   "sort": 100000,

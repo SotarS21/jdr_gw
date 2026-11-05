@@ -73,8 +73,8 @@ export async function rollCompetence(actor, cle, { titre } = {}) {
     flags: drapeauResultat(resultat)
   });
 
-  // `cible` : taux effectif du jet (marge = cible − dé, voir helpers/combat.mjs).
-  return { ...resultat, cible };
+  // `cible` : taux effectif du jet (marge = cible − dé, voir helpers/combat.mjs) ; `echelle` : d20 ou pourcentage.
+  return { ...resultat, cible, echelle: "pourcentage" };
 }
 
 /**
@@ -119,7 +119,7 @@ async function rollPourcentageSimple(actor, libelle, cible) {
  * @param {string} cle une des 8 clés de system.caracteristiques (force, capCombat, capTir,
  *   dexterite, mentale, perception, stress, affForce)
  */
-export async function rollCaracteristiqueD20(actor, cle) {
+export async function rollCaracteristiqueD20(actor, cle, { titre } = {}) {
   if (actor.type !== "personnage-rapide") {
     throw new Error("rollCaracteristiqueD20 attend un Actor de type personnage-rapide");
   }
@@ -145,11 +145,11 @@ export async function rollCaracteristiqueD20(actor, cle) {
   const resultat = { reussite, critique, echecCritique };
   await roll.toMessage({
     speaker: ChatMessage.getSpeaker({ actor }),
-    flavor: `${flavor}<br>${libelleResultat(resultat)}`,
+    flavor: `${titreDuJet(titre)}${flavor}<br>${libelleResultat(resultat)}`,
     flags: drapeauResultat(resultat)
   });
 
-  return { roll, reussite, critique, echecCritique };
+  return { roll, reussite, critique, echecCritique, cible: valeur, echelle: "d20" };
 }
 
 /**
@@ -160,7 +160,7 @@ export async function rollCaracteristiqueD20(actor, cle) {
  * @param {Actor} actor
  * @param {string} cle une des 8 clés de system.caracteristiques
  */
-export async function rollCaracteristiquePourcentage(actor, cle) {
+export async function rollCaracteristiquePourcentage(actor, cle, { titre } = {}) {
   if (actor.type !== "pnj") {
     throw new Error("rollCaracteristiquePourcentage attend un Actor de type pnj");
   }
@@ -171,19 +171,48 @@ export async function rollCaracteristiquePourcentage(actor, cle) {
     return null;
   }
 
-  const resultat = await resoudrePourcentage(valeur);
+  // Plafond à 100, comme rollCompetence (v0.26.0) : la marge d'un jet en % ne dépasse pas l'échelle.
+  const cible = Math.min(100, valeur);
+  const resultat = await resoudrePourcentage(cible);
   const flavor = game.i18n.format("GALACTICWARS.Jet.Flavor", {
     competence: game.i18n.localize(GW.caracteristiquesRapides[cle] ?? cle),
-    cible: valeur
+    cible
   });
 
   await resultat.roll.toMessage({
     speaker: ChatMessage.getSpeaker({ actor }),
-    flavor: `${flavor}<br>${libelleResultat(resultat)}`,
+    flavor: `${titreDuJet(titre)}${flavor}<br>${libelleResultat(resultat)}`,
     flags: drapeauResultat(resultat)
   });
 
-  return resultat;
+  return { ...resultat, cible, echelle: "pourcentage" };
+}
+
+/** Ligne de titre (nom de l'arme…) en tête d'un jet, échappée. */
+function titreDuJet(titre) {
+  return titre ? `<strong class="gw-jet-titre">${foundry.utils.escapeHTML(titre)}</strong><br>` : "";
+}
+
+/**
+ * Jet d'attaque ou de défense selon la fiche (v0.26.0) : compétence en % (classique), caractéristique en d20
+ * (fiche rapide) ou en % (PNJ). null si le jet est impossible (avertissement déjà affiché).
+ * @param {Actor} actor
+ * @param {{competence?: string, caracteristique?: string, titre?: string}} options
+ */
+export async function rollAttaque(actor, { competence, caracteristique, titre } = {}) {
+  const type = actor?.type;
+  if (type === "personnage") return rollCompetence(actor, competence, { titre });
+  if (type === "personnage-rapide" || type === "pnj") {
+    if (!caracteristique) {
+      ui.notifications.warn(game.i18n.format("GALACTICWARS.Objet.SansCaracteristique", { nom: titre ?? "" }));
+      return null;
+    }
+    return type === "pnj"
+      ? rollCaracteristiquePourcentage(actor, caracteristique, { titre })
+      : rollCaracteristiqueD20(actor, caracteristique, { titre });
+  }
+  ui.notifications.warn(game.i18n.format("GALACTICWARS.Objet.FicheSansAttaque", { nom: actor?.name ?? "" }));
+  return null;
 }
 
 /**

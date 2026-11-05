@@ -9,7 +9,8 @@
     "competence": "sabreLaser",
     "instable": false,
     "description": "<p>Arme élégante des chevaliers jedi et des seigneurs sith : une lame d'énergie pure, alimentée par un cristal kyber. Introuvable dans le commerce.</p>",
-    "prix": "NA"
+    "prix": "NA",
+    "caracteristique": "capCombat"
   },
   "folder": null,
   "sort": 100000,

@@ -65,7 +65,8 @@ export async function animerAttaque(arme, tireur, cibles, touche) {
       return;
     }
     if (!animationsDisponibles()) return;
-    let type = PAR_COMPETENCE[arme.system.competence] ?? "melee";
+    // Arme sans compétence classique mais en Cap. Tir (fiche rapide) : animation de tir.
+    let type = PAR_COMPETENCE[arme.system.competence] ?? (arme.caracteristiqueArme === "capTir" ? "tir" : "melee");
     if (type === "tir" && arme.actor?.type === "vaisseau") type = "tirVaisseau";
     const sequence = new Sequence();
     if (!cibles.length) {

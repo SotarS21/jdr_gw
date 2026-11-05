@@ -170,6 +170,22 @@ GW.competencesDistance = ["blaster", "canonLourd", "artifice"];
 /** Défenses proposées à la cible d'une attaque réussie (toujours les deux, choix de l'auteur). */
 GW.competencesDefense = ["paradeEsquive", "protectionDeForce"];
 
+/**
+ * Caractéristique jouée par une fiche rapide / un PNJ avec une arme dont `system.caracteristique` est vide, d'après
+ * sa compétence (choix de l'auteur, 2026-11-05) : tir et explosifs en Cap. Tir, toute la mêlée en Cap. Cmbt.
+ */
+GW.caracteristiqueRapideParCompetence = {
+  blaster: "capTir", canonLourd: "capTir", artifice: "capTir",
+  armeBlanche: "capCombat", bagarre: "capCombat", sabreLaser: "capCombat"
+};
+
+/**
+ * Défense d'une fiche rapide / d'un PNJ ciblé (choix de l'auteur, 2026-11-05) : une seule défense, selon la
+ * caractéristique de l'attaque — esquive en Dextérité contre la mêlée (Cap. Cmbt, Force), Aff. Force contre le tir.
+ */
+GW.defenseRapideContre = { capTir: "affForce" };
+GW.defenseRapideParDefaut = "dexterite";
+
 /** Initiative du combat Foundry (choix de l'auteur, 2026-09-25) : 1d20 simple, pour toutes les fiches. */
 GW.formuleInitiative = "1d20";
 

@@ -24,6 +24,16 @@
           {{/each}}
         </select>
       </label>
+      {{!-- Fiche rapide / PNJ (v0.26.0) : caractéristique jouée ; vide = déduite de la compétence ci-dessus. --}}
+      <label class="objet-champ">
+        <span class="eyebrow">{{localize 'GALACTICWARS.Objet.CaracteristiqueRapide'}}</span>
+        <select name="system.caracteristique">
+          <option value="" {{#unless system.caracteristique}}selected{{/unless}}>{{arme.libelleDeduite}}</option>
+          {{#each arme.caracteristiques as |c|}}
+          <option value="{{c.cle}}" {{#if c.selected}}selected{{/if}}>{{c.label}}</option>
+          {{/each}}
+        </select>
+      </label>
       <label class="objet-champ">
         <span class="eyebrow">{{localize 'GALACTICWARS.Objet.Portee'}}</span>
         <input type="text" name="system.portee" value="{{system.portee}}">
@@ -48,19 +58,19 @@
   {{#if arme.porteurPersonnage}}
   <section class="objet-panneau objet-porteur">
     <div class="objet-taux {{#if arme.taux.bloquee}}bloquee{{/if}}">
-      <span class="eyebrow">{{localize 'GALACTICWARS.Objet.TauxCompetence'}}</span>
+      <span class="eyebrow">{{#if arme.porteurRapide}}{{localize 'GALACTICWARS.Objet.ValeurCaracteristique'}}{{else}}{{localize 'GALACTICWARS.Objet.TauxCompetence'}}{{/if}}</span>
       <span class="objet-taux-valeur">
         {{#if arme.taux}}
         <span class="objet-taux-label">{{arme.taux.label}}</span>
         {{#if arme.taux.bloquee}}
         <span class="objet-taux-total mono"><i class="fa-solid fa-lock"></i> {{localize 'GALACTICWARS.Objet.CompetenceBloquee'}}</span>
         {{else if arme.taux.trouvee}}
-        <span class="objet-taux-total mono">{{arme.taux.total}} %</span>
+        <span class="objet-taux-total mono">{{arme.taux.total}} {{arme.taux.unite}}</span>
         {{else}}
         <span class="objet-taux-total mono">—</span>
         {{/if}}
         {{else}}
-        <span class="objet-taux-label">{{localize 'GALACTICWARS.Objet.AucuneCompetence'}}</span>
+        <span class="objet-taux-label">{{#if arme.porteurRapide}}{{localize 'GALACTICWARS.Objet.AucuneCaracteristique'}}{{else}}{{localize 'GALACTICWARS.Objet.AucuneCompetence'}}{{/if}}</span>
         {{/if}}
       </span>
     </div>

@@ -1,5 +1,5 @@
 import { GW } from "../config.mjs";
-import { rollCompetence } from "./rolls.mjs";
+import { rollAttaque } from "./rolls.mjs";
 
 /**
  * Attaque → défense (demande de l'auteur, 2026-09-25). Une attaque réussie sur des tokens ciblés
@@ -7,11 +7,14 @@ import { rollCompetence } from "./rolls.mjs";
  * Protection de la Force — les deux sont toujours proposées, que l'arme soit de mêlée ou à distance.
  * Si la défense réussit aussi, la meilleure réussite l'emporte : critique > simple, puis la plus
  * grande marge (taux − dé) ; à égalité, la défense l'emporte.
+ * Fiches rapide / PNJ (v0.26.0, choix de l'auteur) : la cible n'a qu'une défense, selon la caractéristique de
+ * l'attaque (GW.defenseRapideContre) ; entre un jet en d20 et un jet en %, pas de comparaison de marges : une défense
+ * réussie annule l'attaque.
  */
 
-/** Arme à distance d'après sa compétence liée (GW.competencesDistance), sinon mêlée. */
+/** Arme à distance d'après sa compétence liée (GW.competencesDistance) ou sa caractéristique (Cap. Tir), sinon mêlée. */
 export function estArmeADistance(arme) {
-  return GW.competencesDistance.includes(arme?.system?.competence);
+  return GW.competencesDistance.includes(arme?.system?.competence) || arme?.caracteristiqueArme === "capTir";
 }
 
 /** Résumé d'un jet de compétence réussi ou non, pour comparaison et affichage. */
@@ -21,6 +24,9 @@ function resume(resultat) {
     cible: resultat.cible,
     reussite: resultat.reussite,
     critique: resultat.critique,
+    echecCritique: !!resultat.echecCritique,
+    // Échelle du jet (« d20 » fiche rapide, « pourcentage » sinon) : les marges ne se comparent que sur la même.
+    echelle: resultat.echelle ?? "pourcentage",
     marge: resultat.cible - resultat.roll.total
   };
 }
@@ -29,6 +35,8 @@ function resume(resultat) {
 export function attaqueLEmporte(attaque, defense) {
   if (!attaque.reussite) return false;
   if (!defense.reussite) return true;
+  // d20 contre % : pas de comparaison de marges, la défense réussie l'emporte (choix de l'auteur, 2026-11-05).
+  if ((attaque.echelle ?? "pourcentage") !== (defense.echelle ?? "pourcentage")) return false;
   const rang = (j) => (j.critique ? 2 : 1);
   if (rang(attaque) !== rang(defense)) return rang(attaque) > rang(defense);
   return attaque.marge > defense.marge;
@@ -60,16 +68,23 @@ export async function proposerDefense(arme, resultat, tokens) {
     </div>`,
     flags: {
       "galactic-wars": {
-        defense: { armeNom: arme.name, attaquant: arme.actor?.name ?? "", attaque: resume(resultat) }
+        defense: {
+          armeNom: arme.name, attaquant: arme.actor?.name ?? "", attaque: resume(resultat),
+          // Caractéristique de l'attaque (Cap. Tir, Cap. Cmbt…) : choisit la défense d'une fiche rapide / d'un PNJ.
+          caracteristique: arme.caracteristiqueArme ?? "", distance
+        }
       }
     }
   });
 }
 
-/** Défense choisie par la cible : jet, puis verdict posté dans le tchat. */
-async function defendre(actor, nomCible, cle, defense, trace) {
+/**
+ * Défense choisie par la cible : jet, puis verdict posté dans le tchat.
+ * @param {{competence?: string, caracteristique?: string}} jet compétence (classique) ou caractéristique (rapide / PNJ)
+ */
+async function defendre(actor, nomCible, jet, defense, trace) {
   const titre = game.i18n.format("GALACTICWARS.Combat.DefenseContre", { arme: defense.armeNom });
-  const resultat = await rollCompetence(actor, cle, { titre });
+  const resultat = await rollAttaque(actor, { ...jet, titre });
   if (!resultat) return;
   const touche = attaqueLEmporte(defense.attaque, resume(resultat));
   const echapper = foundry.utils.escapeHTML;
@@ -109,8 +124,30 @@ function brancherDefense(message, html) {
       zone.innerHTML = `<em>${game.i18n.localize("GALACTICWARS.Combat.DefenseJouee")}</em>`;
       continue;
     }
+    const trace = { message: message.id, token: ligne.dataset.tokenUuid };
+    if (["personnage-rapide", "pnj"].includes(actor.type)) {
+      // Une seule défense, d'après la caractéristique de l'attaque (Cap. Tir → Aff. Force, sinon esquive en Dextérité).
+      // Ancienne carte sans caractéristique : la distance de l'arme en tient lieu.
+      const attaque = defense.caracteristique || (defense.distance ? "capTir" : "capCombat");
+      const carac = GW.defenseRapideContre[attaque] ?? GW.defenseRapideParDefaut;
+      const valeur = actor.system.caracteristiquesTotales?.[carac] ?? 0;
+      const pnj = actor.type === "pnj";
+      const libelle = carac === "dexterite"
+        ? game.i18n.localize("GALACTICWARS.Combat.EsquiveDexterite")
+        : game.i18n.localize(GW.caracteristiquesRapides[carac]);
+      const bouton = document.createElement("button");
+      bouton.type = "button";
+      bouton.innerHTML = `${libelle} <span class="mono">${pnj ? Math.min(100, valeur) : valeur}${pnj ? "%" : ""}</span>`;
+      bouton.addEventListener("click", async (event) => {
+        event.preventDefault();
+        bouton.disabled = true;
+        await defendre(actor, token.name, { caracteristique: carac }, defense, trace);
+      });
+      zone.append(bouton);
+      continue;
+    }
     if (!actor.system.competences) {
-      // PNJ sans compétences en % : défense résolue à la main par le MJ.
+      // Fiche sans compétences ni caractéristiques jouables (sith…) : défense résolue à la main par le MJ.
       zone.innerHTML = `<em>${game.i18n.localize("GALACTICWARS.Combat.DefenseManuelle")}</em>`;
       continue;
     }
@@ -127,7 +164,7 @@ function brancherDefense(message, html) {
       bouton.addEventListener("click", async (event) => {
         event.preventDefault();
         for (const b of zone.querySelectorAll("button")) b.disabled = true;
-        await defendre(actor, token.name, cle, defense, { message: message.id, token: ligne.dataset.tokenUuid });
+        await defendre(actor, token.name, { competence: cle }, defense, trace);
       });
       zone.append(bouton);
     }

@@ -1,5 +1,12 @@
 # Journal de développement — Galactic Wars
 
+## À faire plus tard (demandé par l'auteur le 2026-11-05)
+
+- **Montée de niveau des fiches rapides** : permettre d'obtenir de **nouvelles compétences liées à des
+  caractéristiques**. Les compétences s'achètent avec des **points d'expérience** à dépenser et s'**ajoutent à la
+  main** ; c'est le **MJ qui fait gagner l'XP**. (Règles de coût, liste des compétences et lien exact avec les
+  8 caractéristiques à préciser avec l'auteur avant de commencer.)
+
 ## Session du 2026-11-05 (suite) — Fiche rapide / PNJ refaite (v0.25.2→v0.26.0, branche `feat/fiche-rapide-v2`)
 
 - **Maquette** (canvas « Fiche rapide Galactic Wars », https://claude.ai/artifact/PA2dw4sqcubdy4X9F8m568) : 3 pistes
