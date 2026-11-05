@@ -1,0 +1,76 @@
+{
+  "_key": "!actors!NQHXQxHgaDObxGwM",
+  "_id": "NQHXQxHgaDObxGwM",
+  "name": "Davi Tradu",
+  "type": "personnage-rapide",
+  "img": "systems/galactic-wars/asset_visuel/Personnage/rapides/davi-tradu.webp",
+  "system": {
+    "infos": {
+      "nom": "Tradu",
+      "prenom": "Davi"
+    },
+    "race": {
+      "uuid": "Compendium.galactic-wars.races.Item.VLyiyuYkc0N05OhI",
+      "nom": "Gotal"
+    },
+    "metier": {
+      "uuid": "",
+      "nom": "Sénateur",
+      "description": "Autorité naturel : oblige les gens à se calmer. Relance un test de stress avec +2"
+    },
+    "talent": {
+      "nom": "Cynique",
+      "description": "mécanisme de défense permettant de faire relancer un test de mental pour l'équipe cependant cela lui faire perdre sa concentration prochaine action à -2"
+    },
+    "caracteristiques": {
+      "force": 10,
+      "capCombat": 4,
+      "capTir": 15,
+      "dexterite": 15,
+      "mentale": 10,
+      "perception": 16,
+      "stress": 7,
+      "affForce": 3
+    },
+    "survie": {
+      "base": 40,
+      "racial": 0
+    },
+    "chance": 60,
+    "pv": {
+      "value": 9,
+      "max": 13
+    },
+    "equipement": "dague caché dans la botte\nTatouage de la guilde 4 258\ncommunicateur\n100 credit\npiège de chasse (filet/dart/cage)",
+    "credits": 0,
+    "portrait": "systems/galactic-wars/asset_visuel/Personnage/rapides/davi-tradu.webp",
+    "description": "<p>Davi navigue en société sans problème il est très ouvert. Cependant cela lui cause quelques tracas lorsqu'il se retrouve entre deux groupes aux idéologies différentes. Pour cetain l'ouverture d'esprit est une tars et seul leurs vérité prévau; il s'est d'ailleurs fait des ennemis mortels ! Aujourd'hui personne ne sait si il est vraiment neutre, son passé mystèrieux ne joue pas en sa faveur....</p><p><strong>Fiche :</strong> partie rapide : fait par Neili jouer par Laura<br><strong>Corpulence :</strong> Normal<br><strong>Total maximal des caractéristiques :</strong> 80</p><h2>Notes de la fiche d'origine</h2><ul><li>-2</li></ul><p><em>Importé de « Davi Tradu -  Gotal - Sénateur.xlsx ».</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Davi Tradu",
+    "texture": {
+      "src": "systems/galactic-wars/asset_visuel/Personnage/rapides/davi-tradu.webp"
+    },
+    "actorLink": true,
+    "disposition": 1
+  },
+  "items": [],
+  "effects": [],
+  "folder": null,
+  "sort": 500000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "galactic-wars": {
+      "importFicheRapide": "Davi Tradu -  Gotal - Sénateur.xlsx"
+    }
+  },
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.23.0"
+  }
+}

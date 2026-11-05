@@ -1,0 +1,76 @@
+{
+  "_key": "!actors!xSv2W8kvzJcyxAJ1",
+  "_id": "xSv2W8kvzJcyxAJ1",
+  "name": "Leviatos Trichyor",
+  "type": "personnage-rapide",
+  "img": "systems/galactic-wars/asset_visuel/Personnage/rapides/leviatos-trichyor.webp",
+  "system": {
+    "infos": {
+      "nom": "Leviatos",
+      "prenom": "Trichyor"
+    },
+    "race": {
+      "uuid": "Compendium.galactic-wars.races.Item.VLyiyuYkc0N05OhI",
+      "nom": "Gotal"
+    },
+    "metier": {
+      "uuid": "",
+      "nom": "Archéo-archiviste",
+      "description": "Savoir encyclopédique : Connait toutes les langue et les coutumes et détecte les pièges mécaniques : +2 Mentale"
+    },
+    "talent": {
+      "nom": "Lâche",
+      "description": "+4 pour toute action lié à la fuite // +1 en échec critique (19 de base)"
+    },
+    "caracteristiques": {
+      "force": 8,
+      "capCombat": 10,
+      "capTir": 6,
+      "dexterite": 18,
+      "mentale": 14,
+      "perception": 16,
+      "stress": 2,
+      "affForce": 10
+    },
+    "survie": {
+      "base": 20,
+      "racial": 0
+    },
+    "chance": 80,
+    "pv": {
+      "value": 11,
+      "max": 13
+    },
+    "equipement": "Baton Duracier 1d6 +2\nComm Link\nGantelet avec écran tactique et une soudeuse intégré (+3 amélioré)\nCeinture de bricolage ( 2 Marteaux)\n4 Shurikens\n21424 Crédits\nArmure légère torse +1 Def\n3 Grenades 1d4\nFiole boule puante x5\nMasque à gaz\nFlare qui fait aussi de la fumée x1\nTenue déguisement pour l'usine\nImplant occulaire (venant du soleil noir)\nCataplasme Bactaplast x1\nMental d'acier x1\nParachute x1\nInformations supplémentaire\nTatouage METRE\nRang 2862\nHangar sur Narshada\nMembre du Bluemoon\nMembre d'Eclipse quand on aide Gerrant Cel coté Soleil Noir\n50 doses qui permet de faire la drogue de Brador. environ 450dans le hangar\nChaque dose de drogue se vends actuellement 10 crédits.\nProcesseur du Droide\nInformations sur le vaisseau (BlueTyr actuellement)\nAstro-droide R0-A1 sur vaisseau\n2 Kg de matériaux pour la forge\nRépartiteur d'énergie vaisseau\nChangement de l'identité du vaisseau + nouveau papiers\nCube Bacta (amélioration de l'infirmerie)\nForge portative / Imprimante 3D dans la baie de stockage du vaisseau\nBoite de pandore (Verrou digitale avec des produits super dangereux)\n1er datapad : Des comptes de personnes, des chiffres et des transferts d'argents etc. ça doit être un document des partenaires/ 2eme datapad :  Contacts et des noms sur Dark Sjel.  Des noms d'espions du coté de la république et de l'empire. Des noms de Huts. Gerant CELL --> SSIS service secrets de la république 3eme datapad : 4eme datapad : des informations sur les partenaires qui reçoivent les armes et les prototypes Ya un gouverneur qui achète des armes à Kormoc Syla. VH-5 --> acheteur du prototype. Vaisseau 3247 A --> Hangar 73 Un gotal qui s'appelle Hervé qui vends des implants cybernitique qui aurait des infos sur les Watanabe Hervé : les watanabe se cacheraient dans les montagnes. Watanabe : Peuple guerrier très fier. Il faut présenter ses armes. La princesse est une divinité. Donc jamais l'interrompre et jamais la regarder dans les yeux. On peut contacter un mec pour 200 credits pour descendre sur la planète Tromune caste --> Lieu où se trouve Dark Talh Installation implant occulaire",
+    "credits": 0,
+    "portrait": "systems/galactic-wars/asset_visuel/Personnage/rapides/leviatos-trichyor.webp",
+    "description": "<p>Ce scientifique voyage par monts et par vaux à travers toute la galaxie à la recherche d'objets antiques et mystiques. Il lit beaucoup, s'abreuve de connaissance et des cultures avec aisance qu'il est facile pour lui de se fondre dans la masse, il aime l'inconnu, mais est bien trop souvent inconscient malgré les nombreuses mésaventures qu'il a vécu. Sa survie relève du miracle... Ou bien de sa capacité à fuir en toute hâte...</p><p><strong>Fiche :</strong> partie rapide Fait par Latios<br><strong>Corpulence :</strong> Normal<br><strong>Total maximal des caractéristiques :</strong> 80</p><h2>Notes de la fiche d'origine</h2><ul><li>Armure — 2</li><li>2 — Comp</li><li>Compétences supplémentaire</li><li>Manipulateur de pièges : Permet de démonter et désarmer les pièges plus facilement (+1 Dext)</li><li>Professeur Tourelle Lourde : Peut apprendre aux autres l'utilisation d'une tourelle lourde mais ne sait pas l'utiliser (il faut 15 en Cap. Tir)</li><li>Mac Gyver (sur dext) : Permet de fabriquer des choses avec les moyens du bord</li><li>Happy Place : Permet de d'annuler un jet de stress raté. Utilisable une fois par scénario</li><li>Tir étourdissant : Avec l'amélioration du gant, Trichyor peut lancer une sorte de flechette qui peut étourdir ses ennemies pendant 1d4/tour.</li><li>Informatique : Bonus dans les jets qui concernent l'informatique (+1 Ment) — -</li><li>J'ai fait mieux : Permet à un coéquipier de relancer un jet mental raté et il faut que je dise \"Tu peux faire mieux\".</li><li>Hackergoat (sur dext) : Grâce à l'augmentation du gantelet. Il m'est possible de hacker des terminaux et des caméras à distance.</li><li>Lancer de précision (Cap.tir) : in working (1/3)</li><li>Personnes rencontrées</li><li>Mr Xiamad — Chef mafieu en agro en alimentaire</li><li>Kormoc Syla — Actuelle leader du soleil noir, charismatique, cruel, joueur, l’image est extrêmement importante à ces yeux</li><li>Gerant Cell — Chef de l'équipe du soleil noir Violet. Il souhaitetuer le calif pour être à la place du calif.</li><li>Garagiste Arkan — Garagiste qui s'occupe de notre vaisseau Guerados</li><li>Dark Talh — Ancien maitre Dark Sjel. Il cherche à tuer son Dark Sjel.</li><li>Dark Mo Rah — Apprenti de Dark Talh, il a essayé de nous tuer mais il n'a pas réussi. Son maitre ne sait pas qu'il est allé chercher Dark Sjel.</li><li>Hervé — Gotal qui nous a donné des infos sur le clan Watanabe sur Guerados.</li><li>Prince toru wogoss</li><li>Inventaire dans la chambre</li><li>Médaillon d'honneur Watanabe</li><li>Baton de berger  1d6</li><li>Armure (working in progress)</li><li>Fusil blaster (1d6)</li><li>Datapad récupéré chez Kormoc Syla x3</li><li>Blaster militaire 1d8</li><li>Comm Link Garde</li></ul><p><em>Importé de « Leviatos Trichyor - Gotal - Arché-archiviste.xlsx ».</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Leviatos Trichyor",
+    "texture": {
+      "src": "systems/galactic-wars/asset_visuel/Personnage/rapides/leviatos-trichyor.webp"
+    },
+    "actorLink": true,
+    "disposition": 1
+  },
+  "items": [],
+  "effects": [],
+  "folder": null,
+  "sort": 1900000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "galactic-wars": {
+      "importFicheRapide": "Leviatos Trichyor - Gotal - Arché-archiviste.xlsx"
+    }
+  },
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.23.0"
+  }
+}

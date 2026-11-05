@@ -1,0 +1,108 @@
+{
+  "_key": "!actors!Edqt6JEGYn8uDfOn",
+  "_id": "Edqt6JEGYn8uDfOn",
+  "name": "Tira-Ni Lano",
+  "type": "personnage-rapide",
+  "img": "systems/galactic-wars/asset_visuel/Personnage/rapides/tira-ni-lano.webp",
+  "system": {
+    "infos": {
+      "nom": "Lano",
+      "prenom": "Tira-Ni"
+    },
+    "race": {
+      "uuid": "Compendium.galactic-wars.races.Item.wxVVS1x0Pc6fdwjy",
+      "nom": "Chagrian"
+    },
+    "metier": {
+      "uuid": "Compendium.galactic-wars.metiers.Item.RwKZrUKDtNwo0jzj",
+      "nom": "Mécanicien",
+      "description": "Réparation : peut réparer presque tout ce qui est pas trop gros (genre vaisseau interstellaire). Tant qu'il à le matèriel."
+    },
+    "talent": {
+      "nom": "",
+      "description": "Seductrice (gagnes automatiquement une séduction par contre -4 perception pour l'équipe qui est destabilisé par son charme)"
+    },
+    "caracteristiques": {
+      "force": 10,
+      "capCombat": 10,
+      "capTir": 16,
+      "dexterite": 16,
+      "mentale": 3,
+      "perception": 10,
+      "stress": 5,
+      "affForce": 10
+    },
+    "survie": {
+      "base": 60,
+      "racial": 0
+    },
+    "chance": 40,
+    "pv": {
+      "value": 2,
+      "max": 13
+    },
+    "equipement": "Caisse à outil\nTaser (fait main) caché dans ses manches\nBracelet d'affectation\nsurin infecté",
+    "credits": 0,
+    "portrait": "systems/galactic-wars/asset_visuel/Personnage/rapides/tira-ni-lano.webp",
+    "description": "<p>Tira-Ni est à la recherche de son frère disparu lorsqu'elle avait 15 ans. Devenir mécanicienne était la seule solution pour pouvoir quitter sa planète et avoir accès à des informations. Elle est discrète car sait se faire oublier mais sa voix charmeuse lui permet de se faire écouter quand elle le souhaite.</p><p><strong>Joueur :</strong> Joe<br><strong>Fiche :</strong> partie rapide : Fait par Sélène<br><strong>Corpulence :</strong> Normal<br><strong>Total maximal des caractéristiques :</strong> 80<br><strong>Personnage décédé.</strong></p><h2>Notes de la fiche d'origine</h2><ul><li>-1</li></ul><p><em>Importé de « [MORTE] Tira-Ni Lano - Chagrian - Mécanicienne [Joué par Joe].xlsx ».</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Tira-Ni Lano",
+    "texture": {
+      "src": "systems/galactic-wars/asset_visuel/Personnage/rapides/tira-ni-lano.webp"
+    },
+    "actorLink": true,
+    "disposition": 1
+  },
+  "items": [
+    {
+      "_key": "!actors.items!Edqt6JEGYn8uDfOn.hElAe26X7nyuBJJu",
+      "_id": "hElAe26X7nyuBJJu",
+      "name": "Réparation",
+      "type": "talent",
+      "img": "icons/svg/clockwork.svg",
+      "system": {
+        "avantage": "Peut réparer presque tout ce qui n'est pas trop gros (comme un vaisseau interstellaire), tant qu'il a le matériel.",
+        "inconvenient": "",
+        "fiche": "rapide",
+        "description": "<p>Trait du métier Mécanicien. Peut réparer presque tout ce qui n'est pas trop gros (comme un vaisseau interstellaire), tant qu'il a le matériel. — variante fiche rapide / PNJ.</p>"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100000,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {
+        "galactic-wars": {
+          "traitMetier": true
+        }
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.galactic-wars.traits.Item.tbDsDyeNSLPQLfYv",
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.3"
+      }
+    }
+  ],
+  "effects": [],
+  "folder": "xHTn9ZTwVFHCDA83",
+  "sort": 3400000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "galactic-wars": {
+      "importFicheRapide": "[MORTE] Tira-Ni Lano - Chagrian - Mécanicienne [Joué par Joe].xlsx"
+    }
+  },
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.23.0"
+  }
+}

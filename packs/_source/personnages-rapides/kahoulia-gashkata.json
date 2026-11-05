@@ -1,0 +1,139 @@
+{
+  "_key": "!actors!wUxASTQ3ayllPaNx",
+  "_id": "wUxASTQ3ayllPaNx",
+  "name": "Kahoulia Gashkata",
+  "type": "personnage-rapide",
+  "img": "systems/galactic-wars/asset_visuel/Personnage/rapides/kahoulia-gashkata.webp",
+  "system": {
+    "infos": {
+      "nom": "Gashkata (secret)",
+      "prenom": "Kahoulia (secret)"
+    },
+    "race": {
+      "uuid": "Compendium.galactic-wars.races.Item.cvV7ZESsg15G2bb8",
+      "nom": "Rattataki"
+    },
+    "metier": {
+      "uuid": "Compendium.galactic-wars.metiers.Item.sJHBTn1PSP6gpIOP",
+      "nom": "Agent secret",
+      "description": "Fantôme  : +4 en furtivité. Se camoufle facilement s’il n’est pas agros"
+    },
+    "talent": {
+      "nom": "Ambiguë",
+      "description": "les ennemies ont tendance à aller frapper les allier à côté : par contre les alliés ont -3 de stress\n car ils ne savent pas si tu est de leurs coté ou non"
+    },
+    "caracteristiques": {
+      "force": 8,
+      "capCombat": 9,
+      "capTir": 12,
+      "dexterite": 14,
+      "mentale": 14,
+      "perception": 11,
+      "stress": 5,
+      "affForce": 8
+    },
+    "survie": {
+      "base": 60,
+      "racial": 0
+    },
+    "chance": 40,
+    "pv": {
+      "value": 5,
+      "max": 13
+    },
+    "equipement": "petit blaster\nCap à capuche\nDispositif de capture vidéo\nTatooage de la guilde de Mertre \\ rang 3771\nArtilleur du mambo 5\n1700 cred\nData pad technique",
+    "credits": 0,
+    "portrait": "systems/galactic-wars/asset_visuel/Personnage/rapides/kahoulia-gashkata.webp",
+    "description": "<p>Orpheline, vivant dans la rue depuis son plus jeune âge. Elle fu d'abord recrutée dans un gang. Mais à la suite d'une altercation et sans qu'elle ne sut réellement comment, elle fut recrutée par les forces de l'ordre. Ses capacités de discrétion et de réflexion furent mise à rude épreuve, mais elle réussit à faire ça place. Toujours d'un caractère taciturne, elle ne fu par particulièrement enchanter de travailler pour le gouvernement en place, mais c'est toujours mieux que de mendier son pain. Elle a rapidement monté les échelons et aujourd'hui travaille en tant qu'agent infiltré. C'est pire crainte c'est d'un jour aller en prison ou pire retourner dans la rue à vivre comme des rats.</p><p><strong>Fiche :</strong> partie rapide : Fait par Valfactis jour par Mathieu MORTE<br><strong>Corpulence :</strong> Normal<br><strong>Total maximal des caractéristiques :</strong> 80</p><h2>Notes de la fiche d'origine</h2><ul><li>Pseudo : Gaka</li></ul><p><em>Importé de « Kahoulia - Rattataki - Agent secret.xlsx ».</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Kahoulia Gashkata",
+    "texture": {
+      "src": "systems/galactic-wars/asset_visuel/Personnage/rapides/kahoulia-gashkata.webp"
+    },
+    "actorLink": true,
+    "disposition": 1
+  },
+  "items": [
+    {
+      "_key": "!actors.items!wUxASTQ3ayllPaNx.OMYShn5sFBgHKXCz",
+      "_id": "OMYShn5sFBgHKXCz",
+      "name": "Fantôme",
+      "type": "talent",
+      "img": "icons/svg/invisible.svg",
+      "system": {
+        "avantage": "+4 en furtivité ; se camoufle facilement tant qu'il n'attire pas l'attention.",
+        "inconvenient": "",
+        "fiche": "rapide",
+        "description": "<p>Trait du métier Agent secret. +4 en furtivité ; se camoufle facilement tant qu'il n'attire pas l'attention.</p><p>Variante de la fiche rapide / PNJ (bonus d20).</p>"
+      },
+      "effects": [
+        {
+          "_key": "!actors.items.effects!wUxASTQ3ayllPaNx.OMYShn5sFBgHKXCz.MIz5k5W0Spo6LVfL",
+          "_id": "MIz5k5W0Spo6LVfL",
+          "name": "Fantôme",
+          "img": "icons/svg/invisible.svg",
+          "type": "base",
+          "system": {
+            "changes": [
+              {
+                "key": "system.effets.caracteristiques.dexterite",
+                "type": "add",
+                "value": "4"
+              }
+            ]
+          },
+          "disabled": false,
+          "transfer": true,
+          "description": "",
+          "origin": null,
+          "statuses": [],
+          "sort": 0,
+          "flags": {},
+          "_stats": {
+            "compendiumSource": null,
+            "duplicateSource": null,
+            "coreVersion": "14",
+            "systemId": "galactic-wars",
+            "systemVersion": "0.20.0"
+          }
+        }
+      ],
+      "folder": null,
+      "sort": 100000,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {
+        "galactic-wars": {
+          "traitMetier": true
+        }
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.galactic-wars.traits.Item.UY2iOCmSEsayE2oK",
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.0"
+      }
+    }
+  ],
+  "effects": [],
+  "folder": null,
+  "sort": 1700000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "galactic-wars": {
+      "importFicheRapide": "Kahoulia - Rattataki - Agent secret.xlsx"
+    }
+  },
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.23.0"
+  }
+}

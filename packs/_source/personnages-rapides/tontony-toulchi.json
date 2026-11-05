@@ -1,0 +1,108 @@
+{
+  "_key": "!actors!LDu2m6wrxYByM4NE",
+  "_id": "LDu2m6wrxYByM4NE",
+  "name": "Tontony Toulchi",
+  "type": "personnage-rapide",
+  "img": "systems/galactic-wars/asset_visuel/Personnage/rapides/tontony-toulchi.webp",
+  "system": {
+    "infos": {
+      "nom": "Toulchi",
+      "prenom": "Tontony"
+    },
+    "race": {
+      "uuid": "Compendium.galactic-wars.races.Item.gsdljenIUW2cNvQ2",
+      "nom": "Toydarien"
+    },
+    "metier": {
+      "uuid": "Compendium.galactic-wars.metiers.Item.7Rdj9ImsDsaalt5u",
+      "nom": "Contrebandier",
+      "description": "Bluff : un charisme particulier vous permet de vous faire écouter même dans les situation critique."
+    },
+    "talent": {
+      "nom": "Flemmard",
+      "description": "malus -2 en force et dextérité par contre encourage les autres à faire des choses à ça place"
+    },
+    "caracteristiques": {
+      "force": 5,
+      "capCombat": 1,
+      "capTir": 10,
+      "dexterite": 15,
+      "mentale": 16,
+      "perception": 13,
+      "stress": 15,
+      "affForce": 0
+    },
+    "survie": {
+      "base": 60,
+      "racial": 0
+    },
+    "chance": 40,
+    "pv": {
+      "value": 10,
+      "max": 11
+    },
+    "equipement": "Dés truqués\nBlaster\ndatapad\n2933crédits\nMembre de la guilde de METR 5 690\nVaiseaux moyen\nNom : Blue Cargo\n30 pv 30PS\n1 * canon rotatif 1D8\n2 cannon léger 1D6",
+    "credits": 0,
+    "portrait": "systems/galactic-wars/asset_visuel/Personnage/rapides/tontony-toulchi.webp",
+    "description": "<p>Il n'a pas vraiment grandi comme les autres membres de son espèce. Recueilli par des Wookiee pour une raison que tout le monde ignore, il est très familier des us et coutume de ce peuple. Il a un fort caractère de cochon, grogne souvent et n'est par principe jamais d'accord avec les autres membres de son groupe. Il n'aime pas les créatures domestiques telles que les Voorpak qu'il tentera de faire disparaitre par tous les moyens. C'est un flémard, il est très difficile à motiver, mais ce n'est pas mission impossible pour autant. Une fois approché il se révèlera un ami fidèle et loyal.</p><p><strong>Fiche :</strong> partie rapide : Fait par Nanou<br><strong>Corpulence :</strong> Maigrichon<br><strong>Total maximal des caractéristiques :</strong> 80<br><strong>Caractéristiques sans valeur :</strong> affForce « - » (mises à 0)</p><p><em>Importé de « Tontony Tourchi-Toydarien-Contrebandier.xlsx ».</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Tontony Toulchi",
+    "texture": {
+      "src": "systems/galactic-wars/asset_visuel/Personnage/rapides/tontony-toulchi.webp"
+    },
+    "actorLink": true,
+    "disposition": 1
+  },
+  "items": [
+    {
+      "_key": "!actors.items!LDu2m6wrxYByM4NE.Zhz5PpAtGSa8CLHd",
+      "_id": "Zhz5PpAtGSa8CLHd",
+      "name": "Bluff",
+      "type": "talent",
+      "img": "icons/svg/card-joker.svg",
+      "system": {
+        "avantage": "Un charisme particulier permet de se faire écouter même dans les situations critiques.",
+        "inconvenient": "",
+        "fiche": "rapide",
+        "description": "<p>Trait du métier Contrebandier. Un charisme particulier permet de se faire écouter même dans les situations critiques. — variante fiche rapide / PNJ.</p>"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100000,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {
+        "galactic-wars": {
+          "traitMetier": true
+        }
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.galactic-wars.traits.Item.G74gabhGrvdZ1UwE",
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.3"
+      }
+    }
+  ],
+  "effects": [],
+  "folder": null,
+  "sort": 3500000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "galactic-wars": {
+      "importFicheRapide": "Tontony Tourchi-Toydarien-Contrebandier.xlsx"
+    }
+  },
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.23.0"
+  }
+}

@@ -2,7 +2,7 @@
   "id": "galactic-wars",
   "title": "Galactic Wars",
   "description": "Système de jeu de rôle Star Wars maison : compétences en pourcentage, races, métiers, force, alignement Lumière/Obscurité.",
-  "version": "0.22.0",
+  "version": "0.23.0",
   "socket": true,
   "compatibility": {
     "minimum": "13",
@@ -51,6 +51,7 @@
     { "name": "armures", "label": "Armures", "path": "packs/armures", "type": "Item", "banner": "systems/galactic-wars/asset_visuel/objets/banniere-armures.jpg" },
     { "name": "ecoles", "label": "Écoles sith", "path": "packs/ecoles", "type": "Item", "banner": "systems/galactic-wars/asset_visuel/objets/banniere-ecoles.jpg" },
     { "name": "pregens-sith", "label": "Pregens sith", "path": "packs/pregens-sith", "type": "Actor", "banner": "systems/galactic-wars/asset_visuel/objets/banniere-pregens-sith.jpg" },
+    { "name": "personnages-rapides", "label": "Personnages partie rapide", "path": "packs/personnages-rapides", "type": "Actor", "banner": "systems/galactic-wars/asset_visuel/objets/banniere-pregens-sith.jpg" },
     { "name": "vaisseaux", "label": "Vaisseaux", "path": "packs/vaisseaux", "type": "Actor", "banner": "systems/galactic-wars/asset_visuel/objets/banniere-vaisseaux.jpg" },
     { "name": "equipements", "label": "Équipements", "path": "packs/equipements", "type": "Item", "banner": "systems/galactic-wars/asset_visuel/objets/banniere-equipements.jpg" },
     { "name": "amenagements", "label": "Aménagements de vaisseau", "path": "packs/amenagements", "type": "Item", "banner": "systems/galactic-wars/asset_visuel/objets/banniere-amenagements.jpg" },

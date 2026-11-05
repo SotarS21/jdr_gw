@@ -1,0 +1,76 @@
+{
+  "_key": "!actors!Tjif4MeekDx3uuGn",
+  "_id": "Tjif4MeekDx3uuGn",
+  "name": "Vanys Dahlila",
+  "type": "personnage-rapide",
+  "img": "systems/galactic-wars/asset_visuel/Personnage/rapides/vanys-dahlila.webp",
+  "system": {
+    "infos": {
+      "nom": "Vanys",
+      "prenom": "Dahlila"
+    },
+    "race": {
+      "uuid": "Compendium.galactic-wars.races.Item.e3EuDfYJaccAUEnA",
+      "nom": "Twi'lek"
+    },
+    "metier": {
+      "uuid": "",
+      "nom": "Prostituée",
+      "description": "Danseuse : Mouvois ses courbes de manière gracieuse et agile, +2 Dextérité"
+    },
+    "talent": {
+      "nom": "Chaudasse",
+      "description": "-4 en perception aux ennemis qui la regarde / Attire trop l'attention (focus). [Inactif contre les machines]"
+    },
+    "caracteristiques": {
+      "force": 11,
+      "capCombat": 13,
+      "capTir": 12,
+      "dexterite": 14,
+      "mentale": 16,
+      "perception": 10,
+      "stress": 16,
+      "affForce": 3
+    },
+    "survie": {
+      "base": 35,
+      "racial": 0
+    },
+    "chance": 65,
+    "pv": {
+      "value": 11,
+      "max": 11
+    },
+    "equipement": "1 Couteaux (1 de bonne qualité) 1d8\nTenue décontracté (sans culotte)\nMatricule de prison 4308\nArmure légère localisée principalement sur les bras - 1 dégats\nTatouage de la guilde MERTR (ender boobs) rand 3525\nPendentif\nBouts de papier avec numéro dessus\n2 lames\n3 étoiles de ninja dans un porter ninja\nVetement dame de compagnie\n2 dagues en Cortosis 1D10\nDe l'or et des bijoux\nFusie blasteur 1D6\nCorset armure\ncomlink\nAlliance\n2 pisto blaster\nPaire de couille",
+    "credits": 0,
+    "portrait": "systems/galactic-wars/asset_visuel/Personnage/rapides/vanys-dahlila.webp",
+    "description": "<p>Dahlila est une danseuse et ancienne esclave sexuelle d'un opulant et intouchable homme d'affaire de la pègre; propriétaire de maisons closes dans la galaxie. Ce dernier avait pour habitude de torturer mentalement et physiquement ses préciseuses acquisitions. Un jour, elle le drogua et l'assassinat dans son sommeil. Elle est aujourd'hui recherché pour meurtre. C'est une femme fatale qui use et abuse de ses atouts pour séduire, aussi bien pour son propre plaisir que pour obtenir ce qu'elle souhaite et se faire un peu de fric. Elle est en couple avec Issabosba l'homme de sa vie. Elle est resté prostré dans la cale du vaiseau pendant 2 mois.</p><p><strong>Fiche :</strong> partie rapide - Fait par Latios joué par Nanou<br><strong>Corpulence :</strong> Maigrichon<br><strong>Total maximal des caractéristiques :</strong> 80</p><h2>Notes de la fiche d'origine</h2><ul><li>Crédit : 488</li><li>Armure : 3</li><li>Poigne d'acier: Mettre au sol et empéché de bouger — Frappe chirurgical: 1/3</li><li>Fait partie du Mambo Five</li><li>Chasseuse de prime : Rand Bronze</li><li>Point d'obscur : — 1</li></ul><p><em>Importé de « Vanys Dahlia - TWI_LEK - Prostituée.xlsx ».</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Vanys Dahlila",
+    "texture": {
+      "src": "systems/galactic-wars/asset_visuel/Personnage/rapides/vanys-dahlila.webp"
+    },
+    "actorLink": true,
+    "disposition": 1
+  },
+  "items": [],
+  "effects": [],
+  "folder": null,
+  "sort": 3700000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "galactic-wars": {
+      "importFicheRapide": "Vanys Dahlia - TWI_LEK - Prostituée.xlsx"
+    }
+  },
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.23.0"
+  }
+}

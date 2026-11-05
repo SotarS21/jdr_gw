@@ -1,0 +1,108 @@
+{
+  "_key": "!actors!LdWKsC0E5R46Z4Sx",
+  "_id": "LdWKsC0E5R46Z4Sx",
+  "name": "Pirogue Lucy",
+  "type": "personnage-rapide",
+  "img": "systems/galactic-wars/asset_visuel/Personnage/rapides/pirogue-lucy.webp",
+  "system": {
+    "infos": {
+      "nom": "Pirogue",
+      "prenom": "Lucy"
+    },
+    "race": {
+      "uuid": "Compendium.galactic-wars.races.Item.laDpw5MikxNYA4pV",
+      "nom": "Gran"
+    },
+    "metier": {
+      "uuid": "Compendium.galactic-wars.metiers.Item.yVuShJi8aSqyPnRr",
+      "nom": "Soldat d’élite",
+      "description": "Pistolero : Permet de lancer des test d’esquive et / ou de blocage quand il tir"
+    },
+    "talent": {
+      "nom": "Gorbite",
+      "description": "Peu l'envoyer faire des actions limitées en tout genre ; Par contre loin de toi il devient relou et donne -2 pour chaque action à l'équipe."
+    },
+    "caracteristiques": {
+      "force": 7,
+      "capCombat": 5,
+      "capTir": 16,
+      "dexterite": 13,
+      "mentale": 10,
+      "perception": 15,
+      "stress": 5,
+      "affForce": 10
+    },
+    "survie": {
+      "base": 40,
+      "racial": 0
+    },
+    "chance": 60,
+    "pv": {
+      "value": 17,
+      "max": 17
+    },
+    "equipement": "Gorbite : annimal\ndes jumelles\nFriandise pour Voorpak\nFusil sniper 2d20\n7787 crédit\nTattoo de la guilde de Mert\nFusie paralisent",
+    "credits": 0,
+    "portrait": "systems/galactic-wars/asset_visuel/Personnage/rapides/pirogue-lucy.webp",
+    "description": "<p>Comme toutes les femelles de son espèce elle possède trois seins à la différence que la sienne est d'une taille disproportionnée au point que les hommes et les femmes de toute race se trouvent dans l'incapacité de rester indifférent. Elle ne se déplace jamais son fidèle Voorpak prénommé Gorbite. Le problème avec Gorbite, tout le monde le déteste car le mot insupportable n'est pas assé fort pour le représenter. Elle est devenue une experte de la gâchette car tiré sur des gens l'a fait beaucoup rire. Elle fera passer sa personne avant les autres.</p><p><strong>Joueur :</strong> NANOU<br><strong>Fiche :</strong> partie rapide : Fait par Nanou<br><strong>Corpulence :</strong> Fort<br><strong>Total maximal des caractéristiques :</strong> 80</p><h2>Notes de la fiche d'origine</h2><ul><li>Matricul — 4350</li><li>Utilisatrice de la force</li><li>Les Boobz d'acier</li></ul><p><em>Importé de « Pirogue Lucy - Gran - Soldat d_élite [jouer par NANOU].xlsx ».</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Pirogue Lucy",
+    "texture": {
+      "src": "systems/galactic-wars/asset_visuel/Personnage/rapides/pirogue-lucy.webp"
+    },
+    "actorLink": true,
+    "disposition": 1
+  },
+  "items": [
+    {
+      "_key": "!actors.items!LdWKsC0E5R46Z4Sx.R2UnKxlGiGZd6AfX",
+      "_id": "R2UnKxlGiGZd6AfX",
+      "name": "Pistolero",
+      "type": "talent",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "avantage": "Permet de lancer des tests d’esquive et/ou de blocage quand il tire.",
+        "inconvenient": "",
+        "fiche": "rapide",
+        "description": "<p>Trait du métier Soldat d’élite. Permet de lancer des tests d’esquive et/ou de blocage quand il tire. — variante fiche rapide / PNJ.</p>"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100000,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {
+        "galactic-wars": {
+          "traitMetier": true
+        }
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.galactic-wars.traits.Item.t6ujWH5hZyZah3sT",
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.3"
+      }
+    }
+  ],
+  "effects": [],
+  "folder": null,
+  "sort": 2800000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "galactic-wars": {
+      "importFicheRapide": "Pirogue Lucy - Gran - Soldat d_élite [jouer par NANOU].xlsx"
+    }
+  },
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.23.0"
+  }
+}

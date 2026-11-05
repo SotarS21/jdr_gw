@@ -1,0 +1,108 @@
+{
+  "_key": "!actors!2Qcc80tN2aD280sR",
+  "_id": "2Qcc80tN2aD280sR",
+  "name": "Sikou Karth'Uch",
+  "type": "personnage-rapide",
+  "img": "systems/galactic-wars/asset_visuel/Personnage/rapides/sikou-karthuch.webp",
+  "system": {
+    "infos": {
+      "nom": "Karth'Uch",
+      "prenom": "Sikou \"El Predator\""
+    },
+    "race": {
+      "uuid": "Compendium.galactic-wars.races.Item.VKtVDblkDP3RR8XR",
+      "nom": "Cathar"
+    },
+    "metier": {
+      "uuid": "Compendium.galactic-wars.metiers.Item.EXt6ePhfkfcD6goX",
+      "nom": "Chasseur de primes",
+      "description": "Capture : si vous le souhaitez vous pouvez à tout moment tenter de capturer votre cible.\nVous devrez faire un test du Cap. Tir ou Cap. cmbt. Celle-ci devra faire un test de force pour vous contrer"
+    },
+    "talent": {
+      "nom": "Solo",
+      "description": "À forcément l’initiative AVEC DOUBLE ACTION  / \nContrepartie : Les ennemis ont un bonus de réussite critique de 10% à son encontre."
+    },
+    "caracteristiques": {
+      "force": 10,
+      "capCombat": 14,
+      "capTir": 13,
+      "dexterite": 18,
+      "mentale": 12,
+      "perception": 13,
+      "stress": 14,
+      "affForce": 17
+    },
+    "survie": {
+      "base": 70,
+      "racial": 0
+    },
+    "chance": 30,
+    "pv": {
+      "value": 13,
+      "max": 13
+    },
+    "equipement": "Tenue de camouflage — tatouage de la\nPistolet Blaster (10 coups) 1d8 90 munition — guilde MERTR\nLance laser 2d8 — coussinet\nCeinture de protection (premier coup bloquer)\ncom link\nB-0-lt\nGros vaisseaux des joueur\nNom : Mambo 5\n40 pv 30PS — 10000 (5pv et10ps)\n4 canon rotatif 1D8 — 1500\n4 cannon léger 1D6 — 800\ndroïde mecano — no-n0\ndroïde cuisinier — Gust0\nDroïde medical — D-0K — 2 cadavres de lezards +1 lezard en vie\nRayon tracteur — Barabel paralisé\nping radar\nbarque\nrobot B0b astromecano\nmoto speeder\nB-0-lt — drone 1d6 degat 5pv 17 en cap tir — mode entrainement et tir reel\nInfirmerie upgrade — 2 cuve a bacta/ kit de chirurgien\nautolock\nbolt — 5pv max — 4pv",
+    "credits": 0,
+    "portrait": "systems/galactic-wars/asset_visuel/Personnage/rapides/sikou-karthuch.webp",
+    "description": "<p>Sikou est un Khajiit mercenaire, n'ayant connu que la violence et le meurtre. Ses parents ont été tués par des pirates alors qu'il était encore un chaton, il fut recueilli et élever par un groupe de mercenaires. Il du repartir de 0, la haine au ventre, décider à faire payer un lourd tribut à ses ordures stellaires. Entraîné pour traquer, il est un atout important pour le groupe auquel il appartient, car il n'a pas peur de ce m'être en danger pour obtenir une grosse prime.</p><p><strong>Fiche :</strong> partie rapide - fait par Latios Jouer par Floricoh<br><strong>Corpulence :</strong> Normal<br><strong>Total maximal des caractéristiques :</strong> 80</p><h2>Notes de la fiche d'origine</h2><ul><li>rang 2 — 1918 — guilde</li><li>equipe Mambo — 1er Pilote</li><li>armure — 3</li><li>bonus force lumineuse</li><li>1/3 — parkour — tact solo — méditation — protection de la force (sorte de bulles autours de moi aide un peu a l'esquive)</li><li>medecine — co pilote du Mambo number V — intuition de la force: aide diffuse de la force (6eme sens)</li><li>apprenti infirmier — intuition du danger: — inventaire sur moi</li><li>Télékinesie — munition blaster — 1d8 — 100 — morceau de parchemin avec symbole</li><li>1 corde 10m — 92 — casque</li><li>lance laser — 2d8 — pyramide rougeatre semblant emaner une energie negative</li><li>collier clan watanabé +1 aff force — Bague en crystal de force +1 aff force dans l'inventaire</li><li>bague en crystal de force +1 aff force — 2 cordes 10m</li><li>Ceinture de protection — bloque 1er coup — collier du pretre cultiste</li><li>Point faible : — com link — porteur d'etoile+3 etoile ninja</li><li>Il déteste l'eau et n'apprécie pas la compagnie des femmes. — B-0-Lt drone 1d6 degat 5pv 17 en cap tir  mode entrainement et tir reel — robe cultiste</li><li>Son nom est prénom sont des noms de code — tenue de camouflage — datapad (kartuss)</li><li>to kill</li><li>point fort — apprentissage sur le tas — credit à la guilde — Cellan Gitt</li><li>1er soin — obs de D-0K — -7883</li><li>pilotage — 720 — -7163</li><li>combat a la lance</li><li>don \"moi j'ai fait pire\" si un allié fait un echec critique — 1000 pillage (+) — -6163</li><li>je peut lui faire relancer le des — 2500 succes (+) — -4663</li><li>300 astroport (-) — -4963</li><li>2500 succées (+) — -2463</li><li>prime Machard Trak 7500 — 50 munitions (-) — -2563</li><li>-5000 pour la carte de Vanis — 500 sur les cadavres (+) — -2063</li><li>500 crédit de isa (+) — -1563</li><li>2500 orbe — 1063</li><li>points lumineux — 1 — 500 parking coruscant(-) — 563</li><li>points obscurs — 0 — 200 navette (-) — 363</li><li>3750 succées (+) — 4113</li><li>250 platform mustafar (-) — 3863</li><li>4250 Credit (+) succés — 8113</li><li>blaster hypodermique (-) — 6913</li><li>bourse dara sar (+200) — 7113</li><li>reussite (+3333) — 10446</li><li>taxe vaisseau 750 (-) — 9696</li><li>corde 2 (-) — 9694</li><li>-1100 pour l'allier de celian — 8594</li><li>drone (-) 7000 — 1594</li><li>Bague(-150) — 1444</li><li>bourse sith (+) 300 — 1744</li><li>prime mission (+) 4666 — 6410</li><li>paiement de la soute (-) 1000 — 5410</li><li>KArtouch (-) 1000 — 4410</li><li>(+) 1000 — 5410</li><li>-1000 info usine — 4410</li><li>vente 4000 (+) — 8410</li><li>mission DTX 3000(+) — 11410</li><li>upgrade vaisseau 7000(-) — 4410</li><li>matos pour iem — 3910</li><li>Credit 13 (+) — 3923</li><li>reparation (-) 800 — 3123</li><li>Twi lek (+) 100 — 3223</li><li>organe (+) 740 — 3963</li><li>spatioport alde (-)633 — 3330</li><li>shwepps agrum (-) 3 — 3327</li><li>Info sn (-) 1000 — 2327</li><li>pot de vain voleuse (-) 300 — 2027</li><li>Boisson Taris — 1987</li></ul><h3>Feuille 2</h3><ul><li>Bogg: soldat et mecano — Gotar : aprenti de Bogg (devaron)</li><li>ita opererateur — ateur</li><li>kartus informaticien — vanis: vipere assassine</li><li>nikar'dim medecin et généticien</li><li>turlut — Putovyan: Vyan</li><li>amitié equipe de Bara — goust0: cuisto</li><li>Gus twi lek petit copain de Grumf — d0c robot infirmier</li><li>Gotar membre d'un gang</li><li>Serge: ancien cellan</li><li>orbe du phenix: voler par les \"mangeurs de flammes\" syphonnée du bocal anti pegre, anti force — pretre&gt;Frere&gt;cultiste</li><li>lune eloignée de Karali</li><li>crit combat</li><li>crit tir</li><li>Falaral</li><li>darra sar intendant de l'empereur — saur fliev</li><li>Ita et le datacron; Girrados guerre contre duissar — attaque des Girrados</li><li>Les sallinards</li><li>fylla ramener chez les Watanabé</li><li>Jiroua — mission lvl 3 14000 credit</li><li>enquete</li><li>reve de la force: un pillier bleu eclatant qui devient rouge d'un coup — premonition de la force et gratitude du pillier de Giroua</li><li>photo de runes</li><li>Criveke Zeclugre — Itorien indic pour info sur Celan</li><li>tentative de contact avec jedis coruscant mais pour le moment ils sont reclue dans leur temple a cause d'un attentat perpetré apparement un jedi. Satil Shan aurait attaqué l'empire donc les relation entre la rep et l'emp</li><li>Mission : Diff 2 prix: 12000 crédits gain 250 places infiltré l'usine de Conflan Unity sur Nar Shadda et detruire DXT-87 Il s'agit d'un prototype de combat. Détruisez si possible l'intégralité du projet</li><li>Info récuperer via hutt Farda pour 3000 crédit</li><li>falconer turicani</li><li>contact celan gitt en commun avec falconer : autre rdv Alderande le soleil noir il se cache dans une des demeure du sn sur alderande passer devant tout les garde du sn</li><li>contact dans le bar le poisson mordant Token TF — com link secu pour TF</li><li>Tamis contact sur alderande</li><li>famille kormot</li><li>Vaisseau Mambo 5 need upgrade mais pour l'ordi top techno</li><li>prendre au nord dernier etage porte gauche bibliotheque au fond y aura le bureau de la cheffe de famille</li><li>commandant Damna humaine se bat en armure se bat avec des epées laser qui lui sort des poignés. Attention shuriken explosif</li><li>code — fuite: — diversion</li><li>j'mangerais une pom — expl entrepot — salle des armure — toit — explosif dans l'entrepot</li><li>wookie — expl dojo — salle de recep — passage secret — explosif dans dojo (dernier recours)</li><li>j'ai froid — expl couverture — vers le nord — potentiel explosif pour couvrir</li><li>turlute — retraite — escalier — gotar sur speeder pret a agir</li><li>j'vous aime les gars — abandonnez moi et partez — dernier etape</li><li>j'ai le sarlac — reperer Cellan — bibliothéque</li><li>c'est ma tourné — \"victoire\" — bureau mechante</li><li>A boire — aidez moi</li><li>rachel enfant voleuse</li><li>gorlo?</li><li>mercenaire de Nar shadaa groupe de pirate les poings ardent</li><li>Machard trak — info: 2/3 ancien chasseur de prime disavoué manqué de talent noté comme mort!/ Plusieurs chasseurs de prime ont ete engagé par l'association creer par d'ancien membre du cartel de Gorlo</li><li>Association mene des action contre des Hutt sur Nar Shadaa</li><li>mambo 5 dans les bonne grace de Farda</li><li>l'association essaie d'engager des chasseurs de rpime mais la plupart refuse car de nombreuse cible trop grosse (farda-memre de l'empire, membre de la republique)</li><li>lune doxym 2 lieu de rdv pour chasseur de prime</li><li>Tim Oze / Gramak Dun Les monteurs</li><li>Farda Taris</li><li>voyage&gt; secte Hera qui nous harcele de message de convertion secte populaire /\\ avec des gens riches</li><li>cantina: pleins de newbies et un qui semble haut level</li><li>carter!</li><li>l'association est une plaie, beaucoup d'ancien y sont aller.</li><li>il aime pas les nouveaux ridicules</li><li>doxym 2 ancienne base des mandaloriens</li><li>Corldo: soit disant ami de farda</li><li>le prevenir si contrat sur Doxym 2 pour qu'il se joigne a nous</li><li>contact Carter</li><li>J'ai fait une poussé de force en mode onde de choc</li><li>noter ce que l'on va faire de notre apres midi et soir libre</li><li>de la musculation</li></ul><p><em>Importé de « Sikou Karth_Uch - Cathar - Chasseur de prime.xlsx ».</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Sikou Karth'Uch",
+    "texture": {
+      "src": "systems/galactic-wars/asset_visuel/Personnage/rapides/sikou-karthuch.webp"
+    },
+    "actorLink": true,
+    "disposition": 1
+  },
+  "items": [
+    {
+      "_key": "!actors.items!2Qcc80tN2aD280sR.eVY479H50U8a9fpm",
+      "_id": "eVY479H50U8a9fpm",
+      "name": "Capture",
+      "type": "talent",
+      "img": "icons/svg/net.svg",
+      "system": {
+        "avantage": "À tout moment, tentative de capture de la cible : test de Cap. Tir contré par un test de force de la cible.",
+        "inconvenient": "",
+        "fiche": "rapide",
+        "description": "<p>Trait du métier Chasseur de primes. À tout moment, tentative de capture de la cible : test de Cap. Tir contré par un test de force de la cible. — variante fiche rapide / PNJ.</p>"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100000,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {
+        "galactic-wars": {
+          "traitMetier": true
+        }
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.galactic-wars.traits.Item.cX7X8pr0GNmVd90I",
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.3"
+      }
+    }
+  ],
+  "effects": [],
+  "folder": null,
+  "sort": 3200000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "galactic-wars": {
+      "importFicheRapide": "Sikou Karth_Uch - Cathar - Chasseur de prime.xlsx"
+    }
+  },
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.23.0"
+  }
+}

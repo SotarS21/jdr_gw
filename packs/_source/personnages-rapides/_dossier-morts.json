@@ -1,0 +1,19 @@
+{
+  "_key": "!folders!xHTn9ZTwVFHCDA83",
+  "_id": "xHTn9ZTwVFHCDA83",
+  "name": "Personnages décédés",
+  "type": "Actor",
+  "folder": null,
+  "sorting": "a",
+  "sort": 100000,
+  "color": null,
+  "description": "",
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.23.0"
+  }
+}

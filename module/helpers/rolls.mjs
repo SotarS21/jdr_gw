@@ -83,10 +83,23 @@ export async function rollCompetence(actor, cle, { titre } = {}) {
  * @param {Actor} actor
  */
 export async function rollSurvie(actor) {
-  const resultat = await resoudrePourcentage(actor.system.survie.total);
+  return rollPourcentageSimple(actor, "GALACTICWARS.Sheet.Survie", actor.system.survie.total);
+}
+
+/**
+ * Jet de Chance (fiche rapide / PNJ, v0.23.0) : 1d100 sous la valeur, comme la Survie.
+ * @param {Actor} actor
+ */
+export async function rollChance(actor) {
+  return rollPourcentageSimple(actor, "GALACTICWARS.Sheet.Chance", actor.system.chance);
+}
+
+/** Jet en % sous une valeur fixe, sans modificateur, envoyé au tchat. */
+async function rollPourcentageSimple(actor, libelle, cible) {
+  const resultat = await resoudrePourcentage(cible);
   const flavor = game.i18n.format("GALACTICWARS.Jet.Flavor", {
-    competence: game.i18n.localize("GALACTICWARS.Sheet.Survie"),
-    cible: actor.system.survie.total
+    competence: game.i18n.localize(libelle),
+    cible
   });
 
   await resultat.roll.toMessage({

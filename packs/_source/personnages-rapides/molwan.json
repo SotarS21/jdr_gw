@@ -1,0 +1,108 @@
+{
+  "_key": "!actors!BsmQld4Vb43uv4Vb",
+  "_id": "BsmQld4Vb43uv4Vb",
+  "name": "Molwan",
+  "type": "personnage-rapide",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "infos": {
+      "nom": "",
+      "prenom": "Molwan"
+    },
+    "race": {
+      "uuid": "Compendium.galactic-wars.races.Item.kE25604LBS1sNo7V",
+      "nom": "Kiffar"
+    },
+    "metier": {
+      "uuid": "Compendium.galactic-wars.metiers.Item.5yxBvcQbcVDqhL45",
+      "nom": "Assassin",
+      "description": "Tueur : bonus de dégât  (+1 dés) pour tuer un ennemis à 50% de leurs pv."
+    },
+    "talent": {
+      "nom": "",
+      "description": ""
+    },
+    "caracteristiques": {
+      "force": 3,
+      "capCombat": 10,
+      "capTir": 15,
+      "dexterite": 12,
+      "mentale": 1,
+      "perception": 12,
+      "stress": 7,
+      "affForce": 10
+    },
+    "survie": {
+      "base": 25,
+      "racial": 0
+    },
+    "chance": 75,
+    "pv": {
+      "value": 13,
+      "max": 13
+    },
+    "equipement": "",
+    "credits": 0,
+    "portrait": "icons/svg/mystery-man.svg",
+    "description": "<p>Molwan fut excommuniée de son clan pour hérésie. En effet elle est persuadée que le concept de la Force n'existe pas, que tout est dû au Grand Ancien et qu'il a fait d'elle sa main, son exécutante. Empreinte de folie mystique, d'une chance insolente, elle est d'une nature très calme et se moque des conventions et des fioritures des hautes sphères. Elle ère par delà les mondes dans un seul but, tuer ou plutôt 'nettoyer' qui bon lui chante car après tout c'est 'Sa volonté' non ?</p><p><strong>Corpulence :</strong> Normal<br><strong>Total maximal des caractéristiques :</strong> 70</p><p><em>Importé de « Assasin - Molwan - Kiffar.xlsx ».</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Molwan",
+    "texture": {
+      "src": "icons/svg/mystery-man.svg"
+    },
+    "actorLink": true,
+    "disposition": 1
+  },
+  "items": [
+    {
+      "_key": "!actors.items!BsmQld4Vb43uv4Vb.yxGQNXznHJ4RkSvz",
+      "_id": "yxGQNXznHJ4RkSvz",
+      "name": "Tueur",
+      "type": "talent",
+      "img": "icons/svg/skull.svg",
+      "system": {
+        "avantage": "Bonus de dégât (+1 dé) pour tuer un ennemi à 50% de ses points de vie.",
+        "inconvenient": "",
+        "fiche": "rapide",
+        "description": "<p>Trait du métier Assassin. Bonus de dégât (+1 dé) pour tuer un ennemi à 50% de ses points de vie. — variante fiche rapide / PNJ.</p>"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100000,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {
+        "galactic-wars": {
+          "traitMetier": true
+        }
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.galactic-wars.traits.Item.qlzDgK8z9zhZd2l1",
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.3"
+      }
+    }
+  ],
+  "effects": [],
+  "folder": null,
+  "sort": 2100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "galactic-wars": {
+      "importFicheRapide": "Assasin - Molwan - Kiffar.xlsx"
+    }
+  },
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.23.0"
+  }
+}

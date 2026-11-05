@@ -53,7 +53,7 @@ jobs:
         run: |
           zip -r system.zip \
             system.json module lang styles templates \
-            asset_visuel/Ethnie asset_visuel/objets \
+            asset_visuel/Ethnie asset_visuel/objets asset_visuel/Personnage/rapides \
             packs -x "packs/_source/*"
 
       - name: Create GitHub release

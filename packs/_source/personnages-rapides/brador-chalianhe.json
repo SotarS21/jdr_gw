@@ -1,0 +1,76 @@
+{
+  "_key": "!actors!DnV0Z9dhp9Pp3lIG",
+  "_id": "DnV0Z9dhp9Pp3lIG",
+  "name": "Brador Chalianhe",
+  "type": "personnage-rapide",
+  "img": "systems/galactic-wars/asset_visuel/Personnage/rapides/brador-chalianhe.webp",
+  "system": {
+    "infos": {
+      "nom": "Brador",
+      "prenom": "Chalianhe"
+    },
+    "race": {
+      "uuid": "Compendium.galactic-wars.races.Item.b447stwy0Pg7j5Py",
+      "nom": "Falleen"
+    },
+    "metier": {
+      "uuid": "",
+      "nom": "Scientifique",
+      "description": "Manipulateur : Utilise diverses drogues pour alterer le mental d'une personne. 3 charges par jour"
+    },
+    "talent": {
+      "nom": "Suggestion",
+      "description": "Sur test de Stress réussi, peut suggérer n'importe qu'elle action à un personnage drogué/// Si raté, la personne devient hostile.\nBoost : Charge sur les alliés + 3 Points Boost - ne peut pas rater \"Vas-y, tu peux le faire !\""
+    },
+    "caracteristiques": {
+      "force": 10,
+      "capCombat": 6,
+      "capTir": 18,
+      "dexterite": 17,
+      "mentale": 16,
+      "perception": 13,
+      "stress": 16,
+      "affForce": 4
+    },
+    "survie": {
+      "base": 40,
+      "racial": 0
+    },
+    "chance": 60,
+    "pv": {
+      "value": 13,
+      "max": 13
+    },
+    "equipement": "Grand manteau Déguisement de Tenue de Travailleur dans l'Usine à Narshada, Contremaitre Déguisement de Garde Impérial de la Planète Watanabe\nIndicateur sur le bras du nombre de charge restante (1/3 charges rest.)\nMETR 2982 (Tattoo de la Guilde)\n2 Poignards\nSuper fusil, type canon lourd, fonction lance filet, lance-flamme court porter et tir cinétique. Lance-flamme 1d4 tour sur 2 m Cinétique 2d6 dégat en rafale\n4 Flacons de Couleurs (drogue très cher) + Documents importants\nBlanche laiteux : Sérum pour modifier perception des être humains -> sérum de vérité — Bleu: Puissant Hallucinogène, modifie tous les sens, tout soit extrapolé, la personne est tuée par ses propres sens, elle ressemble à de l'eau — Composé chimique rouge à ne pas libérer, ça laisse des particules, dès que ça touche un corps biologique, ça se déploie et sont indétectables (contagion), aucun aspect négatif, mais cette chose liée à nimporte quel virus (genre fiole rouge et bleu), 3 mètres, si je le modife avec nimporte quel virus — Potion noire, système nerveux qui se crée, un virus -> zombies, tue l'hôte et transforme le système (tranmission par fluide corporels)\nMallette extra sécurié contenant les 4 drogues (dire mon nom pour pouvoir le déplacer), double sécurité (empreinte, digicode, etc.)\n50 Wonka Cola\n* — Blaster 1d8 +2 - 50 tirs\n* — Blaster 1d8 +2 - 50 tirs\nGrenade Explosive 1d6 +2 (4-5 Mètres)\n3 Doses de Bactaplast\n* — Bombe Artisanale + Masque à Gaz (sac) 5 cailloux\nBouteille de sang Sith\n1 carton de drogues\n* — (1 fabrication/session)\nTrousse de Soins - 3 fois 1d4\n3x4 Soins - Trousse de Soins\nMoney : 39'281 Crédits\nn° Tammys\n41 Cannette — Canette de Soda Drogue (1 dose de 33cl) — Coka Wonka (10 credits)\n2 Brador 1 Leviatos Cel Sio — Principal : Euphorie, Inhibition Sociale 2h Perte de Couleur Aggressivité Sensibilité à la force — Malette : 2 Blasters 2 Coca Wonka Rêve Vert Documents du Soleil Noir 1 caisse drogues\nHangar - 350 Matos Doses Mr. Xiamad - Mafiex industriel Agroalimentaire à Narshada\n70 pts / 2 talents + & - / chance et survie sur 100\nVaiseaux moyen\nNom : Blue Tyr\n16 pv 30PS — extention louer ( ralentissement )\n2 * canon rotatif 1D8\n4 cannon léger 1D6",
+    "credits": 0,
+    "portrait": "systems/galactic-wars/asset_visuel/Personnage/rapides/brador-chalianhe.webp",
+    "description": "<p>Brador, c'est un peu le genre de mec qui se mêle de pleins de choses, surtout quand ca ne le regarde pas. Il veut connaitre les péchers sordide de chacun et il a les moyens de vous le faire dire. Il exploite ses capacités naturelles de Falleenn en utilisant un implant lui permettant de vaporiser ou d'injecter un cocktail hormonale pour manipuler mentalement ses victimes. N'ayant plus le contrôle de leurs esprits il soutire alors des informations ou les convaincs de faire les pires atrocitées . Il parle peu, mais il ne parait pas froid, bien au contraire. Il a tendance à plaire à la gente féminine. S'est créé d'une certaine amitié avec Blue au fur et à mesure des aventures. Connaît et a manipulé du Rêve Vert (drogue petite dose - 24h) au cours de ses essais d'injections. Injections ne marchent moins bien sur les gens qui utilisent la force.</p><p>PUNCHLINE : ALLELUIA BORDEL Signature: Un Trou entre les 2 yeux</p><p><strong>Corpulence :</strong> Normal<br><strong>Total maximal des caractéristiques :</strong> 80</p><h2>Notes de la fiche d'origine</h2><ul><li>Infirmier : Premiers Soins</li><li>+5 Armures</li><li>('+1 Armure) — Super Bee sur 1d4</li><li>1 — 2 — 3 — 4</li><li>Super force — Super acuité — Mental d'acier — Sens de la force</li><li>Contorsionnisme — Tourelle Lourde — Médecine — Mécanique — Niquetalopie — Méditation — 4 force et comb — 4 cap. Tir Dex — 4 Mental et Per — 4 Stress et Aff. Force</li><li>Pied Léger — Conviction — Points Faibles — * — * — *</li><li>Chimiste (création drogue) — Biodiversité (knowledge)</li><li>Généticien</li><li>Objectifs: Améliorer Pistolérot next time capacité</li><li>Village Watanabe:  Tooma Liquide charge énergétique toxique mais aussi source d'énergie pour le village</li><li>Plantes qui réagissent au toucher qui font de la lumière ou autre chose (de goutteler un liquide inflammable/ quand tu coupes un morceau de feuilles, ca se regénère grace au Liquide Tooma)</li><li>Info: il n'y a plus assez de MF1  - plus de stock Dechet Toxic bcp Zone 3 Accès interdit</li><li>Foret Grande maison entourée de cloture, ouest impossible</li><li>Nord entrepot gardé (ils font rentrer les concubines, vivres, porte derrière)</li><li>A l'intérieur rez de chaussée, grande salle du trone, mène vers la rivière, 1km et demi dans une caverne, la haut on a une trappe d'oie et on est dans la salle trône. digicode. Madame au 2e étage.</li><li>nord gauche bibliothèque,</li></ul><p><em>Importé de « Brador Chalianhe - Falleen - Scientifique.xlsx ».</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Brador Chalianhe",
+    "texture": {
+      "src": "systems/galactic-wars/asset_visuel/Personnage/rapides/brador-chalianhe.webp"
+    },
+    "actorLink": true,
+    "disposition": 1
+  },
+  "items": [],
+  "effects": [],
+  "folder": null,
+  "sort": 200000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "galactic-wars": {
+      "importFicheRapide": "Brador Chalianhe - Falleen - Scientifique.xlsx"
+    }
+  },
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.23.0"
+  }
+}

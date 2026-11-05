@@ -1,0 +1,108 @@
+{
+  "_key": "!actors!arO6SmPVgwCpug2q",
+  "_id": "arO6SmPVgwCpug2q",
+  "name": "Turrlutte",
+  "type": "personnage-rapide",
+  "img": "systems/galactic-wars/asset_visuel/Personnage/rapides/turrlutte.webp",
+  "system": {
+    "infos": {
+      "nom": "Lapy",
+      "prenom": "Candillo"
+    },
+    "race": {
+      "uuid": "",
+      "nom": "Evocci"
+    },
+    "metier": {
+      "uuid": "Compendium.galactic-wars.metiers.Item.BKQsd0pMug5KIppF",
+      "nom": "Pirate",
+      "description": "Flippant : cpt active oblige quelqu’un à lancer un test de stress avec -2 si raté => déstabilise la personne ciblé."
+    },
+    "talent": {
+      "nom": "Cupistérone",
+      "description": "lorsqu'il transporte quelque chose qui a de la valeur avec ses deux mains gagne +4 de dextérité (pdt 2 tours)"
+    },
+    "caracteristiques": {
+      "force": 16,
+      "capCombat": 14,
+      "capTir": 11,
+      "dexterite": 10,
+      "mentale": 3,
+      "perception": 5,
+      "stress": 9,
+      "affForce": 2
+    },
+    "survie": {
+      "base": 43,
+      "racial": 0
+    },
+    "chance": 57,
+    "pv": {
+      "value": 15,
+      "max": 15
+    },
+    "equipement": "Barre à mine\nCrop top et pantalon de pirates\nfusil Blaster 1d8",
+    "credits": 0,
+    "portrait": "systems/galactic-wars/asset_visuel/Personnage/rapides/turrlutte.webp",
+    "description": "<p>Ce grand benet à la force brute a été rebaptisé Turlutte lorsqu'il a rejoint le rang des pirates de Gus et se présente toujours ainsi. Avant d'être Turlutte, un \"fier\" pirate, il était porteur de siège à Anoat, où il était moqué à cause de son nom et son intellect. Alors quand des pirates ont fait irruption pour voler quelques biens de son maître, il a naturellement décidé de les suivre. Il obéit très bien aux ordres simples ou si on lui explique longtemps (attention il peut mal comprendre les ordres). Suite à de petites mésaventures où il s'est retrouvé esclave avec ses compagnons, il a été sauvé par Grumf (la cheffe) et l'équipage du Mambo5. Après avoir fait quelques missions à leur côté, il a décidé de rester sur le Mambo5.</p><p><strong>Fiche :</strong> partie rapide. Fait par Psych_Alice joué par<br><strong>Corpulence :</strong> Épais<br><strong>Total maximal des caractéristiques :</strong> 70</p><h2>Notes de la fiche d'origine</h2><ul><li>pseudo : Turlutte</li></ul><p><em>Importé de « Turrlutte - Evocci - Pirate.xlsx ».</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Turrlutte",
+    "texture": {
+      "src": "systems/galactic-wars/asset_visuel/Personnage/rapides/turrlutte.webp"
+    },
+    "actorLink": true,
+    "disposition": 1
+  },
+  "items": [
+    {
+      "_key": "!actors.items!arO6SmPVgwCpug2q.i2MGsyz5x59cYeSB",
+      "_id": "i2MGsyz5x59cYeSB",
+      "name": "Flippant",
+      "type": "talent",
+      "img": "icons/svg/terror.svg",
+      "system": {
+        "avantage": "Compétence active qui oblige une cible à lancer un test de stress avec -2 ; en cas d'échec, la personne ciblée est déstabilisée.",
+        "inconvenient": "",
+        "fiche": "rapide",
+        "description": "<p>Trait du métier Pirate. Compétence active qui oblige une cible à lancer un test de stress avec -2 ; en cas d'échec, la personne ciblée est déstabilisée. — variante fiche rapide / PNJ.</p>"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100000,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {
+        "galactic-wars": {
+          "traitMetier": true
+        }
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.galactic-wars.traits.Item.0ZaNVh0eSzRhYbBf",
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.3"
+      }
+    }
+  ],
+  "effects": [],
+  "folder": null,
+  "sort": 3600000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "galactic-wars": {
+      "importFicheRapide": "Turrlutte - Evocci - Pirate.xlsx"
+    }
+  },
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.23.0"
+  }
+}

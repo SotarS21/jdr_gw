@@ -1,0 +1,108 @@
+{
+  "_key": "!actors!85QJgHrPHoUzF1Mi",
+  "_id": "85QJgHrPHoUzF1Mi",
+  "name": "Meta Dima",
+  "type": "personnage-rapide",
+  "img": "systems/galactic-wars/asset_visuel/Personnage/rapides/meta-dima.webp",
+  "system": {
+    "infos": {
+      "nom": "Dima",
+      "prenom": "Meta"
+    },
+    "race": {
+      "uuid": "Compendium.galactic-wars.races.Item.ENmo2Uf52FpnssEt",
+      "nom": "Barabel"
+    },
+    "metier": {
+      "uuid": "Compendium.galactic-wars.metiers.Item.DaoLLhbdH0nFLWu9",
+      "nom": "Soldat lourd",
+      "description": "Tank : Prend une posture particulière qui permet de ne prendre aucun dégât de 15 en 1 seul fois. \nPar contre le soldat ne peux plus bouger. Prend 1 tour à retirer."
+    },
+    "talent": {
+      "nom": "Violent",
+      "description": "Si l’action d'attaque est réussie, possible de ré-attaquer derrière avec un malus de 2 ."
+    },
+    "caracteristiques": {
+      "force": 12,
+      "capCombat": 16,
+      "capTir": 16,
+      "dexterite": 10,
+      "mentale": 2,
+      "perception": 5,
+      "stress": 8,
+      "affForce": 1
+    },
+    "survie": {
+      "base": 70,
+      "racial": 0
+    },
+    "chance": 30,
+    "pv": {
+      "value": 16,
+      "max": 17
+    },
+    "equipement": "Plastron +2\nHache éléctrique 1d4\nFusil blaster lourd 1d10\njoile bourse de cuir\nComlink",
+    "credits": 10,
+    "portrait": "systems/galactic-wars/asset_visuel/Personnage/rapides/meta-dima.webp",
+    "description": "<p><strong>Corpulence :</strong> Fort<br><strong>Total maximal des caractéristiques :</strong> 70</p><h2>Notes de la fiche d'origine</h2><ul><li>Compétence Sup</li><li>armure — +1</li></ul><p><em>Importé de « Mélo Hard way.xlsx ».</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Meta Dima",
+    "texture": {
+      "src": "systems/galactic-wars/asset_visuel/Personnage/rapides/meta-dima.webp"
+    },
+    "actorLink": true,
+    "disposition": 1
+  },
+  "items": [
+    {
+      "_key": "!actors.items!85QJgHrPHoUzF1Mi.M88r2PDvIAToaLc0",
+      "_id": "M88r2PDvIAToaLc0",
+      "name": "Tank",
+      "type": "talent",
+      "img": "icons/svg/castle.svg",
+      "system": {
+        "avantage": "Prend une posture particulière qui permet de ne prendre aucun dégât de 15 en une seule fois. Par contre le soldat ne peut plus bouger. Prend 1 tour à retirer.",
+        "inconvenient": "",
+        "fiche": "rapide",
+        "description": "<p>Trait du métier Soldat lourd. Prend une posture particulière qui permet de ne prendre aucun dégât de 15 en une seule fois. Par contre le soldat ne peut plus bouger. Prend 1 tour à retirer. — variante fiche rapide / PNJ.</p>"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100000,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {
+        "galactic-wars": {
+          "traitMetier": true
+        }
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.galactic-wars.traits.Item.lzRHv47oROnyqJgR",
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.3"
+      }
+    }
+  ],
+  "effects": [],
+  "folder": null,
+  "sort": 2000000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "galactic-wars": {
+      "importFicheRapide": "Mélo Hard way.xlsx"
+    }
+  },
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.23.0"
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "_key": "!actors!nmwybtiy6AR64QAG",
+  "_id": "nmwybtiy6AR64QAG",
+  "name": "Wakya Voluptaria",
+  "type": "personnage-rapide",
+  "img": "systems/galactic-wars/asset_visuel/Personnage/rapides/wakya-voluptaria.webp",
+  "system": {
+    "infos": {
+      "nom": "Voluptaria",
+      "prenom": "Wakya"
+    },
+    "race": {
+      "uuid": "Compendium.galactic-wars.races.Item.zYqANKp0fYgCOZva",
+      "nom": "Mirialans"
+    },
+    "metier": {
+      "uuid": "Compendium.galactic-wars.metiers.Item.DaoLLhbdH0nFLWu9",
+      "nom": "Soldat lourd",
+      "description": "Tank : Prend une posture particulière qui permet de ne prendre aucun dégât de 15 en 1 seul fois. \nPar contre le soldat ne peux plus bouger. Prend 1 tour à retirer."
+    },
+    "talent": {
+      "nom": "Enchainement de forain",
+      "description": "peux enchainer 3 ennemies (jet de cmbt) mais est particulièrement vulnérable au attaque distance -3 esquive"
+    },
+    "caracteristiques": {
+      "force": 15,
+      "capCombat": 14,
+      "capTir": 10,
+      "dexterite": 15,
+      "mentale": 9,
+      "perception": 8,
+      "stress": 9,
+      "affForce": 1
+    },
+    "survie": {
+      "base": 70,
+      "racial": 0
+    },
+    "chance": 30,
+    "pv": {
+      "value": 15,
+      "max": 15
+    },
+    "equipement": "Lance grenade\nJump Pack\nShield Pad 5\n2533\nMatériel de chasse de la guilde\n/ Les Boobs d'acier \\\nTatouage de Mert",
+    "credits": 0,
+    "portrait": "systems/galactic-wars/asset_visuel/Personnage/rapides/wakya-voluptaria.webp",
+    "description": "<p>Tête de mule, elle a tendance à rentrer dans le tas pour donner des patates de forain à vous en faire oublier la gravité. C'est certes une femme, mais il ne faut pas se laisser avoir par son apparence, avec sa taille et sa carrure impressionnante, sa force égale celle de 2 hommes. Elle était dans une capsule a la dérive alors alors que le Chadinger l'a récupérer. Elle est amenésique et serait incapable de dire comment elle est arriver dans la capsule. Finalement le Chadinger l'a engager le temps qu'elle retrouve la mémoire.</p><p><strong>Fiche :</strong> partie rapide  : Fait par Valfactis<br><strong>Corpulence :</strong> Épais<br><strong>Total maximal des caractéristiques :</strong> 80</p><h2>Notes de la fiche d'origine</h2><ul><li>Alias \"3V\" — matricule : errant — 4351</li><li>1</li><li>Blaster : WIP</li></ul><p><em>Importé de « Wakya - Mirilans - Soldat Lourd.xlsx ».</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Wakya Voluptaria",
+    "texture": {
+      "src": "systems/galactic-wars/asset_visuel/Personnage/rapides/wakya-voluptaria.webp"
+    },
+    "actorLink": true,
+    "disposition": 1
+  },
+  "items": [
+    {
+      "_key": "!actors.items!nmwybtiy6AR64QAG.MW1CLTSoJn8HpRqv",
+      "_id": "MW1CLTSoJn8HpRqv",
+      "name": "Tank",
+      "type": "talent",
+      "img": "icons/svg/castle.svg",
+      "system": {
+        "avantage": "Prend une posture particulière qui permet de ne prendre aucun dégât de 15 en une seule fois. Par contre le soldat ne peut plus bouger. Prend 1 tour à retirer.",
+        "inconvenient": "",
+        "fiche": "rapide",
+        "description": "<p>Trait du métier Soldat lourd. Prend une posture particulière qui permet de ne prendre aucun dégât de 15 en une seule fois. Par contre le soldat ne peut plus bouger. Prend 1 tour à retirer. — variante fiche rapide / PNJ.</p>"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100000,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {
+        "galactic-wars": {
+          "traitMetier": true
+        }
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.galactic-wars.traits.Item.lzRHv47oROnyqJgR",
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.3"
+      }
+    }
+  ],
+  "effects": [],
+  "folder": null,
+  "sort": 3900000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "galactic-wars": {
+      "importFicheRapide": "Wakya - Mirilans - Soldat Lourd.xlsx"
+    }
+  },
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.23.0"
+  }
+}

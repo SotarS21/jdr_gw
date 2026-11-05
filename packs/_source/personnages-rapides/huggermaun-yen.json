@@ -1,0 +1,108 @@
+{
+  "_key": "!actors!PzQotYWZ7RXsjrgP",
+  "_id": "PzQotYWZ7RXsjrgP",
+  "name": "Hüggermâun Yen",
+  "type": "personnage-rapide",
+  "img": "systems/galactic-wars/asset_visuel/Personnage/rapides/huggermaun-yen.webp",
+  "system": {
+    "infos": {
+      "nom": "Hüggermâun",
+      "prenom": "Yen"
+    },
+    "race": {
+      "uuid": "",
+      "nom": "Besalisk"
+    },
+    "metier": {
+      "uuid": "Compendium.galactic-wars.metiers.Item.yVuShJi8aSqyPnRr",
+      "nom": "Soldat d’élite",
+      "description": "Pistolero : Permet de lancer des test d’esquive et / ou de blocage quand il tir"
+    },
+    "talent": {
+      "nom": "Anhexadextre",
+      "description": "Utilisation de tous ses bras en 1 seul tour : à chaque tir -1 Cap. tir ou Cap. Cmbt dans le même tour"
+    },
+    "caracteristiques": {
+      "force": 7,
+      "capCombat": 7,
+      "capTir": 19,
+      "dexterite": 15,
+      "mentale": 12,
+      "perception": 13,
+      "stress": 12,
+      "affForce": 2
+    },
+    "survie": {
+      "base": 60,
+      "racial": 0
+    },
+    "chance": 40,
+    "pv": {
+      "value": 17,
+      "max": 17
+    },
+    "equipement": "Tenue de contrebandière\nCeinture avec 4 hostlers\ntatouage d'identification de la guilde\n2 blasters légers (avec 50 tirs chacuns) + 1 blaster lourd (200 tirs)\ninjecteur (6 cartouches) + sacoche\n(5 tranquilisants + 2 poisons lent + 3 poisons rapide + 5 bactas)\nVaiseaux moyen — Extension de vaisseau — Materiel de chasse de la guilde\nNom : PUSSYCAT\n16 pv 30PS — 21\n2 * canon rotatif 1D8\n4 cannon léger 1D6",
+    "credits": 0,
+    "portrait": "systems/galactic-wars/asset_visuel/Personnage/rapides/huggermaun-yen.webp",
+    "description": "<p>Yen est une ancienne pilote de la république dans un vaisseau interstellaire Elle a décidé depuis quelques années de devenir soldat et quitter le froid de l'espace.</p><p><strong>Fiche :</strong> partie rapide : Fait par Neili joué par Sélène puis par Lucie<br><strong>Corpulence :</strong> Fort<br><strong>Total maximal des caractéristiques :</strong> 80</p><h2>Notes de la fiche d'origine</h2><ul><li>9590 crédits</li><li>matricule et rang 4261</li><li>seleriapick mot de passe pour contrebande dans la bulle (la fondation)</li><li>+1 en mentale pour piratage</li></ul><p><em>Importé de « Hüggermâun Yen - Besalisk - Soldat d_élite.xlsx ».</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Hüggermâun Yen",
+    "texture": {
+      "src": "systems/galactic-wars/asset_visuel/Personnage/rapides/huggermaun-yen.webp"
+    },
+    "actorLink": true,
+    "disposition": 1
+  },
+  "items": [
+    {
+      "_key": "!actors.items!PzQotYWZ7RXsjrgP.6NtHy6kMpxCiUxXm",
+      "_id": "6NtHy6kMpxCiUxXm",
+      "name": "Pistolero",
+      "type": "talent",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "avantage": "Permet de lancer des tests d’esquive et/ou de blocage quand il tire.",
+        "inconvenient": "",
+        "fiche": "rapide",
+        "description": "<p>Trait du métier Soldat d’élite. Permet de lancer des tests d’esquive et/ou de blocage quand il tire. — variante fiche rapide / PNJ.</p>"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100000,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {
+        "galactic-wars": {
+          "traitMetier": true
+        }
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.galactic-wars.traits.Item.t6ujWH5hZyZah3sT",
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.3"
+      }
+    }
+  ],
+  "effects": [],
+  "folder": null,
+  "sort": 1300000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "galactic-wars": {
+      "importFicheRapide": "Hüggermâun Yen - Besalisk - Soldat d_élite.xlsx"
+    }
+  },
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.23.0"
+  }
+}
