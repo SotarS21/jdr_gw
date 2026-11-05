@@ -89,7 +89,8 @@ export async function transfererCredits(equipage, membre, montant) {
 /* Avantage d'équipage (suivi n° 28)                                */
 /* ---------------------------------------------------------------- */
 
-const CANAL = "system.galactic-wars";
+/** Requête Foundry (CONFIG.queries) par laquelle un joueur demande au MJ actif d'utiliser l'avantage (V8). */
+const REQUETE_AVANTAGE = "galactic-wars.utiliserAvantage";
 
 /** Membres (acteurs) de l'équipage dont `user` est propriétaire, son personnage attitré en premier. */
 export function membresDeLUtilisateur(equipage, user = game.user) {
@@ -131,8 +132,13 @@ export async function utiliserAvantage(equipage, user = game.user) {
       notifier("AvantageSansMJ", {}, "warn");
       return false;
     }
-    game.socket.emit(CANAL, { type: "equipage", action: "utiliserAvantage", equipage: equipage.uuid, user: user.id });
-    return true;
+    try {
+      return await game.users.activeGM.query(REQUETE_AVANTAGE, { equipage: equipage.uuid });
+    } catch (err) {
+      console.error("Galactic Wars | Avantage d'équipage : requête au MJ impossible", err);
+      notifier("AvantageSansMJ", {}, "warn");
+      return false;
+    }
   }
   // Verrou par équipage : deux demandes arrivées ensemble (relais simultanés) passaient toutes deux le test ci-dessus
   // avant la mise à jour — un seul avantage consommé, deux messages.
@@ -156,13 +162,15 @@ export async function utiliserAvantage(equipage, user = game.user) {
   return true;
 }
 
-/** À appeler au hook "ready" : le MJ actif exécute les utilisations relayées par les joueurs. */
-export function enregistrerSocketEquipage() {
-  game.socket.on(CANAL, async (message) => {
-    if (message?.type !== "equipage" || message.action !== "utiliserAvantage") return;
-    if (game.users.activeGM !== game.user) return;
-    const equipage = await fromUuid(message.equipage);
-    const user = game.users.get(message.user);
-    if (equipage?.type === "equipage" && user) await utiliserAvantage(equipage, user);
-  });
+/**
+ * À appeler au hook "ready" : le MJ actif exécute les utilisations demandées par les joueurs. L'utilisateur vient du
+ * contexte de la requête, renseigné par le serveur (V8) : un joueur ne peut pas agir au nom d'un autre.
+ */
+export function enregistrerRequeteEquipage() {
+  CONFIG.queries[REQUETE_AVANTAGE] = async (donnees, { user }) => {
+    if (game.users.activeGM !== game.user) return false;
+    const equipage = await fromUuid(donnees?.equipage);
+    if (equipage?.type !== "equipage" || !user) return false;
+    return utiliserAvantage(equipage, user);
+  };
 }
