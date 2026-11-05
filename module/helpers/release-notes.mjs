@@ -453,6 +453,9 @@ export const RELEASE_NOTES = {
   },
   "0.25.1": {
     title: "v0.25.1",
-    html: "<ul><li>Lumière / Obscurité : des clics rapides sur plusieurs barres ne sont plus perdus (cliquer la barre 4 puis la barre 8 donne bien 8).</li></ul>"
+    html: `<ul>
+      <li>Lumière / Obscurité : des clics rapides sur plusieurs barres ne sont plus perdus (cliquer la barre 4 puis la barre 8 donne bien 8).</li>
+      <li>Avantage d'équipage : la demande d'un joueur passe par une requête Foundry, dont l'expéditeur est garanti par le serveur (un joueur ne peut plus l'utiliser au nom d'un autre) ; le joueur est prévenu si elle échoue.</li>
+    </ul>`
   }
 };

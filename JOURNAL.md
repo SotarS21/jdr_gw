@@ -1,5 +1,25 @@
 # Journal de développement — Galactic Wars
 
+## Session du 2026-11-05 (suite) — Points ouverts (v0.25.0→v0.25.1, branche `fix/barres-reserve-clics-rapides`)
+
+- **Correctif MJ `0.20.5-postes-vaisseaux`** : appliqué dans le monde (31/31 correctifs marqués ; Lantallian et Le Barmaid
+  Betty ont leurs postes). Clos.
+- **Tests périmés** : t2 (sélecteur `.panel-competences-combat .favori-nom`, ne passe plus « par défaut » si rien n'est
+  trouvé) → **161 OK, 0 KO** ; t16 (barres 4 à 8 au lieu de − / +) ; connexion build 369 (`select[name=userId]`) dans les
+  10 scripts `.mjs` d'audit ; `../audit/node_modules` = jonction vers Playwright du cache npx (les `.mjs` l'importent).
+- **Bug trouvé par t16 (Z2-3), corrigé** : un clic sur une barre Lumière / Obscurité reçu pendant l'écriture précédente
+  était ignoré (barre 4 puis 8 → 4). `#onFixerReserve` : la dernière barre demandée l'emporte (comparaison à la cible en
+  attente, boucle jusqu'à la dernière). t16 15/15, t20-sabre 16/16.
+- **G7 (deux MJ)** : testé en direct (`../audit/t25-deux-mj.mjs`, MJ assistant temporaire ; correctif remis en attente sur
+  un « Land speeder » de test) — tous les clients désignent le même MJ actif (Gamemaster, l'auteur connecté) ; les MJ non
+  actifs n'ouvrent ni n'appliquent les correctifs. 7/7, tout restauré. *Incident* : un premier passage a échoué après la
+  préparation (« claude » est MJ **assistant**, il ne peut pas créer un MJ complet) sans nettoyer → vaisseau supprimé et
+  correctif remarqué à la main (`reparer-t25.js`), nettoyage du test rendu inconditionnel.
+- **V8 corrigé** : l'avantage d'équipage demandé par un joueur passe par `User#query` (`CONFIG.queries
+  ["galactic-wars.utiliserAvantage"]`, Foundry 13+), l'utilisateur vient du contexte fourni par le serveur ; ancien relais
+  socket supprimé. t17 (relais simultanés) OK, `../audit/t26-v8-usurpation.mjs` 4/4 (socket usurpé ignoré, requête d'un
+  non-membre refusée). Le canal du générique reste un socket (abus possible : lancer l'intro chez tous, sans donnée).
+
 ## Session du 2026-11-05 (suite) — Talents génériques (v0.24.0→v0.25.0, branche `feat/talents-generiques`)
 
 - **Source retrouvée** : la liste « Talent : » d'`archétype_metier_galactic_wars.docx` (28 talents ; le compendium en avait
