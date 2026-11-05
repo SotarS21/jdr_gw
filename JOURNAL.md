@@ -1,5 +1,24 @@
 # Journal de développement — Galactic Wars
 
+## Session du 2026-11-05 (suite) — Races et métiers manquants (v0.23.0→v0.24.0, branche `feat/races-metiers-rapides`)
+
+- **Sources** : aucune pour les races (Besalisk, Pantoran absents du PDF ; Evocci, Ewok, Klatooinian = noms seuls p. 52-53) ;
+  `archétype_metier_galactic_wars.docx` donne talent + équipement d'Archéo-archiviste, Artiste acrobate, Cuisinier,
+  Journaliste, Marchand(t), Sénateur, **sans liste de compétences** ; les 4 autres métiers n'existent que sur les fiches
+  des joueurs. **Bonus de race, compétences accordées, équipement manquant et effets des traits proposés par Claude,
+  validés par l'auteur** (tableau présenté dans Claude Code, réponse « valider »).
+- **Fait** (`../audit/creer-races-metiers.mjs`, identifiants stables) : 5 races (portraits d'ethnie existants pour
+  Besalisk / Evocci / Ewok / Klatooinian, Pantoran = portrait de Serge Gomor) ; 10 métiers (images = portraits des
+  personnages rapides, Artiste acrobate = icône) ; 18 traits (dossiers « Traits de métier » des deux fiches ; 8 chiffrés :
+  Savoir encyclopédique Sagesse +10 % / Mentale +2, Acrobate Escalade-saut +20 % / Dextérité +4, Commis Perception +10 % /
+  +2, Danseuse Parade-esquive +10 % / Dextérité +2 ; Négociateur en bonus de situation) ; Jedi gris réutilise les traits
+  du Padawan. Importeur : alias Marchant → Marchand, Sans Emplois → Sans emploi, Ewok Falleen → Ewok (mention gardée en
+  biographie) ; **les 39 personnages rapides sont tous liés**. Journaux du catalogue régénérés (métiers : 31 pages).
+- **Test en direct** (`../audit/t22-races-metiers.js`) : **20/20 OK**, aucune erreur — 48 races, 31 métiers, images,
+  traits, 15 fiches d'objet, journal, personnages liés ; Besalisk + Cuisinier sur une fiche classique (5 compétences
+  accordées, Commis +10 % Perception, 2 objets de départ) et Pantoran + Artiste acrobate sur une fiche rapide
+  (Acrobate +4 Dextérité) ; acteurs de test supprimés. Foundry relancé en 0.24.0 (accord de l'auteur).
+
 ## Session du 2026-11-05 — Personnages partie rapide (v0.22.0→v0.23.0, branche `feat/personnages-rapides`)
 
 - **Demande** : « reprendre avec les versions simples des fiches de personnage » = importer les tableurs de
