@@ -1,0 +1,26 @@
+{
+  "_key": "!items!iJq6ioP4noABzcAA",
+  "_id": "iJq6ioP4noABzcAA",
+  "name": "Ambiguë",
+  "type": "talent",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "avantage": "Les ennemis ont tendance à aller frapper les alliés à côté.",
+    "inconvenient": "Les alliés ont -3 en stress : ils ne savent pas de quel côté elle est.",
+    "fiche": "toutes",
+    "description": ""
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.25.0"
+  }
+}

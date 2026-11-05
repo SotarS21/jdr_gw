@@ -1,0 +1,26 @@
+{
+  "_key": "!items!QumukYKx0Uc3DpkT",
+  "_id": "QumukYKx0Uc3DpkT",
+  "name": "Inspiration de puissance",
+  "type": "talent",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "avantage": "+2 en force ou en dextérité lorsqu'il gueule une insulte.",
+    "inconvenient": "+2 d'échec critique le temps de l'action.",
+    "fiche": "toutes",
+    "description": ""
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.25.0"
+  }
+}

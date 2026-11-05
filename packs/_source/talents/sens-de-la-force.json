@@ -1,0 +1,58 @@
+{
+  "_key": "!items!1RRrVtXVnBLJFj59",
+  "_id": "1RRrVtXVnBLJFj59",
+  "name": "Sens de la Force",
+  "type": "talent",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "avantage": "Permet parfois de voir des images, des situations fortes.",
+    "inconvenient": "-2 en stress, sauf pour un Jedi ou un Sith (le MJ retire alors le talent ou son effet).",
+    "fiche": "classique",
+    "description": ""
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.25.0"
+  },
+  "effects": [
+    {
+      "_key": "!items.effects!1RRrVtXVnBLJFj59.Z8Jpqg2MkFrhHo21",
+      "_id": "Z8Jpqg2MkFrhHo21",
+      "name": "Sens de la Force",
+      "img": "icons/svg/upgrade.svg",
+      "type": "base",
+      "system": {
+        "changes": [
+          {
+            "key": "system.effets.competences.sangFroid",
+            "type": "add",
+            "value": "-10"
+          }
+        ]
+      },
+      "disabled": false,
+      "transfer": true,
+      "description": "",
+      "origin": null,
+      "statuses": [],
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.25.0"
+      }
+    }
+  ]
+}

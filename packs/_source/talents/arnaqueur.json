@@ -1,0 +1,26 @@
+{
+  "_key": "!items!WaJpMGMSlsfoIur4",
+  "_id": "WaJpMGMSlsfoIur4",
+  "name": "Arnaqueur",
+  "type": "talent",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "avantage": "Réussit automatiquement un tour de passe-passe.",
+    "inconvenient": "Reconnu par les forces de l'ordre, donc traqué s'il est repéré.",
+    "fiche": "toutes",
+    "description": ""
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.25.0"
+  }
+}

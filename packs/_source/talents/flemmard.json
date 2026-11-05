@@ -1,0 +1,63 @@
+{
+  "_key": "!items!k9Mw7QKu27xSy30C",
+  "_id": "k9Mw7QKu27xSy30C",
+  "name": "Flemmard",
+  "type": "talent",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "avantage": "Encourage les autres à faire les choses à sa place.",
+    "inconvenient": "-2 en force et en dextérité.",
+    "fiche": "classique",
+    "description": ""
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.25.0"
+  },
+  "effects": [
+    {
+      "_key": "!items.effects!k9Mw7QKu27xSy30C.AeKOUdxjXOEX26lC",
+      "_id": "AeKOUdxjXOEX26lC",
+      "name": "Flemmard",
+      "img": "icons/svg/upgrade.svg",
+      "type": "base",
+      "system": {
+        "changes": [
+          {
+            "key": "system.effets.competences.bagarre",
+            "type": "add",
+            "value": "-10"
+          },
+          {
+            "key": "system.effets.competences.paradeEsquive",
+            "type": "add",
+            "value": "-10"
+          }
+        ]
+      },
+      "disabled": false,
+      "transfer": true,
+      "description": "",
+      "origin": null,
+      "statuses": [],
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.25.0"
+      }
+    }
+  ]
+}

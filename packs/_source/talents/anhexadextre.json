@@ -1,0 +1,26 @@
+{
+  "_key": "!items!5rjrYA2IiOZ3cpxI",
+  "_id": "5rjrYA2IiOZ3cpxI",
+  "name": "Anhexadextre",
+  "type": "talent",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "avantage": "Utilise tous ses bras dans le même tour.",
+    "inconvenient": "-1 en Cap. Tir ou Cap. Cmbt à chaque tir supplémentaire du tour.",
+    "fiche": "toutes",
+    "description": ""
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.25.0"
+  }
+}

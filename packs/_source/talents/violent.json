@@ -1,0 +1,26 @@
+{
+  "_key": "!items!NF3kR4cvC8QfveFP",
+  "_id": "NF3kR4cvC8QfveFP",
+  "name": "Violent",
+  "type": "talent",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "avantage": "Si l'action d'attaque est réussie, possibilité de réattaquer derrière.",
+    "inconvenient": "Malus de -2 à la seconde attaque.",
+    "fiche": "toutes",
+    "description": ""
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.25.0"
+  }
+}

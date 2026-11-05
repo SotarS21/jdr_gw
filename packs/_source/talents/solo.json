@@ -1,0 +1,26 @@
+{
+  "_key": "!items!aEJIa2EvawkDZ4CK",
+  "_id": "aEJIa2EvawkDZ4CK",
+  "name": "Solo",
+  "type": "talent",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "avantage": "A forcément l'initiative.",
+    "inconvenient": "Les ennemis ont un bonus de réussite critique pour le toucher.",
+    "fiche": "toutes",
+    "description": ""
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.25.0"
+  }
+}

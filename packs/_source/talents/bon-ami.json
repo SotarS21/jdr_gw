@@ -1,0 +1,26 @@
+{
+  "_key": "!items!UTGYbSDXVRN3Kwft",
+  "_id": "UTGYbSDXVRN3Kwft",
+  "name": "Bon ami",
+  "type": "talent",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "avantage": "+4 pour faire une action combinée.",
+    "inconvenient": "+2 d'échec critique pour tous les joueurs pendant un temps lorsqu'il meurt.",
+    "fiche": "toutes",
+    "description": ""
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.25.0"
+  }
+}

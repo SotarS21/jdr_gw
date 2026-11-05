@@ -1,0 +1,26 @@
+{
+  "_key": "!items!5smCX6xj5rH3jtLA",
+  "_id": "5smCX6xj5rH3jtLA",
+  "name": "Pâte de Marlak",
+  "type": "talent",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "avantage": "Permet aux autres joueurs de relancer un test de chance raté, une fois par scène.",
+    "inconvenient": "",
+    "fiche": "toutes",
+    "description": ""
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.25.0"
+  }
+}

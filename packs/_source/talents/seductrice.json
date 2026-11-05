@@ -1,0 +1,26 @@
+{
+  "_key": "!items!QsVVXZsWHMAkAG1H",
+  "_id": "QsVVXZsWHMAkAG1H",
+  "name": "Séductrice",
+  "type": "talent",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "avantage": "Gagne automatiquement une séduction.",
+    "inconvenient": "-4 en perception pour l'équipe, déstabilisée par son charme.",
+    "fiche": "toutes",
+    "description": ""
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.25.0"
+  }
+}

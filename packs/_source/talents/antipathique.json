@@ -1,0 +1,58 @@
+{
+  "_key": "!items!VrhNCoFwbSY5WmmG",
+  "_id": "VrhNCoFwbSY5WmmG",
+  "name": "Antipathique",
+  "type": "talent",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "avantage": "+4 en stress et +1 de réussite critique.",
+    "inconvenient": "Action combinée impossible et +1 d'échec critique.",
+    "fiche": "classique",
+    "description": ""
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.25.0"
+  },
+  "effects": [
+    {
+      "_key": "!items.effects!VrhNCoFwbSY5WmmG.87SAut8ISoxJ9TDC",
+      "_id": "87SAut8ISoxJ9TDC",
+      "name": "Antipathique",
+      "img": "icons/svg/upgrade.svg",
+      "type": "base",
+      "system": {
+        "changes": [
+          {
+            "key": "system.effets.competences.sangFroid",
+            "type": "add",
+            "value": "20"
+          }
+        ]
+      },
+      "disabled": false,
+      "transfer": true,
+      "description": "",
+      "origin": null,
+      "statuses": [],
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.25.0"
+      }
+    }
+  ]
+}
