@@ -450,5 +450,9 @@ export const RELEASE_NOTES = {
       <li><strong>18 nouveaux talents</strong> dans le compendium Talents (26 au total) : Ambiguë, Ami des Wookiees, Anhexadextre, Antipathique, Arnaqueur, Bon ami, Empathique, Flemmard, Inspiration de puissance, Ivrogne, Leader né, Pâte de Marlak, Perspicace, Qeuwa ?, Séductrice, Sens de la Force, Solo, Violent.</li>
       <li>Effets automatiques pour Antipathique, Empathique, Flemmard, Perspicace et Sens de la Force (variantes fiche classique en % et fiche rapide) ; les autres s'appliquent selon la situation.</li>
     </ul>`
+  },
+  "0.25.1": {
+    title: "v0.25.1",
+    html: "<ul><li>Lumière / Obscurité : des clics rapides sur plusieurs barres ne sont plus perdus (cliquer la barre 4 puis la barre 8 donne bien 8).</li></ul>"
   }
 };
