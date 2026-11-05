@@ -21,7 +21,7 @@
 - **Test en direct** (`../audit/t21-rapides.js`) : **18/18 OK**, aucune erreur — 39 acteurs, 37 portraits servis, liens
   race / métier / trait résolus, 39 fiches rendues, import dans le monde, jets Chance / Survie, saisie de la Chance ;
   acteur et messages de test supprimés.
-- **Non poussé, pas de release** (en attente de l'accord de l'auteur). Races sans lien : Klatooinian, Besalisk, Pantoran,
+- **Release v0.23.0 publiée** à la demande de l'auteur (fusion dans main, tag, workflow vert, manifeste `latest` en 0.23.0, 37 portraits et le pack dans `system.zip`). Races sans lien : Klatooinian, Besalisk, Pantoran,
   Evocci, Ewok Falleen ; métiers sans lien : Sans Emplois, Scientifique, Sénateur, Archéo-archiviste, Jedi gris,
   Marchant, Journaliste, Cuisinier, Prostituée.
 
