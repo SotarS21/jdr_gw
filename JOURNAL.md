@@ -20,6 +20,7 @@
   socket supprimé. t17 (relais simultanés) OK, `../audit/t26-v8-usurpation.mjs` 4/4 (socket usurpé ignoré, requête d'un
   non-membre refusée). Le canal du générique reste un socket (abus possible : lancer l'intro chez tous, sans donnée).
 - **Release v0.25.1 publiée** à la demande de l'auteur (fusion dans main, tag, workflow vert, manifeste `latest` en 0.25.1).
+- **Poids du dépôt** (`asset_visuel` 264 Mo, dont `vaiseau` 175 Mo) : **décision de l'auteur, on garde les images** dans le dépôt et dans l'historique. Point clos.
 
 ## Session du 2026-11-05 (suite) — Talents génériques (v0.24.0→v0.25.0, branche `feat/talents-generiques`)
 
