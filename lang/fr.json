@@ -779,6 +779,20 @@
       "Echec": "Échec.",
       "ReussiteCritique": "Réussite critique !",
       "EchecCritique": "Échec critique !"
+    },
+
+    "Rapide": {
+      "TypeRapide": "Partie rapide · d20",
+      "TypePnj": "PNJ · d100",
+      "ModeEditionHint": "Active ou désactive la modification des caractéristiques, de la Chance, de la Survie, des PV max, de la race, du métier, du talent et des traits",
+      "JetPourcentage": "Lancer 1d100 sous la valeur",
+      "JetD20": "d20 sous la valeur",
+      "JetPnj": "1d100 sous la valeur",
+      "MetierPlaceholder": "Trait signature du métier",
+      "AucunMetier": "Aucun métier.",
+      "AucunTalent": "Aucun talent.",
+      "NotesEquipement": "Notes d'équipement",
+      "Identite": "Identité"
     }
   }
 }

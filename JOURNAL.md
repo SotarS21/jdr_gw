@@ -1,5 +1,30 @@
 # Journal de développement — Galactic Wars
 
+## Session du 2026-11-05 (suite) — Fiche rapide / PNJ refaite (v0.25.2→v0.26.0, branche `feat/fiche-rapide-v2`)
+
+- **Maquette** (canvas « Fiche rapide Galactic Wars », https://claude.ai/artifact/PA2dw4sqcubdy4X9F8m568) : 3 pistes
+  (A Console, B Dossier, C Carte de jeu) ; **choix de l'auteur** : onglets et cartes Métier / Talent de A,
+  caractéristiques plus petites (pastilles), cartes Chance / Survie de C (version D « Synthèse ») ; puis pas de rappel
+  des crédits dans l'Équipement, **carte vaisseau** et **onglet Notes** de la fiche classique.
+- **Fait** : la fenêtre porte la classe `personnage` (thème de la fiche classique) + `personnage-rapide`
+  (`styles/fiche-rapide.css`, importé en tête de `galactic-wars.css`). En-tête : portrait | type (Partie rapide · d20 /
+  PNJ · d100), bouton Édition, nom, pastilles race / métier (Choisir en Édition), crédits | PV + barre, cartes Chance /
+  Survie (clic = 1d100 ; champs en Édition). Onglets Personnage (8 pastilles colorées par famille, clic = jet ; cartes
+  Métier et Talent ; traits ; protection + couverts), Équipements (grille de la classique + vaisseau pleine largeur +
+  notes d'équipement = ancien texte libre), Biographie (éditeur + identité), Notes. Mode Édition ouvert d'office sur
+  une fiche vierge.
+- **Parties communes extraites** de la fiche classique (aucun changement de rendu) : `helpers/fiche-commune.mjs`
+  (inventaire, vaisseau, notes, recherche, objet actif, suppression confirmée, menu clic droit) et partiels
+  `templates/actor/parts/` (`gwLigneObjet`, `gwPanneauVaisseau`, `gwOngletNotes`, chargés à l'init) ; la fiche classique
+  passe de 1062 à 909 lignes de JS et de 754 à 569 lignes de gabarit.
+- **Modèle rapide / PNJ** : + `vaisseau`, `resumes`, `notes`, `pnjs`, `missions` (mêmes définitions que la classique).
+  Conséquence voulue : les contacts de départ d'un métier vont dans les Notes (PNJ) comme sur la fiche classique.
+- **Recherche des notes** : « œ » / « æ » comparés comme « oe » / « ae » (« soeur » trouve « sœur », aussi sur la
+  classique).
+- **Tests en direct** (`-NoRestart`) : `../audit/t28-fiche-rapide.mjs` **14/14** (onglets, jets d20 et d100, Édition +
+  saisie, arme créée et portée, vaisseau lié, notes + recherche, PNJ en %, Alek non régressé ; captures `t28-*.png`
+  vérifiées), t2 **161/161**, t21 **18/18** (sélecteurs adaptés). Aucune erreur.
+
 ## État au 2026-11-05, soir — fin de session
 
 - **v0.25.2 = dernière release**, tout est fusionné, poussé et publié ; aucune branche de travail. Foundry local : monde

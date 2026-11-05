@@ -1,6 +1,6 @@
 import { GW } from "../config.mjs";
 
-const { SchemaField, NumberField, StringField, HTMLField, FilePathField } = foundry.data.fields;
+const { SchemaField, NumberField, StringField, HTMLField, FilePathField, ArrayField } = foundry.data.fields;
 
 function caracteristiqueRapide() {
   return new NumberField({ required: true, integer: true, min: 0, initial: 0 });
@@ -72,6 +72,46 @@ export class PersonnageRapideData extends foundry.abstract.TypeDataModel {
       equipement: new StringField({ initial: "" }),
       credits: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
       portrait: new FilePathField({ categories: ["IMAGE"], initial: "icons/svg/mystery-man.svg" }),
+
+      // v0.26.0 (fiche rapide refaite) : vaisseau lié et onglet Notes, mêmes champs que la fiche classique
+      // (helpers/fiche-commune.mjs, templates/actor/parts/).
+      vaisseau: new SchemaField({
+        uuid: new StringField({ required: false, blank: true, initial: "" }),
+        nom: new StringField({ initial: "" })
+      }),
+      resumes: new ArrayField(
+        new SchemaField({
+          titre: new StringField({ initial: "" }),
+          description: new HTMLField({ initial: "" }),
+          date: new NumberField({ required: true, integer: true, min: 0, initial: 0 })
+        })
+      ),
+      notes: new ArrayField(
+        new SchemaField({
+          titre: new StringField({ initial: "" }),
+          contenu: new HTMLField({ initial: "" }),
+          motsCles: new ArrayField(new StringField({ blank: false }))
+        })
+      ),
+      pnjs: new ArrayField(
+        new SchemaField({
+          nom: new StringField({ initial: "" }),
+          sousTitre: new StringField({ initial: "" }),
+          img: new FilePathField({ categories: ["IMAGE"], blank: true, initial: "" }),
+          description: new HTMLField({ initial: "" }),
+          statut: new StringField({ initial: "neutre", choices: () => GW.statutsPnj }),
+          origineMetier: new StringField({ initial: "" }),
+          acteurUuid: new StringField({ initial: "", blank: true })
+        })
+      ),
+      missions: new ArrayField(
+        new SchemaField({
+          titre: new StringField({ initial: "" }),
+          description: new HTMLField({ initial: "" }),
+          importance: new StringField({ initial: "secondaire", choices: () => GW.importancesMission }),
+          statut: new StringField({ initial: "aFaire", choices: () => GW.statutsMission })
+        })
+      ),
       description: new HTMLField({ initial: "" })
     };
   }

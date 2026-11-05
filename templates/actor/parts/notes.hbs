@@ -1,0 +1,107 @@
+{{!-- Onglet Notes (fiches classique et rapide / PNJ) : préparé par helpers/fiche-commune.mjs#preparerNotes. --}}
+<nav class="sous-onglets">
+  <button type="button" class="sous-onglet-btn {{#if (eq sousOngletNotes 'resume')}}active{{/if}}" data-action="changerSousOnglet" data-sous-onglet="resume">{{localize 'GALACTICWARS.Notes.Resumes'}} <span class="compteur">{{resumes.length}}</span></button>
+  <button type="button" class="sous-onglet-btn {{#if (eq sousOngletNotes 'infos')}}active{{/if}}" data-action="changerSousOnglet" data-sous-onglet="infos">{{localize 'GALACTICWARS.Notes.Infos'}} <span class="compteur">{{infos.length}}</span></button>
+  <button type="button" class="sous-onglet-btn {{#if (eq sousOngletNotes 'pnj')}}active{{/if}}" data-action="changerSousOnglet" data-sous-onglet="pnj">{{localize 'GALACTICWARS.Notes.Pnj'}} <span class="compteur">{{pnjs.length}}</span></button>
+  <button type="button" class="sous-onglet-btn {{#if (eq sousOngletNotes 'missions')}}active{{/if}}" data-action="changerSousOnglet" data-sous-onglet="missions">{{localize 'GALACTICWARS.Notes.Missions'}} <span class="compteur">{{missions.length}}</span></button>
+</nav>
+
+{{#if (eq sousOngletNotes 'resume')}}
+<section class="notes panel {{#if modeEdition}}texte-complet{{/if}}">
+  <div class="section-header">
+    <h2 class="eyebrow">{{localize 'GALACTICWARS.Notes.Resumes'}}</h2>
+    <button type="button" class="roll-btn" data-action="ajouterEntreeNote" data-type="resume" data-tooltip="{{localize 'GALACTICWARS.Notes.Ajouter'}}">+</button>
+  </div>
+  {{#each resumes as |resume|}}
+  <article class="carte-note" data-type="resume" data-index="{{resume.index}}" data-action="editerEntreeNote">
+    <header class="carte-entete">
+      <span class="carte-titre">{{resume.titre}}</span>
+      {{#if resume.dateLabel}}<span class="carte-date" data-tooltip="{{localize 'GALACTICWARS.Notes.DateHint'}}">{{resume.dateLabel}}</span>{{/if}}
+      <button type="button" class="note-btn" data-action="montrerEntreeNote" data-tooltip="{{localize 'GALACTICWARS.Notes.MontrerTchat'}}" aria-label="{{localize 'GALACTICWARS.Notes.MontrerTchat'}}"><i class="fa-solid fa-comment"></i></button>
+      <button type="button" class="del-btn" data-action="supprimerEntreeNote" data-tooltip="{{localize 'GALACTICWARS.Notes.Supprimer'}}">🗑</button>
+    </header>
+    <div class="carte-texte">{{{resume.descriptionEnrichie}}}</div>
+  </article>
+  {{else}}
+  <p class="hint">{{localize 'GALACTICWARS.Notes.AucunResume'}}</p>
+  {{/each}}
+</section>
+{{/if}}
+
+{{#if (eq sousOngletNotes 'infos')}}
+<section class="notes panel {{#if modeEdition}}texte-complet{{/if}}">
+  <div class="section-header">
+    <h2 class="eyebrow">{{localize 'GALACTICWARS.Notes.Infos'}}</h2>
+    <button type="button" class="roll-btn" data-action="ajouterEntreeNote" data-type="info" data-tooltip="{{localize 'GALACTICWARS.Notes.Ajouter'}}">+</button>
+  </div>
+  {{#each infos as |info|}}
+  <article class="carte-note" data-type="info" data-index="{{info.index}}" data-action="editerEntreeNote">
+    <header class="carte-entete">
+      <span class="carte-titre">{{info.titre}}</span>
+      <button type="button" class="note-btn" data-action="montrerEntreeNote" data-tooltip="{{localize 'GALACTICWARS.Notes.MontrerTchat'}}" aria-label="{{localize 'GALACTICWARS.Notes.MontrerTchat'}}"><i class="fa-solid fa-comment"></i></button>
+      <button type="button" class="del-btn" data-action="supprimerEntreeNote" data-tooltip="{{localize 'GALACTICWARS.Notes.Supprimer'}}">🗑</button>
+    </header>
+    {{#if info.motsCles.length}}<div class="mots-cles">{{#each info.motsCles as |mot|}}<span class="etiquette">{{mot}}</span>{{/each}}</div>{{/if}}
+    <div class="carte-texte">{{{info.contenuEnrichi}}}</div>
+  </article>
+  {{else}}
+  <p class="hint">{{localize 'GALACTICWARS.Notes.AucuneInfo'}}</p>
+  {{/each}}
+</section>
+{{/if}}
+
+{{#if (eq sousOngletNotes 'pnj')}}
+<section class="notes panel {{#if modeEdition}}texte-complet{{/if}}">
+  <div class="section-header">
+    <h2 class="eyebrow">{{localize 'GALACTICWARS.Notes.Pnj'}}</h2>
+    <input type="search" class="recherche-notes" data-liste="pnj" value="{{lookup recherche 'pnj'}}"
+           placeholder="{{localize 'GALACTICWARS.Notes.Rechercher'}}" aria-label="{{localize 'GALACTICWARS.Notes.Rechercher'}}">
+    <button type="button" class="roll-btn" data-action="ajouterEntreeNote" data-type="pnj" data-tooltip="{{localize 'GALACTICWARS.Notes.Ajouter'}}">+</button>
+  </div>
+  {{#each pnjs as |pnj|}}
+  <article class="carte-note statut-{{pnj.statut}} {{#if pnj.img}}avec-image{{/if}}" data-type="pnj" data-index="{{pnj.index}}" data-action="editerEntreeNote">
+    {{#if pnj.img}}<img class="carte-image" src="{{pnj.img}}" alt="{{pnj.nom}}">{{/if}}
+    <div class="carte-corps">
+      <header class="carte-entete">
+        <span class="carte-titre">{{pnj.nom}}</span>
+        <span class="pastille statut-{{pnj.statut}}">{{pnj.statutLabel}}</span>
+        {{#if pnj.acteurUuid}}<button type="button" class="note-btn" data-action="ouvrirActeurPnj" data-tooltip="{{localize 'GALACTICWARS.Notes.OuvrirFichePnj'}}" aria-label="{{localize 'GALACTICWARS.Notes.OuvrirFichePnj'}}"><i class="fa-solid fa-id-card"></i></button>{{/if}}
+        <button type="button" class="note-btn" data-action="montrerEntreeNote" data-tooltip="{{localize 'GALACTICWARS.Notes.MontrerTchat'}}" aria-label="{{localize 'GALACTICWARS.Notes.MontrerTchat'}}"><i class="fa-solid fa-comment"></i></button>
+      <button type="button" class="del-btn" data-action="supprimerEntreeNote" data-tooltip="{{localize 'GALACTICWARS.Notes.Supprimer'}}">🗑</button>
+      </header>
+      {{#if pnj.sousTitre}}<div class="carte-sous-titre">{{pnj.sousTitre}}</div>{{/if}}
+      <div class="carte-texte">{{{pnj.descriptionEnrichie}}}</div>
+    </div>
+  </article>
+  {{else}}
+  <p class="hint">{{localize 'GALACTICWARS.Notes.AucunPnj'}} {{localize 'GALACTICWARS.Notes.AideDepotPnj'}}</p>
+  {{/each}}
+  <p class="hint recherche-vide" hidden>{{localize 'GALACTICWARS.Notes.AucunResultat'}}</p>
+</section>
+{{/if}}
+
+{{#if (eq sousOngletNotes 'missions')}}
+<section class="notes panel {{#if modeEdition}}texte-complet{{/if}}">
+  <div class="section-header">
+    <h2 class="eyebrow">{{localize 'GALACTICWARS.Notes.Missions'}}</h2>
+    <input type="search" class="recherche-notes" data-liste="missions" value="{{lookup recherche 'missions'}}"
+           placeholder="{{localize 'GALACTICWARS.Notes.Rechercher'}}" aria-label="{{localize 'GALACTICWARS.Notes.Rechercher'}}">
+    <button type="button" class="roll-btn" data-action="ajouterEntreeNote" data-type="mission" data-tooltip="{{localize 'GALACTICWARS.Notes.Ajouter'}}">+</button>
+  </div>
+  {{#each missions as |mission|}}
+  <article class="carte-note mission-{{mission.statut}}" data-type="mission" data-index="{{mission.index}}" data-action="editerEntreeNote">
+    <header class="carte-entete">
+      <span class="carte-titre">{{mission.titre}}</span>
+      <span class="pastille importance-{{mission.importance}}">{{mission.importanceLabel}}</span>
+      <span class="pastille mission-{{mission.statut}}">{{mission.statutLabel}}</span>
+      <button type="button" class="note-btn" data-action="montrerEntreeNote" data-tooltip="{{localize 'GALACTICWARS.Notes.MontrerTchat'}}" aria-label="{{localize 'GALACTICWARS.Notes.MontrerTchat'}}"><i class="fa-solid fa-comment"></i></button>
+      <button type="button" class="del-btn" data-action="supprimerEntreeNote" data-tooltip="{{localize 'GALACTICWARS.Notes.Supprimer'}}">🗑</button>
+    </header>
+    <div class="carte-texte">{{{mission.descriptionEnrichie}}}</div>
+  </article>
+  {{else}}
+  <p class="hint">{{localize 'GALACTICWARS.Notes.AucuneMission'}}</p>
+  {{/each}}
+  <p class="hint recherche-vide" hidden>{{localize 'GALACTICWARS.Notes.AucunResultat'}}</p>
+</section>
+{{/if}}
