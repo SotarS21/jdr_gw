@@ -1,0 +1,26 @@
+{
+  "_key": "!items!KhJ4gR6iAuQFqGFQ",
+  "_id": "KhJ4gR6iAuQFqGFQ",
+  "name": "Ivrogne",
+  "type": "talent",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "avantage": "Dès qu'il boit, +4 en tout.",
+    "inconvenient": "Fait perdre 2 à toute action de l'équipe tant qu'il est ivre.",
+    "fiche": "toutes",
+    "description": ""
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.25.0"
+  }
+}

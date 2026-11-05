@@ -443,5 +443,12 @@ export const RELEASE_NOTES = {
       <li><strong>10 métiers</strong> : Archéo-archiviste, Artiste acrobate, Cuisinier, Jedi gris, Journaliste, Marchand, Prostituée, Sans emploi, Scientifique, Sénateur, avec compétences accordées, équipement de départ et trait (variantes fiche classique et fiche rapide ; le Jedi gris reprend celui du Padawan).</li>
       <li>Les personnages de partie rapide concernés sont désormais liés à leur race et à leur métier, avec le trait du métier.</li>
     </ul>`
+  },
+  "0.25.0": {
+    title: "v0.25.0 — Talents génériques",
+    html: `<ul>
+      <li><strong>18 nouveaux talents</strong> dans le compendium Talents (26 au total) : Ambiguë, Ami des Wookiees, Anhexadextre, Antipathique, Arnaqueur, Bon ami, Empathique, Flemmard, Inspiration de puissance, Ivrogne, Leader né, Pâte de Marlak, Perspicace, Qeuwa ?, Séductrice, Sens de la Force, Solo, Violent.</li>
+      <li>Effets automatiques pour Antipathique, Empathique, Flemmard, Perspicace et Sens de la Force (variantes fiche classique en % et fiche rapide) ; les autres s'appliquent selon la situation.</li>
+    </ul>`
   }
 };

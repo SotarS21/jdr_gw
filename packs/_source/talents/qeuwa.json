@@ -1,0 +1,26 @@
+{
+  "_key": "!items!RfKDqJr6UTm9F1NB",
+  "_id": "RfKDqJr6UTm9F1NB",
+  "name": "Qeuwa ?",
+  "type": "talent",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "avantage": "Pour faire passer une idée, lance 1d6 : sur 4, 5 ou 6, tout le monde gagne +1 à la prochaine action.",
+    "inconvenient": "Sur 1, 2 ou 3, personne ne comprend : tout le monde a -1 à la prochaine action.",
+    "fiche": "toutes",
+    "description": ""
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.25.0"
+  }
+}

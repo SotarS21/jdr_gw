@@ -1,0 +1,26 @@
+{
+  "_key": "!items!3kWVU9oFd3JAUWvS",
+  "_id": "3kWVU9oFd3JAUWvS",
+  "name": "Leader né",
+  "type": "talent",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "avantage": "+2 de réussite critique pour ses coéquipiers.",
+    "inconvenient": "Lorsqu'il meurt, -3 à chaque action jusqu'au repos.",
+    "fiche": "toutes",
+    "description": ""
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.25.0"
+  }
+}

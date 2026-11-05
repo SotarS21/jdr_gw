@@ -1,0 +1,26 @@
+{
+  "_key": "!items!0oiHlf926x5uXnQw",
+  "_id": "0oiHlf926x5uXnQw",
+  "name": "Ami des Wookiees",
+  "type": "talent",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "avantage": "+3 de réussite critique pour lui et son ami wookiee.",
+    "inconvenient": "Les autres espèces sont insignifiantes : il grogne dessus et elles perdent 2 en stress.",
+    "fiche": "toutes",
+    "description": ""
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.25.0"
+  }
+}

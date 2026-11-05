@@ -1,0 +1,58 @@
+{
+  "_key": "!items!JRy4N1jFmLbe1UIi",
+  "_id": "JRy4N1jFmLbe1UIi",
+  "name": "Perspicace",
+  "type": "talent",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "avantage": "+3 en investigation.",
+    "inconvenient": "Extrêmement pénible avec ses camarades à force d'expliquer ses théories : -2 en mental pour l'équipe.",
+    "fiche": "rapide",
+    "description": ""
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.25.0"
+  },
+  "effects": [
+    {
+      "_key": "!items.effects!JRy4N1jFmLbe1UIi.mIYuFkw5yeb5mzZa",
+      "_id": "mIYuFkw5yeb5mzZa",
+      "name": "Perspicace",
+      "img": "icons/svg/upgrade.svg",
+      "type": "base",
+      "system": {
+        "changes": [
+          {
+            "key": "system.effets.caracteristiques.perception",
+            "type": "add",
+            "value": "3"
+          }
+        ]
+      },
+      "disabled": false,
+      "transfer": true,
+      "description": "",
+      "origin": null,
+      "statuses": [],
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.25.0"
+      }
+    }
+  ]
+}
