@@ -12,6 +12,7 @@
 - **Test en direct** (`../audit/t24-talents.js`) : **10/10 OK**, aucune erreur — 34 documents / 26 talents, 23 fiches
   d'objet, effets cumulés sur une fiche classique et une fiche rapide, acteurs de test supprimés. Foundry relancé en
   0.25.0 (accord de l'auteur).
+- **Release v0.25.0 publiée** à la demande de l'auteur (fusion dans main, tag, workflow vert, manifeste `latest` en 0.25.0).
 
 ## Session du 2026-11-05 (suite) — Choix confirmés, fiche de WOLF
 
