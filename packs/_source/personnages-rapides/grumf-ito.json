@@ -1,0 +1,108 @@
+{
+  "_key": "!actors!OYCH2xpqWJx6JRxi",
+  "_id": "OYCH2xpqWJx6JRxi",
+  "name": "Grumf Ito",
+  "type": "personnage-rapide",
+  "img": "systems/galactic-wars/asset_visuel/Personnage/rapides/grumf-ito.webp",
+  "system": {
+    "infos": {
+      "nom": "Ito",
+      "prenom": "Grumf"
+    },
+    "race": {
+      "uuid": "Compendium.galactic-wars.races.Item.Y9KxAhADKRZIHOtX",
+      "nom": "Dug"
+    },
+    "metier": {
+      "uuid": "Compendium.galactic-wars.metiers.Item.BKQsd0pMug5KIppF",
+      "nom": "Pirate",
+      "description": "Flippant : cpt active oblige quelqu’un à lancer un test de stress avec -2 si raté => déstabilise la personne ciblé."
+    },
+    "talent": {
+      "nom": "Hoquet rageur",
+      "description": "Elle n'a aucun sang froid à la place de faire un jet de stress elle doit lancer 2 D6 ET TU CHOISIS"
+    },
+    "caracteristiques": {
+      "force": 17,
+      "capCombat": 16,
+      "capTir": 5,
+      "dexterite": 16,
+      "mentale": 16,
+      "perception": 7,
+      "stress": 0,
+      "affForce": 5
+    },
+    "survie": {
+      "base": 70,
+      "racial": 0
+    },
+    "chance": 30,
+    "pv": {
+      "value": 13,
+      "max": 13
+    },
+    "equipement": "Bracelet de la prison de MERLE 0/5\nBase en informatique\nMachette légère 1d6+2 degat [dans le vaisseau]\nTatouage sur le poignée de la Guilde\nLampe torche\nDouble stun bâton (1D8 + 1 dégâts)\nmédaillon scuplté avec à l'intérieur quelque chose (pierre inconnue)\n7 pirates : turlufouette, kukipue, turlutte, kekette, papunis, microzib, partipouet\nIta (opérateur, parle pleins de langues), Karthus (informaticien), Nikar'dim (médecin), Bog (soldate)\nAmitié de l'équipe de Bara",
+    "credits": 3367,
+    "portrait": "systems/galactic-wars/asset_visuel/Personnage/rapides/grumf-ito.webp",
+    "description": "<p>Elle a été enrolé par l'amour de sa vie, le chef d'un groupe de Pirates, Guss (un twi'lek bleu). Elle a un caractère particulier et est un bonne tête de mule. C'est une amie très fidèle, mais il ne vaut mieux pas être son ennemie sous peine de subir sa colère. Elle a très régulièrement le hoquet et est tout le temps en train de gromeler.</p><p><strong>Fiche :</strong> partie rapide : Fait par Nanou - joué par Clarisse<br><strong>Corpulence :</strong> Normal<br><strong>Total maximal des caractéristiques :</strong> 75<br><strong>Caractéristiques sans valeur :</strong> stress « - » (mises à 0)</p><h2>Notes de la fiche d'origine</h2><ul><li>Jet de stress =</li><li>1 — \"Allez les encoulés\" Les encourage les autres + 2 Mental</li><li>2 — \"Stressante\" pour  les autres - 2 stress</li><li>3 — \"Mais là-bas putain\" + 2 Perception</li><li>4 — \"Hé merde\" - 2 dextr</li><li>point faible — 5 — \"Blague nulle\" permet au groupe d'échapper à un jet de stress</li><li>6 — \"Nique toi!\" rate automatiquement la prochaine attaque</li><li>second souffle — Place (guilde) : — 2877</li><li>Guilde de METR</li><li>Gros vaisseaux des joueurs</li><li>Nom : Mambo 5</li><li>40 PV — 30 PS — 25 PV — 30 PS — Dettes : — Adhésion : 10000 crédits (remboursée)</li><li>2 * canon rotatif 1D8</li><li>4 * canon léger 1D6 — eu en mission : 1000 (attribués)</li><li>Rayon tracteur</li><li>1 * droide médical D0k</li><li>1 * droide cuistot Gust0t — Rakesh : alien sauvé (officier) — Cellan Gitt : racket + tentative de meurtre</li><li>1 * droide mécano NO-N0 — La Guilde du Soleil Noir nous avait attaqué, Grumf ne les aime pas — Planète Zyggeria : vente d'esclaves (M.Unkown = Barra) / 5 anciens membres d'équipages en esclavage</li><li>Radar à impulsion — Il y a un entrepot d'armes actuellement désactivé</li><li>data pad technique — Autre twi'lek bleu officier : Off BoyB Karach</li><li>Nom du groupe : les Mambos</li><li>Quêtes : — A avoir — Réellement eu</li><li>Buggle tea : mot de passe — 1ère quête (30 caisses) — ? — 2500</li><li>2ème quête (deliveroo) — 5000 crédits + 40 places — 1666.67</li><li>Grade de pilote — 1er pilote officiel — 3ème quête (sauvetage des abrutis) — 10000 — 2500</li><li>CHEFFE DES PIRATES — 4ème quête (sauvetage) — 5 000 sauvetage +10 000 tout faire sauter — 3750</li><li>INFORMATICIENNE</li><li>piste : ami sur Marshada qui peut donner un indice (repaire de malfrats, le pied crochu)</li><li>Finn Tailor : soleil noir (cartel)</li><li>La guilde des missions extra territoriales rémunérées</li><li>Farda Le Hutt : a donné une escouade à Guss, pour attaquer un gang rival</li><li>Nermoniuon Torusaku : informe que Guss a été capturé</li></ul><p><em>Importé de « Grumf Ito - Dug - Pirate.xlsx ».</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Grumf Ito",
+    "texture": {
+      "src": "systems/galactic-wars/asset_visuel/Personnage/rapides/grumf-ito.webp"
+    },
+    "actorLink": true,
+    "disposition": 1
+  },
+  "items": [
+    {
+      "_key": "!actors.items!OYCH2xpqWJx6JRxi.9uG8UuNbgbNR6gWf",
+      "_id": "9uG8UuNbgbNR6gWf",
+      "name": "Flippant",
+      "type": "talent",
+      "img": "icons/svg/terror.svg",
+      "system": {
+        "avantage": "Compétence active qui oblige une cible à lancer un test de stress avec -2 ; en cas d'échec, la personne ciblée est déstabilisée.",
+        "inconvenient": "",
+        "fiche": "rapide",
+        "description": "<p>Trait du métier Pirate. Compétence active qui oblige une cible à lancer un test de stress avec -2 ; en cas d'échec, la personne ciblée est déstabilisée. — variante fiche rapide / PNJ.</p>"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100000,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {
+        "galactic-wars": {
+          "traitMetier": true
+        }
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.galactic-wars.traits.Item.0ZaNVh0eSzRhYbBf",
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.3"
+      }
+    }
+  ],
+  "effects": [],
+  "folder": null,
+  "sort": 1100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "galactic-wars": {
+      "importFicheRapide": "Grumf Ito - Dug - Pirate.xlsx"
+    }
+  },
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.23.0"
+  }
+}

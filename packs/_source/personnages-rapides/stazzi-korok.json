@@ -1,0 +1,108 @@
+{
+  "_key": "!actors!u3BISjdP44tULtET",
+  "_id": "u3BISjdP44tULtET",
+  "name": "Stazzi Korok",
+  "type": "personnage-rapide",
+  "img": "systems/galactic-wars/asset_visuel/Personnage/rapides/stazzi-korok.webp",
+  "system": {
+    "infos": {
+      "nom": "Korok",
+      "prenom": "Stazzi"
+    },
+    "race": {
+      "uuid": "Compendium.galactic-wars.races.Item.e3EuDfYJaccAUEnA",
+      "nom": "Twi'lek"
+    },
+    "metier": {
+      "uuid": "Compendium.galactic-wars.metiers.Item.iNOMvdCi7ecB3moP",
+      "nom": "Apprenti sith",
+      "description": "Appelle à la rage  : Concentration extrême + 4  dans une cpt / j"
+    },
+    "talent": {
+      "nom": "Mauvaise perdante",
+      "description": "si elle réussit un jet d'aff. avec la Force elle gagne un bonus +4 en action : sinon elle passe ses nerfs sur l'équipe. Aléatoirement -1pv"
+    },
+    "caracteristiques": {
+      "force": 11,
+      "capCombat": 18,
+      "capTir": 6,
+      "dexterite": 13,
+      "mentale": 12,
+      "perception": 10,
+      "stress": 4,
+      "affForce": 18
+    },
+    "survie": {
+      "base": 85,
+      "racial": 0
+    },
+    "chance": 15,
+    "pv": {
+      "value": 11,
+      "max": 17
+    },
+    "equipement": "Sabre laser 1d10+ 1d6  (instable) + Sabre normal 1d10 — myrria Tannis mort\nArmures Sith +2 en armure avec masque — satili chan\nrobe noir de sith — BONUS SADIQUE\nTatouage de la guilde METR 2 630\nTête mise a prix par les pirates du soleil noir : 2 000 000 credits — Vaiseaux moyen\n32802 crédits — Nom : Blue Tyr\n16 pv 30PS\n2 * canon rotatif 1D8\n4 cannon léger 1D6\ntourelle lourd\nen cours, Kormok Sylla Chef du soleil noir Cible, lieutenant du soleil noir Guerrant Cell soleiul noir vert\npassées, striker bras droit de xiamad,check premiere mission usine d'arme done\nKATAR HOMME CHAT\nNE MARCHANDE PAS\nDark Tal\nDark Mo Rah\nDataCtron\nDark Tar\nComment acquerir plus de puissance?\nComment reanimer les morts?\nComment",
+    "credits": 0,
+    "portrait": "systems/galactic-wars/asset_visuel/Personnage/rapides/stazzi-korok.webp",
+    "description": "<p>Enfant esclave, elle fut élevée dans un monde de haine et de violence. Ses parents, trop faible disparaissent de sa vie alors qu'elle est encore très jeune. Sa vision du bien est du mal deviens plus dur, plus tranché. Vers ses 10 ans un sith la remarque comme étant une utilisatrice de la force et elle fut enrôlée dans une académie. Rapidement elle fait ces preuves et un maître la prend sous tutelle. La guerre est le fondement de son apprentissage et les sith est ça seule et véritable famille, au point qu'elle la défend avec ferveur. Comme tous les autres sith, ça devise est : \"seule la victoire compte\".</p><p><strong>Corpulence :</strong> Normal<br><strong>Total maximal des caractéristiques :</strong> 80</p><h2>Notes de la fiche d'origine</h2><ul><li>Stazzi - Twi'lek - Apprenti sith Fait par Talz, jouer par Lardin</li><li>Nom de sith : Dark Sjel</li><li>Elle refuse de perdre, quitte à s'allier avec ses ennemis le temps de trouver un moyens de remporter la bataille — 47</li><li>bouclier</li><li>https://i.pinimg.com/564x/3c/4c/f2/3c4cf20d5b3af8d7fec76c0e95b53242.jpg</li><li>Lieutenant Andrel (chat) — ceinture energetique</li><li>Serilia pick — Juan Droide RO-A1</li><li>Buggle tea mot de passe — masque a gaz</li><li>super bee affinité avec la force</li><li>bacta plast</li><li>Capacité</li><li>Blocage — Blocage d'arme corps a corps</li><li>VIEO IV — L. Sabre laser — lancer de sabre laser</li><li>Information — Renvoi — renvoi projectile laser et cinétique</li><li>extention louer ( ralentissement ) — forge portative — detruire DXT-87 — Foudre Sith — foudre sith sur zone</li><li>Compression — Compression de force , etranglement</li><li>sabre laser a distance — usage de sabre a distance</li><li>Levitation — levitation Breve</li><li>Camouflage de la force — camoufle la force vis a vis des autres sith</li><li>chef du soleil noir — Ambidextrie — Double Frappe et double defense</li><li>Voile d'ombre — Permet de disparaitre aux yeux de quelqu'un si il ne me me regarde pas</li><li>Dromuncast</li><li>korriban</li></ul><p><em>Importé de « Stazzi - Twi_lek - Apprenti sith.xlsx ».</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Stazzi Korok",
+    "texture": {
+      "src": "systems/galactic-wars/asset_visuel/Personnage/rapides/stazzi-korok.webp"
+    },
+    "actorLink": true,
+    "disposition": 1
+  },
+  "items": [
+    {
+      "_key": "!actors.items!u3BISjdP44tULtET.bcCJ4ynxzSK1Lrcq",
+      "_id": "bcCJ4ynxzSK1Lrcq",
+      "name": "Appelle à la rage",
+      "type": "talent",
+      "img": "icons/svg/blood.svg",
+      "system": {
+        "avantage": "Concentration extrême, une fois par jour : en cas de réussite, gain temporaire d'un point dans une compétence liée à la Force, décrit par le MJ.",
+        "inconvenient": "",
+        "fiche": "rapide",
+        "description": "<p>Trait du métier Apprenti sith. Concentration extrême, une fois par jour : en cas de réussite, gain temporaire d'un point dans une compétence liée à la Force, décrit par le MJ. — variante fiche rapide / PNJ.</p>"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100000,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {
+        "galactic-wars": {
+          "traitMetier": true
+        }
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.galactic-wars.traits.Item.gEjmB7vhMuJpg0BT",
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.3"
+      }
+    }
+  ],
+  "effects": [],
+  "folder": null,
+  "sort": 3300000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "galactic-wars": {
+      "importFicheRapide": "Stazzi - Twi_lek - Apprenti sith.xlsx"
+    }
+  },
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.23.0"
+  }
+}

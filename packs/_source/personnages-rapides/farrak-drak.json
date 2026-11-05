@@ -1,0 +1,108 @@
+{
+  "_key": "!actors!pkGyWOabMhAACqCV",
+  "_id": "pkGyWOabMhAACqCV",
+  "name": "Farrak Drak",
+  "type": "personnage-rapide",
+  "img": "systems/galactic-wars/asset_visuel/Personnage/rapides/farrak-drak.webp",
+  "system": {
+    "infos": {
+      "nom": "Drak",
+      "prenom": "Farrak"
+    },
+    "race": {
+      "uuid": "Compendium.galactic-wars.races.Item.4I0GkFqXxnqvC918",
+      "nom": "Snivvian"
+    },
+    "metier": {
+      "uuid": "Compendium.galactic-wars.metiers.Item.JXd5kpLmKGNkQdYf",
+      "nom": "Pilote",
+      "description": "Mental ultime : permet de se détacher complètement d’une situation de stress ou de survie. 1 / j"
+    },
+    "talent": {
+      "nom": "Fait jouer l'expèrience",
+      "description": "Motive les troupes à rejouer un jet de stresse raté mais\n Il est vieux et il fait du bruit -2 pour la furtivité de toute l'équipe"
+    },
+    "caracteristiques": {
+      "force": 2,
+      "capCombat": 2,
+      "capTir": 12,
+      "dexterite": 12,
+      "mentale": 16,
+      "perception": 16,
+      "stress": 15,
+      "affForce": 5
+    },
+    "survie": {
+      "base": 34,
+      "racial": 0
+    },
+    "chance": 66,
+    "pv": {
+      "value": 11,
+      "max": 11
+    },
+    "equipement": "\"La grosse bertha\"  Vaiseau poubel de l'espace. 6 place 40 PS 20PV\nBlaster",
+    "credits": 0,
+    "portrait": "systems/galactic-wars/asset_visuel/Personnage/rapides/farrak-drak.webp",
+    "description": "<p>Personne ne sait vraiment d'où il vient, peut être même lui non plus d’ailleur. Quand on lui pose la question, il se met à parler des temps ancien, de la guerre, de la paix, du commerce des tri-pad. Tout ce qu’on sait réellement c’est qu’il est vieux, tellement vieux qu’il à enterrer tout ces amis. Parfois il parle d’une femelle qu’il à aimer, de tel ou tel compagnon qui a perdus la vie dans des mine de sel sur une planète inconnue. Rien de tout ça n'a de sens, si on l’écoute il aurait travaillé pour la république, pour l’empire et pour la pègre. En tout cas pour sur il a de l'expérience, il fait autorité dans la guilde METR. On dit qu'il aurait même des relations directe avec le dirigeant.</p><p><strong>Fiche :</strong> partie rapide Fait par MrBanane<br><strong>Corpulence :</strong> Maigrichon<br><strong>Total maximal des caractéristiques :</strong> 80</p><p><em>Importé de « Farrak Drak - Pilote - Snivvian.xlsx ».</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Farrak Drak",
+    "texture": {
+      "src": "systems/galactic-wars/asset_visuel/Personnage/rapides/farrak-drak.webp"
+    },
+    "actorLink": true,
+    "disposition": 1
+  },
+  "items": [
+    {
+      "_key": "!actors.items!pkGyWOabMhAACqCV.pFnUHDil43s4zKqC",
+      "_id": "pFnUHDil43s4zKqC",
+      "name": "Mental ultime",
+      "type": "talent",
+      "img": "icons/svg/sun.svg",
+      "system": {
+        "avantage": "Permet de se détacher complètement d'une situation de stress ou de survie. 1 fois par jour.",
+        "inconvenient": "",
+        "fiche": "rapide",
+        "description": "<p>Trait du métier Pilote. Permet de se détacher complètement d'une situation de stress ou de survie. 1 fois par jour. — variante fiche rapide / PNJ.</p>"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100000,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {
+        "galactic-wars": {
+          "traitMetier": true
+        }
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.galactic-wars.traits.Item.NjYsMh5j5vlyRMZx",
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.3"
+      }
+    }
+  ],
+  "effects": [],
+  "folder": null,
+  "sort": 700000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "galactic-wars": {
+      "importFicheRapide": "Farrak Drak - Pilote - Snivvian.xlsx"
+    }
+  },
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.23.0"
+  }
+}

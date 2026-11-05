@@ -1,0 +1,76 @@
+{
+  "_key": "!actors!mTEPEy61lOVq6xT3",
+  "_id": "mTEPEy61lOVq6xT3",
+  "name": "Bob",
+  "type": "personnage-rapide",
+  "img": "systems/galactic-wars/asset_visuel/Personnage/rapides/bob.webp",
+  "system": {
+    "infos": {
+      "nom": "Bob",
+      "prenom": ""
+    },
+    "race": {
+      "uuid": "Compendium.galactic-wars.races.Item.yffXA1DmJi9Ijpo4",
+      "nom": "Humain"
+    },
+    "metier": {
+      "uuid": "",
+      "nom": "Sans Emplois",
+      "description": "Sympathique : Il fait tellement pitié que ses coéquipiers ont un bonus de +2 Mentale et Stress."
+    },
+    "talent": {
+      "nom": "Chanceux",
+      "description": "Pour chaque jet raté, relance un dès de Chance, par contre il n'a pas énormément de chance : 40 stats max"
+    },
+    "caracteristiques": {
+      "force": 7,
+      "capCombat": 5,
+      "capTir": 5,
+      "dexterite": 5,
+      "mentale": 5,
+      "perception": 5,
+      "stress": 5,
+      "affForce": 5
+    },
+    "survie": {
+      "base": 95,
+      "racial": 0
+    },
+    "chance": 40,
+    "pv": {
+      "value": 5,
+      "max": 17
+    },
+    "equipement": "Petit chapeau melon\nPeigne a moustache\nTatouage d'identification de la guilde (sous la moustache) - 8609\nMarteau Ecrabouillator (1D8)",
+    "credits": 0,
+    "portrait": "systems/galactic-wars/asset_visuel/Personnage/rapides/bob.webp",
+    "description": "<p>Personne ne sait réellement d'où il vient, même pas lui d'ailleurs. Il est juste apparu comme ça un jour dans les confin de la galaxie.On ne sait pas si c'est son vrai prénom où un pseudonyme, mais on s'en fou un peu, du coup tout le monde l'appelle Bob.Il est vachement gentil et il a une moustache.Il n'est pas très causant et parle un dialecte peu compréhensible. Il est visiblement fort, mais n'arrivera pas à porter plus que son poids... Il semble doué d'une certaine intelligence, mais il n'est pas vraiment doué pour réaliser des plans... En fait, c'est un peu le boulet, mais c'est un sacré veinard bien que cela ne dure jamais bien longtemps.</p><p><strong>Fiche :</strong> partie rapide Fait par : Latios joué par DaVoice<br><strong>Corpulence :</strong> Fort<br><strong>Total maximal des caractéristiques :</strong> 80</p><h2>Notes de la fiche d'origine</h2><ul><li>Crédits — -3350</li><li>Indice — Buggletee — celeriapic — MDP hangar bulle</li></ul><p><em>Importé de « BOB - Sans Emplois - Humain.xlsx ».</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Bob",
+    "texture": {
+      "src": "systems/galactic-wars/asset_visuel/Personnage/rapides/bob.webp"
+    },
+    "actorLink": true,
+    "disposition": 1
+  },
+  "items": [],
+  "effects": [],
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "galactic-wars": {
+      "importFicheRapide": "BOB - Sans Emplois - Humain.xlsx"
+    }
+  },
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.23.0"
+  }
+}

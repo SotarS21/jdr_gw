@@ -1,0 +1,108 @@
+{
+  "_key": "!actors!SKv8MRUZAVEl37Es",
+  "_id": "SKv8MRUZAVEl37Es",
+  "name": "Cel Sio",
+  "type": "personnage-rapide",
+  "img": "systems/galactic-wars/asset_visuel/Personnage/rapides/cel-sio.webp",
+  "system": {
+    "infos": {
+      "nom": "Sio",
+      "prenom": "Cel"
+    },
+    "race": {
+      "uuid": "Compendium.galactic-wars.races.Item.pc3RpHObaoAJMNpx",
+      "nom": "Wookiee"
+    },
+    "metier": {
+      "uuid": "Compendium.galactic-wars.metiers.Item.JXd5kpLmKGNkQdYf",
+      "nom": "Pilote",
+      "description": "Mental ultime : permet de se détacher complètement d’une situation de stress ou de survie. 1 / j"
+    },
+    "talent": {
+      "nom": "Maman Wookiee",
+      "description": "bonus d’action combiner + 3 réussite critique MAIS -1 stress -1 Mental"
+    },
+    "caracteristiques": {
+      "force": 16,
+      "capCombat": 15,
+      "capTir": 11,
+      "dexterite": 14,
+      "mentale": 12,
+      "perception": 11,
+      "stress": 15,
+      "affForce": 5
+    },
+    "survie": {
+      "base": 70,
+      "racial": 0
+    },
+    "chance": 30,
+    "pv": {
+      "value": 13,
+      "max": 13
+    },
+    "equipement": "Omni-blade — 1d10\nBouclier — 4 PA — physique + energie\nblaster militaire — 1d8\nLunette O.M.O — Ordinateur de M.E.T.R Oculaire\nTenue de contremaitre\nComlink — Masque a gaz — Bombe\nSac vide — bouteille d'alcool\nEpée en cortosis — 1d8\nCimetere duracier — 1d8 + allonge — > Dark Sjel\nAstro droïde : Ro-a1 — Alias Rouwan\nDeux Smoubif : Chnuchnu et Grosse <3 — jouets\nBlue Tyr — H437-Correlien — Vaiseaux moyen\n2 * canon rotatif — 1D10 — 6 personnes\n4 cannon léger — 1D6\nBlindage — 45 — 3000 — Dark sjel\nBouclier — 50 — 2500 — Moi\nForge portative\nRepartiteur d'energie\nCuve a backta\nVolt\nNouvelle plaque physique — Nouvelle puce d'identification\nHangard de Mira Tanis — 450 doses — Nar'shada\nHangard 73 — 3247 A — Sation Hutt - Gerados\nDrogue — WonkaCola\ncanette de soda — addictive\nEffet — oeuforie — Inibition social\ndaltonisme — perte de couleur\nSecondaire — agressivité — sensibilité avec la dorce\ntemps — 2h — 101 doses\nPrix — 10 — 1015\ncode d'identification — chasseur\nChariot\nArmure sith\npiece de droide\nvibrolame\nDatapad crypter\nBouf\noutils de torture — 4 lames\nSuper force",
+    "credits": 27572,
+    "portrait": "systems/galactic-wars/asset_visuel/Personnage/rapides/cel-sio.webp",
+    "description": "<p>Elle est propriétaire de son propre vaisseau appeler \"Ivry Zoo\". Elle y habrite avec ses deux Voorpak ChnuChnu et Grosse. Elle n'est pas vraiment sociale mais aime être entourée. Cette passion sont ses Voorpak, ses proches et son vaisseau chéri et rien d'autre. Elle est très à l'écoute et en plus d'avoir une repartie défiant toute concurrence elle sera d'excellent conseil. Encore faudra-t-il la comprendre. Car on le sait très bien qui parle encore le Wookiee.</p><p><strong>Joueur :</strong> Fabien<br><strong>Fiche :</strong> partie rapide : Fait par Nanou<br><strong>Corpulence :</strong> Normal<br><strong>Total maximal des caractéristiques :</strong> 80</p><h2>Notes de la fiche d'origine</h2><ul><li>Rang M.E.T.R : — 3025</li><li>Compétence</li><li>Lire sur les levres</li><li>Analyse de cible a activé</li><li>Tourelle lourde</li><li>Contact  : — sur Ivry zoo — Contact securisé — Arkan</li><li>Stratégie</li><li>MORG MF1</li><li>Super fusil, type canon lourd, fonction lance filet, lance-flamme court porter et tir cinétique.</li><li>Lance-flamme 1d4 tour sur 2 m</li><li>Cinétique 2d6 dégat en rafale</li><li>Informations :</li><li>Big berta ( malette ) — 1200</li><li>Big berta ( malette ) — 1200</li><li>Grenade à fragmentation — 1d6 + 2 — 650</li><li>Grenade à fragmentation — 1d6 + 2 — 650</li><li>Extention louer ( ralentissement ) — 16 pv 30PS</li><li>3 jours de voyage Nar'shada et Corucentre</li><li>Contact :</li><li>Kormoc Syla : Actuelle leader du soleil noir, charismatique, cruel, joueur, l’image est extrêmement importante à ces yeux. — &gt; Corucentre</li><li>Gerand cel — Espion de la republique — &gt; ???</li><li>Tamice Bott — Serveuse — &gt; Corucentre — Turikani — Connaissance de serveuse — Narshada</li><li>Le petit geoffrey — &gt; 50K — &gt; Alderaan</li><li>Rachel ( twillek ) — &gt; Alderaan</li><li>Arkan — Mécaniciens — &gt; Sation Hutt - Gerados</li><li>Dark Mo'Rah : — Eleve de Talh — &gt; Sation Hutt - Gerados  💀</li><li>Dark Sjel : — Stazis Korok</li><li>Dark Talh : — Maitre de Stazis — &gt; Dromunkast</li><li>Tooru Vogos : — frère de la princesse — &gt; peuple vogue - Gerados</li><li>lieutenant Andrel — Arche — BlueMoon</li><li>Miria tanis : joeuse</li><li>Farda le uthe</li><li>Falarale = mort</li><li>Industriel et distributeur</li><li>Madrek striker</li><li>Achuvad Okliy — force — droguer — famille</li><li>Satili Chan</li><li>Velaskyss — Mr Xiamad :</li><li>MF1 plus asser — Fils Guy</li><li>Androak — soldat</li><li>Jouets des Voorpak dans la cabine du capitaine</li><li>10000 — physique</li><li>7000 — physique nous</li><li>Vaiseau Naarchada Rodien au carte cale seche</li><li>Tooma — Liquide de vie</li><li>Kana — divinité des Watanabe</li><li>Lieutenant mystère — le sauvage</li><li>Kormock sila — le pressieux — bouclier de proximité</li></ul><p><em>Importé de « Cel Sio - Wookiee - Pilote [Jouer par Fabien].xlsx ».</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Cel Sio",
+    "texture": {
+      "src": "systems/galactic-wars/asset_visuel/Personnage/rapides/cel-sio.webp"
+    },
+    "actorLink": true,
+    "disposition": 1
+  },
+  "items": [
+    {
+      "_key": "!actors.items!SKv8MRUZAVEl37Es.QWfmEe3BoCwhJT6H",
+      "_id": "QWfmEe3BoCwhJT6H",
+      "name": "Mental ultime",
+      "type": "talent",
+      "img": "icons/svg/sun.svg",
+      "system": {
+        "avantage": "Permet de se détacher complètement d'une situation de stress ou de survie. 1 fois par jour.",
+        "inconvenient": "",
+        "fiche": "rapide",
+        "description": "<p>Trait du métier Pilote. Permet de se détacher complètement d'une situation de stress ou de survie. 1 fois par jour. — variante fiche rapide / PNJ.</p>"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100000,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {
+        "galactic-wars": {
+          "traitMetier": true
+        }
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.galactic-wars.traits.Item.NjYsMh5j5vlyRMZx",
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.3"
+      }
+    }
+  ],
+  "effects": [],
+  "folder": null,
+  "sort": 300000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "galactic-wars": {
+      "importFicheRapide": "Cel Sio - Wookiee - Pilote [Jouer par Fabien].xlsx"
+    }
+  },
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.23.0"
+  }
+}

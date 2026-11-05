@@ -1,0 +1,108 @@
+{
+  "_key": "!actors!vrBEcCtD5w5mNvII",
+  "_id": "vrBEcCtD5w5mNvII",
+  "name": "Is'Trasso Kalo",
+  "type": "personnage-rapide",
+  "img": "systems/galactic-wars/asset_visuel/Personnage/rapides/istrasso-kalo.webp",
+  "system": {
+    "infos": {
+      "nom": "Is'Trasso",
+      "prenom": "Kalo"
+    },
+    "race": {
+      "uuid": "Compendium.galactic-wars.races.Item.b7LCaJyQUat0MkP3",
+      "nom": "Kel Dor"
+    },
+    "metier": {
+      "uuid": "Compendium.galactic-wars.metiers.Item.BKQsd0pMug5KIppF",
+      "nom": "Pirate",
+      "description": "Flippant : cpt active oblige quelqu’un à lancer un test de stress avec -2 si raté => déstabilise la personne ciblé."
+    },
+    "talent": {
+      "nom": "Connaissance absolue de la faune",
+      "description": "Il reconnaîtra tous les types de créatures de l'univers connus et s'en vantent : \nmais il n'acceptera pas d'autre autorité que la sienne, notamment dans le groupe, les meilleurs idées sont les siennes. - 3 Mental pour l'équipe."
+    },
+    "caracteristiques": {
+      "force": 15,
+      "capCombat": 14,
+      "capTir": 12,
+      "dexterite": 9,
+      "mentale": 10,
+      "perception": 9,
+      "stress": 10,
+      "affForce": 1
+    },
+    "survie": {
+      "base": 50,
+      "racial": 0
+    },
+    "chance": 50,
+    "pv": {
+      "value": 14,
+      "max": 16
+    },
+    "equipement": "Tenue de contrebandier\nVaisseau de cargaisons (pas sur lui)\nSURIN SA MERE\n-11310 crédits — 9700 thune\nTatouage identification mertre\n50306\nBlaster moyen 1d6\nEpée moyenne 1d8\nBonus 1000 en rang Guild de METR",
+    "credits": 0,
+    "portrait": "systems/galactic-wars/asset_visuel/Personnage/rapides/istrasso-kalo.webp",
+    "description": "<p>Kalo est aussi appelé le \"collectionneur\", on peut en effet trouver toute sorte de créatures rares dans son vaisseau qu'il capture illégalement sur différentes planètes. Il est un chasseur hors pair, capable de ramener des créatures très dangereuses de l'autre bout de la galaxie qui alimente sa collection. Kalo vend au marché noir à des arènes clandestines de la bordure extérieur en leur ramenant de nouveaux monstres pour leur massacres organisés.</p><p><strong>Fiche :</strong> partie rapide - Fait par Neili (joué par Mikazuki)<br><strong>Corpulence :</strong> Épais<br><strong>Total maximal des caractéristiques :</strong> 80</p><h2>Notes de la fiche d'origine</h2><ul><li>-2 — -2</li></ul><p><em>Importé de « Is_Trasso Kalo - Kel Dor - Pirate.xlsx ».</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Is'Trasso Kalo",
+    "texture": {
+      "src": "systems/galactic-wars/asset_visuel/Personnage/rapides/istrasso-kalo.webp"
+    },
+    "actorLink": true,
+    "disposition": 1
+  },
+  "items": [
+    {
+      "_key": "!actors.items!vrBEcCtD5w5mNvII.tiELPiSts2VJiVzF",
+      "_id": "tiELPiSts2VJiVzF",
+      "name": "Flippant",
+      "type": "talent",
+      "img": "icons/svg/terror.svg",
+      "system": {
+        "avantage": "Compétence active qui oblige une cible à lancer un test de stress avec -2 ; en cas d'échec, la personne ciblée est déstabilisée.",
+        "inconvenient": "",
+        "fiche": "rapide",
+        "description": "<p>Trait du métier Pirate. Compétence active qui oblige une cible à lancer un test de stress avec -2 ; en cas d'échec, la personne ciblée est déstabilisée. — variante fiche rapide / PNJ.</p>"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100000,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {
+        "galactic-wars": {
+          "traitMetier": true
+        }
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.galactic-wars.traits.Item.0ZaNVh0eSzRhYbBf",
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.3"
+      }
+    }
+  ],
+  "effects": [],
+  "folder": null,
+  "sort": 1500000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "galactic-wars": {
+      "importFicheRapide": "Is_Trasso Kalo - Kel Dor - Pirate.xlsx"
+    }
+  },
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.23.0"
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "_key": "!actors!tl7b9u9M7l4UStd6",
+  "_id": "tl7b9u9M7l4UStd6",
+  "name": "Icestone Raegon",
+  "type": "personnage-rapide",
+  "img": "systems/galactic-wars/asset_visuel/Personnage/rapides/icestone-raegon.webp",
+  "system": {
+    "infos": {
+      "nom": "Icestone",
+      "prenom": "Raegon"
+    },
+    "race": {
+      "uuid": "Compendium.galactic-wars.races.Item.yffXA1DmJi9Ijpo4",
+      "nom": "Humain"
+    },
+    "metier": {
+      "uuid": "Compendium.galactic-wars.metiers.Item.9BC8y9FxmawTewdq",
+      "nom": "Padawan",
+      "description": "Manipulation de la force : permet d’utiliser la télékinésie."
+    },
+    "talent": {
+      "nom": "Leader née",
+      "description": "+ 2 de réussite critique pour tout ces coéquipiers MAIS  lorsqu’il meurt -3 pour chaque action jusqu’au repots."
+    },
+    "caracteristiques": {
+      "force": 11,
+      "capCombat": 15,
+      "capTir": 1,
+      "dexterite": 10,
+      "mentale": 10,
+      "perception": 8,
+      "stress": 11,
+      "affForce": 16
+    },
+    "survie": {
+      "base": 60,
+      "racial": 0
+    },
+    "chance": 40,
+    "pv": {
+      "value": 15,
+      "max": 15
+    },
+    "equipement": "Tenue de Jedi\nSabre laser bleu\nManteau Jedi\nTatouage d'identification [Guilde]\n2 Dagues (2d4 + 2)\nRang 8706\nTwilek male, a l'air suspect mais sympa. Tient une boite ouverte, il la manipule, il se ballade -> vert partout, batiment haut, fleuve ruisseau. Un autre sourire carnacié, lui en veut, plus Espace, combat spatial / Flash /\nSelanguite\nRêve vert / Epice du bonheur (toxique pour la plupart) Bader pendant 3 jours",
+    "credits": 0,
+    "portrait": "systems/galactic-wars/asset_visuel/Personnage/rapides/icestone-raegon.webp",
+    "description": "<p>Ancien esclave et né sur une planète de glace, il a été délivré par une chevalier Jedi lors d'une mission. A son arrivé sur Tython, le conseil Jedi découvre chez le jeune garçon une sensibilité à la force et autorise sa formation. Ce sera la Jedi qui l'a délivré de cette planète qui le prendra pour apprenti.</p><p><strong>Fiche :</strong> partie rapide : Fait par Neili<br><strong>Corpulence :</strong> Épais<br><strong>Total maximal des caractéristiques :</strong> 80</p><h2>Notes de la fiche d'origine</h2><ul><li>2 — 2</li><li>Crédit : -8250</li><li>Buggletea</li><li>Celeria Pik (Revenir en permanence sur la fondation)</li></ul><p><em>Importé de « Icestone Raegon - Humain - Padawan.xlsx ».</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Icestone Raegon",
+    "texture": {
+      "src": "systems/galactic-wars/asset_visuel/Personnage/rapides/icestone-raegon.webp"
+    },
+    "actorLink": true,
+    "disposition": 1
+  },
+  "items": [
+    {
+      "_key": "!actors.items!tl7b9u9M7l4UStd6.P3tSJY1E4sEihXo1",
+      "_id": "P3tSJY1E4sEihXo1",
+      "name": "Manipulation de la force",
+      "type": "talent",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "avantage": "Permet d'utiliser la télékinésie.",
+        "inconvenient": "",
+        "fiche": "rapide",
+        "description": "<p>Trait du métier Padawan. Permet d'utiliser la télékinésie. — variante fiche rapide / PNJ.</p>"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100000,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {
+        "galactic-wars": {
+          "traitMetier": true
+        }
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.galactic-wars.traits.Item.v3RfcefbfvxuozL4",
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.3"
+      }
+    }
+  ],
+  "effects": [],
+  "folder": null,
+  "sort": 1400000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "galactic-wars": {
+      "importFicheRapide": "Icestone Raegon - Humain - Padawan.xlsx"
+    }
+  },
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.23.0"
+  }
+}

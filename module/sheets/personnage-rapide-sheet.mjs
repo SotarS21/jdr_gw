@@ -1,6 +1,6 @@
 import { GW } from "../config.mjs";
 import { objetsPossedes, ACTIONS_OBJETS_POSSEDES, reactiverObjetsPossedes } from "../helpers/objets-possedes.mjs";
-import { rollCaracteristiqueD20, rollCaracteristiquePourcentage, rollSurvie } from "../helpers/rolls.mjs";
+import { rollCaracteristiqueD20, rollCaracteristiquePourcentage, rollSurvie, rollChance } from "../helpers/rolls.mjs";
 import { applyRace } from "../helpers/race.mjs";
 import { applyMetier, choisirMetier } from "../helpers/metier.mjs";
 import { choisirItemCompendium } from "../helpers/compendium-picker.mjs";
@@ -21,6 +21,7 @@ export class PersonnageRapideSheet extends HandlebarsApplicationMixin(ActorSheet
     actions: {
       rollCaracteristique: PersonnageRapideSheet.#onRollCaracteristique,
       rollSurvie: PersonnageRapideSheet.#onRollSurvie,
+      rollChance: PersonnageRapideSheet.#onRollChance,
       applyRace: PersonnageRapideSheet.#onApplyRace,
       applyMetier: PersonnageRapideSheet.#onApplyMetier,
       editImage: PersonnageRapideSheet.#onEditImage,
@@ -91,6 +92,10 @@ export class PersonnageRapideSheet extends HandlebarsApplicationMixin(ActorSheet
 
   static async #onRollSurvie() {
     await rollSurvie(this.actor);
+  }
+
+  static async #onRollChance() {
+    await rollChance(this.actor);
   }
 
   static async #onApplyRace() {

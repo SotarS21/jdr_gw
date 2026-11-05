@@ -1,0 +1,76 @@
+{
+  "_key": "!actors!eXZXCx0FRuVVQffx",
+  "_id": "eXZXCx0FRuVVQffx",
+  "name": "Patar",
+  "type": "personnage-rapide",
+  "img": "systems/galactic-wars/asset_visuel/Personnage/rapides/patar.webp",
+  "system": {
+    "infos": {
+      "nom": "",
+      "prenom": "Patar"
+    },
+    "race": {
+      "uuid": "",
+      "nom": "Ewok Falleen"
+    },
+    "metier": {
+      "uuid": "",
+      "nom": "Cuisinier",
+      "description": "Commis : + 2 perception reconnait naturellement les ingrédients d’un plats et détecte automatiquement les poisons"
+    },
+    "talent": {
+      "nom": "Manchez !",
+      "description": "Donne +1 / -1 dans toute les stats en mangeant un plat si jet de survie réussi / échoué. (allié)"
+    },
+    "caracteristiques": {
+      "force": 12,
+      "capCombat": 12,
+      "capTir": 1,
+      "dexterite": 12,
+      "mentale": 5,
+      "perception": 14,
+      "stress": 9,
+      "affForce": 5
+    },
+    "survie": {
+      "base": 30,
+      "racial": 0
+    },
+    "chance": 70,
+    "pv": {
+      "value": 15,
+      "max": 15
+    },
+    "equipement": "Spatule\nLouche\nBracelet Guilde\nHachoir (1d6) + 1 pack de soin\nGrimpeur : Bonus grimpète gratuit pour monter sur les murs (hors combat)",
+    "credits": 0,
+    "portrait": "systems/galactic-wars/asset_visuel/Personnage/rapides/patar.webp",
+    "description": "<p>Il est commis dans un resto-route miteux en bordure de Bellerian 3, il aspire à cuisiné mieux que son chef  qui sert des plats infecte aux clients de la station. Il adore les pains au miel et les bonbons pétillants, il garde toujours un paquet sous sa capuche. Pour ce faire comprendre, il utilise une sorte de langage des signes très expressifs.</p><p><strong>Corpulence :</strong> Épais<br><strong>Total maximal des caractéristiques :</strong> 70<br><strong>Personnage décédé.</strong></p><h2>Notes de la fiche d'origine</h2><ul><li>-2 — -2 — 2 — 2</li></ul><p><em>Importé de « [MORT] PATAR  - Ewok Falleen - Cuisinier.xlsx ».</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Patar",
+    "texture": {
+      "src": "systems/galactic-wars/asset_visuel/Personnage/rapides/patar.webp"
+    },
+    "actorLink": true,
+    "disposition": 1
+  },
+  "items": [],
+  "effects": [],
+  "folder": "xHTn9ZTwVFHCDA83",
+  "sort": 2700000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "galactic-wars": {
+      "importFicheRapide": "[MORT] PATAR  - Ewok Falleen - Cuisinier.xlsx"
+    }
+  },
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.23.0"
+  }
+}

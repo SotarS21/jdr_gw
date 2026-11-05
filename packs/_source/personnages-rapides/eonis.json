@@ -1,0 +1,108 @@
+{
+  "_key": "!actors!m3YE18QdIw0Vx32t",
+  "_id": "m3YE18QdIw0Vx32t",
+  "name": "Eonis",
+  "type": "personnage-rapide",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "infos": {
+      "nom": "",
+      "prenom": ""
+    },
+    "race": {
+      "uuid": "Compendium.galactic-wars.races.Item.kE25604LBS1sNo7V",
+      "nom": "Kiffar"
+    },
+    "metier": {
+      "uuid": "Compendium.galactic-wars.metiers.Item.5yxBvcQbcVDqhL45",
+      "nom": "Assassin",
+      "description": "Tueur : bonus de dégât  (+1 dés) pour tuer un ennemis à 50% de leurs pv."
+    },
+    "talent": {
+      "nom": "",
+      "description": ""
+    },
+    "caracteristiques": {
+      "force": 13,
+      "capCombat": 14,
+      "capTir": 1,
+      "dexterite": 11,
+      "mentale": 10,
+      "perception": 11,
+      "stress": 10,
+      "affForce": 10
+    },
+    "survie": {
+      "base": 20,
+      "racial": 0
+    },
+    "chance": 80,
+    "pv": {
+      "value": 11,
+      "max": 11
+    },
+    "equipement": "",
+    "credits": 0,
+    "portrait": "icons/svg/mystery-man.svg",
+    "description": "<p><strong>Corpulence :</strong> Maigrichon<br><strong>Total maximal des caractéristiques :</strong> 80</p><p><em>Importé de « Copie de [EONIS].xlsx ».</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Eonis",
+    "texture": {
+      "src": "icons/svg/mystery-man.svg"
+    },
+    "actorLink": true,
+    "disposition": 1
+  },
+  "items": [
+    {
+      "_key": "!actors.items!m3YE18QdIw0Vx32t.eTtTGRRjozJQZwoE",
+      "_id": "eTtTGRRjozJQZwoE",
+      "name": "Tueur",
+      "type": "talent",
+      "img": "icons/svg/skull.svg",
+      "system": {
+        "avantage": "Bonus de dégât (+1 dé) pour tuer un ennemi à 50% de ses points de vie.",
+        "inconvenient": "",
+        "fiche": "rapide",
+        "description": "<p>Trait du métier Assassin. Bonus de dégât (+1 dé) pour tuer un ennemi à 50% de ses points de vie. — variante fiche rapide / PNJ.</p>"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100000,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {
+        "galactic-wars": {
+          "traitMetier": true
+        }
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.galactic-wars.traits.Item.qlzDgK8z9zhZd2l1",
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.3"
+      }
+    }
+  ],
+  "effects": [],
+  "folder": null,
+  "sort": 600000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "galactic-wars": {
+      "importFicheRapide": "Copie de [EONIS].xlsx"
+    }
+  },
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.23.0"
+  }
+}

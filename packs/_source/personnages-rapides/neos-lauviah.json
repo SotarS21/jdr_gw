@@ -1,0 +1,76 @@
+{
+  "_key": "!actors!2O6uUDRCkZP3u8Di",
+  "_id": "2O6uUDRCkZP3u8Di",
+  "name": "Neos Lauviah",
+  "type": "personnage-rapide",
+  "img": "systems/galactic-wars/asset_visuel/Personnage/rapides/neos-lauviah.webp",
+  "system": {
+    "infos": {
+      "nom": "Lauviah",
+      "prenom": "Neos"
+    },
+    "race": {
+      "uuid": "Compendium.galactic-wars.races.Item.yffXA1DmJi9Ijpo4",
+      "nom": "Humain"
+    },
+    "metier": {
+      "uuid": "",
+      "nom": "Jedi gris",
+      "description": "Manipulation de la force : permet d’utiliser la télékinésie."
+    },
+    "talent": {
+      "nom": "Pouvoir de force",
+      "description": "Lancer 1D4 : 1 : Double les dégats // 2 : Action spectaculaire // 3 : Aider allié // 4 : Gagne 1 pv"
+    },
+    "caracteristiques": {
+      "force": 10,
+      "capCombat": 16,
+      "capTir": 1,
+      "dexterite": 12,
+      "mentale": 4,
+      "perception": 9,
+      "stress": 8,
+      "affForce": 15
+    },
+    "survie": {
+      "base": 60,
+      "racial": 0
+    },
+    "chance": 40,
+    "pv": {
+      "value": 13,
+      "max": 13
+    },
+    "equipement": "Sabre laser corrompu bleu - 1d10\nNouriture\nTente isotherme",
+    "credits": 0,
+    "portrait": "systems/galactic-wars/asset_visuel/Personnage/rapides/neos-lauviah.webp",
+    "description": "<p>Tenue : Kimono noir</p><p><strong>Corpulence :</strong> Normal<br><strong>Total maximal des caractéristiques :</strong> 70</p><h2>Notes de la fiche d'origine</h2><ul><li>Crédits : — 2262</li><li>Compétences supplémentaires</li><li>Préhension de la force ( préviens d'un danger)</li><li>Forme III: Soresu</li></ul><h3>Feuille 2</h3><ul><li>Notes :</li><li>Dha Mis Tormok — Contact Nar'Shadda</li></ul><p><em>Importé de « Neos Lauviah - Jedi gris.xlsx ».</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Neos Lauviah",
+    "texture": {
+      "src": "systems/galactic-wars/asset_visuel/Personnage/rapides/neos-lauviah.webp"
+    },
+    "actorLink": true,
+    "disposition": 1
+  },
+  "items": [],
+  "effects": [],
+  "folder": null,
+  "sort": 2200000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "galactic-wars": {
+      "importFicheRapide": "Neos Lauviah - Jedi gris.xlsx"
+    }
+  },
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.23.0"
+  }
+}

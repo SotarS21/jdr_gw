@@ -1,0 +1,108 @@
+{
+  "_key": "!actors!iVGNuIwzNjRQJANA",
+  "_id": "iVGNuIwzNjRQJANA",
+  "name": "Veladern Tantema",
+  "type": "personnage-rapide",
+  "img": "systems/galactic-wars/asset_visuel/Personnage/rapides/veladern-tantema.webp",
+  "system": {
+    "infos": {
+      "nom": "Veladern",
+      "prenom": "Tantema"
+    },
+    "race": {
+      "uuid": "Compendium.galactic-wars.races.Item.Y9KxAhADKRZIHOtX",
+      "nom": "Dug"
+    },
+    "metier": {
+      "uuid": "Compendium.galactic-wars.metiers.Item.JXd5kpLmKGNkQdYf",
+      "nom": "Pilote",
+      "description": "Mental ultime : permet de se détacher complètement d’une situation de stress ou de survie. 1 / j"
+    },
+    "talent": {
+      "nom": "Fou",
+      "description": "Le stresse est une notion inconnue pour lui, à la place il doit lancer un dé de folie"
+    },
+    "caracteristiques": {
+      "force": 3,
+      "capCombat": 2,
+      "capTir": 2,
+      "dexterite": 13,
+      "mentale": 16,
+      "perception": 11,
+      "stress": 0,
+      "affForce": 10
+    },
+    "survie": {
+      "base": 13,
+      "racial": 0
+    },
+    "chance": 87,
+    "pv": {
+      "value": 11,
+      "max": 13
+    },
+    "equipement": "Outil multifonction rafistolé\nTatouage METR rang 4 052\nBlaster (1sur6 de prendre sinon degat x2) 1d6 degat\ntélécommande\n50 pv — 30PS\nTourelle de canon rotatif 1D8 1 — Cpt\nTourelle de canon rotatif 1D8 2 — Ping / radar\n2 tourelle légère arrière1D6\n2 tourelle légère avant 1D6 — 6630 cred\nSalle\nPoste de pillotage\nSalle des machine\nCuisine/Salle de repos/entrepot\nCabine commune",
+    "credits": 0,
+    "portrait": "systems/galactic-wars/asset_visuel/Personnage/rapides/veladern-tantema.webp",
+    "description": "<p>Tantema est un pilote connus pour être très exentrique mais acceptant sans question toutes courses offrant à ses yeux du \"challenge\". Il semble parfois perdu dans ses pensé et tient des discutions avec un être imaginaire qu'il appelle Zii. Il ne suis que ses envies de l'instant et peut être parfois très obstiné, parfois complétement oublier ce qu'il fausait à l'instant. Son vaisseau, le ??? n'inspire pas confiance et ressemble plus à un tas d'ordures et de bricabrac lié ensemble.</p><p><strong>Fiche :</strong> partie rapide Fait par talzd<br><strong>Corpulence :</strong> Maigrichon<br><strong>Total maximal des caractéristiques :</strong> 70<br><strong>Caractéristiques sans valeur :</strong> stress « - » (mises à 0)</p><h2>Notes de la fiche d'origine</h2><ul><li>esquive</li><li>Dés de la folie</li><li>1 — \"Oh un vorpak\" — Détourne son attention et oublie complètement ce qu'il est en train de faire</li><li>2 — \"Qu'est-ce qu'il se passe si je bouge ça?\" — Il fait subitement une action quelconque ingorant les dangers, stresse equipe -2</li><li>3 — \"Sus à l'énémis\" — Ce met à découvert en hurlant, mais gagne + 10 Cap. Cmbt et Cap. Tir</li><li>4 — \"Je sais ou allé\" — Il percoit les choses qu'il doit faire et gagne + 5 Perception</li><li>5 — \"Je te dit qu'elle est rouge!!\" — En discussion animée avec Zii ce qui agace les autres joueurs - 2 Mentale</li><li>6 — \"Suivez moi, c'est pas là!\" — Ce trompe de chemin, équipe à -2 de perception pour tous.. sauf lui même</li><li>rang — 3652</li><li>bog soldate</li><li>amitié de l'équipe de Bara</li></ul><p><em>Importé de « Veladern Tantema - Dug - Pilote [Jouer par _].xlsx ».</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Veladern Tantema",
+    "texture": {
+      "src": "systems/galactic-wars/asset_visuel/Personnage/rapides/veladern-tantema.webp"
+    },
+    "actorLink": true,
+    "disposition": 1
+  },
+  "items": [
+    {
+      "_key": "!actors.items!iVGNuIwzNjRQJANA.RmC2phFn2NP3OSd3",
+      "_id": "RmC2phFn2NP3OSd3",
+      "name": "Mental ultime",
+      "type": "talent",
+      "img": "icons/svg/sun.svg",
+      "system": {
+        "avantage": "Permet de se détacher complètement d'une situation de stress ou de survie. 1 fois par jour.",
+        "inconvenient": "",
+        "fiche": "rapide",
+        "description": "<p>Trait du métier Pilote. Permet de se détacher complètement d'une situation de stress ou de survie. 1 fois par jour. — variante fiche rapide / PNJ.</p>"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100000,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {
+        "galactic-wars": {
+          "traitMetier": true
+        }
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.galactic-wars.traits.Item.NjYsMh5j5vlyRMZx",
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.3"
+      }
+    }
+  ],
+  "effects": [],
+  "folder": null,
+  "sort": 3800000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "galactic-wars": {
+      "importFicheRapide": "Veladern Tantema - Dug - Pilote [Jouer par _].xlsx"
+    }
+  },
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.23.0"
+  }
+}

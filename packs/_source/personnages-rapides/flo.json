@@ -1,0 +1,108 @@
+{
+  "_key": "!actors!vgsxxiK7YsGgXF9u",
+  "_id": "vgsxxiK7YsGgXF9u",
+  "name": "Flo",
+  "type": "personnage-rapide",
+  "img": "systems/galactic-wars/asset_visuel/Personnage/rapides/flo.webp",
+  "system": {
+    "infos": {
+      "nom": "",
+      "prenom": ""
+    },
+    "race": {
+      "uuid": "Compendium.galactic-wars.races.Item.e3EuDfYJaccAUEnA",
+      "nom": "Twi'lek"
+    },
+    "metier": {
+      "uuid": "Compendium.galactic-wars.metiers.Item.9BC8y9FxmawTewdq",
+      "nom": "Padawan",
+      "description": "Manipulation de la force : permet d’utiliser la télékinésie."
+    },
+    "talent": {
+      "nom": "Danse Hypnotique",
+      "description": "Sur un jet de force Peut obnubiler une personne grace à une danse se melant à la force, mais devient hyper empatique et donc sensible aux emotions des autres"
+    },
+    "caracteristiques": {
+      "force": 8,
+      "capCombat": 10,
+      "capTir": 1,
+      "dexterite": 15,
+      "mentale": 10,
+      "perception": 10,
+      "stress": 2,
+      "affForce": 14
+    },
+    "survie": {
+      "base": 50,
+      "racial": 0
+    },
+    "chance": 50,
+    "pv": {
+      "value": 13,
+      "max": 13
+    },
+    "equipement": "Tenue de danseuse sexy noir\nSabre laser violet",
+    "credits": 0,
+    "portrait": "systems/galactic-wars/asset_visuel/Personnage/rapides/flo.webp",
+    "description": "<p><strong>Fiche :</strong> partie rapide Fait par Floricoh<br><strong>Corpulence :</strong> Normal<br><strong>Total maximal des caractéristiques :</strong> 70</p><p><em>Importé de « copi flo.xlsx ».</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Flo",
+    "texture": {
+      "src": "systems/galactic-wars/asset_visuel/Personnage/rapides/flo.webp"
+    },
+    "actorLink": true,
+    "disposition": 1
+  },
+  "items": [
+    {
+      "_key": "!actors.items!vgsxxiK7YsGgXF9u.9VjrFrCaznTmajkY",
+      "_id": "9VjrFrCaznTmajkY",
+      "name": "Manipulation de la force",
+      "type": "talent",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "avantage": "Permet d'utiliser la télékinésie.",
+        "inconvenient": "",
+        "fiche": "rapide",
+        "description": "<p>Trait du métier Padawan. Permet d'utiliser la télékinésie. — variante fiche rapide / PNJ.</p>"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100000,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {
+        "galactic-wars": {
+          "traitMetier": true
+        }
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.galactic-wars.traits.Item.v3RfcefbfvxuozL4",
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.3"
+      }
+    }
+  ],
+  "effects": [],
+  "folder": null,
+  "sort": 1000000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "galactic-wars": {
+      "importFicheRapide": "copi flo.xlsx"
+    }
+  },
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.23.0"
+  }
+}

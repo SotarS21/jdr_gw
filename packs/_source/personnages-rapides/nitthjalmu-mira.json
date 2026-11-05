@@ -1,0 +1,108 @@
+{
+  "_key": "!actors!e1x3JEnXctrP5z9g",
+  "_id": "e1x3JEnXctrP5z9g",
+  "name": "Nitth'Jal'Mu Mira",
+  "type": "personnage-rapide",
+  "img": "systems/galactic-wars/asset_visuel/Personnage/rapides/nitthjalmu-mira.webp",
+  "system": {
+    "infos": {
+      "nom": "Nitth'Jal'Mu",
+      "prenom": "Mira"
+    },
+    "race": {
+      "uuid": "Compendium.galactic-wars.races.Item.x8JoS2I3V1OJiBMX",
+      "nom": "Chiss"
+    },
+    "metier": {
+      "uuid": "Compendium.galactic-wars.metiers.Item.5yxBvcQbcVDqhL45",
+      "nom": "Assassin",
+      "description": "Tueur : bonus de dégât  (+1 dés) pour tuer un ennemis à 50% de leurs pv."
+    },
+    "talent": {
+      "nom": "Esprit tordu",
+      "description": "crée des pièges et les décèle mais elle oublie leurs emplacements ou leur natures. Dés 6, si 6 touche un allier"
+    },
+    "caracteristiques": {
+      "force": 5,
+      "capCombat": 4,
+      "capTir": 16,
+      "dexterite": 11,
+      "mentale": 14,
+      "perception": 15,
+      "stress": 14,
+      "affForce": 1
+    },
+    "survie": {
+      "base": 45,
+      "racial": 0
+    },
+    "chance": 55,
+    "pv": {
+      "value": 11,
+      "max": 11
+    },
+    "equipement": "Tenue discrète\nFusil de précision\nLentilles de contact colorées\ntatouage de la guilde de Mert\nMatériel de chasse de la guilde\néléments de scénario :\n20 places dans le vaisseau",
+    "credits": 0,
+    "portrait": "systems/galactic-wars/asset_visuel/Personnage/rapides/nitthjalmu-mira.webp",
+    "description": "<p>Fille d'un sith, Mira a toujours connu la violence et a appris l'art d'ôter la vie dès l'enfance. Appelée la \"veuve noir\", elle capture ses cibles ou les exécute avec sang-froid. Mira utilise sa capacité de séduction pour distraire ses cibles et les approcher. Elle tisse de véritable piège qui se referme sur ses cibles à mesure qu'elles essayent de se débattre.</p><p><strong>Fiche :</strong> partie rapide : fait par Neili<br><strong>Corpulence :</strong> Maigrichon<br><strong>Total maximal des caractéristiques :</strong> 80</p><h2>Notes de la fiche d'origine</h2><ul><li>nom d'équipe : les boobs d'acier</li><li>Matricule — 4352</li><li>-4350</li></ul><p><em>Importé de « Nitth_Jal_Mu Mira - Chiss - Assasin.xlsx ».</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Nitth'Jal'Mu Mira",
+    "texture": {
+      "src": "systems/galactic-wars/asset_visuel/Personnage/rapides/nitthjalmu-mira.webp"
+    },
+    "actorLink": true,
+    "disposition": 1
+  },
+  "items": [
+    {
+      "_key": "!actors.items!e1x3JEnXctrP5z9g.JZ0PAmyD5zKIw2P9",
+      "_id": "JZ0PAmyD5zKIw2P9",
+      "name": "Tueur",
+      "type": "talent",
+      "img": "icons/svg/skull.svg",
+      "system": {
+        "avantage": "Bonus de dégât (+1 dé) pour tuer un ennemi à 50% de ses points de vie.",
+        "inconvenient": "",
+        "fiche": "rapide",
+        "description": "<p>Trait du métier Assassin. Bonus de dégât (+1 dé) pour tuer un ennemi à 50% de ses points de vie. — variante fiche rapide / PNJ.</p>"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100000,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {
+        "galactic-wars": {
+          "traitMetier": true
+        }
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.galactic-wars.traits.Item.qlzDgK8z9zhZd2l1",
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.3"
+      }
+    }
+  ],
+  "effects": [],
+  "folder": null,
+  "sort": 2400000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "galactic-wars": {
+      "importFicheRapide": "Nitth_Jal_Mu Mira - Chiss - Assasin.xlsx"
+    }
+  },
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.23.0"
+  }
+}

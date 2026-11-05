@@ -1,0 +1,76 @@
+{
+  "_key": "!actors!5wGrDaf02WkN8Vs9",
+  "_id": "5wGrDaf02WkN8Vs9",
+  "name": "Nermoniuon Torusako",
+  "type": "personnage-rapide",
+  "img": "systems/galactic-wars/asset_visuel/Personnage/rapides/nermoniuon-torusako.webp",
+  "system": {
+    "infos": {
+      "nom": "Torusako",
+      "prenom": "Nermoniuon"
+    },
+    "race": {
+      "uuid": "Compendium.galactic-wars.races.Item.wxVVS1x0Pc6fdwjy",
+      "nom": "Chagrian"
+    },
+    "metier": {
+      "uuid": "",
+      "nom": "Marchant",
+      "description": "Négociateur : +4 pour marchander. + 2 dans le cas ou l’action implique uniquement un intérêt personnel."
+    },
+    "talent": {
+      "nom": "Marionnettiste",
+      "description": "convainc quiconque de faire ce qu'elle veut sur jet de mentale :  MAIS Elle n'est pas très bonne combattante - 4 cap cmbt"
+    },
+    "caracteristiques": {
+      "force": 7,
+      "capCombat": 10,
+      "capTir": 17,
+      "dexterite": 14,
+      "mentale": 18,
+      "perception": 12,
+      "stress": 15,
+      "affForce": 5
+    },
+    "survie": {
+      "base": 60,
+      "racial": 0
+    },
+    "chance": 40,
+    "pv": {
+      "value": 11,
+      "max": 11
+    },
+    "equipement": "moyen de télécommunication secondaire et crypté\nTenue chic\nblaster qualité militaire 1d10\n50 cellules énergie (10 cellules/chargeur)\nblaster modifié acide qualité inter 1d6/ tour\n3 étoiles ninja (1d4) et le porte étoiles\ncouteau ninja 1d6 + 1 couteau laser 1d6\n1 fiole d'acide (1 personne/fiole) 1/2 fiole fait déjà du mal\n1 blaster 1d6\n1 caillou de force (1bague) +1 en force\n1 bague avec un sigle (tête de mort avec un blaster sort bouche)\nAura calmante\nSur test de stress réussi, peux apaiser le groupe",
+    "credits": 0,
+    "portrait": "systems/galactic-wars/asset_visuel/Personnage/rapides/nermoniuon-torusako.webp",
+    "description": "<p>Riche héritière à l'aise dans le monde des affaires, mondanité, opéra et galas de charité. Elle mène cependant une double vie et gère un gang réputer dans l'ombre de Corusante. Dans la pègre, personne ne sait qui qui elle est réellement. Elle dirige son réseau d'une main de fer et répond par la violence. Si un de ces contacts lui fait défaut, elle a pour habitude d'ordonner sa mort par l'acide.</p><p><strong>Fiche :</strong> partie rapide : Fait par Valfactis<br><strong>Corpulence :</strong> Maigrichon<br><strong>Total maximal des caractéristiques :</strong> 80</p><h2>Notes de la fiche d'origine</h2><ul><li>Stock pour marchandises</li><li>rang: 2030 — 1 point obscur — + 3 711 credits de la guilde — + 104 crédits — 3300 000 crédits</li><li>voir Dr turch a la fête</li><li>dit, \"l'acide\" — + rémunération nature (mission en plsu aider farda et crédit)</li><li>Armure — 0</li><li>Retenir respiration — petit alchimiste — Pirate informatique — Préhension danger 1/3 — bulle mentale — +1 bague</li><li>Pistolero — Informaticienne — Aura calmante</li><li>Reputation auprès de Farda le Hutt (bienvenue sur Nar Shadda) (sauvetage de Gus Ito et execution de Giro le Hutt qui m'a tué mon business)</li><li>Altesse impériale de Falaral, gros porc a qui on a laissé une nana pour son harem mais on l'a resauvé derrière</li><li>Sauvé le peuple Guiroudiens d'un Sith (interessé par les épices) ++ réputation</li><li>Pistolero: capacité utilisation arme lourde + 2 armes</li><li>Connue sur le marché de Nar Shadda</li><li>Partenaire de trafic avec Caleb Tina sur Tatouine</li><li>Contact avec le comte sur Narshaada (qui a acheté la poudre de Caleb Tina)</li><li>Guy Xiamad (Rhodien)</li><li>2 petis pains d'alderande</li></ul><h3>Feuille 2</h3><ul><li>transport machienes de con</li></ul><p><em>Importé de « Nermoniuon - Chagrian - Marchand.xlsx ».</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Nermoniuon Torusako",
+    "texture": {
+      "src": "systems/galactic-wars/asset_visuel/Personnage/rapides/nermoniuon-torusako.webp"
+    },
+    "actorLink": true,
+    "disposition": 1
+  },
+  "items": [],
+  "effects": [],
+  "folder": null,
+  "sort": 2300000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "galactic-wars": {
+      "importFicheRapide": "Nermoniuon - Chagrian - Marchand.xlsx"
+    }
+  },
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.23.0"
+  }
+}

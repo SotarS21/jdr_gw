@@ -1,0 +1,76 @@
+{
+  "_key": "!actors!wz402iKHJhCoI53C",
+  "_id": "wz402iKHJhCoI53C",
+  "name": "P54 Marcus",
+  "type": "personnage-rapide",
+  "img": "systems/galactic-wars/asset_visuel/Personnage/rapides/p54-marcus.webp",
+  "system": {
+    "infos": {
+      "nom": "P52",
+      "prenom": "Marcus"
+    },
+    "race": {
+      "uuid": "Compendium.galactic-wars.races.Item.vO3oINFcFSe8gnND",
+      "nom": "Robot"
+    },
+    "metier": {
+      "uuid": "",
+      "nom": "Journaliste",
+      "description": "Interview : pose plein de question qui déstabilise la personne interrogée. Obtient toujours au moins une information supplémentaire."
+    },
+    "talent": {
+      "nom": "Casse Couille",
+      "description": "Soutirer une info n'est qu'une question de temps ; par contre les autres joueur  -2 pour toute les compétences de combat"
+    },
+    "caracteristiques": {
+      "force": 5,
+      "capCombat": 5,
+      "capTir": 14,
+      "dexterite": 16,
+      "mentale": 17,
+      "perception": 15,
+      "stress": 0,
+      "affForce": 10
+    },
+    "survie": {
+      "base": 90,
+      "racial": 0
+    },
+    "chance": 10,
+    "pv": {
+      "value": 13,
+      "max": 13
+    },
+    "equipement": "Enregistreure\nHuile de dégrippage\nblasteur\ncarnet\nTatouage d'identification de la guilde (rang 4207)\nPetit couteau\nBracelet de la guilde de merdte\nDette de -6000 crédits",
+    "credits": 0,
+    "portrait": "systems/galactic-wars/asset_visuel/Personnage/rapides/p54-marcus.webp",
+    "description": "<p>Marcus est un robot journaliste qui ne vous dira jamais où il a été fabriqué. Il a un égo sur-dimensionné et aime par-dessus tout rabaisser les autres et leur rappeler qu'il est bien plus intelligent que toutes les races qui l'entourent. Il n'aime pas que l'on lui rappelle sa grande faiblesse au combat, il aura de toute façon toujours une excuse pour ne pas avouer sa possible infériorité dans quelque chose. Il est le genre de journaliste qui harcèle sa cible jusqu'à la faire craquer.</p><p><strong>Fiche :</strong> partie rapide : Fait par Nanou / Joué par Latios<br><strong>Corpulence :</strong> Maigrichon<br><strong>Caractéristiques sans valeur :</strong> stress « - » (mises à 0)</p><h2>Notes de la fiche d'origine</h2><ul><li>2</li></ul><h3>Feuille 2</h3><ul><li>Nom : — Vanys</li><li>Yen</li><li>Kalo</li><li>Gros beige en salope — Karak</li><li>Robot — G-36C</li><li>Cristaux de cortosis : Allialge controlé par la république / Métal qui fait dévier les sabres laser -&gt; 30kilo a 10k le Kg</li></ul><p><em>Importé de « P54 Marcus - Robot - Journaliste.xlsx ».</em></p>"
+  },
+  "prototypeToken": {
+    "name": "P54 Marcus",
+    "texture": {
+      "src": "systems/galactic-wars/asset_visuel/Personnage/rapides/p54-marcus.webp"
+    },
+    "actorLink": true,
+    "disposition": 1
+  },
+  "items": [],
+  "effects": [],
+  "folder": null,
+  "sort": 2600000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "galactic-wars": {
+      "importFicheRapide": "P54 Marcus - Robot - Journaliste.xlsx"
+    }
+  },
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.23.0"
+  }
+}

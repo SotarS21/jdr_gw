@@ -1,0 +1,76 @@
+{
+  "_key": "!actors!KRldONFr2vewfhq0",
+  "_id": "KRldONFr2vewfhq0",
+  "name": "Nys Abrâam",
+  "type": "personnage-rapide",
+  "img": "systems/galactic-wars/asset_visuel/Personnage/rapides/nys-abraam.webp",
+  "system": {
+    "infos": {
+      "nom": "Nys",
+      "prenom": "Abrâam"
+    },
+    "race": {
+      "uuid": "Compendium.galactic-wars.races.Item.wxVVS1x0Pc6fdwjy",
+      "nom": "Chagrian"
+    },
+    "metier": {
+      "uuid": "",
+      "nom": "Sénateur",
+      "description": "Autorité naturel : oblige les gens à se calmer. Relance un test de stress avec +2"
+    },
+    "talent": {
+      "nom": "Empathique",
+      "description": "bonus d’action combiner + 2 réussite critique MAIS -2 Mental - stress"
+    },
+    "caracteristiques": {
+      "force": 12,
+      "capCombat": 7,
+      "capTir": 1,
+      "dexterite": 7,
+      "mentale": 16,
+      "perception": 11,
+      "stress": 16,
+      "affForce": 11
+    },
+    "survie": {
+      "base": 80,
+      "racial": 0
+    },
+    "chance": 20,
+    "pv": {
+      "value": 9,
+      "max": 9
+    },
+    "equipement": "Robe de sénateur\nTatouage d'identification de la guilde 8608 sur la fesse droite\nPetite boîte verte",
+    "credits": 0,
+    "portrait": "systems/galactic-wars/asset_visuel/Personnage/rapides/nys-abraam.webp",
+    "description": "<p>Abrâam est un sénateur sage et avisé. Sensible à la force sans même le savoir, le conseil Jedi surveille avec attention ses directives. Il est proche des Jedi dont certains sont ses amis. Il n'appartient ni au coté lumineux, ni au coté obscur ce qui le rend d'autant plus influençable. Le sénateur se repose essentiellement sur sa grande capacité d'analyse et son intelligence pour étendre la démocratie à travers la galaxie. Abrâam est contre l'esclavage et se bat pour la liberté.</p><p><strong>Fiche :</strong> partie rapide - Fait par Neili - Joué par Princesse Sarah<br><strong>Corpulence :</strong> Maigrichon<br><strong>Total maximal des caractéristiques :</strong> 80</p><h2>Notes de la fiche d'origine</h2><ul><li>Crédit équipe</li><li>0</li><li>Dette</li><li>7 500</li></ul><p><em>Importé de « Nys Abrâam - Chagrian - Sénateur.xlsx ».</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Nys Abrâam",
+    "texture": {
+      "src": "systems/galactic-wars/asset_visuel/Personnage/rapides/nys-abraam.webp"
+    },
+    "actorLink": true,
+    "disposition": 1
+  },
+  "items": [],
+  "effects": [],
+  "folder": null,
+  "sort": 2500000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "galactic-wars": {
+      "importFicheRapide": "Nys Abrâam - Chagrian - Sénateur.xlsx"
+    }
+  },
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.23.0"
+  }
+}

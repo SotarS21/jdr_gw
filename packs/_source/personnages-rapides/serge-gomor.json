@@ -1,0 +1,108 @@
+{
+  "_key": "!actors!LypQbeLU4HSEEkGu",
+  "_id": "LypQbeLU4HSEEkGu",
+  "name": "Serge Gomor",
+  "type": "personnage-rapide",
+  "img": "systems/galactic-wars/asset_visuel/Personnage/rapides/serge-gomor.webp",
+  "system": {
+    "infos": {
+      "nom": "Gomor",
+      "prenom": "Serge"
+    },
+    "race": {
+      "uuid": "",
+      "nom": "Pantoran"
+    },
+    "metier": {
+      "uuid": "Compendium.galactic-wars.metiers.Item.BKQsd0pMug5KIppF",
+      "nom": "Pirate",
+      "description": "Flippant : cpt active oblige quelqu’un à lancer un test de stress avec -2 si raté => déstabilise la personne ciblé."
+    },
+    "talent": {
+      "nom": "",
+      "description": ""
+    },
+    "caracteristiques": {
+      "force": 10,
+      "capCombat": 9,
+      "capTir": 15,
+      "dexterite": 11,
+      "mentale": 6,
+      "perception": 9,
+      "stress": 9,
+      "affForce": 1
+    },
+    "survie": {
+      "base": 25,
+      "racial": 0
+    },
+    "chance": 75,
+    "pv": {
+      "value": 13,
+      "max": 13
+    },
+    "equipement": "Blaster 1d4+2",
+    "credits": 0,
+    "portrait": "systems/galactic-wars/asset_visuel/Personnage/rapides/serge-gomor.webp",
+    "description": "<p>Voila déja quelque année qu'il fait partie de la Bande de Cellan, la paye n'était pas mauvaise, les taches plutot simple. C'est toujours mieu que rester chez papa et maman sur Nar Shadda. \"Trouve toi un job!!!\" Oui, bah c'est pas propre, mais c'est un jobs : conduir les spedder, menacer des faiblars,</p><p><strong>Corpulence :</strong> Normal<br><strong>Total maximal des caractéristiques :</strong> 70</p><p><em>Importé de « Serge Gomor - Pirate - pantoran.xlsx ».</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Serge Gomor",
+    "texture": {
+      "src": "systems/galactic-wars/asset_visuel/Personnage/rapides/serge-gomor.webp"
+    },
+    "actorLink": true,
+    "disposition": 1
+  },
+  "items": [
+    {
+      "_key": "!actors.items!LypQbeLU4HSEEkGu.PCCiG6GK7hrqQ3a6",
+      "_id": "PCCiG6GK7hrqQ3a6",
+      "name": "Flippant",
+      "type": "talent",
+      "img": "icons/svg/terror.svg",
+      "system": {
+        "avantage": "Compétence active qui oblige une cible à lancer un test de stress avec -2 ; en cas d'échec, la personne ciblée est déstabilisée.",
+        "inconvenient": "",
+        "fiche": "rapide",
+        "description": "<p>Trait du métier Pirate. Compétence active qui oblige une cible à lancer un test de stress avec -2 ; en cas d'échec, la personne ciblée est déstabilisée. — variante fiche rapide / PNJ.</p>"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100000,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {
+        "galactic-wars": {
+          "traitMetier": true
+        }
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.galactic-wars.traits.Item.0ZaNVh0eSzRhYbBf",
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.3"
+      }
+    }
+  ],
+  "effects": [],
+  "folder": null,
+  "sort": 3100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "galactic-wars": {
+      "importFicheRapide": "Serge Gomor - Pirate - pantoran.xlsx"
+    }
+  },
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.23.0"
+  }
+}

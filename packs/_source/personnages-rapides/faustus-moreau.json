@@ -1,0 +1,139 @@
+{
+  "_key": "!actors!uyc39hq7WtTspozP",
+  "_id": "uyc39hq7WtTspozP",
+  "name": "Faustus Moreau",
+  "type": "personnage-rapide",
+  "img": "systems/galactic-wars/asset_visuel/Personnage/rapides/faustus-moreau.webp",
+  "system": {
+    "infos": {
+      "nom": "MOREAU",
+      "prenom": "Faustus"
+    },
+    "race": {
+      "uuid": "Compendium.galactic-wars.races.Item.fjSJHgPOIjzJSygz",
+      "nom": "Bith"
+    },
+    "metier": {
+      "uuid": "Compendium.galactic-wars.metiers.Item.pi8JBmXDArhj5ybA",
+      "nom": "Médecin",
+      "description": "Chirurgien : +4 en médecine et permet d’opérer sur le terrain."
+    },
+    "talent": {
+      "nom": "Collectionneur des corps",
+      "description": "à chaque fois qu'il utilise un morceau de corps en sa possession → relance un 🎲, les autres ont -2 en mental"
+    },
+    "caracteristiques": {
+      "force": 6,
+      "capCombat": 11,
+      "capTir": 4,
+      "dexterite": 13,
+      "mentale": 14,
+      "perception": 11,
+      "stress": 14,
+      "affForce": 3
+    },
+    "survie": {
+      "base": 73,
+      "racial": 0
+    },
+    "chance": 27,
+    "pv": {
+      "value": 11,
+      "max": 11
+    },
+    "equipement": "Accordéon en peau de Chiss (bleu électrique) — ♫♪ +1\nScalpel Laser (destruction des verrous de porte) — 2 🎲 4\nTrousse de soin de chirurgie *\nCom Link\nData Pad de TOTO (infos à vendre)\nCape marron (contre la chaleur)\nGourde Vessie (un peu isotherme)\nScalpel métal de bonne qualité — 1 🎲 4 + 🩸",
+    "credits": 0,
+    "portrait": "systems/galactic-wars/asset_visuel/Personnage/rapides/faustus-moreau.webp",
+    "description": "<p>Fasciné par l'assemblage et le désassemblage des corps, il fait collection de parties de corps, qu'il modifie pour en faire des objets. (instruments, jouets, habits, bijoux, etc) Il voyage afin de rencontrer le plus d'espèces possibles (pour sa collection). Il aimerait beaucoup créer de nouvelles formes de vies, ou du moins avoir un animal de compagnie assemblé par ses soins.</p><p><strong>Corpulence :</strong> Maigrichon<br><strong>Total maximal des caractéristiques :</strong> 70</p><h2>Notes de la fiche d'origine</h2><ul><li>Compétence Sup</li><li>Frappe du Scorpion → permet de toucher un point mortel avec une lame — 4 dgts bruts</li><li>Moi j'ai fait pire ! → permet de faire relancer un échec critique à un allier.</li><li>Médecine d'Urgence → permet de soigner en situation de stress</li><li>Dual → si dans le même tour, Albus et moi faisons le même nombre on a le droit à une action épique</li><li>Bonus de Combat contre les Twi'lek</li><li>Bonus de Dissection sur les petits animaux à carapaces</li><li>Apprentissage en Musique</li><li>Connaissances sur la Spiritualité de la Force</li><li>Socialement Acceptable → donne un bonus de +2 pour devenir pote avec quelqu'un. Cependant, j'aurais un peu de remors si je les dissèque.</li><li>Trousse de soin de chirurgie</li><li>coeur de nourrisson cathar</li><li>petite rate</li><li>petit rein</li><li>assortiments yeux (cathar, lézard, humain)</li><li>vésicule biliaire humaine</li></ul><h3>Compta</h3><ul><li>Date — Départ — Objet — Date — Départ — Objet — Date — Départ — Objet — Date — Départ — Objet</li><li>23/09/2021 — 0.00 — 30/09/2021 — 500.00 — 03/10/2021 — 1104.00 — 18/10/2021 — 2104.00</li><li>500.00 — récompense — -101.00 — dépense de la semaine — 1000 — gain mission — -150 — achats de petits organes et yeux en tout genre</li><li>-120.00 — achat scalpel métal — -10 — repas complet dans un diner</li><li>1250.00 — récompense</li><li>1000.00 — lingot</li><li>-225.00 — soin à l'hôpital</li><li>-1200.00 — scalpel laser !!</li><li>Total — 500.00 — Total — 1104.00 — Total — 2104.00 — Total — 1944.00</li><li>Date — Départ — Objet — Date — Départ — Objet — Date — Départ — Objet — Date — Départ — Objet</li><li>09/01/2022 — 1944.00 — 1374.00 — 1374.00 — 1374.00</li><li>-100.00 — chambre pour soigner Neos</li><li>-100.00 — services particuliers</li><li>-70.00 — aspirateur pour le sang</li><li>-300.00 — voyage Nar'shada → Valérian3</li><li>Total — 1374.00 — Total — 1374.00 — Total — 1374.00 — Total — 1374.00</li></ul><h3>Aventures</h3><ul><li>23/09/2021 — Crash tattooine, attaqués, blessés, perte du scalpel, récup gars de mission</li><li>30/09/2021 — Damiss Tormok → gars à faire disparaître — Quai N°9. Bât Zaka. Baston, c'est la m*rde... code coffre Zéta3740B-26.</li><li>03/10/2021 — station STK-Z-47 → ø réponse et hangar ouvert... — Zolan (rodian), gars de la station/mine, qqch dans la carrière avec appel dans la force obscur</li><li>18/10/2021 — à Narshada j'achète des organes et Albus se prend la tête à un certain Gorm Tack.</li><li>09/01/2022 — à Narshada, étude des corps sur des prostituées — voyage vers Valérion3 avec Neos</li></ul><h3>Carnet détude</h3><ul><li>Notes sur les Jedis — Notes pour objets pratiques — Notes sur d'autres espèces</li><li>• les parties d'un corps de jedi ne véhiculeraient pas la force — • des boyaux séchés peuvent servir de fils de couture — • les Killiks se regénèrent, leurs membres repoussent</li><li>• ajout greffon n'empêcherait pas l'utilisation de la force — • les antennes des Killiks perçoivent les ondes radios</li><li>• l'utilisation d'un membre de Sith pourraient corrompre — • le coeur des Twi'lek est plus petit, moins de sang qui circule → ils ont besoin de moins d'apport sanguin malgré leurs capacités</li><li>• 2 maladies affectants la Force : -parasites coupant l'affinité avec la Force se logeant dans le cerveau → la Force agirait donc sur une zone précise du cerveau — • l'humain est basique, haute pression sanguine → ils se vident vite de leur sang</li><li>• la structure des Pa'lowick est particulière, leur peau est épaisse → afin de survivre dans les milieu arides</li><li>• les cordes vocales des Pa'lowick sont difficilement accessibles à cause de leur absence de cou</li><li>Idées pour ma Créature</li><li>• antennes de Killiks</li><li>• plusieurs paires d'yeux : de lézards, de félins, d'humains</li><li>• peau épaisse + écailles</li><li>• petit coeur de Cathar (essayer de le garder petit)</li><li>• gênes de régénération des Killiks</li><li>• petit rein et petite rate</li><li>• vésicule biliaire (si possible bile très acide)</li><li>• partie d'un cerveau avec Affinité avec la Force ?</li></ul><h3>Alliers</h3><ul><li>Nom — Neos — Zog Temen — Albus Hordim — Méta Dima</li><li>Race — humain — killik — chagrian — Barabel</li><li>Métier — jedi ? — Médecin → spécialité coûture — Pirate — soldat</li><li>sabre laser — armé d'un gros bâton — vaisseau le Impossibru — fusil blaster lourd</li><li>peut se regénérer — hache à sa ceinture</li><li>émet des claquements — ancien militaire</li><li>ses antennes captes les ondes radio</li><li>peut créer de la soie avec effets</li></ul><h3>PNJ</h3><ul><li>Dha Miss Tormok</li><li>il peut venir nous chercher sur une planète</li></ul><p><em>Importé de « Faustus - Medecin - Bith.xlsx ».</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Faustus Moreau",
+    "texture": {
+      "src": "systems/galactic-wars/asset_visuel/Personnage/rapides/faustus-moreau.webp"
+    },
+    "actorLink": true,
+    "disposition": 1
+  },
+  "items": [
+    {
+      "_key": "!actors.items!uyc39hq7WtTspozP.m7i4YTHONBaAD5Jw",
+      "_id": "m7i4YTHONBaAD5Jw",
+      "name": "Chirurgien",
+      "type": "talent",
+      "img": "icons/svg/heal.svg",
+      "system": {
+        "avantage": "+4 en médecine et permet d'opérer sur le terrain.",
+        "inconvenient": "",
+        "fiche": "rapide",
+        "description": "<p>Trait du métier Médecin. +4 en médecine et permet d'opérer sur le terrain.</p><p>Variante de la fiche rapide / PNJ (bonus d20).</p>"
+      },
+      "effects": [
+        {
+          "_key": "!actors.items.effects!uyc39hq7WtTspozP.m7i4YTHONBaAD5Jw.k0VkPpbsB78BSR0X",
+          "_id": "k0VkPpbsB78BSR0X",
+          "name": "Chirurgien",
+          "img": "icons/svg/heal.svg",
+          "type": "base",
+          "system": {
+            "changes": [
+              {
+                "key": "system.effets.caracteristiques.mentale",
+                "type": "add",
+                "value": "4"
+              }
+            ]
+          },
+          "disabled": false,
+          "transfer": true,
+          "description": "",
+          "origin": null,
+          "statuses": [],
+          "sort": 0,
+          "flags": {},
+          "_stats": {
+            "compendiumSource": null,
+            "duplicateSource": null,
+            "coreVersion": "14",
+            "systemId": "galactic-wars",
+            "systemVersion": "0.20.0"
+          }
+        }
+      ],
+      "folder": null,
+      "sort": 100000,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {
+        "galactic-wars": {
+          "traitMetier": true
+        }
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.galactic-wars.traits.Item.M4yUGAEym6e7uMo2",
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.0"
+      }
+    }
+  ],
+  "effects": [],
+  "folder": null,
+  "sort": 800000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "galactic-wars": {
+      "importFicheRapide": "Faustus - Medecin - Bith.xlsx"
+    }
+  },
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.23.0"
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "_key": "!actors!Sq4kTJfvR79V5En8",
+  "_id": "Sq4kTJfvR79V5En8",
+  "name": "Ruby Rose",
+  "type": "personnage-rapide",
+  "img": "systems/galactic-wars/asset_visuel/Personnage/rapides/ruby-rose.webp",
+  "system": {
+    "infos": {
+      "nom": "Rose",
+      "prenom": "Ruby"
+    },
+    "race": {
+      "uuid": "Compendium.galactic-wars.races.Item.yffXA1DmJi9Ijpo4",
+      "nom": "Humain"
+    },
+    "metier": {
+      "uuid": "Compendium.galactic-wars.metiers.Item.5yxBvcQbcVDqhL45",
+      "nom": "Assassin",
+      "description": "Tueur : bonus de dégât  (+1 dés) pour tuer un ennemis à 50% de leurs pv."
+    },
+    "talent": {
+      "nom": "Guillotine",
+      "description": "En échange d' 1d4 de vie -> Exécute une cible (hors boss) peut importe son nombre de point de vie."
+    },
+    "caracteristiques": {
+      "force": 7,
+      "capCombat": 14,
+      "capTir": 13,
+      "dexterite": 14,
+      "mentale": 7,
+      "perception": 10,
+      "stress": 10,
+      "affForce": 5
+    },
+    "survie": {
+      "base": 60,
+      "racial": 0
+    },
+    "chance": 40,
+    "pv": {
+      "value": 11,
+      "max": 11
+    },
+    "equipement": "Faux-Sniper (Mode combat / Mode distance)\nVêtements et cape",
+    "credits": 0,
+    "portrait": "systems/galactic-wars/asset_visuel/Personnage/rapides/ruby-rose.webp",
+    "description": "<p>Même la plus fragile des roses possède des épines. Elle n'a que 12 ans et sous ses allures d'ado gothique, c'est une tueuse. Rapide, agile, silencieuse et mortelle, la jeune fille au regard d'argent ne laisse transparaître aucune émotion. Elle n'agit pas pour le plaisir du meurtre, elle se livre dans une course contre-la-montre dans l'espoir de sauver sa sœur d'une terrible maladie....</p><p><strong>Fiche :</strong> partie rapide - Fait par Latios // JOuer par Latios<br><strong>Corpulence :</strong> Maigrichon<br><strong>Total maximal des caractéristiques :</strong> 80</p><h2>Notes de la fiche d'origine</h2><ul><li>Ce talent ne peut être utilisé si le personnage à moins de 6pv</li></ul><p><em>Importé de « Ruby Rose - Humain - Assassin.xlsx ».</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Ruby Rose",
+    "texture": {
+      "src": "systems/galactic-wars/asset_visuel/Personnage/rapides/ruby-rose.webp"
+    },
+    "actorLink": true,
+    "disposition": 1
+  },
+  "items": [
+    {
+      "_key": "!actors.items!Sq4kTJfvR79V5En8.He6gDTP9yRrfOcjN",
+      "_id": "He6gDTP9yRrfOcjN",
+      "name": "Tueur",
+      "type": "talent",
+      "img": "icons/svg/skull.svg",
+      "system": {
+        "avantage": "Bonus de dégât (+1 dé) pour tuer un ennemi à 50% de ses points de vie.",
+        "inconvenient": "",
+        "fiche": "rapide",
+        "description": "<p>Trait du métier Assassin. Bonus de dégât (+1 dé) pour tuer un ennemi à 50% de ses points de vie. — variante fiche rapide / PNJ.</p>"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100000,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {
+        "galactic-wars": {
+          "traitMetier": true
+        }
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.galactic-wars.traits.Item.qlzDgK8z9zhZd2l1",
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.3"
+      }
+    }
+  ],
+  "effects": [],
+  "folder": null,
+  "sort": 3000000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "galactic-wars": {
+      "importFicheRapide": "Ruby Rose - Humain - Assassin.xlsx"
+    }
+  },
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.23.0"
+  }
+}

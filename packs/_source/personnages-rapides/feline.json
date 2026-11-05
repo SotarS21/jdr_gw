@@ -1,0 +1,108 @@
+{
+  "_key": "!actors!Wv6cwnNgW6rvgRmY",
+  "_id": "Wv6cwnNgW6rvgRmY",
+  "name": "Fel'Iné",
+  "type": "personnage-rapide",
+  "img": "systems/galactic-wars/asset_visuel/Personnage/rapides/feline.webp",
+  "system": {
+    "infos": {
+      "nom": "Fel",
+      "prenom": "Iné"
+    },
+    "race": {
+      "uuid": "Compendium.galactic-wars.races.Item.VKtVDblkDP3RR8XR",
+      "nom": "Cathar"
+    },
+    "metier": {
+      "uuid": "Compendium.galactic-wars.metiers.Item.JXd5kpLmKGNkQdYf",
+      "nom": "Pilote",
+      "description": "Mental ultime : permet de se détacher complètement d’une situation de stress ou de survie. 1 / j"
+    },
+    "talent": {
+      "nom": "7 vies",
+      "description": "Permet de relancer un jet de survie raté jusqu'à 7 fois. \nSi réussite, le nombre de relance diminue => jauge partagée entre tout les scénarios joué, elle ne se réinitialise pas !!"
+    },
+    "caracteristiques": {
+      "force": 3,
+      "capCombat": 5,
+      "capTir": 10,
+      "dexterite": 14,
+      "mentale": 13,
+      "perception": 12,
+      "stress": 10,
+      "affForce": 3
+    },
+    "survie": {
+      "base": 50,
+      "racial": 0
+    },
+    "chance": 50,
+    "pv": {
+      "value": 11,
+      "max": 11
+    },
+    "equipement": "Combinaison de pilote\nSpidder (dans le garage de son vaisseau)\nBlaster 1d8\n2 Flairs (durée 10 tours)\nSpeeder :\nVaiseaux moyen\nNom : Blue Cargo\n30 pv 30PS\n1 * canon rotatif 1D8\n2 canon léger 1D6",
+    "credits": 0,
+    "portrait": "systems/galactic-wars/asset_visuel/Personnage/rapides/feline.webp",
+    "description": "<p>Né sur Malastar 3, Iné a vécu une jeunesse dure avec des parents accros aux courses de pods. Bricoleurs, la famille construisit son propre engin dans l'espoir de remporter de grands prix leur permettant de fuir leur misérable vie. Sa première course se passa très mal lorsque son vaisseau eut un crasha deux doigts de la victoire. Dégouté mais pas pour autant décourager, elle continua d'explorer les possibilités des vaisseaux de courses avec d'autres véhicules. Après plusieurs années passés sur les pistes, on lui offrit l'opportunité de devenir pilote de vaisseau pour le compte d'une certaine guilde marchande... Elle n'est pas du genre à cracher dans la soupe lorsqu'une opportunité ce présente, mais reste néanmoins très en alerte et méfiante dans tout ce qu'elle doit entreprendre. Comme dit le proverbe \"Cathar échaudée, craint l'eau froide...\"</p><p><strong>Corpulence :</strong> Maigrichon<br><strong>Total maximal des caractéristiques :</strong> 70</p><h2>Notes de la fiche d'origine</h2><ul><li>1 250 crédits</li><li>Rang : 3613</li></ul><p><em>Importé de « Fel_Iné - Cathar -Pilote.xlsx ».</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Fel'Iné",
+    "texture": {
+      "src": "systems/galactic-wars/asset_visuel/Personnage/rapides/feline.webp"
+    },
+    "actorLink": true,
+    "disposition": 1
+  },
+  "items": [
+    {
+      "_key": "!actors.items!Wv6cwnNgW6rvgRmY.qdVbDaC0xqMyVgsT",
+      "_id": "qdVbDaC0xqMyVgsT",
+      "name": "Mental ultime",
+      "type": "talent",
+      "img": "icons/svg/sun.svg",
+      "system": {
+        "avantage": "Permet de se détacher complètement d'une situation de stress ou de survie. 1 fois par jour.",
+        "inconvenient": "",
+        "fiche": "rapide",
+        "description": "<p>Trait du métier Pilote. Permet de se détacher complètement d'une situation de stress ou de survie. 1 fois par jour. — variante fiche rapide / PNJ.</p>"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100000,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {
+        "galactic-wars": {
+          "traitMetier": true
+        }
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.galactic-wars.traits.Item.NjYsMh5j5vlyRMZx",
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.3"
+      }
+    }
+  ],
+  "effects": [],
+  "folder": null,
+  "sort": 900000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "galactic-wars": {
+      "importFicheRapide": "Fel_Iné - Cathar -Pilote.xlsx"
+    }
+  },
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.23.0"
+  }
+}

@@ -60,6 +60,8 @@ export class PersonnageRapideData extends foundry.abstract.TypeDataModel {
         base: new NumberField({ required: true, integer: true, initial: 0 }),
         racial: new NumberField({ required: true, integer: true, initial: 0 })
       }),
+      // Chance (%) : à côté de la Survie sur les tableurs de partie rapide (v0.23.0), jet séparé en 1d100.
+      chance: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
 
       // PV (demande de l'auteur, 2026-09-25) : dégâts appliqués depuis le tchat, état Inconscient à 0.
       pv: new SchemaField({

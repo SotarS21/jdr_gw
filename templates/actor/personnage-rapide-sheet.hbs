@@ -59,6 +59,14 @@
     <label>{{localize 'GALACTICWARS.Sheet.Base'}} <input type="number" name="system.survie.base" value="{{system.survie.base}}"></label>
     <label>{{localize 'GALACTICWARS.Sheet.Racial'}} <input type="number" name="system.survie.racial" value="{{system.survie.racial}}"></label>
     <span class="total">{{system.survie.total}}%</span>
+  </section>
+
+  <section class="survie chance">
+    <h2>{{localize 'GALACTICWARS.Sheet.Chance'}}
+      <button type="button" data-action="rollChance">🎲</button>
+    </h2>
+    <label>{{localize 'GALACTICWARS.Sheet.Chance'}} <input type="number" name="system.chance" value="{{system.chance}}" min="0"></label>
+    <span class="total">{{system.chance}}%</span>
     <label>{{localize 'GALACTICWARS.Sheet.Credits'}} <input type="number" name="system.credits" value="{{system.credits}}" min="0"></label>
   </section>
 

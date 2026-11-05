@@ -1,0 +1,108 @@
+{
+  "_key": "!actors!a891ZWa3UbquKOVe",
+  "_id": "a891ZWa3UbquKOVe",
+  "name": "Dareck Hiy",
+  "type": "personnage-rapide",
+  "img": "systems/galactic-wars/asset_visuel/Personnage/rapides/dareck-hiy.webp",
+  "system": {
+    "infos": {
+      "nom": "Hiy",
+      "prenom": "Dareck"
+    },
+    "race": {
+      "uuid": "",
+      "nom": "Klatooinian"
+    },
+    "metier": {
+      "uuid": "Compendium.galactic-wars.metiers.Item.5yxBvcQbcVDqhL45",
+      "nom": "Assassin",
+      "description": "Tueur : bonus de dégât  (+1 dés) pour tuer un ennemis à 50% de leurs pv."
+    },
+    "talent": {
+      "nom": "Force de la nature",
+      "description": "Permet de chopper un gars pour l'assommer sur un jet de cmbt mais est particulièrement vulnérable au dégat de tir + 2 aux ennemis pour cp tir"
+    },
+    "caracteristiques": {
+      "force": 16,
+      "capCombat": 16,
+      "capTir": 2,
+      "dexterite": 7,
+      "mentale": 2,
+      "perception": 8,
+      "stress": 16,
+      "affForce": 5
+    },
+    "survie": {
+      "base": 77,
+      "racial": 0
+    },
+    "chance": 23,
+    "pv": {
+      "value": 11,
+      "max": 17
+    },
+    "equipement": "Collier de Prisonier accroché à la chair (peu envoyer des décharges en cas d'activation)\nTatouage de la guilde METR 1970\n750 crédits\nMarteau (avec hampe à rappel magnétique de 10m) deux mains élétrique 1d8 + 2\nTunique du culte des mangeurs de flammes a ma taille\nCollier du cultute des mangeurs de flammes\nComLink\nEntrainement de dextérité en cours (CAPACITE DE TIR!!!!!)",
+    "credits": 0,
+    "portrait": "systems/galactic-wars/asset_visuel/Personnage/rapides/dareck-hiy.webp",
+    "description": "<p>Il a dû faire toutes les prisons de la bordure extérieure surtout les plus ignobles. Il a une réputation de brute et à juste titre. De ces 2m68, ses poings énormes et ça corne meurtrière. Il ne se fait pas souvent des amis, mais c’est une impressionnante force de la nature. On dit de lui qu’il est née d’un viol entre esclaves sur une planète minière. Il aurait tué sa mère puis se serait enfui, depuis la corporation minière ne cesserait de le rechercher en envoyant des chasseurs de primes à ses trousses. Depuis qu’il est passé à MARLE la prison la plus sordide du secteur P89-GF un joli collier orne son cou musclé, un truc qui envoie des 5 000 volts si un connard à un bouton pour l'activer. Son but dans la vie est de trouver un moyen d'enlever le collier, sans retourner en prison et vivre une vie tranquille, mais c'est son secret. Il ne fait confiance à personne.</p><p><strong>Fiche :</strong> partie rapide - Fait par Nanou joué par Dagg<br><strong>Corpulence :</strong> Fort<br><strong>Total maximal des caractéristiques :</strong> 70</p><h2>Notes de la fiche d'origine</h2><ul><li>Alias : Bluedozer</li><li>Niveau 2</li><li>1</li></ul><p><em>Importé de « Dareck Hiy - Assassin - Klatooinian.xlsx ».</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Dareck Hiy",
+    "texture": {
+      "src": "systems/galactic-wars/asset_visuel/Personnage/rapides/dareck-hiy.webp"
+    },
+    "actorLink": true,
+    "disposition": 1
+  },
+  "items": [
+    {
+      "_key": "!actors.items!a891ZWa3UbquKOVe.U80jvLMqnpizYDVA",
+      "_id": "U80jvLMqnpizYDVA",
+      "name": "Tueur",
+      "type": "talent",
+      "img": "icons/svg/skull.svg",
+      "system": {
+        "avantage": "Bonus de dégât (+1 dé) pour tuer un ennemi à 50% de ses points de vie.",
+        "inconvenient": "",
+        "fiche": "rapide",
+        "description": "<p>Trait du métier Assassin. Bonus de dégât (+1 dé) pour tuer un ennemi à 50% de ses points de vie. — variante fiche rapide / PNJ.</p>"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100000,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {
+        "galactic-wars": {
+          "traitMetier": true
+        }
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.galactic-wars.traits.Item.qlzDgK8z9zhZd2l1",
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.3"
+      }
+    }
+  ],
+  "effects": [],
+  "folder": null,
+  "sort": 400000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "galactic-wars": {
+      "importFicheRapide": "Dareck Hiy - Assassin - Klatooinian.xlsx"
+    }
+  },
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.23.0"
+  }
+}

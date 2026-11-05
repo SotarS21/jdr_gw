@@ -1,0 +1,139 @@
+{
+  "_key": "!actors!vjZdyyfASOwkoMFO",
+  "_id": "vjZdyyfASOwkoMFO",
+  "name": "Putovyan Ykarto",
+  "type": "personnage-rapide",
+  "img": "systems/galactic-wars/asset_visuel/Personnage/rapides/putovyan-ykarto.webp",
+  "system": {
+    "infos": {
+      "nom": "Ykarto",
+      "prenom": "Putovyan"
+    },
+    "race": {
+      "uuid": "Compendium.galactic-wars.races.Item.6nS2kQsV06nolCvk",
+      "nom": "Nautolans"
+    },
+    "metier": {
+      "uuid": "Compendium.galactic-wars.metiers.Item.pi8JBmXDArhj5ybA",
+      "nom": "Médecin",
+      "description": "Chirurgien : +4 en médecine et permet d’opérer sur le terrain."
+    },
+    "talent": {
+      "nom": "Médecin zélé",
+      "description": "apporte les soins appropriés en tout temps : cesse le combat pour soigner ses alliés"
+    },
+    "caracteristiques": {
+      "force": 13,
+      "capCombat": 8,
+      "capTir": 13,
+      "dexterite": 13,
+      "mentale": 16,
+      "perception": 13,
+      "stress": 13,
+      "affForce": 1
+    },
+    "survie": {
+      "base": 85,
+      "racial": 0
+    },
+    "chance": 15,
+    "pv": {
+      "value": 13,
+      "max": 13
+    },
+    "equipement": "Malette de premier scours (avec scalpel laser 1d6)\ncom link\nchose pour reanimer qqn a zero - defibrilateur\n873 credits\ntatouage de la guilde mertr sur la troisieme lekku en partant de la gauche\nstatu 4523 rang 4\nmembre de mambo mambo 5\n1 dose de sang de Madrek Striker\ndes testes sont lancés avec le génétitien pour créer un clone de Madrek Striker\na paralysé un ninja, l'a ramené dans le vaiseau pour experience\n1 clef\n1 clone de madrek en embryon\n1 tour d'ordi recupere par Sikou\n1 appendice de twilek pour faire communication telepathique (si capacite geneticien meilleur)\nfocus : permet d'être ultra concentré et de reussir mon action\nmanipulation : permet de manipuler les esprits\nTélépathie avec Nermonium et Vanyss\nprecision = 1 tour où je me concentre et au prochain je tappe juste.\n1 dose de perturbation des sens.\nSais créer une drogue qui efface les souvenir sur quelques heures\nje dois donner 10 doses de reve eveillé par semaine a l'itorian qui gère la boutique glauque sur narchada  (20 000 credits par transactions)\na une dette de 3500 credit à isa\na acquis Bobby une créature qui a des dents, est caustaud, et amphibienne. Elle a uen capacité spéciale qui lui permet de voire dans l'obscurité dans l'eau.\ndans bar de faconer baricani, un garde tué par le chat pensant qu'il etait de l'equipe de celan gitt.\nona  decouvert que la tete de celan etait mis a prix a 30 000 credit en vie et 15 000 mort.\nLe gerant du bar nous a conseillé d 'aller sur alderande pour trouver celan qui s'y cacherait, il faudra eviter le soleil noir.\nil faut aller dans le bar le poisson mordant, il y aura un contacte de falconeur qui nous aidera par rapport au soleil noir\naller voire le docteur turche\nJe vais promener mon animal en laissant trainer l'oreille",
+    "credits": 0,
+    "portrait": "systems/galactic-wars/asset_visuel/Personnage/rapides/putovyan-ykarto.webp",
+    "description": "<p>Putovyan, surnommé \"Vyan\", ancien militaire, est un médecin perfectionniste qui ne semble avoir aucune lacune pour soigner des blessures de toute gravité. Cependant, son professionnalisme l'empêche de combattre lorsqu'un de ses alliés est touché puisqu'il voudra lui apporter les premiers soins immédiatement. Souhaite changer de type biologique car ne se sent pas bien en tant qu'amphibien. Il veut pouvoir explorer d'autres possibilités (voler, cracher du feu, etc...)</p><p><strong>Fiche :</strong> partie rapide : Fait par Valfactis<br><strong>Corpulence :</strong> Normal</p><h2>Notes de la fiche d'origine</h2><ul><li>armure : 3</li><li>Dressage</li><li>Precision : chirugicale — geneticien (2) — manipulation — focus</li><li>1 point obscure</li><li>Apres une crise existenciel, souhaite revenir à la vuie aquatique pure (marre d'etre a:phibien et de respirer de l'air.</li><li>BG :</li><li>A fait une réussite critique qui lui a permis de ressuciter Vanys en combinant 1 dose de boost et le focus de stress</li><li>A fait un piege sous le train avec une seringue</li><li>Sa phrase : \"J'ai fait mon boulot\"</li><li>Geneticien : je peux faire des changements genetiques qui agissent sur toute la durée de la session de jeu : genre faire pousser une troisieme bras en administrant une \"drogue\".</li><li>ex : créer capacité de rendre elastique, fireproof, invisible, etc...</li><li>revolver barillet a seringue (degat suivant seringue)</li><li>1 seringue  pour rendre transparent pendant 10 min</li><li>2 seringues de poison paralysante — 6 coups</li><li>5 dose de reve eveille (10 credit la dose = drogue)</li><li>1 dose : peau d'armure (permet d'ajouter 4 points de vie durant un combat)</li><li>une dose d'acide des egouts</li><li>4 etoile de ninja  avec support -- 1d4 de degat</li><li>fusie blaster 1d6 degat</li><li>2 couteaux    1d6</li><li>prevoire du matos pour des doses, et matieres premieres</li></ul><p><em>Importé de « Putovyan - Nautolans - MEDIC.xlsx ».</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Putovyan Ykarto",
+    "texture": {
+      "src": "systems/galactic-wars/asset_visuel/Personnage/rapides/putovyan-ykarto.webp"
+    },
+    "actorLink": true,
+    "disposition": 1
+  },
+  "items": [
+    {
+      "_key": "!actors.items!vjZdyyfASOwkoMFO.WE5Y0B3aDcTAVtcg",
+      "_id": "WE5Y0B3aDcTAVtcg",
+      "name": "Chirurgien",
+      "type": "talent",
+      "img": "icons/svg/heal.svg",
+      "system": {
+        "avantage": "+4 en médecine et permet d'opérer sur le terrain.",
+        "inconvenient": "",
+        "fiche": "rapide",
+        "description": "<p>Trait du métier Médecin. +4 en médecine et permet d'opérer sur le terrain.</p><p>Variante de la fiche rapide / PNJ (bonus d20).</p>"
+      },
+      "effects": [
+        {
+          "_key": "!actors.items.effects!vjZdyyfASOwkoMFO.WE5Y0B3aDcTAVtcg.k0VkPpbsB78BSR0X",
+          "_id": "k0VkPpbsB78BSR0X",
+          "name": "Chirurgien",
+          "img": "icons/svg/heal.svg",
+          "type": "base",
+          "system": {
+            "changes": [
+              {
+                "key": "system.effets.caracteristiques.mentale",
+                "type": "add",
+                "value": "4"
+              }
+            ]
+          },
+          "disabled": false,
+          "transfer": true,
+          "description": "",
+          "origin": null,
+          "statuses": [],
+          "sort": 0,
+          "flags": {},
+          "_stats": {
+            "compendiumSource": null,
+            "duplicateSource": null,
+            "coreVersion": "14",
+            "systemId": "galactic-wars",
+            "systemVersion": "0.20.0"
+          }
+        }
+      ],
+      "folder": null,
+      "sort": 100000,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {
+        "galactic-wars": {
+          "traitMetier": true
+        }
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.galactic-wars.traits.Item.M4yUGAEym6e7uMo2",
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.0"
+      }
+    }
+  ],
+  "effects": [],
+  "folder": null,
+  "sort": 2900000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "galactic-wars": {
+      "importFicheRapide": "Putovyan - Nautolans - MEDIC.xlsx"
+    }
+  },
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.23.0"
+  }
+}

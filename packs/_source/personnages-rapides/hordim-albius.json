@@ -1,0 +1,108 @@
+{
+  "_key": "!actors!J59HgUJUPVlc9Rtz",
+  "_id": "J59HgUJUPVlc9Rtz",
+  "name": "Hordim Albius",
+  "type": "personnage-rapide",
+  "img": "systems/galactic-wars/asset_visuel/Personnage/rapides/hordim-albius.webp",
+  "system": {
+    "infos": {
+      "nom": "Hordim",
+      "prenom": "Albius"
+    },
+    "race": {
+      "uuid": "Compendium.galactic-wars.races.Item.wxVVS1x0Pc6fdwjy",
+      "nom": "Chagrian"
+    },
+    "metier": {
+      "uuid": "Compendium.galactic-wars.metiers.Item.BKQsd0pMug5KIppF",
+      "nom": "Pirate",
+      "description": "Flippant : cpt active oblige quelqu’un à lancer un test de stress avec -2 si raté => déstabilise la personne ciblé."
+    },
+    "talent": {
+      "nom": "Empathie",
+      "description": "+4 aux actions liés au sauvetage"
+    },
+    "caracteristiques": {
+      "force": 6,
+      "capCombat": 5,
+      "capTir": 16,
+      "dexterite": 16,
+      "mentale": 10,
+      "perception": 8,
+      "stress": 8,
+      "affForce": 1
+    },
+    "survie": {
+      "base": 40,
+      "racial": 0
+    },
+    "chance": 60,
+    "pv": {
+      "value": 13,
+      "max": 13
+    },
+    "equipement": "Pistoblaster 1d6\nVaisseau\nComlink\nVaiseau :  <Impossibru>\nCockpit 2 place\nHangar de contrebande\nSale de vie\nDortoir\n2 tourel 1d20\nSysteme de visé LockOnStratos 1 tourelle a +2 en dexterité pour utilisé",
+    "credits": 430,
+    "portrait": "systems/galactic-wars/asset_visuel/Personnage/rapides/hordim-albius.webp",
+    "description": "<p>Ancien Pirate ce vieux bougre de Albius a souvent fricoté et eu des differents avec la pegre , le fait qu'il soit toujours en vie releve du miracle, c'est pour ça qu'il est surnommé le cafard par le soleil noir, il est respecté pour ça mais aussi pour sa loyauté sans faille envers son équipage qui lui a vallut de prendre quelques tire , son regard percants destabilliserai même les plus vils contrebandier</p><p><strong>Corpulence :</strong> Normal<br><strong>Total maximal des caractéristiques :</strong> 70</p><h2>Notes de la fiche d'origine</h2><ul><li>Compétence Sup</li><li>Pilote</li><li>work in progress pilotage de l'extreme (1/2)</li><li>Duel: si même chiffre avec Faustus , action epic dans le même tour</li><li>STK-Z-47 — GORMO TAC</li></ul><p><em>Importé de « Hordim Albius - Chagrian - pirate.xlsx ».</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Hordim Albius",
+    "texture": {
+      "src": "systems/galactic-wars/asset_visuel/Personnage/rapides/hordim-albius.webp"
+    },
+    "actorLink": true,
+    "disposition": 1
+  },
+  "items": [
+    {
+      "_key": "!actors.items!J59HgUJUPVlc9Rtz.GhLZ8FtW4CRaZvct",
+      "_id": "GhLZ8FtW4CRaZvct",
+      "name": "Flippant",
+      "type": "talent",
+      "img": "icons/svg/terror.svg",
+      "system": {
+        "avantage": "Compétence active qui oblige une cible à lancer un test de stress avec -2 ; en cas d'échec, la personne ciblée est déstabilisée.",
+        "inconvenient": "",
+        "fiche": "rapide",
+        "description": "<p>Trait du métier Pirate. Compétence active qui oblige une cible à lancer un test de stress avec -2 ; en cas d'échec, la personne ciblée est déstabilisée. — variante fiche rapide / PNJ.</p>"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100000,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {
+        "galactic-wars": {
+          "traitMetier": true
+        }
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.galactic-wars.traits.Item.0ZaNVh0eSzRhYbBf",
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.3"
+      }
+    }
+  ],
+  "effects": [],
+  "folder": null,
+  "sort": 1200000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "galactic-wars": {
+      "importFicheRapide": "Hordim Albius - Chagrian - pirate.xlsx"
+    }
+  },
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.23.0"
+  }
+}

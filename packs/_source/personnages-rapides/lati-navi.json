@@ -1,0 +1,108 @@
+{
+  "_key": "!actors!DlHS1dvULQnas3Gy",
+  "_id": "DlHS1dvULQnas3Gy",
+  "name": "Lati Navi",
+  "type": "personnage-rapide",
+  "img": "systems/galactic-wars/asset_visuel/Personnage/rapides/lati-navi.webp",
+  "system": {
+    "infos": {
+      "nom": "Navi",
+      "prenom": "Lati"
+    },
+    "race": {
+      "uuid": "Compendium.galactic-wars.races.Item.ENmo2Uf52FpnssEt",
+      "nom": "Barabel"
+    },
+    "metier": {
+      "uuid": "Compendium.galactic-wars.metiers.Item.9BC8y9FxmawTewdq",
+      "nom": "Padawan",
+      "description": "Manipulation de la force : permet d’utiliser la télékinésie."
+    },
+    "talent": {
+      "nom": "Regard perçant",
+      "description": "intimidation garantie, fait monter le niveau de stress des alliés"
+    },
+    "caracteristiques": {
+      "force": 3,
+      "capCombat": 8,
+      "capTir": 6,
+      "dexterite": 10,
+      "mentale": 11,
+      "perception": 11,
+      "stress": 5,
+      "affForce": 16
+    },
+    "survie": {
+      "base": 55,
+      "racial": 0
+    },
+    "chance": 45,
+    "pv": {
+      "value": 11,
+      "max": 11
+    },
+    "equipement": "son sabre laser\ndes bagues qui suivent ses doigts et qui lui creent des griffes\nun collier assez étrange à l'origine inconnue",
+    "credits": 0,
+    "portrait": "systems/galactic-wars/asset_visuel/Personnage/rapides/lati-navi.webp",
+    "description": "<p>Lati a été recruté assez tôt par les jedi mais n'arrive pas se muscler, la force physique n'est pas son point fort... Sa famille a disparu mais elle ne sait pas si elle a été abandonné ou bien si ils sont été tués. Elle se souvient just d'une attaque dans la nuit, à son réveil, il ne lui restait qu'un collier Heureusement son psychisme est là pour l'aider.</p><p><strong>Fiche :</strong> partie rapide Fait Par Sélène<br><strong>Corpulence :</strong> Maigrichon<br><strong>Total maximal des caractéristiques :</strong> 70</p><p><em>Importé de « Lati Navi par Mélo.xlsx ».</em></p>"
+  },
+  "prototypeToken": {
+    "name": "Lati Navi",
+    "texture": {
+      "src": "systems/galactic-wars/asset_visuel/Personnage/rapides/lati-navi.webp"
+    },
+    "actorLink": true,
+    "disposition": 1
+  },
+  "items": [
+    {
+      "_key": "!actors.items!DlHS1dvULQnas3Gy.0ezqW9AEz2chOnIz",
+      "_id": "0ezqW9AEz2chOnIz",
+      "name": "Manipulation de la force",
+      "type": "talent",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "avantage": "Permet d'utiliser la télékinésie.",
+        "inconvenient": "",
+        "fiche": "rapide",
+        "description": "<p>Trait du métier Padawan. Permet d'utiliser la télékinésie. — variante fiche rapide / PNJ.</p>"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100000,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {
+        "galactic-wars": {
+          "traitMetier": true
+        }
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.galactic-wars.traits.Item.v3RfcefbfvxuozL4",
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.3"
+      }
+    }
+  ],
+  "effects": [],
+  "folder": null,
+  "sort": 1800000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "galactic-wars": {
+      "importFicheRapide": "Lati Navi par Mélo.xlsx"
+    }
+  },
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.23.0"
+  }
+}

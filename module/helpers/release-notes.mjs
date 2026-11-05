@@ -428,5 +428,12 @@ export const RELEASE_NOTES = {
       <li>Chaque réserve a une échelle de 10 barres : cliquer la barre <em>n</em> met la réserve à <em>n</em>, recliquer la plus haute retire un point. Les changements s'animent (allumage, passage du bleu au rouge).</li>
       <li>Boutons « Utiliser un point » inchangés.</li>
     </ul>`
+  },
+  "0.23.0": {
+    title: "v0.23.0 — Personnages partie rapide",
+    html: `<ul>
+      <li>Nouveau compendium <strong>Personnages partie rapide</strong> : les 39 personnages des anciens tableurs de partie rapide, avec portrait, race et métier liés aux compendiums, trait du métier, caractéristiques, PV, équipement et biographie. Les notes libres des tableurs (contacts, comptes, vaisseaux, quêtes, autres onglets) sont gardées dans la biographie. Les personnages décédés sont rangés dans leur dossier.</li>
+      <li>Fiche rapide et PNJ : nouvelle valeur <strong>Chance</strong> (%), avec son jet en 1d100, à côté de la Survie.</li>
+    </ul>`
   }
 };
