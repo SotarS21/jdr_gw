@@ -1,0 +1,27 @@
+{
+  "_key": "!items!SETI9anKWUGWlsl8",
+  "_id": "SETI9anKWUGWlsl8",
+  "name": "Manipulateur",
+  "type": "talent",
+  "img": "icons/svg/acid.svg",
+  "system": {
+    "avantage": "Utilise diverses drogues pour altérer le mental d'une personne. 3 charges par jour.",
+    "inconvenient": "",
+    "fiche": "classique",
+    "description": "<p>Trait du métier Scientifique. Utilise diverses drogues pour altérer le mental d'une personne. 3 charges par jour.</p><p>Variante de la fiche classique (bonus en %).</p>"
+  },
+  "effects": [],
+  "folder": "kW2zdGKIlGpk0feB",
+  "sort": 3600000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.24.0"
+  }
+}

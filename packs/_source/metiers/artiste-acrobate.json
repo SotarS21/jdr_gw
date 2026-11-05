@@ -1,0 +1,71 @@
+{
+  "_key": "!items!zKhDtcpQgOVbDwrX",
+  "_id": "zKhDtcpQgOVbDwrX",
+  "name": "Artiste acrobate",
+  "type": "metier",
+  "img": "icons/svg/wingfoot.svg",
+  "system": {
+    "prerequis": {
+      "texteLibre": ""
+    },
+    "competences": [
+      {
+        "cle": "escaladeSaut",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "paradeEsquive",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "seduction",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "social",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "furtivite",
+        "bonus": 0,
+        "obligatoire": true
+      }
+    ],
+    "equipement": [
+      {
+        "nom": "Vêtement léger d'apparat",
+        "quantite": 1
+      },
+      {
+        "nom": "Jet pack léger (ne permet pas de voler longtemps, mais de monter rapidement)",
+        "quantite": 1
+      }
+    ],
+    "traits": {
+      "classique": "Compendium.galactic-wars.traits.Item.T70jssA10iCT8SX2",
+      "rapide": "Compendium.galactic-wars.traits.Item.5m2MTB0DiPARnYpr"
+    },
+    "talent": {
+      "nom": "Acrobate",
+      "description": "+4 pour faire des actions physiques avec classe."
+    },
+    "description": "<p>Saltimbanque des cirques et des scènes de la galaxie ; ses figures spectaculaires (trait Acrobate : +20 % en Escalade / saut sur la fiche classique, +4 en Dextérité sur la fiche rapide) lui permettent de se sortir de bien des situations avec panache.</p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.24.0"
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "_key": "!items!5m2MTB0DiPARnYpr",
+  "_id": "5m2MTB0DiPARnYpr",
+  "name": "Acrobate",
+  "type": "talent",
+  "img": "icons/svg/wingfoot.svg",
+  "system": {
+    "avantage": "+4 pour faire des actions physiques avec classe.",
+    "inconvenient": "",
+    "fiche": "rapide",
+    "description": "<p>Trait du métier Artiste acrobate. +4 pour faire des actions physiques avec classe. — variante fiche rapide / PNJ.</p>"
+  },
+  "effects": [
+    {
+      "_key": "!items.effects!5m2MTB0DiPARnYpr.M2HckNXxsGnBk8MP",
+      "_id": "M2HckNXxsGnBk8MP",
+      "name": "Acrobate",
+      "img": "icons/svg/wingfoot.svg",
+      "type": "base",
+      "system": {
+        "changes": [
+          {
+            "key": "system.effets.caracteristiques.dexterite",
+            "type": "add",
+            "value": "4"
+          }
+        ]
+      },
+      "disabled": false,
+      "transfer": true,
+      "description": "",
+      "origin": null,
+      "statuses": [],
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.24.0"
+      }
+    }
+  ],
+  "folder": "hQ0pLTdDjNk7CFye",
+  "sort": 3000000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.24.0"
+  }
+}

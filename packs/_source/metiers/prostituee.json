@@ -1,0 +1,76 @@
+{
+  "_key": "!items!5mrffo3UsrYTgoqm",
+  "_id": "5mrffo3UsrYTgoqm",
+  "name": "Prostituée",
+  "type": "metier",
+  "img": "systems/galactic-wars/asset_visuel/objets/metiers-prostituee.webp",
+  "system": {
+    "prerequis": {
+      "texteLibre": ""
+    },
+    "competences": [
+      {
+        "cle": "seduction",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "escroquerieMensonge",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "paradeEsquive",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "pickpocket",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "perception",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "social",
+        "bonus": 0,
+        "obligatoire": true
+      }
+    ],
+    "equipement": [
+      {
+        "nom": "Tenue de danse",
+        "quantite": 1
+      },
+      {
+        "nom": "ComLink",
+        "quantite": 1
+      }
+    ],
+    "traits": {
+      "classique": "Compendium.galactic-wars.traits.Item.qDygX77MBKkqkZmp",
+      "rapide": "Compendium.galactic-wars.traits.Item.9TDuIdbk6uprv7Ss"
+    },
+    "talent": {
+      "nom": "Danseuse",
+      "description": "Meut ses courbes de manière gracieuse et agile : +2 Dextérité."
+    },
+    "description": "<p>Danseuse et courtisane des cantinas et des palais ; sa grâce (trait Danseuse : +10 % en Parade / esquive sur la fiche classique, +2 en Dextérité sur la fiche rapide) lui ouvre bien des portes et des bourses.</p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.24.0"
+  }
+}

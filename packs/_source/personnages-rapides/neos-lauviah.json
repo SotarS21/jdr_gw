@@ -14,7 +14,7 @@
       "nom": "Humain"
     },
     "metier": {
-      "uuid": "",
+      "uuid": "Compendium.galactic-wars.metiers.Item.ulrjy3qq1utIK8sH",
       "nom": "Jedi gris",
       "description": "Manipulation de la force : permet d’utiliser la télékinésie."
     },
@@ -54,7 +54,39 @@
     "actorLink": true,
     "disposition": 1
   },
-  "items": [],
+  "items": [
+    {
+      "_key": "!actors.items!2O6uUDRCkZP3u8Di.vfUj0SrXvlI1u4oX",
+      "_id": "vfUj0SrXvlI1u4oX",
+      "name": "Manipulation de la force",
+      "type": "talent",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "avantage": "Permet d'utiliser la télékinésie.",
+        "inconvenient": "",
+        "fiche": "rapide",
+        "description": "<p>Trait du métier Padawan. Permet d'utiliser la télékinésie. — variante fiche rapide / PNJ.</p>"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100000,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {
+        "galactic-wars": {
+          "traitMetier": true
+        }
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.galactic-wars.traits.Item.v3RfcefbfvxuozL4",
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.20.3"
+      }
+    }
+  ],
   "effects": [],
   "folder": null,
   "sort": 2200000,
@@ -71,6 +103,6 @@
     "duplicateSource": null,
     "coreVersion": "14",
     "systemId": "galactic-wars",
-    "systemVersion": "0.23.0"
+    "systemVersion": "0.24.0"
   }
 }

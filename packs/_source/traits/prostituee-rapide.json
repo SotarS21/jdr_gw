@@ -1,0 +1,58 @@
+{
+  "_key": "!items!9TDuIdbk6uprv7Ss",
+  "_id": "9TDuIdbk6uprv7Ss",
+  "name": "Danseuse",
+  "type": "talent",
+  "img": "icons/svg/angel.svg",
+  "system": {
+    "avantage": "Meut ses courbes de manière gracieuse et agile : +2 Dextérité.",
+    "inconvenient": "",
+    "fiche": "rapide",
+    "description": "<p>Trait du métier Prostituée. Meut ses courbes de manière gracieuse et agile : +2 Dextérité. — variante fiche rapide / PNJ.</p>"
+  },
+  "effects": [
+    {
+      "_key": "!items.effects!9TDuIdbk6uprv7Ss.3lJnUTQ4hFgyJC4X",
+      "_id": "3lJnUTQ4hFgyJC4X",
+      "name": "Danseuse",
+      "img": "icons/svg/angel.svg",
+      "type": "base",
+      "system": {
+        "changes": [
+          {
+            "key": "system.effets.caracteristiques.dexterite",
+            "type": "add",
+            "value": "2"
+          }
+        ]
+      },
+      "disabled": false,
+      "transfer": true,
+      "description": "",
+      "origin": null,
+      "statuses": [],
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.24.0"
+      }
+    }
+  ],
+  "folder": "hQ0pLTdDjNk7CFye",
+  "sort": 3400000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.24.0"
+  }
+}

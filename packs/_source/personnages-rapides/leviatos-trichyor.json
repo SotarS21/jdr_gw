@@ -14,7 +14,7 @@
       "nom": "Gotal"
     },
     "metier": {
-      "uuid": "",
+      "uuid": "Compendium.galactic-wars.metiers.Item.7rkcRQCgLHFlBuSi",
       "nom": "Archéo-archiviste",
       "description": "Savoir encyclopédique : Connait toutes les langue et les coutumes et détecte les pièges mécaniques : +2 Mentale"
     },
@@ -54,7 +54,70 @@
     "actorLink": true,
     "disposition": 1
   },
-  "items": [],
+  "items": [
+    {
+      "_key": "!actors.items!xSv2W8kvzJcyxAJ1.uikNHBYl1EXWB31q",
+      "_id": "uikNHBYl1EXWB31q",
+      "name": "Savoir encyclopédique",
+      "type": "talent",
+      "img": "icons/svg/book.svg",
+      "system": {
+        "avantage": "Connaît toutes les langues et les coutumes et détecte les pièges mécaniques : +2 Mentale.",
+        "inconvenient": "",
+        "fiche": "rapide",
+        "description": "<p>Trait du métier Archéo-archiviste. Connaît toutes les langues et les coutumes et détecte les pièges mécaniques : +2 Mentale. — variante fiche rapide / PNJ.</p>"
+      },
+      "effects": [
+        {
+          "_key": "!actors.items.effects!xSv2W8kvzJcyxAJ1.uikNHBYl1EXWB31q.uiqhedrkYJVEzSxO",
+          "_id": "uiqhedrkYJVEzSxO",
+          "name": "Savoir encyclopédique",
+          "img": "icons/svg/book.svg",
+          "type": "base",
+          "system": {
+            "changes": [
+              {
+                "key": "system.effets.caracteristiques.mentale",
+                "type": "add",
+                "value": "2"
+              }
+            ]
+          },
+          "disabled": false,
+          "transfer": true,
+          "description": "",
+          "origin": null,
+          "statuses": [],
+          "sort": 0,
+          "flags": {},
+          "_stats": {
+            "compendiumSource": null,
+            "duplicateSource": null,
+            "coreVersion": "14",
+            "systemId": "galactic-wars",
+            "systemVersion": "0.24.0"
+          }
+        }
+      ],
+      "folder": null,
+      "sort": 100000,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {
+        "galactic-wars": {
+          "traitMetier": true
+        }
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.galactic-wars.traits.Item.NV6x28QQB8MFD68T",
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.24.0"
+      }
+    }
+  ],
   "effects": [],
   "folder": null,
   "sort": 1900000,
@@ -71,6 +134,6 @@
     "duplicateSource": null,
     "coreVersion": "14",
     "systemId": "galactic-wars",
-    "systemVersion": "0.23.0"
+    "systemVersion": "0.24.0"
   }
 }

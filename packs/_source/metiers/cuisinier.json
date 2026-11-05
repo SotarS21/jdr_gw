@@ -1,0 +1,71 @@
+{
+  "_key": "!items!Bl2jeoj3xoCTYtM6",
+  "_id": "Bl2jeoj3xoCTYtM6",
+  "name": "Cuisinier",
+  "type": "metier",
+  "img": "systems/galactic-wars/asset_visuel/objets/metiers-cuisinier.webp",
+  "system": {
+    "prerequis": {
+      "texteLibre": ""
+    },
+    "competences": [
+      {
+        "cle": "artisanat",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "perception",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "survie",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "social",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "armeBlanche",
+        "bonus": 0,
+        "obligatoire": true
+      }
+    ],
+    "equipement": [
+      {
+        "nom": "Kit de cuisine",
+        "quantite": 1
+      },
+      {
+        "nom": "Couteaux de cuisine",
+        "quantite": 1
+      }
+    ],
+    "traits": {
+      "classique": "Compendium.galactic-wars.traits.Item.CNWezGMlxuD8Be7i",
+      "rapide": "Compendium.galactic-wars.traits.Item.HFhyEcdY0TGTGJYT"
+    },
+    "talent": {
+      "nom": "Commis",
+      "description": "+2 en perception ; reconnaît naturellement les ingrédients d'un plat et détecte automatiquement les poisons."
+    },
+    "description": "<p>Cuisinier de cantina, de vaisseau ou de palais ; son palais exercé (trait Commis : +10 % en Perception sur la fiche classique, +2 en Perception sur la fiche rapide) reconnaît chaque ingrédient et ne laisse passer aucun poison.</p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.24.0"
+  }
+}

@@ -70,7 +70,10 @@ const NOMS = {
 };
 
 /** Noms de métier des fiches → nom du compendium Métiers (les autres restent en texte, sans lien). */
-const ALIAS_METIERS = { "chasseur de prime": "chasseur de primes", "mecanicienne": "mecanicien" };
+const ALIAS_METIERS = { "chasseur de prime": "chasseur de primes", "mecanicienne": "mecanicien", "marchant": "marchand", "sans emplois": "sans emploi" };
+
+/** Noms de race des fiches → nom du compendium Races (hybride : l'espèce dominante, la mention reste en biographie). */
+const ALIAS_RACES = { "ewok falleen": "ewok" };
 
 const CARACTERISTIQUES = ["force", "capCombat", "capTir", "dexterite", "mentale", "perception", "stress", "affForce"];
 
@@ -223,6 +226,7 @@ function descriptionHtml(f) {
   const infos = [
     f.joueur && `<strong>Joueur :</strong> ${html(f.joueur)}`,
     f.auteur && `<strong>Fiche :</strong> ${html(f.auteur)}`,
+    f.race && cle(f.race) in ALIAS_RACES && `<strong>Race sur la fiche d'origine :</strong> ${html(f.race)}`,
     f.corpulence && `<strong>Corpulence :</strong> ${html(f.corpulence)}`,
     f.totalMax && `<strong>Total maximal des caractéristiques :</strong> ${html(f.totalMax)}`,
     f.caracteristiquesNonChiffrees && `<strong>Caractéristiques sans valeur :</strong> ${html(f.caracteristiquesNonChiffrees.join(", "))} (mises à 0)`,
@@ -240,7 +244,7 @@ function descriptionHtml(f) {
 
 function acteur(f, sort) {
   const id = idStable(`personnages-rapides:${f.fichier}`);
-  const race = races.parNom.get(cle(f.race));
+  const race = races.parNom.get(ALIAS_RACES[cle(f.race)] ?? cle(f.race));
   const metier = metiers.parNom.get(ALIAS_METIERS[cle(f.metierNom)] ?? cle(f.metierNom));
   const img = existsSync(path.join(root, dossierWebp, `${slug(f.nom)}.webp`))
     ? `systems/galactic-wars/${dossierWebp}/${slug(f.nom)}.webp` : "icons/svg/mystery-man.svg";
@@ -289,7 +293,7 @@ function acteur(f, sort) {
     sort,
     ownership: { default: 0 },
     flags: { "galactic-wars": { importFicheRapide: f.fichier } },
-    _stats: { compendiumSource: null, duplicateSource: null, coreVersion: "14", systemId: "galactic-wars", systemVersion: "0.23.0" }
+    _stats: { compendiumSource: null, duplicateSource: null, coreVersion: "14", systemId: "galactic-wars", systemVersion: "0.24.0" }
   };
 }
 
@@ -297,7 +301,7 @@ const DOSSIER_MORTS = {
   _key: `!folders!${idStable("personnages-rapides:dossier-morts")}`,
   _id: idStable("personnages-rapides:dossier-morts"),
   name: "Personnages décédés", type: "Actor", folder: null, sorting: "a", sort: 100000, color: null, description: "",
-  flags: {}, _stats: { compendiumSource: null, duplicateSource: null, coreVersion: "14", systemId: "galactic-wars", systemVersion: "0.23.0" }
+  flags: {}, _stats: { compendiumSource: null, duplicateSource: null, coreVersion: "14", systemId: "galactic-wars", systemVersion: "0.24.0" }
 };
 
 const fichiers = readdirSync(dossierTableurs).filter((f) => f.endsWith(".xlsx") && !EXCLUS.has(f)).sort((a, b) => a.localeCompare(b));

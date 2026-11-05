@@ -34,7 +34,7 @@
         "duplicateSource": null,
         "coreVersion": "14",
         "systemId": "galactic-wars",
-        "systemVersion": "0.20.7"
+        "systemVersion": "0.24.0"
       },
       "_key": "!journal.pages!gwJournalArmures.TneXFMpJjPLS9WXh"
     },
@@ -67,7 +67,7 @@
         "duplicateSource": null,
         "coreVersion": "14",
         "systemId": "galactic-wars",
-        "systemVersion": "0.20.7"
+        "systemVersion": "0.24.0"
       },
       "_key": "!journal.pages!gwJournalArmures.cnDpAqpqlN8IwgKo"
     },
@@ -100,7 +100,7 @@
         "duplicateSource": null,
         "coreVersion": "14",
         "systemId": "galactic-wars",
-        "systemVersion": "0.20.7"
+        "systemVersion": "0.24.0"
       },
       "_key": "!journal.pages!gwJournalArmures.W7pyBgHxuBkEV4yR"
     },
@@ -133,7 +133,7 @@
         "duplicateSource": null,
         "coreVersion": "14",
         "systemId": "galactic-wars",
-        "systemVersion": "0.20.7"
+        "systemVersion": "0.24.0"
       },
       "_key": "!journal.pages!gwJournalArmures.JwNUnlOOcpE4u1ag"
     },
@@ -166,7 +166,7 @@
         "duplicateSource": null,
         "coreVersion": "14",
         "systemId": "galactic-wars",
-        "systemVersion": "0.20.7"
+        "systemVersion": "0.24.0"
       },
       "_key": "!journal.pages!gwJournalArmures.3AilAqQcea8OVo8y"
     }
@@ -180,6 +180,6 @@
     "duplicateSource": null,
     "coreVersion": "14",
     "systemId": "galactic-wars",
-    "systemVersion": "0.20.7"
+    "systemVersion": "0.24.0"
   }
 }

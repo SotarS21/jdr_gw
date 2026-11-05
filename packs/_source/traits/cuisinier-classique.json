@@ -1,0 +1,58 @@
+{
+  "_key": "!items!CNWezGMlxuD8Be7i",
+  "_id": "CNWezGMlxuD8Be7i",
+  "name": "Commis",
+  "type": "talent",
+  "img": "icons/svg/pawprint.svg",
+  "system": {
+    "avantage": "+2 en perception ; reconnaît naturellement les ingrédients d'un plat et détecte automatiquement les poisons.",
+    "inconvenient": "",
+    "fiche": "classique",
+    "description": "<p>Trait du métier Cuisinier. +2 en perception ; reconnaît naturellement les ingrédients d'un plat et détecte automatiquement les poisons.</p><p>Variante de la fiche classique (bonus en %).</p>"
+  },
+  "effects": [
+    {
+      "_key": "!items.effects!CNWezGMlxuD8Be7i.yCUs1DQh4O96Q9JI",
+      "_id": "yCUs1DQh4O96Q9JI",
+      "name": "Commis",
+      "img": "icons/svg/pawprint.svg",
+      "type": "base",
+      "system": {
+        "changes": [
+          {
+            "key": "system.effets.competences.perception",
+            "type": "add",
+            "value": "10"
+          }
+        ]
+      },
+      "disabled": false,
+      "transfer": true,
+      "description": "",
+      "origin": null,
+      "statuses": [],
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.24.0"
+      }
+    }
+  ],
+  "folder": "kW2zdGKIlGpk0feB",
+  "sort": 3100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.24.0"
+  }
+}

@@ -14,8 +14,8 @@
       "nom": "Chagrian"
     },
     "metier": {
-      "uuid": "",
-      "nom": "Marchant",
+      "uuid": "Compendium.galactic-wars.metiers.Item.a0tZJyd5ga9xR3lV",
+      "nom": "Marchand",
       "description": "Négociateur : +4 pour marchander. + 2 dans le cas ou l’action implique uniquement un intérêt personnel."
     },
     "talent": {
@@ -54,7 +54,39 @@
     "actorLink": true,
     "disposition": 1
   },
-  "items": [],
+  "items": [
+    {
+      "_key": "!actors.items!5wGrDaf02WkN8Vs9.wM9zEi8ZJjEyjStk",
+      "_id": "wM9zEi8ZJjEyjStk",
+      "name": "Négociateur",
+      "type": "talent",
+      "img": "icons/svg/coins.svg",
+      "system": {
+        "avantage": "+4 pour marchander, +2 dans le cas où l'action implique uniquement un intérêt personnel (bonus de situation, accordé par le MJ).",
+        "inconvenient": "",
+        "fiche": "rapide",
+        "description": "<p>Trait du métier Marchand. +4 pour marchander, +2 dans le cas où l'action implique uniquement un intérêt personnel (bonus de situation, accordé par le MJ). — variante fiche rapide / PNJ.</p>"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100000,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {
+        "galactic-wars": {
+          "traitMetier": true
+        }
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.galactic-wars.traits.Item.x2UhUlBHICdnFNlK",
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.24.0"
+      }
+    }
+  ],
   "effects": [],
   "folder": null,
   "sort": 2300000,
@@ -71,6 +103,6 @@
     "duplicateSource": null,
     "coreVersion": "14",
     "systemId": "galactic-wars",
-    "systemVersion": "0.23.0"
+    "systemVersion": "0.24.0"
   }
 }

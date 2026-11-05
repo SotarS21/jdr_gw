@@ -1,0 +1,76 @@
+{
+  "_key": "!items!ulrjy3qq1utIK8sH",
+  "_id": "ulrjy3qq1utIK8sH",
+  "name": "Jedi gris",
+  "type": "metier",
+  "img": "systems/galactic-wars/asset_visuel/objets/metiers-jedi-gris.webp",
+  "system": {
+    "prerequis": {
+      "texteLibre": "Sensible à la Force, hors de l'Ordre"
+    },
+    "competences": [
+      {
+        "cle": "sabreLaser",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "controleTelekinetique",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "meditationDeForce",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "protectionDeForce",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "sagesse",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "paradeEsquive",
+        "bonus": 0,
+        "obligatoire": true
+      }
+    ],
+    "equipement": [
+      {
+        "nom": "Sabre laser",
+        "quantite": 1
+      },
+      {
+        "nom": "Tenue sombre",
+        "quantite": 1
+      }
+    ],
+    "traits": {
+      "classique": "Compendium.galactic-wars.traits.Item.qGO648wMmkKQiqG2",
+      "rapide": "Compendium.galactic-wars.traits.Item.v3RfcefbfvxuozL4"
+    },
+    "talent": {
+      "nom": "Manipulation de la force",
+      "description": "Permet d'utiliser la télékinésie."
+    },
+    "description": "<p>Utilisateur de la Force formé hors de l'Ordre Jedi ou qui s'en est détourné, sans pour autant céder au côté obscur ; il partage le trait du Padawan (Manipulation de la force : télékinésie).</p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.24.0"
+  }
+}

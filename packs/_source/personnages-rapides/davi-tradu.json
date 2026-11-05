@@ -14,7 +14,7 @@
       "nom": "Gotal"
     },
     "metier": {
-      "uuid": "",
+      "uuid": "Compendium.galactic-wars.metiers.Item.iwMnkznEYdDveZgq",
       "nom": "Sénateur",
       "description": "Autorité naturel : oblige les gens à se calmer. Relance un test de stress avec +2"
     },
@@ -54,7 +54,39 @@
     "actorLink": true,
     "disposition": 1
   },
-  "items": [],
+  "items": [
+    {
+      "_key": "!actors.items!NQHXQxHgaDObxGwM.C4ZOG4CHSiU53PB4",
+      "_id": "C4ZOG4CHSiU53PB4",
+      "name": "Autorité naturelle",
+      "type": "talent",
+      "img": "icons/svg/castle.svg",
+      "system": {
+        "avantage": "Oblige les gens à se calmer. Relance un test de stress avec +2.",
+        "inconvenient": "",
+        "fiche": "rapide",
+        "description": "<p>Trait du métier Sénateur. Oblige les gens à se calmer. Relance un test de stress avec +2. — variante fiche rapide / PNJ.</p>"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100000,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {
+        "galactic-wars": {
+          "traitMetier": true
+        }
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.galactic-wars.traits.Item.vHJz7DQfRB2qO6JJ",
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.24.0"
+      }
+    }
+  ],
   "effects": [],
   "folder": null,
   "sort": 500000,
@@ -71,6 +103,6 @@
     "duplicateSource": null,
     "coreVersion": "14",
     "systemId": "galactic-wars",
-    "systemVersion": "0.23.0"
+    "systemVersion": "0.24.0"
   }
 }

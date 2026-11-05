@@ -10,7 +10,7 @@
       "prenom": "Candillo"
     },
     "race": {
-      "uuid": "",
+      "uuid": "Compendium.galactic-wars.races.Item.5PDZWpLjZgNaAmTY",
       "nom": "Evocci"
     },
     "metier": {
@@ -103,6 +103,6 @@
     "duplicateSource": null,
     "coreVersion": "14",
     "systemId": "galactic-wars",
-    "systemVersion": "0.23.0"
+    "systemVersion": "0.24.0"
   }
 }

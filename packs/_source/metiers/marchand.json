@@ -1,0 +1,71 @@
+{
+  "_key": "!items!a0tZJyd5ga9xR3lV",
+  "_id": "a0tZJyd5ga9xR3lV",
+  "name": "Marchand",
+  "type": "metier",
+  "img": "systems/galactic-wars/asset_visuel/objets/metiers-marchand.webp",
+  "system": {
+    "prerequis": {
+      "texteLibre": ""
+    },
+    "competences": [
+      {
+        "cle": "persuasion",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "social",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "escroquerieMensonge",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "perception",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "sagesse",
+        "bonus": 0,
+        "obligatoire": true
+      }
+    ],
+    "equipement": [
+      {
+        "nom": "Vêtement de la guilde des marchands intergalactique (sauf conduit impériale et République)",
+        "quantite": 1
+      },
+      {
+        "nom": "Lame outil",
+        "quantite": 1
+      }
+    ],
+    "traits": {
+      "classique": "Compendium.galactic-wars.traits.Item.0ZojOz73w9MbvnTk",
+      "rapide": "Compendium.galactic-wars.traits.Item.x2UhUlBHICdnFNlK"
+    },
+    "talent": {
+      "nom": "Négociateur",
+      "description": "+4 pour marchander, +2 dans le cas où l'action implique uniquement un intérêt personnel (bonus de situation, accordé par le MJ)."
+    },
+    "description": "<p>Commerçant membre de la guilde des marchands intergalactique ; redoutable en négociation (trait Négociateur : bonus de situation quand il marchande).</p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.24.0"
+  }
+}

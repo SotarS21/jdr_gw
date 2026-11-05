@@ -1,0 +1,27 @@
+{
+  "_key": "!items!7odgcI9u6nr4pEad",
+  "_id": "7odgcI9u6nr4pEad",
+  "name": "Interview",
+  "type": "talent",
+  "img": "icons/svg/sound.svg",
+  "system": {
+    "avantage": "Pose plein de questions qui déstabilisent la personne interrogée. Obtient toujours au moins une information supplémentaire.",
+    "inconvenient": "",
+    "fiche": "classique",
+    "description": "<p>Trait du métier Journaliste. Pose plein de questions qui déstabilisent la personne interrogée. Obtient toujours au moins une information supplémentaire.</p><p>Variante de la fiche classique (bonus en %).</p>"
+  },
+  "effects": [],
+  "folder": "kW2zdGKIlGpk0feB",
+  "sort": 3200000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.24.0"
+  }
+}
