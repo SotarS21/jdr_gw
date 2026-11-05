@@ -1,0 +1,26 @@
+{
+  "_key": "!items!pByCrgdwCG4D15qE",
+  "_id": "pByCrgdwCG4D15qE",
+  "name": "Rancunier",
+  "type": "talent",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "avantage": "Chaque fois qu'il est frappé, il gagne +1 aux dégâts, cumulable selon le nombre de coups reçus (pas selon la quantité de dégâts subis).",
+    "inconvenient": "",
+    "fiche": "toutes",
+    "description": ""
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.25.0"
+  }
+}

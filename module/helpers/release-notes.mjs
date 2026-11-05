@@ -460,6 +460,9 @@ export const RELEASE_NOTES = {
   },
   "0.25.2": {
     title: "v0.25.2",
-    html: "<ul><li>Nouveau talent <strong>Tricheur</strong> : trois fois par jour, permet de relancer un dé, quel que soit le résultat.</li></ul>"
+    html: `<ul>
+      <li>Nouveau talent <strong>Tricheur</strong> : trois fois par jour, permet de relancer un dé, quel que soit le résultat.</li>
+      <li>Nouveau talent <strong>Rancunier</strong> : chaque fois qu'il est frappé, +1 aux dégâts, cumulable selon le nombre de coups reçus.</li>
+    </ul>`
   }
 };
