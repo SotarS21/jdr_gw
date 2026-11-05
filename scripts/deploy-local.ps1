@@ -80,9 +80,9 @@ function Mirror($rel, $extra = @()) {
 Copy-Item "$Src\system.json" "$Dest\system.json" -Force
 if ($NoRestart) {
   # Images comprises : servies sans redémarrage (seuls les packs LevelDB exigent un arrêt de Foundry).
-  foreach ($d in "module", "lang", "styles", "templates", "asset_visuel\Ethnie", "asset_visuel\objets") { Mirror $d }
+  foreach ($d in "module", "lang", "styles", "templates", "asset_visuel\Ethnie", "asset_visuel\objets", "asset_visuel\Personnage\rapides") { Mirror $d }
 } else {
-  foreach ($d in "module", "lang", "styles", "templates", "asset_visuel\Ethnie", "asset_visuel\objets") { Mirror $d }
+  foreach ($d in "module", "lang", "styles", "templates", "asset_visuel\Ethnie", "asset_visuel\objets", "asset_visuel\Personnage\rapides") { Mirror $d }
   Mirror "packs" @("/XD", "_source")
 }
 $global:LASTEXITCODE = 0
