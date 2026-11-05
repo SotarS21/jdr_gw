@@ -18,6 +18,7 @@
   traits, 15 fiches d'objet, journal, personnages liés ; Besalisk + Cuisinier sur une fiche classique (5 compétences
   accordées, Commis +10 % Perception, 2 objets de départ) et Pantoran + Artiste acrobate sur une fiche rapide
   (Acrobate +4 Dextérité) ; acteurs de test supprimés. Foundry relancé en 0.24.0 (accord de l'auteur).
+- **Release v0.24.0 publiée** à la demande de l'auteur (fusion dans main, tag, workflow vert, manifeste `latest` en 0.24.0, nouvelles images présentes dans `system.zip`).
 
 ## Session du 2026-11-05 — Personnages partie rapide (v0.22.0→v0.23.0, branche `feat/personnages-rapides`)
 
