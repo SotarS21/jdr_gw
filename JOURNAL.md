@@ -1,5 +1,18 @@
 # Journal de développement — Galactic Wars
 
+## Session du 2026-11-05 (suite) — Talents génériques (v0.24.0→v0.25.0, branche `feat/talents-generiques`)
+
+- **Source retrouvée** : la liste « Talent : » d'`archétype_metier_galactic_wars.docx` (28 talents ; le compendium en avait
+  8). **18 ajoutés** (`../audit/creer-talents.mjs`), noms corrigés (Voilent → Violent, Leader née → Leader né…) ;
+  Séductrice complétée d'après la fiche de Tira-Ni Lano ; **Tricheur et Rancunier non créés** (nom sans description,
+  nulle part ailleurs). **Effets proposés par Claude, validés par l'auteur** : Antipathique (Sang-froid +20 % / Stress
+  +4), Empathique (Sagesse −10 %, Sang-froid −10 % / Mentale −2, Stress −2), Sens de la Force (Sang-froid −10 % /
+  Stress −2), Flemmard (Bagarre −10 %, Parade-esquive −10 % / Force −2, Dextérité −2), Perspicace (Perception +15 % /
+  +3) ; les 13 autres en fiche « toutes », sans effet (situation, alliés, relances, critiques).
+- **Test en direct** (`../audit/t24-talents.js`) : **10/10 OK**, aucune erreur — 34 documents / 26 talents, 23 fiches
+  d'objet, effets cumulés sur une fiche classique et une fiche rapide, acteurs de test supprimés. Foundry relancé en
+  0.25.0 (accord de l'auteur).
+
 ## Session du 2026-11-05 (suite) — Choix confirmés, fiche de WOLF
 
 - **Confirmés par l'auteur** : un seul compendium pour les 4 journaux du catalogue (pages alphabétiques, générés) ;
