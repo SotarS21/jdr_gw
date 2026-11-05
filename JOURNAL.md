@@ -1,5 +1,30 @@
 # Journal de développement — Galactic Wars
 
+## Session du 2026-11-05 — Personnages partie rapide (v0.22.0→v0.23.0, branche `feat/personnages-rapides`)
+
+- **Demande** : « reprendre avec les versions simples des fiches de personnage » = importer les tableurs de
+  `../asset_fiche_perso/fiche_short` (choix de l'auteur, question posée). **Décisions de l'auteur** : toutes les fiches
+  remplies (morts compris) ; ajouter une **Chance** à la fiche rapide ; garder tout le contenu libre ; nouveau compendium.
+- **Fait** : `scripts/importer-fiches-rapides.mjs` (`npm run fiches-rapides [-- --portraits <dossier>]`) → compendium
+  `personnages-rapides` : **39 personnages** (48 tableurs, 9 exclus : modèles vides, copies non remplies, « Template joe »
+  d'un autre système) + dossier « Personnages décédés » (Patar, Tira-Ni Lano). Noms affichés fixés à la main (table
+  `NOMS`) ; race / métier liés quand le nom existe dans les compendiums, trait du métier (variante rapide) posé comme
+  `applyMetier` ; équipement = 5 colonnes sous son libellé ; reste de la feuille et autres onglets → biographie
+  (« Notes de la fiche d'origine ») ; caractéristiques « - » → 0 avec mention. Identifiants stables (hash du nom de fichier).
+- **Portraits** : image ancrée en haut à gauche de la 1re feuille, convertie en WebP 512 px par `../audit/portraits-rapides.mjs`
+  (Playwright, canvas) → `asset_visuel/Personnage/rapides/` (37 portraits, 860 Ko ; Eonis et Molwan sans image). Ajoutés au
+  zip de release et à `deploy-local.ps1` (ni l'un ni l'autre ne copiait `asset_visuel/Personnage`).
+- **Chance** : `system.chance` (fiche rapide et PNJ, même modèle), section avec jet 1d100 (`rollChance`).
+- **Foundry 14.369** : le monde n'a pas pu être relancé automatiquement (migration depuis 14.368 → « not available to
+  auto-launch », lancement admin fait par l'auteur). La page `/join` utilise désormais une liste `select[name=userId]` :
+  `scripts/verify-local.mjs` et `../audit/run.mjs` adaptés.
+- **Test en direct** (`../audit/t21-rapides.js`) : **18/18 OK**, aucune erreur — 39 acteurs, 37 portraits servis, liens
+  race / métier / trait résolus, 39 fiches rendues, import dans le monde, jets Chance / Survie, saisie de la Chance ;
+  acteur et messages de test supprimés.
+- **Non poussé, pas de release** (en attente de l'accord de l'auteur). Races sans lien : Klatooinian, Besalisk, Pantoran,
+  Evocci, Ewok Falleen ; métiers sans lien : Sans Emplois, Scientifique, Sénateur, Archéo-archiviste, Jedi gris,
+  Marchant, Journaliste, Cuisinier, Prostituée.
+
 ## État au 2026-10-09, nuit — fin de session
 
 - **Session terminée** (« on s'arrête là pour ce soir »). Galactic Wars : **v0.22.0 = dernière release**, Foundry redémarré

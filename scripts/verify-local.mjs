@@ -52,7 +52,10 @@ try {
   }
 
   await page.goto(`${URL_BASE}/join`);
-  await page.fill("input[name=username]", USER);
+  // Build 369+ : liste déroulante des utilisateurs (userId) à la place du champ texte.
+  await page.waitForSelector("select[name=userId], input[name=username]");
+  if (await page.$("select[name=userId]")) await page.selectOption("select[name=userId]", { label: USER });
+  else await page.fill("input[name=username]", USER);
   await page.fill("input[name=password]", PASSWORD);
   await page.click("button[name=join]");
   await page.waitForFunction(() => window.game?.ready, null, { timeout: 60000 });
