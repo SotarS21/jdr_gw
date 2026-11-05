@@ -1,5 +1,27 @@
 # Journal de développement — Galactic Wars
 
+## État au 2026-11-05, soir — fin de session
+
+- **v0.25.2 = dernière release**, tout est fusionné, poussé et publié ; aucune branche de travail. Foundry local : monde
+  `galacit-wars-v-final` en 0.25.2 (Foundry 14.369). **Plus aucun point ouvert** (todo, suivi des 28 points, audit).
+- **Fait aujourd'hui** (détail dans les sessions ci-dessous) :
+  - v0.23.0 — compendium **Personnages partie rapide** : 39 personnages importés des tableurs `fiche_short` (portraits
+    WebP, race / métier / trait liés, notes libres en biographie, dossier des décédés) ; **Chance** sur la fiche rapide ;
+    importeur `npm run fiches-rapides` ; portraits ajoutés à la release et à `deploy-local.ps1`.
+  - v0.24.0 — **5 races** (Besalisk, Evocci, Ewok, Klatooinian, Pantoran) et **10 métiers** (Archéo-archiviste, Artiste
+    acrobate, Cuisinier, Jedi gris, Journaliste, Marchand, Prostituée, Sans emploi, Scientifique, Sénateur) avec traits ;
+    bonus et compétences proposés par Claude, validés par l'auteur ; les 39 personnages rapides tous liés.
+  - Choix du 2026-10-08 **confirmés** (un compendium pour les 4 journaux ; sabre) ; **WOLF** créé dans le monde de
+    campagne par l'auteur avec la macro `../audit/macro-wolf.js` (testée avant sous « [TEST] WOLF »).
+  - v0.25.0 — **18 talents génériques** du docx (effets validés pour 5) ; v0.25.2 — **Tricheur** et **Rancunier**
+    (effets donnés par l'auteur) → 28 talents, liste du docx complète.
+  - v0.25.1 — bug des **barres Lumière / Obscurité** (clic perdu pendant une écriture) ; **V8** (avantage d'équipage par
+    `User#query`, expéditeur garanti) ; **G7** testé en direct à trois MJ ; correctif `0.20.5-postes-vaisseaux` constaté
+    appliqué ; tests t2 / t16 et connexion build 369 réparés dans `../audit`.
+  - Décision : **les images restent** dans le dépôt et son historique (264 Mo).
+- **Hors Galactic Wars** (début de session) : analyse d'un journal de console Pathfinder 2e — erreurs venant de données
+  d'acteurs obsolètes (prédicats, trait `evil`) et du module **PF2e Dorako UX 1.5.12** (`chat-rolltype-buttons.js`).
+
 ## Session du 2026-11-05 (suite) — Tricheur et Rancunier (v0.25.1→v0.25.2, branche `feat/talent-tricheur`)
 
 - **Effets donnés par l'auteur** : Tricheur (trois fois par jour, relancer un dé quel que soit le résultat) ; Rancunier
