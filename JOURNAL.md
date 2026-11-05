@@ -1,5 +1,16 @@
 # Journal de développement — Galactic Wars
 
+## Session du 2026-11-05 (suite) — Tricheur et Rancunier (v0.25.1→v0.25.2, branche `feat/talent-tricheur`)
+
+- **Effets donnés par l'auteur** : Tricheur (trois fois par jour, relancer un dé quel que soit le résultat) ; Rancunier
+  (+1 aux dégâts à chaque coup reçu, cumulable selon le nombre de coups, pas selon les dégâts). Fiche « toutes », sans
+  effet automatique (compteur de coups à suivre par le joueur). Ajoutés à `../audit/creer-talents.mjs` → compendium
+  Talents : 36 documents, **28 talents** (la liste du docx est complète).
+- **Test en direct** (`../audit/t27-tricheur-rancunier.js`) : 7/7, aucune erreur ; posés sur une fiche classique et une
+  fiche rapide, acteurs de test supprimés. Foundry relancé deux fois (Tricheur, puis Rancunier reçu en cours de route).
+- Rappel : `creer-talents.mjs` réécrit tous les talents en LF ; seules les différences de fin de ligne apparaissent sur
+  les autres fichiers (aucun changement de contenu) — ne pas les commiter.
+
 ## Session du 2026-11-05 (suite) — Points ouverts (v0.25.0→v0.25.1, branche `fix/barres-reserve-clics-rapides`)
 
 - **Correctif MJ `0.20.5-postes-vaisseaux`** : appliqué dans le monde (31/31 correctifs marqués ; Lantallian et Le Barmaid
