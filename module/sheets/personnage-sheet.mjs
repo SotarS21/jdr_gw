@@ -72,9 +72,9 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   /** Recherche dans les PNJ et les missions (suivi de l'auteur, n° 26) — même principe : gardée entre deux rendus. */
   #recherche = { pnj: "", missions: "" };
 
-  /** Lumière / Obscurité : usage en cours (Z2-1), clics + / − en attente et écritures en cours (Z2-3). */
+  /** Lumière / Obscurité : usage en cours (Z2-1), dernière barre demandée et écritures en cours (Z2-3). */
   #reserveEnCours = false;
-  #deltasReserve = {};
+  #ciblesReserve = {};
   #ajustementsEnCours = new Set();
 
   /** Vaisseau affiché dans l'onglet Équipements (Z2-4) : la fiche se redessine quand il change. */
@@ -930,31 +930,27 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   }
 
   /** Clic sur la barre n d'une réserve : la réserve passe à n ; sur la barre la plus haute allumée, elle redescend
-   *  d'un point (pour pouvoir revenir à 0). Valeur absolue : un clic reçu pendant l'écriture précédente est ignoré
-   *  (la valeur locale n'est pas encore à jour). */
+   *  d'un point (pour pouvoir revenir à 0). Clics rapides : la valeur locale n'est à jour qu'au retour du serveur,
+   *  donc un clic reçu pendant une écriture se compare à la dernière barre demandée, et c'est la dernière demandée
+   *  qui est écrite ensuite (4 puis 8 → 8). */
   static async #onFixerReserve(event, target) {
     const cle = target.dataset.reserve;
-    if (!["lumiere", "obscurite"].includes(cle) || this.#ajustementsEnCours.has(cle)) return;
-    const actuelle = this.actor.system[cle] ?? 0;
+    if (!["lumiere", "obscurite"].includes(cle)) return;
+    const actuelle = this.#ciblesReserve[cle] ?? this.actor.system[cle] ?? 0;
     const n = Number(target.dataset.valeur);
-    const cible = n === actuelle ? n - 1 : n;
-    if (cible !== actuelle) await this.#ajusterReserve(cle, cible - actuelle);
-  }
-
-  async #ajusterReserve(cle, delta) {
-    // Clics rapides : la valeur locale n'est à jour qu'au retour du serveur ; on cumule les clics reçus pendant une
-    // écriture et on les envoie ensuite, au lieu de recalculer chaque clic sur une valeur périmée.
-    this.#deltasReserve[cle] = (this.#deltasReserve[cle] ?? 0) + delta;
+    const cible = Math.min(10, Math.max(0, n === actuelle ? n - 1 : n));
+    if (cible === actuelle) return;
+    this.#ciblesReserve[cle] = cible;
     if (this.#ajustementsEnCours.has(cle)) return;
     this.#ajustementsEnCours.add(cle);
     try {
-      while (this.#deltasReserve[cle]) {
-        const cumul = this.#deltasReserve[cle];
-        this.#deltasReserve[cle] = 0;
-        const valeur = Math.min(10, Math.max(0, this.actor.system[cle] + cumul));
-        await this.actor.update({ [`system.${cle}`]: valeur });
+      let envoyee;
+      while (this.#ciblesReserve[cle] !== envoyee) {
+        envoyee = this.#ciblesReserve[cle];
+        if (envoyee !== this.actor.system[cle]) await this.actor.update({ [`system.${cle}`]: envoyee });
       }
     } finally {
+      delete this.#ciblesReserve[cle];
       this.#ajustementsEnCours.delete(cle);
     }
   }
