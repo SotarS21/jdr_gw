@@ -1,0 +1,76 @@
+{
+  "_key": "!items!qccOfvXtMZATqr9b",
+  "_id": "qccOfvXtMZATqr9b",
+  "name": "Scientifique",
+  "type": "metier",
+  "img": "systems/galactic-wars/asset_visuel/objets/metiers-scientifique.webp",
+  "system": {
+    "prerequis": {
+      "texteLibre": ""
+    },
+    "competences": [
+      {
+        "cle": "medecine",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "artisanat",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "informatiquePiratage",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "sagesse",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "perception",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "mecanique",
+        "bonus": 0,
+        "obligatoire": true
+      }
+    ],
+    "equipement": [
+      {
+        "nom": "Kit de chimie",
+        "quantite": 1
+      },
+      {
+        "nom": "Laboratoire portatif",
+        "quantite": 1
+      }
+    ],
+    "traits": {
+      "classique": "Compendium.galactic-wars.traits.Item.SETI9anKWUGWlsl8",
+      "rapide": "Compendium.galactic-wars.traits.Item.iXfeBnhrvtefn16a"
+    },
+    "talent": {
+      "nom": "Manipulateur",
+      "description": "Utilise diverses drogues pour altérer le mental d'une personne. 3 charges par jour."
+    },
+    "description": "<p>Chercheur et chimiste ; ses préparations (trait Manipulateur : 3 charges par jour) altèrent le mental de ses cibles.</p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.24.0"
+  }
+}

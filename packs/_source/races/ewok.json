@@ -1,0 +1,35 @@
+{
+  "_key": "!items!tlS1W73XYEJYJl0S",
+  "_id": "tlS1W73XYEJYJl0S",
+  "name": "Ewok",
+  "type": "race",
+  "img": "systems/galactic-wars/asset_visuel/Ethnie/ethenie_ewok_front.jpg",
+  "system": {
+    "modificateursCaracteristiques": {
+      "corps": -10,
+      "mental": 0,
+      "dexterite": 10
+    },
+    "modificateursCompetences": {
+      "furtivite": 15,
+      "survie": 20,
+      "escaladeSaut": 10,
+      "informatiquePiratage": -20
+    },
+    "armureNaturelle": 0,
+    "description": "<p>Petits êtres à fourrure de la lune forestière d'Endor, vivant en tribus dans des villages perchés dans les arbres. Chasseurs habiles et discrets, ils connaissent la forêt mieux que quiconque.</p><p>Leur technologie reste primitive : les machines modernes les dépassent.</p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.24.0"
+  }
+}

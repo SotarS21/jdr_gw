@@ -1,0 +1,27 @@
+{
+  "_key": "!items!vHJz7DQfRB2qO6JJ",
+  "_id": "vHJz7DQfRB2qO6JJ",
+  "name": "Autorité naturelle",
+  "type": "talent",
+  "img": "icons/svg/castle.svg",
+  "system": {
+    "avantage": "Oblige les gens à se calmer. Relance un test de stress avec +2.",
+    "inconvenient": "",
+    "fiche": "rapide",
+    "description": "<p>Trait du métier Sénateur. Oblige les gens à se calmer. Relance un test de stress avec +2. — variante fiche rapide / PNJ.</p>"
+  },
+  "effects": [],
+  "folder": "hQ0pLTdDjNk7CFye",
+  "sort": 3700000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.24.0"
+  }
+}

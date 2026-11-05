@@ -34,7 +34,7 @@
         "duplicateSource": null,
         "coreVersion": "14",
         "systemId": "galactic-wars",
-        "systemVersion": "0.20.7"
+        "systemVersion": "0.24.0"
       },
       "_key": "!journal.pages!gwJournalMetiers.sJHBTn1PSP6gpIOP"
     },
@@ -67,9 +67,75 @@
         "duplicateSource": null,
         "coreVersion": "14",
         "systemId": "galactic-wars",
-        "systemVersion": "0.20.7"
+        "systemVersion": "0.24.0"
       },
       "_key": "!journal.pages!gwJournalMetiers.iNOMvdCi7ecB3moP"
+    },
+    {
+      "_id": "7rkcRQCgLHFlBuSi",
+      "name": "Archéo-archiviste",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/metiers-archeo-archiviste.webp\" alt=\"Archéo-archiviste\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Talent</th><td><strong>Savoir encyclopédique</strong> — Connaît toutes les langues et les coutumes et détecte les pièges mécaniques : +2 Mentale.</td></tr><tr><th>Compétences du métier</th><td>Sagesse, Perception, Informatique/piratage, Sécurité, Social, Survie</td></tr><tr><th>Trait du métier</th><td>Fiche classique : @UUID[Compendium.galactic-wars.traits.Item.5HOqqBAGhyI3qIf9]{Savoir encyclopédique}<br>Fiche rapide : @UUID[Compendium.galactic-wars.traits.Item.NV6x28QQB8MFD68T]{Savoir encyclopédique}</td></tr></tbody></table><h3>Équipement de départ</h3><ul><li>Datapad d'archives</li><li>Traducteur universel</li><li>Outils de fouille</li></ul><p>Érudit des civilisations disparues, à l'aise dans les ruines comme dans les bibliothèques ; son savoir encyclopédique (trait : +10 % en Sagesse sur la fiche classique, +2 en Mentale sur la fiche rapide) lui ouvre langues, coutumes et pièges anciens.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.metiers.Item.7rkcRQCgLHFlBuSi]{Archéo-archiviste} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 300000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.24.0"
+      },
+      "_key": "!journal.pages!gwJournalMetiers.7rkcRQCgLHFlBuSi"
+    },
+    {
+      "_id": "zKhDtcpQgOVbDwrX",
+      "name": "Artiste acrobate",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"icons/svg/wingfoot.svg\" alt=\"Artiste acrobate\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Talent</th><td><strong>Acrobate</strong> — +4 pour faire des actions physiques avec classe.</td></tr><tr><th>Compétences du métier</th><td>Escalade/saut, Parade/esquive, Séduction, Social, Furtivité</td></tr><tr><th>Trait du métier</th><td>Fiche classique : @UUID[Compendium.galactic-wars.traits.Item.T70jssA10iCT8SX2]{Acrobate}<br>Fiche rapide : @UUID[Compendium.galactic-wars.traits.Item.5m2MTB0DiPARnYpr]{Acrobate}</td></tr></tbody></table><h3>Équipement de départ</h3><ul><li>Vêtement léger d'apparat</li><li>Jet pack léger (ne permet pas de voler longtemps, mais de monter rapidement)</li></ul><p>Saltimbanque des cirques et des scènes de la galaxie ; ses figures spectaculaires (trait Acrobate : +20 % en Escalade / saut sur la fiche classique, +4 en Dextérité sur la fiche rapide) lui permettent de se sortir de bien des situations avec panache.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.metiers.Item.zKhDtcpQgOVbDwrX]{Artiste acrobate} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 400000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.24.0"
+      },
+      "_key": "!journal.pages!gwJournalMetiers.zKhDtcpQgOVbDwrX"
     },
     {
       "_id": "5yxBvcQbcVDqhL45",
@@ -90,7 +156,7 @@
       },
       "src": null,
       "system": {},
-      "sort": 300000,
+      "sort": 500000,
       "ownership": {
         "default": -1
       },
@@ -100,7 +166,7 @@
         "duplicateSource": null,
         "coreVersion": "14",
         "systemId": "galactic-wars",
-        "systemVersion": "0.20.7"
+        "systemVersion": "0.24.0"
       },
       "_key": "!journal.pages!gwJournalMetiers.5yxBvcQbcVDqhL45"
     },
@@ -123,7 +189,7 @@
       },
       "src": null,
       "system": {},
-      "sort": 400000,
+      "sort": 600000,
       "ownership": {
         "default": -1
       },
@@ -133,7 +199,7 @@
         "duplicateSource": null,
         "coreVersion": "14",
         "systemId": "galactic-wars",
-        "systemVersion": "0.20.7"
+        "systemVersion": "0.24.0"
       },
       "_key": "!journal.pages!gwJournalMetiers.EXt6ePhfkfcD6goX"
     },
@@ -156,7 +222,7 @@
       },
       "src": null,
       "system": {},
-      "sort": 500000,
+      "sort": 700000,
       "ownership": {
         "default": -1
       },
@@ -166,9 +232,42 @@
         "duplicateSource": null,
         "coreVersion": "14",
         "systemId": "galactic-wars",
-        "systemVersion": "0.20.7"
+        "systemVersion": "0.24.0"
       },
       "_key": "!journal.pages!gwJournalMetiers.7Rdj9ImsDsaalt5u"
+    },
+    {
+      "_id": "Bl2jeoj3xoCTYtM6",
+      "name": "Cuisinier",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/metiers-cuisinier.webp\" alt=\"Cuisinier\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Talent</th><td><strong>Commis</strong> — +2 en perception ; reconnaît naturellement les ingrédients d'un plat et détecte automatiquement les poisons.</td></tr><tr><th>Compétences du métier</th><td>Artisanat, Perception, Survie, Social, Arme contondante/blanche</td></tr><tr><th>Trait du métier</th><td>Fiche classique : @UUID[Compendium.galactic-wars.traits.Item.CNWezGMlxuD8Be7i]{Commis}<br>Fiche rapide : @UUID[Compendium.galactic-wars.traits.Item.HFhyEcdY0TGTGJYT]{Commis}</td></tr></tbody></table><h3>Équipement de départ</h3><ul><li>Kit de cuisine</li><li>Couteaux de cuisine</li></ul><p>Cuisinier de cantina, de vaisseau ou de palais ; son palais exercé (trait Commis : +10 % en Perception sur la fiche classique, +2 en Perception sur la fiche rapide) reconnaît chaque ingrédient et ne laisse passer aucun poison.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.metiers.Item.Bl2jeoj3xoCTYtM6]{Cuisinier} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 800000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.24.0"
+      },
+      "_key": "!journal.pages!gwJournalMetiers.Bl2jeoj3xoCTYtM6"
     },
     {
       "_id": "FefnzykiE01dovlH",
@@ -189,7 +288,7 @@
       },
       "src": null,
       "system": {},
-      "sort": 600000,
+      "sort": 900000,
       "ownership": {
         "default": -1
       },
@@ -199,7 +298,7 @@
         "duplicateSource": null,
         "coreVersion": "14",
         "systemId": "galactic-wars",
-        "systemVersion": "0.20.7"
+        "systemVersion": "0.24.0"
       },
       "_key": "!journal.pages!gwJournalMetiers.FefnzykiE01dovlH"
     },
@@ -222,7 +321,7 @@
       },
       "src": null,
       "system": {},
-      "sort": 700000,
+      "sort": 1000000,
       "ownership": {
         "default": -1
       },
@@ -232,7 +331,7 @@
         "duplicateSource": null,
         "coreVersion": "14",
         "systemId": "galactic-wars",
-        "systemVersion": "0.20.7"
+        "systemVersion": "0.24.0"
       },
       "_key": "!journal.pages!gwJournalMetiers.UO0bTqaQaZfxis01"
     },
@@ -255,7 +354,7 @@
       },
       "src": null,
       "system": {},
-      "sort": 800000,
+      "sort": 1100000,
       "ownership": {
         "default": -1
       },
@@ -265,9 +364,42 @@
         "duplicateSource": null,
         "coreVersion": "14",
         "systemId": "galactic-wars",
-        "systemVersion": "0.20.7"
+        "systemVersion": "0.24.0"
       },
       "_key": "!journal.pages!gwJournalMetiers.tPCyoGnJHPZ7I3pj"
+    },
+    {
+      "_id": "ulrjy3qq1utIK8sH",
+      "name": "Jedi gris",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/metiers-jedi-gris.webp\" alt=\"Jedi gris\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Affiliation / prérequis</th><td>Sensible à la Force, hors de l'Ordre</td></tr><tr><th>Talent</th><td><strong>Manipulation de la force</strong> — Permet d'utiliser la télékinésie.</td></tr><tr><th>Compétences du métier</th><td>Sabre laser, Contrôle télékinétique, Méditation de la force, Protection de la force, Sagesse, Parade/esquive</td></tr><tr><th>Trait du métier</th><td>Fiche classique : @UUID[Compendium.galactic-wars.traits.Item.qGO648wMmkKQiqG2]{Manipulation de la force}<br>Fiche rapide : @UUID[Compendium.galactic-wars.traits.Item.v3RfcefbfvxuozL4]{Manipulation de la force}</td></tr></tbody></table><h3>Équipement de départ</h3><ul><li>Sabre laser</li><li>Tenue sombre</li></ul><p>Utilisateur de la Force formé hors de l'Ordre Jedi ou qui s'en est détourné, sans pour autant céder au côté obscur ; il partage le trait du Padawan (Manipulation de la force : télékinésie).</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.metiers.Item.ulrjy3qq1utIK8sH]{Jedi gris} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 1200000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.24.0"
+      },
+      "_key": "!journal.pages!gwJournalMetiers.ulrjy3qq1utIK8sH"
     },
     {
       "_id": "1T2a9UT8vE4aYGyW",
@@ -288,7 +420,7 @@
       },
       "src": null,
       "system": {},
-      "sort": 900000,
+      "sort": 1300000,
       "ownership": {
         "default": -1
       },
@@ -298,9 +430,42 @@
         "duplicateSource": null,
         "coreVersion": "14",
         "systemId": "galactic-wars",
-        "systemVersion": "0.20.7"
+        "systemVersion": "0.24.0"
       },
       "_key": "!journal.pages!gwJournalMetiers.1T2a9UT8vE4aYGyW"
+    },
+    {
+      "_id": "xatkiZ8gFy1aQlKX",
+      "name": "Journaliste",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/metiers-journaliste.webp\" alt=\"Journaliste\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Talent</th><td><strong>Interview</strong> — Pose plein de questions qui déstabilisent la personne interrogée. Obtient toujours au moins une information supplémentaire.</td></tr><tr><th>Compétences du métier</th><td>Social, Persuasion, Perception, Escroquerie/mensonge, Informatique/piratage, Sang froid</td></tr><tr><th>Trait du métier</th><td>Fiche classique : @UUID[Compendium.galactic-wars.traits.Item.7odgcI9u6nr4pEad]{Interview}<br>Fiche rapide : @UUID[Compendium.galactic-wars.traits.Item.80QGpKksC4HTDAyq]{Interview}</td></tr></tbody></table><h3>Équipement de départ</h3><ul><li>Matériel de prise de données</li><li>Carte de journaliste (Empire ou République)</li></ul><p>Reporter de l'HoloNet, toujours à l'affût d'un scoop ; ses interviews déstabilisantes (trait Interview) lui arrachent toujours une information de plus.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.metiers.Item.xatkiZ8gFy1aQlKX]{Journaliste} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 1400000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.24.0"
+      },
+      "_key": "!journal.pages!gwJournalMetiers.xatkiZ8gFy1aQlKX"
     },
     {
       "_id": "ChNf1eeT8pWrTLuD",
@@ -321,7 +486,7 @@
       },
       "src": null,
       "system": {},
-      "sort": 1000000,
+      "sort": 1500000,
       "ownership": {
         "default": -1
       },
@@ -331,9 +496,42 @@
         "duplicateSource": null,
         "coreVersion": "14",
         "systemId": "galactic-wars",
-        "systemVersion": "0.20.7"
+        "systemVersion": "0.24.0"
       },
       "_key": "!journal.pages!gwJournalMetiers.ChNf1eeT8pWrTLuD"
+    },
+    {
+      "_id": "a0tZJyd5ga9xR3lV",
+      "name": "Marchand",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/metiers-marchand.webp\" alt=\"Marchand\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Talent</th><td><strong>Négociateur</strong> — +4 pour marchander, +2 dans le cas où l'action implique uniquement un intérêt personnel (bonus de situation, accordé par le MJ).</td></tr><tr><th>Compétences du métier</th><td>Persuasion, Social, Escroquerie/mensonge, Perception, Sagesse</td></tr><tr><th>Trait du métier</th><td>Fiche classique : @UUID[Compendium.galactic-wars.traits.Item.0ZojOz73w9MbvnTk]{Négociateur}<br>Fiche rapide : @UUID[Compendium.galactic-wars.traits.Item.x2UhUlBHICdnFNlK]{Négociateur}</td></tr></tbody></table><h3>Équipement de départ</h3><ul><li>Vêtement de la guilde des marchands intergalactique (sauf conduit impériale et République)</li><li>Lame outil</li></ul><p>Commerçant membre de la guilde des marchands intergalactique ; redoutable en négociation (trait Négociateur : bonus de situation quand il marchande).</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.metiers.Item.a0tZJyd5ga9xR3lV]{Marchand} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 1600000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.24.0"
+      },
+      "_key": "!journal.pages!gwJournalMetiers.a0tZJyd5ga9xR3lV"
     },
     {
       "_id": "RwKZrUKDtNwo0jzj",
@@ -354,7 +552,7 @@
       },
       "src": null,
       "system": {},
-      "sort": 1100000,
+      "sort": 1700000,
       "ownership": {
         "default": -1
       },
@@ -364,7 +562,7 @@
         "duplicateSource": null,
         "coreVersion": "14",
         "systemId": "galactic-wars",
-        "systemVersion": "0.20.7"
+        "systemVersion": "0.24.0"
       },
       "_key": "!journal.pages!gwJournalMetiers.RwKZrUKDtNwo0jzj"
     },
@@ -387,7 +585,7 @@
       },
       "src": null,
       "system": {},
-      "sort": 1200000,
+      "sort": 1800000,
       "ownership": {
         "default": -1
       },
@@ -397,7 +595,7 @@
         "duplicateSource": null,
         "coreVersion": "14",
         "systemId": "galactic-wars",
-        "systemVersion": "0.20.7"
+        "systemVersion": "0.24.0"
       },
       "_key": "!journal.pages!gwJournalMetiers.pi8JBmXDArhj5ybA"
     },
@@ -420,7 +618,7 @@
       },
       "src": null,
       "system": {},
-      "sort": 1300000,
+      "sort": 1900000,
       "ownership": {
         "default": -1
       },
@@ -430,7 +628,7 @@
         "duplicateSource": null,
         "coreVersion": "14",
         "systemId": "galactic-wars",
-        "systemVersion": "0.20.7"
+        "systemVersion": "0.24.0"
       },
       "_key": "!journal.pages!gwJournalMetiers.9BC8y9FxmawTewdq"
     },
@@ -453,7 +651,7 @@
       },
       "src": null,
       "system": {},
-      "sort": 1400000,
+      "sort": 2000000,
       "ownership": {
         "default": -1
       },
@@ -463,7 +661,7 @@
         "duplicateSource": null,
         "coreVersion": "14",
         "systemId": "galactic-wars",
-        "systemVersion": "0.20.7"
+        "systemVersion": "0.24.0"
       },
       "_key": "!journal.pages!gwJournalMetiers.JXd5kpLmKGNkQdYf"
     },
@@ -486,7 +684,7 @@
       },
       "src": null,
       "system": {},
-      "sort": 1500000,
+      "sort": 2100000,
       "ownership": {
         "default": -1
       },
@@ -496,9 +694,42 @@
         "duplicateSource": null,
         "coreVersion": "14",
         "systemId": "galactic-wars",
-        "systemVersion": "0.20.7"
+        "systemVersion": "0.24.0"
       },
       "_key": "!journal.pages!gwJournalMetiers.BKQsd0pMug5KIppF"
+    },
+    {
+      "_id": "5mrffo3UsrYTgoqm",
+      "name": "Prostituée",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/metiers-prostituee.webp\" alt=\"Prostituée\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Talent</th><td><strong>Danseuse</strong> — Meut ses courbes de manière gracieuse et agile : +2 Dextérité.</td></tr><tr><th>Compétences du métier</th><td>Séduction, Escroquerie/mensonge, Parade/esquive, Pickpocket, Perception, Social</td></tr><tr><th>Trait du métier</th><td>Fiche classique : @UUID[Compendium.galactic-wars.traits.Item.qDygX77MBKkqkZmp]{Danseuse}<br>Fiche rapide : @UUID[Compendium.galactic-wars.traits.Item.9TDuIdbk6uprv7Ss]{Danseuse}</td></tr></tbody></table><h3>Équipement de départ</h3><ul><li>Tenue de danse</li><li>ComLink</li></ul><p>Danseuse et courtisane des cantinas et des palais ; sa grâce (trait Danseuse : +10 % en Parade / esquive sur la fiche classique, +2 en Dextérité sur la fiche rapide) lui ouvre bien des portes et des bourses.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.metiers.Item.5mrffo3UsrYTgoqm]{Prostituée} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 2200000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.24.0"
+      },
+      "_key": "!journal.pages!gwJournalMetiers.5mrffo3UsrYTgoqm"
     },
     {
       "_id": "m2Pm1jVHnnHPqS87",
@@ -519,7 +750,7 @@
       },
       "src": null,
       "system": {},
-      "sort": 1600000,
+      "sort": 2300000,
       "ownership": {
         "default": -1
       },
@@ -529,7 +760,7 @@
         "duplicateSource": null,
         "coreVersion": "14",
         "systemId": "galactic-wars",
-        "systemVersion": "0.20.7"
+        "systemVersion": "0.24.0"
       },
       "_key": "!journal.pages!gwJournalMetiers.m2Pm1jVHnnHPqS87"
     },
@@ -552,7 +783,7 @@
       },
       "src": null,
       "system": {},
-      "sort": 1700000,
+      "sort": 2400000,
       "ownership": {
         "default": -1
       },
@@ -562,9 +793,108 @@
         "duplicateSource": null,
         "coreVersion": "14",
         "systemId": "galactic-wars",
-        "systemVersion": "0.20.7"
+        "systemVersion": "0.24.0"
       },
       "_key": "!journal.pages!gwJournalMetiers.w8hGBYBKPgT9hnw9"
+    },
+    {
+      "_id": "9XiBIUHR2jSEXQL4",
+      "name": "Sans emploi",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/metiers-sans-emploi.webp\" alt=\"Sans emploi\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Talent</th><td><strong>Sympathique</strong> — Il fait tellement pitié que ses coéquipiers ont un bonus de +2 en Mentale et en Stress.</td></tr><tr><th>Compétences du métier</th><td>Survie, Social, Bagarre, Escroquerie/mensonge, Sang froid</td></tr><tr><th>Trait du métier</th><td>Fiche classique : @UUID[Compendium.galactic-wars.traits.Item.xVANJFe7XgcXU6PD]{Sympathique}<br>Fiche rapide : @UUID[Compendium.galactic-wars.traits.Item.aB07oPaKHMQ7FDso]{Sympathique}</td></tr></tbody></table><h3>Équipement de départ</h3><ul><li>Vêtements usés</li><li>Sac</li></ul><p>Sans métier ni attaches, il survit au jour le jour ; sa bonhomie (trait Sympathique) remonte le moral de ses coéquipiers.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.metiers.Item.9XiBIUHR2jSEXQL4]{Sans emploi} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 2500000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.24.0"
+      },
+      "_key": "!journal.pages!gwJournalMetiers.9XiBIUHR2jSEXQL4"
+    },
+    {
+      "_id": "qccOfvXtMZATqr9b",
+      "name": "Scientifique",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/metiers-scientifique.webp\" alt=\"Scientifique\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Talent</th><td><strong>Manipulateur</strong> — Utilise diverses drogues pour altérer le mental d'une personne. 3 charges par jour.</td></tr><tr><th>Compétences du métier</th><td>Médecine, Artisanat, Informatique/piratage, Sagesse, Perception, Mécanique</td></tr><tr><th>Trait du métier</th><td>Fiche classique : @UUID[Compendium.galactic-wars.traits.Item.SETI9anKWUGWlsl8]{Manipulateur}<br>Fiche rapide : @UUID[Compendium.galactic-wars.traits.Item.iXfeBnhrvtefn16a]{Manipulateur}</td></tr></tbody></table><h3>Équipement de départ</h3><ul><li>Kit de chimie</li><li>Laboratoire portatif</li></ul><p>Chercheur et chimiste ; ses préparations (trait Manipulateur : 3 charges par jour) altèrent le mental de ses cibles.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.metiers.Item.qccOfvXtMZATqr9b]{Scientifique} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 2600000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.24.0"
+      },
+      "_key": "!journal.pages!gwJournalMetiers.qccOfvXtMZATqr9b"
+    },
+    {
+      "_id": "iwMnkznEYdDveZgq",
+      "name": "Sénateur",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<div class=\"gw-catalogue\"><figure class=\"gw-catalogue-image\"><img src=\"systems/galactic-wars/asset_visuel/objets/metiers-senateur.webp\" alt=\"Sénateur\"></figure><table class=\"gw-catalogue-carac\"><tbody><tr><th>Talent</th><td><strong>Autorité naturelle</strong> — Oblige les gens à se calmer. Relance un test de stress avec +2.</td></tr><tr><th>Compétences du métier</th><td>Commander/guider, Persuasion, Social, Sang froid, Sagesse, Escroquerie/mensonge</td></tr><tr><th>Trait du métier</th><td>Fiche classique : @UUID[Compendium.galactic-wars.traits.Item.f7YCPr2hbbEFoTJr]{Autorité naturelle}<br>Fiche rapide : @UUID[Compendium.galactic-wars.traits.Item.vHJz7DQfRB2qO6JJ]{Autorité naturelle}</td></tr></tbody></table><h3>Équipement de départ</h3><ul><li>Passeport diplomatique</li></ul><p>Représentant d'un monde au Sénat ; son autorité naturelle (trait : relance d'un test de stress à +2) calme les foules et impose le respect.</p><p class=\"gw-catalogue-lien\">@UUID[Compendium.galactic-wars.metiers.Item.iwMnkznEYdDveZgq]{Sénateur} — à glisser sur une fiche.</p></div>",
+        "markdown": "",
+        "format": 1
+      },
+      "video": {
+        "controls": true
+      },
+      "src": null,
+      "system": {},
+      "sort": 2700000,
+      "ownership": {
+        "default": -1
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.24.0"
+      },
+      "_key": "!journal.pages!gwJournalMetiers.iwMnkznEYdDveZgq"
     },
     {
       "_id": "yVuShJi8aSqyPnRr",
@@ -585,7 +915,7 @@
       },
       "src": null,
       "system": {},
-      "sort": 1800000,
+      "sort": 2800000,
       "ownership": {
         "default": -1
       },
@@ -595,7 +925,7 @@
         "duplicateSource": null,
         "coreVersion": "14",
         "systemId": "galactic-wars",
-        "systemVersion": "0.20.7"
+        "systemVersion": "0.24.0"
       },
       "_key": "!journal.pages!gwJournalMetiers.yVuShJi8aSqyPnRr"
     },
@@ -618,7 +948,7 @@
       },
       "src": null,
       "system": {},
-      "sort": 1900000,
+      "sort": 2900000,
       "ownership": {
         "default": -1
       },
@@ -628,7 +958,7 @@
         "duplicateSource": null,
         "coreVersion": "14",
         "systemId": "galactic-wars",
-        "systemVersion": "0.20.7"
+        "systemVersion": "0.24.0"
       },
       "_key": "!journal.pages!gwJournalMetiers.DaoLLhbdH0nFLWu9"
     },
@@ -651,7 +981,7 @@
       },
       "src": null,
       "system": {},
-      "sort": 2000000,
+      "sort": 3000000,
       "ownership": {
         "default": -1
       },
@@ -661,7 +991,7 @@
         "duplicateSource": null,
         "coreVersion": "14",
         "systemId": "galactic-wars",
-        "systemVersion": "0.20.7"
+        "systemVersion": "0.24.0"
       },
       "_key": "!journal.pages!gwJournalMetiers.V8ncUgq5wWE2Zc3b"
     },
@@ -684,7 +1014,7 @@
       },
       "src": null,
       "system": {},
-      "sort": 2100000,
+      "sort": 3100000,
       "ownership": {
         "default": -1
       },
@@ -694,7 +1024,7 @@
         "duplicateSource": null,
         "coreVersion": "14",
         "systemId": "galactic-wars",
-        "systemVersion": "0.20.7"
+        "systemVersion": "0.24.0"
       },
       "_key": "!journal.pages!gwJournalMetiers.F35qs4Inm3LzZaDb"
     }
@@ -708,6 +1038,6 @@
     "duplicateSource": null,
     "coreVersion": "14",
     "systemId": "galactic-wars",
-    "systemVersion": "0.20.7"
+    "systemVersion": "0.24.0"
   }
 }

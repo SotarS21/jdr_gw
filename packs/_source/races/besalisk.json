@@ -1,0 +1,35 @@
+{
+  "_key": "!items!1iLWmCFcB9ycosZI",
+  "_id": "1iLWmCFcB9ycosZI",
+  "name": "Besalisk",
+  "type": "race",
+  "img": "systems/galactic-wars/asset_visuel/Ethnie/ethnie_Besalisk_front.jpg",
+  "system": {
+    "modificateursCaracteristiques": {
+      "corps": 10,
+      "mental": 0,
+      "dexterite": -5
+    },
+    "modificateursCompetences": {
+      "bagarre": 10,
+      "artisanat": 10,
+      "survie": 10,
+      "seduction": -10
+    },
+    "armureNaturelle": 0,
+    "description": "<p>Humanoïdes massifs à quatre bras originaires d'Ojom, coiffés d'une crête osseuse et dotés d'un goitre qui leur permet de stocker l'eau. Leurs quatre bras en font des artisans, mécaniciens et cuisiniers réputés, et de redoutables bagarreurs.</p><p>Résistants aux climats rudes, ils passent pour bourrus et peu raffinés.</p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.24.0"
+  }
+}

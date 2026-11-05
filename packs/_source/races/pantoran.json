@@ -1,0 +1,35 @@
+{
+  "_key": "!items!XH86gWuPhAsH5fVb",
+  "_id": "XH86gWuPhAsH5fVb",
+  "name": "Pantoran",
+  "type": "race",
+  "img": "systems/galactic-wars/asset_visuel/Ethnie/ethenie_pantoran_front.webp",
+  "system": {
+    "modificateursCaracteristiques": {
+      "corps": 0,
+      "mental": 5,
+      "dexterite": 0
+    },
+    "modificateursCompetences": {
+      "social": 10,
+      "commanderGuider": 5,
+      "survie": 10,
+      "bagarre": -5
+    },
+    "armureNaturelle": 0,
+    "description": "<p>Humanoïdes à la peau bleue de Pantora, lune glacée du système d'Orto Plutonia, souvent marqués de tatouages dorés. Leur culture très politique produit diplomates, administrateurs et sénateurs.</p><p>Habitués au froid, ils sont plus à l'aise dans les salons que dans la bagarre.</p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.24.0"
+  }
+}

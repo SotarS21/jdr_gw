@@ -14,7 +14,7 @@
       "nom": "Twi'lek"
     },
     "metier": {
-      "uuid": "",
+      "uuid": "Compendium.galactic-wars.metiers.Item.5mrffo3UsrYTgoqm",
       "nom": "Prostituée",
       "description": "Danseuse : Mouvois ses courbes de manière gracieuse et agile, +2 Dextérité"
     },
@@ -54,7 +54,70 @@
     "actorLink": true,
     "disposition": 1
   },
-  "items": [],
+  "items": [
+    {
+      "_key": "!actors.items!Tjif4MeekDx3uuGn.58sure3VQ5oDvGJz",
+      "_id": "58sure3VQ5oDvGJz",
+      "name": "Danseuse",
+      "type": "talent",
+      "img": "icons/svg/angel.svg",
+      "system": {
+        "avantage": "Meut ses courbes de manière gracieuse et agile : +2 Dextérité.",
+        "inconvenient": "",
+        "fiche": "rapide",
+        "description": "<p>Trait du métier Prostituée. Meut ses courbes de manière gracieuse et agile : +2 Dextérité. — variante fiche rapide / PNJ.</p>"
+      },
+      "effects": [
+        {
+          "_key": "!actors.items.effects!Tjif4MeekDx3uuGn.58sure3VQ5oDvGJz.3lJnUTQ4hFgyJC4X",
+          "_id": "3lJnUTQ4hFgyJC4X",
+          "name": "Danseuse",
+          "img": "icons/svg/angel.svg",
+          "type": "base",
+          "system": {
+            "changes": [
+              {
+                "key": "system.effets.caracteristiques.dexterite",
+                "type": "add",
+                "value": "2"
+              }
+            ]
+          },
+          "disabled": false,
+          "transfer": true,
+          "description": "",
+          "origin": null,
+          "statuses": [],
+          "sort": 0,
+          "flags": {},
+          "_stats": {
+            "compendiumSource": null,
+            "duplicateSource": null,
+            "coreVersion": "14",
+            "systemId": "galactic-wars",
+            "systemVersion": "0.24.0"
+          }
+        }
+      ],
+      "folder": null,
+      "sort": 100000,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {
+        "galactic-wars": {
+          "traitMetier": true
+        }
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.galactic-wars.traits.Item.9TDuIdbk6uprv7Ss",
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.24.0"
+      }
+    }
+  ],
   "effects": [],
   "folder": null,
   "sort": 3700000,
@@ -71,6 +134,6 @@
     "duplicateSource": null,
     "coreVersion": "14",
     "systemId": "galactic-wars",
-    "systemVersion": "0.23.0"
+    "systemVersion": "0.24.0"
   }
 }

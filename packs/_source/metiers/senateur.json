@@ -1,0 +1,72 @@
+{
+  "_key": "!items!iwMnkznEYdDveZgq",
+  "_id": "iwMnkznEYdDveZgq",
+  "name": "Sénateur",
+  "type": "metier",
+  "img": "systems/galactic-wars/asset_visuel/objets/metiers-senateur.webp",
+  "system": {
+    "prerequis": {
+      "texteLibre": ""
+    },
+    "competences": [
+      {
+        "cle": "commanderGuider",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "persuasion",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "social",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "sangFroid",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "sagesse",
+        "bonus": 0,
+        "obligatoire": true
+      },
+      {
+        "cle": "escroquerieMensonge",
+        "bonus": 0,
+        "obligatoire": true
+      }
+    ],
+    "equipement": [
+      {
+        "nom": "Passeport diplomatique",
+        "quantite": 1
+      }
+    ],
+    "traits": {
+      "classique": "Compendium.galactic-wars.traits.Item.f7YCPr2hbbEFoTJr",
+      "rapide": "Compendium.galactic-wars.traits.Item.vHJz7DQfRB2qO6JJ"
+    },
+    "talent": {
+      "nom": "Autorité naturelle",
+      "description": "Oblige les gens à se calmer. Relance un test de stress avec +2."
+    },
+    "description": "<p>Représentant d'un monde au Sénat ; son autorité naturelle (trait : relance d'un test de stress à +2) calme les foules et impose le respect.</p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.24.0"
+  }
+}

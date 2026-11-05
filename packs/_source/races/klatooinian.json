@@ -1,0 +1,35 @@
+{
+  "_key": "!items!gylF4GbfTJac1o9C",
+  "_id": "gylF4GbfTJac1o9C",
+  "name": "Klatooinian",
+  "type": "race",
+  "img": "systems/galactic-wars/asset_visuel/Ethnie/ethenie_klatooinian_front.jpg",
+  "system": {
+    "modificateursCaracteristiques": {
+      "corps": 10,
+      "mental": -10,
+      "dexterite": 0
+    },
+    "modificateursCompetences": {
+      "intimidation": 10,
+      "survie": 10,
+      "sangFroid": 5,
+      "sagesse": -5
+    },
+    "armureNaturelle": 1,
+    "description": "<p>Humanoïdes aux traits canins de Klatooine, à la peau épaisse et tannée. Liés aux Hutts par un ancien traité, ils servent souvent de gardes, de mercenaires ou d'hommes de main.</p><p>Robustes et tenaces, ils impressionnent plus qu'ils ne raisonnent. Peau épaisse : armure naturelle 1.</p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.24.0"
+  }
+}

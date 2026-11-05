@@ -10,11 +10,11 @@
       "prenom": "Patar"
     },
     "race": {
-      "uuid": "",
-      "nom": "Ewok Falleen"
+      "uuid": "Compendium.galactic-wars.races.Item.tlS1W73XYEJYJl0S",
+      "nom": "Ewok"
     },
     "metier": {
-      "uuid": "",
+      "uuid": "Compendium.galactic-wars.metiers.Item.Bl2jeoj3xoCTYtM6",
       "nom": "Cuisinier",
       "description": "Commis : + 2 perception reconnait naturellement les ingrédients d’un plats et détecte automatiquement les poisons"
     },
@@ -44,7 +44,7 @@
     "equipement": "Spatule\nLouche\nBracelet Guilde\nHachoir (1d6) + 1 pack de soin\nGrimpeur : Bonus grimpète gratuit pour monter sur les murs (hors combat)",
     "credits": 0,
     "portrait": "systems/galactic-wars/asset_visuel/Personnage/rapides/patar.webp",
-    "description": "<p>Il est commis dans un resto-route miteux en bordure de Bellerian 3, il aspire à cuisiné mieux que son chef  qui sert des plats infecte aux clients de la station. Il adore les pains au miel et les bonbons pétillants, il garde toujours un paquet sous sa capuche. Pour ce faire comprendre, il utilise une sorte de langage des signes très expressifs.</p><p><strong>Corpulence :</strong> Épais<br><strong>Total maximal des caractéristiques :</strong> 70<br><strong>Personnage décédé.</strong></p><h2>Notes de la fiche d'origine</h2><ul><li>-2 — -2 — 2 — 2</li></ul><p><em>Importé de « [MORT] PATAR  - Ewok Falleen - Cuisinier.xlsx ».</em></p>"
+    "description": "<p>Il est commis dans un resto-route miteux en bordure de Bellerian 3, il aspire à cuisiné mieux que son chef  qui sert des plats infecte aux clients de la station. Il adore les pains au miel et les bonbons pétillants, il garde toujours un paquet sous sa capuche. Pour ce faire comprendre, il utilise une sorte de langage des signes très expressifs.</p><p><strong>Race sur la fiche d'origine :</strong> Ewok Falleen<br><strong>Corpulence :</strong> Épais<br><strong>Total maximal des caractéristiques :</strong> 70<br><strong>Personnage décédé.</strong></p><h2>Notes de la fiche d'origine</h2><ul><li>-2 — -2 — 2 — 2</li></ul><p><em>Importé de « [MORT] PATAR  - Ewok Falleen - Cuisinier.xlsx ».</em></p>"
   },
   "prototypeToken": {
     "name": "Patar",
@@ -54,7 +54,70 @@
     "actorLink": true,
     "disposition": 1
   },
-  "items": [],
+  "items": [
+    {
+      "_key": "!actors.items!eXZXCx0FRuVVQffx.4IppGIXhzD3jJJJK",
+      "_id": "4IppGIXhzD3jJJJK",
+      "name": "Commis",
+      "type": "talent",
+      "img": "icons/svg/pawprint.svg",
+      "system": {
+        "avantage": "+2 en perception ; reconnaît naturellement les ingrédients d'un plat et détecte automatiquement les poisons.",
+        "inconvenient": "",
+        "fiche": "rapide",
+        "description": "<p>Trait du métier Cuisinier. +2 en perception ; reconnaît naturellement les ingrédients d'un plat et détecte automatiquement les poisons. — variante fiche rapide / PNJ.</p>"
+      },
+      "effects": [
+        {
+          "_key": "!actors.items.effects!eXZXCx0FRuVVQffx.4IppGIXhzD3jJJJK.vx0sK7PXuGahNbC0",
+          "_id": "vx0sK7PXuGahNbC0",
+          "name": "Commis",
+          "img": "icons/svg/pawprint.svg",
+          "type": "base",
+          "system": {
+            "changes": [
+              {
+                "key": "system.effets.caracteristiques.perception",
+                "type": "add",
+                "value": "2"
+              }
+            ]
+          },
+          "disabled": false,
+          "transfer": true,
+          "description": "",
+          "origin": null,
+          "statuses": [],
+          "sort": 0,
+          "flags": {},
+          "_stats": {
+            "compendiumSource": null,
+            "duplicateSource": null,
+            "coreVersion": "14",
+            "systemId": "galactic-wars",
+            "systemVersion": "0.24.0"
+          }
+        }
+      ],
+      "folder": null,
+      "sort": 100000,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {
+        "galactic-wars": {
+          "traitMetier": true
+        }
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.galactic-wars.traits.Item.HFhyEcdY0TGTGJYT",
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.24.0"
+      }
+    }
+  ],
   "effects": [],
   "folder": "xHTn9ZTwVFHCDA83",
   "sort": 2700000,
@@ -71,6 +134,6 @@
     "duplicateSource": null,
     "coreVersion": "14",
     "systemId": "galactic-wars",
-    "systemVersion": "0.23.0"
+    "systemVersion": "0.24.0"
   }
 }

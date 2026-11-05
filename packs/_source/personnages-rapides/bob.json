@@ -14,8 +14,8 @@
       "nom": "Humain"
     },
     "metier": {
-      "uuid": "",
-      "nom": "Sans Emplois",
+      "uuid": "Compendium.galactic-wars.metiers.Item.9XiBIUHR2jSEXQL4",
+      "nom": "Sans emploi",
       "description": "Sympathique : Il fait tellement pitié que ses coéquipiers ont un bonus de +2 Mentale et Stress."
     },
     "talent": {
@@ -54,7 +54,39 @@
     "actorLink": true,
     "disposition": 1
   },
-  "items": [],
+  "items": [
+    {
+      "_key": "!actors.items!mTEPEy61lOVq6xT3.rHoo2eqh48OzOs4t",
+      "_id": "rHoo2eqh48OzOs4t",
+      "name": "Sympathique",
+      "type": "talent",
+      "img": "icons/svg/oak.svg",
+      "system": {
+        "avantage": "Il fait tellement pitié que ses coéquipiers ont un bonus de +2 en Mentale et en Stress.",
+        "inconvenient": "",
+        "fiche": "rapide",
+        "description": "<p>Trait du métier Sans emploi. Il fait tellement pitié que ses coéquipiers ont un bonus de +2 en Mentale et en Stress. — variante fiche rapide / PNJ.</p>"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100000,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {
+        "galactic-wars": {
+          "traitMetier": true
+        }
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.galactic-wars.traits.Item.aB07oPaKHMQ7FDso",
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.24.0"
+      }
+    }
+  ],
   "effects": [],
   "folder": null,
   "sort": 100000,
@@ -71,6 +103,6 @@
     "duplicateSource": null,
     "coreVersion": "14",
     "systemId": "galactic-wars",
-    "systemVersion": "0.23.0"
+    "systemVersion": "0.24.0"
   }
 }

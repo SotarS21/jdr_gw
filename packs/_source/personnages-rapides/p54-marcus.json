@@ -14,7 +14,7 @@
       "nom": "Robot"
     },
     "metier": {
-      "uuid": "",
+      "uuid": "Compendium.galactic-wars.metiers.Item.xatkiZ8gFy1aQlKX",
       "nom": "Journaliste",
       "description": "Interview : pose plein de question qui déstabilise la personne interrogée. Obtient toujours au moins une information supplémentaire."
     },
@@ -54,7 +54,39 @@
     "actorLink": true,
     "disposition": 1
   },
-  "items": [],
+  "items": [
+    {
+      "_key": "!actors.items!wz402iKHJhCoI53C.Ya2GT4ceoYj7RY9z",
+      "_id": "Ya2GT4ceoYj7RY9z",
+      "name": "Interview",
+      "type": "talent",
+      "img": "icons/svg/sound.svg",
+      "system": {
+        "avantage": "Pose plein de questions qui déstabilisent la personne interrogée. Obtient toujours au moins une information supplémentaire.",
+        "inconvenient": "",
+        "fiche": "rapide",
+        "description": "<p>Trait du métier Journaliste. Pose plein de questions qui déstabilisent la personne interrogée. Obtient toujours au moins une information supplémentaire. — variante fiche rapide / PNJ.</p>"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100000,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {
+        "galactic-wars": {
+          "traitMetier": true
+        }
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.galactic-wars.traits.Item.80QGpKksC4HTDAyq",
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.24.0"
+      }
+    }
+  ],
   "effects": [],
   "folder": null,
   "sort": 2600000,
@@ -71,6 +103,6 @@
     "duplicateSource": null,
     "coreVersion": "14",
     "systemId": "galactic-wars",
-    "systemVersion": "0.23.0"
+    "systemVersion": "0.24.0"
   }
 }

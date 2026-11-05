@@ -1,0 +1,27 @@
+{
+  "_key": "!items!aB07oPaKHMQ7FDso",
+  "_id": "aB07oPaKHMQ7FDso",
+  "name": "Sympathique",
+  "type": "talent",
+  "img": "icons/svg/oak.svg",
+  "system": {
+    "avantage": "Il fait tellement pitié que ses coéquipiers ont un bonus de +2 en Mentale et en Stress.",
+    "inconvenient": "",
+    "fiche": "rapide",
+    "description": "<p>Trait du métier Sans emploi. Il fait tellement pitié que ses coéquipiers ont un bonus de +2 en Mentale et en Stress. — variante fiche rapide / PNJ.</p>"
+  },
+  "effects": [],
+  "folder": "hQ0pLTdDjNk7CFye",
+  "sort": 3500000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.24.0"
+  }
+}

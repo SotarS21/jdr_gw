@@ -1,0 +1,35 @@
+{
+  "_key": "!items!5PDZWpLjZgNaAmTY",
+  "_id": "5PDZWpLjZgNaAmTY",
+  "name": "Evocci",
+  "type": "race",
+  "img": "systems/galactic-wars/asset_visuel/Ethnie/ethenie_evocci_front.jpg",
+  "system": {
+    "modificateursCaracteristiques": {
+      "corps": 5,
+      "mental": -5,
+      "dexterite": 0
+    },
+    "modificateursCompetences": {
+      "survie": 10,
+      "escroquerieMensonge": 5,
+      "perception": 5,
+      "social": -10
+    },
+    "armureNaturelle": 0,
+    "description": "<p>Humanoïdes à la tête allongée et à la peau grise, natifs de Nar Shaddaa avant que les Hutts ne s'approprient leur monde. Réduits à la misère dans les bas-fonds de la lune des contrebandiers, ils ont appris à survivre de débrouille.</p><p>Méfiants et mal vus, ils peinent à se faire accepter.</p>"
+  },
+  "folder": null,
+  "sort": 100000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.24.0"
+  }
+}

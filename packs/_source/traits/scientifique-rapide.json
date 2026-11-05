@@ -1,0 +1,27 @@
+{
+  "_key": "!items!iXfeBnhrvtefn16a",
+  "_id": "iXfeBnhrvtefn16a",
+  "name": "Manipulateur",
+  "type": "talent",
+  "img": "icons/svg/acid.svg",
+  "system": {
+    "avantage": "Utilise diverses drogues pour altérer le mental d'une personne. 3 charges par jour.",
+    "inconvenient": "",
+    "fiche": "rapide",
+    "description": "<p>Trait du métier Scientifique. Utilise diverses drogues pour altérer le mental d'une personne. 3 charges par jour. — variante fiche rapide / PNJ.</p>"
+  },
+  "effects": [],
+  "folder": "hQ0pLTdDjNk7CFye",
+  "sort": 3600000,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "coreVersion": "14",
+    "systemId": "galactic-wars",
+    "systemVersion": "0.24.0"
+  }
+}

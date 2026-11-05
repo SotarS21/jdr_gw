@@ -14,7 +14,7 @@
       "nom": "Falleen"
     },
     "metier": {
-      "uuid": "",
+      "uuid": "Compendium.galactic-wars.metiers.Item.qccOfvXtMZATqr9b",
       "nom": "Scientifique",
       "description": "Manipulateur : Utilise diverses drogues pour alterer le mental d'une personne. 3 charges par jour"
     },
@@ -54,7 +54,39 @@
     "actorLink": true,
     "disposition": 1
   },
-  "items": [],
+  "items": [
+    {
+      "_key": "!actors.items!DnV0Z9dhp9Pp3lIG.wPwDOQlVLavRMAL3",
+      "_id": "wPwDOQlVLavRMAL3",
+      "name": "Manipulateur",
+      "type": "talent",
+      "img": "icons/svg/acid.svg",
+      "system": {
+        "avantage": "Utilise diverses drogues pour altérer le mental d'une personne. 3 charges par jour.",
+        "inconvenient": "",
+        "fiche": "rapide",
+        "description": "<p>Trait du métier Scientifique. Utilise diverses drogues pour altérer le mental d'une personne. 3 charges par jour. — variante fiche rapide / PNJ.</p>"
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100000,
+      "ownership": {
+        "default": 0
+      },
+      "flags": {
+        "galactic-wars": {
+          "traitMetier": true
+        }
+      },
+      "_stats": {
+        "compendiumSource": "Compendium.galactic-wars.traits.Item.iXfeBnhrvtefn16a",
+        "duplicateSource": null,
+        "coreVersion": "14",
+        "systemId": "galactic-wars",
+        "systemVersion": "0.24.0"
+      }
+    }
+  ],
   "effects": [],
   "folder": null,
   "sort": 200000,
@@ -71,6 +103,6 @@
     "duplicateSource": null,
     "coreVersion": "14",
     "systemId": "galactic-wars",
-    "systemVersion": "0.23.0"
+    "systemVersion": "0.24.0"
   }
 }

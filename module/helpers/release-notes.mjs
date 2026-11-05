@@ -435,5 +435,13 @@ export const RELEASE_NOTES = {
       <li>Nouveau compendium <strong>Personnages partie rapide</strong> : les 39 personnages des anciens tableurs de partie rapide, avec portrait, race et métier liés aux compendiums, trait du métier, caractéristiques, PV, équipement et biographie. Les notes libres des tableurs (contacts, comptes, vaisseaux, quêtes, autres onglets) sont gardées dans la biographie. Les personnages décédés sont rangés dans leur dossier.</li>
       <li>Fiche rapide et PNJ : nouvelle valeur <strong>Chance</strong> (%), avec son jet en 1d100, à côté de la Survie.</li>
     </ul>`
+  },
+  "0.24.0": {
+    title: "v0.24.0 — Nouvelles races et nouveaux métiers",
+    html: `<ul>
+      <li><strong>5 races</strong> : Besalisk, Evocci, Ewok, Klatooinian, Pantoran (bonus de caractéristiques et de compétences, portrait d'ethnie).</li>
+      <li><strong>10 métiers</strong> : Archéo-archiviste, Artiste acrobate, Cuisinier, Jedi gris, Journaliste, Marchand, Prostituée, Sans emploi, Scientifique, Sénateur, avec compétences accordées, équipement de départ et trait (variantes fiche classique et fiche rapide ; le Jedi gris reprend celui du Padawan).</li>
+      <li>Les personnages de partie rapide concernés sont désormais liés à leur race et à leur métier, avec le trait du métier.</li>
+    </ul>`
   }
 };
