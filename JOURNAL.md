@@ -1,5 +1,49 @@
 # Journal de développement — Galactic Wars
 
+## À faire plus tard (demandé par l'auteur le 2026-11-05)
+
+- **Montée de niveau des fiches rapides** : permettre d'obtenir de **nouvelles compétences liées à des
+  caractéristiques**. Les compétences s'achètent avec des **points d'expérience** à dépenser et s'**ajoutent à la
+  main** ; c'est le **MJ qui fait gagner l'XP**. (Règles de coût, liste des compétences et lien exact avec les
+  8 caractéristiques à préciser avec l'auteur avant de commencer.)
+
+## Session du 2026-11-05 / 06 — Armes jouables par les fiches rapides / PNJ (v0.26.0, branche `feat/fiche-rapide-v2`)
+
+- **Choix de l'auteur** : tir et explosifs en **Cap. Tir**, mêlée en **Cap. Cmbt** ; défense d'une fiche rapide / PNJ
+  en **Dextérité** contre la mêlée, **Aff. Force** contre le tir ; **pas de comparaison de marges entre d20 et %**
+  (défense réussie = l'attaque est évitée ; même échelle = comparaison des marges ; défense ratée = touché).
+- **Fait** : champ `caracteristique` sur l'arme (vide = déduite de la compétence, sélecteur sur la fiche d'arme avec
+  valeur et bouton Attaquer) ; `rollAttaque` en d20 (rapide) ou % plafonné à 100 (PNJ) ; cartes de défense adaptées au
+  défenseur ; carte d'objet « Caractéristique (fiche rapide) » ; fiche rapide acceptée comme tireur d'arme de
+  vaisseau ; fiche sith : attaque refusée proprement. Les **80 armes** du compendium renseignées (41 Cap. Cmbt, 39 Cap.
+  Tir ; le « 104 » du message de commit `c97dea1` est une erreur de comptage).
+- **Tests en direct** (2026-11-06) : déploiement complet (packs reconstruits, 80/80 armes avec `caracteristique`), `../audit/t29-armes-rapides.js` **20/20**, aucune erreur de page.
+
+## Session du 2026-11-05 (suite) — Fiche rapide / PNJ refaite (v0.25.2→v0.26.0, branche `feat/fiche-rapide-v2`)
+
+- **Maquette** (canvas « Fiche rapide Galactic Wars », https://claude.ai/artifact/PA2dw4sqcubdy4X9F8m568) : 3 pistes
+  (A Console, B Dossier, C Carte de jeu) ; **choix de l'auteur** : onglets et cartes Métier / Talent de A,
+  caractéristiques plus petites (pastilles), cartes Chance / Survie de C (version D « Synthèse ») ; puis pas de rappel
+  des crédits dans l'Équipement, **carte vaisseau** et **onglet Notes** de la fiche classique.
+- **Fait** : la fenêtre porte la classe `personnage` (thème de la fiche classique) + `personnage-rapide`
+  (`styles/fiche-rapide.css`, importé en tête de `galactic-wars.css`). En-tête : portrait | type (Partie rapide · d20 /
+  PNJ · d100), bouton Édition, nom, pastilles race / métier (Choisir en Édition), crédits | PV + barre, cartes Chance /
+  Survie (clic = 1d100 ; champs en Édition). Onglets Personnage (8 pastilles colorées par famille, clic = jet ; cartes
+  Métier et Talent ; traits ; protection + couverts), Équipements (grille de la classique + vaisseau pleine largeur +
+  notes d'équipement = ancien texte libre), Biographie (éditeur + identité), Notes. Mode Édition ouvert d'office sur
+  une fiche vierge.
+- **Parties communes extraites** de la fiche classique (aucun changement de rendu) : `helpers/fiche-commune.mjs`
+  (inventaire, vaisseau, notes, recherche, objet actif, suppression confirmée, menu clic droit) et partiels
+  `templates/actor/parts/` (`gwLigneObjet`, `gwPanneauVaisseau`, `gwOngletNotes`, chargés à l'init) ; la fiche classique
+  passe de 1062 à 909 lignes de JS et de 754 à 569 lignes de gabarit.
+- **Modèle rapide / PNJ** : + `vaisseau`, `resumes`, `notes`, `pnjs`, `missions` (mêmes définitions que la classique).
+  Conséquence voulue : les contacts de départ d'un métier vont dans les Notes (PNJ) comme sur la fiche classique.
+- **Recherche des notes** : « œ » / « æ » comparés comme « oe » / « ae » (« soeur » trouve « sœur », aussi sur la
+  classique).
+- **Tests en direct** (`-NoRestart`) : `../audit/t28-fiche-rapide.mjs` **14/14** (onglets, jets d20 et d100, Édition +
+  saisie, arme créée et portée, vaisseau lié, notes + recherche, PNJ en %, Alek non régressé ; captures `t28-*.png`
+  vérifiées), t2 **161/161**, t21 **18/18** (sélecteurs adaptés). Aucune erreur.
+
 ## État au 2026-11-05, soir — fin de session
 
 - **v0.25.2 = dernière release**, tout est fusionné, poussé et publié ; aucune branche de travail. Foundry local : monde

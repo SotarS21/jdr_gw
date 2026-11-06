@@ -9,7 +9,8 @@
     "competence": "blaster",
     "instable": false,
     "prix": "250c",
-    "description": "<p>Pistolet blaster standard, l'arme la plus répandue de la galaxie. Fiable, léger, facile à dissimuler sous une veste.</p>"
+    "description": "<p>Pistolet blaster standard, l'arme la plus répandue de la galaxie. Fiable, léger, facile à dissimuler sous une veste.</p>",
+    "caracteristique": "capTir"
   },
   "folder": null,
   "sort": 100000,

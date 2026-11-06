@@ -10,6 +10,7 @@ import { GeneriqueData } from "./data/page-generique.mjs";
 import { PageGeneriqueSheet } from "./sheets/page-generique-sheet.mjs";
 import { enregistrerSocketGenerique } from "./apps/generique.mjs";
 import { enregistrerRequeteEquipage } from "./helpers/equipage.mjs";
+import { PARTIELS_FICHE } from "./helpers/fiche-commune.mjs";
 import { GalacticWarsActorDirectory } from "./apps/actor-directory.mjs";
 import { RaceData } from "./data/item-race.mjs";
 import { MetierData } from "./data/item-metier.mjs";
@@ -43,6 +44,8 @@ enregistrerHooksComlink();
 
 Hooks.once("init", () => {
   console.log("Galactic Wars | Initialisation du système");
+  // Partiels communs aux fiches classique et rapide / PNJ (inventaire, vaisseau, notes).
+  foundry.applications.handlebars.loadTemplates(PARTIELS_FICHE);
 
   game.galacticWars = {
     config: GW,

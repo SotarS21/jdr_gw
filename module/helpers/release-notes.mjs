@@ -464,5 +464,17 @@ export const RELEASE_NOTES = {
       <li>Nouveau talent <strong>Tricheur</strong> : trois fois par jour, permet de relancer un dé, quel que soit le résultat.</li>
       <li>Nouveau talent <strong>Rancunier</strong> : chaque fois qu'il est frappé, +1 aux dégâts, cumulable selon le nombre de coups reçus.</li>
     </ul>`
+  },
+  "0.26.0": {
+    title: "v0.26.0 — Fiche rapide refaite",
+    html: `<ul>
+      <li><strong>Fiche rapide et fiche PNJ</strong> refaites dans le style de la fiche classique : onglets Personnage, Équipements, Biographie et Notes, et mode Édition (cadenas) pour modifier les valeurs.</li>
+      <li>Caractéristiques en pastilles compactes, colorées par famille : un clic lance le dé. Chance et Survie en cartes sous les PV, un clic lance 1d100.</li>
+      <li>Cartes Métier et Talent, traits, protection et couverts dans l'onglet Personnage.</li>
+      <li>Onglet Équipements comme sur la fiche classique : armes, armures, équipement (porté / rangé, clic droit), <strong>vaisseau</strong> (déposer un vaisseau du monde sur la fiche) et notes d'équipement.</li>
+      <li>Onglet <strong>Notes</strong> de la fiche classique : résumés, infos, PNJ (déposer un acteur sur la fiche) et missions.</li>
+      <li><strong>Armes et fiches rapides / PNJ</strong> : chaque arme indique la caractéristique jouée (Cap. Tir pour le tir et les explosifs, Cap. Cmbt pour la mêlée ; les 80 armes du compendium et celles des vaisseaux sont renseignées, une arme sans valeur la déduit de sa compétence). Une fiche rapide (d20) ou un PNJ (%) peut attaquer, et tirer avec une arme de vaisseau en Cap. Tir.</li>
+      <li><strong>Défense</strong> d'une fiche rapide / d'un PNJ : esquive en Dextérité contre la mêlée, Aff. Force contre le tir. Entre un jet en d20 et un jet en %, une défense réussie annule l'attaque.</li>
+    </ul>`
   }
 };

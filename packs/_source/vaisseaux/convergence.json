@@ -121,7 +121,8 @@
         "degats": "50",
         "competence": "canonLourd",
         "instable": false,
-        "portee": ""
+        "portee": "",
+        "caracteristique": "capTir"
       },
       "effects": [],
       "flags": {

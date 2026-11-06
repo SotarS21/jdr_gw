@@ -1,5 +1,5 @@
 import { GW } from "../config.mjs";
-import { rollCompetence } from "../helpers/rolls.mjs";
+import { rollAttaque } from "../helpers/rolls.mjs";
 import { proposerDefense } from "../helpers/combat.mjs";
 import { tireurSelectionne } from "../helpers/armement-vaisseau.mjs";
 import { animerAttaque } from "../helpers/animations.mjs";
@@ -72,6 +72,15 @@ export class GalacticWarsItem extends Item {
   /** Arme montée sur un vaisseau (toujours utilisable, tir au taux du token sélectionné). */
   get estArmeDeVaisseau() {
     return this.type === "arme" && this.actor?.type === "vaisseau";
+  }
+
+  /**
+   * Caractéristique jouée par une fiche rapide / un PNJ avec cette arme (v0.26.0) : celle choisie sur l'arme, sinon
+   * déduite de sa compétence (GW.caracteristiqueRapideParCompetence), sinon "".
+   */
+  get caracteristiqueArme() {
+    if (this.type !== "arme") return "";
+    return this.system.caracteristique || GW.caracteristiqueRapideParCompetence[this.system.competence] || "";
   }
 
   /** Armure d'emplacement bouclier (cumulable avec les autres armures). */
@@ -183,8 +192,21 @@ export class GalacticWarsItem extends Item {
     };
     if (this.type === "arme") {
       ajouter("GALACTICWARS.Objet.Degats", system.degats, true);
+      const porteurRapide = ["personnage-rapide", "pnj"].includes(this.actor?.type);
+      const cle = this.caracteristiqueArme;
+      if (porteurRapide || (!this.actor && cle)) {
+        const libelle = cle ? game.i18n.localize(GW.caracteristiquesRapides[cle] ?? cle) : "";
+        const pnj = this.actor?.type === "pnj";
+        let valeur = porteurRapide && cle ? this.actor.system.caracteristiquesTotales?.[cle] : undefined;
+        if (pnj && valeur !== undefined) valeur = `${Math.min(100, valeur)} %`; // plafond du jet en %, comme rollAttaque
+        ajouter("GALACTICWARS.Objet.CaracteristiqueRapide", !cle
+          ? game.i18n.localize("GALACTICWARS.Objet.AucuneCaracteristique")
+          : valeur !== undefined ? `${libelle} (${valeur})` : libelle);
+      }
       const competence = system.competence ? GW.competences[system.competence] : null;
-      if (competence) {
+      if (porteurRapide) {
+        // La compétence classique ne joue pas sur une fiche rapide / un PNJ : seule la caractéristique est montrée.
+      } else if (competence) {
         // Taux du porteur, si l'objet est sur un personnage classique (system.competences préparé) ; arme de
         // vaisseau : taux du token sélectionné au moment du tir.
         const total = this.actor?.system.competences?.find?.((c) => c.cle === system.competence)?.total;
@@ -230,8 +252,14 @@ export class GalacticWarsItem extends Item {
       ui.notifications.warn(game.i18n.format("GALACTICWARS.Objet.NonPorte", { nom: this.name }));
       return null;
     }
-    if (!this.system.competence) {
+    // Fiche classique : compétence liée ; fiche rapide / PNJ : caractéristique (rollAttaque refuse les autres fiches).
+    const ficheRapide = ["personnage-rapide", "pnj"].includes(actor.type);
+    if (!ficheRapide && !this.system.competence) {
       ui.notifications.warn(game.i18n.format("GALACTICWARS.Objet.SansCompetence", { nom: this.name }));
+      return null;
+    }
+    if (ficheRapide && !this.caracteristiqueArme) {
+      ui.notifications.warn(game.i18n.format("GALACTICWARS.Objet.SansCaracteristique", { nom: this.name }));
       return null;
     }
     // Garde contre un double déclenchement (double-clic) avant la fin du premier jet.
@@ -239,7 +267,7 @@ export class GalacticWarsItem extends Item {
     this._attaqueEnCours = true;
     try {
       const titre = this.estArmeDeVaisseau ? `${this.name} — ${this.actor.name}` : this.name;
-      const resultat = await rollCompetence(actor, this.system.competence, { titre });
+      const resultat = await rollAttaque(actor, { competence: this.system.competence, caracteristique: this.caracteristiqueArme, titre });
       // Animation (Sequencer / JB2A, ou Automated Animations) : depuis le token du vaisseau pour une arme de vaisseau.
       if (resultat) {
         const tireur = (this.estArmeDeVaisseau ? this.actor : actor).getActiveTokens?.()[0] ?? null;

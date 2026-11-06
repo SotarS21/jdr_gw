@@ -1,118 +1,241 @@
-{{!-- <div>, pas <form> : DocumentSheetV2 rend déjà this.element comme un <form>
-      (classes déjà appliquées) — un <form> imbriqué casserait FormDataExtended.
-      Un seul élément racine reste requis (PARTS). --}}
-<div class="galactic-wars-body">
-  <header class="sheet-header">
-    <img class="portrait" src="{{system.portrait}}" data-action="editImage" alt="{{actor.name}}">
+{{!-- Fiche « partie rapide » et PNJ (v0.26.0, maquette validée par l'auteur) — thème de la fiche classique
+      (classe `personnage` sur la fenêtre). <div>, pas <form> : DocumentSheetV2 rend déjà this.element comme un
+      <form> ; un <form> imbriqué casserait FormDataExtended. Un seul élément racine reste requis (PARTS). --}}
+<div class="galactic-wars-body rapide">
+  <header class="sheet-header rapide-entete">
+    <div class="portrait-frame">
+      <img class="portrait" src="{{system.portrait}}" data-action="editImage" alt="{{actor.name}}">
+    </div>
+
     <div class="header-fields">
-      <input type="text" name="name" value="{{actor.name}}" placeholder="{{localize 'GALACTICWARS.Sheet.Nom'}}">
-      <label>{{localize 'GALACTICWARS.Sheet.Prenom'}} <input type="text" name="system.infos.prenom" value="{{system.infos.prenom}}"></label>
-      <div class="race-metier-row">
-        <span>{{localize 'GALACTICWARS.Sheet.Race'}} : {{system.race.nom}}</span>
-        <button type="button" data-action="applyRace">{{localize 'GALACTICWARS.Sheet.Choisir'}}</button>
-        <span>{{localize 'GALACTICWARS.Sheet.Metier'}} : {{system.metier.nom}}</span>
-        <button type="button" data-action="applyMetier">{{localize 'GALACTICWARS.Sheet.Choisir'}}</button>
+      <div class="rapide-ligne-haute">
+        <span class="eyebrow rapide-type">{{#if estPnj}}{{localize 'GALACTICWARS.Rapide.TypePnj'}}{{else}}{{localize 'GALACTICWARS.Rapide.TypeRapide'}}{{/if}}</span>
+        {{#if editable}}
+        <button type="button" class="btn btn-edition {{#if modeEdition}}active{{/if}}" data-action="basculerEdition"
+                data-tooltip="{{localize 'GALACTICWARS.Rapide.ModeEditionHint'}}" aria-pressed="{{#if modeEdition}}true{{else}}false{{/if}}">
+          <i class="fa-solid {{#if modeEdition}}fa-lock-open{{else}}fa-lock{{/if}}"></i> {{localize 'GALACTICWARS.Sheet.ModeEdition'}}
+        </button>
+        {{/if}}
       </div>
-      {{#if system.metier.description}}
-      <p class="metier-description">{{system.metier.description}}</p>
+      <input type="text" class="nom-input" name="name" value="{{actor.name}}" placeholder="{{localize 'GALACTICWARS.Sheet.Nom'}}">
+      <div class="rapide-pastilles">
+        <span class="rapide-pastille" data-tooltip="{{localize 'GALACTICWARS.Sheet.Race'}}">{{#if system.race.nom}}{{system.race.nom}}{{else}}{{localize 'GALACTICWARS.Sheet.Race'}} —{{/if}}</span>
+        {{#if modeEdition}}<button type="button" class="btn" data-action="applyRace">{{localize 'GALACTICWARS.Sheet.Choisir'}}</button>{{/if}}
+        <span class="rapide-pastille metier" data-tooltip="{{localize 'GALACTICWARS.Sheet.Metier'}}">{{#if system.metier.nom}}{{system.metier.nom}}{{else}}{{localize 'GALACTICWARS.Sheet.Metier'}} —{{/if}}</span>
+        {{#if modeEdition}}<button type="button" class="btn" data-action="applyMetier">{{localize 'GALACTICWARS.Sheet.Choisir'}}</button>{{/if}}
+      </div>
+      <label class="rapide-credits">
+        <span class="eyebrow">{{localize 'GALACTICWARS.Sheet.Credits'}}</span>
+        <input type="number" class="mono" name="system.credits" value="{{system.credits}}" min="0">
+      </label>
+    </div>
+
+    <div class="rapide-vitaux">
+      <div class="stat-card stat-pv">
+        <span class="eyebrow">{{localize 'GALACTICWARS.Sheet.PV'}}
+          {{#if (eq system.pv.value 0)}}<span class="etat-inconscient"><i class="fa-solid fa-bed"></i> {{localize 'GALACTICWARS.Inconscient.Etat'}}</span>{{/if}}
+        </span>
+        <div class="stat-value">
+          <input type="number" class="mono" name="system.pv.value" value="{{system.pv.value}}" min="0" aria-label="{{localize 'GALACTICWARS.Inconscient.Actuels'}}">
+          <span class="sep">/</span>
+          {{#if modeEdition}}
+          <input type="number" class="mono max" name="system.pv.max" value="{{system.pv.max}}" min="0" aria-label="{{localize 'GALACTICWARS.Inconscient.Max'}}">
+          {{else}}
+          <span class="mono max">{{system.pv.max}}</span>
+          {{/if}}
+        </div>
+        <div class="barre-pv {{barrePV.etat}}" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{barrePV.pourcentage}}"
+             data-tooltip="{{barrePV.pourcentage}} %">
+          <span class="remplissage" style="width: {{barrePV.pourcentage}}%"></span>
+        </div>
+      </div>
+
+      {{#if modeEdition}}
+      <div class="rapide-pct edition">
+        <span>{{localize 'GALACTICWARS.Sheet.Chance'}}</span>
+        <input type="number" class="mono" name="system.chance" value="{{system.chance}}" min="0" aria-label="{{localize 'GALACTICWARS.Sheet.Chance'}}">
+      </div>
+      <div class="rapide-pct edition">
+        <span>{{localize 'GALACTICWARS.Sheet.Survie'}}</span>
+        <input type="number" class="mono" name="system.survie.base" value="{{system.survie.base}}" data-tooltip="{{localize 'GALACTICWARS.Sheet.Base'}}" aria-label="{{localize 'GALACTICWARS.Sheet.Survie'}} — {{localize 'GALACTICWARS.Sheet.Base'}}">
+        <input type="number" class="mono" name="system.survie.racial" value="{{system.survie.racial}}" data-tooltip="{{localize 'GALACTICWARS.Sheet.Racial'}}" aria-label="{{localize 'GALACTICWARS.Sheet.Survie'}} — {{localize 'GALACTICWARS.Sheet.Racial'}}">
+      </div>
+      {{else}}
+      <button type="button" class="rapide-pct chance" data-action="rollChance" data-tooltip="{{localize 'GALACTICWARS.Rapide.JetPourcentage'}}">
+        <span>{{localize 'GALACTICWARS.Sheet.Chance'}}</span><span class="mono valeur">{{system.chance}} %</span>
+      </button>
+      <button type="button" class="rapide-pct survie" data-action="rollSurvie" data-tooltip="{{localize 'GALACTICWARS.Rapide.JetPourcentage'}}">
+        <span>{{localize 'GALACTICWARS.Sheet.Survie'}}</span><span class="mono valeur">{{system.survie.total}} %</span>
+      </button>
       {{/if}}
     </div>
   </header>
 
+  <nav class="onglets">
+    <button type="button" class="onglet-btn {{#if (eq ongletActif 'personnage')}}active{{/if}}" data-action="changerOnglet" data-onglet="personnage">{{localize 'GALACTICWARS.Sheet.OngletPersonnage'}}</button>
+    <button type="button" class="onglet-btn {{#if (eq ongletActif 'equipements')}}active{{/if}}" data-action="changerOnglet" data-onglet="equipements">{{localize 'GALACTICWARS.Sheet.OngletEquipements'}}</button>
+    <button type="button" class="onglet-btn {{#if (eq ongletActif 'biographie')}}active{{/if}}" data-action="changerOnglet" data-onglet="biographie">{{localize 'GALACTICWARS.Sheet.Biographie'}}</button>
+    <button type="button" class="onglet-btn {{#if (eq ongletActif 'notes')}}active{{/if}}" data-action="changerOnglet" data-onglet="notes">{{localize 'GALACTICWARS.Sheet.OngletNotes'}}</button>
+  </nav>
+
   <div class="sheet-body">
-  <section class="pv-rapide">
-    <h2>{{localize 'GALACTICWARS.Sheet.PV'}}</h2>
-    <label>{{localize 'GALACTICWARS.Inconscient.Actuels'}} <input type="number" name="system.pv.value" value="{{system.pv.value}}" min="0"></label>
-    <label>{{localize 'GALACTICWARS.Inconscient.Max'}} <input type="number" name="system.pv.max" value="{{system.pv.max}}" min="0"></label>
-    {{#if (eq system.pv.value 0)}}<span class="etat-inconscient"><i class="fa-solid fa-bed"></i> {{localize 'GALACTICWARS.Inconscient.Etat'}}</span>{{/if}}
-  </section>
 
-  <section class="talent">
-    <h2>{{localize 'GALACTICWARS.Sheet.Talent'}}</h2>
-    <label>{{localize 'GALACTICWARS.Sheet.Nom'}} <input type="text" name="system.talent.nom" value="{{system.talent.nom}}"></label>
-    <textarea name="system.talent.description" placeholder="{{localize 'GALACTICWARS.Sheet.TalentDescriptionPlaceholder'}}">{{system.talent.description}}</textarea>
-  </section>
-
-  <section class="caracteristiques-rapides">
-    <h2>{{localize 'GALACTICWARS.Sheet.Caracteristiques'}}
-      {{#unless estPnj}}({{system.totalCaracteristiques}} / {{limites.totalMax}}{{#if system.depasseLimiteTotale}} ⚠{{/if}}){{/unless}}
-    </h2>
-    {{#unless estPnj}}
-    <p class="hint">{{localize 'GALACTICWARS.Sheet.LimitePlafondHint'}}{{#if system.depasseLimitePlafond}} ⚠{{/if}}</p>
-    {{/unless}}
-    <ul class="caracteristiques-rapides-list">
+  {{#if (eq ongletActif 'personnage')}}
+  <section class="rapide-caracteristiques">
+    <div class="section-header">
+      <h2 class="eyebrow">{{localize 'GALACTICWARS.Sheet.Caracteristiques'}}</h2>
+      {{#if estPnj}}
+      <span class="mono rapide-total">{{localize 'GALACTICWARS.Rapide.JetPnj'}}</span>
+      {{else}}
+      <span class="mono rapide-total {{#if (or system.depasseLimiteTotale system.depasseLimitePlafond)}}alerte{{/if}}"
+            data-tooltip="{{localize 'GALACTICWARS.Sheet.LimitePlafondHint'}}">
+        {{system.totalCaracteristiques}} / {{limites.totalMax}}{{#if (or system.depasseLimiteTotale system.depasseLimitePlafond)}} ⚠{{/if}} · {{localize 'GALACTICWARS.Rapide.JetD20'}}
+      </span>
+      {{/if}}
+    </div>
+    <div class="rapide-caracs">
       {{#each caracteristiques as |car|}}
-      <li>
-        <button type="button" data-action="rollCaracteristique" data-cle="{{car.cle}}">🎲</button>
-        <label>{{localize car.label}}</label>
-        <input type="number" name="system.caracteristiques.{{car.cle}}" value="{{car.valeur}}">
-        {{#if car.bonus}}<span class="bonus-effet mono{{#if (lt car.bonus 0)}} malus{{/if}}" data-tooltip="{{localize 'GALACTICWARS.Effets.BonusCaracteristique' total=car.total}}<br>{{car.sources}}">{{#if (gt car.bonus 0)}}+{{/if}}{{car.bonus}}</span>{{/if}}
-      </li>
+      {{#if @root.modeEdition}}
+      <label class="rapide-carac famille-{{car.famille}} edition">
+        <span class="libelle">{{localize car.label}}</span>
+        <input type="number" class="mono" name="system.caracteristiques.{{car.cle}}" value="{{car.valeur}}">
+      </label>
+      {{else}}
+      <button type="button" class="rapide-carac famille-{{car.famille}}" data-action="rollCaracteristique" data-cle="{{car.cle}}"
+              data-tooltip="{{#if @root.estPnj}}1d100{{else}}1d20{{/if}} ≤ {{car.total}}">
+        <span class="libelle">{{localize car.label}}</span>
+        <span class="valeur mono">{{car.total}}{{#if @root.estPnj}}<small>%</small>{{/if}}
+          {{#if car.bonus}}<span class="pastille-effet{{#if (lt car.bonus 0)}} malus{{/if}}" data-tooltip="{{localize 'GALACTICWARS.Effets.BonusCaracteristique' total=car.total}}<br>{{car.sources}}">{{#if (gt car.bonus 0)}}+{{/if}}{{car.bonus}}</span>{{/if}}
+        </span>
+      </button>
+      {{/if}}
       {{/each}}
-    </ul>
+    </div>
   </section>
 
-  <section class="survie">
-    <h2>{{localize 'GALACTICWARS.Sheet.Survie'}}
-      <button type="button" data-action="rollSurvie">🎲</button>
-    </h2>
-    <label>{{localize 'GALACTICWARS.Sheet.Base'}} <input type="number" name="system.survie.base" value="{{system.survie.base}}"></label>
-    <label>{{localize 'GALACTICWARS.Sheet.Racial'}} <input type="number" name="system.survie.racial" value="{{system.survie.racial}}"></label>
-    <span class="total">{{system.survie.total}}%</span>
-  </section>
+  <div class="rapide-cartes">
+    <section class="rapide-carte metier">
+      <span class="eyebrow">{{localize 'GALACTICWARS.Sheet.Metier'}}{{#if system.metier.nom}} · {{system.metier.nom}}{{/if}}</span>
+      {{#if modeEdition}}
+      <textarea name="system.metier.description" rows="3" placeholder="{{localize 'GALACTICWARS.Rapide.MetierPlaceholder'}}">{{system.metier.description}}</textarea>
+      {{else if system.metier.description}}
+      <p>{{system.metier.description}}</p>
+      {{else}}
+      <p class="hint">{{localize 'GALACTICWARS.Rapide.AucunMetier'}}</p>
+      {{/if}}
+    </section>
+    <section class="rapide-carte talent">
+      <span class="eyebrow">{{localize 'GALACTICWARS.Sheet.Talent'}}</span>
+      {{#if modeEdition}}
+      <input type="text" name="system.talent.nom" value="{{system.talent.nom}}" placeholder="{{localize 'GALACTICWARS.Sheet.Nom'}}">
+      <textarea name="system.talent.description" rows="3" placeholder="{{localize 'GALACTICWARS.Sheet.TalentDescriptionPlaceholder'}}">{{system.talent.description}}</textarea>
+      {{else}}
+      {{#if system.talent.nom}}<span class="rapide-carte-titre">{{system.talent.nom}}</span>{{/if}}
+      {{#if system.talent.description}}<p>{{system.talent.description}}</p>{{/if}}
+      {{#unless (or system.talent.nom system.talent.description)}}<p class="hint">{{localize 'GALACTICWARS.Rapide.AucunTalent'}}</p>{{/unless}}
+      {{/if}}
+    </section>
+  </div>
 
-  <section class="survie chance">
-    <h2>{{localize 'GALACTICWARS.Sheet.Chance'}}
-      <button type="button" data-action="rollChance">🎲</button>
-    </h2>
-    <label>{{localize 'GALACTICWARS.Sheet.Chance'}} <input type="number" name="system.chance" value="{{system.chance}}" min="0"></label>
-    <span class="total">{{system.chance}}%</span>
-    <label>{{localize 'GALACTICWARS.Sheet.Credits'}} <input type="number" name="system.credits" value="{{system.credits}}" min="0"></label>
-  </section>
-
-  <section class="traits-rapides">
-    <h2>{{localize 'GALACTICWARS.Traits.Titre'}}
-      {{#if editable}}<button type="button" data-action="ajouterTrait" data-tooltip="{{localize 'GALACTICWARS.Traits.Ajouter'}}" aria-label="{{localize 'GALACTICWARS.Traits.Ajouter'}}">+</button>{{/if}}
-    </h2>
+  {{#if (or traits.length modeEdition)}}
+  <section class="rapide-traits">
+    <div class="section-header">
+      <h2 class="eyebrow">{{localize 'GALACTICWARS.Traits.Titre'}}</h2>
+      {{#if (and editable modeEdition)}}<button type="button" class="roll-btn" data-action="ajouterTrait" data-tooltip="{{localize 'GALACTICWARS.Traits.Ajouter'}}" aria-label="{{localize 'GALACTICWARS.Traits.Ajouter'}}">+</button>{{/if}}
+    </div>
     {{#each traits as |trait|}}
-    <div class="trait-rapide" data-item-id="{{trait.id}}">
-      <a class="trait-nom" data-action="ouvrirTrait"><img src="{{trait.img}}" alt=""> {{trait.name}}</a>
-      {{#if trait.activable}}<button type="button" class="trait-actif-btn{{#if trait.enCours}} actif{{/if}}" data-action="basculerTraitActif" {{#unless @root.editable}}disabled{{/unless}} data-tooltip="{{#if trait.enCours}}{{localize 'GALACTICWARS.Traits.Desactiver'}}{{else}}{{localize 'GALACTICWARS.Traits.Activer'}}{{/if}}" aria-pressed="{{#if trait.enCours}}true{{else}}false{{/if}}"><i class="fa-solid fa-power-off"></i> {{#if trait.enCours}}{{localize 'GALACTICWARS.Traits.EnCours'}}{{else}}{{localize 'GALACTICWARS.Traits.Actif'}}{{/if}}</button>{{/if}}
-      {{#if trait.autreFiche}}<span class="hint" data-tooltip="{{localize 'GALACTICWARS.Traits.AutreFiche'}}"><i class="fa-solid fa-triangle-exclamation"></i> {{localize 'GALACTICWARS.Traits.Fiche.Classique'}}</span>
-      {{else if trait.effets}}<span class="trait-effets mono">{{trait.effets}}</span>{{else if trait.effetsPossibles}}<span class="trait-effets mono">{{#if trait.effetsPossibles}}<span class="trait-effets-possibles">{{trait.effetsPossibles}}</span>{{/if}}</span>{{/if}}
-      {{#if @root.editable}}<button type="button" class="del-btn" data-action="supprimerTrait" data-tooltip="{{localize 'GALACTICWARS.Traits.Retirer'}}" aria-label="{{localize 'GALACTICWARS.Traits.Retirer'}}">🗑</button>{{/if}}
+    <div class="rapide-trait" data-item-id="{{trait.id}}">
+      <div class="rapide-trait-entete">
+        <button type="button" class="trait-nom" data-action="ouvrirTrait"><img src="{{trait.img}}" alt=""> {{trait.name}}</button>
+        {{#if trait.autreFiche}}<span class="hint" data-tooltip="{{localize 'GALACTICWARS.Traits.AutreFiche'}}"><i class="fa-solid fa-triangle-exclamation"></i> {{localize 'GALACTICWARS.Traits.Fiche.Classique'}}</span>
+        {{else if trait.effets}}<span class="trait-effets mono">{{trait.effets}}</span>{{else if trait.effetsPossibles}}<span class="trait-effets mono trait-effets-possibles">{{trait.effetsPossibles}}</span>{{/if}}
+        {{#if trait.activable}}<button type="button" class="trait-actif-btn{{#if trait.enCours}} actif{{/if}}" data-action="basculerTraitActif" {{#unless @root.editable}}disabled{{/unless}} data-tooltip="{{#if trait.enCours}}{{localize 'GALACTICWARS.Traits.Desactiver'}}{{else}}{{localize 'GALACTICWARS.Traits.Activer'}}{{/if}}" aria-pressed="{{#if trait.enCours}}true{{else}}false{{/if}}"><i class="fa-solid fa-power-off"></i> {{#if trait.enCours}}{{localize 'GALACTICWARS.Traits.EnCours'}}{{else}}{{localize 'GALACTICWARS.Traits.Actif'}}{{/if}}</button>{{/if}}
+        {{#if (and @root.editable @root.modeEdition)}}<button type="button" class="del-btn" data-action="supprimerTrait" data-tooltip="{{localize 'GALACTICWARS.Traits.Retirer'}}" aria-label="{{localize 'GALACTICWARS.Traits.Retirer'}}">🗑</button>{{/if}}
+      </div>
       {{#if trait.system.avantage}}<p class="trait-detail">{{trait.system.avantage}}{{#if trait.system.inconvenient}} — {{trait.system.inconvenient}}{{/if}}</p>{{/if}}
     </div>
     {{else}}
     <p class="hint">{{localize 'GALACTICWARS.Traits.Aucun'}}</p>
     {{/each}}
-    <p class="reduction-rapide"><i class="fa-solid fa-shield-halved"></i> {{localize 'GALACTICWARS.Combat.Protection'}} : <span class="mono">{{reduction.total}}</span></p>
+  </section>
+  {{/if}}
+
+  <section class="rapide-protection">
+    <span class="rapide-armure" data-tooltip="{{localize 'GALACTICWARS.Combat.ReductionHint'}}"><i class="fa-solid fa-shield-halved"></i> {{localize 'GALACTICWARS.Combat.Protection'}} <span class="mono">{{reduction.total}}</span></span>
     <div class="gw-couverts">
-          <span class="gw-couverts-titre"><i class="fa-solid fa-person-shelter"></i> {{localize 'GALACTICWARS.Couvert.Titre'}}{{#if reduction.temporaire}} <span class="mono">+{{reduction.temporaire}}</span>{{/if}}</span>
-          {{#each couverts as |c|}}<button type="button" class="gw-couvert{{#if c.actif}} actif{{/if}}" data-action="basculerCouvert" data-couvert="{{c.cle}}" aria-pressed="{{#if c.actif}}true{{else}}false{{/if}}" data-tooltip="{{localize 'GALACTICWARS.Couvert.Hint' armure=c.armure}}"{{#unless @root.editable}} disabled{{/unless}}>{{localize c.label}} <span class="mono">+{{c.armure}}</span></button>{{/each}}
-        </div>
+      {{#each couverts as |c|}}<button type="button" class="gw-couvert{{#if c.actif}} actif{{/if}}" data-action="basculerCouvert" data-couvert="{{c.cle}}" aria-pressed="{{#if c.actif}}true{{else}}false{{/if}}" data-tooltip="{{localize 'GALACTICWARS.Couvert.Hint' armure=c.armure}}"{{#unless @root.editable}} disabled{{/unless}}>{{localize c.label}} <span class="mono">+{{c.armure}}</span></button>{{/each}}
+    </div>
+  </section>
+  {{/if}}
+
+  {{#if (eq ongletActif 'equipements')}}
+  <section class="inventaire-grid">
+    <div class="panel panel-armes">
+      <div class="section-header">
+        <h2 class="eyebrow">{{localize 'GALACTICWARS.Sheet.Armes'}}</h2>
+        {{#if editable}}<button type="button" class="roll-btn" data-action="createItem" data-type="arme" aria-label="{{localize 'GALACTICWARS.Item.NouvelObjet'}}">+</button>{{/if}}
+      </div>
+      <div class="objet-liste">
+        {{#each armes as |arme|}}{{> gwLigneObjet ligne=arme}}{{else}}<p class="inventaire-vide">{{localize 'GALACTICWARS.Objet.ListeVide'}}</p>{{/each}}
+      </div>
+    </div>
+
+    <div class="panel panel-armures">
+      <div class="section-header">
+        <h2 class="eyebrow">{{localize 'GALACTICWARS.Objet.ArmuresBoucliers'}}</h2>
+        <span class="reduction-totale mono" data-tooltip="{{localize 'GALACTICWARS.Objet.ReductionTotale'}}">
+          <i class="fa-solid fa-shield-halved"></i> {{reductionTotale}}
+        </span>
+        {{#if editable}}<button type="button" class="roll-btn" data-action="createItem" data-type="armure" aria-label="{{localize 'GALACTICWARS.Item.NouvelObjet'}}">+</button>{{/if}}
+      </div>
+      <div class="objet-liste">
+        {{#each armures as |armure|}}{{> gwLigneObjet ligne=armure}}{{else}}<p class="inventaire-vide">{{localize 'GALACTICWARS.Objet.ListeVide'}}</p>{{/each}}
+      </div>
+    </div>
+
+    <div class="panel panel-equipement">
+      <div class="section-header">
+        <h2 class="eyebrow">{{localize 'GALACTICWARS.Sheet.Equipement'}}</h2>
+        {{#if editable}}<button type="button" class="roll-btn" data-action="createItem" data-type="equipement" aria-label="{{localize 'GALACTICWARS.Item.NouvelObjet'}}">+</button>{{/if}}
+      </div>
+      <div class="objet-liste">
+        {{#each equipements as |objet|}}{{> gwLigneObjet ligne=objet}}{{else}}<p class="inventaire-vide">{{localize 'GALACTICWARS.Objet.ListeVide'}}</p>{{/each}}
+      </div>
+    </div>
+
+    {{> gwPanneauVaisseau}}
   </section>
 
-  <section class="equipement">
-    <h2>{{localize 'GALACTICWARS.Sheet.Equipement'}}</h2>
-    {{#if objets.length}}
-    <ul class="objets-possedes">
-      {{#each objets as |o|}}
-      <li class="trait-rapide objet-possede" data-item-id="{{o.id}}">
-        <button type="button" class="trait-nom" data-action="afficherObjet" data-tooltip="{{localize 'GALACTICWARS.Objet.EnvoyerTchat'}}"><img src="{{o.img}}" alt=""> {{o.nom}}</button>
-        {{#if (gt o.quantite 1)}}<span class="mono">×{{o.quantite}}</span>{{/if}}
-        <button type="button" class="objet-ouvrir" data-action="ouvrirObjet" data-tooltip="{{localize 'GALACTICWARS.Objet.Ouvrir'}}" aria-label="{{localize 'GALACTICWARS.Objet.Ouvrir'}}"><i class="fa-solid fa-up-right-from-square"></i></button>
-        {{#if @root.editable}}<button type="button" class="del-btn" data-action="supprimerObjet" data-tooltip="{{localize 'GALACTICWARS.Objet.SupprimerObjet'}}" aria-label="{{localize 'GALACTICWARS.Objet.SupprimerObjet'}}">🗑</button>{{/if}}
-      </li>
-      {{/each}}
-    </ul>
+  {{#if (or system.equipement modeEdition)}}
+  <section class="rapide-notes-equipement">
+    <h2 class="eyebrow">{{localize 'GALACTICWARS.Rapide.NotesEquipement'}}</h2>
+    {{#if modeEdition}}
+    <textarea name="system.equipement" rows="5">{{system.equipement}}</textarea>
+    {{else}}
+    <p class="texte-libre">{{system.equipement}}</p>
     {{/if}}
-    <textarea name="system.equipement">{{system.equipement}}</textarea>
   </section>
+  {{/if}}
+  {{/if}}
 
-  <section class="description">
-    <h2>{{localize 'GALACTICWARS.Sheet.Biographie'}}</h2>
-    <prose-mirror name="system.description" value="{{system.description}}">{{{descriptionEnrichie}}}</prose-mirror>
-  </section>
+  {{#if (eq ongletActif 'biographie')}}
+  <div class="rapide-bio">
+    <section class="rapide-histoire">
+      <h2 class="eyebrow">{{localize 'GALACTICWARS.Sheet.Biographie'}}</h2>
+      <prose-mirror name="system.description" value="{{system.description}}">{{{descriptionEnrichie}}}</prose-mirror>
+    </section>
+    <section class="rapide-identite">
+      <h2 class="eyebrow">{{localize 'GALACTICWARS.Rapide.Identite'}}</h2>
+      <label><span>{{localize 'GALACTICWARS.Sheet.Prenom'}}</span><input type="text" name="system.infos.prenom" value="{{system.infos.prenom}}"></label>
+      <label><span>{{localize 'GALACTICWARS.Sheet.Nom'}}</span><input type="text" name="system.infos.nom" value="{{system.infos.nom}}"></label>
+      <p><span>{{localize 'GALACTICWARS.Sheet.Race'}}</span> {{system.race.nom}}</p>
+      <p><span>{{localize 'GALACTICWARS.Sheet.Metier'}}</span> {{system.metier.nom}}</p>
+    </section>
+  </div>
+  {{/if}}
+
+  {{#if (eq ongletActif 'notes')}}
+  {{> gwOngletNotes}}
+  {{/if}}
   </div>
 </div>

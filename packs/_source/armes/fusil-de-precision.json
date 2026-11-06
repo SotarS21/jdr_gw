@@ -9,7 +9,8 @@
     "competence": "blaster",
     "instable": false,
     "description": "<p>Fusil à lunette de longue portée, conçu pour neutraliser une cible avant même qu'elle ne sache d'où vient le tir.</p>",
-    "prix": "1200c"
+    "prix": "1200c",
+    "caracteristique": "capTir"
   },
   "folder": null,
   "sort": 100000,

@@ -4,9 +4,9 @@ import { applyRace } from "../helpers/race.mjs";
 import { applyMetier, choisirMetier } from "../helpers/metier.mjs";
 import { choisirItemCompendium } from "../helpers/compendium-picker.mjs";
 import { editerEntreeNote, supprimerEntreeNote, pnjDepuisActeur, ajouterEntreeNote, montrerEntreeNote, entreeDepuisGlisser } from "../helpers/notes.mjs";
-import { vaisseauDEquipage } from "../helpers/equipage.mjs";
 import { basculerCouvert, couvertActif, ligneTrait, basculerTraitActif, sourcesEffets } from "../helpers/effets.mjs";
 import { tauxCompetence } from "../helpers/competences.mjs";
+import { preparerInventaire, preparerVaisseau, preparerNotes, activerRecherche, activerInventaire, activerObjet, supprimerObjetConfirme, menuInventaire } from "../helpers/fiche-commune.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
@@ -233,33 +233,12 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   /** Barres de recherche des PNJ et des missions : filtre les cartes à la frappe (nom, sous-titre, statut, texte),
    *  sans tenir compte des accents ni de la casse. Aucun champ `name` : rien n'est soumis au formulaire. */
   #activerRecherche() {
-    const normaliser = (texte) => String(texte ?? "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
-    for (const champ of this.element.querySelectorAll(".recherche-notes")) {
-      const section = champ.closest("section");
-      const filtrer = () => {
-        const requete = normaliser(champ.value);
-        this.#recherche[champ.dataset.liste] = champ.value;
-        const cartes = [...section.querySelectorAll(".carte-note")];
-        for (const carte of cartes) carte.hidden = !!requete && !normaliser(carte.textContent).includes(requete);
-        const vide = section.querySelector(".recherche-vide");
-        if (vide) vide.hidden = !cartes.length || cartes.some((c) => !c.hidden);
-      };
-      champ.addEventListener("input", filtrer);
-      champ.addEventListener("change", (e) => e.stopPropagation());
-      champ.addEventListener("click", (e) => e.stopPropagation());
-      filtrer();
-    }
+    activerRecherche(this.element, this.#recherche);
   }
 
   /** Lignes d'inventaire (role="button") : Entrée / Espace = même effet que le clic. */
   #activerInventaire() {
-    for (const ligne of this.element.querySelectorAll(".inventaire-ligne[data-item-id]")) {
-      ligne.addEventListener("keydown", (e) => {
-        if (e.target !== ligne || (e.key !== "Enter" && e.key !== " ")) return;
-        e.preventDefault();
-        this.#activerObjet(this.actor.items.get(ligne.dataset.itemId));
-      });
-    }
+    activerInventaire(this.element, this.actor);
   }
 
   /** Box Crédits : clic sur le texte formaté → saisie ; sortie sans changement → retour au texte
@@ -284,26 +263,9 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   /** Onglet Équipements : vaisseau lié (system.vaisseau). Sans le droit Observateur sur le vaisseau, seuls son nom
    *  et son image sont montrés (comme le droit Limité de Foundry). */
   #preparerVaisseau(system) {
-    // Sans vaisseau à lui, le personnage voit celui de son équipage (acteur « Équipage » dont il est membre).
-    const uuid = system.vaisseau?.uuid;
-    const viaEquipage = uuid ? null : vaisseauDEquipage(this.actor);
-    if (!uuid && !viaEquipage) return null;
-    const vaisseau = viaEquipage?.vaisseau ?? fromUuidSync(uuid);
-    if (!vaisseau) return { manquant: true, nom: system.vaisseau.nom };
-    this.#uuidVaisseau = vaisseau.uuid;
-    const s = vaisseau.system;
-    const portraitParDefaut = !s.portrait || s.portrait === "icons/svg/mystery-man.svg";
-    return {
-      nom: vaisseau.name,
-      img: portraitParDefaut ? vaisseau.img : s.portrait,
-      classe: s.classe,
-      accessible: vaisseau.testUserPermission(game.user, "OBSERVER"),
-      coque: `${s.pv.actuels} / ${s.pv.max}`,
-      bouclierActif: s.bouclier.actif,
-      bouclier: s.bouclier.points,
-      uuid: vaisseau.uuid,
-      equipage: viaEquipage?.equipage.name ?? null
-    };
+    const vaisseau = preparerVaisseau(this.actor);
+    if (vaisseau?.uuid) this.#uuidVaisseau = vaisseau.uuid;
+    return vaisseau;
   }
 
   /** @override — note glissée depuis le tchat (carte « Montrer dans le tchat ») : ajoutée aux notes de la fiche. */
@@ -400,40 +362,7 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
    * par nom, avec badges et valeur clé, et réduction totale des seules armures PORTÉES.
    */
   #preparerInventaire() {
-    const parNom = (a, b) => a.name.localeCompare(b.name, game.i18n.lang);
-    const ligne = (item, valeur) => {
-      const system = item.system;
-      const badges = [];
-      for (const [cle, tag] of Object.entries(GW.tagsObjet)) {
-        if (system.tags?.[cle]) badges.push({ cle, label: tag.label, icone: tag.icone, hint: `GALACTICWARS.Tags.${cle}Hint` });
-      }
-      if (item.type === "armure" && system.emplacement === "bouclier") {
-        badges.push({ cle: "bouclier", label: "GALACTICWARS.Objet.Emplacement.bouclier", icone: "fa-solid fa-shield-halved" });
-      }
-      if (item.type === "arme" && system.instable) {
-        badges.push({ cle: "instable", label: "GALACTICWARS.Objet.Instable", icone: "fa-solid fa-bolt" });
-      }
-      return {
-        id: item.id,
-        name: item.name,
-        img: item.img,
-        porte: !!system.porte,
-        cache: !!system.tags?.cache,
-        badges,
-        valeur,
-        // Attaque rapide : arme portée ET dotée d'une compétence (sinon attaquer() refuserait).
-        // Plus d'attaque rapide sur la ligne (demande de l'auteur) : l'attaque passe par la carte de tchat.
-      };
-    };
-    const objets = (type) => this.actor.items.filter((i) => i.type === type).sort(parNom);
-
-    const armures = objets("armure");
-    return {
-      armes: objets("arme").map((i) => ligne(i, i.system.degats)),
-      armures: armures.map((i) => ligne(i, `+${i.system.reduction ?? 0}`)),
-      equipements: objets("equipement").map((i) => ligne(i, `×${i.system.quantite ?? 0}`)),
-      reductionTotale: armures.filter((i) => i.system.porte).reduce((s, i) => s + (i.system.reduction ?? 0), 0)
-    };
+    return preparerInventaire(this.actor);
   }
 
   /**
@@ -468,31 +397,7 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 
   /** Données d'affichage de l'onglet Notes (listes enrichies, libellés de statut). */
   async #preparerNotes(system) {
-    const enrichir = (html) =>
-      foundry.applications.ux.TextEditor.implementation.enrichHTML(html ?? "", { relativeTo: this.actor });
-    const libelle = (table, cle) => game.i18n.localize(table[cle] ?? cle);
-    return {
-      // Plus récent en premier ; `index` garde la position réelle dans le tableau.
-      resumes: (await Promise.all(system.resumes.map(async (resume, index) => ({
-        ...resume, index,
-        dateLabel: resume.date
-          ? new Date(resume.date).toLocaleString(game.i18n.lang, { dateStyle: "short", timeStyle: "short" })
-          : "",
-        descriptionEnrichie: await enrichir(resume.description)
-      })))).sort((a, b) => b.date - a.date),
-      infos: await Promise.all(system.notes.map(async (note, index) => ({
-        ...note, index, contenuEnrichi: await enrichir(note.contenu)
-      }))),
-      pnjs: await Promise.all(system.pnjs.map(async (pnj, index) => ({
-        ...pnj, index, statutLabel: libelle(GW.statutsPnj, pnj.statut), descriptionEnrichie: await enrichir(pnj.description)
-      }))),
-      missions: await Promise.all(system.missions.map(async (mission, index) => ({
-        ...mission, index,
-        statutLabel: libelle(GW.statutsMission, mission.statut),
-        importanceLabel: libelle(GW.importancesMission, mission.importance),
-        descriptionEnrichie: await enrichir(mission.description)
-      })))
-    };
+    return preparerNotes(this.actor);
   }
 
   /** Onglet Informations : ethnie liée (portrait, description, modificateurs, armure naturelle). */
@@ -589,67 +494,13 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       }
     ], { jQuery: false, fixed: true });
 
-    // Clic droit sur une ligne d'inventaire (onglet Équipements) : porter/ranger, tags
-    // (Caché…), tchat, fiche, suppression. Limité à .inventaire-ligne : les pouvoirs, aussi en
-    // .objet-row, n'ont ni porté ni tags.
-    const objet = (li) => this.actor.items.get(li.dataset.itemId);
-    const editable = () => this.isEditable;
-    new foundry.applications.ux.ContextMenu.implementation(this.element, ".inventaire-ligne[data-item-id]", [
-      {
-        label: "GALACTICWARS.Objet.Porter",
-        icon: '<i class="fa-solid fa-hand-fist"></i>',
-        visible: (li) => editable() && objet(li)?.estObjetInventaire && !objet(li).system.porte,
-        onClick: (event, li) => objet(li)?.basculerPorte()
-      },
-      {
-        label: "GALACTICWARS.Objet.Ranger",
-        icon: '<i class="fa-solid fa-box-archive"></i>',
-        visible: (li) => editable() && objet(li)?.estObjetInventaire && !!objet(li).system.porte,
-        onClick: (event, li) => objet(li)?.basculerPorte()
-      },
-      ...Object.entries(GW.tagsObjet).flatMap(([cle, tag]) => [
-        {
-          label: game.i18n.format("GALACTICWARS.Tags.Activer", { tag: game.i18n.localize(tag.label) }),
-          icon: `<i class="${tag.icone}"></i>`,
-          visible: (li) => editable() && objet(li)?.system.tags && !objet(li).system.tags[cle],
-          onClick: (event, li) => objet(li)?.update({ [`system.tags.${cle}`]: true })
-        },
-        {
-          label: game.i18n.format("GALACTICWARS.Tags.Desactiver", { tag: game.i18n.localize(tag.label) }),
-          icon: `<i class="${tag.icone}"></i>`,
-          visible: (li) => editable() && !!objet(li)?.system.tags?.[cle],
-          onClick: (event, li) => objet(li)?.update({ [`system.tags.${cle}`]: false })
-        }
-      ]),
-      {
-        label: "GALACTICWARS.Objet.EnvoyerTchat",
-        icon: '<i class="fa-solid fa-comment"></i>',
-        onClick: (event, li) => objet(li)?.afficherDansTchat()
-      },
-      {
-        label: "GALACTICWARS.Objet.Ouvrir",
-        icon: '<i class="fa-solid fa-up-right-from-square"></i>',
-        onClick: (event, li) => objet(li)?.sheet.render({ force: true })
-      },
-      {
-        label: "GALACTICWARS.Objet.Supprimer",
-        icon: '<i class="fa-solid fa-trash"></i>',
-        visible: () => editable(),
-        onClick: (event, li) => this.#supprimerObjet(objet(li))
-      }
-    ], { jQuery: false, fixed: true });
+    // Clic droit sur une ligne d'inventaire (onglet Équipements) : voir helpers/fiche-commune.mjs#menuInventaire.
+    menuInventaire(this);
   }
 
   /** Suppression d'un objet d'inventaire après confirmation (menu contextuel, corbeille de la ligne en Édition). */
   async #supprimerObjet(item) {
-    if (!item) return;
-    const confirme = await foundry.applications.api.DialogV2.confirm({
-      window: { title: game.i18n.localize("GALACTICWARS.Objet.SupprimerObjet"), icon: "fa-solid fa-trash" },
-      content: `<p>${game.i18n.format("GALACTICWARS.Objet.SupprimerConfirmation", { nom: foundry.utils.escapeHTML(item.name) })}</p>`,
-      yes: { label: game.i18n.localize("GALACTICWARS.Objet.Supprimer"), icon: "fa-solid fa-trash" },
-      no: { default: true }
-    });
-    if (confirme) await item.delete();
+    await supprimerObjetConfirme(item);
   }
 
   /** Objet de la ligne d'inventaire contenant `target`. */
@@ -668,11 +519,7 @@ export class PersonnageSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
    * (le menu clic droit garde « Montrer dans le tchat » pour tous).
    */
   async #activerObjet(item) {
-    if (!item) return;
-    const appareil = item.type === "equipement" ? item.system.appareil : "";
-    if (appareil === "datapad" && item.sheet.ouvrirHolonet) return item.sheet.ouvrirHolonet();
-    if (appareil === "comlink" && item.sheet.ouvrirComlink) return item.sheet.ouvrirComlink();
-    return item.afficherDansTchat();
+    return activerObjet(item);
   }
 
   static async #onBasculerPorteObjet(event, target) {

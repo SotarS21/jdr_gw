@@ -34,7 +34,8 @@
         "degats": "8d6",
         "competence": "canonLourd",
         "instable": false,
-        "portee": "Très longue"
+        "portee": "Très longue",
+        "caracteristique": "capTir"
       }
     },
     {

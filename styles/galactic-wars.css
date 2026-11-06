@@ -4,6 +4,8 @@
 /* Sabre Lumière / Obscurité (v0.22.0) : importé ici plutôt que déclaré dans system.json, pour être chargé sans
    redémarrer le serveur (la liste des styles du manifeste n'est relue qu'au démarrage). */
 @import url("alignement.css");
+/* Fiche rapide / PNJ refaite (v0.26.0), même principe. */
+@import url("fiche-rapide.css");
 
 .galactic-wars {
   --gw-dark: #14151c;

@@ -269,7 +269,18 @@ export class GalacticWarsItemSheet extends HandlebarsApplicationMixin(ItemSheetV
     if (system.competence && !(system.competence in GW.competences)) {
       competences.unshift({ cle: system.competence, label: system.competence, selected: true });
     }
+    // Caractéristique jouée par une fiche rapide / un PNJ (v0.26.0) : "" = déduite de la compétence.
+    const caracteristiques = Object.entries(GW.caracteristiquesRapides)
+      .map(([cle, label]) => ({ cle, label: game.i18n.localize(label), selected: cle === system.caracteristique }));
+    if (system.caracteristique && !(system.caracteristique in GW.caracteristiquesRapides)) {
+      caracteristiques.unshift({ cle: system.caracteristique, label: system.caracteristique, selected: true });
+    }
+    const deduite = GW.caracteristiqueRapideParCompetence[system.competence];
+    const libelleDeduite = game.i18n.format("GALACTICWARS.Objet.CaracteristiqueDeduite", {
+      caracteristique: deduite ? game.i18n.localize(GW.caracteristiquesRapides[deduite]) : "—"
+    });
     const actor = this.item.actor;
+    const porteurRapide = ["personnage-rapide", "pnj"].includes(actor?.type);
     let taux = null;
     // Seul le personnage « classique » a un tableau system.competences préparé (cle, total, bloquee).
     if (actor?.type === "personnage" && system.competence) {
@@ -280,15 +291,32 @@ export class GalacticWarsItemSheet extends HandlebarsApplicationMixin(ItemSheetV
         label: game.i18n.localize(GW.competences[system.competence]?.label ?? system.competence),
         total: entree?.total ?? null,
         bloquee: !!entree?.bloquee,
-        trouvee: !!entree
+        trouvee: !!entree,
+        unite: "%"
+      };
+    } else if (porteurRapide && this.item.caracteristiqueArme) {
+      // Fiche rapide (d20 sous la valeur) ou PNJ (% sous la valeur, plafonné à 100 comme le jet).
+      const cle = this.item.caracteristiqueArme;
+      const pnj = actor.type === "pnj";
+      const total = actor.system.caracteristiquesTotales?.[cle];
+      taux = {
+        label: game.i18n.localize(GW.caracteristiquesRapides[cle] ?? cle),
+        total: total === undefined ? null : pnj ? Math.min(100, total) : total,
+        bloquee: false,
+        trouvee: total !== undefined,
+        unite: pnj ? "%" : "(d20)"
       };
     }
+    const porteurJoueur = actor?.type === "personnage" || porteurRapide;
     return {
       competences,
+      caracteristiques,
+      libelleDeduite,
       taux,
-      porteurPersonnage: actor?.type === "personnage",
-      // Attaquer/Dégâts n'ont de sens que pour une arme portée par un personnage.
-      actionsPossibles: actor?.type === "personnage" && !!system.porte
+      porteurPersonnage: porteurJoueur,
+      porteurRapide,
+      // Attaquer/Dégâts n'ont de sens que pour une arme portée par un personnage (classique, rapide ou PNJ).
+      actionsPossibles: porteurJoueur && !!system.porte
     };
   }
 

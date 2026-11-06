@@ -1,0 +1,361 @@
+/* ==========================================================================
+   Fiche rapide / PNJ (v0.26.0) — maquette « Synthèse » validée par l'auteur.
+   La fenêtre porte aussi la classe `personnage` : elle hérite du thème de la fiche classique (panneaux, onglets,
+   en-tête, inventaire, carte vaisseau, onglet Notes). Seuls les composants propres à la fiche rapide sont ici.
+   ========================================================================== */
+
+.galactic-wars.personnage-rapide {
+  --famille-corps: #ef6b6b;
+  --famille-dexterite: #5ccf8a;
+  --famille-mental: #5aa9ff;
+  --famille-force: var(--gw-force);
+}
+
+/* ---- En-tête : portrait | identité | PV, Chance, Survie ---- */
+.galactic-wars.personnage-rapide .rapide-entete {
+  align-items: stretch;
+  gap: 0.9rem;
+}
+
+.galactic-wars.personnage-rapide .rapide-ligne-haute {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.galactic-wars.personnage-rapide .rapide-type {
+  color: var(--gw-accent);
+}
+
+.galactic-wars.personnage-rapide .rapide-pastilles {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.galactic-wars.personnage-rapide .rapide-pastille {
+  padding: 0.15rem 0.65rem;
+  border-radius: 999px;
+  background: var(--gw-card);
+  border: 1px solid var(--gw-border);
+  font-size: 0.8rem;
+}
+
+.galactic-wars.personnage-rapide .rapide-pastille.metier {
+  border-color: var(--gw-gold);
+  color: var(--gw-gold);
+  font-weight: 600;
+}
+
+.galactic-wars.personnage-rapide .rapide-credits {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: auto;
+}
+
+.galactic-wars.personnage-rapide .rapide-credits input {
+  width: 7rem;
+  color: var(--gw-gold);
+  font-weight: 700;
+}
+
+.galactic-wars.personnage-rapide .rapide-vitaux {
+  flex: 0 0 12.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.galactic-wars.personnage-rapide .rapide-vitaux .stat-card {
+  padding: 0.45rem 0.6rem;
+  gap: 0.3rem;
+}
+
+.galactic-wars.personnage-rapide .rapide-vitaux .stat-card .eyebrow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.galactic-wars.personnage-rapide .rapide-vitaux .stat-value input {
+  width: 3.4rem;
+}
+
+.galactic-wars.personnage-rapide .rapide-vitaux .stat-value span.max {
+  font-size: 1rem;
+  color: var(--gw-muted);
+}
+
+/* Cartes Chance / Survie (piste C de la maquette) : un clic lance 1d100 sous la valeur. */
+.galactic-wars.personnage-rapide .rapide-pct {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.4rem;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0.4rem 0.7rem;
+  background: var(--gw-card);
+  border: 1px solid var(--gw-border);
+  border-radius: 8px;
+  color: #c3c8d6;
+  font: inherit;
+  font-size: 0.85rem;
+  line-height: 1.3;
+}
+
+.galactic-wars.personnage-rapide button.rapide-pct {
+  cursor: pointer;
+}
+
+.galactic-wars.personnage-rapide button.rapide-pct:hover {
+  border-color: #3d4560;
+  box-shadow: none;
+}
+
+.galactic-wars.personnage-rapide .rapide-pct .valeur {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.galactic-wars.personnage-rapide .rapide-pct.chance .valeur { color: var(--gw-gold); }
+.galactic-wars.personnage-rapide .rapide-pct.survie .valeur { color: var(--gw-accent); }
+
+.galactic-wars.personnage-rapide .rapide-pct.edition input {
+  width: 3.2rem;
+}
+
+/* ---- Caractéristiques : pastilles compactes, liseré de la famille, clic = jet ---- */
+.galactic-wars.personnage-rapide .rapide-total.alerte {
+  color: var(--gw-coral);
+}
+
+.galactic-wars.personnage-rapide .rapide-caracs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.45rem;
+}
+
+.galactic-wars.personnage-rapide .rapide-carac {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.4rem;
+  height: auto;
+  margin: 0;
+  padding: 0.4rem 0.6rem;
+  background: var(--gw-card);
+  border: 1px solid var(--gw-border);
+  border-left: 3px solid var(--famille, var(--gw-accent));
+  border-radius: 7px;
+  color: var(--gw-text);
+  font: inherit;
+  line-height: 1.2;
+}
+
+.galactic-wars.personnage-rapide button.rapide-carac {
+  cursor: pointer;
+}
+
+.galactic-wars.personnage-rapide button.rapide-carac:hover {
+  background: #232a3d;
+  box-shadow: none;
+}
+
+.galactic-wars.personnage-rapide .rapide-carac.famille-corps { --famille: var(--famille-corps); }
+.galactic-wars.personnage-rapide .rapide-carac.famille-dexterite { --famille: var(--famille-dexterite); }
+.galactic-wars.personnage-rapide .rapide-carac.famille-mental { --famille: var(--famille-mental); }
+.galactic-wars.personnage-rapide .rapide-carac.famille-force { --famille: var(--famille-force); }
+
+.galactic-wars.personnage-rapide .rapide-carac .libelle {
+  font-size: 0.78rem;
+  color: #c3c8d6;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.galactic-wars.personnage-rapide .rapide-carac .valeur {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.galactic-wars.personnage-rapide .rapide-carac .valeur small {
+  font-size: 0.7rem;
+  color: var(--gw-muted);
+}
+
+.galactic-wars.personnage-rapide .rapide-carac.edition input {
+  width: 3.2rem;
+}
+
+/* ---- Cartes Métier / Talent ---- */
+.galactic-wars.personnage-rapide .rapide-cartes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6rem;
+}
+
+.galactic-wars.personnage-rapide .rapide-carte {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  background: var(--gw-card);
+}
+
+.galactic-wars.personnage-rapide .rapide-carte.metier .eyebrow { color: var(--gw-gold); }
+.galactic-wars.personnage-rapide .rapide-carte.talent .eyebrow { color: var(--gw-accent); }
+
+.galactic-wars.personnage-rapide .rapide-carte-titre {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.galactic-wars.personnage-rapide .rapide-carte p {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: #c3c8d6;
+  white-space: pre-line;
+}
+
+.galactic-wars.personnage-rapide .rapide-carte textarea,
+.galactic-wars.personnage-rapide .rapide-notes-equipement textarea {
+  width: 100%;
+  min-height: 4.5rem;
+  background: var(--gw-dark);
+  border: 1px solid var(--gw-border);
+  border-radius: 5px;
+  color: var(--gw-text);
+  font: inherit;
+  font-size: 0.85rem;
+}
+
+/* ---- Traits ---- */
+.galactic-wars.personnage-rapide .rapide-trait {
+  padding: 0.45rem 0.6rem;
+  margin-bottom: 0.35rem;
+  background: var(--gw-card);
+  border: 1px solid var(--gw-border);
+  border-radius: 7px;
+}
+
+.galactic-wars.personnage-rapide .rapide-trait-entete {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.galactic-wars.personnage-rapide .rapide-trait .trait-nom {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.4rem;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  color: var(--gw-text);
+  font: inherit;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+}
+
+.galactic-wars.personnage-rapide .rapide-trait .trait-nom img {
+  width: 20px;
+  height: 20px;
+  border: none;
+}
+
+.galactic-wars.personnage-rapide .rapide-trait .trait-detail {
+  margin: 0.25rem 0 0;
+  font-size: 0.8rem;
+  color: #c3c8d6;
+}
+
+/* ---- Protection et couverts ---- */
+.galactic-wars.personnage-rapide .rapide-protection {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.galactic-wars.personnage-rapide .rapide-armure {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+}
+
+/* ---- Équipements : grille de la fiche classique, resserrée pour une fenêtre plus étroite ---- */
+.galactic-wars.personnage-rapide .inventaire-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.galactic-wars.personnage-rapide .inventaire-grid .panel {
+  min-width: 0;
+}
+
+/* Carte vaisseau sur toute la largeur : nom, classe, coque et bouclier tiennent sur une ligne. */
+.galactic-wars.personnage-rapide .inventaire-grid .panel-vaisseau {
+  grid-column: 1 / -1;
+}
+
+/* ---- Équipements : notes libres (texte d'origine des fiches importées) ---- */
+.galactic-wars.personnage-rapide .rapide-notes-equipement .texte-libre {
+  margin: 0;
+  white-space: pre-line;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: #c3c8d6;
+}
+
+/* ---- Biographie ---- */
+.galactic-wars.personnage-rapide .rapide-bio {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 13rem;
+  gap: 0.6rem;
+  align-items: start;
+}
+
+.galactic-wars.personnage-rapide .rapide-histoire prose-mirror {
+  min-height: 12rem;
+}
+
+.galactic-wars.personnage-rapide .rapide-identite {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  font-size: 0.85rem;
+}
+
+.galactic-wars.personnage-rapide .rapide-identite label,
+.galactic-wars.personnage-rapide .rapide-identite p {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  margin: 0;
+}
+
+.galactic-wars.personnage-rapide .rapide-identite span {
+  color: var(--gw-muted);
+  font-size: 0.75rem;
+}
+
+@media (max-width: 560px) {
+  .galactic-wars.personnage-rapide .rapide-caracs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .galactic-wars.personnage-rapide .rapide-cartes,
+  .galactic-wars.personnage-rapide .rapide-bio { grid-template-columns: minmax(0, 1fr); }
+}

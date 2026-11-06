@@ -86,7 +86,8 @@
         "degats": "4d6",
         "competence": "canonLourd",
         "instable": false,
-        "portee": ""
+        "portee": "",
+        "caracteristique": "capTir"
       },
       "effects": [],
       "flags": {
@@ -111,7 +112,8 @@
         "degats": "2d6",
         "competence": "canonLourd",
         "instable": false,
-        "portee": ""
+        "portee": "",
+        "caracteristique": "capTir"
       },
       "effects": [],
       "flags": {

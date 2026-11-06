@@ -9,7 +9,8 @@
     "competence": "blaster",
     "instable": false,
     "prix": "400c",
-    "description": "<p>Pistolet blaster à gros calibre, prisé des mercenaires et des chasseurs de primes : lourd, bruyant, et dévastateur à courte portée.</p>"
+    "description": "<p>Pistolet blaster à gros calibre, prisé des mercenaires et des chasseurs de primes : lourd, bruyant, et dévastateur à courte portée.</p>",
+    "caracteristique": "capTir"
   },
   "folder": null,
   "sort": 100000,
