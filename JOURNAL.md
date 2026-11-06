@@ -7,6 +7,20 @@
   main** ; c'est le **MJ qui fait gagner l'XP**. (Règles de coût, liste des compétences et lien exact avec les
   8 caractéristiques à préciser avec l'auteur avant de commencer.)
 
+## Session du 2026-11-05 / 06 — Armes jouables par les fiches rapides / PNJ (v0.26.0, branche `feat/fiche-rapide-v2`)
+
+- **Choix de l'auteur** : tir et explosifs en **Cap. Tir**, mêlée en **Cap. Cmbt** ; défense d'une fiche rapide / PNJ
+  en **Dextérité** contre la mêlée, **Aff. Force** contre le tir ; **pas de comparaison de marges entre d20 et %**
+  (défense réussie = l'attaque est évitée ; même échelle = comparaison des marges ; défense ratée = touché).
+- **Fait** : champ `caracteristique` sur l'arme (vide = déduite de la compétence, sélecteur sur la fiche d'arme avec
+  valeur et bouton Attaquer) ; `rollAttaque` en d20 (rapide) ou % plafonné à 100 (PNJ) ; cartes de défense adaptées au
+  défenseur ; carte d'objet « Caractéristique (fiche rapide) » ; fiche rapide acceptée comme tireur d'arme de
+  vaisseau ; fiche sith : attaque refusée proprement. Les **80 armes** du compendium renseignées (41 Cap. Cmbt, 39 Cap.
+  Tir ; le « 104 » du message de commit `c97dea1` est une erreur de comptage).
+- **Tests en direct** (2026-11-06) : `../audit/t29-armes-rapides.js` **20/20**, aucune erreur de page. Pack `armes`
+  pas encore reconstruit dans Foundry (déploiement avec redémarrage à faire) : sans effet sur le jeu, la déduction par
+  compétence donne les mêmes valeurs.
+
 ## Session du 2026-11-05 (suite) — Fiche rapide / PNJ refaite (v0.25.2→v0.26.0, branche `feat/fiche-rapide-v2`)
 
 - **Maquette** (canvas « Fiche rapide Galactic Wars », https://claude.ai/artifact/PA2dw4sqcubdy4X9F8m568) : 3 pistes
