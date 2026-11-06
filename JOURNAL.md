@@ -17,9 +17,7 @@
   défenseur ; carte d'objet « Caractéristique (fiche rapide) » ; fiche rapide acceptée comme tireur d'arme de
   vaisseau ; fiche sith : attaque refusée proprement. Les **80 armes** du compendium renseignées (41 Cap. Cmbt, 39 Cap.
   Tir ; le « 104 » du message de commit `c97dea1` est une erreur de comptage).
-- **Tests en direct** (2026-11-06) : `../audit/t29-armes-rapides.js` **20/20**, aucune erreur de page. Pack `armes`
-  pas encore reconstruit dans Foundry (déploiement avec redémarrage à faire) : sans effet sur le jeu, la déduction par
-  compétence donne les mêmes valeurs.
+- **Tests en direct** (2026-11-06) : déploiement complet (packs reconstruits, 80/80 armes avec `caracteristique`), `../audit/t29-armes-rapides.js` **20/20**, aucune erreur de page.
 
 ## Session du 2026-11-05 (suite) — Fiche rapide / PNJ refaite (v0.25.2→v0.26.0, branche `feat/fiche-rapide-v2`)
 
